@@ -1,47 +1,47 @@
 <div>
 <ul>
 <li>
-<a href='#Polls.PollsResult-Description'>Description</a>
+<a href="extras/revo/polls/polls.pollsresult#Polls.PollsResult-Description">Description</a>
 </li>
 
 <li>
-<a href='#Polls.PollsResult-Usage'>Usage</a>
+<a href="extras/revo/polls/polls.pollsresult#Polls.PollsResult-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#Polls.PollsResult-Availableproperties'>Available properties</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#Polls.PollsResult-Templateproperties'>Template properties</a>
-</li>
-
-<li>
-<a href='#Polls.PollsResult-Linkingproperties'>Linking properties</a>
-</li>
-</ul>
-</li>
-
-<li>
-<a href='#Polls.PollsResult-Templateplaceholders'>Template placeholders</a>
+<a href="extras/revo/polls/polls.pollsresult#Polls.PollsResult-Availableproperties">Available properties</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Polls.PollsResult-tpl'>tpl</a>
+<a href="extras/revo/polls/polls.pollsresult#Polls.PollsResult-Templateproperties">Template properties</a>
 </li>
 
 <li>
-<a href='#Polls.PollsResult-tplAnswers'>tplAnswers</a>
+<a href="extras/revo/polls/polls.pollsresult#Polls.PollsResult-Linkingproperties">Linking properties</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Polls.PollsResult-Examples'>Examples</a>
+<a href="extras/revo/polls/polls.pollsresult#Polls.PollsResult-Templateplaceholders">Template placeholders</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href="extras/revo/polls/polls.pollsresult#Polls.PollsResult-tpl">tpl</a>
+</li>
+
+<li>
+<a href="extras/revo/polls/polls.pollsresult#Polls.PollsResult-tplAnswers">tplAnswers</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="extras/revo/polls/polls.pollsresult#Polls.PollsResult-Examples">Examples</a>
 </li>
 </ul>
 </div>
@@ -62,287 +62,7 @@ Shows the result of a given poll-id. This is basically the same as the view when
 Too use this snippet, just simple add this tag to the template or your resource content.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!PollsResult]]
+<pre class="brush: php">
+    [[!PollsResult? &amp;tpl=`myVoteOuter` &amp;tplAnswer=`myVoteAnswer` &amp;resultLinkVar=`myPoll`]] 
+    
 </pre>
-</div>
-</div>
-
-<p>
-For some properties see the tables below.
-</p>
-
-<h2>
-<a name="Polls.PollsResult-Availableproperties" id="Polls.PollsResult-Availableproperties"></a>Available properties
-</h2>
-
-<h3>
-<a name="Polls.PollsResult-Templateproperties" id="Polls.PollsResult-Templateproperties"></a>Template properties
-</h3>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Name
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Default
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-tpl
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The main result template for the poll view
-</td>
-<td class='confluenceTd'>
-pollsLatestResultOuter
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-tplAnswer
-</td>
-<td class='confluenceTd'>
-The result template for the answers inside the outer view
-</td>
-<td class='confluenceTd'>
-pollsLatestResultAnswer
-<br class="atl-forced-newline" />
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h3>
-<a name="Polls.PollsResult-Linkingproperties" id="Polls.PollsResult-Linkingproperties"></a>Linking properties
-</h3>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Name
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Default
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-resultLinkVar
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-(Optional) When using resultResource on PollsLatest, this is the same paramatername the snippet is looking for
-</td>
-<td class='confluenceTd'>
-poll
-<br class="atl-forced-newline" />
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h2>
-<a name="Polls.PollsResult-Templateplaceholders" id="Polls.PollsResult-Templateplaceholders"></a>Template placeholders
-</h2>
-
-<p>
-Within the templates for this snippet you can use the following placeholders to generate your view.
-</p>
-
-<h3>
-<a name="Polls.PollsResult-tpl" id="Polls.PollsResult-tpl"></a>tpl
-</h3>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Placeholder
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-[[+id]]
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The question id of the current poll view
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-[[+question]]
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The question text
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-[[+totalVotes]]
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The total number of votes on this poll
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-[[+category_name]]
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The name of the poll category <em>(only availbale when using the category property)</em>
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-[[+answers]]
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Contains the output of the answers generated for this poll question
-<br class="atl-forced-newline" />
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h3>
-<a name="Polls.PollsResult-tplAnswers" id="Polls.PollsResult-tplAnswers"></a>tplAnswers
-</h3>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Placeholder
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-[[+id]]
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The id of the answer record
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-[[+answer]]
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The answer text
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-[[+votes]]
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The number of votes for this answer
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-[[+percent]]
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The percentage of the number of votes for this answer
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-[[+logdate]]
-</td>
-<td class='confluenceTd'>
-The datetime of the vote of the current visitor (based on IP address)
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h2>
-<a name="Polls.PollsResult-Examples" id="Polls.PollsResult-Examples"></a>Examples
-</h2>
-
-<p>
-The basic call for this snippet is without any properties. You can create a propertyset also.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!PollsResult? &amp;tpl=`myVoteOuter` &amp;tplAnswer=`myVoteAnswer` &amp;resultLinkVar=`myPoll`]] 
-</pre>
-</div>
-</div>
-
-<p>
-<br class="atl-forced-newline" />
-</p>

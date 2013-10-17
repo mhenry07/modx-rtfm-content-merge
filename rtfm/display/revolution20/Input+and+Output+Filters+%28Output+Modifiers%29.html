@@ -1,58 +1,49 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<div>
 <ul>
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-WhatareFilters%3F'>What are Filters?</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-WhatareFilters%3F">What are Filters?</a>
 </li>
 
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-InputFilter'>Input Filter</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-InputFilter">Input Filter</a>
 </li>
 
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-OutputFilter'>Output Filter</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-OutputFilter">Output Filter</a>
 </li>
 
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-OutputModifiers'>Output Modifiers</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-OutputModifiers">Output Modifiers</a>
 <ul>
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-Conditionaloutputmodifiers'>Conditional output modifiers</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-Conditionaloutputmodifiers">Conditional output modifiers</a>
 </li>
 
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-Stringoutputmodifiers'>String output modifiers</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-Stringoutputmodifiers">String output modifiers</a>
 </li>
 
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-Caching'>Caching</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-Caching">Caching</a>
 </li>
 
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-UsinganOutputModifierwithTagProperties'>Using an Output Modifier with Tag Properties</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-UsinganOutputModifierwithTagProperties">Using an Output Modifier with Tag Properties</a>
 </li>
 
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-CreatingaCustomOutputModifier'>Creating a Custom Output Modifier</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-CreatingaCustomOutputModifier">Creating a Custom Output Modifier</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-Chaining%28MultipleOutputFilters%29'>Chaining (Multiple Output Filters)</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-Chaining%28MultipleOutputFilters%29">Chaining (Multiple Output Filters)</a>
 </li>
 
 <li>
-<a href='#InputandOutputFilters%28OutputModifiers%29-SeeAlso'>See Also</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)#InputandOutputFilters%28OutputModifiers%29-SeeAlso">See Also</a>
 </li>
 </ul>
-</div>
 
 <h2>
 <a name="InputandOutputFilters%28OutputModifiers%29-WhatareFilters%3F"></a>What are Filters?
@@ -78,538 +69,517 @@ Currently the input filter processes tag calls in preparation for the output fil
 In Revolution, the Output Filter applies one or more of series of output modifiers, which behave similarly to PHx calls in MODx Evolution - except they're built into the core. The syntax looks like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[element:modifier=`value`]]
 </pre>
-</div>
-</div>
-
 <p>
 They can also be chained (executed left to right):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[element:modifier:anothermodifier=`value`:andanothermodifier:yetanother=`value2`]]
 </pre>
-</div>
-</div>
-
 <p>
 You can also use these to modify Snippet output; note that the modifier comes after the Snippet name and before the question mark, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[mySnippet:modifier=`value`? &amp;mySnippetParam=`something`]]
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="InputandOutputFilters%28OutputModifiers%29-OutputModifiers"></a>Output Modifiers
 </h2>
 
 <p>
-The following table lists some of the existing modifiers and shows examples of their use. Although the examples below are placeholder tags, the output modifiers can be used with any MODx tag. <b>Make sure that the placeholder used are actually receiving data.</b>
+The following table lists some of the existing modifiers and shows examples of their use. Although the examples below are placeholder tags, the output modifiers can be used with any MODx tag. <strong>Make sure that the placeholder used are actually receiving data.</strong>
 </p>
 
 <h3>
 <a name="InputandOutputFilters%28OutputModifiers%29-Conditionaloutputmodifiers"></a>Conditional output modifiers
 </h3>
 
-<div class='table-wrap'>
-<table id='TBL1376497247120' class='confluenceTable'>
+<table id="TBL1372672631842">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Modifier
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 if, input
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 or
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to string output modifiers together with an "OR" relationship.
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:is=`5`:or:is=`6`:then=`There are 5 or 6 books!`:else=`Not sure how many books`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 and
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to string output modifiers together with an "AND" relationship.
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isequalto, isequal, equalto, equals, is, eq
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Compares to a passed value, and moves on if it's the same. Used with "then" and "else"
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:isequalto=`5`:then=`There are 5 books!`:else=`Not sure how many books`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 notequalto, notequals, isnt, isnot, neq, ne
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Compares to a passed value, and moves on if it is not the same. Used with "then" and "else"
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:notequalto=`5`:then=`Not sure how many books`:else=`There are 5 books!`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 greaterthanorequalto, equalorgreaterthen, ge, eg, isgte, gte
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Compares to a passed value, and moves on if it is greater than or equal to the value. Used with "then" and "else".
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:gte=`5`:then=`There are 5 books or more than 5 books`:else=`There are less than 5 books`]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isgreaterthan, greaterthan, isgt, gt
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Compares to a passed value, and moves on if it is greater than the value. Used with "then" and "else".
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:gt=`5`:then=`There are more than 5 books`:else=`There are less than 5 books`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 equaltoorlessthan, lessthanorequalto, el, le, islte, lte
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Compares to a passed value, and moves on if it is less then or equal to the value. Used with "then" and "else".
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:lte=`5`:then=`There are 5 or less than 5 books`:else=`There are more than 5 books`]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 islowerthan, islessthan, lowerthan, lessthan, islt, lt
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Compares to a passed value, and moves on if it is less than the value. Used with "then" and "else".
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:lte=`5`:then=`There are less than 5 books`:else=`There are more than 5 books`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 hide
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Will check earlier conditions, and hide the element if the conditions were met.
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:lt=`1`:hide]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 show
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Will check earlier conditions, and show the element if the conditions were met.
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:gt=`0`:show]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 then
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Conditional usage.
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:gt=`0`:then=`Now available!`]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 else
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Conditional usage, together with then.
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:gt=`0`:then=`Now available!`:else=`Sorry, currently sold out.`]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 select
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 memberof, ismember, mo
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Checks if the user is a member of the specified group(s).
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+modx.user.id:memberof=`Administrator`]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h3>
 <a name="InputandOutputFilters%28OutputModifiers%29-Stringoutputmodifiers"></a>String output modifiers
 </h3>
 
-<div class='table-wrap'>
-<table id='TBL1376497247121' class='confluenceTable'>
+<table id="TBL1372672631843">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Modifier
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cat
 </td>
-<td class='confluenceTd'>
+<td>
 Appends the option's value (if not empty) to the input value
 </td>
-<td class='confluenceTd'>
+<td>
 [[+numbooks:cat=` books`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 lcase, lowercase, strtolower
 </td>
-<td class='confluenceTd'>
-Transforms strings to lowercase. Similar to PHP's <a href="http://www.php.net/manual/en/function.strtolower.php" class="external-link" rel="nofollow">strtolower&nbsp;</a>
+<td>
+Transforms strings to lowercase. Similar to PHP's <a href="http://www.php.net/manual/en/function.strtolower.php" class="external-link" rel="nofollow">strtolower</a>
 </td>
-<td class='confluenceTd'>
+<td>
 [[+title:lcase]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ucase, uppercase, strtoupper
 </td>
-<td class='confluenceTd'>
+<td>
 Transforms strings to uppercase. Similar to PHP's <a href="http://www.php.net/manual/en/function.strtoupper.php" class="external-link" rel="nofollow">strtoupper</a>
 </td>
-<td class='confluenceTd'>
+<td>
 [[+headline:ucase]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ucwords
 </td>
-<td class='confluenceTd'>
+<td>
 Transforms the first letter of a word to uppercase. Similar to PHP's <a href="http://www.php.net/manual/en/function.ucwords.php" class="external-link" rel="nofollow">ucwords</a>
 </td>
-<td class='confluenceTd'>
+<td>
 [[+title:ucwords]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ucfirst
 </td>
-<td class='confluenceTd'>
+<td>
 Transforms the first letter of the string to uppercase. Similar to PHP's <a href="http://www.php.net/manual/en/function.ucfirst.php" class="external-link" rel="nofollow">ucfirst</a>
 </td>
-<td class='confluenceTd'>
+<td>
 [[+name:ucfirst]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 htmlent, htmlentities
 </td>
-<td class='confluenceTd'>
+<td>
 Replaces any character that has an HTML entity with that entity. Similar to PHP's <a href="http://www.php.net/manual/en/function.htmlentities.php" class="external-link" rel="nofollow">htmlentities</a>. Uses the current value the system setting "modx_charset" with flag ENT_QUOTES
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+email:htmlent]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 esc,escape
 </td>
-<td class='confluenceTd'>
-Safely escapes character values using regex and str_replace. Also escapes&nbsp;[, ] and `
+<td>
+Safely escapes character values using regex and str_replace. Also escapes [, ] and `
 </td>
-<td class='confluenceTd'>
+<td>
 [[+email:escape]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 strip
 </td>
-<td class='confluenceTd'>
+<td>
 Replaces all linebreaks, tabs and multiple spaces with just one space
 </td>
-<td class='confluenceTd'>
+<td>
 [[+textdocument:strip]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 stripString
 </td>
-<td class='confluenceTd'>
+<td>
 Strips string of specified value
 </td>
-<td class='confluenceTd'>
+<td>
 [[+name:stripString=`Mr.`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 replace
 </td>
-<td class='confluenceTd'>
+<td>
 Replaces one value with another
 </td>
-<td class='confluenceTd'>
+<td>
 [[+pagetitle:replace=`Mr.==Mrs.`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 striptags, stripTags,notags,strip_tags
 </td>
-<td class='confluenceTd'>
+<td>
 Removes HTML tags from the input. Optionally accepts a value to indicate which tags to allow. Similar to PHP's <a href="http://www.php.net/manual/en/function.strip-tags.php" class="external-link" rel="nofollow">strip_tags</a>
 </td>
-<td class='confluenceTd'>
-[[+code:strip_tags=`&lt;p&gt;`]]
+<td>
+[[+code:strip_tags=`
+<p>
+`]]
+</p>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 len,length, strlen
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Counts the length of the passed string. Similar to PHP's <a href="http://www.php.net/manual/en/function.strlen.php" class="external-link" rel="nofollow">strlen</a>
 </td>
-<td class='confluenceTd'>
+<td>
 [[+longstring:strlen]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 reverse, strrev
 </td>
-<td class='confluenceTd'>
+<td>
 Reverses the input, character by character. Similar to PHP's <a href="http://www.php.net/manual/en/function.strrev.php" class="external-link" rel="nofollow">strrev</a>
 </td>
-<td class='confluenceTd'>
+<td>
 [[+mirrortext:reverse]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 wordwrap
 </td>
-<td class='confluenceTd'>
+<td>
 Inserts a newline character after the set amount of characters. Similar to PHP's <a href="http://www.php.net/manual/en/function.wordwrap.php" class="external-link" rel="nofollow">wordwrap</a>. Takes optional value to set wordwrap position.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+bodytext:wordwrap=`80`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 wordwrapcut
 </td>
-<td class='confluenceTd'>
+<td>
 Inserts a newline character after the set amount of characters, irrespective of word boundaries. Similar to PHP's <a href="http://www.php.net/manual/en/function.wordwrap.php" class="external-link" rel="nofollow">wordwrap</a>, with word cutting enabled. Takes optional value to set wordwrap position.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+bodytext:wordwrapcut=`80`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 Limits a string to a certain number of characters. Defaults to 100.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+description:limit=`50`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ellipsis
 </td>
-<td class='confluenceTd'>
+<td>
 Adds an ellipsis to and truncates a string if it's longer than a certain number of characters. Defaults to 100.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+description:ellipsis=`50`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tag
 </td>
-<td class='confluenceTd'>
+<td>
 Displays the raw element without the :tag. Useful for documentation.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+showThis:tag]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 <del>math</del>
 </td>
-<td class='confluenceTd'>
+<td>
 <del>Returns the result of an advanced calculation (expensive on processor. not recommended)</del> Removed in Revolution 2.2.6.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 add,increment,incr
 </td>
-<td class='confluenceTd'>
+<td>
 Returns input incremented by option (default: +1)
 </td>
-<td class='confluenceTd'>
+<td>
 [[+downloads:incr]]
 <br class="atl-forced-newline" />
 [[+blackjack:add=`21`]]
@@ -617,13 +587,13 @@ Returns input incremented by option (default: +1)
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 subtract,decrement,decr
 </td>
-<td class='confluenceTd'>
+<td>
 Returns input decremented by option (default: -1)
 </td>
-<td class='confluenceTd'>
+<td>
 [[+countdown:decr]]
 <br class="atl-forced-newline" />
 [[+moneys:subtract=`100`]]
@@ -631,318 +601,314 @@ Returns input decremented by option (default: -1)
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 multiply,mpy
 </td>
-<td class='confluenceTd'>
+<td>
 Returns input multiplied by option (default: *2)
 </td>
-<td class='confluenceTd'>
+<td>
 [[+trifecta:mpy=`3`]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 divide,div
 </td>
-<td class='confluenceTd'>
+<td>
 Returns input divided by option (default: /2) Does not accept 0.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+rating:div=`4`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modulus,mod
 </td>
-<td class='confluenceTd'>
+<td>
 Returns the option modulus on input (default: %2, returns 0 or 1)
 </td>
-<td class='confluenceTd'>
+<td>
 [[+number:mod]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ifempty,default,empty, isempty
 </td>
-<td class='confluenceTd'>
+<td>
 Returns the input value if empty
 </td>
-<td class='confluenceTd'>
+<td>
 [[+name:default=`anonymous`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-notempty,&nbsp;!empty, ifnotempty, isnotempty
+<td>
+notempty, !empty, ifnotempty, isnotempty
 </td>
-<td class='confluenceTd'>
+<td>
 Returns the input value if not empty
 </td>
-<td class='confluenceTd'>
+<td>
 [[+name:notempty=`Hello [[+name]]!`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 nl2br
 </td>
-<td class='confluenceTd'>
-Converts a new line character (\n) to an html &lt;br /&gt; element. Use this if you're taking in input, you think that there should be new lines in it, and there aren't.&nbsp;Similar to PHP's&nbsp;<a href="http://www.php.net/manual/en/function.nl2br.php" class="external-link" rel="nofollow">nl2br</a>.
+<td>
+Converts a new line character (\n) to an html
+<br />
+element. Use this if you're taking in input, you think that there should be new lines in it, and there aren't. Similar to PHP's <a href="http://www.php.net/manual/en/function.nl2br.php" class="external-link" rel="nofollow">nl2br</a>.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+textfile:nl2br]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 date
 </td>
-<td class='confluenceTd'>
+<td>
 Formats a unix timestamp into a different format. Similar to PHP's <a href="http://www.php.net/manual/en/function.strftime.php" class="external-link" rel="nofollow">strftime</a>. Value is format. See <a href="/display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+birthyear:date=`%Y`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 strtotime
 </td>
-<td class='confluenceTd'>
+<td>
 Converts a date string into a unix timestamp. Useful to combine this with the date output filter. Similar to PHP's <a href="http://www.php.net/strtotime" class="external-link" rel="nofollow">strtotime</a>. Takes in a date. See <a href="/display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+thetime:strtotime]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fuzzydate
 </td>
-<td class='confluenceTd'>
+<td>
 Returns a pretty date format with yesterday and today being filtered. Takes in a date.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+createdon:fuzzydate]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ago
 </td>
-<td class='confluenceTd'>
+<td>
 Returns a pretty date format in seconds, minutes, weeks or months ago. Takes in a date (strtotime).
 </td>
-<td class='confluenceTd'>
+<td>
 [[+createdon:date=`%d-%m-%Y`:ago]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 md5
 </td>
-<td class='confluenceTd'>
+<td>
 Creates an MD5 hash of the input string. Similar to PHP's <a href="http://www.php.net/manual/en/function.md5.php" class="external-link" rel="nofollow">md5</a>.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+password:md5]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cdata
 </td>
-<td class='confluenceTd'>
+<td>
 Wraps the text with CDATA tags
 </td>
-<td class='confluenceTd'>
+<td>
 [[+content:cdata]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 userinfo
 </td>
-<td class='confluenceTd'>
+<td>
 Returns the requested user data. The element must be a modUser ID. The value field is the column to grab, e.g. fullname, email. See Examples below.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+modx.user.id:userinfo=`username`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isloggedin
 </td>
-<td class='confluenceTd'>
+<td>
 Returns true if user is authenticated in this context.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+modx.user.id:isloggedin]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isnotloggedin
 </td>
-<td class='confluenceTd'>
+<td>
 Returns true if user is not authenticated in this context.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+modx.user.id:isnotloggedin]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Puts the input value into the passed placeholder. Does not prevent the output of the value, so add :notempty=`` if you don't want to output the value.
 </td>
-<td class='confluenceTd'>
+<td>
 ?[[*someTV:toPlaceholder=`placeholder`]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssToHead
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
-Put a &lt;link rel="stylesheet"&gt; element into the head tag, where the input value is placed inside the href attribute. Uses <a href="/display/revolution20/modX.regClientCSS" title="modX.regClientCSS">modX.regClientCSS</a>.
+<td>
+Put a element into the head tag, where the input value is placed inside the href attribute. Uses <a href="/display/revolution20/modX.regClientCSS" title="modX.regClientCSS">modX.regClientCSS</a>.
 </td>
-<td class='confluenceTd'>
+<td>
 [[+cssTV:cssToHead]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 htmlToHead
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
-Insert a block of HTML code into the &lt;head&gt; of the page, usually right before the &lt;/head&gt;. Uses <a href="/display/revolution20/modX.regClientStartupHTMLBlock" title="modX.regClientStartupHTMLBlock">modX.regClientStartupHTMLBlock</a>
+<td>
+Insert a block of HTML code into the of the page, usually right before the . Uses <a href="/display/revolution20/modX.regClientStartupHTMLBlock" title="modX.regClientStartupHTMLBlock">modX.regClientStartupHTMLBlock</a>
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+htmlTV:htmlToHead]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 htmlToBottom
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
-Insert HTML code into the bottom of the page, before &lt;/body&gt;. Uses <a href="/display/revolution20/modX.regClientHTMLBlock" title="modX.regClientHTMLBlock">modX.regClientHTMLBlock</a>.
+<td>
+Insert HTML code into the bottom of the page, before . Uses <a href="/display/revolution20/modX.regClientHTMLBlock" title="modX.regClientHTMLBlock">modX.regClientHTMLBlock</a>.
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+htmlTV:htmlToBottom]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 jsToHead
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Insert JS code (or a link) into the head tag (before the closing head tag). Uses <a href="/display/revolution20/modX.regClientStartupScript" title="modX.regClientStartupScript">modX.regClientStartupScript</a>.
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+jsTV:jsToHead]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 jsToBottom
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Insert JS code (or a link) before the closing body tag of the page. Uses <a href="/display/revolution20/modX.regClientScript" title="modX.regClientScript">modX.regClientScript</a>.
 <br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 [[+jsTV:jsToBottom]]
 <br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 urlencode
 </td>
-<td class='confluenceTd'>
+<td>
 Converts the input into a URL-friendly string similar to how an HTML form would do so. Similar to PHP's <a href="http://www.php.net/manual/en/function.urlencode.php" class="external-link" rel="nofollow">urlencode</a>
 </td>
-<td class='confluenceTd'>
+<td>
 [[+mystring:urlencode]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 urldecode
 </td>
-<td class='confluenceTd'>
+<td>
 Converts the input from an URL-friendly string Similar to PHP's <a href="http://www.php.net/manual/en/function.urldecode.php" class="external-link" rel="nofollow">urldecode</a>
 </td>
-<td class='confluenceTd'>
+<td>
 [[+myparam:urldecode]]
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h3>
 <a name="InputandOutputFilters%28OutputModifiers%29-Caching"></a>Caching
 </h3>
 
 <p>
-In general, any content in a placeholder that you think <b>might change dynamically</b> should be uncached. For example:
+In general, any content in a placeholder that you think <strong>might change dynamically</strong> should be uncached. For example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+placeholder:<span class="code-keyword">default</span>=`A <span class="code-keyword">default</span> value!`]]
+<pre class="brush: php">
+[[+placeholder:default=`A default value!`]]
 </pre>
-</div>
-</div>
-
 <p>
-This means that this could <b>sometimes</b> be empty, and sometimes not. Why would you ever want that cached? That would eliminate the point of the output modifier.
+This means that this could <strong>sometimes</strong> be empty, and sometimes not. Why would you ever want that cached? That would eliminate the point of the output modifier.
 </p>
 
 <p>
@@ -958,21 +924,16 @@ In general, the rule is: If you set a placeholder in an uncached Snippet, the pl
 </h3>
 
 <p>
-If you have properties on the tag, you'll want to specify those <b>after</b> the modifier:
+If you have properties on the tag, you'll want to specify those <strong>after</strong> the modifier:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getResources:<span class="code-keyword">default</span>=`Sorry - nothing matched your search.`?
+<pre class="brush: php">
+[[!getResources:default=`Sorry - nothing matched your search.`?
    &amp;tplFirst=`blogTpl`
    &amp;parents=`2,3,4,8`
    &amp;tvFilters=`blog_tags==%[[!tag:htmlent]]%`
    &amp;includeTVs=`1`]]
 </pre>
-</div>
-</div>
-
 <h3>
 <a name="InputandOutputFilters%28OutputModifiers%29-CreatingaCustomOutputModifier"></a>Creating a Custom Output Modifier
 </h3>
@@ -981,140 +942,113 @@ If you have properties on the tag, you'll want to specify those <b>after</b> the
 Also, <a href="/display/revolution20/Snippets" title="Snippets">Snippets</a> can be used as custom modifiers. Simply put the <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> name instead of the modifier. Example with a snippet named 'makeExciting' that appends a variable amount of exclamation marks:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*pagetitle:makeExciting=`4`]]
 </pre>
-</div>
-</div>
-
 <p>
 This document variable call with an output modifier will pass these properties to the snippet:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Param
 </th>
-<th class='confluenceTh'>
+<th>
 Value
 </th>
-<th class='confluenceTh'>
+<th>
 Example Result
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 input
 </td>
-<td class='confluenceTd'>
+<td>
 The element's value.
 </td>
-<td class='confluenceTd'>
+<td>
 The value of [[*pagetitle]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 options
 </td>
-<td class='confluenceTd'>
+<td>
 Any value passed to the modifier.
 </td>
-<td class='confluenceTd'>
+<td>
 '4'
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 token
 </td>
-<td class='confluenceTd'>
+<td>
 The type of the parent element.
 </td>
-<td class='confluenceTd'>
+<td>
 * (the token on `pagetitle`)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the parent element.
 </td>
-<td class='confluenceTd'>
+<td>
 pagetitle
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tag
 </td>
-<td class='confluenceTd'>
+<td>
 The complete parent tag.
 </td>
-<td class='confluenceTd'>
+<td>
 [[*pagetitle:makeExciting=`4`]]
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 Here is a sample implementation for our snippet makeExciting:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $defaultExcitementLevel = 1;
 $result = $input;
-
-<span class="code-keyword">if</span> ( <span class="code-keyword">true</span> === isset($options) ) {
+if ( true === isset($options) ) {
 $numberOfExclamations = $options;
-} <span class="code-keyword">else</span> {
+} else {
 $numberOfExclamations = $defaultExcitementLevel;
 }
-<span class="code-keyword">for</span> ( $i = $numberOfExclamations; $i &gt; 0; $i-- ) {
+for ( $i = $numberOfExclamations; $i &gt; 0; $i-- ) {
   $result = $result . '!';
 }
-<span class="code-keyword">return</span> $result;
+return $result;
 </pre>
-</div>
-</div>
-
 <p>
 The return value of the call will be whatever the snippet returns. For our example, the result will be the value of the pagetitle document variable appended with four exclamation marks.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<p class="info">
 The original input value will be returned if the snippet returns an empty string.
-</td>
-</tr>
-</table>
-</div>
+</p>
 
 <h2>
 <a name="InputandOutputFilters%28OutputModifiers%29-Chaining%28MultipleOutputFilters%29"></a>Chaining (Multiple Output Filters)
@@ -1124,21 +1058,14 @@ The original input value will be returned if the snippet returns an empty string
 A good example of chaining would be to format a date string to another format, like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+mydate:strtotime:date=`%Y-%m-%d`]]
 </pre>
-</div>
-</div>
-
 <p>
 Directly accessing the modx_user_attributes table in the database using output modifiers instead of a <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> can be accomplished simply by utilizing the userinfo modifier. Select the appropriate column from the table and specify it as the property of the output modifier, like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 User Internal Key: [[!+modx.user.id:userinfo=`internalKey`]]&lt;br /&gt;
 User name: [[!+modx.user.id:userinfo=`username`]]&lt;br /&gt;
 Full Name: [[!+modx.user.id:userinfo=`fullname`]]&lt;br /&gt;
@@ -1158,63 +1085,38 @@ Password: [[+modx.user.id:userinfo=`password`]]&lt;br /&gt;
 Cache Password: [[+modx.user.id:userinfo=`cachepwd`]]&lt;br /&gt;
 Last Login: [[+modx.user.id:userinfo=`lastlogin`:date=`%Y-%m-%d`]]&lt;br /&gt;
 The Login:[[+modx.user.id:userinfo=`thislogin`:date=`%Y-%m-%d`]]&lt;br /&gt;
-<span class="code-object">Number</span> of Logins: [[+modx.user.id:userinfo=`logincount`]]
+Number of Logins: [[+modx.user.id:userinfo=`logincount`]]
 </pre>
-</div>
-</div>
-
 <p>
 [[!+modx.user.id]] defaults to the currently logged in user ID. You can of course replace that with [[*createdby]] or other resource field or placeholders that return a numeric ID representing a user.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<p class="note">
 Note that the user ID and username is already available by default in MODx, so you dont need to use the "userinfo" modifier:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+</p>
+
+<pre class="brush: php">
 [[!+modx.user.id]] - Prints the ID
 [[!+modx.user.username]] - Prints the username
-</pre>
-</div>
-</div>
-
-<p>
-You will most likely want to call these uncached (see note about caching above) to prevent unexpected results.
-</p>
-</td>
-</tr>
-</table>
-</div>
-
+</pre>You will most likely want to call these uncached (see note about caching above) to prevent unexpected results.
 <h2>
 <a name="InputandOutputFilters%28OutputModifiers%29-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">Properties and Property Sets</a>
+<a href="display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">Properties and Property Sets</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Templates" title="Templates">Templates</a>
+<a href="display/revolution20/Templates" title="Templates">Templates</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>
+<a href="display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Snippets" title="Snippets">Snippets</a>
+<a href="display/revolution20/Snippets" title="Snippets">Snippets</a>
 </li>
 </ul>

@@ -1,27 +1,23 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#HydratingFields-Whatishydration%3F'>What is hydration?</a>
+<a href="xpdo/imported/hydrating-fields#HydratingFields-Whatishydration%3F">What is hydration?</a>
 </li>
 
 <li>
-<a href='#HydratingFields-HydratingFields'>Hydrating Fields</a>
+<a href="xpdo/imported/hydrating-fields#HydratingFields-HydratingFields">Hydrating Fields</a>
 </li>
 
 <li>
-<a href='#HydratingFields-HydratingAdHocFields'>Hydrating Ad Hoc Fields</a>
+<a href="xpdo/imported/hydrating-fields#HydratingFields-HydratingAdHocFields">Hydrating Ad Hoc Fields</a>
 </li>
 
 <li>
-<a href='#HydratingFields-HydratingRelatedObjects'>Hydrating Related Objects</a>
+<a href="xpdo/imported/hydrating-fields#HydratingFields-HydratingRelatedObjects">Hydrating Related Objects</a>
 </li>
 
 <li>
-<a href='#HydratingFields-SeeAlso'>See Also</a>
+<a href="xpdo/imported/hydrating-fields#HydratingFields-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -35,7 +31,7 @@ Hydration is the process by which fields on objects are directly accessible for 
 </p>
 
 <p>
-In xPDO, this option is available by passing either of the following configuration options into the $config parameter (2nd) in the <a href="/display/XPDO10/The+xPDO+Constructor" title="The xPDO Constructor">xPDO constructor</a>:
+In xPDO, this option is available by passing either of the following configuration options into the $config parameter (2nd) in the <a href="display/XPDO10/The+xPDO+Constructor" title="The xPDO Constructor">xPDO constructor</a>:
 </p>
 
 <ul>
@@ -60,37 +56,13 @@ In xPDO, this option is available by passing either of the following configurati
 If the XPDO_OPT_HYDRATE_FIELDS option is set to true, this ability will be available. This makes all object fields accessible for reading directly on the object. An example of this is such:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$object-&gt;set('name',$name);
-echo $object-&gt;name;
-</pre>
-</div>
-</div>
-
-<p>
-This would output the 'name' field of the object, assuming that the 'name' field is defined in the object's schema.
-</p>
-
-<h2>
-<a name="HydratingFields-HydratingAdHocFields" id="HydratingFields-HydratingAdHocFields"></a>Hydrating Ad Hoc Fields
-</h2>
-
-<p>
-If the XPDO_OPT_HYDRATE_ADHOC_FIELDS option is set to true, this ability will be available. It takes one step further the idea of hydrating fields, and now hydrates all <em>ad hoc</em> fields; or rather, any field that is not defined in the schema. Say we want to set an arbitrary field called 'puns' to a Person object:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$object-&gt;set('name','Arthur Dent');
+<pre class="brush: php">
+    $object-&gt;set('name','Arthur Dent');
 $object-&gt;set('puns',42);
 echo $object-&gt;name.' has '.$object-&gt;puns.' puns.';
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 This would echo the appropriate value, even if the field 'puns' isn't defined in the schema.
 </p>
@@ -100,7 +72,7 @@ This would echo the appropriate value, even if the field 'puns' isn't defined in
 </h2>
 
 <p>
-if the XPDO_OPT_HYDRATE_RELATED_OBJECTS option is set to true, this ability will be available. This hydrates all related objects to public vars when <a href="/display/XPDO10/getOne" title="getOne">getOne</a> or <a href="/display/XPDO10/getMany" title="getMany">getMany</a> is used. Example:
+if the XPDO_OPT_HYDRATE_RELATED_OBJECTS option is set to true, this ability will be available. This hydrates all related objects to public vars when <a href="display/XPDO10/getOne" title="getOne">getOne</a> or <a href="display/XPDO10/getMany" title="getMany">getMany</a> is used. Example:
 </p>
 
 <div class="code panel" style="border-width: 1px;">
@@ -124,6 +96,6 @@ This would echo a list of all the Beers associated to the $fordPrefect object.
 
 <ul>
 <li>
-<a href="/display/XPDO10/The+xPDO+Constructor" title="The xPDO Constructor">The xPDO Constructor</a>
+<a href="display/XPDO10/The+xPDO+Constructor" title="The xPDO Constructor">The xPDO Constructor</a>
 </li>
 </ul>

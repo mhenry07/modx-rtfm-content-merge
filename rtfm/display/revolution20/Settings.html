@@ -1,13 +1,9 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="Settings-WhatareSettings%3F"></a>What are Settings?
 </h2>
 
 <p>
-Settings are site-wide variables that can be used by either the MODx Core or by 3rd-Party Components to provide site, context, or user-level customization. The trick here is the override behavior that applies in the hierarchy: <a href="/display/revolution20/Contexts" title="Contexts">Contextual Settings</a> (if present), override any of the System Settings. <a href="/display/revolution20/Users#Users-UsersUserSettings">User Settings</a> (if present) override any of the Context or System settings obeying the hierarchy of <b>System -&gt; Context -&gt; User</b>
+Settings are site-wide variables that can be used by either the MODx Core or by 3rd-Party Components to provide site, context, or user-level customization. The trick here is the override behavior that applies in the hierarchy: <a href="display/revolution20/Contexts" title="Contexts">Contextual Settings</a> (if present), override any of the System Settings. <a href="display/revolution20/Users#Users-UsersUserSettings">User Settings</a> (if present) override any of the Context or System settings obeying the hierarchy of <b>System -&gt; Context -&gt; User</b>
 </p>
 
 <p>
@@ -16,15 +12,15 @@ See the following for more information:
 
 <ul>
 <li>
-<a href="/display/revolution20/System+Settings" title="System Settings">System Settings</a>
+<a href="display/revolution20/System+Settings" title="System Settings">System Settings</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Contexts" title="Contexts">Context Settings</a>
+<a href="display/revolution20/Contexts" title="Contexts">Context Settings</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Users#Users-UsersUserSettings">User Settings</a>
+<a href="display/revolution20/Users#Users-UsersUserSettings">User Settings</a>
 </li>
 </ul>
 
@@ -36,58 +32,12 @@ See the following for more information:
 They can be referenced at any point via their Tag, for example, for the 'site_start' Setting:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[++site_start]]
-</pre>
-</div>
-</div>
-
-<p>
-System Settings can be overridden by Context Settings, which are specific to each <a href="/display/revolution20/Contexts" title="Contexts">Context</a>. Context Settings can in turn be overridden by <a href="/display/revolution20/Users#Users-UsersUserSettings">User Settings</a>.
-</p>
-
-<p>
-The hierarchy to remember is:
-</p>
-
-<div class="panel" style="border-width: 1px;">
-<div class="panelContent">
-<p>
-System Setting -&gt; Context Setting -&gt; User Setting
-</p>
-</div>
-</div>
-
-<p>
-Let's say I set the System Setting named 'use_editor' to 0. However, I created a Context Setting called 'use_editor' for the 'mgr' context and set it to 1. This would mean that any time I'm in the mgr context, the setting would be 1, overriding the System Setting.
-</p>
-
-<p>
-Further, I've got a user named 'johndoe' who I don't want to use the editor. I create a User Setting 'use_editor' for his user and set it to 0. Now, John Doe's "use_editor" setting will be 0, overriding the Context Setting.
-</p>
-
-<p>
-Settings can also be specific to <a href="/display/revolution20/Namespaces" title="Namespaces">Namespaces</a>, as well. This allows you to easily group your settings for each of your different Components.
-</p>
-
-<h2>
-<a name="Settings-RetrievingSettingsinPHP" id="Settings-RetrievingSettingsinPHP"></a>Retrieving Settings in PHP
-</h2>
-
-<p>
-Getting settings is simple in MODx Revolution; simply use <a href="/display/XPDO10/xPDO.getOption" title="xPDO.getOption">getOption</a>. For example, to get the setting 'site_start', simply:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $siteStartId = $modx-&gt;getOption('site_start');
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Now, all settings are overridable by Context and User, as described above, and getOption respects that. So, if in the above code example, if you had set site_start as a Context Setting that overrode the System Setting, getOption will respect that - but only if you're executing the PHP in that Context that has the Setting.
 </p>
@@ -117,7 +67,7 @@ getOption supports 3 parameters:
 </p>
 
 <p>
-So, for example, if I were in a Snippet and wanted some default properties at the top, I could use getOption. <a href="/display/revolution20/Snippets" title="Snippets">Snippets</a> automatically pass in an array of all the Properties attached to that snippet (or specified in the Tag call) via the $scriptProperties array. So, you can use that array to check for default properties. This example sets a default value to the 'showPublished' property should it not be specified:
+So, for example, if I were in a Snippet and wanted some default properties at the top, I could use getOption. <a href="display/revolution20/Snippets" title="Snippets">Snippets</a> automatically pass in an array of all the Properties attached to that snippet (or specified in the Tag call) via the $scriptProperties array. So, you can use that array to check for default properties. This example sets a default value to the 'showPublished' property should it not be specified:
 </p>
 
 <div class="code panel" style="border-width: 1px;">
@@ -129,7 +79,7 @@ $showPublished = $modx-&gt;getOption('showPublished',$scriptProperties,<span cla
 </div>
 
 <p>
-Now, assuming the Snippet doesnt have showPublished as a <a href="/display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">default property</a>, if you called the Snippet via the tag call:
+Now, assuming the Snippet doesnt have showPublished as a <a href="display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">default property</a>, if you called the Snippet via the tag call:
 </p>
 
 <blockquote>
@@ -162,19 +112,11 @@ showPublished will be set to true. If it did have the default Property attached 
 </h2>
 
 <p>
-<a href="/display/revolution20/System+Settings" title="System Settings">System Settings</a>
+<a href="display/revolution20/System+Settings" title="System Settings">System Settings</a>
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678126" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678126" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="1" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FSettings" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678126" />
-</fieldset>
-</fieldset>
-</div>
+<ol class="ug-toc">
+<li>
+<a href="/revolution/2.x/administering-your-site/settings/system-settings">System Settings</a>
+</li>
+</ol>

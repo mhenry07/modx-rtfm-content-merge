@@ -1,39 +1,39 @@
 <div>
 <ul>
 <li>
-<a href='#getResourceField-WhatisgetResourceField%3F'>What is getResourceField?</a>
+<a href="/extras/revo/getresourcefield#getResourceField-WhatisgetResourceField%3F">What is getResourceField?</a>
 </li>
 
 <li>
-<a href='#getResourceField-History'>History</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#getResourceField-Download'>Download</a>
-</li>
-</ul>
-</li>
-
-<li>
-<a href='#getResourceField-Usage'>Usage</a>
+<a href="/extras/revo/getresourcefield#getResourceField-History">History</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#getResourceField-getResourceFieldparameters'>getResourceField parameters</a>
-</li>
-
-<li>
-<a href='#getResourceField-Examples'>Examples</a>
+<a href="/extras/revo/getresourcefield#getResourceField-Download">Download</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#getResourceField-Errors'>Errors</a>
+<a href="/extras/revo/getresourcefield#getResourceField-Usage">Usage</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href="/extras/revo/getresourcefield#getResourceField-getResourceFieldparameters">getResourceField parameters</a>
+</li>
+
+<li>
+<a href="/extras/revo/getresourcefield#getResourceField-Examples">Examples</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="/extras/revo/getresourcefield#getResourceField-Errors">Errors</a>
 </li>
 </ul>
 </div>
@@ -51,15 +51,15 @@ getResourceField is a simple snippet which can be used to display a single field
 </h2>
 
 <p>
-getResourceField was first released on September 16th, 2010 by <a href="http://modxcms.com/extras/author/paulmerchant" class="external-link" rel="nofollow">paulmerchant</a>, co-authored by Shaun McCormick.
+getResourceField was first released on September 16th, 2010 by <a href="http://modxcms.com/extras/author/paulmerchant" rel="nofollow">paulmerchant</a>, co-authored by Shaun McCormick.
 </p>
 
-<h3>
+<h2>
 <a name="getResourceField-Download" id="getResourceField-Download"></a>Download
-</h3>
+</h2>
 
 <p>
-The snippet can be retrieved through the Package Manager, or downloaded manually from the <a href="http://modxcms.com/extras/package/702" class="external-link" rel="nofollow">Repository</a>.
+The snippet can be retrieved through the Package Manager, or downloaded manually from the <a href="http://modxcms.com/extras/package/702" rel="nofollow">Repository</a>.
 </p>
 
 <h2>
@@ -70,14 +70,9 @@ The snippet can be retrieved through the Package Manager, or downloaded manually
 The minimum tag is as follows:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[getResourceField]]
 </pre>
-</div>
-</div>
-
 <p>
 This will output the pagetitle of the current resource.
 </p>
@@ -86,100 +81,78 @@ This will output the pagetitle of the current resource.
 <a name="getResourceField-getResourceFieldparameters" id="getResourceField-getResourceFieldparameters"></a>getResourceField parameters
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
-<br class="atl-forced-newline" />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
 </th>
-<th class='confluenceTh'>
+<th>
 Default value
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 id
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 The resource ID to get the field from.
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 $modx-&gt;resource-&gt;get('id')
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 field
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 The field or template variable name to return.
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 ?pagetitle
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isTV
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 When set to 1 or true, the field is considered to be a template variable.
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 false
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 processTV
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 When set to 1 or true, the template variable will be processed according to its output settings.
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 false
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 default
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 The value (string) to return if the field is not found or is empty.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-&nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h3>
 <a name="getResourceField-Examples" id="getResourceField-Examples"></a>Examples
@@ -189,38 +162,23 @@ The value (string) to return if the field is not found or is empty.
 Return the pagetitle from the resource with id 123:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- [[getResourceField? &amp;id=`123`]]
+<pre class="brush: php">
+[[getResourceField? &amp;id=`123`]]
 </pre>
-</div>
-</div>
-
 <p>
 Return the processed TV with name myTV of the parent resource, and if it is empty output 'Sorry, no data available':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- [[getResourceField? &amp;id=`[[*parent]]` &amp;field=`myTV` &amp;processTV=`1` &amp;<span class="code-keyword">default</span>=`Sorry, no data available`]]
+<pre class="brush: php">
+[[getResourceField? &amp;id=`[[*parent]]` &amp;field=`myTV` &amp;processTV=`1` &amp;default=`Sorry, no data available`]]
 </pre>
-</div>
-</div>
-
 <p>
 Return the introtext field of the ultimate parent (note that this requires the UltimateParent snippet to be installed):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- [[getResourceField? &amp;id=`[[UltimateParent]]` &amp;field=`introtext`]]
+<pre class="brush: php">
+[[getResourceField? &amp;id=`[[UltimateParent]]` &amp;field=`introtext`]]
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="getResourceField-Errors" id="getResourceField-Errors"></a>Errors
 </h2>
@@ -229,14 +187,9 @@ Return the introtext field of the ultimate parent (note that this requires the U
 One error that this Snippet is prone to is deceptively subtle: you can end up with a redirect loop. Consider the example where you've defined a template variable on your homepage, e.g. [[*featured_article]], and you use this in your getResourceField Snippet call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- [[getResourceField? &amp;id=`[[*featured_article]]` &amp;field=`content`]]
+<pre class="brush: php">
+[[getResourceField? &amp;id=`[[*featured_article]]` &amp;field=`content`]]
 </pre>
-</div>
-</div>
-
 <p>
 If that TV is not set, the default behavior is to use the id of the current page. If your Snippet call is in the content of your page and you are requesting the content as your field, your Snippet can go down the rabbit hole and infinitely loop on itself, causing your page request to time out with too many redirects.
 </p>

@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="OnDocFormSave-Event%3AOnDocFormSave"></a>Event: OnDocFormSave
 </h2>
@@ -16,32 +12,18 @@ Service: 1 - Parser Service Events
 Group: Documents
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 <b>TVs are best Modified Here</b>
 <br />
-If you need to modify TV values, it's best to modify them here and not during <a href="/display/revolution20/OnBeforeDocFormSave" title="OnBeforeDocFormSave">OnBeforeDocFormSave</a>.
-</td>
-</tr>
-</table>
+If you need to modify TV values, it's best to modify them here and not during <a href="display/revolution20/OnBeforeDocFormSave" title="OnBeforeDocFormSave">OnBeforeDocFormSave</a>.
 </div>
 
 <p>
-Unlike <a href="/display/revolution20/OnBeforeDocFormSave" title="OnBeforeDocFormSave">OnBeforeDocFormSave</a>, this event does not support the $modx-&gt;event-&gt;output() method.
+Unlike <a href="display/revolution20/OnBeforeDocFormSave" title="OnBeforeDocFormSave">OnBeforeDocFormSave</a>, this event does not support the $modx-&gt;event-&gt;output() method.
 </p>
 
 <h2>
-<a name="OnDocFormSave-EventParameters"></a>Event Parameters
+<a name="OnDocFormSave-EventParameters" id="OnDocFormSave-EventParameters"></a>Event Parameters
 </h2>
 
 <div class='table-wrap'>
@@ -87,110 +69,56 @@ The ID of the Resource (even for new resources)
 </div>
 
 <h2>
-<a name="OnDocFormSave-Examples"></a>Examples
+<a name="OnDocFormSave-Examples" id="OnDocFormSave-Examples"></a>Examples
 </h2>
 
 <p>
 To do something with the page ID (e.g. to update a related custom table), you can read this out of the <b>$resource</b> object (even if you are creating a new resource):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// Log all available properties of the $resource
-</span>$modx-&gt;log(MODX_LOG_LEVEL_ERROR, print_r($resource-&gt;toArray(),<span class="code-keyword">true</span>) );
-<span class="code-comment">// Get the page id
-</span>$page_id = $resource-&gt;get('id');
-<span class="code-comment">// or simply
-</span>$page_id = $id;
+<pre class="brush: php">
+    
+return "Help I'm a bug!";
 
-<span class="code-keyword">if</span> ($mode == '<span class="code-keyword">new</span>') {
-    <span class="code-comment">// resource created
-</span>}
-<span class="code-keyword">else</span> {
-   <span class="code-comment">// existing resource was updated
-</span>}
+    
 </pre>
-</div>
-</div>
-
-<p>
-Anything you return from this event will be written to the logs, e.g.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">return</span> <span class="code-quote">"Help I'm a bug!"</span>;
-</pre>
-</div>
-</div>
-
 <p>
 Will result in a log message like the following:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- [2012-06-22 13:00:28] (ERROR @ /connectors/resource/index.php) [OnDocFormSave]Help I'm a bug!
-</pre>
-</div>
-</div>
+<pre class="brush: php">
+    
+switch ($modx-&gt;event-&gt;name) {
 
-<h3>
-<a name="OnDocFormSave-CalculatingaTVValue"></a>Calculating a TV Value
-</h3>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">switch</span> ($modx-&gt;event-&gt;name) {
-
-        <span class="code-comment">// Documents
-</span> <span class="code-keyword">case</span> 'OnDocFormSave':
-            <span class="code-keyword">if</span> ($resource-&gt;get('template') == 8) {  
-                <span class="code-keyword">if</span>(!$resource-&gt;setTVValue('my_tv', 'Some Value')) {
+        // Documents
+        case 'OnDocFormSave':
+            if ($resource-&gt;get('template') == 8) {  
+                if(!$resource-&gt;setTVValue('my_tv', 'Some Value')) {
                     $modx-&gt;log(modX::LOG_LEVEL_ERROR, 'There was a problem setting the TV value.');
                 }
             }
 
-        <span class="code-keyword">break</span>;
+        break;
 }
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 <b>Saving Happens Automatically</b>
 <br />
 No need to run the <tt>$resource-&gt;save()</tt> method as that happens automatically.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="OnDocFormSave-SeeAlso"></a>See Also
+<a name="OnDocFormSave-SeeAlso" id="OnDocFormSave-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/System+Events" title="System Events">System Events</a>
+<a href="display/revolution20/System+Events" title="System Events">System Events</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Plugins" title="Plugins">Plugins</a>
+<a href="display/revolution20/Plugins" title="Plugins">Plugins</a>
 </li>
 </ul>

@@ -6,38 +6,23 @@ In this tutorial, we're going to see a bit more what Ext JS is all about by intr
 As always, we need to load up our trusty CSS and Javascript so that MODExt can work its magic:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-&lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-&lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="5.ExtJSTutorial-Panels-SimplePanel"></a>Simple Panel
-</h2>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 &lt;html&gt;
     &lt;title&gt;Ext JS Panels&lt;/title&gt;
-    &lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+    &lt;link  rel="stylesheet" type="text/css" href="manager/assets/ext3/resources/css/ext-all.css" /&gt;
+    &lt;script type="text/javascript" src="manager/assets/ext3/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="manager/assets/ext3/ext-all.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
         
         Ext.onReady(function() {
-            <span class="code-keyword">var</span> myPanel = <span class="code-keyword">new</span> Ext.Panel({
+            var myPanel = new Ext.Panel({
                 renderTo : document.body,
                 height   : 50,
                 width    : 150,
                 title    : 'Simple Panel',
                 html     : 'This is my content',
-                frame    : <span class="code-keyword">true</span>
+                frame    : true
             });
         }); 
 
@@ -45,15 +30,14 @@ As always, we need to load up our trusty CSS and Javascript so that MODExt can w
     
     &lt;body&gt;
         &lt;h1&gt;Panels&lt;/h1&gt;
-        &lt;div id=<span class="code-quote">"target_div"</span>&gt;&lt;/div&gt;
+        &lt;div id="target_div"&gt;&lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/46465055/Ext+JS+Simple+Panel.jpg?version=1&amp;modificationDate=1371183051000" style="border: 1px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/46465055/Ext+JS+Simple+Panel.jpg?version=1&amp;modificationDate=1371183051000" style="border: 1px solid black" /></span>
 </p>
 
 <h3>
@@ -71,17 +55,3 @@ We'll point you once again to Sencha's original Ext JS documents. Remember that 
 <p>
 Take note of the various attributes that are available to the Panel object.
 </p>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="46465055" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="46137364" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2F5.%2BExt%2BJS%2BTutorial%2B-%2BPanels" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="46137364" />
-</fieldset>
-</fieldset>
-</div>

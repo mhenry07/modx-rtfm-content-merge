@@ -1,45 +1,45 @@
 <div>
 <ul>
 <li>
-<a href='#Lingua-Background'>Background</a>
+<a href="extras/revo/lingua#Lingua-Background">Background</a>
 </li>
 
 <li>
-<a href='#Lingua-CMP'>CMP</a>
+<a href="extras/revo/lingua#Lingua-CMP">CMP</a>
 </li>
 
 <li>
-<a href='#Lingua-Plugin'>Plugin</a>
+<a href="extras/revo/lingua#Lingua-Plugin">Plugin</a>
 </li>
 
 <li>
-<a href='#Lingua-Snippets'>Snippets</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#Lingua-lingua.selector'>lingua.selector</a>
+<a href="extras/revo/lingua#Lingua-Snippets">Snippets</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Lingua-Properties'>Properties</a>
-</li>
-
-<li>
-<a href='#Lingua-DefaultChunks'>Default Chunks</a>
+<a href="extras/revo/lingua#Lingua-lingua.selector">lingua.selector</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Lingua-lingua.selector.wrapper'>lingua.selector.wrapper</a>
+<a href="extras/revo/lingua#Lingua-Properties">Properties</a>
 </li>
 
 <li>
-<a href='#Lingua-lingua.selector.item'>lingua.selector.item</a>
+<a href="extras/revo/lingua#Lingua-DefaultChunks">Default Chunks</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href="extras/revo/lingua#Lingua-lingua.selector.wrapper">lingua.selector.wrapper</a>
+</li>
+
+<li>
+<a href="extras/revo/lingua#Lingua-lingua.selector.item">lingua.selector.item</a>
 </li>
 </ul>
 </li>
@@ -47,23 +47,23 @@
 </li>
 
 <li>
-<a href='#Lingua-lingua.cultureKey'>lingua.cultureKey</a>
+<a href="extras/revo/lingua#Lingua-lingua.cultureKey">lingua.cultureKey</a>
 </li>
 
 <li>
-<a href='#Lingua-lingua.getField'>lingua.getField</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#Lingua-Properties'>Properties</a>
+<a href="extras/revo/lingua#Lingua-lingua.getField">lingua.getField</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Lingua-Examples'>Examples</a>
+<a href="extras/revo/lingua#Lingua-Properties">Properties</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href="extras/revo/lingua#Lingua-Examples">Examples</a>
 </li>
 </ul>
 </li>
@@ -107,7 +107,7 @@ The Custom Manager Page is provided to manage the list of languages and their se
 </p>
 
 <p>
-<span class="image-wrap" style=""><a class="confluence-thumbnail-link 942x634" href='http://oldrtfm.modx.com/download/attachments/46137393/Lingua_CMP.png'><img src="/download/thumbnails/46137393/Lingua_CMP.png" style="border: 1px solid black" /></a></span>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 942x634" href='http://rtfm.modx.com/download/attachments/46137393/Lingua_CMP.png'><img src="download/thumbnails/46137393/Lingua_CMP.png" style="border: 1px solid black" /></a></span>
 </p>
 
 <h2>
@@ -143,7 +143,7 @@ The chunks have <a href="http://twitter.github.io/bootstrap/javascript.html#drop
 </p>
 
 <p>
-<span class="image-wrap" style=""><a class="confluence-thumbnail-link 327x362" href='http://oldrtfm.modx.com/download/attachments/46137393/lingua.selector.png'><img src="/download/thumbnails/46137393/lingua.selector.png" style="border: 1px solid black" /></a></span>
+<span class="image-wrap" style=""><a class="confluence-thumbnail-link 327x362" href='http://rtfm.modx.com/download/attachments/46137393/lingua.selector.png'><img src="download/thumbnails/46137393/lingua.selector.png" style="border: 1px solid black" /></a></span>
 </p>
 
 <p>
@@ -311,41 +311,14 @@ id, local_name, lang_code, lcid_string, lcid_dec
 <a name="Lingua-lingua.selector.wrapper" id="Lingua-lingua.selector.wrapper"></a>lingua.selector.wrapper
 </h5>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"container"</span>&gt;
-        &lt;div class=<span class="code-quote">"btn-group"</span>&gt;
-                &lt;button
-                        class=<span class="code-quote">"btn btn-link btn-mini dropdown-toggle"</span>
-                        data-toggle=<span class="code-quote">"dropdown"</span>
-                        &gt;[[%lingua.select_language]]
-                &lt;/button&gt;
-                &lt;ul class=<span class="code-quote">"dropdown-menu"</span>&gt;
-                        [[+lingua.languages]]
-                &lt;/ul&gt;
-        &lt;/div&gt;
-&lt;/div&gt;
-</pre>
-</div>
-</div>
-
-<h5>
-<a name="Lingua-lingua.selector.item" id="Lingua-lingua.selector.item"></a>lingua.selector.item
-</h5>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+lingua.cultureKey:is=`[[+lingua.lang_code]]`:then=``:<span class="code-keyword">else</span>=`&lt;li&gt;
-        &lt;a href=<span class="code-quote">"[[+lingua.url]]"</span> title=<span class="code-quote">"[[+lingua.local_name]]"</span>&gt;
-                &lt;img src=<span class="code-quote">"[[+lingua.flag]]"</span> alt=""/&gt; [[+lingua.local_name]]
+<pre class="brush: php">
+    [[+lingua.cultureKey:is=`[[+lingua.lang_code]]`:then=``:else=`&lt;li&gt;
+        &lt;a href="[[+lingua.url]]" title="[[+lingua.local_name]]"&gt;
+                &lt;img src="[[+lingua.flag]]" alt=""/&gt; [[+lingua.local_name]]
         &lt;/a&gt;
 &lt;/li&gt;`]]
+    
 </pre>
-</div>
-</div>
-
 <p>
 On this chunk, the default content tries to ignore the language of the current language using Output Filter.
 </p>
@@ -360,132 +333,23 @@ This snippet to get the current active language.
 This snippet only contains
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<div class="error">
-<span class="error">Unable to find source-code formatter for language: php.</span> Available languages are: actionscript, html, java, javascript, none, sql, xhtml, xml
-</div>
-
-<pre class="code-php">
-<span class="code-keyword">return</span> $modx-&gt;cultureKey;
+<pre class="brush: php">
+    return $modx-&gt;cultureKey;
+    
 </pre>
-</div>
-</div>
-
 <p>
 No! It's different to
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<div class="error">
-<span class="error">Unable to find source-code formatter for language: php.</span> Available languages are: actionscript, html, java, javascript, none, sql, xhtml, xml
-</div>
-
-<pre class="code-php">
-<span class="code-keyword">return</span> $modx-&gt;getOption('cultureKey');
+<pre class="brush: php">
+    return $modx-&gt;getOption('cultureKey');
+    
 </pre>
-</div>
-</div>
-
 <p>
 This snippet is the most important part to grab the language's lexicons.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!%login? &amp;namespace=`Login` &amp;language=`[[!lingua.cultureKey]]`]]
+<pre class="brush: php">
+    Created on: [[*createdon:date=`[[!lingua.getField? &amp;field=`date_format_lite`]]`]]
+    
 </pre>
-</div>
-</div>
-
-<p>
-<b>Please notice the exclamation mark in front of the %login. The lexicon must be +UN+CACHED.</b>
-</p>
-
-<h3>
-<a name="Lingua-lingua.getField" id="Lingua-lingua.getField"></a>lingua.getField
-</h3>
-
-<p>
-This snippet is to get the value of the field of the current running language on the page.
-<br />
-The value will be switched to the selected active language.
-</p>
-
-<h4>
-<a name="Lingua-Properties" id="Lingua-Properties"></a>Properties
-</h4>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Name
-</th>
-<th class='confluenceTh'>
-Description
-</th>
-<th class='confluenceTh'>
-Example
-</th>
-<th class='confluenceTh'>
-Default Value
-</th>
-<th class='confluenceTh'>
-Options
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-<b>field</b>
-</td>
-<td class='confluenceTd'>
-any field to be selected
-</td>
-<td class='confluenceTd'>
-&amp;field=`date_format_lite`
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-all available fields: id, active, local_name, lang_code, lcid_string, lcid_dec, date_format_lite, date_format_full, is_rtl, flag
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-codeField
-</td>
-<td class='confluenceTd'>
-the field of which will be used as the value of the options
-</td>
-<td class='confluenceTd'>
-&amp;codeField=`lang_code`
-</td>
-<td class='confluenceTd'>
-System Setting's <b>lingua.code.field</b>
-</td>
-<td class='confluenceTd'>
-id, local_name, lang_code, lcid_string, lcid_dec
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h5>
-<a name="Lingua-Examples" id="Lingua-Examples"></a>Examples
-</h5>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-Created on: [[*createdon:date=`[[!lingua.getField? &amp;field=`date_format_lite`]]`]]
-</pre>
-</div>
-</div>

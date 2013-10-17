@@ -1,59 +1,55 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#tagLister-WhatistagLister%3F'>What is tagLister?</a>
+<a href="extras/revo/taglister#tagLister-WhatistagLister%3F">What is tagLister?</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#tagLister-1.ShowallPagestaggedwithagivenTerm'>1. Show all Pages tagged with a given Term</a>
+<a href="extras/revo/taglister#tagLister-1.ShowallPagestaggedwithagivenTerm">1. Show all Pages tagged with a given Term</a>
 </li>
 
 <li>
-<a href='#tagLister-2.Showalltagsforagivenpage'>2. Show all tags for a given page</a>
+<a href="extras/revo/taglister#tagLister-2.Showalltagsforagivenpage">2. Show all tags for a given page</a>
 </li>
 
 <li>
-<a href='#tagLister-3.DisplayaTagCloud'>3. Display a Tag Cloud</a>
+<a href="extras/revo/taglister#tagLister-3.DisplayaTagCloud">3. Display a Tag Cloud</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#tagLister-Requirements'>Requirements</a>
+<a href="extras/revo/taglister#tagLister-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#tagLister-History'>History</a>
+<a href="extras/revo/taglister#tagLister-History">History</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#tagLister-Download'>Download</a>
+<a href="extras/revo/taglister#tagLister-Download">Download</a>
 </li>
 
 <li>
-<a href='#tagLister-DevelopmentandBugReporting'>Development and Bug Reporting</a>
+<a href="extras/revo/taglister#tagLister-DevelopmentandBugReporting">Development and Bug Reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#tagLister-Usage'>Usage</a>
+<a href="extras/revo/taglister#tagLister-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#tagLister-Examples'>Examples</a>
+<a href="extras/revo/taglister#tagLister-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#tagLister-SeeAlso'>See Also</a>
+<a href="extras/revo/taglister#tagLister-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -83,51 +79,19 @@ Here are the 3 components you need to establish to make this work.
 </h3>
 
 <p>
-Create a page dedicated to showing all pages tagged with a given term. On that page, place the <b>getResourcesTag</b> Snippet. It's more or less an extension of the <a href="/display/ADDON/getResources" title="getResources">getResources</a> Snippet, so it shares most of the same arguments.
+Create a page dedicated to showing all pages tagged with a given term. On that page, place the <b>getResourcesTag</b> Snippet. It's more or less an extension of the <a href="display/ADDON/getResources" title="getResources">getResources</a> Snippet, so it shares most of the same arguments.
 </p>
 
 <p>
 If you are tagging only resources in a certain folder, reference the folder's page ID in the <b>&amp;parents</b> argument, otherwise use "0" to search the entire site.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getResourcesTag? &amp;parents=`0` &amp;tagKey=`my_tags` &amp;tpl=`result_tpl`]]
-</pre>
-</div>
-</div>
-
-<ul>
-<li>
-<b>&amp;tagKey</b> is the unique name of the Template Variable containing the tags
-</li>
-
-<li>
-<b>&amp;tpl</b> is a chunk used to format each result (just like you would use for <b>getResources</b>)
-</li>
-</ul>
-
-<p>
-Remember the page ID of this page: we will use it in the next step.
-</p>
-
-<h3>
-<a name="tagLister-2.Showalltagsforagivenpage" id="tagLister-2.Showalltagsforagivenpage"></a>2. Show all tags for a given page
-</h3>
-
-<p>
-The next component here is showing all the given tags that appear on a given page. For this component, we rely on the <b>toLinks</b> Snippet. This will point to the page ID we created in step 1.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[!toLinks? &amp;items=`[[*my_tags]]` &amp;target=`123`]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 The <b>&amp;items</b> argument should include the goods: what has your page been tagged with? This should be the name of your Template Variable.
 </p>
@@ -163,7 +127,7 @@ The third common component here is to display a tag cloud listing all available 
 </h2>
 
 <p>
-tagLister was written by <a href="/display/~splittingred" class="confluence-userlink" data-username="splittingred">Shaun McCormick</a> and first released on June 14th, 2010.
+tagLister was written by <a href="display/~splittingred" class="confluence-userlink" data-username="splittingred">Shaun McCormick</a> and first released on June 14th, 2010.
 </p>
 
 <h3>
@@ -171,7 +135,7 @@ tagLister was written by <a href="/display/~splittingred" class="confluence-user
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/691" class="external-link" rel="nofollow">http://modxcms.com/extras/package/691</a>
+It can be downloaded from within the MODx Revolution manager via <a href="display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/691" class="external-link" rel="nofollow">http://modxcms.com/extras/package/691</a>
 </p>
 
 <h3>
@@ -200,15 +164,15 @@ tagLister comes with three Snippets:
 
 <ul class="alternate" type="square">
 <li>
-<a href="/display/ADDON/tagLister.tagLister" title="tagLister.tagLister">tagLister</a> - Lists most commonly used tags.
+<a href="display/ADDON/tagLister.tagLister" title="tagLister.tagLister">tagLister</a> - Lists most commonly used tags.
 </li>
 
 <li>
-<a href="/display/ADDON/tagLister.getResourcesTag" title="tagLister.getResourcesTag">getResourcesTag</a> - For grabbing Resources filtered by tags.
+<a href="display/ADDON/tagLister.getResourcesTag" title="tagLister.getResourcesTag">getResourcesTag</a> - For grabbing Resources filtered by tags.
 </li>
 
 <li>
-<a href="/display/ADDON/tagLister.tolinks" title="tagLister.tolinks">tolinks</a> - For converting a comma-separated list into links.
+<a href="display/ADDON/tagLister.tolinks" title="tagLister.tolinks">tolinks</a> - For converting a comma-separated list into links.
 </li>
 </ul>
 
@@ -220,40 +184,26 @@ tagLister comes with three Snippets:
 Grab a list of tags specified in the TV 'tags', which are separated by commas, and make the links go to the home page:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!tagLister? &amp;tv=`tags`]]
-</pre>
-</div>
-</div>
-
-<p>
-Grab a list of tags specified in the TV 'blog-tags', which are separated by spaces, and make the links go to Resource ID 123:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[!tagLister? &amp;tv=`blog-tags` &amp;tvDelimiter=` ` &amp;target=`123`]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
 <a name="tagLister-SeeAlso" id="tagLister-SeeAlso"></a>See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc">
+<li>
+<a href="/extras/revo/taglister/taglister.getresourcestag">tagLister.getResourcesTag</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="16646398" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="16646398" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FtagLister" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="16646398" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/extras/revo/taglister/taglister.taglister">tagLister.tagLister</a>
+</li>
+
+<li>
+<a href="/extras/revo/taglister/taglister.tolinks">tagLister.tolinks</a>
+</li>
+</ol>

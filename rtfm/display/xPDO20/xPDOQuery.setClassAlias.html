@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="xPDOQuery.setClassAlias-xPDOQuery%3A%3AsetClassAlias"></a>xPDOQuery::setClassAlias
 </h2>
@@ -18,41 +14,22 @@ Sets a SQL alias for the table represented by the main class.
 API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#xPDOQuery::setClassAlias()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#\xPDOQuery::setClassAlias()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOQuery setClassAlias ([string $alias = ''])
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.setClassAlias-Example" id="xPDOQuery.setClassAlias-Example"></a>Example
-</h2>
-
-<p>
-Grab all OtherBox objects, but set the alias to 'Box' for easier reading.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $xpdo-&gt;newQuery('OtherBox');
+<pre class="brush: php">
+    $query = $xpdo-&gt;newQuery('OtherBox');
 $query-&gt;setClassAlias('Box');
 $query-&gt;where(array(
    'Box.name' =&gt; 'RoundBox',
 ));
 $otherBoxes = $xpdo-&gt;getCollection('OtherBox',$query);
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
 <a name="xPDOQuery.setClassAlias-SeeAlso" id="xPDOQuery.setClassAlias-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
+<a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
 </li>
 </ul>

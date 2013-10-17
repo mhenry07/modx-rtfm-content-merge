@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="OnBeforeManagerLogin-Event%3AOnBeforeManagerLogin"></a>Event: OnBeforeManagerLogin
 </h2>
@@ -14,16 +10,11 @@ Fires before the login process is started for a user when logging in to the mana
 To allow logging in when using this event please use:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;event-&gt;output(<span class="code-keyword">true</span>);
-<span class="code-comment">// before Revo 2.3.0 you should use instead:
-</span>$modx-&gt;event-&gt;_output = <span class="code-keyword">true</span>;
+<pre class="brush: php">
+$modx-&gt;event-&gt;output(true); 
+// before Revo 2.3.0 you should use instead: 
+$modx-&gt;event-&gt;_output = true;
 </pre>
-</div>
-</div>
-
 <p>
 Service: 2 - Manager Access Events
 <br />
@@ -34,57 +25,57 @@ Group: None
 <a name="OnBeforeManagerLogin-EventParameters" id="OnBeforeManagerLogin-EventParameters"></a>Event Parameters
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<div class="table-wrap">
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Name
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 username
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The provided username.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 password
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The provided password.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 attributes
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 An array of:
 <ul>
 <li>
-<b>&amp;</b> rememberme - Boolean set if user wants password to be remembered. <b>Passed by reference</b>
+<strong>&amp;</strong> rememberme - Boolean set if user wants password to be remembered. <strong>Passed by reference</strong>
 </li>
 
 <li>
-<b>&amp;</b> lifetime - The session cookie lifetime for this login. <b>Passed by reference</b>
+<strong>&amp;</strong> lifetime - The session cookie lifetime for this login. <strong>Passed by reference</strong>
 </li>
 
 <li>
-<b>&amp;</b> loginContext - The context key this login is occurring in. <b>Passed by reference</b>
+<strong>&amp;</strong> loginContext - The context key this login is occurring in. <strong>Passed by reference</strong>
 </li>
 
 <li>
-<b>&amp;</b> addContexts - Additional contexts in which the login is also occuring in. <b>Passed by reference</b>
+<strong>&amp;</strong> addContexts - Additional contexts in which the login is also occuring in. <strong>Passed by reference</strong>
 </li>
 </ul>
 </td>
@@ -99,19 +90,19 @@ An array of:
 
 <ol>
 <li>
-<em><ins><a href="http://rtfm.modx.com/display/revolution20/OnBeforeWebLogin" class="external-link" rel="nofollow"><em><ins>OnBeforeWebLogin</ins></em></a></ins></em>&nbsp;|| <b><em><ins>OnBeforeManagerLogin</ins></em></b>&nbsp;- Inside this event the developer can check for erroneous parameters which will <b>disallow</b> further logging in process. If plugins executed by this event return something except true, the logging in will be aborted with the specified error.
+<em><ins><a href="display/revolution20/OnBeforeWebLogin" class="external-link" rel="nofollow"><em><ins>OnBeforeWebLogin</ins></em></a></ins></em> || <strong><em><ins>OnBeforeManagerLogin</ins></em></strong> - Inside this event the developer can check for erroneous parameters which will <strong>disallow</strong> further logging in process. If plugins executed by this event return something except true, the logging in will be aborted with the specified error.
 </li>
 
 <li>
-<em><ins><a href="http://rtfm.modx.com/display/revolution20/OnUserNotFound" class="external-link" rel="nofollow">OnUserNotFound</a></ins></em>&nbsp;- This event is executed only if the provided username is not found inside MODX database. The developer can provide it's own modUser object in the event output to continue the login process.
+<em><ins><a href="display/revolution20/OnUserNotFound" class="external-link" rel="nofollow">OnUserNotFound</a></ins></em> - This event is executed only if the provided username is not found inside MODX database. The developer can provide it's own modUser object in the event output to continue the login process.
 </li>
 
 <li>
-<em><ins><a href="http://rtfm.modx.com/display/revolution20/OnWebAuthentication" class="external-link" rel="nofollow">OnWebAuthentication</a></ins></em>&nbsp;|| <em><ins><a href="http://rtfm.modx.com/display/revolution20/OnManagerAuthentication" class="external-link" rel="nofollow">OnManagerAuthentication</a></ins></em>&nbsp;- Inside this event the developer can check for parameters which will <b>override the default checking by password</b> and <b>allow</b>&nbsp;further logging in process. If one of the plugins executed from this event return true, the user is considered verified and logged in.
+<em><ins><a href="display/revolution20/OnWebAuthentication" class="external-link" rel="nofollow">OnWebAuthentication</a></ins></em> || <em><ins><a href="display/revolution20/OnManagerAuthentication" class="external-link" rel="nofollow">OnManagerAuthentication</a></ins></em> - Inside this event the developer can check for parameters which will <strong>override the default checking by password</strong> and <strong>allow</strong> further logging in process. If one of the plugins executed from this event return true, the user is considered verified and logged in.
 </li>
 
 <li>
-<em><ins><a href="http://rtfm.modx.com/display/revolution20/OnWebLogin" class="external-link" rel="nofollow">OnWebLogin</a></ins></em>&nbsp;||&nbsp;<em><ins><a href="http://rtfm.modx.com/display/revolution20/OnManagerLogin" class="external-link" rel="nofollow">OnManagerLogin</a></ins></em>&nbsp;- This event is fired after the logging in process has finished and the user is considered logged in. It <b>doesn't change</b> the logging in process <b>behaviour</b>.
+<em><ins><a href="display/revolution20/OnWebLogin" class="external-link" rel="nofollow">OnWebLogin</a></ins></em> || <em><ins><a href="display/revolution20/OnManagerLogin" class="external-link" rel="nofollow">OnManagerLogin</a></ins></em> - This event is fired after the logging in process has finished and the user is considered logged in. It <strong>doesn't change</strong> the logging in process <strong>behaviour</strong>.
 </li>
 </ol>
 
@@ -121,10 +112,10 @@ An array of:
 
 <ul>
 <li>
-<a href="/display/revolution20/System+Events" title="System Events">System Events</a>
+<a href="display/revolution20/System+Events" title="System Events">System Events</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Plugins" title="Plugins">Plugins</a>
+<a href="display/revolution20/Plugins" title="Plugins">Plugins</a>
 </li>
 </ul>

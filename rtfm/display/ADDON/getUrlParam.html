@@ -7,7 +7,7 @@ Revolution makes it easy to pass <a href="http://rtfm.modx.com/display/revolutio
 </p>
 
 <h4>
-<a name="getUrlParam-OPTIONS"></a>OPTIONS
+<a name="getUrlParam-OPTIONS" id="getUrlParam-OPTIONS"></a>OPTIONS
 </h4>
 
 <p>
@@ -24,40 +24,10 @@ Revolution makes it easy to pass <a href="http://rtfm.modx.com/display/revolutio
 Send parameter
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[~10? &amp;val=`5`]]
+<pre class="brush: php">
+    [[!getUrlParam? &amp;name=`val` &amp;int=`1`]]
+    
 </pre>
-</div>
-</div>
-
-<p>
-Retrieve the value
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getUrlParam? &amp;name=`val` &amp;<span class="code-object">int</span>=`1`]]
-</pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 This snippet needs to be called uncached to get the current value.
-</td>
-</tr>
-</table>
 </div>

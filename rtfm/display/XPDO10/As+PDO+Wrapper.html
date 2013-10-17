@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="AsPDOWrapper-Whatisit%3F"></a>What is it?
 </h2>
@@ -22,29 +18,15 @@ Finally, by simply extending xPDO yourself, you can further customize the class 
 You'll start off by extending the class like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-class myClass <span class="code-keyword">extends</span> xPDO
-</pre>
-</div>
-</div>
-
-<p>
-and then define a constructor method:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-function __construct($options = array()) {
+<pre class="brush: php">
+    function __construct($options = array()) {
     $options = array(
         XPDO_OPT_CACHE_PATH =&gt; '/path/to/my/cache/dir',
         XPDO_OPT_TABLE_PREFIX =&gt; 'myprefix_',
-        XPDO_OPT_HYDRATE_FIELDS =&gt; <span class="code-keyword">true</span>,
-        XPDO_OPT_HYDRATE_RELATED_OBJECTS =&gt; <span class="code-keyword">true</span>,
-        XPDO_OPT_HYDRATE_ADHOC_FIELDS =&gt; <span class="code-keyword">true</span>,
-        XPDO_OPT_VALIDATE_ON_SAVE =&gt; <span class="code-keyword">true</span>,
+        XPDO_OPT_HYDRATE_FIELDS =&gt; true,
+        XPDO_OPT_HYDRATE_RELATED_OBJECTS =&gt; true,
+        XPDO_OPT_HYDRATE_ADHOC_FIELDS =&gt; true,
+        XPDO_OPT_VALIDATE_ON_SAVE =&gt; true,
     );
     parent :: __construct(
         'mysql:host=localhost;dbname=myxpdodb;charset=utf8',
@@ -53,16 +35,15 @@ function __construct($options = array()) {
         $options,
         array (
             PDO_ATTR_ERRMODE =&gt; PDO_ERRMODE_SILENT,
-            PDO_ATTR_PERSISTENT =&gt; <span class="code-keyword">false</span>,
-            PDO_MYSQL_ATTR_USE_BUFFERED_QUERY =&gt; <span class="code-keyword">true</span>
+            PDO_ATTR_PERSISTENT =&gt; false,
+            PDO_MYSQL_ATTR_USE_BUFFERED_QUERY =&gt; true
         )
     );
-    $<span class="code-keyword">this</span>-&gt;setPackage('mypackage', 'path/to/my/model/');
+    $this-&gt;setPackage('mypackage', 'path/to/my/model/');
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
-There's a lot in there. You can find more information on the constructor here: <a href="/display/XPDO10/The+xPDO+Constructor" title="The xPDO Constructor">The xPDO Constructor</a>.
+There's a lot in there. You can find more information on the constructor here: <a href="display/XPDO10/The+xPDO+Constructor" title="The xPDO Constructor">The xPDO Constructor</a>.
 </p>

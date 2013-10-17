@@ -1,53 +1,53 @@
 <div>
 <ul>
 <li>
-<a href='#modMobile-WhatismodMobile%3F'>What is modMobile?</a>
+<a href="extras/revo/modmobile#modMobile-WhatismodMobile%3F">What is modMobile?</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#modMobile-History'>History</a>
+<a href="extras/revo/modmobile#modMobile-History">History</a>
 </li>
 
 <li>
-<a href='#modMobile-Requirements'>Requirements</a>
+<a href="extras/revo/modmobile#modMobile-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#modMobile-Development%26Bugreporting'>Development &amp; Bug reporting</a>
+<a href="extras/revo/modmobile#modMobile-Development%26Bugreporting">Development &amp; Bug reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#modMobile-Upgrading'>Upgrading</a>
+<a href="extras/revo/modmobile#modMobile-Upgrading">Upgrading</a>
 </li>
 
 <li>
-<a href='#modMobile-Installation'>Installation</a>
+<a href="extras/revo/modmobile#modMobile-Installation">Installation</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#modMobile-Troubleshooting'>Troubleshooting</a>
+<a href="extras/revo/modmobile#modMobile-Troubleshooting">Troubleshooting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#modMobile-Usage'>Usage</a>
+<a href="extras/revo/modmobile#modMobile-Usage">Usage</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#modMobile-Example1'>Example 1</a>
+<a href="extras/revo/modmobile#modMobile-Example1">Example 1</a>
 </li>
 
 <li>
-<a href='#modMobile-Example2'>Example 2</a>
+<a href="extras/revo/modmobile#modMobile-Example2">Example 2</a>
 </li>
 </ul>
 </li>
@@ -72,57 +72,45 @@ modMobile is a plugin that changes your template when a mobile device visits you
 <tr>
 <th class='confluenceTh'>
 Version
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Release date
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Contributors
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Remarks / highlights
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 1.0 pl
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Jan 5th, 2012
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Josh Gulledge
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Added Snippet and refactored the code
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 <a href="http://modx.com/extras/package/moddef" class="external-link" rel="nofollow">0.1.0 alpha</a>
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Mar 03, 2011&nbsp;
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Jeroen Kenters &nbsp;
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Initial release.
-<br class="atl-forced-newline" />
 </td>
 </tr>
 </tbody>
@@ -191,49 +179,21 @@ Using one template for mobile and full site
 
 <li>Set the USE Placeholder to Yes
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/33948003/use-placeholder.png?version=1&amp;modificationDate=1325800168000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/33948003/use-placeholder.png?version=1&amp;modificationDate=1325800168000" style="border: 0px solid black" /></span>
 </li>
 
 <li>Lets assume that the only difference between your standard version and the mobile version is the CSS file then in your template do something like this:
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-[[If?
-      &amp;subject=`[[+modxSiteTemplate]]`
-      &amp;operand=`mobile`
-      &amp;then=`<span class="code-tag">&lt;link rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> media=<span class="code-quote">"all"</span> href=<span class="code-quote">"/assets/templates/css/mobileLayout.css"</span> /&gt;</span>`
-      &amp;else=`<span class="code-tag">&lt;link rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> media=<span class="code-quote">"all"</span> href=<span class="code-quote">"/assets/templates/css/commonLayout.css"</span> /&gt;</span>
-        <span class="code-tag">&lt;!--[if IE 6]&gt;</span>
-            <span class="code-tag">&lt;link rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> media=<span class="code-quote">"all"</span> href=<span class="code-quote">"/assets/templates/css/ie6.css"</span> /&gt;</span>
-        <span class="code-tag">&lt;![endif]--&gt;</span>`
-    ]]
+<pre class="brush: php">
+        &lt;!-- Moblie Link --&gt;
+    &lt;a href="[[~[[*id]]]]?modxSiteTemplate=mobile"&gt;Mobile&lt;/a&gt;
+    &lt;!-- Back to Full site link --&gt;
+    &lt;a href="[[~[[*id]]]]?modxSiteTemplate=full"&gt;Full Site View&lt;/a&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Note: modxSiteTemplate is the value of modmobile.get_var and the same that you will need to send to the url to switch templates. You must also install the If extra for this example to work!
-</p>
-
-<ol>
-<li>Now just put a link in your template to the mobile version and then to the full version:
-</li>
-</ol>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-    <span class="code-tag"><span class="code-comment">&lt;!-- Moblie Link --&gt;</span></span>
-    <span class="code-tag">&lt;a href=<span class="code-quote">"[[~[[*id]]]]?modxSiteTemplate=mobile"</span>&gt;</span>Mobile<span class="code-tag">&lt;/a&gt;</span>
-    <span class="code-tag"><span class="code-comment">&lt;!-- Back to Full site link --&gt;</span></span>
-    <span class="code-tag">&lt;a href=<span class="code-quote">"[[~[[*id]]]]?modxSiteTemplate=full"</span>&gt;</span>Full Site View<span class="code-tag">&lt;/a&gt;</span>
-</pre>
-</div>
-</div>
-
 <p>
 Note this is optional but highly recommended.
 </p>
@@ -254,7 +214,7 @@ Using a separate mobile template
 
 <li>Enter in your mobile template ID
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/33948003/mobile-template-id.png?version=1&amp;modificationDate=1325800055000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/33948003/mobile-template-id.png?version=1&amp;modificationDate=1325800055000" style="border: 0px solid black" /></span>
 </li>
 </ol>
 </li>

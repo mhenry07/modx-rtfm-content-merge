@@ -2,62 +2,12 @@
 This is a listing of all of the (currently) available document-specific resource fields.&nbsp;Each one is a field in the MODX site_content table.&nbsp;They are accessed with <b>[*resource-field-name*]</b> tags. These values can also usually be retrieved from the array.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;documentObject['resource-field-name']
-</pre>
-</div>
-</div>
+<pre class="brush: php">
+    Example: strftime("%d/%m/%y %H:%M:%S", $value)
 
+    
+</pre>
 <ul>
-<li>
-<b>id</b> - The document's ID. Can also be obtained with $modx-&gt;documentIdentifier.
-</li>
-
-<li>
-<b>type</b> - Whether document, folder or weblink.
-</li>
-
-<li>
-<b>contentType</b> - The content type, such as text/html.
-</li>
-
-<li>
-<b>pagetitle</b> - The title of the page.
-</li>
-
-<li>
-<b>longtitle</b> - The longtitle of the page.
-</li>
-
-<li>
-<b>description</b> - The description of the page.
-</li>
-
-<li>
-<b>alias</b> - The alias of the page. Used in creating Friendly URLs.
-</li>
-
-<li>
-<b>link_attributes</b> - The Link Attributes of the page, eg. rel=, target= etc.
-</li>
-
-<li>
-<b>published</b> - [0|1] Whether or not the document is published. <a name="ResourceFields-pubdate" id="ResourceFields-pubdate"></a>
-</li>
-
-<li>
-<b>pub_date</b>- Date the document is to be published. This is not a "normal" date, and must be processed by a script for meaningful output.
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-Example: strftime(<span class="code-quote">"%d/%m/%y %H:%M:%S"</span>, $value)
-</pre>
-</div>
-</div>
-</li>
-
 <li>
 <b>unpub_date</b> - Date the document is to be unpublished. See 'pub_date'.
 </li>
@@ -103,7 +53,7 @@ Example: strftime(<span class="code-quote">"%d/%m/%y %H:%M:%S"</span>, $value)
 </li>
 
 <li>
-<b>createdon</b> - The date the document was created. See <b><a href="#ResourceFields-pubdate">pub_date</a></b>.
+<b>createdon</b> - The date the document was created. See <b><a href="evolution/1.0/designing/adding-modx-tags/resource-fields#ResourceFields-pubdate">pub_date</a></b>.
 </li>
 
 <li>
@@ -111,7 +61,7 @@ Example: strftime(<span class="code-quote">"%d/%m/%y %H:%M:%S"</span>, $value)
 </li>
 
 <li>
-<b>editedon</b> - The date the document was last edited. See <b><a href="#ResourceFields-pubdate">pub_date</a></b>.
+<b>editedon</b> - The date the document was last edited. See <b><a href="evolution/1.0/designing/adding-modx-tags/resource-fields#ResourceFields-pubdate">pub_date</a></b>.
 </li>
 
 <li>
@@ -119,7 +69,7 @@ Example: strftime(<span class="code-quote">"%d/%m/%y %H:%M:%S"</span>, $value)
 </li>
 
 <li>
-<b>deletedon</b> - The date the document was deleted. See <b><a href="#ResourceFields-pubdate">pub_date</a></b>.
+<b>deletedon</b> - The date the document was deleted. See <b><a href="evolution/1.0/designing/adding-modx-tags/resource-fields#ResourceFields-pubdate">pub_date</a></b>.
 </li>
 
 <li>

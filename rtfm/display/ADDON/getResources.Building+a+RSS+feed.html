@@ -1,8 +1,10 @@
+<div class="wiki-content">
+<!-- wiki content -->
+
 <p>
 Sites which publish new articles, blogs or news items will probably want to give their visitors a way to keep updated. RSS Feeds are an easy way of doing that. This short tutorial will go into detail on how to make your own RSS Feed using MODX Revolution and the getResources addon. If you have not yet installed getResources, please do so first.
 </p>
 
-<div>
 <ul>
 <li>
 <a href='#getResources.BuildingaRSSfeed-CreatingtheRSSResource'>Creating the RSS Resource</a>
@@ -23,7 +25,7 @@ Sites which publish new articles, blogs or news items will probably want to give
 </div>
 
 <h2>
-<a name="getResources.BuildingaRSSfeed-CreatingtheRSSResource"></a>Creating the RSS Resource
+<a name="getResources.BuildingaRSSfeed-CreatingtheRSSResource" id="getResources.BuildingaRSSfeed-CreatingtheRSSResource"></a>Creating the RSS Resource
 </h2>
 
 <p>
@@ -47,18 +49,16 @@ In your MODX Manager, create a new resource.
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
-&lt;rss version=<span class="code-quote">"2.0"</span> xmlns:atom=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2005/Atom"</span> xmlns:dc=<span class="code-quote">"http://purl.org/dc/elements/1.1/"</span>&gt;
-</span>&lt;channel&gt;
+<pre class="brush: xml">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;rss version="2.0" xmlns:atom="http:<span class="code-comment">//www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"&gt;
+&lt;channel&gt;
     &lt;title&gt;[[*pagetitle]]&lt;/title&gt;
     &lt;link&gt;[[~[[*id]]? &amp;scheme=`full`]]&lt;/link&gt;
     &lt;description&gt;[[*introtext:cdata]]&lt;/description&gt;
     &lt;language&gt;[[++cultureKey]]&lt;/language&gt;
     &lt;ttl&gt;120&lt;/ttl&gt;
-    &lt;atom:link href=<span class="code-quote">"[[~[[*id]]? &amp;scheme=`full`]]"</span> rel=<span class="code-quote">"self"</span> type=<span class="code-quote">"application/rss+xml"</span> /&gt;
+    &lt;atom:link href="[[~[[*id]]? &amp;scheme=`full`]]" rel="self" type="application/rss+xml" /&gt;
 [[getResources?
   &amp;tpl=`rssItem`
   &amp;parents=`29,41`
@@ -71,160 +71,149 @@ In your MODX Manager, create a new resource.
 ]]
 &lt;/channel&gt;
 &lt;/rss&gt;
+</span>
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Warning for Articles</b>
-<br />
-If you are using getResources to summarize blog posts from the <a href="http://rtfm.modx.com/display/ADDON/Articles" class="external-link" rel="nofollow">Articles</a> Extra, you must set <b>&amp;showHidden=`1`</b> – Articles are considered hidden.
-</td>
-</tr>
-</table>
+<div class='warning'>
+<span class="code-comment">If you are using getResources to summarize blog posts from the <a href="display/ADDON/Articles" class="external-link" rel="nofollow">Articles</a> Extra, you must set <b>&amp;showHidden=`1`</b> – Articles are considered hidden.</span>
 </div>
 
 <p>
-What this does is quite straightforward. First you declare the xml and rss version (as well as "extensions" to the rss, in this case atom and dublin core), similar to how you would declare a HTML Doctype. Next, the channel block starts which is where you give information about your feed and the website it represents.
+<span class="code-comment">What this does is quite straightforward. First you declare the xml and rss version (as well as "extensions" to the rss, in this case atom and dublin core), similar to how you would declare a HTML Doctype. Next, the channel block starts which is where you give information about your feed and the website it represents.</span>
 </p>
 
 <ul>
-<li>Title: the title of the feed, which will be displayed in the browser title bar or the RSS reader. It uses the pagetitle in this case.
+<li>
+<span class="code-comment">Title: the title of the feed, which will be displayed in the browser title bar or the RSS reader. It uses the pagetitle in this case.</span>
 </li>
 
-<li>Link: the full / absolute link to the RSS feed.
+<li>
+<span class="code-comment">Link: the full / absolute link to the RSS feed.</span>
 </li>
 
-<li>Description: short introduction about your website which will be displayed in the feed information. The cdata output filter puts cdata tags around the introtext field to ensure it doesn't break the feed.
+<li>
+<span class="code-comment">Description: short introduction about your website which will be displayed in the feed information. The cdata output filter puts cdata tags around the introtext field to ensure it doesn't break the feed.</span>
 </li>
 
-<li>Language: two character cultureKey which can be set per context and is used to identify the language the feed is in.
+<li>
+<span class="code-comment">Language: two character cultureKey which can be set per context and is used to identify the language the feed is in.</span>
 </li>
 
-<li>Ttl: time to live, in other words the time in minutes that a feed can be cached by the feed reader before fetching it again.
+<li>
+<span class="code-comment">Ttl: time to live, in other words the time in minutes that a feed can be cached by the feed reader before fetching it again.</span>
 </li>
 
-<li>Atom link to self.
+<li>
+<span class="code-comment">Atom link to self.</span>
 </li>
 </ul>
 
 <p>
-That's all for the channel information. Next, you will see the getResources call which fetches items 5 levels deep from parents 29 and 41 with a maximum of 10 resources. Furthermore it includes the content and any TVs that may be associated to a resource.
+<span class="code-comment">That's all for the channel information. Next, you will see the getResources call which fetches items 5 levels deep from parents 29 and 41 with a maximum of 10 resources. Furthermore it includes the content and any TVs that may be associated to a resource.</span>
 </p>
 
 <p>
-Save your resource.
+<span class="code-comment">Save your resource.</span>
 </p>
 
 <p>
-If you would visit your feed now, it wont work properly yet as we did not yet create the template to use for the feed items.
+<span class="code-comment">If you would visit your feed now, it wont work properly yet as we did not yet create the template to use for the feed items.</span>
 </p>
 
 <h2>
-<a name="getResources.BuildingaRSSfeed-SetupthegetResourcestplfortheitems"></a>Set up the getResources tpl for the items
+<span class="code-comment"><a name="getResources.BuildingaRSSfeed-SetupthegetResourcestplfortheitems" id="getResources.BuildingaRSSfeed-SetupthegetResourcestplfortheitems"></a>Set up the getResources tpl for the items</span>
 </h2>
 
 <p>
-In the getResources snippets we referenced a chunk called "rssItem", so let's create it now.
+<span class="code-comment">In the getResources snippets we referenced a chunk called "rssItem", so let's create it now.</span>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;item&gt;
+<pre class="brush: xml">
+<span class="code-comment">&lt;item&gt;
   &lt;title&gt;[[+pagetitle:htmlent]]&lt;/title&gt;
   &lt;link&gt;[[~[[+id]]? &amp;scheme=`full`]]&lt;/link&gt;
   &lt;description&gt;
-    [[+introtext:<span class="code-keyword">default</span>=`[[+content:ellipsis=`600`]]`:cdata]]
+    [[+introtext:default=`[[+content:ellipsis=`600`]]`:cdata]]
   &lt;/description&gt;
   &lt;pubDate&gt;[[+publishedon:strtotime:date=`%a, %d %b %Y %H:%M:%S %z`]]&lt;/pubDate&gt;
-  &lt;guid isPermaLink=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;[[~[[+id]]? &amp;scheme=`full`]]&lt;/guid&gt;
+  &lt;guid isPermaLink="false"&gt;[[~[[+id]]? &amp;scheme=`full`]]&lt;/guid&gt;
   &lt;dc:creator&gt;
       [[+createdby:userinfo=`fullname`]]
   &lt;/dc:creator&gt;
 &lt;/item&gt;
+</span>
 </pre>
-</div>
-</div>
-
 <p>
-You can modify this chunk to suit your needs and include that information you want to include (or not). This item template includes:
+<span class="code-comment">You can modify this chunk to suit your needs and include that information you want to include (or not). This item template includes:</span>
 </p>
 
 <ul>
-<li>The resource's pagetitle (with htmlentities applied, just in case);
+<li>
+<span class="code-comment">The resource's pagetitle (with htmlentities applied, just in case);</span>
 </li>
 
-<li>A link to the resource;
+<li>
+<span class="code-comment">A link to the resource;</span>
 </li>
 
-<li>A description which takes the introtext if it has any data, or the first 600 characters of the content if it doesn't. (<a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">Read more about output filters here</a>). It also applies the cdata filter again to prevent breaking the feed with html tags;
+<li>
+<span class="code-comment">A description which takes the introtext if it has any data, or the first 600 characters of the content if it doesn't. (<a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">Read more about output filters here</a>). It also applies the cdata filter again to prevent breaking the feed with html tags;</span>
 </li>
 
-<li>The date the resource was published;
+<li>
+<span class="code-comment">The date the resource was published;</span>
 </li>
 
-<li>The GUID / link to the resource;
+<li>
+<span class="code-comment">The GUID / link to the resource;</span>
 </li>
 
-<li>The name of the author (as fetched from the createdby field).
+<li>
+<span class="code-comment">The name of the author (as fetched from the createdby field).</span>
 </li>
 </ul>
 
 <p>
-When you save the chunk, and go back to your feed, you should see it has loaded in the content and you're good to go. Make sure to put a link to your RSS feed on your site somewhere, and also stick it in the header with a link tag:
+<span class="code-comment">When you save the chunk, and go back to your feed, you should see it has loaded in the content and you're good to go. Make sure to put a link to your RSS feed on your site somewhere, and also stick it in the header with a link tag:</span>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- &lt;link rel=<span class="code-quote">"alternate"</span> type=<span class="code-quote">"application/rss+xml"</span> title=<span class="code-quote">"Follow <span class="code-keyword">this</span> website with RSS"</span> href=<span class="code-quote">"[[~52]]"</span> /&gt;
+<pre class="brush: xml">
+<span class="code-comment"> &lt;link rel="alternate" type="application/rss+xml" title="Follow this website with RSS" href="[[~52]]" /&gt;
+</span>
 </pre>
-</div>
-</div>
-
 <p>
-Be sure to replace 52 with the ID of your RSS resource. This will make the browser recognize the feed, and put the shiny icon in the navigation bar.
+<span class="code-comment">Be sure to replace 52 with the ID of your RSS resource. This will make the browser recognize the feed, and put the shiny icon in the navigation bar.</span>
 </p>
 
 <h2>
-<a name="getResources.BuildingaRSSfeed-Nowwhat..."></a>Now what...
+<span class="code-comment"><a name="getResources.BuildingaRSSfeed-Nowwhat..." id="getResources.BuildingaRSSfeed-Nowwhat..."></a>Now what...</span>
 </h2>
 
 <p>
-Of course you can further customize this. Some ideas to get you started:
+<span class="code-comment">Of course you can further customize this. Some ideas to get you started:</span>
 </p>
 
 <ul>
-<li>If your author doesn't have or use its own account in your MODX Manager, make a text TV with his name and reference that instead of the createdby field's name.
+<li>
+<span class="code-comment">If your author doesn't have or use its own account in your MODX Manager, make a text TV with his name and reference that instead of the createdby field's name.</span>
 </li>
 
-<li>Right now, the feed fetches every resource within the parents.. which can also include categories, placeholder pages or other pages you would rather not include. You can filter these out by using a Template Variable and the &amp;tvFilter parameter on the getResources call.
+<li>
+<span class="code-comment">Right now, the feed fetches every resource within the parents.. which can also include categories, placeholder pages or other pages you would rather not include. You can filter these out by using a Template Variable and the &amp;tvFilter parameter on the getResources call.</span>
 </li>
 
-<li>Have a look at <a href="http://cyber.law.harvard.edu/rss/rss.html" class="external-link" rel="nofollow">this RSS specification</a> and see if there is more information you want to include in your feed.
+<li>
+<span class="code-comment">Have a look at <a href="http://cyber.law.harvard.edu/rss/rss.html" class="external-link" rel="nofollow">this RSS specification</a> and see if there is more information you want to include in your feed.</span>
 </li>
 </ul>
 
 <h2>
-<a name="getResources.BuildingaRSSfeed-Troubleshooting"></a>Troubleshooting
+<span class="code-comment"><a name="getResources.BuildingaRSSfeed-Troubleshooting" id="getResources.BuildingaRSSfeed-Troubleshooting"></a>Troubleshooting</span>
 </h2>
 
 <p>
-Is your feed not showing anything? Try viewing the page source. If there is content in there, but it is not being parsed properly there is probably an error in the syntax somewhere. Use the W3C Feed Validator to validate your feed and eliminate any errors.
+<span class="code-comment">Is your feed not showing anything? Try viewing the page source. If there is content in there, but it is not being parsed properly there is probably an error in the syntax somewhere. Use the W3C Feed Validator to validate your feed and eliminate any errors.</span>
 </p>
 
 <p>
-This page has been partly based on <a href="http://modxcms.com/forums/index.php/topic,59632.msg339285.html#msg339285" class="external-link" rel="nofollow">this forum post by Ryan Thrash</a>.
+<span class="code-comment">This page has been partly based on <a href="http://modxcms.com/forums/index.php/topic,59632.msg339285.html#msg339285" class="external-link" rel="nofollow">this forum post by Ryan Thrash</a>.</span>
 </p>

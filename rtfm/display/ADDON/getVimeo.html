@@ -11,7 +11,7 @@ This snippet uses the Vimeo Simple API to search a specified channel and return 
 </p>
 
 <h2>
-<a name="getVimeo-History"></a>History
+<a name="getVimeo-History" id="getVimeo-History"></a>History
 </h2>
 
 <p>
@@ -19,15 +19,15 @@ getVimeo was first written by David Pede (davidpede) and released on June 12th, 
 </p>
 
 <h2>
-<a name="getVimeo-Download"></a>Download
+<a name="getVimeo-Download" id="getVimeo-Download"></a>Download
 </h2>
 
 <p>
-It can be downloaded from within the MODX Revolution manager via <a href="http://rtfm.modx.com/display/revolution20/Installing+a+Package" class="external-link" rel="nofollow">Package Management</a>, or from the MODX Extras Repository, here: <a href="http://modx.com/extras/package/getvimeo" class="external-link" rel="nofollow">http://modx.com/extras/package/getvimeo</a>
+It can be downloaded from within the MODX Revolution manager via <a href="display/revolution20/Installing+a+Package" rel="nofollow">Package Management</a>, or from the MODX Extras Repository, here: <a href="http://modx.com/extras/package/getvimeo" rel="nofollow">http://modx.com/extras/package/getvimeo</a>
 </p>
 
 <p>
-The source code and build script is also availiable on GitHub: <a href="https://github.com/tasianmedia/getVimeo" class="external-link" rel="nofollow">https://github.com/tasianmedia/getVimeo</a>
+The source code and build script is also available on GitHub: <a href="https://github.com/tasianmedia/getVimeo" rel="nofollow">https://github.com/tasianmedia/getVimeo</a>
 </p>
 
 <h2>
@@ -35,620 +35,508 @@ The source code and build script is also availiable on GitHub: <a href="https://
 </h2>
 
 <p>
-Bugs, issues and feature requests can be reported in the GitHub Repository, found here: <a href="https://github.com/tasianmedia/getVimeo/issues" class="external-link" rel="nofollow">https://github.com/tasianmedia/getVimeo/issues</a>
+Bugs, issues and feature requests can be reported in the GitHub Repository, found here: <a href="https://github.com/tasianmedia/getVimeo/issues" rel="nofollow">https://github.com/tasianmedia/getVimeo/issues</a>
 </p>
 
 <h2>
-<a name="getVimeo-Usage"></a>Usage
+<a name="getVimeo-Usage" id="getVimeo-Usage"></a>Usage
 </h2>
 
 <p>
 The getVimeo snippet can be called using the tag:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[getVimeo]]
 </pre>
-</div>
+<div class="warning">
+Calls without the &amp;channel, &amp;id and &amp;tpl properties specified will output nothing.
 </div>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
+<h2>
+<a name="getVimeo-AvailablePlaceholders" id="getVimeo-AvailablePlaceholders"></a>Available Properties
+</h2>
+
+<h3>
+<a name="getVimeo-TemplatingProperties" id="getVimeo-TemplatingProperties"></a>Templating Properties
+</h3>
+
+<table>
+<tbody>
+<tr>
+<th>
+Name
+</th>
+<th>
+Description
+</th>
+<th>
+Default Value
+</th>
+<th>
+Added in Version
+</th>
+</tr>
 
 <tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+<td>
+tpl
 </td>
 <td>
-Calls without the &amp;channel, &amp;id and &amp;tpl properties specified will output nothing.
-</td>
-</tr>
-</table>
-</div>
-
-<h3>
-<a name="getVimeo-AvailableProperties"></a>Available Properties
-</h3>
-
-<h4>
-<a name="getVimeo-TemplatingProperties"></a>Templating Properties
-</h4>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Name
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Default Value
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Added in Version
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-tpl
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
 Name of a chunk serving as a template. (REQUIRED)
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
-<td class='confluenceTd'>
+<td>
 1.0.0-pl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplAlt
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk serving as a template for every other Video.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
-<td class='confluenceTd'>
+<td>
 1.0.0-pl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplWrapper
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk serving as a wrapper template for the output. (NOTE: Only works when placeholder is set with &amp;toPlaceholder)
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
-<td class='confluenceTd'>
+<td>
 1.0.0-pl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will assign the output to this placeholder instead of outputting it directly.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
-<td class='confluenceTd'>
+<td>
 1.0.0-pl
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-
-<h4>
-<a name="getVimeo-SelectionProperties"></a>Selection Properties
-</h4>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Name
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Default Value
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Added in Version
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-channel
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The URL Name or Numeric ID of the target Vimeo Channel. (REQUIRED)
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-1.0.0-pl
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-id
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-A comma-separated list of Numeric Video IDs to output from target Channel. Use `all` to output all Videos. (REQUIRED)
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-1.0.0-pl
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-sortby
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-A placeholder name to sort by. (NOTE: Please see placeholder docs for more details)
-</td>
-<td class='confluenceTd'>
-upload_date
-</td>
-<td class='confluenceTd'>
-1.0.0-pl
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-sortdir
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Order which to sort by. (OPTIONS: DESC or ASC)
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-DESC
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-1.0.0-pl
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 
 <h3>
-<a name="getVimeo-AvailablePlaceholders"></a>Available Placeholders
+<a name="getVimeo-SelectionProperties" id="getVimeo-SelectionProperties"></a>Selection Properties
 </h3>
+
+<table>
+<tbody>
+<tr>
+<th>
+Name
+</th>
+<th>
+Description
+<br />
+</th>
+<th>
+Default Value
+<br />
+</th>
+<th>
+Added in Version
+<br />
+</th>
+</tr>
+
+<tr>
+<td>
+channel
+</td>
+<td>
+The URL Name or Numeric ID of the target Vimeo Channel. (REQUIRED)
+</td>
+<td>
+</td>
+<td>
+1.0.0-pl
+</td>
+</tr>
+
+<tr>
+<td>
+id
+</td>
+<td>
+A comma-separated list of Numeric Video IDs to output from target Channel. Use `all` to output all Videos. (REQUIRED)
+</td>
+<td>
+</td>
+<td>
+1.0.0-pl
+</td>
+</tr>
+
+<tr>
+<td>
+sortby
+</td>
+<td>
+A placeholder name to sort by. (NOTE: Please see placeholder docs for more details)
+</td>
+<td>
+upload_date
+</td>
+<td>
+1.0.0-pl
+</td>
+</tr>
+
+<tr>
+<td>
+sortdir
+</td>
+<td>
+Order which to sort by. (OPTIONS: DESC or ASC)
+</td>
+<td>
+DESC
+</td>
+<td>
+1.0.0-pl
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="getVimeo-AvailablePlaceholders" id="getVimeo-AvailablePlaceholders"></a>Available Placeholders
+</h2>
 
 <p>
 The placeholders available to your getVimeo template Chunks are mostly dependent on the Vimeo Simple API.
 </p>
 
-<h4>
-<a name="getVimeo-VideoPlaceholders"></a>Video Placeholders
-</h4>
+<h3>
+<a name="getVimeo-VideoPlaceholders" id="getVimeo-VideoPlaceholders"></a>Video Placeholders
+</h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Added in Version
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+title]]
 </td>
-<td class='confluenceTd'>
+<td>
 Video title
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+url]]
 </td>
-<td class='confluenceTd'>
+<td>
 URL to the Video Page
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+id]]
 </td>
-<td class='confluenceTd'>
+<td>
 Video ID
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+description]]
 </td>
-<td class='confluenceTd'>
+<td>
 The description of the video
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+thumbnail_small]]
 </td>
-<td class='confluenceTd'>
+<td>
 URL to a small version of the thumbnail
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+thumbnail_medium]]
 </td>
-<td class='confluenceTd'>
+<td>
 URL to a medium version of the thumbnail
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+thumbnail_large]]
 </td>
-<td class='confluenceTd'>
+<td>
 URL to a large version of the thumbnail
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+user_name]]
 </td>
-<td class='confluenceTd'>
+<td>
 The user name of the video’s uploader
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+user_url]]
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to the user profile
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+upload_date]]
 </td>
-<td class='confluenceTd'>
+<td>
 The date/time the video was uploaded on
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+user_portrait_small]]
 </td>
-<td class='confluenceTd'>
+<td>
 Small user portrait (30px)
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+user_portrait_medium]]
 </td>
-<td class='confluenceTd'>
+<td>
 Medium user portrait (100px)
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+user_portrait_large]]
 </td>
-<td class='confluenceTd'>
+<td>
 Large user portrait (300px)
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+stats_number_of_likes]]
 </td>
-<td class='confluenceTd'>
+<td>
 # of likes
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+stats_number_of_views]]
 </td>
-<td class='confluenceTd'>
+<td>
 # of views
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+stats_number_of_comments]]
 </td>
-<td class='confluenceTd'>
+<td>
 # of comments
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+duration]]
 </td>
-<td class='confluenceTd'>
+<td>
 Duration of the video in seconds
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+width]]
 </td>
-<td class='confluenceTd'>
+<td>
 Standard definition width of the video
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+height]]
 </td>
-<td class='confluenceTd'>
+<td>
 Standard definition height of the video
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+tags]]
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of tags
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 </tbody>
 </table>
+
+<div class="info">
+Please see: <a href="http://developer.vimeo.com/apis/simple#video-response" rel="nofollow">http://developer.vimeo.com/apis/simple#video-response</a> for an up to date list of video response data provided by the API.
 </div>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
+<h3>
+<a name="getVimeo-OtherPlaceholders" id="getVimeo-OtherPlaceholders"></a>Other Placeholders
+</h3>
 
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Please see: <a href="http://developer.vimeo.com/apis/simple#video-response" class="external-link" rel="nofollow">http://developer.vimeo.com/apis/simple#video-response</a> for an up to date list of video response data provided by the API.
-</td>
-</tr>
-</table>
-</div>
-
-<h4>
-<a name="getVimeo-OtherPlaceholders"></a>Other Placeholders
-</h4>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Added in Version
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+total]]
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 Returns the total number of Videos in the output.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.0.1-pl
-<br class="atl-forced-newline" />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h2>
-<a name="getVimeo-Examples"></a>Examples
+<a name="getVimeo-Examples" id="getVimeo-Examples"></a>Examples
 </h2>
 
 <p>
 Output a list of ALL videos from the Vimeo 'Staff Picks' Channel, using the 'vimeoTpl' chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getVimeo? &amp;channel=`staffpicks` &amp;id=`all` &amp;tpl=`vimeoTpl`]]
 </pre>
-</div>
-</div>
-
 <p>
 Output only the videos specified from the Vimeo 'Staff Picks' Channel, using the 'vimeoTpl' chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getVimeo? &amp;channel=`staffpicks` &amp;id=`68688561,69239313,68146128` &amp;tpl=`vimeoTpl`]]
 </pre>
-</div>
-</div>
-
 <p>
 Output a list of ALL videos from the Vimeo 'Staff Picks' Channel, using the 'vimeoTpl' chunk and assign the output to a placeholder:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getVimeo? &amp;channel=`staffpicks` &amp;id=`all` &amp;tpl=`vimeoTpl` &amp;toPlaceholder=`videos`]]
 [[+videos:notempty=`[[+videos]]`]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 You can also pass a placeholder name (&amp;toPlaceholder) to a wrapper chunk (&amp;tplWrapper) for more complex markup wrapping.
-</td>
-</tr>
-</table>
 </div>

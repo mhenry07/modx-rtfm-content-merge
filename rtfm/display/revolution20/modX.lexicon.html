@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="modX.lexicon-modX%3A%3Alexicon"></a>modX::lexicon
 </h2>
@@ -10,56 +6,23 @@
 Grabs a processed Lexicon Entry.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 This may also be a modLexicon object as well, if the Lexicon has been loaded. PHP supports having objects and methods with the same name.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="modX.lexicon-Syntax"></a>Syntax
+<a name="modX.lexicon-Syntax" id="modX.lexicon-Syntax"></a>Syntax
 </h2>
 
 <p>
 API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::lexicon()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::lexicon()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-string lexicon (string $key, [array $params = array()])
+<pre class="brush: php">
+    echo $modx-&gt;lexicon('welcome_message',array('name' =&gt; 'John'));
+
+    
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.lexicon-Example"></a>Example
-</h2>
-
-<p>
-Output the translation of the 'welcome_message' Entry, and sets the 'name' Placeholder in it.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-echo $modx-&gt;lexicon('welcome_message',array('name' =&gt; 'John'));
-</pre>
-</div>
-</div>
-
 <p>
 The above example assumes a message that contains a placeholder for "name", e.g.
 </p>
@@ -73,11 +36,11 @@ $_lang['welcome_message'] = 'Hello [[+name]]!  How are you today?';
 </div>
 
 <h2>
-<a name="modX.lexicon-SeeAlso"></a>See Also
+<a name="modX.lexicon-SeeAlso" id="modX.lexicon-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/Internationalization" title="Internationalization">Internationalization</a>
+<a href="display/revolution20/Internationalization" title="Internationalization">Internationalization</a>
 </li>
 </ul>

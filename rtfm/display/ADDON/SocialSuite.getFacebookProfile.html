@@ -1,9 +1,9 @@
 <p>
-<a href="/display/ADDON/SocialSuite" title="SocialSuite">SocialSuite&nbsp;</a>is a collection of useful tools for integrating various social media into your MODX website.&nbsp;
+<a href="display/ADDON/SocialSuite" title="SocialSuite">SocialSuite&nbsp;</a>is a collection of useful tools for integrating various social media into your MODX website.&nbsp;
 </p>
 
 <p>
-getFacebookProfile is a&nbsp;<a href="/display/revolution20/Snippets" title="Snippets">snippet</a>, part of SocialSuite, which returns all sorts of information about a <b>user or page</b> on Facebook.
+getFacebookProfile is a&nbsp;<a href="display/revolution20/Snippets" title="Snippets">snippet</a>, part of SocialSuite, which returns all sorts of information about a <b>user or page</b> on Facebook.
 </p>
 
 <h2>
@@ -116,63 +116,33 @@ Name of a chunk to parse with the placeholders (when toPlaceholders=0).
 <a name="SocialSuite.getFacebookProfile-ExampleUsage" id="SocialSuite.getFacebookProfile-ExampleUsage"></a>Example Usage
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getFacebookProfile? &amp;user=`modxcms` &amp;showAvailableData=`1` &amp;toPlaceholders=`1`]]
-</pre>
-</div>
-</div>
-
-<p>
-returns the following:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-name = MODX
+<pre class="brush: php">
+    name = MODX
 is_published = 1
-website = http:<span class="code-comment">//modx.com/
-</span>username = modxcms
+website = http://modx.com/
+username = modxcms
 founded = November 2004
-company_overview = MODX is the Content Management <span class="code-object">System</span> that gives developers, designers and end-users the creative freedom and power to build and maintain websites and online applications with ease. Lose the limitations. There’s no steep learning curve, no cumbersome template language, and no awkward or restrictive structures forced on your site. MODX gives you the freedom to work your way and get things done.
+company_overview = MODX is the Content Management System that gives developers, designers and end-users the creative freedom and power to build and maintain websites and online applications with ease. Lose the limitations. There’s no steep learning curve, no cumbersome template language, and no awkward or restrictive structures forced on your site. MODX gives you the freedom to work your way and get things done.
 products = MODX Evolution, MODX Revolution
-about = MODX CMS is the Content Management <span class="code-object">System</span>, framework and platform. http:<span class="code-comment">//modx.com/ MODX Revolution http://modx.com/download/
-</span>talking_about_count = 45
+about = MODX CMS is the Content Management System, framework and platform. http://modx.com/ MODX Revolution http://modx.com/download/
+talking_about_count = 45
 category = Software
 id = 19110642979
-link = http:<span class="code-comment">//www.facebook.com/modxcms
-</span>likes = 2348
+link = http://www.facebook.com/modxcms
+likes = 2348
 cover.cover_id = 10150742956652980
-cover.source = http:<span class="code-comment">//sphotos-d.ak.fbcdn.net/hphotos-ak-prn1/s720x720/559491_10150742956652980_2095164733_n.jpg
-</span>cover.offset_y = 0
-</pre>
-</div>
-</div>
+cover.source = http://sphotos-d.ak.fbcdn.net/hphotos-ak-prn1/s720x720/559491_10150742956652980_2095164733_n.jpg
+cover.offset_y = 0
 
+    
+</pre>
 <p>
 And allows you to do something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-Facebook Name: [[!+fb.name]]&lt;br /&gt;
-Likes: [[!+fb.likes]]
-</pre>
-</div>
-</div>
-
-<p>
-which outputs something like this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-Facebook Name: MODX
+<pre class="brush: php">
+    Facebook Name: MODX
 Likes: 2348
+
+    
 </pre>
-</div>
-</div>

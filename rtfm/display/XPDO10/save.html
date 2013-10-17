@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="save-xPDOObject%3A%3Asave%28%29"></a>xPDOObject::save()
 </h2>
@@ -18,26 +14,8 @@ Persist new or changed objects to the database container. Will also cascade and 
 API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#save" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#save</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> save ([<span class="code-object">boolean</span>|integer $cacheFlag = <span class="code-keyword">null</span>])
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="save-Examples" id="save-Examples"></a>Examples
-</h2>
-
-<p>
-Save a wand, along with its owner and parts.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$owner = $xpdo-&gt;newObject('Wizard');
+<pre class="brush: php">
+    $owner = $xpdo-&gt;newObject('Wizard');
 $owner-&gt;set('name','Harry Potter');
 
 $parts = array();
@@ -50,9 +28,9 @@ $wand = $xpdo-&gt;newObject('Wand');
 $wand-&gt;addOne($owner);
 $wand-&gt;addMany($parts);
 
-<span class="code-keyword">if</span> ($wand-&gt;save() == <span class="code-keyword">false</span>) {
+if ($wand-&gt;save() == false) {
    echo 'Oh no, the wand failed to save!';
 }
+
+    
 </pre>
-</div>
-</div>

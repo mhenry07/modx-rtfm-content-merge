@@ -1,67 +1,49 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#ReverseEngineerxPDOClassesfromExistingDatabaseTable-Introduction'>Introduction</a>
+<a href="revolution/2.x/case-studies-and-tutorials/reverse-engineer-xpdo-classes-from-existing-database-table#ReverseEngineerxPDOClassesfromExistingDatabaseTable-Introduction">Introduction</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#ReverseEngineerxPDOClassesfromExistingDatabaseTable-AccessPoints'>Access Points</a>
+<a href="revolution/2.x/case-studies-and-tutorials/reverse-engineer-xpdo-classes-from-existing-database-table#ReverseEngineerxPDOClassesfromExistingDatabaseTable-AccessPoints">Access Points</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#ReverseEngineerxPDOClassesfromExistingDatabaseTable-CreatingaMySQLtable'>Creating a MySQL table</a>
+<a href="revolution/2.x/case-studies-and-tutorials/reverse-engineer-xpdo-classes-from-existing-database-table#ReverseEngineerxPDOClassesfromExistingDatabaseTable-CreatingaMySQLtable">Creating a MySQL table</a>
 </li>
 
 <li>
-<a href='#ReverseEngineerxPDOClassesfromExistingDatabaseTable-CreateReverseEngineeringScript'>Create Reverse Engineering Script</a>
+<a href="revolution/2.x/case-studies-and-tutorials/reverse-engineer-xpdo-classes-from-existing-database-table#ReverseEngineerxPDOClassesfromExistingDatabaseTable-CreateReverseEngineeringScript">Create Reverse Engineering Script</a>
 </li>
 
 <li>
-<a href='#ReverseEngineerxPDOClassesfromExistingDatabaseTable-DefiningKeyRelationships'>Defining Key Relationships</a>
+<a href="revolution/2.x/case-studies-and-tutorials/reverse-engineer-xpdo-classes-from-existing-database-table#ReverseEngineerxPDOClassesfromExistingDatabaseTable-DefiningKeyRelationships">Defining Key Relationships</a>
 </li>
 
 <li>
-<a href='#ReverseEngineerxPDOClassesfromExistingDatabaseTable-AccessingyourData'>Accessing your Data</a>
+<a href="revolution/2.x/case-studies-and-tutorials/reverse-engineer-xpdo-classes-from-existing-database-table#ReverseEngineerxPDOClassesfromExistingDatabaseTable-AccessingyourData">Accessing your Data</a>
 </li>
 
 <li>
-<a href='#ReverseEngineerxPDOClassesfromExistingDatabaseTable-SeeAlso'>See Also</a>
+<a href="revolution/2.x/case-studies-and-tutorials/reverse-engineer-xpdo-classes-from-existing-database-table#ReverseEngineerxPDOClassesfromExistingDatabaseTable-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
 <h2>
-<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-Introduction"></a>Introduction
+<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-Introduction" id="ReverseEngineerxPDOClassesfromExistingDatabaseTable-Introduction"></a>Introduction
 </h2>
 
 <p>
 The xPDO Object-Relational-Bridge (ORB) relies on a series of PHP classes to provide an interface to database tables. These PHP classes can be generated automatically by parsing a specially formatted XML file, by reverse engineering existing database tables, or they can even be written by hand (masochists only). The easiest approach when dealing with a custom database table is to reverse engineer existing MySQL database tables: MySQL has been around for a long time, and there are numerous tutorials and books out there to help you learn how to use it.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-If you're wanting to extend existing MODx classes, e.g. by creating <a href="/display/revolution20/Custom+Resource+Classes" title="Custom Resource Classes">Custom Resource Classes</a>, then usually you will start this process with the XML file.
-</td>
-</tr>
-</table>
+<div class="tip">
+If you're wanting to extend existing MODx classes, e.g. by creating <a href="display/revolution20/Custom+Resource+Classes" title="Custom Resource Classes">Custom Resource Classes</a>, then usually you will start this process with the XML file.
 </div>
 
 <p>
@@ -87,7 +69,7 @@ Even if you plan to deploy your code and its associated data models onto multipl
 </p>
 
 <h3>
-<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-AccessPoints"></a>Access Points
+<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-AccessPoints" id="ReverseEngineerxPDOClassesfromExistingDatabaseTable-AccessPoints"></a>Access Points
 </h3>
 
 <p>
@@ -99,7 +81,7 @@ In the image below, it's important to realize that you can start with any one co
 </p>
 
 <p>
-<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/33226895/xPDO_Forward_and_Reverse.jpg?version=1&amp;modificationDate=1322284979000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style="display: block; text-align: center"><img src="download/attachments/33226895/xPDO_Forward_and_Reverse.jpg?version=1&amp;modificationDate=1322284979000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
@@ -107,7 +89,7 @@ Arguably, the easiest "access point" to the xPDO technology is to start with som
 </p>
 
 <h2>
-<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-CreatingaMySQLtable"></a>Creating a MySQL table
+<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-CreatingaMySQLtable" id="ReverseEngineerxPDOClassesfromExistingDatabaseTable-CreatingaMySQLtable"></a>Creating a MySQL table
 </h2>
 
 <p>
@@ -115,30 +97,12 @@ One of the easiest ways to create a MySQL table is to use one of the many GUI ed
 </p>
 
 <h2>
-<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-CreateReverseEngineeringScript"></a>Create Reverse Engineering Script
+<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-CreateReverseEngineeringScript" id="ReverseEngineerxPDOClassesfromExistingDatabaseTable-CreateReverseEngineeringScript"></a>Create Reverse Engineering Script
 </h2>
 
 <p>
 We need a script to scan your database tables and generate the XML schema and PHP files. In general, this is a "disposable" script that you may only need to run once. You will probably need to make adjustments and run it more than once, but in concept and in function, this script is merely scaffolding.
 </p>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-You can download a version of this script and see a tutorial that describes using this method with a simple custom DB table at <a href="http://bobsguides.com/custom-db-tables.html" class="external-link" rel="nofollow">Bob's Guides</a>.
-</td>
-</tr>
-</table>
-</div>
 
 <p>
 The crux of this script are 2 xPDO methods (note, however, that the methods belong to children objects):
@@ -156,22 +120,8 @@ The crux of this script are 2 xPDO methods (note, however, that the methods belo
 Together, they behave similarly to other ORM's, e.g. Doctrine
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// Sample Doctrine code:
-</span>Doctrine_Core::generateModelsFromDb();
-</pre>
-</div>
-</div>
-
-<p>
-Here's a reverse-engineering script that allows a bit of configuration and does a little error checking:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 &lt;?php
 /*------------------------------------------------------------------------------
 ================================================================================
@@ -183,14 +133,14 @@ This script generates the XML schema and PHP class files that describe custom
 database tables.
 
 This script is meant to be executed once only: after the class and schema files
-have been created, the purpose of <span class="code-keyword">this</span> script has been served, though you will need to run it again <span class="code-keyword">if</span> you modify your schema.
+have been created, the purpose of this script has been served.
 
 USAGE:
-1. Upload <span class="code-keyword">this</span> file to the root of your MODx installation
+1. Upload this file to the root of your MODx installation
 2. Set the configuration details below
-3. Navigate to <span class="code-keyword">this</span> script in a browser to execute it,
-        e.g. http:<span class="code-comment">//yoursite.com/thisscript.php
-</span> or, you can <span class="code-keyword">do</span> <span class="code-keyword">this</span> via the command line, e.g. php <span class="code-keyword">this</span>-script.php
+3. Navigate to this script in a browser to execute it,
+        e.g. http://yoursite.com/thisscript.php
+        or, you can do this via the command line, e.g. php this-script.php
 
 INPUT:
 Please configure the options below.
@@ -203,16 +153,16 @@ Creates XML and PHP files:
         core/components/$package_name/schema/$package_name.mysql.schema.xml
 
 SEE ALSO:
-http:<span class="code-comment">//modxcms.com/forums/index.php?topic=40174.0
-</span>http:<span class="code-comment">//rtfm.modx.com/display/revolution20/Using+Custom+Database+Tables+in+your+3rd+Party+Components
-</span>http:<span class="code-comment">//rtfm.modx.com/display/xPDO20/xPDOGenerator.writeSchema
-</span>------------------------------------------------------------------------------*/
+http://modxcms.com/forums/index.php?topic=40174.0
+display/revolution20/Using+Custom+Database+Tables+in+your+3rd+Party+Components
+display/xPDO20/xPDOGenerator.writeSchema
+------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
                 CONFIGURATION
 ------------------------------------------------------------------------------
 Be sure to create a valid database user with permissions to the appropriate
-databases and tables before you <span class="code-keyword">try</span> to run <span class="code-keyword">this</span> script, e.g. by running
+databases and tables before you try to run this script, e.g. by running
 something like the following:
 
 CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'y0urP@$$w0rd';
@@ -221,51 +171,51 @@ FLUSH PRIVILEGES;
 
 Be sure to test that the login criteria you created actually work before
 continuing. If you *can* log in, but you receive errors (e.g. SQLSTATE[42000] [1044] )
-when <span class="code-keyword">this</span> script runs, then you may need to grant permissions <span class="code-keyword">for</span> CREATE TEMPORARY TABLES
+when this script runs, then you may need to grant permissions for CREATE TEMPORARY TABLES
 ------------------------------------------------------------------------------*/
-$debug = <span class="code-keyword">false</span>;               <span class="code-comment">// <span class="code-keyword">if</span> <span class="code-keyword">true</span>, will include verbose debugging info, including SQL errors.
-</span>$verbose = <span class="code-keyword">true</span>;       <span class="code-comment">// <span class="code-keyword">if</span> <span class="code-keyword">true</span>, will print status info.
-</span>
-<span class="code-comment">// The XML schema file *must* be updated each time the database is modified, either
-</span><span class="code-comment">// manually or via <span class="code-keyword">this</span> script. By <span class="code-keyword">default</span>, the schema is regenerated.
-</span><span class="code-comment">// If you have spent time adding in composite/aggregate relationships to your
-</span><span class="code-comment">// XML schema file (i.e. foreign key relationships), then you may want to set <span class="code-keyword">this</span>
-</span><span class="code-comment">// to '<span class="code-keyword">false</span>' in order to preserve your custom modifications.
-</span>$regenerate_schema = <span class="code-keyword">true</span>;
+$debug = false;         // if true, will include verbose debugging info, including SQL errors.
+$verbose = true;        // if true, will print status info.
 
-<span class="code-comment">// <span class="code-object">Class</span> files are not overwritten by <span class="code-keyword">default</span>
-</span>$regenerate_classes = <span class="code-keyword">true</span>;
+// The XML schema file *must* be updated each time the database is modified, either
+// manually or via this script. By default, the schema is regenerated.
+// If you have spent time adding in composite/aggregate relationships to your
+// XML schema file (i.e. foreign key relationships), then you may want to set this
+// to 'false' in order to preserve your custom modifications.
+$regenerate_schema = true;
 
-<span class="code-comment">// Your <span class="code-keyword">package</span> shortname:
-</span>$package_name = '';
+// Class files are not overwritten by default
+$regenerate_classes = true;
 
-
-<span class="code-comment">// Database Login Info can be set explicitly:
-</span>$database_server         = 'localhost';          <span class="code-comment">// most frequently, your database resides locally
-</span>$dbase                   = '';           <span class="code-comment">// name of your database
-</span>$database_user           = '';           <span class="code-comment">// name of the user
-</span>$database_password       = '';   <span class="code-comment">// password <span class="code-keyword">for</span> that database user
-</span>
-<span class="code-comment">// <span class="code-keyword">if</span> <span class="code-keyword">this</span> file is not placed side by side with the config.core.php file, add the directory path
-</span>include_once 'config.core.php';
-<span class="code-comment">// OR, use your MODx Revo connection details.  Just uncomment the next line:
-</span><span class="code-comment">//include(MODX_CORE_PATH . 'config/' . MODX_CONFIG_KEY . '.inc.php');
-</span>
-<span class="code-comment">// If your tables use a prefix, <span class="code-keyword">this</span> will help identify them and it ensures that
-</span><span class="code-comment">// the class names appear <span class="code-quote">"clean"</span>, without the prefix.
-</span>$table_prefix = '';
-<span class="code-comment">// If you specify a table prefix, you probably want <span class="code-keyword">this</span> set to '<span class="code-keyword">true</span>'. E.g. <span class="code-keyword">if</span> you
-</span><span class="code-comment">// have custom tables alongside the modx_xxx tables, restricting the prefix ensures
-</span><span class="code-comment">// that you only generate classes/maps <span class="code-keyword">for</span> the tables identified by the $table_prefix.
-</span>$restrict_prefix = <span class="code-keyword">false</span>;
+// Your package shortname:
+$package_name = '';
 
 
+// Database Login Info can be set explicitly:
+$database_server        = 'localhost';          // most frequently, your database resides locally
+$dbase                  = '';           // name of your database
+$database_user          = '';           // name of the user
+$database_password      = '';   // password for that database user
+
+// if this file is not placed side by side with the config.core.php file, add the directory path
+include_once 'config.core.php';
+// OR, use your MODx Revo connection details.  Just uncomment the next line:
+//include(MODX_CORE_PATH . 'config/' . MODX_CONFIG_KEY . '.inc.php');
+
+// If your tables use a prefix, this will help identify them and it ensures that
+// the class names appear "clean", without the prefix.
+$table_prefix = '';
+// If you specify a table prefix, you probably want this set to 'true'. E.g. if you
+// have custom tables alongside the modx_xxx tables, restricting the prefix ensures
+// that you only generate classes/maps for the tables identified by the $table_prefix.
+$restrict_prefix = false;
 
 
-<span class="code-comment">//------------------------------------------------------------------------------
-</span><span class="code-comment">//  DO NOT TOUCH BELOW THIS LINE
-</span><span class="code-comment">//------------------------------------------------------------------------------
-</span><span class="code-keyword">if</span> (!defined('MODX_CORE_PATH')) {
+
+
+//------------------------------------------------------------------------------
+//  DO NOT TOUCH BELOW THIS LINE
+//------------------------------------------------------------------------------
+if (!defined('MODX_CORE_PATH')) {
     print_msg('&lt;h1&gt;Reverse Engineering Error&lt;/h1&gt;
         &lt;p&gt;MODX_CORE_PATH not defined! Did you include the correct config file?&lt;/p&gt;');
     exit;
@@ -274,102 +224,102 @@ $debug = <span class="code-keyword">false</span>;               <span class="cod
 $xpdo_path = strtr(MODX_CORE_PATH . 'xpdo/xpdo.class.php', '\\', '/');
 include_once ( $xpdo_path );
 
-<span class="code-comment">// A few definitions of files/folders:
-</span>$package_dir = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/"</span>;
-$model_dir = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/model/"</span>;
-$class_dir = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/model/$package_name"</span>;
-$schema_dir = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/model/schema"</span>;
-$mysql_class_dir = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/model/$package_name/mysql"</span>;
-$xml_schema_file = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/model/schema/$package_name.mysql.schema.xml"</span>;
+// A few definitions of files/folders:
+$package_dir = MODX_CORE_PATH . "components/$package_name/";
+$model_dir = MODX_CORE_PATH . "components/$package_name/model/";
+$class_dir = MODX_CORE_PATH . "components/$package_name/model/$package_name";
+$schema_dir = MODX_CORE_PATH . "components/$package_name/model/schema";
+$mysql_class_dir = MODX_CORE_PATH . "components/$package_name/model/$package_name/mysql";
+$xml_schema_file = MODX_CORE_PATH . "components/$package_name/model/schema/$package_name.mysql.schema.xml";
 
-<span class="code-comment">// A few variables used to track execution times.
-</span>$mtime= microtime();
+// A few variables used to track execution times.
+$mtime= microtime();
 $mtime= explode(' ', $mtime);
 $mtime= $mtime[1] + $mtime[0];
 $tstart= $mtime;
 
-<span class="code-comment">// Validations
-</span><span class="code-keyword">if</span> ( empty($package_name) ) {
+// Validations
+if ( empty($package_name) ) {
         print_msg('&lt;h1&gt;Reverse Engineering Error&lt;/h1&gt;
-                &lt;p&gt;The $package_name cannot be empty!  Please adjust the configuration and <span class="code-keyword">try</span> again.&lt;/p&gt;');
+                &lt;p&gt;The $package_name cannot be empty!  Please adjust the configuration and try again.&lt;/p&gt;');
         exit;
 }
 
-<span class="code-comment">// Create directories <span class="code-keyword">if</span> necessary
-</span>$dirs = array($package_dir, $schema_dir ,$mysql_class_dir, $class_dir);
+// Create directories if necessary
+$dirs = array($package_dir, $schema_dir ,$mysql_class_dir, $class_dir);
 
 foreach ($dirs as $d) {
-        <span class="code-keyword">if</span> ( !file_exists($d) ) {
-                <span class="code-keyword">if</span> ( !mkdir($d, 0777, <span class="code-keyword">true</span>) ) {
+        if ( !file_exists($d) ) {
+                if ( !mkdir($d, 0777, true) ) {
                         print_msg( sprintf('&lt;h1&gt;Reverse Engineering Error&lt;/h1&gt;
                                 &lt;p&gt;Error creating &lt;code&gt;%s&lt;/code&gt;&lt;/p&gt;
-                                &lt;p&gt;Create the directory (and its parents) and <span class="code-keyword">try</span> again.&lt;/p&gt;'
+                                &lt;p&gt;Create the directory (and its parents) and try again.&lt;/p&gt;'
                                 , $d
                         ));
                         exit;
                 }
         }
-        <span class="code-keyword">if</span> ( !is_writable($d) ) {
+        if ( !is_writable($d) ) {
                 print_msg( sprintf('&lt;h1&gt;Reverse Engineering Error&lt;/h1&gt;
                         &lt;p&gt;The &lt;code&gt;%s&lt;/code&gt; directory is not writable by PHP.&lt;/p&gt;
-                        &lt;p&gt;Adjust the permissions and <span class="code-keyword">try</span> again.&lt;/p&gt;'
+                        &lt;p&gt;Adjust the permissions and try again.&lt;/p&gt;'
                 , $d));
                 exit;
         }
 }
 
-<span class="code-keyword">if</span> ( $verbose ) {
+if ( $verbose ) {
         print_msg( sprintf('&lt;br/&gt;&lt;strong&gt;Ok:&lt;/strong&gt; The necessary directories exist and have the correct permissions inside of &lt;br/&gt;
                 &lt;code&gt;%s&lt;/code&gt;', $package_dir));
 }
 
-<span class="code-comment">// Delete/regenerate map files?
-</span><span class="code-keyword">if</span> ( file_exists($xml_schema_file) &amp;&amp; !$regenerate_schema &amp;&amp; $verbose) {
+// Delete/regenerate map files?
+if ( file_exists($xml_schema_file) &amp;&amp; !$regenerate_schema &amp;&amp; $verbose) {
         print_msg( sprintf('&lt;br/&gt;&lt;strong&gt;Ok:&lt;/strong&gt; Using existing XML schema file:&lt;br/&gt;&lt;code&gt;%s&lt;/code&gt;',$xml_schema_file));
 }
 
-$xpdo = <span class="code-keyword">new</span> xPDO(<span class="code-quote">"mysql:host=$database_server;dbname=$dbase"</span>, $database_user, $database_password, $table_prefix);
+$xpdo = new xPDO("mysql:host=$database_server;dbname=$dbase", $database_user, $database_password, $table_prefix);
 
-<span class="code-comment">// Set the <span class="code-keyword">package</span> name and root path of that <span class="code-keyword">package</span>
-</span>$xpdo-&gt;setPackage($package_name, $package_dir, $package_dir);
+// Set the package name and root path of that package
+$xpdo-&gt;setPackage($package_name, $package_dir, $package_dir);
 $xpdo-&gt;setDebug($debug);
 
 $manager = $xpdo-&gt;getManager();
 $generator = $manager-&gt;getGenerator();
 
-<span class="code-comment">//Use <span class="code-keyword">this</span> to create an XML schema from an existing database
-</span><span class="code-keyword">if</span> ($regenerate_schema) {
+//Use this to create an XML schema from an existing database
+if ($regenerate_schema) {
         $xml = $generator-&gt;writeSchema($xml_schema_file, $package_name, 'xPDOObject', $table_prefix, $restrict_prefix);
-        <span class="code-keyword">if</span> ($verbose)
+        if ($verbose)
         {
                 print_msg( sprintf('&lt;br/&gt;&lt;strong&gt;Ok:&lt;/strong&gt; XML schema file generated: &lt;code&gt;%s&lt;/code&gt;',$xml_schema_file));
         }
 }
 
-<span class="code-comment">// Use <span class="code-keyword">this</span> to generate classes and maps from your schema
-</span><span class="code-keyword">if</span> ($regenerate_classes) {
+// Use this to generate classes and maps from your schema
+if ($regenerate_classes) {
 
         print_msg('&lt;br/&gt;Attempting to remove/regenerate class files...');
         delete_class_files( $class_dir );
         delete_class_files( $mysql_class_dir );
 }
 
-<span class="code-comment">// This is harmless in and of itself: files won't be overwritten <span class="code-keyword">if</span> they exist.
-</span>$generator-&gt;parseSchema($xml_schema_file, $model_dir);
+// This is harmless in and of itself: files won't be overwritten if they exist.
+$generator-&gt;parseSchema($xml_schema_file, $model_dir);
 
 $mtime= microtime();
-$mtime= explode(<span class="code-quote">" "</span>, $mtime);
+$mtime= explode(" ", $mtime);
 $mtime= $mtime[1] + $mtime[0];
 $tend= $mtime;
 $totalTime= ($tend - $tstart);
-$totalTime= sprintf(<span class="code-quote">"%2.4f s"</span>, $totalTime);
+$totalTime= sprintf("%2.4f s", $totalTime);
 
-<span class="code-keyword">if</span> ($verbose) {
-        print_msg(<span class="code-quote">"&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Finished!&lt;/strong&gt; Execution time: {$totalTime}&lt;br/&gt;"</span>);
+if ($verbose) {
+        print_msg("&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Finished!&lt;/strong&gt; Execution time: {$totalTime}&lt;br/&gt;");
 
-        <span class="code-keyword">if</span> ($regenerate_schema)
+        if ($regenerate_schema)
         {
-                print_msg(<span class="code-quote">"&lt;br/&gt;If you need to define aggregate/composite relationships in your XML schema file, be sure to regenerate your class files."</span>);
+                print_msg("&lt;br/&gt;If you need to define aggregate/composite relationships in your XML schema file, be sure to regenerate your class files.");
         }
 }
 
@@ -384,83 +334,70 @@ function delete_class_files($dir) {
 
         $all_files = scandir($dir);
         foreach ( $all_files as $f ) {
-                <span class="code-keyword">if</span> ( preg_match('#\.class\.php$#i', $f) || preg_match('#\.map\.inc\.php$#i', $f)) {
-                        <span class="code-keyword">if</span> ( unlink(<span class="code-quote">"$dir/$f"</span>) ) {
-                                <span class="code-keyword">if</span> ($verbose) {
+                if ( preg_match('#\.class\.php$#i', $f) || preg_match('#\.map\.inc\.php$#i', $f)) {
+                        if ( unlink("$dir/$f") ) {
+                                if ($verbose) {
                                         print_msg( sprintf('&lt;br/&gt;Deleted file: &lt;code&gt;%s/%s&lt;/code&gt;',$dir,$f) );
                                 }
                         }
-                        <span class="code-keyword">else</span> {
+                        else {
                                 print_msg( sprintf('&lt;br/&gt;Failed to delete file: &lt;code&gt;%s/%s&lt;/code&gt;',$dir,$f) );
                         }
                 }
         }
 }
 /*------------------------------------------------------------------------------
-Formats/prints messages.  The behavior is different <span class="code-keyword">if</span> the script is run
+Formats/prints messages.  The behavior is different if the script is run
 via the command line (cli).
 ------------------------------------------------------------------------------*/
 function print_msg($msg) {
-        <span class="code-keyword">if</span> ( php_sapi_name() == 'cli' ) {
-                $msg = preg_replace('#&lt;br\s*/&gt;#i', <span class="code-quote">"\n"</span>, $msg);
+        if ( php_sapi_name() == 'cli' ) {
+                $msg = preg_replace('#&lt;br\s*/&gt;#i', "\n", $msg);
                 $msg = preg_replace('#&lt;h1&gt;#i', '== ', $msg);
                 $msg = preg_replace('#&lt;/h1&gt;#i', ' ==', $msg);
                 $msg = preg_replace('#&lt;h2&gt;#i', '=== ', $msg);
                 $msg = preg_replace('#&lt;/h2&gt;#i', ' ===', $msg);
-                $msg = strip_tags($msg) . <span class="code-quote">"\n"</span>;
+                $msg = strip_tags($msg) . "\n";
         }
         print $msg;
 }
 
 /* EOF */
-</pre>
-</div>
-</div>
 
+</pre>
 <p>
 To check whether or not this script succeeded, take a look inside the folder that is mentioned in its output, e.g.
 <br />
 <b>/user/youruser/public_html/core/components/yourpackage/model/yourpackage</b>. You should see a couple files – one for each table. If you see a TON of tables corresponding to all of MODx's tables, then try to explicitly set the database password and name – leave the following line commented out:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">//include('core/config/config.inc.php');</span>
+<pre class="brush: php">
+    
+$regenerate_schema = false;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-See <a href="http://modxcms.com/forums/index.php?topic=40174.0" class="external-link" rel="nofollow">http://modxcms.com/forums/index.php?topic=40174.0</a> for more discussion on this script.
-</p>
-
-<h2>
-<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-DefiningKeyRelationships"></a>Defining Key Relationships
-</h2>
-
-<p>
-Once you have your XML schema file generated, you may need to edit it manually to define any foreign key relationships between your tables. It's best if you create a backup of the XML schema file, then add in your aggregate and composite relationships (see <a href="/display/xPDO20/More+Examples+of+xPDO+XML+Schema+Files" title="More Examples of xPDO XML Schema Files">Schema Files and Relations</a> for more info).
-</p>
-
-<p>
-In the scaffolding script above, set the following:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$regenerate_schema = <span class="code-keyword">false</span>;
-</pre>
-</div>
-</div>
-
 <p>
 Then re-run the script in order to push your changes in the XML to the PHP class files.
 </p>
 
 <h2>
-<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-AccessingyourData"></a>Accessing your Data
+<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-DefiningKeyRelationships" id="ReverseEngineerxPDOClassesfromExistingDatabaseTable-DefiningKeyRelationships"></a>Defining Key Relationships
+</h2>
+
+<p>
+Once you have your XML schema file generated, you may need to edit it manually to define any foreign key relationships between your tables. It's best if you create a backup of the XML schema file, then add in your aggregate and composite relationships (see <a href="display/xPDO20/More+Examples+of+xPDO+XML+Schema+Files">Schema Files and Relations</a> for more info). In the scaffolding script above, set the following:
+</p>
+
+<pre>
+$regenerate_schema = false;
+</pre>
+<p>
+Then re-run the script in order to push your changes in the XML to the PHP class files.
+</p>
+
+<h2>
+<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-AccessingyourData" id="ReverseEngineerxPDOClassesfromExistingDatabaseTable-AccessingyourData"></a>Accessing your Data
 </h2>
 
 <p>
@@ -469,87 +406,75 @@ Once you've created the required xPDO classes, you need to use xPDO's methods to
 
 <div class="code panel" style="border-width: 1px;">
 <div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span>(!$modx-&gt;addPackage('mypackage','/full/path/to/core/components/mypackage/model/','mp_')) {
-    <span class="code-keyword">return</span> 'There was a problem adding your <span class="code-keyword">package</span>!  Check the logs <span class="code-keyword">for</span> more info!';
+<pre class="brush: php">
+&lt;?php
+if(!$modx-&gt;addPackage('mypackage','/full/path/to/core/components/mypackage/model/','mp_')) {
+    return 'There was a problem adding your package!  Check the logs for more info!';
 }
 
 $my_items = $modx-&gt;getCollection('Items');
 
 $output = '';
 
-<span class="code-keyword">if</span> ($my_items) {
+if ($my_items) {
     foreach ($my_items as $item) {
-        $output .= $item-&gt;get('itemname') . '&lt;br/&gt;';
+        $output .= $item-&gt;get('itemname') . '<br />';
     }
 }
-<span class="code-keyword">else</span> {
-    <span class="code-keyword">return</span> 'No items found.';
+else {
+    return 'No items found.';
 }
 
-<span class="code-keyword">return</span> $output;
+return $output;
 </pre>
 </div>
 </div>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 <b>Watch the Prefix!</b>
 <br />
-<a href="/display/xPDO20/xPDO.addPackage" title="xPDO.addPackage">addPackage</a> requires that you specify the correct table prefix for your package!
-</td>
-</tr>
-</table>
+<a href="display/xPDO20/xPDO.addPackage" title="xPDO.addPackage">addPackage</a> requires that you specify the correct table prefix for your package!
 </div>
 
 <h2>
-<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-SeeAlso"></a>See Also
+<a name="ReverseEngineerxPDOClassesfromExistingDatabaseTable-SeeAlso" id="ReverseEngineerxPDOClassesfromExistingDatabaseTable-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/xPDO20/More+Examples+of+xPDO+XML+Schema+Files" title="More Examples of xPDO XML Schema Files">Schema Files and Relations</a> Looking at XML schema file relations
+<a href="display/xPDO20/More+Examples+of+xPDO+XML+Schema+Files" title="More Examples of xPDO XML Schema Files">Schema Files and Relations</a> Looking at XML schema file relations
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.addPackage" title="xPDO.addPackage">addPackage</a> for loading up your schema
+<a href="display/xPDO20/xPDO.addPackage" title="xPDO.addPackage">addPackage</a> for loading up your schema
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> for loading up a single object
+<a href="display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> for loading up a single object
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getCollection</a> for loading up a collection of objects.
+<a href="display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getCollection</a> for loading up a collection of objects.
 </li>
 
 <li>
-<a href="/display/xPDO20/Creating+Objects" title="Creating Objects">xPDO: Creating Objects</a>
+<a href="display/xPDO20/Creating+Objects" title="Creating Objects">xPDO: Creating Objects</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/Retrieving+Objects" title="Retrieving Objects">Retrieving Objects</a> a demonstration of how to retrieve objects using xPDO
+<a href="display/xPDO20/Retrieving+Objects" title="Retrieving Objects">Retrieving Objects</a> a demonstration of how to retrieve objects using xPDO
 </li>
 
 <li>
-<a href="/display/xPDO20/Generating+the+Model+Code" title="Generating the Model Code">Generating the Model Code</a> – offers a streamlined version of the script provided here, but you can also change your class templates.
+<a href="display/xPDO20/Generating+the+Model+Code" title="Generating the Model Code">Generating the Model Code</a> – offers a streamlined version of the script provided here, but you can also change your class templates.
 </li>
 
 <li>
-<a href="/display/xPDO20/More+Examples+of+xPDO+XML+Schema+Files" title="More Examples of xPDO XML Schema Files">More Examples of xPDO XML Schema Files</a> – juxtaposes MySQL database tables with xPDO XML schemas
+<a href="display/xPDO20/More+Examples+of+xPDO+XML+Schema+Files" title="More Examples of xPDO XML Schema Files">More Examples of xPDO XML Schema Files</a> – juxtaposes MySQL database tables with xPDO XML schemas
 </li>
 
 <li>
 <a href="http://forums.modx.com/thread/31778/build-script-reverse-engineering-tables-forward-engineering-classes-maps" class="external-link" rel="nofollow">Build script: Reverse-engineering tables / forward-engineering classes / maps</a> – another example by Jason.
 </li>
 </ul>
+<!-- end content -->

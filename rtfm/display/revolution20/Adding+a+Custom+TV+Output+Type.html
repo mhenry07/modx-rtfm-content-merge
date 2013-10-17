@@ -1,55 +1,41 @@
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 <b>Only use this documentation for pre-2.2 or core submissions.</b>
 <br />
-Refer to the <a href="/display/revolution20/Adding+a+Custom+TV+Type+-+MODX+2.2" title="Adding a Custom TV Type - MODX 2.2">Adding a Custom TV Type</a> doc for the proper way to build custom TVs in 2.2 which allows easy packaging.
-</td>
-</tr>
-</table>
+Refer to the <a href="display/revolution20/Adding+a+Custom+TV+Type+-+MODX+2.2" title="Adding a Custom TV Type - MODX 2.2">Adding a Custom TV Type</a> doc for the proper way to build custom TVs in 2.2 which allows easy packaging.
 </div>
 
 <div>
 <ul>
 <li>
-<a href='#AddingaCustomTVOutputType-WhatareTVOutputTypes%3F'>What are TV Output Types?</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/adding-a-custom-tv-output-type#AddingaCustomTVOutputType-WhatareTVOutputTypes%3F">What are TV Output Types?</a>
 </li>
 
 <li>
-<a href='#AddingaCustomTVOutputType-CreatingtheFiles'>Creating the Files</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/adding-a-custom-tv-output-type#AddingaCustomTVOutputType-CreatingtheFiles">Creating the Files</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#AddingaCustomTVOutputType-SettinguptheInputPropertiesController'>Setting up the Input Properties Controller</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/adding-a-custom-tv-output-type#AddingaCustomTVOutputType-SettinguptheInputPropertiesController">Setting up the Input Properties Controller</a>
 </li>
 
 <li>
-<a href='#AddingaCustomTVOutputType-SettinguptheInputPropertiesTemplate'>Setting up the Input Properties Template</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/adding-a-custom-tv-output-type#AddingaCustomTVOutputType-SettinguptheInputPropertiesTemplate">Setting up the Input Properties Template</a>
 </li>
 
 <li>
-<a href='#AddingaCustomTVOutputType-SettinguptheOutputController'>Setting up the Output Controller</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/adding-a-custom-tv-output-type#AddingaCustomTVOutputType-SettinguptheOutputController">Setting up the Output Controller</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#AddingaCustomTVOutputType-UsingtheCustomTVOutputType'>Using the Custom TV Output Type</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/adding-a-custom-tv-output-type#AddingaCustomTVOutputType-UsingtheCustomTVOutputType">Using the Custom TV Output Type</a>
 </li>
 
 <li>
-<a href='#AddingaCustomTVOutputType-SeeAlso'>See Also</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/adding-a-custom-tv-output-type#AddingaCustomTVOutputType-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -59,7 +45,7 @@ Refer to the <a href="/display/revolution20/Adding+a+Custom+TV+Type+-+MODX+2.2" 
 </h2>
 
 <p>
-TV Output Types allow you to output <a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a> in different markup and formats. Some examples include outputting a TV value as an image, URL, HTML tag, date, etc.
+TV Output Types allow you to output <a href="display/revolution20/Template+Variables" title="Template Variables">Template Variables</a> in different markup and formats. Some examples include outputting a TV value as an image, URL, HTML tag, date, etc.
 </p>
 
 <p>
@@ -67,7 +53,7 @@ MODx Revolution lets you create custom output types fairly easily.
 </p>
 
 <h2>
-<a name="AddingaCustomTVOutputType-CreatingtheFiles"></a>Creating the Files
+<a name="AddingaCustomTVOutputType-CreatingtheFiles" id="AddingaCustomTVOutputType-CreatingtheFiles"></a>Creating the Files
 </h2>
 
 <p>
@@ -86,50 +72,30 @@ Let's create a custom TV Output Type called "button". This will render an input 
 </ul>
 
 <h3>
-<a name="AddingaCustomTVOutputType-SettinguptheInputPropertiesController"></a>Setting up the Input Properties Controller
+<a name="AddingaCustomTVOutputType-SettinguptheInputPropertiesController" id="AddingaCustomTVOutputType-SettinguptheInputPropertiesController"></a>Setting up the Input Properties Controller
 </h3>
 
 <p>
 This is the PHP file that will load the mgr template for managing the TV output type's properties. We'll have it contain just this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-<span class="code-comment">// any custom php you want to run here
-</span><span class="code-keyword">return</span> $modx-&gt;smarty-&gt;fetch('element/tv/renders/properties/button.tpl');
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="AddingaCustomTVOutputType-SettinguptheInputPropertiesTemplate"></a>Setting up the Input Properties Template
-</h3>
-
-<p>
-This is the template for the default manager theme to render properties with. We'll use ExtJS to render some pretty form fields:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div id=<span class="code-quote">"tv-wprops-form{$tv}"</span>&gt;&lt;/div&gt;
+<pre class="brush: php">
+    &lt;div id="tv-wprops-form{$tv}"&gt;&lt;/div&gt;
 {literal}
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
-<span class="code-comment">// &lt;![CDATA[
-</span><span class="code-keyword">var</span> params = {
+&lt;script type="text/javascript"&gt;
+// &lt;![CDATA[
+var params = {
 {/literal}{foreach from=$params key=k item=v name='p'}
- '{$k}': '{$v}'{<span class="code-keyword">if</span> NOT $smarty.foreach.p.last},{/<span class="code-keyword">if</span>}
+ '{$k}': '{$v}'{if NOT $smarty.foreach.p.last},{/if}
 {/foreach}{literal}
 };
-<span class="code-keyword">var</span> oc = {'change':{fn:function(){Ext.getCmp('modx-panel-tv').markDirty();},scope:<span class="code-keyword">this</span>}};
+var oc = {'change':{fn:function(){Ext.getCmp('modx-panel-tv').markDirty();},scope:this}};
 MODx.load({
     xtype: 'panel'
     ,layout: 'form'
-    ,autoHeight: <span class="code-keyword">true</span>
+    ,autoHeight: true
     ,labelWidth: 150
-    ,border: <span class="code-keyword">false</span>
+    ,border: false
     ,items: [{
         xtype: 'textfield'
         ,fieldLabel: _('class')
@@ -165,39 +131,24 @@ MODx.load({
     }]
     ,renderTo: 'tv-wprops-form{/literal}{$tv}{literal}'
 });
-<span class="code-comment">// ]]&gt;
-</span>&lt;/script&gt;
+// ]]&gt;
+&lt;/script&gt;
 {/literal}
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 The key way these save is that each field is prepended with 'prop_' in its name. This tells MODx to save this field in the TV's output properties. Make sure you specify your fields with this prefix!
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You don't have to use ExtJS, however - you can use just straight HTML - it's totally up to you.
 <br />
 Note that if you created another manager theme, you'd have to create a properties tpl for that theme as well.
-</td>
-</tr>
-</table>
 </div>
 
 <h3>
-<a name="AddingaCustomTVOutputType-SettinguptheOutputController"></a>Setting up the Output Controller
+<a name="AddingaCustomTVOutputType-SettinguptheOutputController" id="AddingaCustomTVOutputType-SettinguptheOutputController"></a>Setting up the Output Controller
 </h3>
 
 <p>
@@ -243,7 +194,7 @@ foreach ($buttons as $button) {
 </div>
 
 <h2>
-<a name="AddingaCustomTVOutputType-UsingtheCustomTVOutputType"></a>Using the Custom TV Output Type
+<a name="AddingaCustomTVOutputType-UsingtheCustomTVOutputType" id="AddingaCustomTVOutputType-UsingtheCustomTVOutputType"></a>Using the Custom TV Output Type
 </h2>
 
 <p>
@@ -251,7 +202,7 @@ So, how does it look? Well, it should render an output form like this when editi
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678064/outtvprop1.png?version=1&amp;modificationDate=1269529790000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/18678064/outtvprop1.png?version=1&amp;modificationDate=1269529790000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
@@ -259,7 +210,7 @@ So we'll save this, and then let's go edit in in a Resource. We'll specify two b
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678064/outtvinput.png?version=1&amp;modificationDate=1269529790000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/18678064/outtvinput.png?version=1&amp;modificationDate=1269529790000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
@@ -267,7 +218,7 @@ Great. Now let's preview the resource, and we'll get an output like this:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678064/outtvresult1.png?version=1&amp;modificationDate=1269529790000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/18678064/outtvresult1.png?version=1&amp;modificationDate=1269529790000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
@@ -275,7 +226,7 @@ And we can examine the HTML source:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678064/outtvsource1.png?version=1&amp;modificationDate=1269529790000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/18678064/outtvsource1.png?version=1&amp;modificationDate=1269529790000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
@@ -283,19 +234,5 @@ And there you go! A custom TV output type!
 </p>
 
 <h2>
-<a name="AddingaCustomTVOutputType-SeeAlso"></a>See Also
+<a name="AddingaCustomTVOutputType-SeeAlso" id="AddingaCustomTVOutputType-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678064" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678062" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FAdding%2Ba%2BCustom%2BTV%2BOutput%2BType" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678062" />
-</fieldset>
-</fieldset>
-</div>

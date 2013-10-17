@@ -1,31 +1,27 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Login.UpdateProfile-WhatisUpdateProfile%3F'>What is UpdateProfile?</a>
+<a href="extras/revo/login/login.updateprofile#Login.UpdateProfile-WhatisUpdateProfile%3F">What is UpdateProfile?</a>
 </li>
 
 <li>
-<a href='#Login.UpdateProfile-Usage'>Usage</a>
+<a href="extras/revo/login/login.updateprofile#Login.UpdateProfile-Usage">Usage</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Login.UpdateProfile-UpdateProfileProperties'>UpdateProfile Properties</a>
+<a href="extras/revo/login/login.updateprofile#Login.UpdateProfile-UpdateProfileProperties">UpdateProfile Properties</a>
 </li>
 
 <li>
-<a href='#Login.UpdateProfile-TheUpdateProfileForm'>The UpdateProfile Form</a>
+<a href="extras/revo/login/login.updateprofile#Login.UpdateProfile-TheUpdateProfileForm">The UpdateProfile Form</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Login.UpdateProfile-SeeAlso'>See Also</a>
+<a href="extras/revo/login/login.updateprofile#Login.UpdateProfile-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -43,275 +39,223 @@ UpdateProfile is a simple Snippet that allows users who are logged in the in the
 </h2>
 
 <p>
-To use the profile editing functionality, first create the Resource the
-<br />
-user will go to to edit their profile. Then, add this snippet:
+To use the profile editing functionality, first create the Resource the user will go to to edit their profile. Then, add the UpdateProfile snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!UpdateProfile? &amp;validate=`fullname:required,email:required:email`]]
+<pre class="brush: xml">
+[[!UpdateProfile? &amp;validate=`fullname:required,email:required:email`]]&lt;br&gt;
 </pre>
-</div>
-</div>
+<h2>
+UpdateProfile Properties
+</h2>
 
-<h3>
-<a name="Login.UpdateProfile-UpdateProfileProperties" id="Login.UpdateProfile-UpdateProfileProperties"></a>UpdateProfile Properties
-</h3>
-
-<p>
-UpdateProfile comes with some default properties you can override. They are:
-</p>
-
-<div class='table-wrap'>
-<table id='TBL1376497247104' class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 submitVar
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the form submit button that triggers the submission.
 </td>
-<td class='confluenceTd'>
+<td>
 login-updprof-btn
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 validate
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of fields to validate, with each field name as name:validator (eg: username:required,email:required). <a href="/display/ADDON/FormIt.Validators" title="FormIt.Validators">Validators</a> can also be chained, like email:email:required. This property can be specified on multiple lines.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 redirectToLogin
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will redirect non-logged-in users that visit the page with the snippet to the Unauthorized Page.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 reloadOnSuccess
 </td>
-<td class='confluenceTd'>
+<td>
 If true, the page will redirect to itself with a GET parameter to prevent double-postbacks. If false, it will simply set a success placeholder.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailField
 </td>
-<td class='confluenceTd'>
+<td>
 The field name for the email field in the form.
 </td>
-<td class='confluenceTd'>
+<td>
 email
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 preHooks
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of 'hooks', or Snippets, that will be executed before the user's profile is updated but after validation. Also can specify 'captcha' as a hook.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 postHooks
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of 'hooks', or Snippets, that will be executed after the user's profile is updated.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 syncUsername
 </td>
-<td class='confluenceTd'>
+<td>
 If set to a column name in the Profile, UpdateProfile will attempt to sync the username to this field after a successful save.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useExtended
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not to set any extra fields in the form to the Profiles extended field. This can be useful for storing extra user fields.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 excludeExtended
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of fields to exclude from setting as extended fields.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 placeholderPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 The prefix to use for all placeholders set by this snippet.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="Login.UpdateProfile-TheUpdateProfileForm" id="Login.UpdateProfile-TheUpdateProfileForm"></a>The UpdateProfile Form
-</h3>
+<h2>
+UpdateProfile Form
+</h2>
 
 <p>
 Then, below this, add in the following HTML (removing any fields you'd like) to be the form. Feel free to style it and adjust the markup (just don't change the form field names). This is also found in core/components/login/chunks/lgnupdateprofile.chunk.tpl.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"update-profile"</span>&gt;
-    &lt;div class=<span class="code-quote">"updprof-error"</span>&gt;[[+error.message]]&lt;/div&gt;
-    [[+login.update_success:<span class="code-keyword">if</span>=`[[+login.update_success]]`:is=`1`:then=`[[%login.profile_updated? &amp;namespace=`login` &amp;topic=`updateprofile`]]`]]
-
-    &lt;form class=<span class="code-quote">"form"</span> action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span>&gt;
-        &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"nospam"</span> value="" /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"fullname"</span>&gt;[[!%login.fullname? &amp;namespace=`login` &amp;topic=`updateprofile`]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.fullname]]&lt;/span&gt;
+<pre class="brush: php">
+&lt;div class="update-profile"&gt;
+    &lt;div class="updprof-error"&gt;[[+error.message]]&lt;/div&gt;
+    [[+login.update_success:if=`[[+login.update_success]]`:is=`1`:then=`[[%login.profile_updated? &amp;namespace=`login` &amp;topic=`updateprofile`]]`]]
+    &lt;form class="form" action="[[~[[*id]]]]" method="post"&gt;
+        &lt;input type="hidden" name="nospam" value="" /&gt;
+        &lt;label for="fullname"&gt;[[!%login.fullname? &amp;namespace=`login` &amp;topic=`updateprofile`]]
+            &lt;span class="error"&gt;[[+error.fullname]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"fullname"</span> id=<span class="code-quote">"fullname"</span> value=<span class="code-quote">"[[+fullname]]"</span> /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"email"</span>&gt;[[!%login.email]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.email]]&lt;/span&gt;
+        &lt;input type="text" name="fullname" id="fullname" value="[[+fullname]]" /&gt;
+        &lt;label for="email"&gt;[[!%login.email]]
+            &lt;span class="error"&gt;[[+error.email]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"email"</span> id=<span class="code-quote">"email"</span> value=<span class="code-quote">"[[+email]]"</span> /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"phone"</span>&gt;[[!%login.phone]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.phone]]&lt;/span&gt;
+        &lt;input type="text" name="email" id="email" value="[[+email]]" /&gt;
+        &lt;label for="phone"&gt;[[!%login.phone]]
+            &lt;span class="error"&gt;[[+error.phone]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"phone"</span> id=<span class="code-quote">"phone"</span> value=<span class="code-quote">"[[+phone]]"</span> /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"mobilephone"</span>&gt;[[!%login.mobilephone]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.mobilephone]]&lt;/span&gt;
+        &lt;input type="text" name="phone" id="phone" value="[[+phone]]" /&gt;
+        &lt;label for="mobilephone"&gt;[[!%login.mobilephone]]
+            &lt;span class="error"&gt;[[+error.mobilephone]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"mobilephone"</span> id=<span class="code-quote">"mobilephone"</span> value=<span class="code-quote">"[[+mobilephone]]"</span> /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"fax"</span>&gt;[[!%login.fax]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.fax]]&lt;/span&gt;
+        &lt;input type="text" name="mobilephone" id="mobilephone" value="[[+mobilephone]]" /&gt;
+        &lt;label for="fax"&gt;[[!%login.fax]]
+            &lt;span class="error"&gt;[[+error.fax]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"fax"</span> id=<span class="code-quote">"fax"</span> value=<span class="code-quote">"[[+fax]]"</span> /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"address"</span>&gt;[[!%login.address]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.address]]&lt;/span&gt;
+        &lt;input type="text" name="fax" id="fax" value="[[+fax]]" /&gt;
+        &lt;label for="address"&gt;[[!%login.address]]
+            &lt;span class="error"&gt;[[+error.address]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"address"</span> id=<span class="code-quote">"address"</span> value=<span class="code-quote">"[[+address]]"</span> /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"country"</span>&gt;[[!%login.country]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.country]]&lt;/span&gt;
+        &lt;input type="text" name="address" id="address" value="[[+address]]" /&gt;
+        &lt;label for="country"&gt;[[!%login.country]]
+            &lt;span class="error"&gt;[[+error.country]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"country"</span> id=<span class="code-quote">"country"</span> value=<span class="code-quote">"[[+country]]"</span> /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"city"</span>&gt;[[!%login.city]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.city]]&lt;/span&gt;
+        &lt;input type="text" name="country" id="country" value="[[+country]]" /&gt;
+        &lt;label for="city"&gt;[[!%login.city]]
+            &lt;span class="error"&gt;[[+error.city]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"city"</span> id=<span class="code-quote">"city"</span> value=<span class="code-quote">"[[+city]]"</span> /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"state"</span>&gt;[[!%login.state]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.state]]&lt;/span&gt;
+        &lt;input type="text" name="city" id="city" value="[[+city]]" /&gt;
+        &lt;label for="state"&gt;[[!%login.state]]
+            &lt;span class="error"&gt;[[+error.state]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"state"</span> id=<span class="code-quote">"state"</span> value=<span class="code-quote">"[[+state]]"</span> /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"zip"</span>&gt;[[!%login.zip]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.zip]]&lt;/span&gt;
+        &lt;input type="text" name="state" id="state" value="[[+state]]" /&gt;
+        &lt;label for="zip"&gt;[[!%login.zip]]
+            &lt;span class="error"&gt;[[+error.zip]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"zip"</span> id=<span class="code-quote">"zip"</span> value=<span class="code-quote">"[[+zip]]"</span> /&gt;
-
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"website"</span>&gt;[[!%login.website]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.website]]&lt;/span&gt;
+        &lt;input type="text" name="zip" id="zip" value="[[+zip]]" /&gt;
+        &lt;label for="website"&gt;[[!%login.website]]
+            &lt;span class="error"&gt;[[+error.website]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"website"</span> id=<span class="code-quote">"website"</span> value=<span class="code-quote">"[[+website]]"</span> /&gt;
-
-        &lt;br class=<span class="code-quote">"clear"</span> /&gt;
-
-        &lt;div class=<span class="code-quote">"form-buttons"</span>&gt;
-            &lt;input type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"login-updprof-btn"</span> value=<span class="code-quote">"[[!%login.update_profile]]"</span> /&gt;
+        &lt;input type="text" name="website" id="website" value="[[+website]]" /&gt;
+        &lt;br class="clear" /&gt;
+        &lt;div class="form-buttons"&gt;
+            &lt;input type="submit" name="login-updprof-btn" value="[[!%login.update_profile]]" /&gt;
         &lt;/div&gt;
     &lt;/form&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="Login.UpdateProfile-SeeAlso" id="Login.UpdateProfile-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="15958256" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042888" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FLogin.UpdateProfile" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11042888" />
-</fieldset>
-</fieldset>
-</div>

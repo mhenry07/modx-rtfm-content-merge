@@ -1,45 +1,45 @@
 <div>
 <ul>
 <li>
-<a href='#CustomOutputFilterExamples-Introduction'>Introduction</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)/custom-output-filter-examples#CustomOutputFilterExamples-Introduction">Introduction</a>
 </li>
 
 <li>
-<a href='#CustomOutputFilterExamples-CreatingaCustomOutputModifier'>Creating a Custom Output Modifier</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)/custom-output-filter-examples#CustomOutputFilterExamples-CreatingaCustomOutputModifier">Creating a Custom Output Modifier</a>
 </li>
 
 <li>
-<a href='#CustomOutputFilterExamples-PortingPHxtoCustomOutputFilters'>Porting PHx to Custom Output Filters</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)/custom-output-filter-examples#CustomOutputFilterExamples-PortingPHxtoCustomOutputFilters">Porting PHx to Custom Output Filters</a>
 </li>
 
 <li>
-<a href='#CustomOutputFilterExamples-Examples'>Examples</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)/custom-output-filter-examples#CustomOutputFilterExamples-Examples">Examples</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#CustomOutputFilterExamples-alternateClass'>alternateClass</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)/custom-output-filter-examples#CustomOutputFilterExamples-alternateClass">alternateClass</a>
 </li>
 
 <li>
-<a href='#CustomOutputFilterExamples-parseLinks'>parseLinks</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)/custom-output-filter-examples#CustomOutputFilterExamples-parseLinks">parseLinks</a>
 </li>
 
 <li>
-<a href='#CustomOutputFilterExamples-parseTags'>parseTags</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)/custom-output-filter-examples#CustomOutputFilterExamples-parseTags">parseTags</a>
 </li>
 
 <li>
-<a href='#CustomOutputFilterExamples-shorten'>shorten</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)/custom-output-filter-examples#CustomOutputFilterExamples-shorten">shorten</a>
 </li>
 
 <li>
-<a href='#CustomOutputFilterExamples-substring'>substring</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)/custom-output-filter-examples#CustomOutputFilterExamples-substring">substring</a>
 </li>
 
 <li>
-<a href='#CustomOutputFilterExamples-numberformat'>numberformat</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)/custom-output-filter-examples#CustomOutputFilterExamples-numberformat">numberformat</a>
 </li>
 </ul>
 </li>
@@ -54,26 +54,10 @@
 Custom Output Filters are simply MODx Snippets dedicated to formatting placeholder output. If a raw placeholder, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[*pagetitle]]
+<pre class="brush: php">
+    [[*pagetitle:myOutputFilter]]
+    
 </pre>
-</div>
-</div>
-
-<p>
-returns a string of text, you can modify it via a custom Output Filter, e.g.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[*pagetitle:myOutputFilter]]
-</pre>
-</div>
-</div>
-
 <p>
 simply by creating a Snippet named <b>myOutputFilter</b>
 </p>
@@ -83,7 +67,7 @@ This page serves as a place where some basic custom output filters can be found.
 </p>
 
 <p>
-You can find <a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">more information on the built-in output filters</a>, if that is what you're looking.
+You can find <a href="display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">more information on the built-in output filters</a>, if that is what you're looking.
 </p>
 
 <h2>
@@ -91,111 +75,13 @@ You can find <a href="/display/revolution20/Input+and+Output+Filters+%28Output+M
 </h2>
 
 <p>
-A custom output filter is simply a <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> that is earmarked to modify content. Simply put the <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> name instead of the modifier. Example with a snippet named 'makeDownloadLink':
+A custom output filter is simply a <a href="display/revolution20/Snippets" title="Snippets">Snippet</a> that is earmarked to modify content. Simply put the <a href="display/revolution20/Snippets" title="Snippets">Snippet</a> name instead of the modifier. Example with a snippet named 'makeDownloadLink':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+file:makeDownloadLink=`notitle`]]
+<pre class="brush: php">
+    return strtolower($input);
+    
 </pre>
-</div>
-</div>
-
-<p>
-This will pass these properties to the snippet:
-</p>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Param
-</th>
-<th class='confluenceTh'>
-Value
-</th>
-<th class='confluenceTh'>
-Example Result
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-input
-</td>
-<td class='confluenceTd'>
-The element's value.
-</td>
-<td class='confluenceTd'>
-The value of [[+file]]
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-options
-</td>
-<td class='confluenceTd'>
-Any value passed to the modifier.
-</td>
-<td class='confluenceTd'>
-'notitle'
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-token
-</td>
-<td class='confluenceTd'>
-The type of the parent element.
-</td>
-<td class='confluenceTd'>
-+ (the token on `file`)
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-name
-</td>
-<td class='confluenceTd'>
-The name of the parent element.
-</td>
-<td class='confluenceTd'>
-file
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-tag
-</td>
-<td class='confluenceTd'>
-The complete parent tag.
-</td>
-<td class='confluenceTd'>
-[[+<a href="file:makeDownloadLink=" class="external-link" rel="nofollow">file:makeDownloadLink=</a>`notitle`]]
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<p>
-The most important (and perhaps the most obvious) of these parameters is the <b>$input</b> parameter. Your Snippet could do something as simple as this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">return</span> strtolower($input);
-</pre>
-</div>
-</div>
-
 <h2>
 <a name="CustomOutputFilterExamples-PortingPHxtoCustomOutputFilters" id="CustomOutputFilterExamples-PortingPHxtoCustomOutputFilters"></a>Porting PHx to Custom Output Filters
 </h2>
@@ -228,36 +114,12 @@ To documentation contributors: please add examples in alphabetical order.
 alternateClass simply checks if an integer (for example, a counting placeholder) passed can be divided by two. If that is possible, it returns the class you specify as the output filter's property.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-/*
- * Based on phx:alternateClass by Smashingred
- * Updated <span class="code-keyword">for</span> Revolution by Mark Hamstra
- */
-<span class="code-keyword">if</span> ($input % 2) {
-  <span class="code-keyword">return</span> $options;
-} <span class="code-keyword">else</span> {
-  <span class="code-keyword">return</span> ''; <span class="code-comment">// Could set another class here
-</span>}
-?&gt;
-</pre>
-</div>
-</div>
-
-<p>
-Use like this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[+component.idx:alternateClass=`alt`]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h3>
 <a name="CustomOutputFilterExamples-parseLinks" id="CustomOutputFilterExamples-parseLinks"></a>parseLinks
 </h3>
@@ -266,48 +128,23 @@ Use like this:
 The parseLinks output filter finds links, and replaces them with a html &lt;a&gt; attribute.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-/*
- * Based on phx:parseLinks
- */
-$t = $input;
-$t = ereg_replace(<span class="code-quote">"[a-zA-Z]+:<span class="code-comment">//([.]?[a-zA-Z0-9_/-])*"</span>, <span class="code-quote">"&lt;a href=\"</span>\\0\<span class="code-quote">"&gt;\\0&lt;/a&gt;"</span>, $t);
-</span>$t = ereg_replace(<span class="code-quote">"(^| |\n)(www([.]?[a-zA-Z0-9_/-])*)"</span>, <span class="code-quote">"\\1&lt;a href=\"</span>http:<span class="code-comment">//\\2\<span class="code-quote">"&gt;\\2&lt;/a&gt;"</span>, $t);
-</span><span class="code-keyword">return</span> $t;
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="CustomOutputFilterExamples-parseTags" id="CustomOutputFilterExamples-parseTags"></a>parseTags
-</h3>
-
-<p>
-This parseTags takes input as a comma delimited list, and makes all individual tags a link to resource 9 with tag=tagname query parameter appended to the link.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 &lt;?php
 /*
  * parseTags output filter
- * by Mark Hamstra (http:<span class="code-comment">//www.markhamstra.nl)
-</span> * free to use / modify / distribute to your will
+ * by Mark Hamstra (http://www.markhamstra.nl)
+ * free to use / modify / distribute to your will
  */
-<span class="code-keyword">if</span> ($input == '') { <span class="code-keyword">return</span> ''; } <span class="code-comment">// Output filters are also processed when the input is empty, so check <span class="code-keyword">for</span> that.
-</span>  $tags = explode(', ',$input); <span class="code-comment">// Based on a delimiter of comma-space.
-</span>  foreach ($tags as $key =&gt; $value) { <span class="code-comment">// <span class="code-object">Process</span> them individually
-</span>    $output[] = '&lt;a href=<span class="code-quote">"'.$modx-&gt;makeurl(9, '', array('tag' =&gt; $value)).'"</span>&gt;'.$value.'&lt;/a&gt;';
+if ($input == '') { return ''; } // Output filters are also processed when the input is empty, so check for that.
+  $tags = explode(', ',$input); // Based on a delimiter of comma-space.
+  foreach ($tags as $key =&gt; $value) { // Process them individually
+    $output[] = '&lt;a href="'.$modx-&gt;makeurl(9, '', array('tag' =&gt; $value)).'"&gt;'.$value.'&lt;/a&gt;';
   }
-  <span class="code-keyword">return</span> implode(', ',$output); <span class="code-comment">// Delimite again with a comma-space</span>
-</pre>
-</div>
-</div>
+  return implode(', ',$output); // Delimite again with a comma-space
 
+    
+</pre>
 <h3>
 <a name="CustomOutputFilterExamples-shorten" id="CustomOutputFilterExamples-shorten"></a>shorten
 </h3>
@@ -316,70 +153,20 @@ This parseTags takes input as a comma delimited list, and makes all individual t
 This shortens the input like :ellipsis but it does not truncate words. Defaults to the length of max. 50 characters. Based on code by gOmp.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-$output = '';
-$options = !empty($options)?$options:50;
-
-<span class="code-keyword">if</span> (!empty($input) &amp;&amp; !empty($options)) {
-  <span class="code-keyword">if</span> (strlen($input) &gt; $options) {
-    $output = substr($input, 0, strrpos(substr($input, 0, $options), ' ')).' &amp;hellip;';
-  }
-  <span class="code-keyword">else</span>{
-    $output = $input;
-  }
-}
-<span class="code-keyword">return</span> $output;
-?&gt;
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="CustomOutputFilterExamples-substring" id="CustomOutputFilterExamples-substring"></a>substring
-</h3>
-
-<p>
-Get a substring of the input.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
+<pre class="brush: php">
+    &lt;?php
 $options=explode(',',$options);
-<span class="code-keyword">return</span> count($options)&gt;1 ? substr($input,$options[0],$options[1]) : substr($input,$options[0]);
+return count($options)&gt;1 ? substr($input,$options[0],$options[1]) : substr($input,$options[0]);
 ?&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;span&gt;[[*introtext:substring=`0,1`]]&lt;/span&gt;[[*introtext:substring=`1`]]
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="CustomOutputFilterExamples-numberformat" id="CustomOutputFilterExamples-numberformat"></a>numberformat
-</h3>
-
-<p>
-<a href="http://php.net/manual/en/function.number-format.php" class="external-link" rel="nofollow">http://php.net/manual/en/function.number-format.php</a>
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
+<pre class="brush: php">
+    &lt;?php
 
 $number = floatval($input);
 $optionsXpld = @explode('&amp;', $options);
@@ -388,24 +175,22 @@ $optionsArray = array();
 foreach ($optionsXpld as $xpld) {
     $params = @explode('=', $xpld);
     array_walk($params, create_function('&amp;$v', '$v = trim($v);'));
-    <span class="code-keyword">if</span> (isset($params[1])) {
+    if (isset($params[1])) {
         $optionsArray[$params[0]] = $params[1];
-    } <span class="code-keyword">else</span> {
+    } else {
         $optionsArray[$params[0]] = '';
     }
 }
 
-$decimals = isset($optionsArray['decimals']) ? $optionsArray['decimals'] : <span class="code-keyword">null</span>;
-$dec_point = isset($optionsArray['dec_point']) ? $optionsArray['dec_point'] : <span class="code-keyword">null</span>;
-$thousands_sep = isset($optionsArray['thousands_sep']) ? $optionsArray['thousands_sep'] : <span class="code-keyword">null</span>;
+$decimals = isset($optionsArray['decimals']) ? $optionsArray['decimals'] : null;
+$dec_point = isset($optionsArray['dec_point']) ? $optionsArray['dec_point'] : null;
+$thousands_sep = isset($optionsArray['thousands_sep']) ? $optionsArray['thousands_sep'] : null;
 
 $output = number_format($number, $decimals, $dec_point, $thousands_sep);
 
-<span class="code-keyword">return</span> $output;
+return $output;
+    
 </pre>
-</div>
-</div>
-
 <p>
 Example:
 </p>

@@ -1,545 +1,247 @@
 <p>
-<br class="atl-forced-newline" />
+By caching data that is being reused, a lot of database requests can be prevented, resulting in a better performance. MODX Revolution offers a number of different caching features on different levels within the application. The caching within MODX is mostly handled by the modCacheManager core class, which extends the xPDOCacheManager class and allows partition-specific cache handlers. The default implementation writes caches to files in the core/cache/ folder.
 </p>
 
-<div>
-<ul>
-<li>
-<a href='#Caching-HowisCachingDoneinRevolution%3F'>How is Caching Done in Revolution?</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#Caching-SystemSettingsCache'>System Settings Cache</a>
-</li>
-
-<li>
-<a href='#Caching-ContextSettingsCache'>Context Settings Cache</a>
-</li>
-
-<li>
-<a href='#Caching-Resource%28PartialPage%29Cache'>Resource (Partial-Page) Cache</a>
-</li>
-
-<li>
-<a href='#Caching-ElementCache'>Element Cache</a>
-</li>
-
-<li>
-<a href='#Caching-DatabaseCache'>Database Cache</a>
-</li>
-</ul>
-</li>
-
-<li>
-<a href='#Caching-ProgrammaticCaching'>Programmatic Caching</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#Caching-UsingmodCacheManager'>Using modCacheManager</a>
-</li>
-
-<li>
-<a href='#Caching-RefreshingtheMODXCache'>Refreshing the MODX Cache</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#Caching-UsingmodCacheManager%3A%3Arefresh%28%29%28forMODX2.1andlater%29'>Using modCacheManager::refresh() (for MODX 2.1 and later)</a>
-</li>
-
-<li>
-<a href='#Caching-UsingmodCacheManager%3A%3AclearCache%28%29%28forMODX2.0.xonly%29'>Using modCacheManager::clearCache() (for MODX 2.0.x only)</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-
-<li>
-<a href='#Caching-SeeAlso'>See Also</a>
-</li>
-</ul>
-</div>
-
 <p>
-There are many different caching features in Revolution. Different aspects of the caching can be extended with user-defined classes, so it is possible to implement different kinds of features in custom component cache mechanisms (i.e. where you cache your own custom data), configure the default cache settings or settings for specific partitions of the core cache, or even extend/override the behavior of all core caching mechanisms by providing your own derivative implementation of <span class="error">[modCacheManager]</span>.
+If you have a custom MODX_CONFIG_KEY defined, the cache manager will write to core/cache/MODX_CONFIG_KEY/ instead.
 </p>
 
 <h2>
-<a name="Caching-HowisCachingDoneinRevolution%3F"></a>How is Caching Done in Revolution?
+General Caching Terminology &amp; Behavior
 </h2>
 
 <p>
-Revolution isolates different portions of it's core caching into partitions that can be configured and used in isolation. In addition, users can define their own partitions and configure those as needed for custom caching requirements.
+MODX uses different <strong>partitions</strong> for separate types of data being cached. A partition is, simplified, a folder in the core/cache/ folder, but the real value of partitions is that each partition can be assigned different cache handlers. <strong>Cache handlers</strong> are derivatives of the xPDOCache class and provide a unified API for storing, reading and removing cache entries.
 </p>
 
 <p>
-First, lets take a look at all of the partitions that are available by default in the core of MODX Revolution.
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>MODX_CONFIG_KEY</b>
-<br />
-If you are using a custom MODX_CONFIG_KEY (i.e. a value other than 'config'), the cache files for that configuration will be in a subdirectory named after the value of MODX_CONFIG_KEY.
-</td>
-</tr>
-</table>
-</div>
-
-<h3>
-<a name="Caching-SystemSettingsCache"></a>System Settings Cache
-</h3>
-
-<p>
-A collection of the global MODX configuration options, known as System Settings, is the first cache partition loaded by any request to MODX.
-</p>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.0.x</b>
-<br />
-In MODX 2.0.x releases this is cached to file in the root of the cache directory for the configuration, i.e. <tt>core/cache/config.cache.php</tt>, by default.
-</td>
-</tr>
-</table>
-</div>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.1+</b>
-<br />
-In MODX 2.1 and later releases, the <tt>config.cache.php</tt> file is located in a subdirectory based on the partition name. In this case it would be <tt>system_settings</tt> which is the default <tt>cache_key</tt> option defined for this partition.
-</td>
-</tr>
-</table>
-</div>
-
-<h3>
-<a name="Caching-ContextSettingsCache"></a>Context Settings Cache
-</h3>
-
-<p>
-This partition contains the configuration options for a specific Context, maps of the Resources and URI's that represent those Resources in the Context, along with a Plugin event map for the Context, and the source of the Plugin Elements that are registered in that event map.
-</p>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.0.x</b>
-<br />
-In MODX 2.0.x, there is a subdirectory of the cache for each Context (i.e. web/ or mgr/) where you will find the context.cache.php file.
-</td>
-</tr>
-</table>
-</div>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.1+</b>
-<br />
-In MODX 2.1 and later, the files are further isolated into a subdirectory for the partition, named <tt>context_settings</tt> by default.
-</td>
-</tr>
-</table>
-</div>
-
-<h3>
-<a name="Caching-Resource%28PartialPage%29Cache"></a>Resource (Partial-Page) Cache
-</h3>
-
-<p>
-The <tt>resource</tt> cache partition contains the partial-page caching assets for each cacheable Resource. The cache items in this partition contain a cacheable representation of the Resource object as well as representations of any cacheable Element output or other cacheable metadata used by the Resource.
-</p>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.0.x</b>
-<br />
-In MODX 2.0.x, these cache items are located in the same Context-specific directories as the Context Settings. in a subdirectory called resources/ you will find files named 1.cache.php where the 1 represents the id of the cached Resource.
-</td>
-</tr>
-</table>
-</div>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.1+</b>
-<br />
-In MODX 2.1 or later, these cache items are organized into Context-specific subdirectories underneath a directory named after the partition, which is <tt>resource</tt> by default.
-</td>
-</tr>
-</table>
-</div>
-
-<h3>
-<a name="Caching-ElementCache"></a>Element Cache
-</h3>
-
-<p>
-Elements that represent PHP scripts (see <span class="error">[modScript]</span> for more information) cache both a representation of the object and an includable copy of the global function which is executed when the script is processed.
-</p>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.0.x</b>
-<br />
-In MODX 2.0.x, these cache items are stored in an elements subdirectory of the cache, within additional subdirectories for class (i.e. modsnippet or modplugin). Both the object and include file are stored in the same directory as 1.cache.php and 1.include.cache.php where 1 is the id of the Element.
-</td>
-</tr>
-</table>
-</div>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.1+</b>
-<br />
-In MODX 2.1 and later, this partition is named <tt>scripts</tt> by default, while the includes are isolated into a separate subdirectory called includes. Both the scripts and includes are then further organized into an elements subdirectory with subdirectories for each class (i.e. modsnippet or modplugin).
-</td>
-</tr>
-</table>
-</div>
-
-<h3>
-<a name="Caching-DatabaseCache"></a>Database Cache
-</h3>
-
-<p>
-If you enable this, MODX can automatically cache database result sets fetched by any xPDOCriteria or xPDOQuery instance. This includes all of the result sets representing xPDOObjects or collections of xPDOObjects returned by methods like getObject and getCollection. This feature can be enabled in environments where database access is more expensive than PHP include time, for instance, when using an external database server, or custom configured for environments with memcached, APC, or other caching systems available. This is again a separate partition from all of the other cache partitions in MODX, most of which are more specific to MODX operations than this one. See <a href="/display/xPDO20/Caching" title="Caching">xPDO Caching</a> for additional information.
+The default <strong>cache handler,</strong> xPDOFileCache, writes the cache to the file system in the core/cache/ folder, but other cache handlers are available in the core for APC (xPDOAPCCache), memcache(d) (xPDOMemCache, xPDOMemCached) and WinCache (xPDOWinCache).
 </p>
 
 <h2>
-<a name="Caching-ProgrammaticCaching"></a>Programmatic Caching
+MODX Core Cache Partitions
 </h2>
 
 <p>
-xPDOCacheManager, and the MODX-specific modCacheManager class derived from it, provide some useful features for caching any kind of data to just about any cache system. xPDO includes implementations for file-based, memcached, APC, and WinCache out of the box. There is no tagging feature here as in the programmatic features of the Zend_Cache library, but you can clear specific partitions, or even just parts of a partition in certain implementations.
+There are a number of partitions in the core. These can easily be identified by looking in the core/cache/ folder with the default cache configuration.
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
+<p>
+Typically you do not want work with the cached data directly (use the available APIs instead), but for means of understanding the MODX core we go through the core partitions here and briefly describe their purpose and contents.
+</p>
 
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Clearing by Key Prefix</b>
-<br />
-Most cache implementations provide a way to delete specific cache items by regular expressions or key hierarchy, but some, like memcached, do not support this. Providers that do not support this will flush the entire instance (this could include all partitions as well since some providers only allow a single instance) whenever you attempt to delete just specific keys by pattern.
-</td>
-</tr>
-</table>
-</div>
+<p>
+As we’ll discuss later, it is also possible for custom providers to be used in custom development work.
+</p>
+
+<ul>
+<li>
+<strong>action_map</strong> Contains a big array of all the actions (IDs referencing controllers and namespaces) that can be accessed in the manager. As actions are deprecated and no longer used in 2.3, never rely on this.
+</li>
+
+<li>
+<strong>auto_publish</strong> Contains a unix timestamp with the next time a resource needs to be automatically published or unpublished. (See modCacheManager.autoPublish())
+</li>
+
+<li>
+<strong>context_settings</strong> For each context in the website, this contains a resource map (parent and child IDs), alias map, plugins used in the context and access policies.
+</li>
+
+<li>
+<strong>db</strong> The db cache partition is used when the cache_db system or context setting is enabled and contains raw result sets for xPDO getObject/getCollection requests. More about this below.
+</li>
+
+<li>
+<strong>includes</strong> This is not an actual cache partition, but contains PHP files where snippets and plugins are wrapped in function calls for easy execution by the core. See scripts for the cache partition for snippets and plugins.
+</li>
+
+<li>
+<strong>logs</strong> Again, not an actual cache partition, but contains an error.log file and at times other log files (e.g. setup).
+</li>
+
+<li>
+<strong>menu</strong> Contains, per manager language, a multi dimensional array of the manager top menu.
+</li>
+
+<li>
+<strong>mgr</strong> Not an actual cache partition but is used by Smarty and the Google Minify in 2.2 to write cache files to.
+</li>
+
+<li>
+<strong>registry</strong> Default location for the modRegistry to write file-based register logs to. Not an actual cache partition.
+</li>
+
+<li>
+<strong>resource</strong> Contains, organised per context and resource ID, the partial-page caching mechanism for resources. These cache files contain the meta data for the resource, a cached representation of the resource (_content) with uncached tags left intact, access policies for the resource and elements and their sources used in processing the resource.
+</li>
+
+<li>
+<strong>rss</strong> Not an actual cache partition, but used by MagpieRSS (powering the RSS dashboard widgets) to write its cache to.
+</li>
+
+<li>
+<strong>scripts</strong> Contains the source for snippets and plugins, which are later written to the includes cache folder for inclusion.
+</li>
+
+<li>
+<strong>setup</strong> Not an actual cache partition. Used by the MODX setup to cache smarty templates.
+</li>
+
+<li>
+<strong>system_settings</strong> Contains the global MODX configuration and system settings. This partition is loaded first by requests to MODX. As alternative cache handlers for partitions are stored in the system settings, this partition can not be loaded from another cache handler that way.
+</li>
+</ul>
+
+<p>
+To change the cache handler for a specific cache partition, simply create a new system (or context) setting with the name of cache_PARTITION_handler (for example cache_resource_handler or cache_scripts_handler) and give it the value of the cache handler you would like to use. The default is xPDOFileCache but others are available for APC, memcache(d) and wincache.
+</p>
+
+<p>
+Note that in MODX 2.0.x the cache system was quite different. The available partitions were different and the system settings were stored in core/cache/config.cache.php. If you are still running MODX 2.0.x now, you should spend more time upgrading and less time reading this document.
+</p>
 
 <h3>
-<a name="Caching-UsingmodCacheManager"></a>Using modCacheManager
+Database caching
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-/* write some data to a variable */
-$colors = array('red','blue','green');
-/* store the variable as a cache item named 'colors' in the <span class="code-keyword">default</span> cache provider */
-$modx-&gt;cacheManager-&gt;set('colors',$colors);
-
-/* get that data */
-$colors = $modx-&gt;cacheManager-&gt;get('colors');
-foreach ($colors as $color) {
-   echo $color.'-';
-} /* <span class="code-keyword">this</span> echoes 'red-blue-green' */ 
-?&gt;
-</pre>
-</div>
-</div>
-
 <p>
-You can optionally set an expiration time on individual cache items:
+If you enable the <strong>cache_db</strong> system setting, MODX can automatically cache database result sets fetched by any xPDOCriteria or xPDOQuery instance. This includes all of the result sets representing xPDOObjects or collections of xPDOObjects returned by methods like getObject and getCollection.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$str = 'My test cached data.';
-$modx-&gt;cacheManager-&gt;set('testdata',$str,7200);
-/* <span class="code-keyword">this</span> caches the data <span class="code-keyword">for</span> 2 hours. */
-</pre>
-</div>
-</div>
-
 <p>
-Once an item is past it's expiration time, it is not available and next access removes any trace of the cached item.
+This feature can be enabled in environments where database access is more expensive than PHP include time, for instance, when using an external database server, or custom configured for environments with memcached, APC, or other caching systems available. This is a separate partition from the other cache partitions in MODX, so it can be configured with other cache handlers. See <a href="display/xPDO20/Caching">xPDO Caching</a> for additional information.
 </p>
 
-<h3>
-<a name="Caching-RefreshingtheMODXCache"></a>Refreshing the MODX Cache
-</h3>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Major Change in 2.1</b>
-<br />
-In MODX 2.1 and later, the cache is refreshed instead of cleared and the clearCache() method is deprecated in favor of the new refresh() method. This is an important distinction and one that deserves a better explanation. In particular, the System and Context Settings Cache items are never deleted, only replaced. This transfers the overhead of cache regeneration from the database to the request which is requesting the action, rather than the next request that needs that information. Since this is generally a request in the manager, this greatly improves the apparent performance of the front-end requests since they rarely have to wait for the regeneration activity to complete themselves.
-</td>
-</tr>
-</table>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.0.x</b>
-<br />
-MODX 2.0.x users, see the examples under Using modCacheManager::clearCache() at the bottom.
-</td>
-</tr>
-</table>
-</div>
-
-<h4>
-<a name="Caching-UsingmodCacheManager%3A%3Arefresh%28%29%28forMODX2.1andlater%29"></a>Using modCacheManager::refresh() (for MODX 2.1 and later)
-</h4>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.1+</b>
-<br />
-This method is only available in MODX 2.1 or later. See Using modCacheManager::clearCache() below for previous releases.
-</td>
-</tr>
-</table>
-</div>
+<h2>
+Refreshing the MODX Core Cache
+</h2>
 
 <p>
-Here are some examples of using modCacheManager-&gt;refresh() to refresh various parts of the cache:
+To refresh any of the core MODX cache partitions, use the <code>modCacheManager-&gt;refresh()</code> method. The minimum call has no parameters and will refresh all core cache partitions.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-/* refresh all the core partitions */
+<pre class="brush: php">
 $modx-&gt;cacheManager-&gt;refresh();
-
-/* refresh the web and web2 context_settings partitions */
-$modx-&gt;cacheManager-&gt;refresh(array(
-    'context_settings' =&gt; array('contexts' =&gt; array('web', 'web2'))
-));
-
-/* get all the Contexts */
-$contexts = array();
-$query = $<span class="code-keyword">this</span>-&gt;xpdo-&gt;newQuery('modContext');
-$query-&gt;select($<span class="code-keyword">this</span>-&gt;xpdo-&gt;escape('key'));
-<span class="code-keyword">if</span> ($query-&gt;prepare() &amp;&amp; $query-&gt;stmt-&gt;execute()) {
-    $contexts = $query-&gt;stmt-&gt;fetchAll(PDO::FETCH_COLUMN);
-}
-/* refresh the <span class="code-keyword">default</span> partitions in the <span class="code-keyword">default</span> order, excluding the mgr Context */
-$results = array();
-$modx-&gt;cacheManager-&gt;refresh(array(
-    'auto_publish' =&gt; array('contexts' =&gt; array_diff($contexts, array('mgr'))),
-    'system_settings' =&gt; array(),
-    'context_settings' =&gt; array('contexts' =&gt; $contexts),
-    'db' =&gt; array(),
-    'scripts' =&gt; array(),
-    '<span class="code-keyword">default</span>' =&gt; array(),
-    'resource' =&gt; array('contexts' =&gt; array_diff($contexts, array('mgr'))),
-    'menu' =&gt; array(),
-    'action_map' =&gt; array(),
-    'lexicon_topics' =&gt; array()
-), $results);
-/* var_dump the results collected from the refresh operation on each partition */
-var_dump($results);
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="Caching-UsingmodCacheManager%3A%3AclearCache%28%29%28forMODX2.0.xonly%29"></a>Using modCacheManager::clearCache() (for MODX 2.0.x only)
-</h4>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Deprecated in 2.1</b>
-<br />
-This method is deprecated in MODX 2.1 and will not be available starting in version 2.2.
-</td>
-</tr>
-</table>
-</div>
-
 <p>
-Here are some examples of using modCacheManager-&gt;clearCache():
+Alternatively, you can define a <code>$providers</code> array with partition <code>key =&gt; $partitionOptions</code> elements.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// clear all the usual stuff by <span class="code-keyword">default</span> (all files with the extension .cache.php
-</span><span class="code-comment">// in the cachePath + all object caches)
-</span>$modx-&gt;cacheManager-&gt;clearCache();
-
-<span class="code-comment">// clear only cache files with extension .php or .log in the web/ custom/
-</span><span class="code-comment">// or logs/ paths; no objects are cleared
-</span>$paths = array('web/', 'custom/', 'logs/');
-$options = array('objects' =&gt; <span class="code-keyword">null</span>, 'extensions' =&gt; array('.php', '.log'));
-$modx-&gt;cacheManager-&gt;clearCache($paths, $options);
-
-<span class="code-comment">// clear all cache files with extension .php in the cachePath
-</span><span class="code-comment">// + all objects + execute the timed publishing checks
-</span>$paths = array('');
-$options = array('objects' =&gt; '*', 'publishing' =&gt; <span class="code-keyword">true</span>, 'extensions' =&gt; array('.php'));
-$modx-&gt;cacheManager-&gt;clearCache($paths, $options);
+<pre class="brush: php">
+// refresh the web and web2 context_settings only
+$modx-&gt;cacheManager-&gt;refresh(array(
+  'context_settings' =&gt; array('contexts' =&gt; array('web', 'web2')
+));
 </pre>
-</div>
-</div>
+<p>
+The second parameter, <code>$results</code>, is passed by reference and will contain the results of each of the cache partitions. Depending on the partition, this can be a boolean or an array with more information from the result of refreshing the specific partition. The function itself returns a boolean indicating if any of the partitions returned a boolean false.
+</p>
 
 <h2>
-<a name="Caching-SeeAlso"></a>See Also
+Programmatic (Custom) Caching
 </h2>
+
+<p>
+By interacting with the modCacheManager, you can easily cache any type of data. There are several useful features for you to use in maintaining a valid cache. By using the modCacheManager with a custom partition (though not required), users of your code can change the cache handler and store the data in a memcached, APC or WinCache instance instead of the default file based cache.
+</p>
+
+<p>
+The modCacheManager (xPDOCacheManager derivative) provides the following useful methods:
+</p>
 
 <ul>
 <li>
-<a href="/display/xPDO20/Caching" title="Caching">Caching in xPDO</a>
+<code>add($key, $var, $lifetime = 0, $options = array())</code>. Used for adding a value to the cache, but only if it does not yet exist or has expired.
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDOCacheManager" title="xPDOCacheManager">xPDOCacheManager</a>
+<code>replace ($key, $var, $lifetime = 0, $options = array())</code>. Used for replacing an existing cached value with a different one.
+</li>
+
+<li>
+<code>set ($key, $var, $lifetime = 0, $options = array())</code>. Used for setting a value in the cache no matter if it exists already (gets overwritten) or not (gets added).
+</li>
+
+<li>
+<code>delete ($key, $options = array())</code>. Deletes a cached value from the cache.
+</li>
+
+<li>
+<code>get ($key, $options = array())</code>. Gets a cached value from the cache.
+</li>
+
+<li>
+<code>clean ($options = array())</code>. Flushes (empties) an entire cache provider. Make sure to define the xPDO::OPT_CACHE_KEY in the options array.
 </li>
 </ul>
+
+<p>
+In general you can use <code>get($key)</code> and <code>set($key, $value)</code> to retrieve and set values respectively, but the additional methods provide additional control over the way data is manipulated.
+</p>
+
+<p>
+The <code>$options</code> array can contain the following options indicating the cache partition to write to, the cache handler to use and the default expiry time.
+</p>
+
+<ul>
+<li>
+<code>xPDO::OPT_CACHE_KEY</code>: the cache partition to write to.
+</li>
+
+<li>
+<code>xPDO::OPT_CACHE_HANDLER</code>: the cache handler to use. Typically you shouldn’t hardcode this and instead let the specific implementation handle the cache handler via system settings (ie cache_PARTITION_handler system setting).
+</li>
+
+<li>
+<code>xPDO::OPT_CACHE_EXPIRES:</code> the default expiry time.
+</li>
+</ul>
+
+<h3>
+Example 1: Simple Setting &amp; Getting
+</h3>
+
+<pre class="brush: php">
+$str = 'My test cached data.';
+// Writes the data to the default cache partition with an expiry time of 2 hours.
+$modx-&gt;cacheManager-&gt;set('testdata', $str, 7200);
+// Gets the data from cache again. Returns null if cache is not available or expired.
+$str = $modx-&gt;cacheManager-&gt;get('testdata');
+</pre>
+<h3>
+Example 2: Setting &amp; Getting to a custom partition
+</h3>
+
+<pre class="brush: php">
+$str = 'My test cached data.';
+$options = array(
+  xPDO::OPT_CACHE_KEY =&gt; 'mypartition',
+);
+Writes the data to the default cache partition with an expiry time of 2 hours.
+$modx-&gt;cacheManager-&gt;set('testdata', $str, 7200, $options);
+// Gets the data from cache again. Returns null if cache is not available or expired.
+$str = $modx-&gt;cacheManager-&gt;get('testdata', $options);
+</pre>
+<h2>
+Note on Revolution 2.0
+</h2>
+
+<p>
+MODX Revolution 2.0 had a different caching system with different partitions. To clear the cache in 2.0, you would use the clearCache() method that has been deprecated since 2.1. It's better to upgrade to the latest version than to continue using 2.0.
+</p>
+
+<pre class="brush: php">
+// clear all the usual stuff by default (all files with the extension .cache.php
+// in the cachePath + all object caches)
+$modx-&gt;cacheManager-&gt;clearCache();
+// clear only cache files with extension .php or .log in the web/ custom/
+// or logs/ paths; no objects are cleared
+$paths = array('web/', 'custom/', 'logs/');
+$options = array('objects' =&gt; null, 'extensions' =&gt; array('.php', '.log'));
+$modx-&gt;cacheManager-&gt;clearCache($paths, $options);
+// clear all cache files with extension .php in the cachePath
+// + all objects + execute the timed publishing checks
+$paths = array('');
+$options = array('objects' =&gt; '*', 'publishing' =&gt; true, 'extensions' =&gt; array('.php'));
+$modx-&gt;cacheManager-&gt;clearCache($paths, $options);
+</pre>

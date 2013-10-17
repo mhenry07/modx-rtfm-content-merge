@@ -1,5 +1,5 @@
 <p>
-PHx (Placeholders Xtended) will add the capability of output modifiers when using placeholders, content tags (including template variables) and settings tags. The recursive parser allows for nested tags. Custom modifiers can be added by creating "mini-snippets" in the MODx resource manager.&nbsp; PHx is only intended for use with MODX Evolution, if you are using MODX Revolution see <a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">Output Filters</a>.
+PHx (Placeholders Xtended) will add the capability of output modifiers when using placeholders, content tags (including template variables) and settings tags. The recursive parser allows for nested tags. Custom modifiers can be added by creating "mini-snippets" in the MODx resource manager.&nbsp; PHx is only intended for use with MODX Evolution, if you are using MODX Revolution see <a href="display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">Output Filters</a>.
 </p>
 
 <h2>
@@ -109,75 +109,20 @@ Transforming a value is is as easy as adding <b>:modifier</b>.
 When enabled, PHx supports extensions of the following MODX tags:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+placeholder+]
-[*content tag/TV*]
-[(setting)]
+<pre class="brush: php">
+    [*createdby*]
+
+    
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="PHx-SnippetssupportingPHx" id="PHx-SnippetssupportingPHx"></a>Snippets supporting PHx
-</h3>
-
-<ul>
-<li>Ditto
-</li>
-
-<li>Jot
-</li>
-
-<li>MaxiGallery
-</li>
-</ul>
-
-<p>
-You can also use PHx in chunks of other snippets that are not in the above list but it may require another approach (see the Tips &amp; Tricks section).
-</p>
-
-<h3>
-<a name="PHx-Usage" id="PHx-Usage"></a>Usage
-</h3>
-
-<p>
-A normal placeholder like [<ins>placeholder</ins>] can be extended to a PHx placeholder: [<ins>placeholder:esc</ins>]. The same applies for content tags like:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[*createdby*]
-</pre>
-</div>
-</div>
-
 <p>
 Some modifiers take options like:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[*createdby:date=`%a %B %d, %Y at %H:%M`*]
+<pre class="brush: php">
+    somevar:esc:nl2br:strip
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Multiple modifiers can be placed into one placeholder/template variables and will be processed from left to right.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-somevar:esc:nl2br:strip
-</pre>
-</div>
-</div>
-
 <h4>
 <a name="PHx-Advancedusage" id="PHx-Advancedusage"></a>Advanced usage
 </h4>
@@ -186,26 +131,11 @@ somevar:esc:nl2br:strip
 There is a special placeholder called 'phx' which acts as a dummy placeholder to start a sequence without an actual variable.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:<span class="code-keyword">if</span>=`[+<span class="code-keyword">this</span>+]`:is=`[+that+]`:then=`<span class="code-keyword">do</span> <span class="code-keyword">this</span>`:<span class="code-keyword">else</span>=`<span class="code-keyword">do</span> that`+]
+<pre class="brush: php">
+    [+phx:userinfo=`username`+]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Also, with some modifiers this dummy will automatically have a specific default value. In case of the "userinfo" modifier it takes on the value of the current userid.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:userinfo=`username`+]
-</pre>
-</div>
-</div>
-
 <h4>
 <a name="PHx-Knownissues" id="PHx-Knownissues"></a>Known issues
 </h4>
@@ -218,76 +148,20 @@ Also, with some modifiers this dummy will automatically have a specific default 
 It seems logical, but I mention this as an issue because it's easy to take into account. Try to avoid the following character combinations in your template if they are not part of a MODx tag:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+
-[*
-[(
-+]
-*]
-)]
-]]
+<pre class="brush: php">
+    array[counter++]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-They might throw the parser and MODx off guard. In normal circumstances this wouldn't be a problem. But in the case of JavaScript in your template a situation like this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-array[counter++]
-</pre>
-</div>
-</div>
-
 <p>
 ... might trigger weird behavior because of the +]. Also, using a closing CDATA tag like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-/* ]]&gt; */
+<pre class="brush: php">
+    [+string:lcase+]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-... will create issues as well.
-</p>
-
-<p>
-Just remember that you can't break your website by using faulty PHx syntax, the worst thing that could happen is that your layout comes out the wrong way.
-</p>
-
-<h2>
-<a name="PHx-Modifiers" id="PHx-Modifiers"></a>Modifiers
-</h2>
-
-<h3>
-<a name="PHx-String" id="PHx-String"></a>String
-</h3>
-
-<h4>
-<a name="PHx-lcase" id="PHx-lcase"></a>lcase
-</h4>
-
-<p>
-Returns current value with all alphabetic characters converted to lowercase.Example:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+string:lcase+]
-</pre>
-</div>
-</div>
-
 <ul>
 <li>Input: This is a string
 </li>
@@ -304,38 +178,11 @@ Returns current value with all alphabetic characters converted to lowercase.Exam
 Returns current value with all alphabetic characters converted to uppercase.Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+string:ucase+]
+<pre class="brush: php">
+    [+string:ucfirst+]
+
+    
 </pre>
-</div>
-</div>
-
-<ul>
-<li>Input:This is a string
-</li>
-
-<li>Returns:THIS IS A STRING
-</li>
-</ul>
-
-<h4>
-<a name="PHx-ucfirst" id="PHx-ucfirst"></a>ucfirst
-</h4>
-
-<p>
-Returns current value's first character as uppercaseExample:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+string:ucfirst+]
-</pre>
-</div>
-</div>
-
 <ul>
 <li>Input:this is a string
 </li>
@@ -352,38 +199,11 @@ Returns current value's first character as uppercaseExample:
 Returns length of the current value.Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+string:len+]
+<pre class="brush: php">
+    [+string:notags+]
+
+    
 </pre>
-</div>
-</div>
-
-<ul>
-<li>Input:this is a string
-</li>
-
-<li>Returns:16
-</li>
-</ul>
-
-<h4>
-<a name="PHx-notags" id="PHx-notags"></a>notags
-</h4>
-
-<p>
-Strips html tags from the current value.Example:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+string:notags+]
-</pre>
-</div>
-</div>
-
 <ul>
 <li>Input:this &lt;b&gt;is&lt;/b&gt; a &lt;i&gt;string&lt;/i&gt;
 </li>
@@ -416,40 +236,11 @@ Converts the input to html entities.
 Converts new lines to breaks.Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+string:nl2br+]
+<pre class="brush: php">
+    [+string:strip+]
+
+    
 </pre>
-</div>
-</div>
-
-<ul>
-<li>Input:this isa string
-</li>
-</ul>
-
-<ul>
-<li>Returns:this is &lt;br /&gt;a string
-</li>
-</ul>
-
-<h4>
-<a name="PHx-strip" id="PHx-strip"></a>strip
-</h4>
-
-<p>
-Strip newlines (\n), tabs (\t) and multiple spaces.Example:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+string:strip+]
-</pre>
-</div>
-</div>
-
 <ul>
 <li>Input:this is a string
 </li>
@@ -498,171 +289,11 @@ Strip newlines (\n), tabs (\t) and multiple spaces.Example:
 Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[*createdon:date=`%d.%m.%Y`*]
+<pre class="brush: php">
+    [+placeholder:select=`0=OFF&amp;1=ON&amp;2=UNKNOWN`+]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-To change the output of date according to the language of the website, insert setlocale at the beginning of the PHx-plugin (this is an example for German language): setlocale(LC_ALL, 'de_DE@euro', 'de_DE', 'de', 'ge');
-</p>
-
-<h4>
-<a name="PHx-md5" id="PHx-md5"></a>md5
-</h4>
-
-<ul>
-<li>Creates a MD5 hash from the current value.
-</li>
-</ul>
-
-<h4>
-<a name="PHx-userinfo%3D%60field%60"></a>userinfo=`field`
-</h4>
-
-<ul>
-<li>field: Formats a userid value (webuser have negative ids) to a field specified. Similar to the fields used in the MODx database <em>user_attributes</em> table (eg: username, useremail):
-<ul>
-<li>
-<b>cachepwd</b>&nbsp;: Cache password
-</li>
-
-<li>
-<b>comment</b>&nbsp;: Comment
-</li>
-
-<li>
-<b>country</b>&nbsp;: Country
-</li>
-
-<li>
-<b>dob</b>&nbsp;: Date of birth, in UNIX time format
-</li>
-
-<li>
-<b>email</b>&nbsp;: Email
-</li>
-
-<li>
-<b>fax</b>&nbsp;: Fax
-</li>
-
-<li>
-<b>fullname</b>&nbsp;: Full name
-</li>
-
-<li>
-<b>gender</b>&nbsp;: Gender
-</li>
-
-<li>
-<b>internalKey</b>&nbsp;: User internal key
-</li>
-
-<li>
-<b>lastlogin</b>&nbsp;: Last login, in UNIX time format
-</li>
-
-<li>
-<b>logincount</b>&nbsp;: Number of logins
-</li>
-
-<li>
-<b>mobilephone</b>&nbsp;: Mobile phone
-</li>
-
-<li>
-<b>password</b>&nbsp;: Password
-</li>
-
-<li>
-<b>phone</b>&nbsp;: Phone
-</li>
-
-<li>
-<b>photo</b>&nbsp;: Photo
-</li>
-
-<li>
-<b>role</b>&nbsp;: Role
-</li>
-
-<li>
-<b>state</b>&nbsp;: State
-</li>
-
-<li>
-<b>thislogin</b>&nbsp;: This login, in UNIX time format
-</li>
-
-<li>
-<b>username</b>&nbsp;: User name
-</li>
-
-<li>
-<b>zip</b>&nbsp;: Zip code
-</li>
-</ul>
-</li>
-</ul>
-
-<h4>
-<a name="PHx-math%3D%60calculation%60"></a>math=`calculation`
-</h4>
-
-<ul>
-<li>Use simple calculations like - * + /.
-</li>
-
-<li>The "?" character is replaced by the current value of the extension but you can also use nested tags.
-</li>
-
-<li>Example calculation:&nbsp;?<ins>1</ins>(2+3)+4/5*6
-</li>
-</ul>
-
-<h4>
-<a name="PHx-ifempty%3D%60othervalue%60"></a>ifempty=`other value`
-</h4>
-
-<ul>
-<li>Use "other value" when the output of the placeholder/templatevar is empty.
-</li>
-</ul>
-
-<h4>
-<a name="PHx-select%3D%60options%60"></a>select=`options`
-</h4>
-
-<p>
-Translates the value of placeholder/templatevar to a specified output.
-</p>
-
-<ul>
-<li>options like: value1=output1&amp;value2=output2
-</li>
-</ul>
-
-<p>
-<b>Example</b>:
-</p>
-
-<ul>
-<li>Input: 1
-</li>
-</ul>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+placeholder:select=`0=OFF&amp;1=ON&amp;2=UNKNOWN`+]
-</pre>
-</div>
-</div>
-
 <ul>
 <li>Returns ON
 </li>
@@ -753,38 +384,11 @@ is lower than (&lt;)
 Takes a comma-separated list of webgroup names and returns true/false depending on the user being in the group or not (replaces the "inrole" modifier which had to be combined with a conditional operator). Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:mo=`myWebgroup`:then=`I'm a member`:<span class="code-keyword">else</span>=`I'm NOT a member`+]
+<pre class="brush: php">
+    [+phx:if=`[*id*]`:is=`2`:or:is=`3`:then=`{{Chunk}}`:else=`{{OtherChunk}}`+]
+
+    
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="PHx-if%3D%60value%60"></a>if=`value`
-</h4>
-
-<p>
-Takes a new value. Will normally be used before&nbsp;:or or&nbsp;:and
-</p>
-
-<h4>
-<a name="PHx-or" id="PHx-or"></a>or
-</h4>
-
-<p>
-Previous OR next statement
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:<span class="code-keyword">if</span>=`[*id*]`:is=`2`:or:is=`3`:then=`{{Chunk}}`:<span class="code-keyword">else</span>=`{{OtherChunk}}`+]
-</pre>
-</div>
-</div>
-
 <h4>
 <a name="PHx-and" id="PHx-and"></a>and
 </h4>
@@ -793,46 +397,11 @@ Previous OR next statement
 Previous AND next statement
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:<span class="code-keyword">if</span>=`[!UltimateParent!]`:is=`1`:and:isnot=`[*id*]`:then=`{{ChildChunk}}`:<span class="code-keyword">else</span>=`{{ParentChunk}}`+]
+<pre class="brush: php">
+    [+myplaceholder:len:gt=`3`:show+]
+
+    
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="PHx-then%3D%60template%60"></a>then=`template`
-</h4>
-
-<p>
-template&nbsp;: This is shown if conditions are true. Template can be a <tt>chunk</tt>, [[snippet]] or just plain html
-</p>
-
-<h4>
-<a name="PHx-else%3D%60template%60"></a>else=`template`
-</h4>
-
-<p>
-template&nbsp;: This is shown if conditions are false. Template can be a&nbsp;<tt>chunk</tt>, [[snippet]] or just plain html
-</p>
-
-<h4>
-<a name="PHx-show" id="PHx-show"></a>show
-</h4>
-
-<p>
-Similar to <b>then</b> except that it uses the original input as 'template' when the condition is true.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+myplaceholder:len:gt=`3`:show+]
-</pre>
-</div>
-</div>
-
 <ul>
 <li>Will return the value of myplaceholder if it contains more then 3 characters.
 </li>
@@ -882,98 +451,11 @@ Similar to <b>then</b> except that it uses the original input as 'template' when
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-     [+myplaceholder:is=`2`:then=`
-     {{ChunkGood}}
-     `:<span class="code-keyword">else</span>=`
-     {{ChunkBad}}
-     `+]
+<pre class="brush: php">
+    [+myplaceholder:mymodifier+]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Will display the contents of chunk called <b>ChunkGood</b>.
-</p>
-
-<ul>
-<li>[+<ins>myplaceholder:gt=`1`:then=`Yes`:else=`No`</ins>+]
-</li>
-
-<li>[<ins>+myplaceholder:lt=`3`:and:gt=`1`:then=`Yes`:else=`No`</ins>+]
-</li>
-
-<li>[<ins>+myplaceholder:lt=`[+someplaceholder</ins>]`:then=`Yes`:else=`No`+]
-</li>
-
-<li>[<ins>+myplaceholder:islt=`2`:then=`Yes`:else=`No`</ins>+]
-</li>
-
-<li>[<ins>+myplaceholder:isnot=`2`:or:lt=`3`:then=`Yes`:else=`No`</ins>+]
-</li>
-</ul>
-
-<p>
-Will all return <b>Yes</b>.
-</p>
-
-<ul>
-<li>[<ins>+myplaceholder:isnot=`2`:then=`Yes`:else=`No`</ins>+]
-</li>
-
-<li>[<ins>+myplaceholder:gt=`[+someplaceholder</ins>]`:then=`Yes`:else=`No`+]
-</li>
-
-<li>[<ins>+myplaceholder:lt=`2`:then=`Yes`:else=`No`</ins>+]
-</li>
-
-<li>[<ins>+myplaceholder:gt=`2`:then=`Yes`:else=`No`</ins>+]
-</li>
-
-<li>[<ins>+myplaceholder:lt=`1`:then=`Yes`:else=`No`</ins>+]
-</li>
-</ul>
-
-<p>
-Will all return <b>No</b>.
-</p>
-
-<h2>
-<a name="PHx-Custommodifiers" id="PHx-Custommodifiers"></a>Custom modifiers
-</h2>
-
-<p>
-A modifier is in fact a replacement for a simple snippet to process a given value to anything you like. It's possible to create your own custom modifiers/mini-snippets by adding a new snippet into the MODx resource manager.
-</p>
-
-<p>
-Because a modifier doesn't hold complicated code you don't need parameters other than what a modifier in PHx gets from the parser. There are two main variables:
-</p>
-
-<ol>
-<li>
-<b>$output</b> the current value of the variable that is getting "modified"
-</li>
-
-<li>
-<b>$options</b> (optional) an optionial string that a modifier could have
-</li>
-</ol>
-
-<p>
-To bring this into perspective here are some short examples assuming <b>myplaceholder</b> is set to <b>"test"</b>:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+myplaceholder:mymodifier+]
-</pre>
-</div>
-</div>
-
 <ul>
 <li>
 <b>$output</b> contains the value "<b>test</b>".
@@ -984,107 +466,19 @@ To bring this into perspective here are some short examples assuming <b>myplaceh
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+myplaceholder:mymodifier=`my options`+]
-</pre>
-</div>
-</div>
-
-<ul>
-<li>
-<b>$output</b> still contains the value "<b>test</b>".
-</li>
-
-<li>
-<b>$options</b> contains the value "<b>my options</b>".
-<br />
-----<b>Other variables (advanced users)</b>
-</li>
-
-<li>
-<b>$input</b> contains the original input (starting value).
-</li>
-
-<li>
-<b>$condition</b> an array containing the elements that make up a conditional statement (<em>0</em>, <em>1</em>, <em>||</em> and <em>&amp;&amp;</em>).
-</li>
-</ul>
-
-<h3>
-<a name="PHx-Creatingacustommodifier" id="PHx-Creatingacustommodifier"></a>Creating a custom modifier
-</h3>
-
-<h4>
-<a name="PHx-Example%3AIloveMODx"></a>Example: I love MODx
-</h4>
-
-<p>
-With this knowledge we are going to create a new custom modifier. In this example I want to create a modifier (without options) that adds the string " because I love MODx" to a variable.
-</p>
-
-<ol>
-<li>Login to the MODx manager
-</li>
-
-<li>Go to Resources -&gt; Manage Resources -&gt; Snippets
-</li>
-
-<li>Click "new snippet"
-</li>
-
-<li>For the snippet name we enter "'<b><em>phx:love'</em></b>" For PHx to know about the custom modifier all snippets created for PHx should be prefixed with "phx:" the string (containing NO spaces) after the prefix will be the actual modifier name. In this case our modifier will be triggered by adding&nbsp;:love to the placeholder like [<ins>+myplaceholder:love</ins>+].
-</li>
-
-<li>Now we are going to enter the modifier code into the snippet code field. For this example we create it like this: &lt;?php $newvalue=$output." because I love MODx"; return $newvalue; ?&gt;
-</li>
-
-<li>Click "Save" and your custom modifier (<b>:love</b>) is ready for use!
-</li>
-</ol>
-
-<h4>
-<a name="PHx-Example%3AIloveMODxevenmore"></a>Example: I love MODx even more
-</h4>
-
-<p>
-Similar to example 1 we are now going to create a modifier that will do the same BUT if there are options specified it will take the options value as the string to append.
-</p>
-
-<ol>
-<li>Login to the MODx manager
-</li>
-
-<li>Go to Resources -&gt; Manage Resources -&gt; Snippets
-</li>
-
-<li>Click "new snippet"
-</li>
-
-<li>For the snippet name we enter "<b>phx:love2</b>" For PHx to know about the custom modifier all snippets created for PHx should be prefixed with "phx:" the string (containing NO spaces) after the prefix will be the actual modifier name. In this case our modifier will be triggered by adding&nbsp;:love to the placeholder like <b>[</b><b><ins>+myplaceholder:love2</ins></b><b>+]</b>.
-</li>
-
-<li>Now we are going to enter the modifier code into the snippet code field. For this example we create it like this:
-</li>
-</ol>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-$defaultValue = <span class="code-quote">" because I <span class="code-keyword">do</span> love MODx"</span>;
-<span class="code-keyword">if</span> (strlen($options)&gt;0) {
+<pre class="brush: php">
+    &lt;?php
+$defaultValue = " because I do love MODx";
+if (strlen($options)&gt;0) {
 $newvalue = $output . $options;
-} <span class="code-keyword">else</span> {
+} else {
 $newvalue = $output . $defaultValue;
 }
-<span class="code-keyword">return</span> $newvalue;
+return $newvalue;
 ?&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <ol>
 <li>Click "Save" and your custom modifier (<b>:love2</b>) is ready for use!
 </li>
@@ -1095,7 +489,7 @@ $newvalue = $output . $defaultValue;
 </h3>
 
 <p>
-Check <a href="/display/ADDON/PHx+Custom+Modifiers" title="PHx Custom Modifiers">PHx/CustomModifiers</a> for a list of custom modifiers you can install.
+Check <a href="display/ADDON/PHx+Custom+Modifiers" title="PHx Custom Modifiers">PHx/CustomModifiers</a> for a list of custom modifiers you can install.
 </p>
 
 <h2>
@@ -1114,26 +508,11 @@ Most snippets render their templates "locally" before they are passed to MODx. U
 This example will <b>not</b> work with a non-PHx snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:input=`[+myplaceholder+]`:modifier1:modifier2+]
+<pre class="brush: php">
+    [+phx:input=`[+myplaceholder+]`:modifier1:modifier2+]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Try this method instead:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:input=`[+myplaceholder+]`:modifier1:modifier2+]
-</pre>
-</div>
-</div>
-
 <p>
 Or:
 </p>

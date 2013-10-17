@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="modX.runSnippet-modX%3A%3ArunSnippet"></a>modX::runSnippet
 </h2>
@@ -11,70 +7,38 @@ Process and return the output from a PHP snippet by name.
 </p>
 
 <h2>
-<a name="modX.runSnippet-Syntax"></a>Syntax
+<a name="modX.runSnippet-Syntax" id="modX.runSnippet-Syntax"></a>Syntax
 </h2>
 
 <p>
 API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::runSnippet()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::runSnippet()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-string runSnippet (string $snippetName, [array $params = array ()])
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.runSnippet-Example"></a>Example
-</h2>
-
-<p>
-Run the 'Welcome' snippet with some custom parameters:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $output = $modx-&gt;runSnippet('Welcome',array(
    'name' =&gt; 'John'
 ));
-echo $output; <span class="code-comment">// prints 'Welcome John!'</span>
+echo $output; // prints 'Welcome John!'
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 <b>Handy Hint</b>
 <br />
 When you call a Snippet using <b>runSnippet</b>, the Snippet code is <em>always</em> executed: the results are never returned from cache. It's equivalent to running the Snippet using the <tt>[[!uncached]]</tt> syntax.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="modX.runSnippet-SeeAlso"></a>See Also
+<a name="modX.runSnippet-SeeAlso" id="modX.runSnippet-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/modX" title="modX">modX</a>
+<a href="display/revolution20/modX" title="modX">modX</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Snippets" title="Snippets">Snippets</a>
+<a href="display/revolution20/Snippets" title="Snippets">Snippets</a>
 </li>
 </ul>

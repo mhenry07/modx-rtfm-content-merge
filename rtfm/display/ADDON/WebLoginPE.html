@@ -22,85 +22,25 @@ How might you actually use WebLoginPE?
 You can run WebLoginPE using the simplest function call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE? &amp;type=`simple`!]
-</pre>
-</div>
-</div>
-
-<p>
-You can do this to test whether the Snippet and its functions are working. Simply place that Snippet call on a page and preview the page; try logging in and updating your profile. It won't be pretty, but it should work. If you have trouble, have a look in the forums or check out the <a href="http://wiki.modxcms.com/index.php/WebLoginPE_Errors" class="external-link" rel="nofollow">WebLoginPE Errors</a> page.
-</p>
-
-<h3>
-<a name="WebLoginPE-UseaLoginPage" id="WebLoginPE-UseaLoginPage"></a>Use a Login Page
-</h3>
-
-<p>
-The following wireframe outlines a site where you have a dedicated page with the login form. This example uses all of the default templates with all the default fields.&nbsp; <span class="image-wrap" style=""><img src="/download/attachments/11042892/WebLoginPE_Wireframe1.jpg?version=1&amp;modificationDate=1364840348000" style="border: 1px solid black" /></span>
-</p>
-
-<ul>
-<li>You need to create a new <b>Web User Group</b>&nbsp;: go to <b>Security?Web Permissions?Web User groups</b>. In this example, I created a user group named "Logged In Users" -- you will reference this in the <b>&amp;groups</b> parameter (I think the image references the wrong group name).
-</li>
-
-<li>You need to create a <b>Document Group</b> -- don't go anywhere! Still in the <b>Web access permissions</b> area of the manager, create a new document group, e.g. "Private Pages".
-</li>
-
-<li>Associate the User Group with the Document Group -- still in the web access permissions area, go to the <b>User/Document group links</b> and make sure the user group and the document group are associated.
-</li>
-
-<li>You need to create 7 pages:
-</li>
-</ul>
-
-<p>
-1. The page containing the login form. It should contain a call to the WebLoginPE snippet (contained in one line):
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE?
+<pre class="brush: php">
+    [!WebLoginPE?
 &amp;type=`simple`
 &amp;liHomeId=`2`
 &amp;regHomeId=`3`
 &amp;profileHomeId=`4`
 &amp;loHomeId=`6` !]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 2. The Welcome page. This is the page users see after logging in. It should belong to a special user group, e.g. "Private Pages" -- that way it is not publicly available. 3. Registration page. This should contain a call to the WebLoginPE snippet using the <b>&amp;type=`register`</b> parameter:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE?
-&amp;type=`register`
-&amp;regSuccessId=`5`
-&amp;regSuccessPause=`1`
-&amp;groups=`Logged In Users`!]
+<pre class="brush: php">
+    [!WebLoginPE? &amp;type=`profile` !]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-4. Profile page. Belongs to the "Private Pages" group so it's not publicly accessible. The Snippet call looks like this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE? &amp;type=`profile` !]
-</pre>
-</div>
-</div>
-
 <p>
 5. Registration success page. This contains a message seen after a user registers. If you emailed the user a password, then the page should say that. It should also contain a link back to the login page. 6. Goodbye page. This is the page that users see after logging out. It can contain links back to the rest of the site. 7. You should also create a designated HTTP 500 page. This is the page that is shown if a public user tries to view a private page. Create the page, preferably with a link back to the login page, and be sure to denote it in the control panel under <b>Tools?Configuration?Site</b> under "Unauthorized page".
 </p>
@@ -136,80 +76,19 @@ This list includes options you add to WebLoginPE's <b>&amp;type</b> parameter.
 <a name="WebLoginPE-simple" id="WebLoginPE-simple"></a>simple
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE? &amp;type=`simple`!]
+<pre class="brush: php">
+    [!WebLoginPE? &amp;type=`register` &amp;regType=`verify`!]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-This is the simplest to use, but as for understanding what's going on under the hood, this is the most complex option because all 4 functions (login, register, profile, logout) are encapsulated in a single page and are triggered by the value passed in the "service" variable (i.e. the value in $_POST['service']). Links between the different "pages" are automatically generated.
-</p>
-
-<p>
-By default, the page shows a login form (or a welcome message if user is already logged in). It has links (buttons) to Login, Forgot Password, Register.
-</p>
-
-<p>
-See the <a href="http://svn.modxcms.com/crucible/browse/%7Eraw,r=37/modx-components/webloginpe/trunk/assets/snippets/webloginpe/docs/views.html" class="external-link" rel="nofollow">official documentation for "Views (Templates)"</a>
-</p>
-
-<h2>
-<a name="WebLoginPE-EmailVerification%3BProfileEditing"></a>Email Verification; Profile Editing
-</h2>
-
-<p>
-You first need a place where a visitor to your site can register to become a web user.
-</p>
-
-<p>
-The registration page should contain a call to the Snippet:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE? &amp;type=`register` &amp;regType=`verify`!]
-</pre>
-</div>
-</div>
-
 <p>
 Note that the form does not require a user to enter a name; only email and username are required by default. The fullname field can be blank. If you want to require the fullname field, use the &amp;regRequired parameter:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE? &amp;type=`register` &amp;regType=`verify`&amp;regRequired=`username`!]
-
-But <span class="code-keyword">this</span> configuration lacks a logout button.
-
-
-
-
+<pre class="brush: php">
+    [!WebLoginPE? &amp;type=`simple`!]
+    
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="WebLoginPE-BasicInitialSetup" id="WebLoginPE-BasicInitialSetup"></a>Basic Initial Set-up
-</h3>
-
-<p>
-On your Home Page or Site Template, put the Snippet call like
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE? &amp;type=`simple`!]
-</pre>
-</div>
-</div>
-
 <p>
 where you would like the Login Box to appear.
 </p>
@@ -218,114 +97,29 @@ where you would like the Login Box to appear.
 Create a New Page called Registration, and put a Snippet call like
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE? &amp;type=`register`!]
+<pre class="brush: php">
+    [!WebLoginPE? &amp;type=`profile`!]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Create a New Page called Profile, and put a Snippet call like
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE? &amp;type=`profile`!]
-</pre>
-</div>
-</div>
-
 <p>
 You can customise each of these snippet calls, by adding parameters (see the Documentation in the download package), for example on your Registration Page, you could specify
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE? &amp;type=`register` &amp;groups=`Pending Users` &amp;notify=`me@mydomain.com` &amp;regSuccessId=`74` &amp;regSuccessPause=`3`!]
+<pre class="brush: php">
+    [!WebLoginPE? &amp;type=`profile` &amp;profileTpl=`profileTpl` &amp;customFields=`first_name,last_name,favorite_colors, contact_time` &amp;inputHandler=`Favorite Colors:userFavoriteColors:favorite_colors:select multiple:Red(ff0000),Orange(ff9900),Green(66ff00),Black(000000)||Best time to contact you:userContactRadios:contact_time:radio:Morning(morning),Afternoon(afternoon),Evening(Evening)`!]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-to make new registrations be assigned to the Pending Users group, an email notification sent to me@mydomain.com, user will be taken to success page (page ID is 74), and pause for 3 seconds.
-</p>
-
-<h3>
-<a name="WebLoginPE-CommonErrorsandHowtofixThem" id="WebLoginPE-CommonErrorsandHowtofixThem"></a>Common Errors and How to fix Them
-</h3>
-
-<h2>
-<a name="WebLoginPE-%22Thepasswordyouenteredistooshort.Pleaseuseatleast6numbersand%2Forletters.%22"></a>"The password you entered is too short. Please use at least 6 numbers and/or letters."
-</h2>
-
-<p>
-But your form doesn't even HAVE a password? What's going on? This is a subtle problem that arises if you don't specify <b>&amp;regType=`verify`</b> when using a custom Chunk for the registerTpl. If you provide a custom chunk for the registration using the <b>&amp;registerTpl</b> parameter, the form needs to contain all required fields. The fields that are required are different for registration-type "register" than they are for registration-type "verify". The default action of the Snippet is to expect a full registration form <em>including</em> a password, so if your custom form doesn't contain a password field (or any other required field), it will fail validation. To rectify the situation, add <b>&amp;regType=`verify`</b> to your Snippet call. If you still have problems, copy the default Chunk into your database and verify that it is being referenced correctly.
-</p>
-
-<h2>
-<a name="WebLoginPE-Ican%27teditmyprofile"></a>I can't edit my profile
-</h2>
-
-<p>
-See forum thread: <a href="http://modxcms.com/forums/index.php/topic,22083.0.html" class="external-link" rel="nofollow">http://modxcms.com/forums/index.php/topic,22083.0.html</a>
-</p>
-
-<p>
-There are various solutions there for various problems. In a nutshell, using type=`profile` may work when type=`simple` does not.
-</p>
-
-<h2>
-<a name="WebLoginPE-MyCustomFormElementsaren%27tbeingGenerated"></a>My Custom Form Elements aren't being Generated
-</h2>
-
-<p>
-Make sure you have added the name of your form element to the <b>customFields</b> parameter AND that you have NO SPACES between multiple custom field, e.g. this Snippet call will fail:<span class="error">[||||\||]</span>
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[!WebLoginPE? &amp;type=`profile` &amp;profileTpl=`profileTpl` &amp;customFields=`first_name,last_name,favorite_colors, contact_time` &amp;inputHandler=`Favorite Colors:userFavoriteColors:favorite_colors:select multiple:Red(ff0000),Orange(ff9900),Green(66ff00),Black(000000)||Best time to contact you:userContactRadios:contact_time:radio:Morning(morning),Afternoon(afternoon),Evening(Evening)`!]
-</pre>
-</div>
-</div>
-
 <p>
 Can you see the space after the comma immediately before "contact_time"? That little space causes the Snippet call to train-wreck. Also make sure you are using the correct
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+form.name_of_your_form_element+]
+<pre class="brush: php">
+    &lt;base href="http://www.mydomain.com"/&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-placeholder so WebLoginPE will know where to insert the form element.
-</p>
-
-<h2>
-<a name="WebLoginPE-MyFormSubmitstotheWrongPage%5C%21"></a>My Form Submits to the Wrong Page!
-</h2>
-
-<p>
-Sometimes this comes up as a 404. Check the HTML of the page and verify that the <b>action</b> attribute is pointing where it should be pointing. The other thing that can trip you up, especially with friendly URLs enabled, is the absence of a <b>base</b> tag. Check out the forums and the wiki for more information, but essentially, you probably need to add a tag like the following to your template's head:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;base href=<span class="code-quote">"http:<span class="code-comment">//www.mydomain.com"</span>/&gt;</span>
-</pre>
-</div>
-</div>
-
 <h2>
 <a name="WebLoginPE-ThePluginIwrotetoextendtheFunctionalityisnotworking%5C%21"></a>The Plugin I wrote to extend the Functionality is not working!
 </h2>

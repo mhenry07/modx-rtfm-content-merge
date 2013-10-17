@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="xPDOQuery.andCondition-xPDOQuery%3A%3AandCondition"></a>xPDOQuery::andCondition
 </h2>
@@ -11,66 +7,34 @@ Add an AND condition to the WHERE clause.
 </p>
 
 <h2>
-<a name="xPDOQuery.andCondition-Syntax"></a>Syntax
+<a name="xPDOQuery.andCondition-Syntax" id="xPDOQuery.andCondition-Syntax"></a>Syntax
 </h2>
 
 <p>
 API Docs:&nbsp;<a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#xPDOQuery::andCondition()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#\xPDOQuery::andCondition()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-void andCondition ( $conditions, [ $binding = <span class="code-keyword">null</span>], [ $group = 0])
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.andCondition-Example"></a>Example
-</h2>
-
-<p>
-Grab all Boxes with width of 12 and height of 4.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array('width' =&gt; 12));
 $query-&gt;andCondition(array('height' =&gt; 4));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 <b>Warning</b>
 <br />
 The order you call the functions is important! The <b>andCondition</b> must come after the <b>where</b> method has been used.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="xPDOQuery.andCondition-SeeAlso"></a>See Also
+<a name="xPDOQuery.andCondition-SeeAlso" id="xPDOQuery.andCondition-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
+<a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
 </li>
 </ul>

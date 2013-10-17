@@ -3,43 +3,15 @@ Articles are stored as Resources in MODX, allowing you to easily utilize them in
 </p>
 
 <p>
-For example, this <a href="/display/ADDON/getResources" title="getResources">getResources</a> call grabs the latest 8 Articles for you in your Container with ID 10:
+For example, this <a href="display/ADDON/getResources" title="getResources">getResources</a> call grabs the latest 8 Articles for you in your Container with ID 10:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[getResources?
-  &amp;parents=`10`
-  &amp;tpl=`myTpl`
-  &amp;showHidden=`1`
-  &amp;limit=`8`
-]]
-</pre>
-</div>
-</div>
-
-<p>
-That's all there is to it!
-</p>
-
-<h2>
-<a name="Articles.RetrievingArticlesOutsideofArticles-TheArticlesSnippet" id="Articles.RetrievingArticlesOutsideofArticles-TheArticlesSnippet"></a>The Articles Snippet
-</h2>
-
-<p>
-Articles 1.4+ comes with a snippet called "Articles" that you can use to get Articles-specific placeholders for a Container on <b>any</b> Resource in your site. For example, putting this call on your Home page, targeting the Container with ID 10:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[Articles? &amp;container=`10`]]
+<pre class="brush: php">
+    [[Articles? &amp;container=`10`]]
 [[+latest_posts]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 ...will show the latest Articles posts for that Container. The snippet makes available all the placeholders in the default Template, which are:
 </p>

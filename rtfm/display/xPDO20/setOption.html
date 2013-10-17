@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="setOption-xPDOObject%3A%3AsetOption%28%29"></a>xPDOObject::setOption()
 </h2>
@@ -11,50 +7,19 @@ Sets an option value for this instance of an xPDOObject.
 </p>
 
 <h2>
-<a name="setOption-Syntax"></a>Syntax
+<a name="setOption-Syntax" id="setOption-Syntax"></a>Syntax
 </h2>
 
 <p>
 API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#setOption" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#setOption</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-void setOption(
-    string $key,
-    mixed $value
-)
+<pre class="brush: php">
+    
+$object-&gt;setOption(xPDO::OPT_HYDRATE_FIELDS,true);
+
+    
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="setOption-Example"></a>Example
-</h2>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$object-&gt;setOption(xPDO::OPT_HYDRATE_FIELDS,<span class="code-keyword">true</span>);
-</pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Using <b>setOption</b> does not permanently update an option as xPDO options are not persisted, but loaded on each request.
-</td>
-</tr>
-</table>
 </div>

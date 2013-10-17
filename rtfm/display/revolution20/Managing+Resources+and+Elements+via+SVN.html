@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="ManagingResourcesandElementsviaSVN-TheProblem" id="ManagingResourcesandElementsviaSVN-TheProblem"></a>The Problem
 </h2>
@@ -19,35 +15,18 @@ However, the solution in MODx Revolution is quite simple.
 </h2>
 
 <p>
-For Resources, it's simple. Just use <a href="/display/revolution20/Static+Resource" title="Static Resource">Static Resources</a>, and point the content to a file in your SVN checkout.
+For Resources, it's simple. Just use <a href="display/revolution20/Static+Resource" title="Static Resource">Static Resources</a>, and point the content to a file in your SVN checkout.
 </p>
 
 <p>
-For Elements, all you need is a simple "include" <a href="/display/revolution20/Snippets" title="Snippets">snippet</a>. The code:
+For Elements, all you need is a simple "include" <a href="display/revolution20/Snippets" title="Snippets">snippet</a>. The code:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> (!file_exists($file)) <span class="code-keyword">return</span> '';
-$o = include $file;
-<span class="code-keyword">return</span> $o;
+<pre class="brush: php">
+    [[include? &amp;file=`/path/to/my/svn/checkout/snippet.php`]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-You can then call it like so in your Static Resources:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[include? &amp;file=`/path/to/my/svn/checkout/snippet.php`]]
-</pre>
-</div>
-</div>
-
 <p>
 And you're done. You can also use tags within the 'file' parameter, such as this:
 </p>
@@ -65,5 +44,5 @@ And you're done. You can also use tags within the 'file' parameter, such as this
 </h2>
 
 <p>
-This allows you to easily manage content via SVN. It can be achieved with <a href="/display/revolution20/Templates" title="Templates">Templates</a> and <a href="/display/revolution20/Template+Variables" title="Template Variables">TVs</a> as well; just plop the include snippet wherever you need filesystem-based files.
+This allows you to easily manage content via SVN. It can be achieved with <a href="display/revolution20/Templates" title="Templates">Templates</a> and <a href="display/revolution20/Template+Variables" title="Template Variables">TVs</a> as well; just plop the include snippet wherever you need filesystem-based files.
 </p>

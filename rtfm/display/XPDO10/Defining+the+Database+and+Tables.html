@@ -1,8 +1,4 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 Let's say we have a Package called 'Storefinder'. We want to create a custom schema for that package. First off, we'll create a schema file with this name:
 </p>
 
@@ -24,57 +20,11 @@ If you note, we added in the 'mysql' postfix to the filename, since xPDO will ev
 Our current XML file looks like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-<span class="code-tag">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;</span>
-<span class="code-tag">&lt;model package=<span class="code-quote">"storefinder"</span> baseClass=<span class="code-quote">"xPDOObject"</span> platform=<span class="code-quote">"mysql"</span> defaultEngine=<span class="code-quote">"MyISAM"</span> phpdoc-package=<span class="code-quote">"storefinder"</span> phpdoc-subpackage=<span class="code-quote">"model"</span>&gt;</span>
+<pre class="brush: xml">
+    &lt;object class="sfStore" table="sfinder_stores" extends="xPDOSimpleObject"&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-First we'll tell the browser and parser that this is XML code with a standard XML header. Next, we're going to create a "model" tag, and put some attributes into it. The "model" tag is a representation of the database itself. The attributes are:
-</p>
-
-<ul>
-<li>
-<b>package</b> - The name of the xPDO package (note this is different than a "transport package", a Revolution term). This is how xPDO separates different models and manages them.
-</li>
-
-<li>
-<b>baseClass</b> - This is the base class from which all your class definitions will extend. Unless you're planning on creating a custom xPDOObject extension, it's best to leave it at the default.
-</li>
-
-<li>
-<b>platform</b> - The database platform you're using. At this time, xPDO only supports mysql.
-</li>
-
-<li>
-<b>defaultEngine</b> - The default engine of the database tables, usually either MyISAM or InnoDB. xPDO recommends using MyISAM.
-</li>
-
-<li>
-<b>phpdoc-package &amp; phpdoc-subpackage</b> - These are custom attributes we're going to use in our map and class files. They're not standard xPDO attributes, but show that you can put whatever you want as attributes.
-</li>
-</ul>
-
-<h2>
-<a name="DefiningtheDatabaseandTables-DefiningTables" id="DefiningtheDatabaseandTables-DefiningTables"></a>Defining Tables
-</h2>
-
-<p>
-Great! Now we've got our model definition. Let's add a table tag as the next line.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-<span class="code-tag">&lt;object class=<span class="code-quote">"sfStore"</span> table=<span class="code-quote">"sfinder_stores"</span> extends=<span class="code-quote">"xPDOSimpleObject"</span>&gt;</span>
-</pre>
-</div>
-</div>
-
 <p>
 "Object" is our representation of a table, which will generate into an xPDOObject class when we're through. There are some attributes to note here:
 </p>
@@ -101,102 +51,23 @@ You'll see here that this table extends "xPDOSimpleObject", rather than xPDOObje
 Now that we've got a table definition for our stores table, let's add some field definitions to it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-<span class="code-tag">&lt;field key=<span class="code-quote">"name"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"100"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"" index="</span>index" /&gt;</span>
-<span class="code-tag">&lt;field key=<span class="code-quote">"address"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-<span class="code-tag">&lt;field key=<span class="code-quote">"city"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-<span class="code-tag">&lt;field key=<span class="code-quote">"state"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-<span class="code-tag">&lt;field key=<span class="code-quote">"zip"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"10"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"0"</span> index=<span class="code-quote">"index"</span> /&gt;</span>
-<span class="code-tag">&lt;field key=<span class="code-quote">"country"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"20"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-<span class="code-tag">&lt;field key=<span class="code-quote">"phone"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"20"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-<span class="code-tag">&lt;field key=<span class="code-quote">"fax"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"20"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-<span class="code-tag">&lt;field key=<span class="code-quote">"active"</span> dbtype=<span class="code-quote">"int"</span> precision=<span class="code-quote">"1"</span> attributes=<span class="code-quote">"unsigned"</span> phptype=<span class="code-quote">"integer"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"0"</span> /&gt;</span>
+<pre class="brush: xml">
+    &lt;/object&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-As you can see here, each column in our table has a field definition tag. From there, we have attribute properties for each field. Most of these are optional, depending on the database type of the column. Some of those attribute properties are:
-</p>
-
-<ul>
-<li>
-<b>key</b> - The key name of the column.
-</li>
-
-<li>
-<b>dbtype</b> - The DB type - such as varchar, int, text, tinyint, etc.
-</li>
-
-<li>
-<b>precision</b> - The precision of the field. Usually this is the max number of characters.
-</li>
-
-<li>
-<b>attributes</b> - Only applies to some DB types; in integers you can set to "unsigned" to make sure that the value is always positive.
-</li>
-
-<li>
-<b>phptype</b> - The corresponding PHP type of the DB field type.
-</li>
-
-<li>
-<b>null</b> - If the field can be NULL or not.
-</li>
-
-<li>
-<b>default</b> - The default starting value of the field should none be set.
-</li>
-
-<li>
-<b>index</b> - An optional field, when set, will add a type of index to the field. Some of the values are "pk", "index", and "fk".
-</li>
-</ul>
-
-<p>
-And we'll finish that table by closing the object tag:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-<span class="code-tag">&lt;/object&gt;</span>
-</pre>
-</div>
-</div>
-
 <p>
 Now let's add an "sfOwner" class, which will represent any owners we have:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-<span class="code-tag">&lt;object class=<span class="code-quote">"sfOwner"</span> table=<span class="code-quote">"sfinder_owners"</span> extends=<span class="code-quote">"xPDOSimpleObject"</span>&gt;</span>
-  <span class="code-tag">&lt;field key=<span class="code-quote">"name"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"100"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"" index="</span>index" /&gt;</span>
-  <span class="code-tag">&lt;field key=<span class="code-quote">"email"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-<span class="code-tag">&lt;/object&gt;</span>
+<pre class="brush: xml">
+    &lt;object class="sfStoreOwner" table="sfinder_store_owners" extends="xPDOSimpleObject"&gt;
+  &lt;field key="store" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="index" /&gt;
+  &lt;field key="owner" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="index" /&gt;
+&lt;/object&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-And since we want our stores to possibly have multiple owners, let's add a sfStoreOwner class, that will bridge the many-to-many relationship:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-<span class="code-tag">&lt;object class=<span class="code-quote">"sfStoreOwner"</span> table=<span class="code-quote">"sfinder_store_owners"</span> extends=<span class="code-quote">"xPDOSimpleObject"</span>&gt;</span>
-  <span class="code-tag">&lt;field key=<span class="code-quote">"store"</span> dbtype=<span class="code-quote">"int"</span> precision=<span class="code-quote">"10"</span> attributes=<span class="code-quote">"unsigned"</span> phptype=<span class="code-quote">"integer"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"0"</span> index=<span class="code-quote">"index"</span> /&gt;</span>
-  <span class="code-tag">&lt;field key=<span class="code-quote">"owner"</span> dbtype=<span class="code-quote">"int"</span> precision=<span class="code-quote">"10"</span> attributes=<span class="code-quote">"unsigned"</span> phptype=<span class="code-quote">"integer"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"0"</span> index=<span class="code-quote">"index"</span> /&gt;</span>
-<span class="code-tag">&lt;/object&gt;</span>
-</pre>
-</div>
-</div>
-
 <p>
 Let's close the model definition:
 </p>
@@ -210,5 +81,5 @@ Let's close the model definition:
 </div>
 
 <p>
-We have a completed XML schema for our model. Now we'll need to <a href="/display/XPDO10/Defining+Relationships" title="Defining Relationships">define relationships for that schema</a>.
+We have a completed XML schema for our model. Now we'll need to <a href="display/XPDO10/Defining+Relationships" title="Defining Relationships">define relationships for that schema</a>.
 </p>

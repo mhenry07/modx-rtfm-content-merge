@@ -6,125 +6,37 @@
 Once again, we include the required JS and CSS:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-&lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-&lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;
-</pre>
-</div>
-</div>
-
-<p>
-And then we add some controls that will perform a simple animation that will resize a div:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-    &lt;script type=<span class="code-quote">"text/javascript"</span>&gt;        
+<pre class="brush: php">
+    
+    &lt;script type="text/javascript"&gt;        
         Ext.onReady(function() {
-            <span class="code-keyword">var</span> myDiv1 = Ext.get('div1');
+            var myDiv1 = Ext.get('div1');
             myDiv1.setSize(350,350, {duration: 1, easing:'bounceOut'});
         });        
     &lt;/script&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 To get the div ready and make our animation easier to see, we need to provide some styling:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-    &lt;style type=<span class="code-quote">"text/css"</span>&gt;
-        .myDiv {
-            border: 1px solid #AAAAAA;
-            background: yellow;
-            width: 200px;
-            height: 35px;
-        }
-    &lt;/style&gt;
+<pre class="brush: php">
+    
+&lt;div id="div1" class="myDiv"&gt;&lt;/div&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Finally, actually create the div down in your HTML body:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div id=<span class="code-quote">"div1"</span> class=<span class="code-quote">"myDiv"</span>&gt;&lt;/div&gt;
-</pre>
-</div>
-</div>
-
 <p>
 When your finished, this page should look something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;html&gt;
-    &lt;title&gt;My Ext JS Test Page : Animations&lt;/title&gt;
-    &lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
-        
-        Ext.onReady(function() {
-            <span class="code-keyword">var</span> myDiv1 = Ext.get('div1');
-            myDiv1.setHeight(200);
-            myDiv1.setSize(350,350, {duration: 1, easing:'bounceOut'});
-        });        
-    &lt;/script&gt;
-    
-    &lt;style type=<span class="code-quote">"text/css"</span>&gt;
-        .myDiv {
-            border: 1px solid #AAAAAA;
-            background: yellow;
-            width: 200px;
-            height: 35px;
-        }
-    &lt;/style&gt;
-    &lt;body&gt;
-        &lt;h1&gt;Animations&lt;/h1&gt;
-
-        &lt;div id=<span class="code-quote">"div1"</span> class=<span class="code-quote">"myDiv"</span>&gt;&lt;/div&gt;    
-       
-    &lt;/body&gt;
-&lt;/html&gt;
-</pre>
-</div>
-</div>
-
-<p>
-When you view this in a browser, you should see your div grow in size to become a square.
-</p>
-
-<h3>
-<a name="3.ExtJSTutorial-Animation-OtherCommands"></a>Other Commands
-</h3>
-
-<p>
-You can also use the <b>setHeight</b> or <b>setWidth</b> methods, e.g.:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- 
+<pre class="brush: php">
+     
 myDiv1.setHeight(200);
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h3>
 <a name="3.ExtJSTutorial-Animation-Easing"></a>Easing
 </h3>
@@ -290,18 +202,4 @@ Bounces off start and end.
 </tr>
 </tbody>
 </table>
-</div>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="46465033" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="46137364" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2F3.%2BExt%2BJS%2BTutorial%2B-%2BAnimation" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="46137364" />
-</fieldset>
-</fieldset>
 </div>

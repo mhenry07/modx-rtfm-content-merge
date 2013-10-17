@@ -1,63 +1,59 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Login.Register-WhatisRegister%3F'>What is Register?</a>
+<a href="extras/revo/login/login.register#Login.Register-WhatisRegister%3F">What is Register?</a>
 </li>
 
 <li>
-<a href='#Login.Register-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#Login.Register-DefaultProperties'>Default Properties</a>
-</li>
-
-<li>
-<a href='#Login.Register-Validators'>Validators</a>
-</li>
-
-<li>
-<a href='#Login.Register-CustomValidators'>Custom Validators</a>
-</li>
-</ul>
-</li>
-
-<li>
-<a href='#Login.Register-PostValidation'>Post-Validation</a>
+<a href="extras/revo/login/login.register#Login.Register-Usage">Usage</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Login.Register-AssigningUsertoUserGroups'>Assigning User to User Groups</a>
+<a href="extras/revo/login/login.register#Login.Register-DefaultProperties">Default Properties</a>
 </li>
 
 <li>
-<a href='#Login.Register-SendinganActivationEmail'>Sending an Activation Email</a>
+<a href="extras/revo/login/login.register#Login.Register-Validators">Validators</a>
 </li>
 
 <li>
-<a href='#Login.Register-RedirectingtoaResourceAfterValidation'>Redirecting to a Resource After Validation</a>
-</li>
-
-<li>
-<a href='#Login.Register-DisplayaSuccessMessage'>Display a Success Message</a>
+<a href="extras/revo/login/login.register#Login.Register-CustomValidators">Custom Validators</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Login.Register-TypicalSetup'>Typical Setup</a>
+<a href="extras/revo/login/login.register#Login.Register-PostValidation">Post-Validation</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href="extras/revo/login/login.register#Login.Register-AssigningUsertoUserGroups">Assigning User to User Groups</a>
 </li>
 
 <li>
-<a href='#Login.Register-SeeAlso'>See Also</a>
+<a href="extras/revo/login/login.register#Login.Register-SendinganActivationEmail">Sending an Activation Email</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.register#Login.Register-RedirectingtoaResourceAfterValidation">Redirecting to a Resource After Validation</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.register#Login.Register-DisplayaSuccessMessage">Display a Success Message</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="extras/revo/login/login.register#Login.Register-TypicalSetup">Typical Setup</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.register#Login.Register-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -67,19 +63,19 @@
 </h2>
 
 <p>
-Register is a registration form processing <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a>. An example call can be found <a href="/display/ADDON/Register.Example+Form+1" title="Register.Example Form 1">here</a>.
+Register is a registration form processing <a href="display/revolution20/Snippets" title="Snippets">Snippet</a>. An example call can be found <a href="display/ADDON/Register.Example+Form+1" title="Register.Example Form 1">here</a>.
 </p>
 
 <h2>
-<a name="Login.Register-Usage"></a>Usage
+<a name="Login.Register-Usage" id="Login.Register-Usage"></a>Usage
 </h2>
 
 <p>
-Simply place the Register snippet in the Resource where your registration form is. (A default one called lgnRegisterForm is provided by the <a href="/display/ADDON/Login" title="Login">Login</a> 3PC.) This snippet also requires Activation by the User, so they will get an email in their inbox regarding their signup.
+Simply place the Register snippet in the Resource where your registration form is. (A default one called lgnRegisterForm is provided by the <a href="display/ADDON/Login" title="Login">Login</a> 3PC.) This snippet also requires Activation by the User, so they will get an email in their inbox regarding their signup.
 </p>
 
 <h3>
-<a name="Login.Register-DefaultProperties"></a>Default Properties
+<a name="Login.Register-DefaultProperties" id="Login.Register-DefaultProperties"></a>Default Properties
 </h3>
 
 <p>
@@ -465,193 +461,61 @@ Whether or not to validate the sent password when registering. Recommended to le
 </div>
 
 <h3>
-<a name="Login.Register-Validators"></a>Validators
+<a name="Login.Register-Validators" id="Login.Register-Validators"></a>Validators
 </h3>
 
 <p>
-Validators in Login follow the same syntax as <a href="/display/ADDON/FormIt.Validators" title="FormIt.Validators">FormIt Validators</a>. You can use the methods described there to use them in your Login-based snippets.
+Validators in Login follow the same syntax as <a href="display/ADDON/FormIt.Validators" title="FormIt.Validators">FormIt Validators</a>. You can use the methods described there to use them in your Login-based snippets.
 </p>
 
 <h3>
-<a name="Login.Register-CustomValidators"></a>Custom Validators
+<a name="Login.Register-CustomValidators" id="Login.Register-CustomValidators"></a>Custom Validators
 </h3>
 
 <p>
 You can also do custom validators by creating a Snippet and using that as the validator name. You <b>must</b> specify its name in the customValidators property, or it will not be run. Example: We create a Snippet called 'equalTo' and on our field, we set:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;label&gt;
-  Boxes:&lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.boxes]]&lt;/span&gt;
-  &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"boxes"</span> id=<span class="code-quote">"boxes"</span> value=<span class="code-quote">"[[+boxes]]"</span> /&gt;
-&lt;/label&gt;
-</pre>
-</div>
-</div>
-
-<p>
-And in our Register call:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[!Register?
   &amp;validate=`boxes:equalTo=^123^`
   &amp;customValidators=`equalTo`
 ]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Now, in our snippet, our code would look like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-<span class="code-keyword">if</span> ($scriptProperties['value'] !== $scriptProperties['param']) {
-    <span class="code-keyword">return</span> 'Value not equal to: '.$scriptProperties['param'];
-}
-<span class="code-keyword">return</span> <span class="code-keyword">true</span>;
-?&gt;
-</pre>
-</div>
-</div>
-
-<p>
-Returning true will make the field valid. Any other return value will be the error message. Snippets get passed the following parameters in the $scriptProperties array:
-</p>
-
-<ul class="alternate" type="square">
-<li>
-<b>key</b>: The name of the field.
-</li>
-
-<li>
-<b>value</b>: The value of the field.
-</li>
-
-<li>
-<b>param</b>: The parameter, if applicable, passed to the validator.
-</li>
-
-<li>
-<b>type</b>: The name of the validator.
-</li>
-
-<li>
-<b>validator</b>: A reference to the lgnValidator instance.
-</li>
-</ul>
-
-<h2>
-<a name="Login.Register-PostValidation"></a>Post-Validation
-</h2>
-
-<p>
-After the form has been validated, the Register snippet can do the following:
-</p>
-
-<ul class="alternate" type="square">
-<li>Assign the user to usergroups
-</li>
-
-<li>Send an activation email
-</li>
-
-<li>Redirect to a specific Resource (such as a "Registered!" page)
-</li>
-
-<li>or, display a success message.
-</li>
-</ul>
-
-<h3>
-<a name="Login.Register-AssigningUsertoUserGroups"></a>Assigning User to User Groups
-</h3>
-
-<p>
-Assigning the User to specified User Groups is easy. Just specify a comma-separated list of either the name of the User Group or the User Group's ID in the "&amp;usergroups" property. This example will assign the User to the "Marketing" and "Research" groups:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[!Register? &amp;usergroups=`Marketing,Research`]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Alternatively, you can also specify the Role you would like to add the user to in the User Group by adding it after the User Group name with a colon, like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Register? &amp;usergroups=`Marketing:Member,Research:Super User`]]
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="Login.Register-SendinganActivationEmail"></a>Sending an Activation Email
-</h3>
-
-<p>
-Register by default requires the User to activate their account before logging in. The Snippet creates the modUser object and sets its "active" field to 0. The User then gets an email with a URL to activate their account with. Once the User visits the page, their account is set to "active=1", and they can then login.
-</p>
-
-<p>
-To enable this, you will need to create an Activation page by creating a new Resource, and putting the <a href="/display/ADDON/Login.ConfirmRegister" title="Login.ConfirmRegister">ConfirmRegister</a> snippet inside of it.
-</p>
-
-<p>
-Next, you'll need to specify an email template chunk to use for the email being sent to the user. An example one is provided with the name: lgnActivateEmailTpl.
-</p>
-
-<p>
-An example Register snippet call with activation would look like this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[!Register?
    &amp;activationEmailTpl=`myActivationEmailTpl`
    &amp;activationEmailSubject=`Please activate your account!`
    &amp;activationResourceId=`26`
    &amp;submittedResourceId=`325`
 ]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 This would send the User the email specified in the "myActivationEmailTpl" chunk, with the specified subject line, which will direct the User to the Resource 26 to activate their account. It will also, after sending the email, redirect the User to a "Please activate your account page" of sorts at Resource 325.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Activation can be turned off by setting &amp;activation=`0`. Note, though, that this will mean anyone - including spambots - can register and be active users in your site.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -672,66 +536,30 @@ The &amp;activationEmailTpl field can be a chunk name by default. You can change
 </li>
 </ul>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You can also set the time-to-live for an activation email, as well. This will restrict the number of minutes until the activation window expires. You can do this by setting the value in the "activationttl" property. It defaults to 3 hours.
-</td>
-</tr>
-</table>
 </div>
 
 <h3>
-<a name="Login.Register-RedirectingtoaResourceAfterValidation"></a>Redirecting to a Resource After Validation
+<a name="Login.Register-RedirectingtoaResourceAfterValidation" id="Login.Register-RedirectingtoaResourceAfterValidation"></a>Redirecting to a Resource After Validation
 </h3>
 
 <p>
 Redirection is simple: just specify the ID of the Resource to redirect to in the "submittedResourceId" property. For example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Register? &amp;submittedResourceId=`23`]]
+<pre class="brush: php">
+    
+[[!Register? &amp;successMsg=`Thanks for registering!`]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Will redirect to the Resource with ID 23. It will also append "username" and "email" GET parameters to the URL.
-</p>
-
-<h3>
-<a name="Login.Register-DisplayaSuccessMessage"></a>Display a Success Message
-</h3>
-
-<p>
-If the "submittedResourceId" property is not specified, Register will simply display a success message to the [[+error.message]] placeholder. This is the value of the "successMsg" property. For example:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Register? &amp;successMsg=`Thanks <span class="code-keyword">for</span> registering!`]]
-</pre>
-</div>
-</div>
-
 <p>
 Will display "Thanks for registering!" in the [[+error.message]] property in the Resource that your [[Register]] snippet call is in after the User submits a valid registration form.
 </p>
 
 <h2>
-<a name="Login.Register-TypicalSetup"></a>Typical Setup
+<a name="Login.Register-TypicalSetup" id="Login.Register-TypicalSetup"></a>Typical Setup
 </h2>
 
 <p>
@@ -755,19 +583,11 @@ It's really easy to get confused about the various pages (resources) used for re
 </p>
 
 <h2>
-<a name="Login.Register-SeeAlso"></a>See Also
+<a name="Login.Register-SeeAlso" id="Login.Register-SeeAlso"></a>See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="11862020" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042888" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FLogin.Register" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11042888" />
-</fieldset>
-</fieldset>
-</div>
+<ol class="ug-toc">
+<li>
+<a href="/extras/revo/login/login.register/register.example-form-1">Register.Example Form 1</a>
+</li>
+</ol>

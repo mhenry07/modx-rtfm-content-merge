@@ -1,46 +1,46 @@
 <div>
 <ul>
 <li>
-<a href='#SiteEditor-WhatisSiteEditor%3F'>What is SiteEditor?</a>
+<a href="extras/revo/siteeditor#SiteEditor-WhatisSiteEditor%3F">What is SiteEditor?</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#SiteEditor-Requirements'>Requirements</a>
+<a href="extras/revo/siteeditor#SiteEditor-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#SiteEditor-History'>History</a>
+<a href="extras/revo/siteeditor#SiteEditor-History">History</a>
 </li>
 
 <li>
-<a href='#SiteEditor-Download%26Installation'>Download &amp; Installation</a>
+<a href="extras/revo/siteeditor#SiteEditor-Download%26Installation">Download &amp; Installation</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SiteEditor-SettingupSiteEditor'>Setting up SiteEditor</a>
+<a href="extras/revo/siteeditor#SiteEditor-SettingupSiteEditor">Setting up SiteEditor</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#SiteEditor-Examples'>Examples</a>
+<a href="extras/revo/siteeditor#SiteEditor-Examples">Examples</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SiteEditor-Externalsources'>External sources</a>
+<a href="extras/revo/siteeditor#SiteEditor-Externalsources">External sources</a>
 </li>
 </ul>
 </div>
 
-<h1>
+<h2>
 <a name="SiteEditor-WhatisSiteEditor%3F"></a>What is SiteEditor?
-</h1>
+</h2>
 
 <p>
 SiteEditor is a package that allows you (or your clients) to edit your MODX© website from the front-end, bypassing the manager completely.
@@ -126,59 +126,22 @@ Before you can use the SiteEditor in the front-end you need to edit any template
 If you have a [[<span class="error">[*introtext]</span>]] tag that you want edit with SiteEditor, make it look like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[*introtext:siteEditorField]]
+<pre class="brush: php">
+    [[+pagetitle:siteEditorField=`resource=[[+id]]`]]
+    
 </pre>
-</div>
-</div>
-
-<p>
-And you are done with that field. You can apply the same technique to TV's and other fields. Site editor will save the field content with the <b>CURRENT RESOURCE</b>. What if you want to be able to edit other resource fields from the current resource (for example: you want to be able to edit menu items, but you are in resource ID 3 while the menu items all have their own resource ID's). Just open the chunk that shows your menu item's:
-<br />
-Instead of [[<span class="error">[*pagetitle]</span>]] we now have [[<span class="error">[+pagetitle]</span>]]. When the tag shows a + you need to supply SiteEditor with the ID this placeholder belongs to. So replace [[<span class="error">[+pagetitle]</span>]] with:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+pagetitle:siteEditorField=`resource=[[+id]]`]]
-</pre>
-</div>
-</div>
-
 <p>
 In case of wayfinder, the placeholder actually has a different name, you can solve that by using the following code in your wayfinder row:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+wf.linktext:siteEditorField=`resource=[[+wf.docid]]&amp;field=pagetitle`]]
-</pre>
-</div>
-</div>
-
-<p>
-This tells SiteEditor the field is the pagetitle of resource [<span class="error">[+wf.docid]</span>]. Now you can edit your menu titles from the front-end, how cool is that? <img class="emoticon" src="/images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0" />
-</p>
-
-<p>
-You can add these anywhere on your site, as long as you supply SiteEditor with the resource ID and in case of a different placeholder name a field name. Add this to any getResources row TPL:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+pagetitle:siteEditorField=`resource=[[+id]]`]]
+<pre class="brush: php">
+    [[+pagetitle:siteEditorField=`resource=[[+id]]`]]
 [[+introtext:siteEditorField=`resource=[[+id]]`]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
-And you are set <img class="emoticon" src="/images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0" /> You can edit the pagetitle and introtext...<b>just hover over the fields in the front-end and it will show you an edit pencil, click it...edit it and then click in any whitespace to save it.</b>
+And you are set <img class="emoticon" src="images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0" /> You can edit the pagetitle and introtext...<b>just hover over the fields in the front-end and it will show you an edit pencil, click it...edit it and then click in any whitespace to save it.</b>
 </p>
 
 <h2>
@@ -189,40 +152,13 @@ And you are set <img class="emoticon" src="/images/icons/emoticons/smile.gif" he
 This is just an example template with SiteEditor fields:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;html&gt;
-        &lt;head&gt;
-        &lt;/head&gt;
-        &lt;body&gt;
-                &lt;h1&gt;[[*pagetitle:siteEditorField]]&lt;/h1&gt;
-                &lt;p&gt;
-                        [[*introtext:siteEditorField]]
-                &lt;/p&gt;
-                [[*content:siteEditorField]]
-                &lt;hr /&gt;
-                [[*footerTv:siteEditorField]]
-        &lt;/body&gt;
-&lt;/html&gt;
-</pre>
-</div>
-</div>
-
-<p>
-This is an example of a getResources rowTpl chunk:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li&gt;
-        &lt;a href=<span class="code-quote">"[[~[[+id]]]]"</span>&gt;[[+pagetitle:siteEditorField=`resource=[[+id]]`]]&lt;/a&gt;
+<pre class="brush: php">
+    &lt;li&gt;
+        &lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle:siteEditorField=`resource=[[+id]]`]]&lt;/a&gt;
 &lt;/li&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h1>
 <a name="SiteEditor-Externalsources"></a>External sources
 </h1>

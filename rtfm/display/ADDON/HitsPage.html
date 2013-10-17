@@ -7,7 +7,7 @@ HitsPage is a Plugin that counts the number of http requests, or "hits" on a giv
 </p>
 
 <h2>
-<a name="HitsPage-Requirements"></a>Requirements
+<a name="HitsPage-Requirements" id="HitsPage-Requirements"></a>Requirements
 </h2>
 
 <p>
@@ -15,7 +15,7 @@ MODX Revolution&nbsp;<font color="#444444">2.1.x or later</font>
 </p>
 
 <h2>
-<a name="HitsPage-History"></a>History
+<a name="HitsPage-History" id="HitsPage-History"></a>History
 </h2>
 
 <p>
@@ -23,11 +23,11 @@ MODX Revolution&nbsp;<font color="#444444">2.1.x or later</font>
 </p>
 
 <h3>
-<a name="HitsPage-"></a><font color="#444444">Download</font>
+<a name="HitsPage-" id="HitsPage-"></a><font color="#444444">Download</font>
 </h3>
 
 <p>
-<font color="#222222">It can be downloaded from within the MODx Revolution manager via</font> <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a><font color="#222222">, or from the MODx Extras Repository, here:</font>
+<font color="#222222">It can be downloaded from within the MODx Revolution manager via</font> <a href="display/revolution20/Package+Management" title="Package Management">Package Management</a><font color="#222222">, or from the MODx Extras Repository, here:</font>
 </p>
 
 <p>
@@ -35,85 +35,24 @@ MODX Revolution&nbsp;<font color="#444444">2.1.x or later</font>
 </p>
 
 <h2>
-<a name="HitsPage-Usage"></a>Usage
+<a name="HitsPage-Usage" id="HitsPage-Usage"></a>Usage
 </h2>
 
 <p>
-<font color="#222222">Upon installation, HitsPage creates two new</font> <a href="/display/revolution20/Template+Variables" title="Template Variables"><font color="#222222">Template Variables</font></a><font color="#222222">, "HitsPage" and "hits". At the time of this writing, the "hits" TV is redundant.</font>
+<font color="#222222">Upon installation, HitsPage creates two new</font> <a href="display/revolution20/Template+Variables" title="Template Variables"><font color="#222222">Template Variables</font></a><font color="#222222">, "HitsPage" and "hits". At the time of this writing, the "hits" TV is redundant.</font>
 </p>
 
 <p>
-<font color="#222222">On the</font> <a href="/display/revolution20/Resource" title="Resource"><font color="#222222">Resource</font></a> <font color="#222222">that you'd like to track hits, use the placeholder:</font>
+<font color="#222222">On the</font> <a href="display/revolution20/Resource" title="Resource"><font color="#222222">Resource</font></a> <font color="#222222">that you'd like to track hits, use the placeholder:</font>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!+hitss]]
+<pre class="brush: php">
+    &lt;li&gt;[[+pagetitle]] has been viewed [[+tv.HitsPage]] times.&lt;/li&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-<font color="#222222">You can put this in the Resource Content Field, or in its</font> <a href="/display/revolution20/Templates" title="Templates"><font color="#222222">Template</font></a><font color="#222222">, but it MUST be present on the page you wish to track. You can hide its display using CSS, if you wish.</font>
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Idiosyncratic Behaviour</b>
-<br />
-<font color="#222222">Do NOT use the TV tag to render output on the page. It seems to break the plugin. Only use it in &amp;tpl chunks (see below).</font>
-</td>
-</tr>
-</table>
-</div>
-
-<p>
-<font color="#222222">Once the placeholder is...in place, the "HitsPage" TV will be dynamically updated with the hit count, making it available to</font> <a href="/display/revolution20/Snippets" title="Snippets"><font color="#222222">Snippets</font></a> <font color="#222222">via their Tpl</font> <a href="/display/revolution20/Chunks" title="Chunks"><font color="#222222">Chunks</font></a><font color="#222222">.</font>
-</p>
-
-<h2>
-<a name="HitsPage-Examples"></a>Examples
-</h2>
-
-<p>
-<font color="#222222">A</font> <a href="/display/ADDON/getResources" title="getResources"><font color="#222222">getResources</font></a> <font color="#222222">call using the following &amp;tpl will return a list of pages displaying their Titles and the number of hits they've received:</font>
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li&gt;[[+pagetitle]] has been viewed [[+tv.HitsPage]] times.&lt;/li&gt;
-</pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>Usage Example</b>
 <br />
 You can easily create a "Most Popular Posts" widget by following the tutorial here: <a href="http://www.sepiariver.ca/blog/modx-web/modx-popular-posts-plugin-hit-counter-getresources" class="external-link" rel="nofollow">http://www.sepiariver.ca/blog/modx-web/modx-popular-posts-plugin-hit-counter-getresources</a>
-</td>
-</tr>
-</table>
 </div>

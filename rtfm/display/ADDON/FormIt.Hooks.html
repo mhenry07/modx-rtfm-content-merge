@@ -1,47 +1,47 @@
 <div>
 <ul>
 <li>
-<a href='#FormIt.Hooks-FormItHooks'>FormIt Hooks</a>
+<a href="/extras/revo/formit/formit.hooks#FormIt.Hooks-FormItHooks">FormIt Hooks</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#FormIt.Hooks-UsingpreHooks'>Using preHooks</a>
+<a href="/extras/revo/formit/formit.hooks#FormIt.Hooks-UsingpreHooks">Using preHooks</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks-Usinghooks'>Using hooks</a>
+<a href="/extras/revo/formit/formit.hooks#FormIt.Hooks-Usinghooks">Using hooks</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormIt.Hooks-BuiltInHooks'>Built-In Hooks</a>
+<a href="/extras/revo/formit/formit.hooks#FormIt.Hooks-BuiltInHooks">Built-In Hooks</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks-CustomHooks'>Custom Hooks</a>
+<a href="/extras/revo/formit/formit.hooks#FormIt.Hooks-CustomHooks">Custom Hooks</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#FormIt.Hooks-Registeringcustomhooks'>Registering custom hooks</a>
+<a href="/extras/revo/formit/formit.hooks#FormIt.Hooks-Registeringcustomhooks">Registering custom hooks</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks-AccessingtheFormItfieldsintheHook'>Accessing the FormIt fields in the Hook</a>
+<a href="/extras/revo/formit/formit.hooks#FormIt.Hooks-AccessingtheFormItfieldsintheHook">Accessing the FormIt fields in the Hook</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks-Customhookreturnvalues'>Custom hook return values</a>
+<a href="/extras/revo/formit/formit.hooks#FormIt.Hooks-Customhookreturnvalues">Custom hook return values</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormIt.Hooks-FilebasedHooks'>File-based Hooks</a>
+<a href="/extras/revo/formit/formit.hooks#FormIt.Hooks-FilebasedHooks">File-based Hooks</a>
 </li>
 </ul>
 </div>
@@ -78,63 +78,43 @@ There are two types of hooks:
 Just specify the preHook in the 'preHooks' property in your FormIt snippet call. There are no built-in preHooks, but if you had a preHook called 'loadCustomValues':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? &amp;preHooks=`loadCustomValues`]]
 </pre>
-</div>
-</div>
-
 <p>
 Would then run the 'loadCustomValues' snippet before loading the form. You could then set fields on the form like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $hook-&gt;setValue('name','John Doe');
 $hook-&gt;setValue('email','john.doe@fake-emails.com');
-<span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+return true;
 </pre>
-</div>
-</div>
-
 <p>
 Or alternatively using -&gt;setValues:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $hook-&gt;setValues(array(
   'name' =&gt; 'John Doe',
   'email' =&gt; 'john.doe@fake-emails.com',
 ));
-<span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+return true;
 </pre>
-</div>
-</div>
-
 <p>
-Note that using the <b>setValues()</b> method here will make the corresponding placeholders available to your email chunk; the effect of manually setting values is similar to adding hidden fields to your form.
+Note that using the <strong>setValues()</strong> method here will make the corresponding placeholders available to your email chunk; the effect of manually setting values is similar to adding hidden fields to your form.
 </p>
 
 <p>
 You can do whatever you want in the preHook as well. Remember to return true if your preHook or Hook is successful. If you want to add an error message to a field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $hook-&gt;addError('user','User not found.');
-<span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+return false;
 </pre>
-</div>
-</div>
-
 <h3>
 <a name="FormIt.Hooks-Usinghooks" id="FormIt.Hooks-Usinghooks"></a>Using hooks
 </h3>
@@ -143,14 +123,9 @@ $hook-&gt;addError('user','User not found.');
 Simply specify the hook in the 'hooks' property in your FormIt snippet call. For example, this loads the spam and email hooks:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? &amp;hooks=`spam,email`]]
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="FormIt.Hooks-BuiltInHooks" id="FormIt.Hooks-BuiltInHooks"></a>Built-In Hooks
 </h2>
@@ -213,53 +188,38 @@ To register a custom hook, just add the name of the snippet to the &amp;hooks pa
 The Formit fields are available via the hook api. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $email = $hook-&gt;getValue('email');
 $allFormFields = $hook-&gt;getValues();
 </pre>
-</div>
-</div>
-
 <p>
-If you want to <b>set</b> fields, however, you'll need to access them this way:
+If you want to <strong>set</strong> fields, however, you'll need to access them this way:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $hook-&gt;setValue('email','reset@thisemail.com');
 $hook-&gt;setValues(array(
   'name' =&gt; 'Shaun',
   'books' =&gt; 'Hunger Games,To Kill a Mockingbird,Mindset',
 ));
 </pre>
-</div>
-</div>
-
 <h3>
 <a name="FormIt.Hooks-Customhookreturnvalues" id="FormIt.Hooks-Customhookreturnvalues"></a>Custom hook return values
 </h3>
 
 <p>
-Snippets should <b>return true</b> on success. On failure, the snippet can set error messages in the hook object's errors variable and return false. In either case, hooks listed after the custom hook in the &amp;hooks parameter will not execute.
+Snippets should <strong>return true</strong> on success. On failure, the snippet can set error messages in the hook object's errors variable and return false. In either case, hooks listed after the custom hook in the &amp;hooks parameter will not execute.
 </p>
 
 <p>
 The fiHooks object is available in the snippet as $hook, which can be used to return generic error messages from the snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $errorMsg = 'User not found';
 $hook-&gt;addError('user',$errorMsg);
-<span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+return false;
 </pre>
-</div>
-</div>
-
 <p>
 Again, remember - if your hook succeeds, make sure you have "return true;" at the end of your Hook. If you use "return false;" or do not return a value, FormIt will assume the Hook failed. Also, be sure that any custom hooks you specify come before the redirect hook in the hooks property.
 </p>
@@ -272,16 +232,45 @@ Again, remember - if your hook succeeds, make sure you have "return true;" at th
 FormIt 2.0.0+ supports file-based hooks and preHooks. This means that you can point FormIt straight to a PHP file to use as a custom hook. For example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? 
   &amp;hooks=`[[++assets_path]]hooks/my.hook.php`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 This will evaluate the MODX tags in the hook line, and then look for the hook at assets/hooks/my.hook.php. If the file is found, it will evaluate the hook from there.
 </p>
+
+<h2>
+<a name="FormIt.Hooks-SeeAlso" id="FormIt.Hooks-SeeAlso"></a>See Also
+</h2>
+
+<ol class="ug-toc">
+<li>
+<a href="/extras/revo/formit/FormIt.Hooks">FormIt.Hooks</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.Validators">FormIt.Validators</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItRetriever">FormIt.FormItRetriever</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/formit.Tutorials-and-Examples">FormIt.Tutorials and Examples</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.Roadmap">FormIt.Roadmap</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItCountryOptions">FormIt.FormItCountryOptions</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItStateOptions">FormIt.FormItStateOptions</a>
+</li>
+</ol>

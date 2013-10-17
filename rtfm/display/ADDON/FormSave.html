@@ -1,50 +1,50 @@
 <div>
 <ul>
 <li>
-<a href='#FormSave-WhatisFormSave%3F'>What is FormSave?</a>
+<a href="extras/revo/formsave#FormSave-WhatisFormSave%3F">What is FormSave?</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#FormSave-Requirements'>Requirements</a>
+<a href="extras/revo/formsave#FormSave-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#FormSave-History'>History</a>
+<a href="extras/revo/formsave#FormSave-History">History</a>
 </li>
 
 <li>
-<a href='#FormSave-Download%26Installation'>Download &amp; Installation</a>
+<a href="extras/revo/formsave#FormSave-Download%26Installation">Download &amp; Installation</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormSave-Whatyouneedtoknow'>What you need to know</a>
+<a href="extras/revo/formsave#FormSave-Whatyouneedtoknow">What you need to know</a>
 </li>
 
 <li>
-<a href='#FormSave-UsingFormSaveinthefrontend'>Using FormSave in the front-end</a>
+<a href="extras/revo/formsave#FormSave-UsingFormSaveinthefrontend">Using FormSave in the front-end</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#FormSave-Usingthesnippet'>Using the snippet</a>
+<a href="extras/revo/formsave#FormSave-Usingthesnippet">Using the snippet</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormSave-Externalsources'>External sources</a>
+<a href="extras/revo/formsave#FormSave-Externalsources">External sources</a>
 </li>
 </ul>
 </div>
 
-<h1>
+<h2>
 <a name="FormSave-WhatisFormSave%3F"></a>What is FormSave?
-</h1>
+</h2>
 
 <p>
 FormSave is a hook for FormIt that allows you to save virtually any form to the database and export the results to CSV/XML/Print view right out of the box. You can also add your own export templates to make any export format possible.
@@ -145,38 +145,13 @@ FormSave is a hook for FormIt, this means you need FormIt installed and you need
 As an example we'll use the call from FormIt's example contact page which looks like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!FormIt?
-   &amp;hooks=`recaptcha,spam,email,redirect`
-   &amp;emailTpl=`MyEmailChunk`
-   &amp;emailTo=`user@example.com`
-   &amp;redirectTo=`123`
-   &amp;validate=`name:required,
-      email:email:required,
-      subject:required,
-      text:required:stripTags,
-      numbers:required,
-      colors:required`
-]]
-</pre>
-</div>
-</div>
-
-<p>
-But now we want to save the form to the database to view the results later. To do this we simply add the hook and a parameter to the FormIt call:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!FormIt?
+<pre class="brush: php">
+    [[!FormIt?
    &amp;hooks=`recaptcha,spam,FormSave,email,redirect`      &lt;-- added the hook here after spam and recaptcha check
    &amp;emailTpl=`MyEmailChunk`
    &amp;emailTo=`user@example.com`
    &amp;redirectTo=`123`
-   &amp;fsFormTopic=`contact`                               &lt;-- added the form topic to specify which form <span class="code-keyword">this</span> is
+   &amp;fsFormTopic=`contact`                               &lt;-- added the form topic to specify which form this is
    &amp;validate=`name:required,
       email:email:required,
       subject:required,
@@ -184,10 +159,8 @@ But now we want to save the form to the database to view the results later. To d
       numbers:required,
       colors:required`
 ]]
+    
 </pre>
-</div>
-</div>
-
 <p>
 These are the parameters you can use in the FormIt call:
 </p>

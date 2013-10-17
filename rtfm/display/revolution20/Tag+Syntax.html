@@ -1,347 +1,295 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<div>
 <ul>
 <li>
-<a href='#TagSyntax-TagFormatChangesforContentElementsandContentTags'>Tag Format Changes for Content Elements and Content Tags</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="revolution/2.x/making-sites-with-modx/tag-syntax#TagSyntax-TagFormatChangesforContentElementsandContentTags">Tag Format Changes for Content Elements and Content Tags</a>
 <ul>
 <li>
-<a href='#TagSyntax-Commenttags'>Comment tags</a>
+<a href="revolution/2.x/making-sites-with-modx/tag-syntax#TagSyntax-Commenttags">Comment tags</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#TagSyntax-StructureofaTag'>Structure of a Tag</a>
+<a href="revolution/2.x/making-sites-with-modx/tag-syntax#TagSyntax-StructureofaTag">Structure of a Tag</a>
 </li>
 
 <li>
-<a href='#TagSyntax-Properties'>Properties</a>
+<a href="revolution/2.x/making-sites-with-modx/tag-syntax#TagSyntax-Properties">Properties</a>
 </li>
 
 <li>
-<a href='#TagSyntax-Caching'>Caching</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="revolution/2.x/making-sites-with-modx/tag-syntax#TagSyntax-Caching">Caching</a>
 <ul>
 <li>
-<a href='#TagSyntax-ParsingOrder'>Parsing Order</a>
+<a href="revolution/2.x/making-sites-with-modx/tag-syntax#TagSyntax-ParsingOrder">Parsing Order</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#TagSyntax-Timing'>Timing</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="revolution/2.x/making-sites-with-modx/tag-syntax#TagSyntax-Timing">Timing</a>
 <ul>
 <li>
-<a href='#TagSyntax-AdditionalHelp'>Additional Help</a>
+<a href="revolution/2.x/making-sites-with-modx/tag-syntax#TagSyntax-AdditionalHelp">Additional Help</a>
 </li>
 </ul>
 </li>
 </ul>
-</div>
 
 <p>
 To simplify parsing logic, improve parsing performance and avoid confusion with many new adopters, all tags are now of a single format, differentiated by a token or a set of tokens which appear before a string which identifies the Content Element or Content Tag to be processed; e.g. [[<em>tokenIdentifier</em>]].
 </p>
 
 <h2>
-<a name="TagSyntax-TagFormatChangesforContentElementsandContentTags"></a>Tag Format Changes for Content Elements and Content Tags
+<a name="TagSyntax-TagFormatChangesforContentElementsandContentTags" id="TagSyntax-TagFormatChangesforContentElementsandContentTags"></a>Tag Format Changes for Content Elements and Content Tags
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<p class="table-wrap">
+</p>
+
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
-<b><em>Content Elements</em></b>
+<th class="confluenceTh">
+<strong><em>Content Elements</em></strong>
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Evolution (Old)
 </th>
-<th class='confluenceTh'>
-&nbsp;
+<th class="confluenceTh">
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Revolution (New)
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Example for Revolution
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<a href="/display/revolution20/Templates" title="Templates">Templates</a>
+<td class="confluenceTd">
+<a href="display/revolution20/Templates" title="Templates">Templates</a>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 no tag representation
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 no tag representation
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Resource Fields
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [*<em>field</em>*]
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[*field]]
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[*pagetitle]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>
+<td class="confluenceTd">
+<a href="display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [*<em>templatevar</em>*]
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[*<em>templatevar</em>]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[*tags]]
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<a href="/display/revolution20/Chunks" title="Chunks">Chunks</a>
+<td class="confluenceTd">
+<a href="display/revolution20/Chunks" title="Chunks">Chunks</a>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 {{<em>chunk</em> }}
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[$<em>chunk</em>]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[$header]]
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<a href="/display/revolution20/Snippets" title="Snippets">Snippets</a>
+<td class="confluenceTd">
+<a href="display/revolution20/Snippets" title="Snippets">Snippets</a>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[<em>snippet</em>]]
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[<em>snippet</em>]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[getResources]]
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<a href="/display/revolution20/Plugins" title="Plugins">Plugins</a>
+<td class="confluenceTd">
+<a href="display/revolution20/Plugins" title="Plugins">Plugins</a>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 no tag representation
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 no tag representation
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<a href="/display/Evo1/Modules" title="Modules">Modules</a>
+<td class="confluenceTd">
+<a href="display/Evo1/Modules" title="Modules">Modules</a>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 no tag representation
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
-does not exist in Revolution, use <a href="/display/revolution20/Custom+Manager+Pages" title="Custom Manager Pages">CMPs</a>
+<td class="confluenceTd">
+does not exist in Revolution, use <a href="display/revolution20/Custom+Manager+Pages" title="Custom Manager Pages">CMPs</a>
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b><em>Content Tags</em></b>
+<td class="confluenceTd">
+<strong><em>Content Tags</em></strong>
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Placeholders
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [+<em>placeholder</em>+]
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+<em>placeholder</em>]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+modx.user.id]]
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<a href="/display/revolution20/Resources" title="Resources">Links</a>
+<td class="confluenceTd">
+<a href="display/revolution20/Resources" title="Resources">Links</a>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [~<em>link</em>~]
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[~<em>link</em>]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[~[[*id]]? &amp;scheme=`full`]]
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<a href="/display/revolution20/System+Settings" title="System Settings">System Settings</a>
+<td class="confluenceTd">
+<a href="display/revolution20/System+Settings" title="System Settings">System Settings</a>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [(<em>system_setting</em>)]
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[++<em>system_setting</em>]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[++site_start]]
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<a href="/display/revolution20/Internationalization" title="Internationalization">Language</a>
+<td class="confluenceTd">
+<a href="display/revolution20/Internationalization" title="Internationalization">Language</a>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 no tag representation
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[%<em>language_string_key</em>]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[%LanguageStringKey? &amp;language=`en` &amp;namespace=`NameSpaceName` &amp;topic=`TopicName`]]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Comment (see note below)
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[-this is a comment]]
-<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-
-<p>
-<br class="atl-forced-newline" />
-</p>
 
 <p>
 Adopting this simplified format allows the new parser to be fully-recursive, following a source-order mechanism that does not depend on regular expressions.
 </p>
 
 <p>
-Previously, each tag set was parsed independently in a specific order, one level at a time, with any embedded tags delayed until the next pass.&nbsp; Now tags are parsed as they are encountered regardless of the element types they represent, and embedded tags are parsed before the outer tag to allow much more complex tags to be composed.&nbsp; Combined with the ability to use the previously reserved ? &amp; and = symbols in tag strings (when escaped by the infamous backtick, e.g. <tt>&amp;param=`?=&amp;is ok now, wow!?&amp;=`</tt>), MODx Content Tags offer a powerful new set of capabilities for mashing up your content.
+Previously, each tag set was parsed independently in a specific order, one level at a time, with any embedded tags delayed until the next pass. Now tags are parsed as they are encountered regardless of the element types they represent, and embedded tags are parsed before the outer tag to allow much more complex tags to be composed. Combined with the ability to use the previously reserved ? &amp; and = symbols in tag strings (when escaped by the infamous backtick, e.g. <tt>&amp;param=`?=&amp;is ok now, wow!?&amp;=`</tt>), MODx Content Tags offer a powerful new set of capabilities for mashing up your content.
 </p>
 
 <h3>
-<a name="TagSyntax-Commenttags"></a>Comment tags
+<a name="TagSyntax-Commenttags" id="TagSyntax-Commenttags"></a>Comment tags
 </h3>
 
 <p>
@@ -352,16 +300,11 @@ Previously, each tag set was parsed independently in a specific order, one level
 As of MODX Revolution 2.2 any tag found that starts with a dash (-) is ignored by the parser, and any tags it includes will be silently discarded. Before that, you can use the same however any tags within the commend would be parsed and it would be a tad more resource intensive to do so.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  [[- This is a comment, and will be removed from the output. ]]
 </pre>
-</div>
-</div>
-
 <h2>
-<a name="TagSyntax-StructureofaTag"></a>Structure of a Tag
+<a name="TagSyntax-StructureofaTag" id="TagSyntax-StructureofaTag"></a>Structure of a Tag
 </h2>
 
 <p>
@@ -369,44 +312,37 @@ A tag can contain many sub-parts within it. Below is illustrated on multiple lin
 </p>
 
 <p>
-<b>[[</b> <em>(opening tags)</em>
+<strong>[[</strong> <em>(opening tags)</em>
 <br />
-<b>!</b> <em>(optional non-cacheable flag)</em>
+<strong>!</strong> <em>(optional non-cacheable flag)</em>
 <br />
-<b>elementToken</b> <em>(optional token identifying the element type if it's not a snippet, $=chunk, *=resource field/tv, +=placeholder, etc.)</em>
+<strong>elementToken</strong> <em>(optional token identifying the element type if it's not a snippet, $=chunk, *=resource field/tv, +=placeholder, etc.)</em>
 <br />
-<b>elementName</b>
+<strong>elementName</strong>
 <br />
-<b>@propertyset</b> <em>(optional PropertySet identifier)</em>
+<strong>@propertyset</strong> <em>(optional PropertySet identifier)</em>
 <br />
-<b>:filterName=`modifier`</b>:... <em>(optional one or more output filters)</em>
+<strong>:filterName=`modifier`</strong>:... <em>(optional one or more output filters)</em>
 <br />
-<b>?</b> <em>(required if properties follow, indicates beginning of property string; optional otherwise)</em>
+<strong>?</strong> <em>(required if properties follow, indicates beginning of property string; optional otherwise)</em>
 <br />
-<b>&amp;propertyName=`propertyValue`</b> &amp;... <em>(optional; any additional properties separated by &amp;)</em>
+<strong>&amp;propertyName=`propertyValue`</strong> &amp;... <em>(optional; any additional properties separated by &amp;)</em>
 <br />
-<b>]]</b> <em>(closing tags)</em>
+<strong>]]</strong> <em>(closing tags)</em>
 </p>
 
 <p>
 Put these all together, and a tag with all valid parts might look like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[MySnippet@myPropSet:filter1:filter2=`modifier`? &amp;prop1=`x` &amp;prop2=`y`]]
 </pre>
-</div>
-</div>
-
 <p>
 Note that tags can occur either on one line, or spread out across many lines. Both of these are acceptable:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getResources? &amp;parents=`123` &amp;limit=`5`]]
 
 [[!getResources?
@@ -414,78 +350,46 @@ Note that tags can occur either on one line, or spread out across many lines. Bo
   &amp;limit=`5`
 ]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Take it Easy</b>
+<div class="tip">
+<strong>Take it Easy</strong>
 <br />
 Just because you <em>can</em> use complex conditional filters in MODX does not mean that you <em>should</em>. Unlike PHP, when you have invalid MODX tag syntax, there are no helpful messages with line numbers telling you where something went wrong. Having tags that require debugging defeats the purpose of having a clean view layer: keep 'em clean and simple. A good rule-of-thumb is that your tags should fit onto one line (even if you spread them out for readability).
 <p>
 If you are relying on if-statements and other conditionals in your template tags, then you might need rethink how you're building your pages.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="TagSyntax-Properties"></a>Properties
+<a name="TagSyntax-Properties" id="TagSyntax-Properties"></a>Properties
 </h2>
 
 <p>
 All MODX Revo tags can accept properties (not just Snippets). For example, let's say we had a Chunk named 'Hello' with the content:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Hello [[+name]]!
 </pre>
-</div>
-</div>
-
 <p>
 You'll note the new placeholder syntax. So, we'll definitely want to parse that Chunk's property. In Evolution, you would need to do this with a Snippet; no longer. You can simply pass a property for the Chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[$Hello?name=`George`]]
 </pre>
-</div>
-</div>
-
 <p>
 This would output:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Hello George!
 </pre>
-</div>
-</div>
-
 <p>
 The syntax for properties follows the same syntax as 096/Evolution snippet properties.
 </p>
 
 <h2>
-<a name="TagSyntax-Caching"></a>Caching
+<a name="TagSyntax-Caching" id="TagSyntax-Caching"></a>Caching
 </h2>
 
 <p>
@@ -493,26 +397,14 @@ In Evolution, Snippets that need to be processed with each request should be on 
 </p>
 
 <p>
-In Revolution, any tag can be called uncached by inserting an exclamation point immediately after the double-bracket: [[!snippet]],&nbsp;[[!$chunk]],&nbsp;[[!+placeholder]], [[!*template_var]],&nbsp;etc.
+In Revolution, any tag can be called uncached by inserting an exclamation point immediately after the double-bracket: [[!snippet]], [[!$chunk]], [[!+placeholder]], [[!*template_var]], etc.
 </p>
 
+<div class="info">
 <p>
-?
+If you have some kind of advanced setup in which the site_url setting is being set per request, but your [[~[[*id]]]] links are not being generated properly, remember that any tag can be called uncached, including the link or anchor tag:
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-If you have some kind of advanced setup in which the site_url setting is being set per request, but your [[~[[*id]]]] links are not being generated properly, remember that any tag can be called uncached, including the link or anchor tag:
 <p>
 [[!~[[*id]]]]
 </p>
@@ -520,13 +412,10 @@ If you have some kind of advanced setup in which the site_url setting is being s
 <p>
 However, you will only need that when the site_url is set dynamically and can differ per request. Any normal usage can be cached.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <h3>
-<a name="TagSyntax-ParsingOrder"></a>Parsing Order
+<a name="TagSyntax-ParsingOrder" id="TagSyntax-ParsingOrder"></a>Parsing Order
 </h3>
 
 <p>
@@ -541,17 +430,12 @@ If you have cached placeholders below that, they will be evaluated before that S
 If you want to call a Snippet uncached that sets placeholders, you need to make sure the placeholders are set to uncached as well:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Profile]]
 Hello [[!+username]],
 </pre>
-</div>
-</div>
-
 <h2>
-<a name="TagSyntax-Timing"></a>Timing
+<a name="TagSyntax-Timing" id="TagSyntax-Timing"></a>Timing
 </h2>
 
 <p>
@@ -560,23 +444,23 @@ There are several timing tags in MODX:
 
 <ul>
 <li>
-<b>[^qt^]</b> - Query Time - Shows how long MODx took talking to the database
+<strong>[^qt^]</strong> - Query Time - Shows how long MODx took talking to the database
 </li>
 
 <li>
-<b>[^q^]</b> - Query Count -Shows how many database queries MODX made
+<strong>[^q^]</strong> - Query Count -Shows how many database queries MODX made
 </li>
 
 <li>
-<b>[^p^]</b> - Parse Time - Shows how long MODX took to parse the page
+<strong>[^p^]</strong> - Parse Time - Shows how long MODX took to parse the page
 </li>
 
 <li>
-<b>[^t^]</b> - Total Time - Shows the total time taken to parse/ render the page
+<strong>[^t^]</strong> - Total Time - Shows the total time taken to parse/ render the page
 </li>
 
 <li>
-<b>[^s^]</b> - Source - Shows the source of page, whether is database or cache.
+<strong>[^s^]</strong> - Source - Shows the source of page, whether is database or cache.
 </li>
 </ul>
 
@@ -585,7 +469,7 @@ For example, for this page, MySQL queries took 0.0000 seconds for 0 queries(s), 
 </p>
 
 <h3>
-<a name="TagSyntax-AdditionalHelp"></a>Additional Help
+<a name="TagSyntax-AdditionalHelp" id="TagSyntax-AdditionalHelp"></a>Additional Help
 </h3>
 
 <p>

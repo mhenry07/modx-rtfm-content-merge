@@ -1,62 +1,62 @@
 <div>
 <ul>
 <li>
-<a href='#xFPC-WhatisxFPC%3F'>What is xFPC?</a>
+<a href="extras/revo/xfpc#xFPC-WhatisxFPC%3F">What is xFPC?</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#xFPC-Requirements'>Requirements</a>
+<a href="extras/revo/xfpc#xFPC-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#xFPC-History'>History</a>
+<a href="extras/revo/xfpc#xFPC-History">History</a>
 </li>
 
 <li>
-<a href='#xFPC-Download%26Installation'>Download &amp; Installation</a>
+<a href="extras/revo/xfpc#xFPC-Download%26Installation">Download &amp; Installation</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#xFPC-ReadthisBEFOREuse%5C%21'>Read this BEFORE use!</a>
+<a href="extras/revo/xfpc#xFPC-ReadthisBEFOREuse%5C%21">Read this BEFORE use!</a>
 </li>
 
 <li>
-<a href='#xFPC-UsingxFPC'>Using xFPC</a>
+<a href="extras/revo/xfpc#xFPC-UsingxFPC">Using xFPC</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#xFPC-Usingthefullpagecache'>Using the full-page-cache</a>
+<a href="extras/revo/xfpc#xFPC-Usingthefullpagecache">Using the full-page-cache</a>
 </li>
 
 <li>
-<a href='#xFPC-Configurationparameters'>Configuration parameters</a>
+<a href="extras/revo/xfpc#xFPC-Configurationparameters">Configuration parameters</a>
 </li>
 
 <li>
-<a href='#xFPC-xFPCAjaxsnippet%3AUsingdynamiccontentonyourwebpage'>xFPCAjax snippet: Using dynamic content on your webpage</a>
+<a href="extras/revo/xfpc#xFPC-xFPCAjaxsnippet%3AUsingdynamiccontentonyourwebpage">xFPCAjax snippet: Using dynamic content on your webpage</a>
 </li>
 
 <li>
-<a href='#xFPC-Usingperresourcecachelifetime'>Using per-resource cache lifetime</a>
+<a href="extras/revo/xfpc#xFPC-Usingperresourcecachelifetime">Using per-resource cache lifetime</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#xFPC-Externalsources'>External sources</a>
+<a href="extras/revo/xfpc#xFPC-Externalsources">External sources</a>
 </li>
 </ul>
 </div>
 
-<h1>
+<h2>
 <a name="xFPC-WhatisxFPC%3F"></a>What is xFPC?
-</h1>
+</h2>
 
 <p>
 xFPC means MODX Full Page Caching.
@@ -517,34 +517,12 @@ got the ID "300". You can hide this resource from the menu, but be sure to publi
 Now back to the place where the <span class="error">[!getRandomAwesomeQuote]</span> used to be and replace this call with:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[xFPCAjax?
-   &amp;resource=`300`
-]]
+<pre class="brush: php">
+    
+&lt;div class="awesome-quote"&gt;[[!getRandomAwesomeQuote]]&lt;/div&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Now, when your static cache file is loaded, it will load the dynamic quote from the resource using AJAX. This means that your page loads blazing fast in the blink of an eye
-<br />
-your quote will also be there. I bet ya you won't even notice that it get's loaded with AJAX.
-</p>
-
-<p>
-So your old template looked like this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"awesome-quote"</span>&gt;[[!getRandomAwesomeQuote]]&lt;/div&gt;
-</pre>
-</div>
-</div>
-
 <p>
 And your new template looks like this: (You have moved your dynamic snippet to a new resource with an empty template that has the ID 300)
 </p>

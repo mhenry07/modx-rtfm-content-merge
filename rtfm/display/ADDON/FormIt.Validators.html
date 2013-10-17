@@ -1,80 +1,50 @@
 <div>
 <ul>
 <li>
-<a href='#FormIt.Validators-ValidationinFormIt'>Validation in FormIt</a>
+<a href="/extras/revo/formit/formit.validators#FormIt.Validators-ValidationinFormIt">Validation in FormIt</a>
 </li>
 
 <li>
-<a href='#FormIt.Validators-BuiltInValidators'>Built-In Validators</a>
+<a href="/extras/revo/formit/formit.validators#FormIt.Validators-BuiltInValidators">Built-In Validators</a>
 </li>
 
 <li>
-<a href='#FormIt.Validators-CustomValidators'>Custom Validators</a>
+<a href="/extras/revo/formit/formit.validators#FormIt.Validators-CustomValidators">Custom Validators</a>
 </li>
 
 <li>
-<a href='#FormIt.Validators-CustomErrorMessages'>Custom Error Messages</a>
-</li>
-
-<li>
-<a href='#FormIt.Validators-SeeAlso'>See Also</a>
+<a href="/extras/revo/formit/formit.validators#FormIt.Validators-CustomErrorMessages">Custom Error Messages</a>
 </li>
 </ul>
 </div>
 
 <h2>
-<a name="FormIt.Validators-ValidationinFormIt"></a>Validation in FormIt
+<a name="FormIt.Validators-ValidationinFormIt" id="FormIt.Validators-ValidationinFormIt"></a>Validation in FormIt
 </h2>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 As of FormIt 1.4.0, validation has changed. The old method of doing validation on the input names will still work until FormIt 2.0.0, when it will be removed. It is recommended to use the new way by using the &amp;validate property.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Validation can simply be done by adding the fields to validate to the &amp;validate property on the Snippet call. For example, to make the username field required, you could do:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? &amp;validate=`username:required`]]
 </pre>
-</div>
-</div>
-
 <p>
 Validators can also be "chained", or done in sucession. The following first checks to see if required, then strips all tags from the post:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? &amp;validate=`text:required:stripTags`
 </pre>
-</div>
-</div>
-
 <p>
 Multiple fields and validators are separated by commas:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? &amp;validate=`date:required:isDate=^%m/%d/%Y^,
     name:required:testFormItValidator,
     email:email:required,
@@ -84,9 +54,6 @@ Multiple fields and validators are separated by commas:
     message:stripTags,
     numbers:required`]]
 </pre>
-</div>
-</div>
-
 <p>
 FormIt allows you to split the validators on multiple lines if you so choose.
 </p>
@@ -95,14 +62,9 @@ FormIt allows you to split the validators on multiple lines if you so choose.
 Note: Don't use backticks ` inside a validate call. Use carets ^ instead:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? &amp;validate=`date:required:isDate=^%m/%d/%Y^`]]
 </pre>
-</div>
-</div>
-
 <p>
 This will fix the call and cause it to work properly.
 </p>
@@ -111,14 +73,9 @@ This will fix the call and cause it to work properly.
 A general error message for validators, useful if no errors are showing but validation is failing, is used with the following placeholder:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!+fi.validation_error_message]]
 </pre>
-</div>
-</div>
-
 <p>
 This will contain a validation error message, which can be set using the &amp;validationErrorMessage property, and using [[+errors]] in the property value, which will be replaced by all the field errors.
 </p>
@@ -127,543 +84,475 @@ This will contain a validation error message, which can be set using the &amp;va
 Also, there is a 1/0 placeholder as well:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!+fi.validation_error]]
 </pre>
-</div>
-</div>
-
 <h2>
-<a name="FormIt.Validators-BuiltInValidators"></a>Built-In Validators
+<a name="FormIt.Validators-BuiltInValidators" id="FormIt.Validators-BuiltInValidators"></a>Built-In Validators
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 name
 </th>
-<th class='confluenceTh'>
+<th>
 function
 </th>
-<th class='confluenceTh'>
+<th>
 parameter
 </th>
-<th class='confluenceTh'>
+<th>
 example
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 blank
 </td>
-<td class='confluenceTd'>
+<td>
 Is field blank?
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
-<td class='confluenceTd'>
+<td>
 nospam:blank
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 required
 </td>
-<td class='confluenceTd'>
+<td>
 Is field is not empty?
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
-<td class='confluenceTd'>
+<td>
 username:required
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 password_confirm
 </td>
-<td class='confluenceTd'>
+<td>
 Does field match value of other field?
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the password field
 </td>
-<td class='confluenceTd'>
+<td>
 password2:password_confirm=^password^
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 email
 </td>
-<td class='confluenceTd'>
+<td>
 Is a valid email address?
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
-<td class='confluenceTd'>
+<td>
 emailaddr:email
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 minLength
 </td>
-<td class='confluenceTd'>
+<td>
 Is field at least X characters long?
 </td>
-<td class='confluenceTd'>
+<td>
 The min length.
 </td>
-<td class='confluenceTd'>
+<td>
 password:minLength=^6^
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 maxLength
 </td>
-<td class='confluenceTd'>
+<td>
 Is field no more than X characters long?
 </td>
-<td class='confluenceTd'>
+<td>
 The max length.
 </td>
-<td class='confluenceTd'>
+<td>
 password:maxLength=^12^
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 minValue
 </td>
-<td class='confluenceTd'>
+<td>
 Is field at least X?
 </td>
-<td class='confluenceTd'>
+<td>
 The minimum value.
 </td>
-<td class='confluenceTd'>
+<td>
 donation:minValue=^1^
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 maxValue
 </td>
-<td class='confluenceTd'>
+<td>
 Is field no higher than X?
 </td>
-<td class='confluenceTd'>
+<td>
 The maximum value.
 </td>
-<td class='confluenceTd'>
+<td>
 cost:maxValue=^1200^
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 contains
 </td>
-<td class='confluenceTd'>
+<td>
 Does field contain string X?
 </td>
-<td class='confluenceTd'>
+<td>
 The string X.
 </td>
-<td class='confluenceTd'>
+<td>
 title:contains=^Hello^
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 strip
 </td>
-<td class='confluenceTd'>
+<td>
 Strip a certain string from the field.
 </td>
-<td class='confluenceTd'>
+<td>
 The string to strip.
 </td>
-<td class='confluenceTd'>
+<td>
 message:strip=^badword^
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 stripTags
 </td>
-<td class='confluenceTd'>
+<td>
 Strip all tags from the field. Note that this is on by default.
 </td>
-<td class='confluenceTd'>
-An optional list of allowed tags.
+<td>
 </td>
-<td class='confluenceTd'>
+<td>
 message:stripTags
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 allowTags
 </td>
-<td class='confluenceTd'>
+<td>
 Allow tags in the field.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
+An optional list of allowed tags.
 </td>
-<td class='confluenceTd'>
+<td>
 content:allowTags
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isNumber
 </td>
-<td class='confluenceTd'>
+<td>
 Is the field a numeric value?
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
-<td class='confluenceTd'>
+<td>
 cost:isNumber
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isDate
 </td>
-<td class='confluenceTd'>
+<td>
 Is the field a date?
 </td>
-<td class='confluenceTd'>
+<td>
 An optional format to format the date.
 </td>
-<td class='confluenceTd'>
+<td>
 startDate:isDate=^%Y-%m-%d^
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h2>
-<a name="FormIt.Validators-CustomValidators"></a>Custom Validators
+<a name="FormIt.Validators-CustomValidators" id="FormIt.Validators-CustomValidators"></a>Custom Validators
 </h2>
 
 <p>
 Validators can also be custom <a href="/display/revolution20/Snippets" title="Snippets">Snippets</a>. You can do this by simply specifying the snippet name in the customValidators property:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? &amp;customValidators=`isBigEnough`]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-As of FormIt 1.2.0, all custom validators <b>must</b> be specified in the customValidators property, or they will not be run.
-</td>
-</tr>
-</table>
+<div class="note">
+As of FormIt 1.2.0, all custom validators <strong>must</strong> be specified in the customValidators property, or they will not be run.
 </div>
 
 <p>
 And then as a validator on the &amp;validate property:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? &amp;validate=`cost:isBigEnough`]]
 </pre>
-</div>
-</div>
-
 <p>
 Then in your Snippet, "isBigEnough":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-$value = (<span class="code-object">float</span>)$value;
+$value = (float)$value;
 $success = $value &gt; 1000;
-<span class="code-keyword">if</span> (!$success) {
-  <span class="code-comment">// Note how we can add an error to the field here.
-</span>  $validator-&gt;addError($key,'Not big enough!');
+if (!$success) {
+  // Note how we can add an error to the field here.
+  $validator-&gt;addError($key,'Not big enough!');
 }
-<span class="code-keyword">return</span> $success;
+return $success;
 ?&gt;
 </pre>
-</div>
-</div>
-
 <p>
 The Validator will send the following properties to the snippet, in the $scriptProperties array:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 name
 </th>
-<th class='confluenceTh'>
+<th>
 function
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 key
 </td>
-<td class='confluenceTd'>
+<td>
 The key of the field being validated.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 value
 </td>
-<td class='confluenceTd'>
+<td>
 The value of the field that was POSTed.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 param
 </td>
-<td class='confluenceTd'>
+<td>
 If a parameter was specified for the validator, this is it.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 type
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the validator (or snippet)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 validator
 </td>
-<td class='confluenceTd'>
+<td>
 A reference to the fiValidator class instance.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h2>
-<a name="FormIt.Validators-CustomErrorMessages"></a>Custom Error Messages
+<a name="FormIt.Validators-CustomErrorMessages" id="FormIt.Validators-CustomErrorMessages"></a>Custom Error Messages
 </h2>
 
 <p>
 As of FormIt 2.0-pl, you can override the error messages displayed by the validators, by sending the appropriate property:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 validator
 </th>
-<th class='confluenceTh'>
+<th>
 property
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 blank
 </td>
-<td class='confluenceTd'>
+<td>
 vTextBlank
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 required
 </td>
-<td class='confluenceTd'>
+<td>
 vTextRequired
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 password_confirm
 </td>
-<td class='confluenceTd'>
+<td>
 vTextPasswordConfirm
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 email
 </td>
-<td class='confluenceTd'>
+<td>
 vTextEmailInvalid, vTextEmailInvalidDomain
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 minLength
 </td>
-<td class='confluenceTd'>
+<td>
 vTextMinLength
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 maxLength
 </td>
-<td class='confluenceTd'>
+<td>
 vTextMaxLength
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 minValue
 </td>
-<td class='confluenceTd'>
+<td>
 vTextMinValue
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 maxValue
 </td>
-<td class='confluenceTd'>
+<td>
 vTextMaxValue
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 contains
 </td>
-<td class='confluenceTd'>
+<td>
 vTextContains
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isNumber
 </td>
-<td class='confluenceTd'>
+<td>
 vTextIsNumber
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isDate
 </td>
-<td class='confluenceTd'>
+<td>
 vTextIsDate
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 regexp
 </td>
-<td class='confluenceTd'>
+<td>
 vTextRegexp
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 You can also specify the message per-field by prefixing the field key in the property. For example, to override the "required" validator message, simply pass in your FormIt call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
-  &amp;vTextRequired=`Please enter a value <span class="code-keyword">for</span> <span class="code-keyword">this</span> field.`
+  &amp;vTextRequired=`Please enter a value for this field.`
   &amp;subject.vTextRequired=`Please enter a subject.`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 This will use the &amp;subject.vTextRequired for the subject field, and then fallback to the &amp;vTextRequired message for all other fields.
 </p>
-
-<h2>
-<a name="FormIt.Validators-SeeAlso"></a>See Also
-</h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33227063" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11698177" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FFormIt.Validators" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11698177" />
-</fieldset>
-</fieldset>
-</div>

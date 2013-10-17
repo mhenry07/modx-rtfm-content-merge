@@ -1,8 +1,4 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 This page is a list of tutorials and examples for FormIt, as well as general usage tips.
 </p>
 
@@ -71,37 +67,61 @@ Sometimes your form just seems to hang: you submit it, but nothing happens. What
 </p>
 
 <p>
-A common error here is with validation. Try removing the <b>&amp;validation</b> portion of the Snippet to see if that fixes the form. If it does, then you know that's where your problem is. A common error occurs when the validation rules reference the incorrect field names. For example, if you've changed the field names from what they were in the example, you must also change the field names used in the validation rules.
+A common error here is with validation. Try removing the <strong>&amp;validation</strong> portion of the Snippet to see if that fixes the form. If it does, then you know that's where your problem is. A common error occurs when the validation rules reference the incorrect field names. For example, if you've changed the field names from what they were in the example, you must also change the field names used in the validation rules.
 </p>
 
 <p>
 For example, if your form reads in part:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 ...
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"firstname"</span> id=<span class="code-quote">"firstname"</span> value=<span class="code-quote">"[[!+fi.firstname]]"</span> /&gt;
+&lt;input type="text" name="firstname" id="firstname" value="[[!+fi.firstname]]" /&gt;
 ...
 </pre>
-</div>
-</div>
-
 <p>
 Then the following validation rule will not work (for a full example of the Snippet call, see <a href="/display/ADDON/FormIt.Examples.Simple+Contact+Page" title="FormIt.Examples.Simple Contact Page">here</a>):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 ...
 &amp;validate=`name:required`
 ...
 </pre>
-</div>
-</div>
-
 <p>
 Why? See how the field name is named "firstname" whereas the validation rule is looking for a field named "name"? Check these very carefully as you build and test your form.
 </p>
+
+<h2>
+<a name="FormIt.TutorialsandExamples-SeeAlso" id="FormIt.TutorialsandExamples-SeeAlso"></a>See Also
+</h2>
+
+<ol class="ug-toc">
+<li>
+<a href="/extras/revo/formit/FormIt.Hooks">FormIt.Hooks</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.Validators">FormIt.Validators</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItRetriever">FormIt.FormItRetriever</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/formit.Tutorials-and-Examples">FormIt.Tutorials and Examples</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.Roadmap">FormIt.Roadmap</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItCountryOptions">FormIt.FormItCountryOptions</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItStateOptions">FormIt.FormItStateOptions</a>
+</li>
+</ol>

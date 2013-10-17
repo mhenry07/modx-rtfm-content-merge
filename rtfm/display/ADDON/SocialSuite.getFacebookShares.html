@@ -1,9 +1,9 @@
 <p>
-<a href="/display/ADDON/SocialSuite" title="SocialSuite">SocialSuite</a> is a collection of useful tools for integrating various social media into your MODX website.&nbsp;
+<a href="display/ADDON/SocialSuite" title="SocialSuite">SocialSuite</a> is a collection of useful tools for integrating various social media into your MODX website.&nbsp;
 </p>
 
 <p>
-getFacebookShares is a <a href="/display/revolution20/Snippets" title="Snippets">snippet</a>, part of SocialSuite, which returns a number indicating the amount of times a certain URL has been <b>shared or commented on</b>&nbsp;using Facebook.
+getFacebookShares is a <a href="display/revolution20/Snippets" title="Snippets">snippet</a>, part of SocialSuite, which returns a number indicating the amount of times a certain URL has been <b>shared or commented on</b>&nbsp;using Facebook.
 </p>
 
 <h2>
@@ -33,10 +33,7 @@ url
 url of current resource
 </td>
 <td class='confluenceTd'>
-The url to find the amount of shares for. Note that this needs to be a full url, so when generating URLs using the&nbsp;[[~]] syntax, make sure to add &amp;scheme=`full`, like this:&nbsp;
-<br class="atl-forced-newline" />
-[[~15? &amp;scheme=`full`]]
-<br class="atl-forced-newline" />
+The url to find the amount of shares for. Note that this needs to be a full url, so when generating URLs using the&nbsp;[[~]] syntax, make sure to add &amp;scheme=`full`, like this:&nbsp; [[~15? &amp;scheme=`full`]]
 </td>
 </tr>
 
@@ -87,50 +84,20 @@ Change to "comments" to get a count of comments for the specific url, usually on
 Get the the amount of shares for the current resource:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getFacebookShares]]
+<pre class="brush: php">
+    [[!getFacebookShares? &amp;node=`comments`]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Get the amount of facebook comments for the current resource:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getFacebookShares? &amp;node=`comments`]]
-</pre>
-</div>
-</div>
-
 <p>
 Get the amount of facebook comments for a resource in a getResources tpl:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-Comments: [[!getFacebookShares? &amp;node=`comments` &amp;url=`[[~[[+id]]? &amp;scheme=`full`]]`]]
+<pre class="brush: php">
+    [[!getFacebookShares:prettyNumbers? &amp;url=`http://google.com/`]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Get the amount of shares for the url "http://google.com/" and format it nicely using the prettyNumbers output filter that comes with SocialSuite:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getFacebookShares:prettyNumbers? &amp;url=`http:<span class="code-comment">//google.com/`]]</span>
-</pre>
-</div>
-</div>
-
 <p>
 Run this snippet inside another snippet to get counts of a specific url:
 </p>

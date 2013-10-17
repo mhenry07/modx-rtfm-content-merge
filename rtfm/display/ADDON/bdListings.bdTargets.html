@@ -12,154 +12,89 @@ bdTargets is a simple snippet to output your target groups.
 <tr>
 <th class='confluenceTh'>
 Property Name
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Description
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Default Value
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 limit
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Limit the amount of results.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 offset
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Offset to start at.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 sortby
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Field to sort on. Can be sortorder, id or name.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 sortorder
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 sortdir
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Direction to sort on. Either asc or desc.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 asc
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 rowSeparator
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 String to use between rowTpl items.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 \n
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 tplOuter
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
-Chunkname to wrap the complete result set in.
-<br class="atl-forced-newline" />
-Default:
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+Chunkname to wrap the complete result set in. Default:
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;h2&gt;Target Groups&lt;/h2&gt;
-&lt;ul&gt;
-    [[+wrapper]]
-&lt;/ul&gt;
+<pre class="brush: php">
+    &lt;li&gt;[[+name]]&lt;/li&gt;
+
+    
 </pre>
-</div>
-</div>
-
 <p>
 Placeholders to use:
-<br class="atl-forced-newline" />
-</p>
-
-<ul>
-<li>wrapper
-</li>
-</ul>
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-tplRow
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Chunk name to wrap individual target groups in.
-<br class="atl-forced-newline" />
-Default:
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li&gt;[[+name]]&lt;/li&gt;
-</pre>
-</div>
-</div>
-
-<p>
-Placeholders to use:
-<br class="atl-forced-newline" />
 </p>
 
 <ul>
@@ -189,32 +124,17 @@ Placeholders to use:
 Minimum call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!bdTargets]]
-</pre>
-</div>
-</div>
-
-<p>
-Result (depending on your target group data):
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;h2&gt;Target Groups&lt;/h2&gt;
+<pre class="brush: php">
+    &lt;h2&gt;Target Groups&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Under 5&lt;/li&gt;
   &lt;li&gt;From 15 to 18&lt;/li&gt;
   &lt;li&gt;From 10 to 15&lt;/li&gt;
   &lt;li&gt;From 5 to 10&lt;/li&gt;
 &lt;/ul&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h3>
 <a name="bdListings.bdTargets-DisplayasSelectbox" id="bdListings.bdTargets-DisplayasSelectbox"></a>Display as Select box
 </h3>
@@ -223,27 +143,11 @@ Result (depending on your target group data):
 Snippet call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;label <span class="code-keyword">for</span>=<span class="code-quote">"target"</span>&gt;Target Group&lt;/label&gt;
-[[!bdTargets? &amp;tplRow=`bdl.target.row` &amp;tplOuter=`bdl.target.<span class="code-keyword">outer</span>`]]
+<pre class="brush: php">
+    &lt;option value="[[+id]]"&gt;[[+name]]&lt;/option&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-bdl.target.row:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;option value=<span class="code-quote">"[[+id]]"</span>&gt;[[+name]]&lt;/option&gt;
-</pre>
-</div>
-</div>
-
 <p>
 bdl.target.outer:
 </p>

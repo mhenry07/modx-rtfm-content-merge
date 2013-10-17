@@ -5,19 +5,19 @@ This document will walk you through the basics of creating a Discuss Theme. We w
 <div>
 <ul>
 <li>
-<a href='#Discuss.CreatingaDiscussTheme-UnderstandingtheFileStructure%26nbsp%3B'>Understanding the File Structure&nbsp;</a>
+<a href="extras/revo/discuss/discuss.creating-a-discuss-theme#Discuss.CreatingaDiscussTheme-UnderstandingtheFileStructure%26nbsp%3B">Understanding the File Structure&nbsp;</a>
 </li>
 
 <li>
-<a href='#Discuss.CreatingaDiscussTheme-BasicThemingConsiderations'>Basic Theming Considerations</a>
+<a href="extras/revo/discuss/discuss.creating-a-discuss-theme#Discuss.CreatingaDiscussTheme-BasicThemingConsiderations">Basic Theming Considerations</a>
 </li>
 
 <li>
-<a href='#Discuss.CreatingaDiscussTheme-UsingtheManifesttofurtherCustomiseyourTheme'>Using the Manifest to further Customise your Theme</a>
+<a href="extras/revo/discuss/discuss.creating-a-discuss-theme#Discuss.CreatingaDiscussTheme-UsingtheManifesttofurtherCustomiseyourTheme">Using the Manifest to further Customise your Theme</a>
 </li>
 
 <li>
-<a href='#Discuss.CreatingaDiscussTheme-GitpoweredThemeworkflow'>Git-powered Theme workflow</a>
+<a href="extras/revo/discuss/discuss.creating-a-discuss-theme#Discuss.CreatingaDiscussTheme-GitpoweredThemeworkflow">Git-powered Theme workflow</a>
 </li>
 </ul>
 </div>
@@ -54,58 +54,8 @@ Just like any other MODX Extra, Discuss gives you infinite markup freedom. This 
 Luckily, there's an easy way for you to figure out what markup is coming from what template file. Simply enable the&nbsp;<b>discuss.debug_templates</b> system setting, and every referenced chunk template will be pre- and suffixed with a HTML comment indicating what chunk (and its filename) was referenced. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;!-- Start: board/disBoardLi from file: themes/<span class="code-keyword">default</span>/chunks/board/disboardli.chunk.tpl --&gt;
- &lt;div class=<span class="code-quote">"Depth2 row dis-category h-group dis-category-1 dis-unread"</span>&gt;
-    &lt;a href=<span class="code-quote">"http:<span class="code-comment">//localhost/modx-stable2/forums/board/1/blue-sky"</span> class=<span class="code-quote">"h-group"</span>&gt;
-</span>        &lt;div class=<span class="code-quote">"f1-f7"</span>&gt;
-            &lt;div class=<span class="code-quote">"wrap"</span>&gt;
-                &lt;span class=<span class="code-quote">"folder"</span>&gt;35&lt;/span&gt;
-                &lt;strong&gt;Blue Sky&lt;/strong&gt;
-                &lt;p class=<span class="code-quote">"dis-board-description"</span>&gt;Thoughts and peer-to-peer discussions <span class="code-keyword">for</span> Partners only&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=<span class="code-quote">"f8-f10"</span>&gt;
-            &lt;span class=<span class="code-quote">"clickable"</span> data-link=<span class="code-quote">"http:<span class="code-comment">//localhost/modx-stable2/forums/thread/74739/<span class="code-keyword">this</span>-is-a-test/#dis-post-414487"</span>&gt;This is a test&lt;/span&gt;
-</span>        &lt;/div&gt;
-        &lt;div class=<span class="code-quote">"f11 l-txtcenter"</span>&gt;418&lt;/div&gt;
-        &lt;div class=<span class="code-quote">"f12 l-txtcenter"</span>&gt;37&lt;/div&gt;
-    &lt;/a&gt;
-    &lt;div class=<span class="code-quote">"h-group f-all"</span>&gt;&lt;p class=<span class="code-quote">"dis-board-subs dis-unread"</span>&gt;
-&lt;!-- Start: board/disSubForumLink from file: themes/<span class="code-keyword">default</span>/chunks/board/dissubforumlink.chunk.tpl --&gt;
- &lt;a href=<span class="code-quote">"forums/board/?board=277"</span>&gt;New Board&lt;/a&gt;
-
-&lt;!-- /End: board/disSubForumLink --&gt;
-&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- /End: board/disBoardLi --&gt;
-</pre>
-</div>
-</div>
-
-<p>
-The entire page is wrapped by <b>pages/wrapper.tpl</b> with the controller specific page template placed in the&nbsp;[[+content]] placeholder.
-</p>
-
-<p>
-The controller specific page template is by default the file in the /pages/ directory with the same name as the controller (and to some extent the URL). For example the home controller uses the pages/home.tpl template, while viewing the recent thread posts uses pages/thread/recent.tpl.
-</p>
-
-<p>
-However, different themes allow reusing templates across controllers through a manifest option.&nbsp;
-</p>
-
-<p>
-Let's look at the manifest item for the <b>thread/reply</b> controller.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-    'thread/reply' =&gt; array(
+<pre class="brush: php">
+        'thread/reply' =&gt; array(
         'js' =&gt; array(
             'footer' =&gt; array(
                 'dis.thread.js',
@@ -116,10 +66,9 @@ Let's look at the manifest item for the <b>thread/reply</b> controller.
         ),
         /* ...*/
     ),
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Besides registering a javascript file to the footer (located in assets/components/discuss/themes/THEME_NAME/js/), we are passing it an option of pageTpl, pointing it to common/thread-with-form. This means that instead of using the pages/thread/reply.tpl template, it will actually use the pages/common/thread-with-form.tpl template for this controller. This allows you to reuse markup across similar controllers without having to repeat yourself.&nbsp;
 </p>
@@ -152,7 +101,7 @@ The manifest is a big php array located in the themes' templates directory calle
 <li>"css": allows you to define stylesheets to load on specific controllers. This third level then contains an array of files to load from assets/components/discuss/theme_name/css/.
 </li>
 
-<li>"options": defines controller specific options to configure the behaviour of the controller. The options vary from controller to controller, and you can find them all in the <a href="/display/ADDON/Discuss.Controllers" title="Discuss.Controllers">Controllers</a> documentation.&nbsp;
+<li>"options": defines controller specific options to configure the behaviour of the controller. The options vary from controller to controller, and you can find them all in the <a href="display/ADDON/Discuss.Controllers" title="Discuss.Controllers">Controllers</a> documentation.&nbsp;
 </li>
 </ol>
 </li>
@@ -170,58 +119,23 @@ If you're scared by the thought of PHP or PHP Arrays, have a look through <a hre
 To get started creating a Discuss theme in a git-powered workflow, kick it off by creating a fork of the main Discuss repository at&nbsp;<a href="https://github.com/modxcms/Discuss" class="external-link" rel="nofollow">https://github.com/modxcms/Discuss</a>. Then, clone your fork to a local directory and add the original repository as an upstream remote.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$ git clone git@github.com:Your_Username/Discuss.git
-$ git remote add upstream https:<span class="code-comment">//github.com/modxcms/Discuss.git</span>
-</pre>
-</div>
-</div>
-
-<p>
-Next, check out the current release branch which contains the most up to date version. At time of writing that is release-1.1, but check the <a href="/display/ADDON/Discuss.Contributing" title="Discuss.Contributing">Discuss Contributors Guidelines</a> for latest instructions.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$ cd Discuss
+<pre class="brush: php">
+    $ cd Discuss
 $ git checkout release-1.1
+
+    
 </pre>
-</div>
-</div>
-
 <p>
-Once you did that, we're going to create a different theme branch, which will help make collaboration easier in case you want to <a href="/display/ADDON/Discuss.Contributing" title="Discuss.Contributing">contribute back to Discuss</a> *cough*. If you want to fix stuff in the default branch, you would instead create a fix branch, eg fix-colorsbug.&nbsp;
+Once you did that, we're going to create a different theme branch, which will help make collaboration easier in case you want to <a href="display/ADDON/Discuss.Contributing" title="Discuss.Contributing">contribute back to Discuss</a> *cough*. If you want to fix stuff in the default branch, you would instead create a fix branch, eg fix-colorsbug.&nbsp;
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$ git checkout -b theme-name_of_theme
-</pre>
-</div>
-</div>
-
-<p>
-Once you did all this, you'll need to connect this Discuss codebase with a MODX installation. The easiest way to do that is to install the Discuss package (that sets up all the required bits within MODX), and to adjust the namespace (via System &gt; Namespaces) to point to the git-versioned core/components/discuss/ directory and creating a discuss.core_path setting with the same path as the value and discuss.assets_url with an absolute url to the git-versioned assets/components/discuss/ directory.&nbsp;
-</p>
-
-<p>
-Depending on your setup you will also need to set the session_cookie_path setting to / (yes, just a single slash) and to avoid session-clashes if you have multiple local MODX installs, you may want to change the session_name setting to something unique. Next, we'll also need a config.core.php file in the root of our discuss project pointing to our MODX installation. You can copy this from the root of your MODX install, or custom craft it yourself using the template below.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
+<pre class="brush: php">
+    &lt;?php
 define('MODX_CORE_PATH', '/Applications/MAMP/htdocs/modx/core/');
 define('MODX_CONFIG_KEY', 'config');
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
-You should have a functional Discuss install now, or at least be ready to follow the <a href="/display/ADDON/Discuss.Installation" title="Discuss.Installation">Installation instructions</a> and get theming :)
+You should have a functional Discuss install now, or at least be ready to follow the <a href="display/ADDON/Discuss.Installation" title="Discuss.Installation">Installation instructions</a> and get theming :)
 </p>

@@ -3,7 +3,7 @@ This tutorial will demonstrate how to use a Context to create and manage a separ
 </p>
 
 <h2>
-<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-CreatingtheContext"></a>Creating the Context
+<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-CreatingtheContext" id="CreatingaSubdomainfromaFolderusingVirtualHosts-CreatingtheContext"></a>Creating the Context
 </h2>
 
 <p>
@@ -19,7 +19,7 @@ Your tree should look something like this:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678054/subctx1.png?version=1&amp;modificationDate=1269522960000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/18678054/subctx1.png?version=1&amp;modificationDate=1269522960000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
@@ -48,24 +48,10 @@ From there, go ahead and right-click on the "dev" Context in the tree, and click
 You can add other context-specific settings, such as error_page, unauthorized_page, cultureKey, and others if you so choose. All system settings can be overridden by setting them on a context.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>Note: LINKING BETWEEN CONTEXTS</b>
 <br />
 If you're going to be <b>linking back to the 'web' context from this context ('dev')</b>, you'll want to <b>add those same Context Settings (with 'web'-specific values, of course) to the 'web' context</b>. This allows MODx to know where to redirect 'web' context URLs back to.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -73,161 +59,41 @@ After creating the settings, clear your site cache.
 </p>
 
 <h2>
-<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-CreatingtheVirtualHost"></a>Creating the Virtual Host
+<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-CreatingtheVirtualHost" id="CreatingaSubdomainfromaFolderusingVirtualHosts-CreatingtheVirtualHost"></a>Creating the Virtual Host
 </h2>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>cPanel Users</b>
 <br />
 cPanel will make the necessary changes automatically when you create a new sub domain. Manually editing the Virtual Hosts is not recommended.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Now we need to do some Apache work. (If you're not using Apache, you can at least follow the same idea and customize it to your server.) Go to Apache's httpd.conf file, and add these lines, changing where necessary for your domain name:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-NameVirtualHost dev.modxcms.com
-&lt;VirtualHost dev.modxcms.com&gt;
-  ServerAdmin dev@modxcms.com
-  DocumentRoot /home/modxcms.com/public_html/dev
-  ServerName dev.modxcms.com
-  ErrorLog logs/devmodxcms-error_log
-  TransferLog logs/devmodxcms-access_log
-&lt;/VirtualHost&gt;
+<pre class="brush: php">
+    $modx-&gt;initialize('web');
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Some Apache installs prefer you to put the IP address of the server in the VirtualHost and NameVirtualHost parameters - this is fine; the important field is the ServerName.
-</td>
-</tr>
-</table>
-</div>
-
-<p>
-Obviously, if you're creating a different subdomain than dev.modxcms.com, you'd want to change these values.
-</p>
-
-<p>
-Great! Restart your server (apachectl graceful).
-</p>
-
-<h2>
-<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-TheSubdomainFiles"></a>The Subdomain Files
-</h2>
-
-<p>
-Now we're going to need to create the actual files to load the subdomain. Go create a "dev/" subdirectory in /home/modxcms.com/public_html/ (or whatever base path your webroot is in).
-</p>
-
-<p>
-You'll need to copy 3 files from your MODx Revolution's root directory:
-</p>
-
-<ul>
-<li>index.php
-</li>
-
-<li>.htaccess
-</li>
-
-<li>config.core.php
-</li>
-</ul>
-
-<p>
-Copy those to the dev/ directory.
-</p>
-
-<p>
-Now, you'll need to edit them.
-</p>
-
-<h4>
-<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-index.php"></a>index.php
-</h4>
-
-<p>
-Edit index.php, and find this line (near the end):
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;initialize('web');
-</pre>
-</div>
-</div>
-
 <p>
 Change 'web' to 'dev'. Save the file and close.
 </p>
 
 <h4>
-<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-.htaccess"></a>.htaccess
+<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-.htaccess" id="CreatingaSubdomainfromaFolderusingVirtualHosts-.htaccess"></a>.htaccess
 </h4>
 
 <p>
 You'll only need to edit one line here (and maybe not at all). Find this line (near the top):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-RewriteBase /
-</pre>
-</div>
-</div>
-
-<p>
-Make sure that's set to /, not anything else. It should match the <b>base_url</b> context setting you set up earlier.
-</p>
-
-<h4>
-<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-config.core.php"></a>config.core.php
-</h4>
-
-<p>
-What is really important here is to make sure this line points to your MODX core folder:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
  define('MODX_CORE_PATH', dirname(__FILE__) . '/core/');
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 If the main domain is "up one level" on the filesystem, you should be able to use the following:
 </p>
@@ -241,7 +107,7 @@ If the main domain is "up one level" on the filesystem, you should be able to us
 </div>
 
 <h2>
-<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-FinalSteps"></a>Final Steps
+<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-FinalSteps" id="CreatingaSubdomainfromaFolderusingVirtualHosts-FinalSteps"></a>Final Steps
 </h2>
 
 <p>
@@ -269,12 +135,12 @@ And you're done!
 </p>
 
 <h2>
-<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-SeeAlso"></a>See Also
+<a name="CreatingaSubdomainfromaFolderusingVirtualHosts-SeeAlso" id="CreatingaSubdomainfromaFolderusingVirtualHosts-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/Contexts" title="Contexts">Contexts</a>
+<a href="display/revolution20/Contexts" title="Contexts">Contexts</a>
 </li>
 
 <li>Contexts as subfolders (from the forums:&nbsp;<a href="http://modxcms.com/forums/index.php/topic,51346.0.html" class="external-link" rel="nofollow">http://modxcms.com/forums/index.php/topic,51346.0.html</a>)

@@ -1,31 +1,31 @@
 <div>
 <ul>
 <li>
-<a href='#VisionCart.vcGetProductImages-WhatisvcGetProductImages%3F'>What is vcGetProductImages?</a>
+<a href="extras/revo/visioncart/visioncart.vcgetproductimages#VisionCart.vcGetProductImages-WhatisvcGetProductImages%3F">What is vcGetProductImages?</a>
 </li>
 
 <li>
-<a href='#VisionCart.vcGetProductImages-Examples'>Examples</a>
+<a href="extras/revo/visioncart/visioncart.vcgetproductimages#VisionCart.vcGetProductImages-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#VisionCart.vcGetProductImages-AvailableProperties'>Available Properties</a>
+<a href="extras/revo/visioncart/visioncart.vcgetproductimages#VisionCart.vcGetProductImages-AvailableProperties">Available Properties</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#VisionCart.vcGetProductImages-TemplatingProperties'>Templating Properties</a>
+<a href="extras/revo/visioncart/visioncart.vcgetproductimages#VisionCart.vcGetProductImages-TemplatingProperties">Templating Properties</a>
 </li>
 
 <li>
-<a href='#VisionCart.vcGetProductImages-SelectionProperties'>Selection Properties</a>
+<a href="extras/revo/visioncart/visioncart.vcgetproductimages#VisionCart.vcGetProductImages-SelectionProperties">Selection Properties</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#VisionCart.vcGetProductImages-Placeholders'>Placeholders</a>
+<a href="extras/revo/visioncart/visioncart.vcgetproductimages#VisionCart.vcGetProductImages-Placeholders">Placeholders</a>
 </li>
 </ul>
 </div>
@@ -50,26 +50,10 @@ These 2 examples you can use in the getProduct snippet config/chunk [[+id]] is t
 Start with the first image (&amp;offset=`0`) and stop there (&amp;limit=`1`) where image prefix is medium_
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-javascript">
-[[!vcGetProductImages?id=`[[+id]]`&amp;offset=`0`&amp;limit=`1`&amp;prefix=`medium_`]]
+<pre class="brush: php">
+    [[!vcGetProductImages?id=`[[+id]]`&amp;offset=`1`&amp;prefix=`thumb_`]]
+    
 </pre>
-</div>
-</div>
-
-<p>
-Get all images for this product skipping the first image where prefix is thumb_
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!vcGetProductImages?id=`[[+id]]`&amp;offset=`1`&amp;prefix=`thumb_`]]
-</pre>
-</div>
-</div>
-
 <p>
 You can also use the snippet as a standalone snippet setting the id by hand but then a shopId must also be set.
 </p>
@@ -99,22 +83,18 @@ Name
 </th>
 <th class='confluenceTh'>
 Description
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Default Value
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 tpl
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Name of a chunk serving as the image template. If not provided,default theme is used
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 &nbsp;
@@ -134,11 +114,9 @@ Name of a chunk serving as the image template. If not provided,default theme is 
 <tr>
 <th class='confluenceTh'>
 Name
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Description
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Default Value
@@ -148,11 +126,9 @@ Default Value
 <tr>
 <td class='confluenceTd'>
 rel
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Value for placeholder "rel" used in tpl
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 &nbsp;
@@ -162,58 +138,48 @@ Value for placeholder "rel" used in tpl
 <tr>
 <td class='confluenceTd'>
 limit
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Limits the number of images returned
 </td>
 <td class='confluenceTd'>
 0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 offset
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 An offset of images returned by the criteria to skip
 </td>
 <td class='confluenceTd'>
 0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 prefix
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Prefix of the images to show (filter by prefix)
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 false
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 shopId
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Shop ID from the shop that holds this product
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 0 (current shop)
-<br class="atl-forced-newline" />
 </td>
 </tr>
 </tbody>
@@ -234,66 +200,54 @@ Shop ID from the shop that holds this product
 <tr>
 <th class='confluenceTh'>
 Name
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Description
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 src
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 The source of the image to be displayed (path to the image relative to the siteroot)
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 rel
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Properties set in snippet call
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 width
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 width of the image
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 height
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 height of the image
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 count
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Number of the #nd image shown, starting with 0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 </tbody>

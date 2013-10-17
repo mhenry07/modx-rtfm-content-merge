@@ -1,48 +1,34 @@
 <div>
 <ul>
 <li>
-<a href='#SummaryofLegacyCodeRemovedin2.1-Functionality'>Functionality</a>
+<a href="revolution/2.x/developing-in-modx/other-development-resources/summary-of-legacy-code-removed-in-2.1#SummaryofLegacyCodeRemovedin2.1-Functionality">Functionality</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#SummaryofLegacyCodeRemovedin2.1-TVInputTypes'>TV Input Types</a>
+<a href="revolution/2.x/developing-in-modx/other-development-resources/summary-of-legacy-code-removed-in-2.1#SummaryofLegacyCodeRemovedin2.1-TVInputTypes">TV Input Types</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SummaryofLegacyCodeRemovedin2.1-Methods%2CConstantsandVariables'>Methods, Constants and Variables</a>
+<a href="revolution/2.x/developing-in-modx/other-development-resources/summary-of-legacy-code-removed-in-2.1#SummaryofLegacyCodeRemovedin2.1-Methods%2CConstantsandVariables">Methods, Constants and Variables</a>
 </li>
 </ul>
 </div>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>In progress</b>
 <br />
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="SummaryofLegacyCodeRemovedin2.1-Functionality"></a>Functionality
+<a name="SummaryofLegacyCodeRemovedin2.1-Functionality" id="SummaryofLegacyCodeRemovedin2.1-Functionality"></a>Functionality
 </h2>
 
 <h3>
-<a name="SummaryofLegacyCodeRemovedin2.1-TVInputTypes"></a>TV Input Types
+<a name="SummaryofLegacyCodeRemovedin2.1-TVInputTypes" id="SummaryofLegacyCodeRemovedin2.1-TVInputTypes"></a>TV Input Types
 </h3>
 
 <p>
@@ -109,28 +95,10 @@ check context is mgr
 
 <tr>
 <td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
 <pre>
-$_SESSION["mgrValidated"]
+    $_SESSION["webValidated"]
+    
 </pre>
-</div>
-</div>
-</td>
-<td class='confluenceTd'>
-modX-&gt;user-&gt;isAuthenticated('mgr')
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
-<pre>
-$_SESSION["webValidated"]
-</pre>
-</div>
-</div>
 </td>
 <td class='confluenceTd'>
 modX-&gt;user-&gt;isAuthenticated('web')
@@ -139,28 +107,10 @@ modX-&gt;user-&gt;isAuthenticated('web')
 
 <tr>
 <td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
 <pre>
-$_SESSION["mgrInternalKey"]
+    $_SESSION["webInternalKey"]
+    
 </pre>
-</div>
-</div>
-</td>
-<td class='confluenceTd'>
-modX-&gt;user-&gt;get('id') when modX-&gt;user-&gt;isAuthenticated('mgr')
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
-<pre>
-$_SESSION["webInternalKey"]
-</pre>
-</div>
-</div>
 </td>
 <td class='confluenceTd'>
 modX-&gt;user-&gt;get('id') when modX-&gt;user-&gt;isAuthenticated('web')
@@ -169,28 +119,10 @@ modX-&gt;user-&gt;get('id') when modX-&gt;user-&gt;isAuthenticated('web')
 
 <tr>
 <td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
 <pre>
-$_SESSION["mgrShortname"]
+    $_SESSION["webShortname"]
+    
 </pre>
-</div>
-</div>
-</td>
-<td class='confluenceTd'>
-modX-&gt;user-&gt;get('username') when modX-&gt;user-&gt;isAuthenticated('mgr')
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
-<pre>
-$_SESSION["webShortname"]
-</pre>
-</div>
-</div>
 </td>
 <td class='confluenceTd'>
 modX-&gt;user-&gt;get('username') when modX-&gt;user-&gt;isAuthenticated('web')
@@ -214,7 +146,7 @@ DBAPI: modX-&gt;db
 modX-&gt;db-&gt;config
 </td>
 <td class='confluenceTd'>
-<a href="/display/xPDO20/getOption" title="getOption">modX-&gt;getOption()</a>
+<a href="display/xPDO20/getOption" title="getOption">modX-&gt;getOption()</a>
 </td>
 </tr>
 
@@ -418,9 +350,7 @@ see xPDOCriteria-&gt;stmt-&gt;fetch()
 modX-&gt;getFullTableName()
 </td>
 <td class='confluenceTd'>
-modX-&gt;getTableName($className, $includeDb=false)
-<br class="atl-forced-newline" />
-or modX-&gt;escape($customTableName)
+modX-&gt;getTableName($className, $includeDb=false) or modX-&gt;escape($customTableName)
 </td>
 </tr>
 
@@ -507,9 +437,7 @@ modX-&gt;getObject('modResource', $criteria)
 modX-&gt;getDocuments
 </td>
 <td class='confluenceTd'>
-modX-&gt;getCollection('modResource', $criteria)
-<br class="atl-forced-newline" />
-or modX-&gt;getIterator('modResource', $criteria)
+modX-&gt;getCollection('modResource', $criteria) or modX-&gt;getIterator('modResource', $criteria)
 </td>
 </tr>
 
@@ -611,9 +539,7 @@ modX-&gt;getObject('modResource', $criteria)
 modX-&gt;getUserInfo()
 </td>
 <td class='confluenceTd'>
-$user= $this-&gt;getObjectGraph('modUser', '{"Profile":{}}', $uid, true)
-<br class="atl-forced-newline" />
-access fields of modUser and fields of related modUserProfile
+$user= $this-&gt;getObjectGraph('modUser', '{"Profile":{}}', $uid, true) access fields of modUser and fields of related modUserProfile
 </td>
 </tr>
 

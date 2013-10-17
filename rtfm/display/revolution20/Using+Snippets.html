@@ -1,29 +1,25 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#UsingSnippets-UsingaSnippet'>Using a Snippet</a>
+<a href="revolution/2.x/making-sites-with-modx/structuring-your-site/using-snippets#UsingSnippets-UsingaSnippet">Using a Snippet</a>
 </li>
 
 <li>
-<a href='#UsingSnippets-SnippetProperties'>Snippet Properties</a>
+<a href="revolution/2.x/making-sites-with-modx/structuring-your-site/using-snippets#UsingSnippets-SnippetProperties">Snippet Properties</a>
 </li>
 
 <li>
-<a href='#UsingSnippets-InstallingSnippets'>Installing Snippets</a>
+<a href="revolution/2.x/making-sites-with-modx/structuring-your-site/using-snippets#UsingSnippets-InstallingSnippets">Installing Snippets</a>
 </li>
 
 <li>
-<a href='#UsingSnippets-SeeAlso'>See Also</a>
+<a href="revolution/2.x/making-sites-with-modx/structuring-your-site/using-snippets#UsingSnippets-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
 <p>
-<a href="/display/revolution20/Snippets" title="Snippets">Snippets</a> are MODx's answer to inline PHP code. They provide customizable dynamic content, such as menus, blog or news listings, search and other form-based functionality and anything else that your site needs to generate on-demand.
+<a href="display/revolution20/Snippets" title="Snippets">Snippets</a> are MODx's answer to inline PHP code. They provide customizable dynamic content, such as menus, blog or news listings, search and other form-based functionality and anything else that your site needs to generate on-demand.
 </p>
 
 <h2>
@@ -34,42 +30,27 @@
 Once you have a Snippet installed, you can use it simply by putting its tags in your template, a chunk or TV, or a document's content wherever you want the Snippet's output to be displayed.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[MySnippet]]
 </pre>
-</div>
-</div>
-
 <p>
 If you expect the snippet code to be dynamic for different users, you can also call a snippet uncached:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!MySnippet]]
+<pre class="brush: php">
+    [[!MySnippet]]
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="UsingSnippets-SnippetProperties" id="UsingSnippets-SnippetProperties"></a>Snippet Properties
 </h2>
 
 <p>
-Snippets can have <a href="/display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">Properties</a>, which can be passed in the Snippet call, like so:
+Snippets can have <a href="display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">Properties</a>, which can be passed in the Snippet call, like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Wayfinder? &amp;startId=`0` &amp;level=`1`]]
+<pre class="brush: php">
+[[Wayfinder? &amp;startId=`0` &amp;level=`1`]]
 </pre>
-</div>
-</div>
-
 <p>
 You can also aggregate these Properties into a <a href="/display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">Property Set</a>, which is a dynamic collection of properties that can be attached to any Snippet (or Element for that matter). This allows you to share common property configs in a snippet call in one place.
 </p>
@@ -78,26 +59,16 @@ You can also aggregate these Properties into a <a href="/display/revolution20/Pr
 Say you had a Property Set called 'Menu' with `startId` set to 0 and `level` set to 1:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Wayfinder@Menu]]
+<pre class="brush: php">
+[[Wayfinder@Menu]]
 </pre>
-</div>
-</div>
-
 <p>
 would then load those properties automatically into the Snippet. And even those properties can be overridden:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Wayfinder@Menu? &amp;level=`2`]]
+<pre class="brush: php">
+[[Wayfinder@Menu? &amp;level=`2`]]
 </pre>
-</div>
-</div>
-
 <p>
 which would override the set's value on `level` of 1, setting it instead to 2.
 </p>
@@ -107,7 +78,7 @@ which would override the set's value on `level` of 1, setting it instead to 2.
 </h2>
 
 <p>
-You can also download and install Snippets via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>. See the tutorial on <a href="/display/revolution20/Installing+a+Package" title="Installing a Package">installing a Package</a> for more information.
+You can also download and install Snippets via <a href="display/revolution20/Package+Management" title="Package Management">Package Management</a>. See the tutorial on <a href="display/revolution20/Installing+a+Package" title="Installing a Package">installing a Package</a> for more information.
 </p>
 
 <h2>
@@ -116,6 +87,6 @@ You can also download and install Snippets via <a href="/display/revolution20/Pa
 
 <ul>
 <li>
-<a href="/display/revolution20/Installing+a+Package" title="Installing a Package">Installing a Package</a>
+<a href="display/revolution20/Installing+a+Package" title="Installing a Package">Installing a Package</a>
 </li>
 </ul>

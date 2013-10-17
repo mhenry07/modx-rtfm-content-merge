@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="xPDO.getOption-xPDO%3A%3AgetOption"></a>xPDO::getOption
 </h2>
@@ -18,46 +14,11 @@ Get an xPDO configuration option value by key.
 API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#getOption" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/xPDO.html#getOption</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-mixed getOption (string $key [, array|<span class="code-keyword">null</span> $options [, mixed $<span class="code-keyword">default</span> [, <span class="code-object">boolean</span> $skipEmpty]]] )
+<pre class="brush: php">
+    $tablePrefix = $xpdo-&gt;getOption(xPDO::OPT_TABLE_PREFIX);
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-$key: the key of the setting or option to load.
-</p>
-
-<p>
-$options: the source of the setting or option. Either null (which attempts to find the key in the main configuration) or an array of options.
-</p>
-
-<p>
-$default: the value to return when the key was not found.
-</p>
-
-<p>
-$skipEmpty: when set to true, the $default will also be returned if the $key's value is an empty string. Added in xPDO 2.2.1 / MODX 2.2.0-rc2.
-</p>
-
-<h2>
-<a name="xPDO.getOption-Examples" id="xPDO.getOption-Examples"></a>Examples
-</h2>
-
-<p>
-Get the table prefix:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$tablePrefix = $xpdo-&gt;getOption(xPDO::OPT_TABLE_PREFIX);
-</pre>
-</div>
-</div>
-
 <p>
 Get an option from a user-specified array, and if not set, check for it in $xpdo-&gt;config. If it's not set there, return false as its default value:
 </p>
@@ -76,10 +37,10 @@ $mySetting = $xpdo-&gt;getOption('my_setting',$myConfig,<span class="code-keywor
 
 <ul>
 <li>
-<a href="/display/xPDO20/xPDO.setOption" title="xPDO.setOption">xPDO.setOption</a>
+<a href="display/xPDO20/xPDO.setOption" title="xPDO.setOption">xPDO.setOption</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO" title="xPDO">xPDO</a>
+<a href="display/xPDO20/xPDO" title="xPDO">xPDO</a>
 </li>
 </ul>

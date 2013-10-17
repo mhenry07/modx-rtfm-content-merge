@@ -1,25 +1,25 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
 </p>
 
 <table class="tableview" width="100%">
 <tr>
 <td>
-<span class="icon icon-page">Page:</span> <a href="/display/ADDON/YAMS+Installation">YAMS Installation</a>
+<span class="icon icon-page">Page:</span> <a href="display/ADDON/YAMS+Installation">YAMS Installation</a>
 </td>
 </tr>
 
 <tr>
 <td>
-<span class="icon icon-page">Page:</span> <a href="/display/ADDON/Instalar+YAMS">Instalar YAMS</a>
+<span class="icon icon-page">Page:</span> <a href="display/ADDON/Instalar+YAMS">Instalar YAMS</a>
 </td>
 </tr>
 
 <tr>
 <td>
-<span class="icon icon-page">Page:</span> <a href="/display/ADDON/YAMS+Installation+%28de%29">YAMS Installation (de)</a>
+<span class="icon icon-page">Page:</span> <a href="display/ADDON/YAMS+Installation+%28de%29">YAMS Installation (de)</a>
 </td>
 </tr>
 </table>
@@ -90,33 +90,13 @@ Para actualizar de una versión previa haz lo siguiente:
 <b>Descripción:</b> Yet Another Multilingual Solution Plugin
 <br />
 <b>Código del Plugin:</b>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.plugin.inc.php');
-</pre>
-</div>
-</div>
 
-<p>
-<b>Eventos del Sistema:</b>&nbsp; Favor de referirse al archivo readme.txt en el folder bajado de YAMS.
-</p>
-</li>
-
-<li>Dentro de MODx bajo Elementos &gt; Admin Elementos &gt; Snippets crea un snippet nuevo:<b>Nombre del Snippet:</b> YAMS
-<br />
-<b>Descripción:</b> Obtiene contenido multi-idioma.
-<br />
-<b>Código del Snippet:</b>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// La linea siguiente necesita ser insertada entre los marcadores de apertura
-</span><span class="code-comment">// y cierre de PHP
-</span>require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.snippet.inc.php' );
+<pre class="brush: php">
+    // La linea siguiente necesita ser insertada entre los marcadores de apertura
+// y cierre de PHP
+require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.snippet.inc.php' );
+    
 </pre>
-</div>
-</div>
 </li>
 
 <li>Dentro de MODx bajo Módulos&gt;Admin Módulos crea un módulo nuevo:
@@ -126,78 +106,25 @@ require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.plugin.inc.ph
 <b>Descripción:</b> Yet Another Multilingual Solution
 <br />
 <b>Código del Módulo:</b>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-require_once( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.module.inc.php' );
+
+<pre class="brush: php">
+    $config_chunk = 'mm_rules';
+    
 </pre>
-</div>
-</div>
-</li>
-
-<li>Recarga la página para actualizar la vista del administrador.&nbsp; Si quieres usar el ManagerManager para obtener una interfase de documentos en pestañas, entonces sigue <a href="#InstalarYAMS-ManagerManagerSetup">las instrucciones de abajo</a> para configuralo.
-</li>
-
-<li>Sigue las instrucciones en&nbsp; <a href="/display/ADDON/YAMS+Setup" title="YAMS Setup">la página de configuración</a> para configurar tu sitio multi-idiomas.
-</li>
-</ol>
-
-<h2>
-<a name="InstalarYAMS-ConfigurarManagerManager"></a><a name="InstalarYAMS-ManagerManagerSetup"></a>Configurar ManagerManager
-</h2>
-
-<p>
-Para configurar ManagerManager para obtener una interfase de documentos en pestaña, favor de hacer lo siguiente:
-</p>
-
-<ol>
-<li>Checa que el plugin de ManagerManager esté instalado bajo Elementos &gt; Admin Elementos &gt; Plugins.&nbsp; Si no lo está, puede ser obtenido del <a href="http://modxcms.com/extras/package/?package=255" class="external-link" rel="nofollow">MODx repository</a>.&nbsp; La versión más nueva es generalmente recomendada, pero por favor atiendan los foros por cualquier reporte de problemas.
-</li>
-
-<li>Modifica la configuración del plugin de ManagerManager para que sepa encontrar las reglas personalizadas de ManagerManager en un chunk llamado mm_rules.&nbsp; En versiones nuevas esto puede ser configurado usando la pestaña de condiguración.&nbsp; En versiones más viejas esto se lleva a cabo incluyendo la línea siguiente en el código del plugin.
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$config_chunk = 'mm_rules';
-</pre>
-</div>
-</div>
 </li>
 
 <li>Bajo Elementos &gt; Admin Elementos &gt; Chunks, crea un chunk llamado mm_rules y añade la línea siguiente:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.mm_rules.inc.php' );
-</pre>
-</div>
-</div>
 
-<p>
-Si ya estás usando reglas personalizadas de ManagerManager, entonces es aconsejable la línea requerida por YAMS al final de las reglas.
-</p>
-</li>
-</ol>
-
-<h2>
-<a name="InstalarYAMS-ConfigurarPHx"></a>Configurar PHx
-</h2>
-
-<p>
-Si está usando el snippet PHx por favor nota lo siguiente.&nbsp; Por alguna razón, un archivo especificado usando include_once es re-incluido y esto causa que la clase PHxParser sea redefinida, lo cual genera un error de parseo por PHP.&nbsp; Esto puede ser evitado modificando el snippet PHx al envolver el include en algún código que sólo incluya el archivo si la clase no ha sido definida todavía:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> ( ! class_exists( 'PHxParser' ) )
+<pre class="brush: php">
+    if ( ! class_exists( 'PHxParser' ) )
 {
- include_once $modx-&gt;config['rb_base_dir'] . <span class="code-quote">"plugins/phx/phx.parser.class.inc.php"</span>;
+ include_once $modx-&gt;config['rb_base_dir'] . "plugins/phx/phx.parser.class.inc.php";
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 También, por favor recuerda que el Orden de Ejecución de Plugins de be de ser editado poiendo YAMS in primer lugar - esto es antes de PHx - en todos los eventos asociados.
 </p>
+</li>
+</ol>

@@ -50,119 +50,26 @@ Each has a special purpose and strict rules governing origination and merge targ
 MODx contributors must work directly with their private forks on GitHub. Here is the suggested way to prepare your local repository as a developer for contributing back to any MODx project:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$ git clone git@github.com:YourGitUsername/revolution.git
-$ cd revolution
-$ git remote add upstream -f http:<span class="code-comment">//github.com/modxcms/revolution.git</span>
-</pre>
-</div>
-</div>
-
-<p>
-This setup makes your fork the standard <tt>origin</tt> remote, and adds/fetches the "blessed" repository as the remote <tt>upstream</tt>. You may want to add other remotes to other developer forks as well, and I would name those remotes appropriately so you can keep track of each one.
-</p>
-
-<p>
-You'll want to go ahead and create local tracking branches for the permanent branches from your fork, a.k.a. <tt>origin</tt>:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $ git checkout -b master origin/master
-Switched to a <span class="code-keyword">new</span> branch <span class="code-quote">"master"</span>
+Switched to a new branch "master"
 $ git checkout -b develop origin/develop
-Switched to a <span class="code-keyword">new</span> branch <span class="code-quote">"develop"</span>
-</pre>
-</div>
-</div>
+Switched to a new branch "develop"
 
+    
+</pre>
 <p>
 To keep your local tracking branches for <tt>develop</tt> and <tt>master</tt> up-to-date from the <tt>upstream</tt> repository:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$ git fetch upstream
-$ git checkout develop
-Switched to branch <span class="code-quote">"develop"</span>
-$ git merge --ff-only upstream/develop
-$ git checkout master
-Switched to branch <span class="code-quote">"master"</span>
-$ git merge --ff-only upstream/master
-$ git push origin develop master
-</pre>
-</div>
-</div>
-
-<p>
-Note however, that the push is mainly for show, as the permanent branches should never be a target for contributor commits, even in the forks. IOW, <tt>develop</tt> and <tt>master</tt> in your fork should always match the <tt>upstream</tt> branches of the same name. It is expected that all contributions will be submitted via a feature or hotfix branch originating from the appropriate permanent branch, or a bug fix branch originating from a release branch in the upstream repository.
-</p>
-
-<p>
-Also note the <tt>--ff-only</tt> flag ensures that only fast-forward merges are performed (in case you accidentally do commit to the main branches on your fork without realizing it).
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Important</b>
-<br />
-Please make sure you have your autocrlf settings set appropriately before making any commits to your fork. See <a href="http://help.github.com/dealing-with-lineendings/" class="external-link" rel="nofollow">http://help.github.com/dealing-with-lineendings/</a> to determine the setting you need based on the platform you are developing on.
-</td>
-</tr>
-</table>
-</div>
-
-<h3>
-<a name="CommunityContributor%27sGuide-Featurebranches"></a>Feature branches
-</h3>
-
-<ul>
-<li>May branch from: <tt>develop</tt>
-</li>
-
-<li>Naming convention: anything except <tt>master</tt>, <tt>develop</tt>, <tt>release-</tt><b>, or</b> <tt><b>hotfix-</b></tt>
-</li>
-</ul>
-
-<p>
-Feature branches, also known as topic branches, are used to develop a specific new feature (or set of features) for the next release, or for a future release. The target release for the feature to be incorporated may well be unknown, and the branch will exist as long as that feature is in development. Once it is accepted and ready to be incorporated in the next release, it is merged into the develop branch by an integrator. If the feature is never completed or accepted, it can simply be discarded.
-</p>
-
-<p>
-Feature branches typically exist in developer forks, and only for sharing purposes, not in the "blessed", or <tt>upstream</tt> repository.
-</p>
-
-<h4>
-<a name="CommunityContributor%27sGuide-Creatingafeaturebranch"></a>Creating a feature branch
-</h4>
-
-<p>
-When starting work on a new feature, branch off from the <tt>develop</tt> branch.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $ git checkout -b myfeature develop
-Switched to a <span class="code-keyword">new</span> branch <span class="code-quote">"myfeature"</span>
-</pre>
-</div>
-</div>
+Switched to a new branch "myfeature"
 
+    
+</pre>
 <h4>
 <a name="CommunityContributor%27sGuide-Submittingapullrequestforafinishedfeature"></a>Submitting a pull request for a finished feature
 </h4>
@@ -171,36 +78,12 @@ Switched to a <span class="code-keyword">new</span> branch <span class="code-quo
 Once you have completed development of a feature on a branch, you should first make sure your work is replayed over the latest updates from <tt>develop</tt>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$ git fetch upstream
-$ git checkout develop
-Switched to branch {{develop}}
-$ git merge --ff-only upstream/develop
-$ git checkout myfeature
-Switched to branch <span class="code-quote">"myfeature"</span>
-$ git rebase develop
-</pre>
-</div>
-</div>
-
-<p>
-This will make it easier for integrators to incorporate your work without conflict.
-</p>
-
-<p>
-Now simply push your feature to your fork (you can do this early on if you want to share your feature branch for collaboration):
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $ git push origin myfeature:myfeature
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 And you are ready to <a href="http://help.github.com/pull-requests/" class="external-link" rel="nofollow">submit a pull request</a> for your feature branch.
 </p>
@@ -221,57 +104,24 @@ First, fork the MODX Git repo on github, then clone your fork (see above).
 You may wish to start clean if you already have a release branch locally. E.g. if you already have a "release-2.2" branch, you can delete it locally and start clean:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-git branch -D release-2.2
-</pre>
-</div>
-</div>
-
-<p>
-Next, you'll want to checkout the branch fresh from upstream:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 git fetch upstream
 git checkout -b release-2.2 upstream/release-2.2
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Before you begin work on coding your fix, create a branch devoted to your upstream target (where XXXX is the bug number):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- 
-git checkout -b bug-XXXX release-2.2
-</pre>
-</div>
-</div>
-
-<p>
-Now you're ready to do your changes. Fix the bug!
-</p>
-
-<p>
-Once the bug is fixed, you can commit your changes and push your bugfix branch to your fork:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 git commit .
 git push origin bug-XXXX
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Then you're ready to issue your pull request from Github.
 </p>
@@ -281,7 +131,7 @@ Log into your Github account, find your MODX fork, then hit the button at the to
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/33948128/github_modx_pull_request.jpg?version=1&amp;modificationDate=1370290791000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/33948128/github_modx_pull_request.jpg?version=1&amp;modificationDate=1370290791000" style="border: 0px solid black" /></span>
 </p>
 
 <p>

@@ -1,114 +1,42 @@
 <h2>
-<a name="getCollectionGraph-Overview"></a>Overview
+<a name="getCollectionGraph-Overview" id="getCollectionGraph-Overview"></a>Overview
 </h2>
 
 <p>
 getCollectionGraph allows you to automatically load up related objects by specifying a JSON style hash to its second argument (in other words, it automatically joins a table on its related tables). It's possible to nest the JSON hash so you also retrieve the related objects of the related objects, for example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$blogpost = $modx-&gt;getCollectionGraph('BlogPost', '{ <span class="code-quote">"Comments"</span>:{} }', 34 );
-foreach ( $blogpost-&gt;Comments as $c ) {
-/* ...<span class="code-keyword">do</span> something with each comment... */
-}
-<span class="code-comment">// OR, joining on related objects of related objects
-</span>$TFR = $modx-&gt;getCollectionGraph('TrackingformsResources', '{ <span class="code-quote">"Resources"</span>:{ <span class="code-quote">"MassUnit"</span>:{}, <span class="code-quote">"VolumeUnit"</span>:{} } }', 123 );
-</pre>
-</div>
-</div>
-
-<p>
-xPDO translates this all into the necessary database query that joins on the appropriate tables (e.g. perhaps named trackingforms_resources, resources, and units) – like most of the xPDO methods, you refer to a model's tables/classes via their aliases.
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-You can *NOT* set a limit on a getCollectionGraph when using an xPDOQuery object - you will be limiting the total number of rows fetched, which is not the same as the total number of top level (eg BlogPost) objects. You can get very unexpected results by doing so.
-</td>
-</tr>
-</table>
-</div>
-
-<h2>
-<a name="getCollectionGraph-SampleSnippet"></a>Sample Snippet
-</h2>
-
-<p>
-The below example that specifies several related objects. In the <b>Zip</b> XML schema, there would be some sort of aggregate relationship defined for "TZ", "ST", and "CT".
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 &lt;?php
-$out = <span class="code-keyword">false</span>;
+$out = false;
 $xpdo-&gt;setPackage('sw_zipCode', MODX_BASE_PATH.'wsw/model/', 'sw_');
-$collection= $xpdo-&gt;getCollectionGraph('Zip', '{<span class="code-quote">"TZ"</span>:{},<span class="code-quote">"ST"</span>:{},<span class="code-quote">"CT"</span>:{}}', $lookupZip);
+$collection= $xpdo-&gt;getCollectionGraph('Zip', '{"TZ":{},"ST":{},"CT":{}}', $lookupZip);
 foreach ($collection as $obj)
 {
-    <span class="code-keyword">if</span> (is_object($obj))
+    if (is_object($obj))
     {
-        $out = $obj-&gt;toArray();                      <span class="code-comment">// 'Zip'
-</span>        $out[timezone] = $obj-&gt;TZ-&gt;get('tzname');
+        $out = $obj-&gt;toArray();                      // 'Zip'
+        $out[timezone] = $obj-&gt;TZ-&gt;get('tzname');
         $out[state] = $obj-&gt;ST-&gt;get('statename');
         $out[county] = $obj-&gt;CT-&gt;get('countyname');        
     }
 }
-<span class="code-keyword">return</span> $out;
+return $out;
 ?&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Note that when you are using $xpdo-&gt;newQuery() to filter the results and have multiple field names which are the same, for example an "id" field, in one or more of the different classes you join, xPDO will fail to return any result. Simply prefix your fieldname with the classname in that case, for example myClassName.id
-</td>
-</tr>
-</table>
 </div>
 
 <h3>
-<a name="getCollectionGraph-SnippetCall"></a>Snippet Call
+<a name="getCollectionGraph-SnippetCall" id="getCollectionGraph-SnippetCall"></a>Snippet Call
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!zipCollectionGraph?lookupZip=`32117`]]
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="getCollectionGraph-Output"></a>Output
-</h3>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 Array
 (
     [id] =&gt; 32117
@@ -124,110 +52,58 @@ Array
     [county] =&gt; Volusia
 )
 
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h3>
-<a name="getCollectionGraph-EquivalentMySQL"></a>Equivalent MySQL
+<a name="getCollectionGraph-EquivalentMySQL" id="getCollectionGraph-EquivalentMySQL"></a>Equivalent MySQL
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$xpdo-&gt;setPackage('sw_zipCode', MODX_BASE_PATH.'wsw/model/', 'sw_');
-$collection= $xpdo-&gt;getCollectionGraph('Zip', '{<span class="code-quote">"TZ"</span>:{},<span class="code-quote">"ST"</span>:{},<span class="code-quote">"CT"</span>:{}}', $lookupZip);
-
-In MySQL:
-
-SELECT *
-FROM `sw_zips` AS Z
-LEFT JOIN `sw_county` AS CT ON CT.`id` = Z.`sw_county_id`
-LEFT JOIN `sw_states` AS ST ON ST.`id` = Z.`sw_states_id`
-LEFT JOIN `sw_timezones` AS TZ ON TZ.`id` = Z.`sw_timezones_id`
-WHERE Z.`id` = 32117
-
-
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="getCollectionGraph-TheSchema"></a>The Schema
-</h3>
-
-<p>
-The following schema is greatly simplified for readability and this example:
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-class= had to be renamed to klass= to be presented in this document system.
-<p>
-Though a functional schema, this is not a final schema by any stretch of the imagination.&nbsp; In fact this is during the second stage of normalization, and is here for example purposes only.
-</p>
-</td>
-</tr>
-</table>
-</div>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 ?
-&lt;model <span class="code-keyword">package</span>=<span class="code-quote">"sw_zipCode"</span> baseClass=<span class="code-quote">"xPDOObject"</span> platform=<span class="code-quote">"mysql"</span> defaultEngine=<span class="code-quote">"MyISAM"</span>&gt;
+&lt;model package="sw_zipCode" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM"&gt;
 ?
-&lt;object klass=<span class="code-quote">"class="</span>City<span class="code-quote">" table="</span>city<span class="code-quote">" <span class="code-keyword">extends</span>="</span>xPDOSimpleObject"&gt;
-&lt;field key=<span class="code-quote">"cityname"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"50"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+&lt;object klass="class="City" table="city" extends="xPDOSimpleObject"&gt;
+&lt;field key="cityname" dbtype="varchar" precision="50" phptype="string" null="false"/&gt;
 &lt;/object&gt;
 ?
-&lt;object klass=<span class="code-quote">"Cityzip"</span> table=<span class="code-quote">"cityzip"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-&lt;field key=<span class="code-quote">"city"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"10"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
-&lt;field key=<span class="code-quote">"zip"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"5"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+&lt;object klass="Cityzip" table="cityzip" extends="xPDOSimpleObject"&gt;
+&lt;field key="city" dbtype="int" precision="10" phptype="integer" null="false"/&gt;
+&lt;field key="zip" dbtype="int" precision="5" phptype="integer" null="false"/&gt;
 &lt;/object&gt;
 ?
-&lt;object klass=<span class="code-quote">"County"</span> table=<span class="code-quote">"county"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-&lt;field key=<span class="code-quote">"countyname"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"35"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> index=<span class="code-quote">"index"</span>/&gt;
+&lt;object klass="County" table="county" extends="xPDOSimpleObject"&gt;
+&lt;field key="countyname" dbtype="varchar" precision="35" phptype="string" null="true" index="index"/&gt;
 &lt;/object&gt;
 ?
-&lt;object klass=<span class="code-quote">"States"</span> table=<span class="code-quote">"states"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-&lt;field key=<span class="code-quote">"statename"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"40"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> index=<span class="code-quote">"index"</span>/&gt;
-&lt;field key=<span class="code-quote">"abbrv"</span> dbtype=<span class="code-quote">"<span class="code-object">char</span>"</span> precision=<span class="code-quote">"2"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span>/&gt;
+&lt;object klass="States" table="states" extends="xPDOSimpleObject"&gt;
+&lt;field key="statename" dbtype="varchar" precision="40" phptype="string" null="false" index="index"/&gt;
+&lt;field key="abbrv" dbtype="char" precision="2" phptype="string" null="false"/&gt;
 &lt;/object&gt;
 ?
-&lt;object klass=<span class="code-quote">"Timezones"</span> table=<span class="code-quote">"timezones"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-&lt;field key=<span class="code-quote">"tzname"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"20"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> index=<span class="code-quote">"index"</span>/&gt;
+&lt;object klass="Timezones" table="timezones" extends="xPDOSimpleObject"&gt;
+&lt;field key="tzname" dbtype="varchar" precision="20" phptype="string" null="true" index="index"/&gt;
 &lt;/object&gt;
 ?
-&lt;object klass=<span class="code-quote">"Zip"</span> table=<span class="code-quote">"zips"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-&lt;field key=<span class="code-quote">"city"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"50"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
-&lt;field key=<span class="code-quote">"areacode"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"3"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
-&lt;field key=<span class="code-quote">"lat"</span> dbtype=<span class="code-quote">"<span class="code-object">float</span>"</span> phptype=<span class="code-quote">"<span class="code-object">float</span>"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
-&lt;field key=<span class="code-quote">"lon"</span> dbtype=<span class="code-quote">"<span class="code-object">float</span>"</span> phptype=<span class="code-quote">"<span class="code-object">float</span>"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
-&lt;field key=<span class="code-quote">"sw_county_id"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"4"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> index=<span class="code-quote">"pk"</span>/&gt;
-&lt;field key=<span class="code-quote">"sw_states_id"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"2"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> index=<span class="code-quote">"pk"</span>/&gt;
-&lt;field key=<span class="code-quote">"sw_timezones_id"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"2"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> index=<span class="code-quote">"pk"</span>/&gt;
-&lt;aggregate alias=<span class="code-quote">"TZ"</span> klass=<span class="code-quote">"Timezones"</span> local=<span class="code-quote">"tz_id"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;    
-&lt;aggregate alias=<span class="code-quote">"ST"</span> klass=<span class="code-quote">"County"</span> local=<span class="code-quote">"sw_county_id"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
-&lt;aggregate alias=<span class="code-quote">"CT"</span> klass=<span class="code-quote">"States"</span> local=<span class="code-quote">"sw_states_id"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
+&lt;object klass="Zip" table="zips" extends="xPDOSimpleObject"&gt;
+&lt;field key="city" dbtype="varchar" precision="50" phptype="string" null="true"/&gt;
+&lt;field key="areacode" dbtype="int" precision="3" phptype="integer" null="true"/&gt;
+&lt;field key="lat" dbtype="float" phptype="float" null="true"/&gt;
+&lt;field key="lon" dbtype="float" phptype="float" null="true"/&gt;
+&lt;field key="sw_county_id" dbtype="int" precision="4" phptype="integer" null="false" index="pk"/&gt;
+&lt;field key="sw_states_id" dbtype="int" precision="2" phptype="integer" null="false" index="pk"/&gt;
+&lt;field key="sw_timezones_id" dbtype="int" precision="2" phptype="integer" null="false" index="pk"/&gt;
+&lt;aggregate alias="TZ" klass="Timezones" local="tz_id" foreign="id" cardinality="one" owner="foreign" /&gt;    
+&lt;aggregate alias="ST" klass="County" local="sw_county_id" foreign="id" cardinality="one" owner="foreign" /&gt;
+&lt;aggregate alias="CT" klass="States" local="sw_states_id" foreign="id" cardinality="one" owner="foreign" /&gt;
 &lt;/object&gt;
 &lt;/model&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
-<a name="getCollectionGraph-AnotherExample"></a>Another Example
+<a name="getCollectionGraph-AnotherExample" id="getCollectionGraph-AnotherExample"></a>Another Example
 </h2>
 
 <p>
@@ -251,11 +127,11 @@ foreach ($pages as $p) {
 </div>
 
 <h2>
-<a name="getCollectionGraph-Comments"></a>Comments
+<a name="getCollectionGraph-Comments" id="getCollectionGraph-Comments"></a>Comments
 </h2>
 
 <ol>
-<li>Obtain a connection via <a href="/display/XPDO10/The+xPDO+Constructor" title="The xPDO Constructor">the xPDO Constructor</a> including&nbsp; <a href="/display/xPDO20/Hydrating+Fields" title="Hydrating Fields">Hydrating Fields</a>
+<li>Obtain a connection via <a href="display/XPDO10/The+xPDO+Constructor" title="The xPDO Constructor">the xPDO Constructor</a> including&nbsp; <a href="display/xPDO20/Hydrating+Fields" title="Hydrating Fields">Hydrating Fields</a>
 </li>
 
 <li>Viewing the package name in the schema we set (or apply) the package to our connection, taking note of the prefix our tables are using in the database

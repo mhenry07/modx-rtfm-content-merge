@@ -5,27 +5,27 @@ Shopping cart and order management for MODX Revolution.
 <div>
 <ul>
 <li>
-<a href='#Shopkeeper-Installation'>Installation</a>
+<a href="extras/revo/shopkeeper#Shopkeeper-Installation">Installation</a>
 </li>
 
 <li>
-<a href='#Shopkeeper-Settings'>Settings</a>
+<a href="extras/revo/shopkeeper#Shopkeeper-Settings">Settings</a>
 </li>
 
 <li>
-<a href='#Shopkeeper-Additionaloptionsproducts'>Additional options products</a>
+<a href="extras/revo/shopkeeper#Shopkeeper-Additionaloptionsproducts">Additional options products</a>
 </li>
 
 <li>
-<a href='#Shopkeeper-Sendingletterstothebuyerwhenyouchangetheorderstatus'>Sending letters to the buyer when you change the order status</a>
+<a href="extras/revo/shopkeeper#Shopkeeper-Sendingletterstothebuyerwhenyouchangetheorderstatus">Sending letters to the buyer when you change the order status</a>
 </li>
 
 <li>
-<a href='#Shopkeeper-Eventsforplugins'>Events for plugins</a>
+<a href="extras/revo/shopkeeper#Shopkeeper-Eventsforplugins">Events for plugins</a>
 </li>
 
 <li>
-<a href='#Shopkeeper-JScallbackfunctions'>JS-callback functions</a>
+<a href="extras/revo/shopkeeper#Shopkeeper-JScallbackfunctions">JS-callback functions</a>
 </li>
 </ul>
 </div>
@@ -72,68 +72,11 @@ Example:
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Shopkeeper@catalog?propertySetName=`catalog`]]
+<pre class="brush: php">
+    [[+tv.param1]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-propertySetName - the name of the Property Set. It is also the name you specify after the "@" symbol.
-</p>
-
-<p>
-Default properties of snippet edit is not recommended because these may change at upgrade.
-</p>
-
-<p>
-In the admin panel in the configuration of the component (the "System" -&gt; "System Settings" -&gt; "shopkeeper") set "Default snippet Property Set". This set of parameters to be used when sending the order.
-</p>
-
-<p>
-Products are created as resources. For convenience, you can use the component <b>Group Edit</b> (<a href="http://modx.com/extras/package/groupedit" class="external-link" rel="nofollow">http://modx.com/extras/package/groupedit</a>).
-</p>
-
-<h2>
-<a name="Shopkeeper-Additionaloptionsproducts" id="Shopkeeper-Additionaloptionsproducts"></a>Additional options products
-</h2>
-
-<p>
-Goods can be assigned to the parameters that the buyer can choose to add items to your shopping cart.
-<br />
-The parameters are displayed in a dropdown list - shk_select, radio buttons - shk_radio or checkboxes - shk_checkbox.
-<br />
-Choose Output Type can be on TV settings on the tab "Output Options".
-<br />
-&nbsp;
-<br />
-The values ??of the parameters (on the edit page of the resource (product)) are introduced on the following principle:
-</p>
-
-<p>
-<b>Parameter name 1==Price 1||Parameter name 2==Price 2||...</b>
-<br />
-&nbsp;
-<br />
-You can enter a parameter value with the sign of multiplication: <b>Weight==*0.5||Weight==*1</b>
-<br />
-In this case, the product price will be multiplied by the price parameter.
-<br />
-&nbsp;
-<br />
-In the snippet getResources chunk parameters are displayed as placeholders:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+tv.param1]]
-</pre>
-</div>
-</div>
-
 <p>
 On the product page to change the ID parameter. You can do this by using a filter "replace":
 </p>

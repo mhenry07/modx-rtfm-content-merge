@@ -1,19 +1,8 @@
-<h1>
+<h2>
 <a name="getParentIds-API%3AgetParentIds"></a>API:getParentIds
-</h1>
+</h2>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>API Quick reference</b>
 <br />
 
@@ -52,107 +41,46 @@ array
 Object parent:
 </td>
 <td class='confluenceTd'>
-<a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
+<a href="display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="getParentIds-Description"></a>Description
+<a name="getParentIds-Description" id="getParentIds-Description"></a>Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-Array getChildIds(mixed $id[, <span class="code-object">int</span> $height[, array $parents]]);
+<pre class="brush: php">
+    $parents = $modx-&gt;getParentIds(10);
+    
 </pre>
-</div>
-</div>
-
-<p>
-Returns an array of all parent record IDs for the id passed.
-</p>
-
-<ul>
-<li>$id - resource ID to get parents for
-</li>
-
-<li>$height - argument defines the maximum number of levels to go up.
-</li>
-
-<li>$parents - array ?
-</li>
-</ul>
-
-<h2>
-<a name="getParentIds-Usage%2FExamples"></a>Usage / Examples
-</h2>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$parents = $modx-&gt;getParentIds(10);
-</pre>
-</div>
-</div>
-
 <p>
 will return an array of all the parents of document 10, starting at the lowest level and working upwards, using aliases as the array keys, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-Array
-(
-    [services/accident-claims] =&gt; 3
-    [services] =&gt; 2
-)
-
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="getParentIds-Related"></a>Related
-</h2>
-
-<h2>
-<a name="getParentIds-Notes"></a>Notes
-</h2>
-
-<h2>
-<a name="getParentIds-FunctionSource"></a>Function Source
-</h2>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
    function getParentIds($id, $height= 10, $parents= array ()) {
         $parentId= 0;
-        foreach ($<span class="code-keyword">this</span>-&gt;documentMap as $mapEntry) {
+        foreach ($this-&gt;documentMap as $mapEntry) {
             $parentId= array_search($id, $mapEntry);
-            <span class="code-keyword">if</span> ($parentId) {
-                $parentKey= array_search($parentId, $<span class="code-keyword">this</span>-&gt;documentListing);
-                <span class="code-keyword">if</span> (!$parentKey) {
-                    $parentKey= <span class="code-quote">"$parentId"</span>;
+            if ($parentId) {
+                $parentKey= array_search($parentId, $this-&gt;documentListing);
+                if (!$parentKey) {
+                    $parentKey= "$parentId";
                 }
                 $parents[$parentKey]= $parentId;
-                <span class="code-keyword">break</span>;
+                break;
             }
         }
         $height--;
-        <span class="code-keyword">if</span> ($parentId &amp;&amp; $height) {
-            $parents= $parents + $<span class="code-keyword">this</span>-&gt;getParentIds($parentId, $height, $parents);
+        if ($parentId &amp;&amp; $height) {
+            $parents= $parents + $this-&gt;getParentIds($parentId, $height, $parents);
         }
-        <span class="code-keyword">return</span> $parents;
+        return $parents;
     }
+    
 </pre>
-</div>
-</div>

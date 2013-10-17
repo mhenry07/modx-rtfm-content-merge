@@ -1,23 +1,23 @@
 <div>
 <ul>
 <li>
-<a href='#CustomManagerPagesin2.3-SettingtheNamespacePath'>Setting the Namespace Path</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/custom-manager-pages-in-2.3#CustomManagerPagesin2.3-SettingtheNamespacePath">Setting the Namespace Path</a>
 </li>
 
 <li>
-<a href='#CustomManagerPagesin2.3-CreatingtheMenu'>Creating the Menu</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/custom-manager-pages-in-2.3#CustomManagerPagesin2.3-CreatingtheMenu">Creating the Menu</a>
 </li>
 
 <li>
-<a href='#CustomManagerPagesin2.3-CreatingtheControllerFile'>Creating the Controller File</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/custom-manager-pages-in-2.3#CustomManagerPagesin2.3-CreatingtheControllerFile">Creating the Controller File</a>
 </li>
 
 <li>
-<a href='#CustomManagerPagesin2.3-CreatingtheTemplateFile'>Creating the Template File</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/custom-manager-pages-in-2.3#CustomManagerPagesin2.3-CreatingtheTemplateFile">Creating the Template File</a>
 </li>
 
 <li>
-<a href='#CustomManagerPagesin2.3-We%27reFinished%5C%21'>We're Finished!</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/custom-manager-pages-in-2.3#CustomManagerPagesin2.3-We%27reFinished%5C%21">We're Finished!</a>
 </li>
 </ul>
 </div>
@@ -43,7 +43,7 @@ Now we'll need a Menu item to link to for our CMP. Go to System -&gt; Top Menu, 
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/39354402/mycmp1.png?version=1&amp;modificationDate=1334858685000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/39354402/mycmp1.png?version=1&amp;modificationDate=1334858685000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
@@ -62,55 +62,19 @@ Next, we'll go create the Controller file at {core_path}components/mycmp/control
 Now, on to the file contents:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-class MycmpWelcomeManagerController <span class="code-keyword">extends</span> modExtraManagerController {
-    <span class="code-keyword">public</span> function process(array $scriptProperties = array()) {}
-    <span class="code-keyword">public</span> function getPageTitle() {
-        <span class="code-keyword">return</span> 'My Test CMP';
-    }
-    <span class="code-keyword">public</span> function getTemplateFile() {
-        <span class="code-keyword">return</span> 'welcome.tpl';
-    }
-}
-</pre>
-</div>
-</div>
-
-<p>
-As you can see here, we're not doing any business logic, so we don't need to do anything in the process() method. We go ahead and set a page title for this CMP, and then tell MODX where to find our corresponding template file for this CMP. Note that your class name should begin with the name of your CMP followed by the corresponding action.
-</p>
-
-<h2>
-<a name="CustomManagerPagesin2.3-CreatingtheTemplateFile" id="CustomManagerPagesin2.3-CreatingtheTemplateFile"></a>Creating the Template File
-</h2>
-
-<p>
-MODX uses Smarty templates for CMP pages. It will automatically look for them in the [namespace-path]templates/ directory for you, so all you have to do is tell it in your controller what file in that directory to look for (you can specify subdirectories here too). Create a file at: {core_path}components/mycmp/templates/default/welcome.tpl
-</p>
-
-<p>
-Let's make the content simple:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"container"</span>&gt;
+<pre class="brush: php">
+    &lt;div class="container"&gt;
 &lt;h2&gt;Welcome!&lt;/h2&gt;
 &lt;/div&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 A simple h2, with a wrapping div that adds some padding. And that will display this on our CMP:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/39354402/mycmp-final.png?version=1&amp;modificationDate=1334858848000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/39354402/mycmp-final.png?version=1&amp;modificationDate=1334858848000" style="border: 0px solid black" /></span>
 </p>
 
 <h2>
@@ -122,5 +86,5 @@ That's it! That's all you need to start making CMPs in MODX 2.3. You can see tha
 </p>
 
 <p>
-There's obviously more API methods that you can override in modExtraManagerController in your PHP controller class, and then you can use <a href="/display/revolution20/MODExt" title="MODExt">MODExt</a> and such in your actual CMP to make powerful pages, but that's beyond the scope of this tutorial.
+There's obviously more API methods that you can override in modExtraManagerController in your PHP controller class, and then you can use <a href="display/revolution20/MODExt" title="MODExt">MODExt</a> and such in your actual CMP to make powerful pages, but that's beyond the scope of this tutorial.
 </p>

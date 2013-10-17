@@ -1,43 +1,43 @@
 <div>
 <ul>
 <li>
-<a href='#MODx.Window-MODx.Window'>MODx.Window</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.window#MODx.Window-MODx.Window">MODx.Window</a>
 </li>
 
 <li>
-<a href='#MODx.Window-UniqueParameters'>Unique Parameters</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.window#MODx.Window-UniqueParameters">Unique Parameters</a>
 </li>
 
 <li>
-<a href='#MODx.Window-CustomEvents'>Custom Events</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.window#MODx.Window-CustomEvents">Custom Events</a>
 </li>
 
 <li>
-<a href='#MODx.Window-UniqueFunctionality'>Unique Functionality</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.window#MODx.Window-UniqueFunctionality">Unique Functionality</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#MODx.Window-Firingthesubmitmethod'>Firing the submit method</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.window#MODx.Window-Firingthesubmitmethod">Firing the submit method</a>
 </li>
 
 <li>
-<a href='#MODx.Window-setValues'>setValues</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.window#MODx.Window-setValues">setValues</a>
 </li>
 
 <li>
-<a href='#MODx.Window-reset'>reset</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.window#MODx.Window-reset">reset</a>
 </li>
 
 <li>
-<a href='#MODx.Window-HidingandShowingFields'>Hiding and Showing Fields</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.window#MODx.Window-HidingandShowingFields">Hiding and Showing Fields</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#MODx.Window-SeeAlso'>See Also</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.window#MODx.Window-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -53,7 +53,7 @@
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678082/modx-window.png?version=1&amp;modificationDate=1303411582000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/18678082/modx-window.png?version=1&amp;modificationDate=1303411582000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
@@ -296,35 +296,14 @@ Before the form submits its values to the connector, but after validation passes
 You can manually fire the submission of the Window's form by running the submit() method, which has an optional "close" parameter (1/0) that, if 1, will close the window on success. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> w = Ext.getCmp('my-window-id');
-w.submit(<span class="code-keyword">true</span>); /* submit and then close window */
-</pre>
-</div>
-</div>
-
-<h4>
-<a name="MODx.Window-setValues" id="MODx.Window-setValues"></a>setValues
-</h4>
-
-<p>
-The MODx.Window class comes with a setValues method, that will set the form values of the window:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> w = Ext.getCmp('my-window-id');
+<pre class="brush: php">
+    var w = Ext.getCmp('my-window-id');
 w.setValues({ 
   name: 'John'
   ,email: 'my@email.com'
 });
+    
 </pre>
-</div>
-</div>
-
 <h4>
 <a name="MODx.Window-reset" id="MODx.Window-reset"></a>reset
 </h4>
@@ -333,47 +312,12 @@ w.setValues({
 You can run the reset method to empty (reset) all the fields on the form:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> w = Ext.getCmp('my-window-id');
-w.reset();
-</pre>
-</div>
-</div>
-
-<h4>
-<a name="MODx.Window-HidingandShowingFields" id="MODx.Window-HidingandShowingFields"></a>Hiding and Showing Fields
-</h4>
-
-<p>
-MODx.Window comes with a few assistance methods for making fields in its forms visible or hidden:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> w = Ext.getCmp('my-window-id');
+<pre class="brush: php">
+    var w = Ext.getCmp('my-window-id');
 w.hideField('email');
 w.showField('comments');
+    
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="MODx.Window-SeeAlso" id="MODx.Window-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678082" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678078" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FMODx.Window" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678078" />
-</fieldset>
-</fieldset>
-</div>

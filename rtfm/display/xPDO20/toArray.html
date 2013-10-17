@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="toArray-xPDOObject%3A%3AtoArray%28%29"></a>xPDOObject::toArray()
 </h2>
@@ -18,63 +14,16 @@ Copies the object fields and corresponding values to an associative array.
 API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#toArray" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#toArray</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-array toArray(
-   [string $keyPrefix = ''],
-   [<span class="code-object">boolean</span> $rawValues = <span class="code-keyword">false</span>],
-   [<span class="code-object">boolean</span> $excludeLazy = <span class="code-keyword">false</span>],
-   [<span class="code-object">boolean</span>|integer|string|array $inludeRelated = <span class="code-keyword">false</span>])
-)
-</pre>
-</div>
-</div>
-
-<p>
-<b>keyPrefix:</b> an optional prefix to prepend to each fields' keys.
-</p>
-
-<p>
-<b>rawValues</b>: optional flag to get the raw value (true) or to use xPDOObject-&gt;get(). Typically will want to use -&gt;get().
-</p>
-
-<p>
-<b>excludeLazy</b>: An option flag indicating if you want to exclude lazy fields from the resulting array; the default behavior is to include them which means the object will query the database for the lazy fields before providing the value.
-</p>
-
-<p>
-<b>includeRelated</b>: Describes if and how to include loaded related object fields.
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp; * As an integer all loaded related objects in the graph up to that level of depth will be included.
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp; * As a string, only loaded related objects matching the JSON graph representation will be included.
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp; * As an array, only loaded related objects matching the graph array will be included.
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp; * As boolean true, all currently loaded related objects will be included.
-</p>
-
-<h2>
-<a name="toArray-Examples" id="toArray-Examples"></a>Examples
-</h2>
-
-<p>
-Get the values of the object in array format:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $object-&gt;set('name','John Lo');
 $object-&gt;set('email','jlo@gmail.com');
 $a = $object-&gt;toArray();
 print_r($a);
-<span class="code-comment">// prints <span class="code-quote">"Array ( [name] =&gt; John Lo [email] =&gt; jlo@gmail.com )"</span></span>
-</pre>
-</div>
-</div>
+// prints "Array ( [name] =&gt; John Lo [email] =&gt; jlo@gmail.com )"
 
+    
+</pre>
 <p>
 Get the values of the object, but with their keys prefixed with 'dev_'
 </p>
@@ -97,18 +46,18 @@ print_r($a);
 
 <ul>
 <li>
-<a href="/display/xPDO20/fromArray" title="fromArray">fromArray</a>
+<a href="display/xPDO20/fromArray" title="fromArray">fromArray</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/toArray" title="toArray">toArray</a>
+<a href="display/xPDO20/toArray" title="toArray">toArray</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/fromJSON" title="fromJSON">fromJSON</a>
+<a href="display/xPDO20/fromJSON" title="fromJSON">fromJSON</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/toJSON" title="toJSON">toJSON</a>
+<a href="display/xPDO20/toJSON" title="toJSON">toJSON</a>
 </li>
 </ul>

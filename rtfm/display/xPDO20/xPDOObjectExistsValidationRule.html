@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="xPDOObjectExistsValidationRule-WhatDoestheRuleDo%3F"></a>What Does the Rule Do?
 </h2>
@@ -18,52 +14,21 @@ This rule checks to see if another object exists. If that object doesn't exist, 
 First, our model:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;model <span class="code-keyword">package</span>=<span class="code-quote">"test"</span> baseClass=<span class="code-quote">"xPDOObject"</span> platform=<span class="code-quote">"mysql"</span>
-       defaultEngine=<span class="code-quote">"MyISAM"</span> tablePrefix=<span class="code-quote">"test_"</span>&gt;    
-    &lt;object class=<span class="code-quote">"myTest"</span> table=<span class="code-quote">"test"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-        &lt;field key=<span class="code-quote">"name"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span>
-               phptype=<span class="code-quote">"string"</span> <span class="code-keyword">default</span>=<span class="code-quote">"" <span class="code-keyword">null</span>="</span><span class="code-keyword">false</span>" /&gt;
-                
-        &lt;validation&gt;
-            &lt;rule field=<span class="code-quote">"name"</span> 
-                  name=<span class="code-quote">"chunkExists"</span>
-                  type=<span class="code-quote">"xPDOValidationRule"</span>
-                  rule=<span class="code-quote">"xPDOObjectExistsValidationRule"</span>
-                  pk=<span class="code-quote">"12"</span>
-                  classKey=<span class="code-quote">"modChunk"</span>
-                  message=<span class="code-quote">"The Chunk does not exist, so <span class="code-keyword">this</span> object cannot be saved."</span>
-             /&gt;
-        &lt;/validation&gt;
-    &lt;/object&gt;
-&lt;/model&gt;
-</pre>
-</div>
-</div>
-
-<p>
-From there, go ahead and generate the model from the XML schema. And now in a Snippet we'll call Test:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $output = '';
 $modx-&gt;addPackage('test','/path/to/my/test/model/','test_');
 $obj = $modx-&gt;newObject('myTest');
 $validator = $obj-&gt;getValidator();
-<span class="code-keyword">if</span> ($validator-&gt;validate() == <span class="code-keyword">false</span>) {
+if ($validator-&gt;validate() == false) {
     $messages = $validator-&gt;getMessages();
     foreach ($messages as $errorMsg) {
         $output .= $errorMsg['message'];
     }
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 This will display:
 </p>
@@ -77,17 +42,3 @@ The Chunk does not exist, so this object cannot be saved.
 <h2>
 <a name="xPDOObjectExistsValidationRule-SeeAlso" id="xPDOObjectExistsValidationRule-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="12615758" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="12615753" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="xPDO20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FxPDO20%2FxPDOObjectExistsValidationRule" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="12615753" />
-</fieldset>
-</fieldset>
-</div>

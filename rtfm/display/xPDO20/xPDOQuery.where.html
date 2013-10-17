@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="xPDOQuery.where-xPDOQuery%3A%3Awhere"></a>xPDOQuery::where
 </h2>
@@ -10,186 +6,14 @@
 Add a WHERE condition to the query. In general, the way this works is you append an operator to an attribute after a colon.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-array('attribute:<span class="code-keyword">operator</span>' =&gt; 'value')
-</pre>
-</div>
-</div>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Operator
-</th>
-<th class='confluenceTh'>
-Symbol
-</th>
-<th class='confluenceTh'>
-Example
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Equals
-</td>
-<td class='confluenceTd'>
-<em>none</em>
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width' =&gt; 15));</tt>
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Not Equals
-</td>
-<td class='confluenceTd'>
-!=
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width:!=' =&gt; 15));</tt>
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Greater Than
-</td>
-<td class='confluenceTd'>
-&gt;
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width:&gt;' =&gt; 15));</tt>
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Less Than
-</td>
-<td class='confluenceTd'>
-&lt;
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width:&lt;' =&gt; 15));</tt>
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Greater Than or Equal to
-</td>
-<td class='confluenceTd'>
-&gt;=
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width:&gt;=' =&gt; 15));</tt>
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Less Than or Equal to
-</td>
-<td class='confluenceTd'>
-&lt;=
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width:&lt;=' =&gt; 15));</tt>
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Like
-</td>
-<td class='confluenceTd'>
-LIKE
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width:LIKE' =&gt; '%15%'));</tt>
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Not Like
-</td>
-<td class='confluenceTd'>
-NOT LIKE
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width:NOT LIKE' =&gt; '%15%'));</tt>
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Exists in
-</td>
-<td class='confluenceTd'>
-IN
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width:IN' =&gt; array(15,16,17,20)));</tt>
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Not Exists in
-</td>
-<td class='confluenceTd'>
-NOT IN
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width:NOT IN' =&gt; array(15,16,17,20)));</tt>
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-Is Null
-</td>
-<td class='confluenceTd'>
-IS
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-<tt>$query-&gt;where(array('width:IS' =&gt; null));</tt>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h2>
-<a name="xPDOQuery.where-Syntax" id="xPDOQuery.where-Syntax"></a>Syntax
-</h2>
-
-<p>
-API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#xPDOQuery::where()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#\xPDOQuery::where()</a>
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOQuery where ([mixed $conditions = ''],
+<pre class="brush: php">
+    xPDOQuery where ([mixed $conditions = ''],
  [string $conjunction = xPDOQuery::SQL_AND],
- [mixed $binding = <span class="code-keyword">null</span>],
+ [mixed $binding = null],
  [integer $condGroup = 0])
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
 <a name="xPDOQuery.where-Examples" id="xPDOQuery.where-Examples"></a>Examples
 </h2>
@@ -198,95 +22,38 @@ xPDOQuery where ([mixed $conditions = ''],
 Get all Boxes with width of 15.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $xpdo-&gt;newQuery('Box');
-$query-&gt;where(array(
-   'width' =&gt; 15,
-));
-$boxes = $xpdo-&gt;getCollection('Box',$query);
-</pre>
-</div>
-</div>
-
-<p>
-Get all boxes with a width of 15 or 10.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $xpdo-&gt;newQuery('Box');
+<pre class="brush: php">
+    $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array('width' =&gt; 15));
-$query-&gt;where(array('width' =&gt; 10),xPDOQuery::SQL_OR); <span class="code-comment">// you can use orCondition here as well
-</span>$boxes = $xpdo-&gt;getCollection('Box',$query);
-</pre>
-</div>
-</div>
+$query-&gt;where(array('width' =&gt; 10),xPDOQuery::SQL_OR); // you can use orCondition here as well
+$boxes = $xpdo-&gt;getCollection('Box',$query);
 
+    
+</pre>
 <p>
 An alternative method to get boxes with a width of 15 or 10.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $xpdo-&gt;newQuery('Box');
-$query-&gt;where(array(array( <span class="code-comment">// two arrays used to contain the OR statement within the listed conditions
-</span>   'width' =&gt; 15,
-   'width' =&gt; 10
-)),xPDOQuery::SQL_OR); <span class="code-comment">// use one array <span class="code-keyword">if</span> no additional where statements are used.
-</span>$boxes = $xpdo-&gt;getCollection('Box',$query);
-</pre>
-</div>
-</div>
-
-<p>
-Grab all boxes with a width greater than or equal to 15, but not with a width of 23.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $xpdo-&gt;newQuery('Box');
+<pre class="brush: php">
+    $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array(
    'width:&gt;=' =&gt; 15,
    'width:!=' =&gt; 23,
 ));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Get all boxes with a name with the letter 'q' in it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $xpdo-&gt;newQuery('Box');
-$query-&gt;where(array(
-   'name:LIKE' =&gt; '%q%',
-));
-$boxes = $xpdo-&gt;getCollection('Box',$query);
-</pre>
-</div>
-</div>
-
-<p>
-Using and &amp; or in the same query to get all boxes with a width of 15 or 10 and a height between 10 and 15.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $xpdo-&gt;newQuery('Box');
+<pre class="brush: php">
+    $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array(
    array(
-      'width:=' =&gt; 15, <span class="code-comment">// note that adding 'AND:' or 'OR:' in front of the attribute, an <span class="code-keyword">operator</span> must be used ':='
-</span>      'OR:width:=' =&gt; 10
+      'width:=' =&gt; 15, // note that adding 'AND:' or 'OR:' in front of the attribute, an operator must be used ':='
+      'OR:width:=' =&gt; 10
    ),
    array(
       'AND:height:&gt;=' =&gt; 10,
@@ -294,45 +61,27 @@ $query-&gt;where(array(
    )
 ));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h3>
 <a name="xPDOQuery.where-MoreComplexExamples" id="xPDOQuery.where-MoreComplexExamples"></a>More Complex Examples
 </h3>
 
 <p>
-If you have a more complex model with many joined tables, the where method should refer <em>only to the</em> <b><em>class alias</em></b> (not the class name) that contains the attribute. Below is an example of a query passed to the <a href="/display/xPDO20/getCollectionGraph" title="getCollectionGraph">getCollectionGraph</a> method, where you can see that myTable object is joined through to the user profile information.
+If you have a more complex model with many joined tables, the where method should refer <em>only to the</em> <b><em>class alias</em></b> (not the class name) that contains the attribute. Below is an example of a query passed to the <a href="display/xPDO20/getCollectionGraph" title="getCollectionGraph">getCollectionGraph</a> method, where you can see that myTable object is joined through to the user profile information.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $modx-&gt;newQuery('myTable');
-$query-&gt;where(array('Profile.fullname:LIKE' =&gt; '%Company%'));
-$records = $<span class="code-keyword">this</span>-&gt;ParentCMS-&gt;getCollectionGraph('myTable', '{<span class="code-quote">"modUser"</span>: {<span class="code-quote">"Profile"</span>:{} } }',$query);
-</pre>
-</div>
-</div>
-
-<p>
-Another method is to pass a $criteria array immediately as the 2nd argument to newQuery. Notice how the alias "Resource" is used since that's what is listed as the alias in the schema definition for the modTemplateVarResource object:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$criteria = array();
+<pre class="brush: php">
+    $criteria = array();
 $criteria['modTemplateVarResource.tmplvarid'] = 9;
 $criteria['modTemplateVarResource.value:IN'] = array('Red','Green','Blue');
 $criteria['Resource.template'] = 2;
 $criteria = $modx-&gt;newQuery('modTemplateVarResource', $criteria);
-$tvrs = $modx-&gt;getCollectionGraph('modTemplateVarResource','{<span class="code-quote">"Resource"</span>:{}}', $criteria);
-</pre>
-</div>
-</div>
+$tvrs = $modx-&gt;getCollectionGraph('modTemplateVarResource','{"Resource":{}}', $criteria);
 
+    
+</pre>
 <p>
 Here are a couple of different examples of doing subqueries:
 </p>
@@ -351,6 +100,6 @@ Here are a couple of different examples of doing subqueries:
 
 <ul>
 <li>
-<a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
+<a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
 </li>
 </ul>

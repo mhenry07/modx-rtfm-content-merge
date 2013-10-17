@@ -101,58 +101,27 @@ Use the Cliche Snippet to show your galleries as you want
 Simply drop the following line in your document :
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[Cliche]]
-</pre>
-</div>
-</div>
-
-<p>
-To show all albums list:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[Cliche?
     &amp;view=`albums`
 ]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 To show a specific album:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[Cliche?
-    &amp;id=`your_album_id`
-    &amp;view=`album`
-]]
-</pre>
-</div>
-</div>
-
-<p>
-To show a single image:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[Cliche?
     &amp;id=`your_image_id`
     &amp;view=`image`
 ]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h3>
 <a name="Cliche-AvailableParameters" id="Cliche-AvailableParameters"></a>Available Parameters
 </h3>
@@ -163,15 +132,12 @@ To show a single image:
 <tr>
 <th class='confluenceTh'>
 Parameter
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Description
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Default Value
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
@@ -181,11 +147,9 @@ thumbWidth
 </td>
 <td class='confluenceTd'>
 Thumbnail width in pixels
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 120
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
@@ -195,11 +159,9 @@ thumbHeight
 </td>
 <td class='confluenceTd'>
 Thumbnail height in pixels
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 120
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
@@ -211,10 +173,7 @@ wrapperTpl
 The wrapper html chunk, shared for all view
 </td>
 <td class='confluenceTd'>
-Albums : albumwrapper
-<br class="atl-forced-newline" />
-&nbsp;
-<br class="atl-forced-newline" />
+Albums : albumwrapper &nbsp;
 </td>
 </tr>
 
@@ -224,11 +183,9 @@ itemTpl
 </td>
 <td class='confluenceTd'>
 Each item html chunk, shared for all view
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Albums : albumcover
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
@@ -238,11 +195,9 @@ plugin
 </td>
 <td class='confluenceTd'>
 The plugin controller, a PHP file which handle the display options
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 default
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
@@ -252,11 +207,9 @@ columns
 </td>
 <td class='confluenceTd'>
 The number of columns to show
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 3
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
@@ -266,7 +219,6 @@ columnBreak
 </td>
 <td class='confluenceTd'>
 The HTML markup used to break columns with the default viewer
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 &lt;br style="clear: both;"&gt;
@@ -276,17 +228,12 @@ The HTML markup used to break columns with the default viewer
 <tr>
 <td class='confluenceTd'>
 browse
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
-Used for Album list and album view.
-<br class="atl-forced-newline" />
-Tell the script whether the thumbnail should link a page or directly the image
-<br class="atl-forced-newline" />
+Used for Album list and album view. Tell the script whether the thumbnail should link a page or directly the image
 </td>
 <td class='confluenceTd'>
 1
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
@@ -296,11 +243,9 @@ loadJquery
 </td>
 <td class='confluenceTd'>
 Set 0 to avoid loading Jquery by Cliche.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 1
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
@@ -310,11 +255,9 @@ loadCss
 </td>
 <td class='confluenceTd'>
 Set 1 to load custom css.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
@@ -324,10 +267,8 @@ css
 </td>
 <td class='confluenceTd'>
 Path and name to CSS file excluding .css extension.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
-<br class="atl-forced-newline" />
 </td>
 </tr>
 </tbody>
@@ -358,132 +299,56 @@ You can bypass the search in db to use only filebased chunks by using the parame
 <a name="Cliche-default%2Falbumcover.tpl"></a>default/albumcover.tpl
 </h5>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;dl class=<span class="code-quote">"item"</span>&gt;
-    &lt;dt class=<span class="code-quote">"album-icon"</span>&gt;
-        &lt;a title=<span class="code-quote">"[[+albumname]]"</span> href=<span class="code-quote">"[[+url]]"</span>&gt;
-            &lt;img width=<span class="code-quote">"[[+width]]"</span> height=<span class="code-quote">"[[+height]]"</span> title=<span class="code-quote">"[[+albumname]]"</span> alt=<span class="code-quote">"[[+description]]"</span> class=<span class="code-quote">"attachment-thumbnail"</span> src=<span class="code-quote">"[[+thumbnail]]"</span>/&gt;
+<pre class="brush: php">
+    
+&lt;dl class="item"&gt;
+    &lt;dt class="album-icon"&gt;
+        &lt;a class="zoom" title="[[+albumname]]" href="[[+image]]"&gt;
+            &lt;img width="[[+width]]" height="[[+height]]" title="[[+albumname]]" alt="[[+description]]" class="attachment-thumbnail" src="[[+thumbnail]]"/&gt;
         &lt;/a&gt;
     &lt;/dt&gt;
 &lt;/dl&gt;&lt;!-- End .item --&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<h5>
-<a name="Cliche-default%2Falbumcoverzoom.tpl"></a>default/albumcoverzoom.tpl
-</h5>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;dl class=<span class="code-quote">"item"</span>&gt;
-    &lt;dt class=<span class="code-quote">"album-icon"</span>&gt;
-        &lt;a class=<span class="code-quote">"zoom"</span> title=<span class="code-quote">"[[+albumname]]"</span> href=<span class="code-quote">"[[+image]]"</span>&gt;
-            &lt;img width=<span class="code-quote">"[[+width]]"</span> height=<span class="code-quote">"[[+height]]"</span> title=<span class="code-quote">"[[+albumname]]"</span> alt=<span class="code-quote">"[[+description]]"</span> class=<span class="code-quote">"attachment-thumbnail"</span> src=<span class="code-quote">"[[+thumbnail]]"</span>/&gt;
-        &lt;/a&gt;
-    &lt;/dt&gt;
-&lt;/dl&gt;&lt;!-- End .item --&gt;
-</pre>
-</div>
-</div>
-
 <h5>
 <a name="Cliche-default%2Falbumswrapper.tpl"></a>default/albumswrapper.tpl
 </h5>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"cliche"</span> id=<span class="code-quote">"albums_list"</span>&gt;
-    [[+items]]
-&lt;/div&gt;&lt;!-- End #albums_list --&gt;
-</pre>
-</div>
-</div>
-
-<h5>
-<a name="Cliche-default%2Falbumwrapper.tpl"></a>default/albumwrapper.tpl
-</h5>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"cliche galleryid-[[+id]]"</span> id=<span class="code-quote">"album-[[+id]]"</span>&gt;
+<pre class="brush: php">
+    
+&lt;div class="cliche galleryid-[[+id]]" id="album-[[+id]]"&gt;
  [[+items]]
 &lt;/div&gt;&lt;!-- End #album-[[+id]] --&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h5>
 <a name="Cliche-default%2Fimage.tpl"></a>default/image.tpl
 </h5>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"cliche"</span>&gt;
-    &lt;div class=<span class="code-quote">"item"</span>&gt;
-        &lt;a title=<span class="code-quote">"[[+name]]"</span> class=<span class="code-quote">"zoom"</span> href=<span class="code-quote">"[[+image]]"</span>&gt;
-            &lt;img width=<span class="code-quote">"[[+width]]"</span> height=<span class="code-quote">"[[+height]]"</span> title=<span class="code-quote">"[[+name]]"</span> alt=<span class="code-quote">"[[+description]]"</span> class=<span class="code-quote">"attachment-thumbnail"</span> src=<span class="code-quote">"[[+thumbnail]]"</span>/&gt;
-        &lt;/a&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</pre>
-</div>
-</div>
-
-<h5>
-<a name="Cliche-default%2Fitem.tpl"></a>default/item.tpl
-</h5>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;dl class=<span class="code-quote">"item"</span>&gt;
-    &lt;dt class=<span class="code-quote">"album-icon"</span>&gt;
-        &lt;a class=<span class="code-quote">"zoom"</span> title=<span class="code-quote">"[[+name]]"</span> href=<span class="code-quote">"[[+image]]"</span>&gt;
-            &lt;img width=<span class="code-quote">"[[+width]]"</span> height=<span class="code-quote">"[[+height]]"</span> title=<span class="code-quote">"[[+name]]"</span> alt=<span class="code-quote">"[[+description]]"</span> class=<span class="code-quote">"attachment-thumbnail"</span> src=<span class="code-quote">"[[+thumbnail]]"</span>/&gt;
+<pre class="brush: php">
+    
+&lt;dl class="item"&gt;
+    &lt;dt class="album-icon"&gt;
+        &lt;a class="zoom" title="[[+name]]" href="[[+image]]"&gt;
+            &lt;img width="[[+width]]" height="[[+height]]" title="[[+name]]" alt="[[+description]]" class="attachment-thumbnail" src="[[+thumbnail]]"/&gt;
         &lt;/a&gt;
     &lt;/dt&gt;
 &lt;/dl&gt;&lt;!-- End .item --&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h5>
 <a name="Cliche-default%2Fitemzoom.tpl"></a>default/itemzoom.tpl
 </h5>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;dl class=<span class="code-quote">"item"</span>&gt;
-    &lt;dt class=<span class="code-quote">"album-icon"</span>&gt;
-        &lt;a class=<span class="code-quote">"zoom"</span> title=<span class="code-quote">"[[+name]]"</span> href=<span class="code-quote">"[[+image]]"</span>&gt;
-            &lt;img width=<span class="code-quote">"[[+width]]"</span> height=<span class="code-quote">"[[+height]]"</span> title=<span class="code-quote">"[[+name]]"</span> alt=<span class="code-quote">"[[+description]]"</span> class=<span class="code-quote">"attachment-thumbnail"</span> src=<span class="code-quote">"[[+thumbnail]]"</span>/&gt;
-        &lt;/a&gt;
-    &lt;/dt&gt;
-&lt;/dl&gt;&lt;!-- End .item --&gt;
+<pre class="brush: php">
+    
+$("a.zoom").fancybox();
+
+    
 </pre>
-</div>
-</div>
-
-<h5>
-<a name="Cliche-default%2Fscript.tpl"></a>default/script.tpl
-</h5>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$(<span class="code-quote">"a.zoom"</span>).fancybox();
-</pre>
-</div>
-</div>
-
 <h4>
 <a name="Cliche-Gallerificplugin" id="Cliche-Gallerificplugin"></a>Gallerific plugin
 </h4>
@@ -492,39 +357,15 @@ $(<span class="code-quote">"a.zoom"</span>).fancybox();
 <a name="Cliche-galleriffic%2Fitem.tpl"></a>galleriffic/item.tpl
 </h5>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li&gt;
-    &lt;a class=<span class="code-quote">"thumb"</span> name=<span class="code-quote">"leaf"</span> href=<span class="code-quote">"[[+image]]"</span> title=<span class="code-quote">"[[+name]]"</span>&gt;
-        &lt;img src=<span class="code-quote">"[[+thumbnail]]"</span> alt=<span class="code-quote">"Title #[[+id]]"</span> /&gt;
-    &lt;/a&gt;
-    &lt;div class=<span class="code-quote">"caption"</span>&gt;
-        &lt;div class=<span class="code-quote">"download"</span>&gt;
-            &lt;a href=<span class="code-quote">"[[+image]]"</span>&gt;Download Original&lt;/a&gt;
-        &lt;/div&gt;
-        &lt;div class=<span class="code-quote">"image-title"</span>&gt;[[+name]]&lt;/div&gt;
-        &lt;div class=<span class="code-quote">"image-desc"</span>&gt;[[+description]]&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/li&gt;
-</pre>
-</div>
-</div>
-
-<h5>
-<a name="Cliche-galleriffic%2Fscript.tpl"></a>galleriffic/script.tpl
-</h5>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
  jQuery(document).ready(function($) {
-    $('div.navigation').css({'width' : '220px', '<span class="code-object">float</span>' : 'left'});
+    $('div.navigation').css({'width' : '220px', 'float' : 'left'});
     $('div.content').css('display', 'block');
 
-    <span class="code-comment">// Initially set opacity on thumbs and add
-</span>    <span class="code-comment">// additional styling <span class="code-keyword">for</span> hover effect on thumbs
-</span>    <span class="code-keyword">var</span> onMouseOutOpacity = 0.67;
+    // Initially set opacity on thumbs and add
+    // additional styling for hover effect on thumbs
+    var onMouseOutOpacity = 0.67;
     $('#thumbs ul.thumbs li').opacityrollover({
         mouseOutOpacity:   onMouseOutOpacity,
         mouseOverOpacity:  1.0,
@@ -532,48 +373,47 @@ $(<span class="code-quote">"a.zoom"</span>).fancybox();
         exemptionSelector: '.selected'
     });
 
-    <span class="code-comment">// Initialize Advanced Galleriffic Gallery
-</span>    <span class="code-keyword">var</span> gallery = $('#thumbs').galleriffic({
+    // Initialize Advanced Galleriffic Gallery
+    var gallery = $('#thumbs').galleriffic({
         delay:                     2500,
         numThumbs:                 15,
         preloadAhead:              10,
-        enableTopPager:            <span class="code-keyword">true</span>,
-        enableBottomPager:         <span class="code-keyword">true</span>,
+        enableTopPager:            true,
+        enableBottomPager:         true,
         maxPagesToShow:            7,
         imageContainerSel:         '#slideshow',
         controlsContainerSel:      '#controls',
         captionContainerSel:       '#caption',
         loadingContainerSel:       '#loading',
-        renderSSControls:          <span class="code-keyword">true</span>,
-        renderNavControls:         <span class="code-keyword">true</span>,
+        renderSSControls:          true,
+        renderNavControls:         true,
         playLinkText:              'Play Slideshow',
         pauseLinkText:             'Pause Slideshow',
         prevLinkText:              '&amp;lsaquo; Previous Photo',
         nextLinkText:              'Next Photo &amp;rsaquo;',
         nextPageLinkText:          'Next &amp;rsaquo;',
         prevPageLinkText:          '&amp;lsaquo; Prev',
-        enableHistory:             <span class="code-keyword">false</span>,
-        autoStart:                 <span class="code-keyword">false</span>,
-        syncTransitions:           <span class="code-keyword">true</span>,
+        enableHistory:             false,
+        autoStart:                 false,
+        syncTransitions:           true,
         defaultTransitionDuration: 900,
         onSlideChange:             function(prevIndex, nextIndex) {
-            <span class="code-comment">// '<span class="code-keyword">this</span>' refers to the gallery, which is an extension of $('#thumbs')
-</span>            <span class="code-keyword">this</span>.find('ul.thumbs').children()
+            // 'this' refers to the gallery, which is an extension of $('#thumbs')
+            this.find('ul.thumbs').children()
                 .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
                 .eq(nextIndex).fadeTo('fast', 1.0);
         },
         onPageTransitionOut:       function(callback) {
-            <span class="code-keyword">this</span>.fadeTo('fast', 0.0, callback);
+            this.fadeTo('fast', 0.0, callback);
         },
         onPageTransitionIn:        function() {
-            <span class="code-keyword">this</span>.fadeTo('fast', 1.0);
+            this.fadeTo('fast', 1.0);
         }
     });
 });
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h5>
 <a name="Cliche-galleriffic%2Fwrapper.tpl"></a>galleriffic/wrapper.tpl
 </h5>

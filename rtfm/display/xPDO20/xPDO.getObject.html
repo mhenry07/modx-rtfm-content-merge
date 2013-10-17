@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="xPDO.getObject-xPDO%3A%3AgetObject"></a>xPDO::getObject
 </h2>
@@ -15,60 +11,23 @@ The criteria can be a primary key value, an array of primary key values (for mul
 </p>
 
 <h2>
-<a name="xPDO.getObject-Syntax"></a>Syntax
+<a name="xPDO.getObject-Syntax" id="xPDO.getObject-Syntax"></a>Syntax
 </h2>
 
 <p>
 API Docs: <a href="http://api.modx.com/xpdo/xPDO.html#getObject" class="external-link" rel="nofollow">http://api.modx.com/xpdo/xPDO.html#getObject</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOObject|<span class="code-keyword">null</span> getObject (string $className, [xPDOCriteria|array|str|<span class="code-object">int</span> $criteria = <span class="code-keyword">null</span>], [bool|<span class="code-object">int</span> $cacheFlag = <span class="code-keyword">true</span>])
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.getObject-Example"></a>Example
-</h2>
-
-<h3>
-<a name="xPDO.getObject-SimplestExample%28BuiltinObjects%29"></a>Simplest Example (Built-in Objects)
-</h3>
-
-<p>
-You can use <b>getObject</b> to retrieve MODX resources (e.g. a page) by its page ID:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$page = $modx-&gt;getObject('modResource', 555);
+<pre class="brush: php">
+    $page = $modx-&gt;getObject('modResource', 555);
 $output = $page-&gt;get('pagetitle');
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>xPDO vs. MODX</b>
 <br />
 The <b>$modx</b> object extends xPDO, so for many situations (e.g. inside your Snippets), you can use the <b>$modx</b> object, even though most examples on this page use the <b>$xpdo</b> object.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -158,7 +117,7 @@ See <b>core/model/schema/modx.mysql.schema.xml</b> file for a full definition of
 </p>
 
 <p>
-If you need to retrieve other attributes for these objects (e.g. TVs for a page), then you may need to look at <a href="/display/xPDO20/xPDO.getObjectGraph" title="xPDO.getObjectGraph">getObjectGraph</a>
+If you need to retrieve other attributes for these objects (e.g. TVs for a page), then you may need to look at <a href="display/xPDO20/xPDO.getObjectGraph" title="xPDO.getObjectGraph">getObjectGraph</a>
 </p>
 
 <h3>
@@ -173,117 +132,58 @@ The simplest example is when you retrieve an object by its primary key.
 E.g. get a Box object with ID 134.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$box = $xpdo-&gt;getObject('Box', 134);
+<pre class="brush: php">
+    &lt;object class="modPropertySet" table="property_set" extends="xPDOSimpleObject"&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Back in your XML schema, if your object extends <em>xPDOSimpleObject</em>, the primary key column is assumed to be named "id".
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;object class=<span class="code-quote">"modPropertySet"</span> table=<span class="code-quote">"property_set"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-</pre>
-</div>
-</div>
-
 <p>
 Otherwise, your XML schema will tell you which column is the primary key via the <em>index alias="PRIMARY"</em> node, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- &lt;object class=<span class="code-quote">"MyObject"</span> table=<span class="code-quote">"my_object"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOObject"</span>&gt;
-                &lt;field key=<span class="code-quote">"object_id"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"11"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> index=<span class="code-quote">"pk"</span>  generated=<span class="code-quote">"<span class="code-keyword">native</span>"</span> /&gt;
-                &lt;!-- ... stuff here ... --&gt;
-                &lt;index alias=<span class="code-quote">"PRIMARY"</span> name=<span class="code-quote">"PRIMARY"</span> primary=<span class="code-quote">"<span class="code-keyword">true</span>"</span> unique=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
-                        &lt;column key=<span class="code-quote">"object_id"</span> collation=<span class="code-quote">"A"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> /&gt;
-                &lt;/index&gt;
-        &lt;/object&gt;
+<pre class="brush: php">
+    $box = $xpdo-&gt;getObject('Box', array('id'=&gt;134));
+
+    
 </pre>
-</div>
-</div>
-
 <h3>
-<a name="xPDO.getObject-MoreVerboseSimpleExample"></a>More Verbose Simple Example
-</h3>
-
-<p>
-You can also provide more verbose criteria to the 2nd parameter, e.g.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$box = $xpdo-&gt;getObject('Box', array('id'=&gt;134));
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="xPDO.getObject-OtherColumns"></a>Other Columns
+<a name="xPDO.getObject-OtherColumns" id="xPDO.getObject-OtherColumns"></a>Other Columns
 </h3>
 
 <p>
 You don't have to retrieve based on just the primary key, you can also search on other columns:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$box = $xpdo-&gt;getObject('Box', array('color'=&gt;'blue'));
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="xPDO.getObject-ComplexCriteria"></a>Complex Criteria
-</h3>
-
-<p>
-You can specify more complex selection criteria using an <a href="/display/xPDO20/xPDO.newQuery" title="xPDO.newQuery">xPDO query</a>:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $modx-&gt;newQuery('MyObject');
+<pre class="brush: php">
+    $query = $modx-&gt;newQuery('MyObject');
 $query-&gt;where( array('wheels:&gt;=' =&gt; 3) );
 $myobj = $xpdo-&gt;getObject('MyObject', $query);
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
-<a name="xPDO.getObject-SeeAlso"></a>See Also
+<a name="xPDO.getObject-SeeAlso" id="xPDO.getObject-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/xPDO20/Retrieving+Objects" title="Retrieving Objects">Retrieving Objects</a>
+<a href="display/xPDO20/Retrieving+Objects" title="Retrieving Objects">Retrieving Objects</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getObjectGraph" title="xPDO.getObjectGraph">xPDO.getObjectGraph</a>
+<a href="display/xPDO20/xPDO.getObjectGraph" title="xPDO.getObjectGraph">xPDO.getObjectGraph</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO.getCollection</a>
+<a href="display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO.getCollection</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getCollectionGraph" title="xPDO.getCollectionGraph">xPDO.getCollectionGraph</a>
+<a href="display/xPDO20/xPDO.getCollectionGraph" title="xPDO.getCollectionGraph">xPDO.getCollectionGraph</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getIterator" title="xPDO.getIterator">xPDO.getIterator</a>
+<a href="display/xPDO20/xPDO.getIterator" title="xPDO.getIterator">xPDO.getIterator</a>
 </li>
 
 <li>
@@ -291,10 +191,10 @@ $myobj = $xpdo-&gt;getObject('MyObject', $query);
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.query" title="xPDO.query">xPDO.query</a>
+<a href="display/xPDO20/xPDO.query" title="xPDO.query">xPDO.query</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO" title="xPDO">xPDO</a>
+<a href="display/xPDO20/xPDO" title="xPDO">xPDO</a>
 </li>
 </ul>

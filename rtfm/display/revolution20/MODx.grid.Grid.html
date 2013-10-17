@@ -1,61 +1,61 @@
 <div>
 <ul>
 <li>
-<a href='#MODx.grid.Grid-MODx.grid.Grid'>MODx.grid.Grid</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-MODx.grid.Grid">MODx.grid.Grid</a>
 </li>
 
 <li>
-<a href='#MODx.grid.Grid-MODExtSpecificParameters'>MODExt-Specific Parameters</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-MODExtSpecificParameters">MODExt-Specific Parameters</a>
 </li>
 
 <li>
-<a href='#MODx.grid.Grid-CustomEvents'>Custom Events</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-CustomEvents">Custom Events</a>
 </li>
 
 <li>
-<a href='#MODx.grid.Grid-OtherUniqueFunctions'>Other Unique Functions</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-OtherUniqueFunctions">Other Unique Functions</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#MODx.grid.Grid-CustomStoreExceptionMessages'>Custom Store Exception Messages</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-CustomStoreExceptionMessages">Custom Store Exception Messages</a>
 </li>
 
 <li>
-<a href='#MODx.grid.Grid-loadWindow'>loadWindow</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-loadWindow">loadWindow</a>
 </li>
 
 <li>
-<a href='#MODx.grid.Grid-remove'>remove</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-remove">remove</a>
 </li>
 
 <li>
-<a href='#MODx.grid.Grid-confirm'>confirm</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-confirm">confirm</a>
 </li>
 
 <li>
-<a href='#MODx.grid.Grid-refresh'>refresh</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-refresh">refresh</a>
 </li>
 
 <li>
-<a href='#MODx.grid.Grid-encodeModified'>encodeModified</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-encodeModified">encodeModified</a>
 </li>
 
 <li>
-<a href='#MODx.grid.Grid-encode'>encode</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-encode">encode</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#MODx.grid.Grid-SeeAlso'>See Also</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.grid.grid#MODx.grid.Grid-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
 <h2>
-<a name="MODx.grid.Grid-MODx.grid.Grid"></a>MODx.grid.Grid
+<a name="MODx.grid.Grid-MODx.grid.Grid" id="MODx.grid.Grid-MODx.grid.Grid"></a>MODx.grid.Grid
 </h2>
 
 <p>
@@ -69,466 +69,55 @@ When instantiating this into a tabbed interface, it's recommended to set prevent
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678079/grid.png?version=1&amp;modificationDate=1302187849000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/18678079/grid.png?version=1&amp;modificationDate=1302187849000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
 MODExt Grids are used to display tabular data, complete with a ColumnModel, top toolbar (tbar) and bottom toolbar (bbar). It has built-in support for paging as well. Grids are populated remotely from a connector request returning a JSON object. Displaying a right-click context menu for each row can easily be achieved by including a "menu" key for each data row in your processor:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-foreach( $items as $item ) {
-    $data[] = array(
-        'id'    =&gt; $obj-&gt;get( 'id' ),
-        'name'  =&gt; $obj-&gt;get( 'name' ),
-        'menu'  =&gt; array(
-            array(
-                'text'      =&gt; $modx-&gt;lexicon( 'my_lexicon' ),
-                'handler'   =&gt; '<span class="code-keyword">this</span>.myHandler'
-            )
-        )
-    );
-}
-</pre>
-</div>
-</div>
-
-<p>
-The above code would create a context menu for each item with the text being the lexicon key matching "my_lexicon," and the handler being the myHandler function registered to your Grid object.
-</p>
-
-<p>
-Menus may alternatively (and preferably) be created by extending your JS Grid and adding a "getMenu" method:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 getMenu: function() {
-    <span class="code-keyword">var</span> m = [];
+    var m = [];
     m.push({
         text: _('my_lexicon_key')
-        ,handler: <span class="code-keyword">this</span>.myHandler
+        ,handler: this.myHandler
     });
-    <span class="code-keyword">return</span> m;
+    return m;
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Returning an array of items in the getMenu method will automatically add the items to the context menu.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Revolution 2.0.x grids cannot simply return the array - they will need to call "this.addContextMenuItem(m);" before the end of the function. Returning the array was added in 2.1.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="MODx.grid.Grid-MODExtSpecificParameters"></a>MODExt-Specific Parameters
+<a name="MODx.grid.Grid-MODExtSpecificParameters" id="MODx.grid.Grid-MODExtSpecificParameters"></a>MODExt-Specific Parameters
 </h2>
 
 <p>
 First off, MODx.grid.Grid pulls its data remotely, via the "url" config parameter. It loads the baseParams into the call as well, which defaults to:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-baseParams: { action: 'getList' }
-</pre>
-</div>
-</div>
-
-<p>
-You can override the baseParams in your config parameter.
-</p>
-
-<p>
-MODx.grid.Grid adds a few unique parameters not found in typical Ext.grid.Grid objects:
-</p>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Name
-</th>
-<th class='confluenceTh'>
-Description
-</th>
-<th class='confluenceTh'>
-Default
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-url
-</td>
-<td class='confluenceTd'>
-The URL of the connector to load this grid from.
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-paging
-</td>
-<td class='confluenceTd'>
-If true, will enable paging and add the PagingToolbar automatically to the bottom of the grid.
-</td>
-<td class='confluenceTd'>
-true
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-pageSize
-</td>
-<td class='confluenceTd'>
-The number of items to page by, if paging == true. Defaults to the System Setting of "default_per_page", which is 20.
-</td>
-<td class='confluenceTd'>
-20
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-pageStart
-</td>
-<td class='confluenceTd'>
-The index to start the paging on.
-</td>
-<td class='confluenceTd'>
-0
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-showPerPage
-</td>
-<td class='confluenceTd'>
-Whether or not to show the "Per Page" textbox. Defaults to true.
-</td>
-<td class='confluenceTd'>
-true
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-pagingItems
-</td>
-<td class='confluenceTd'>
-Any items to add to the right of the "Per Page" textbox on the paging toolbar. Useful for adding extra buttons.
-</td>
-<td class='confluenceTd'>
-[]
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-grouping
-</td>
-<td class='confluenceTd'>
-If true, will automatically enable grouping on this grid.
-</td>
-<td class='confluenceTd'>
-false
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-groupBy
-</td>
-<td class='confluenceTd'>
-The column to group by. Note that the column must be in the column model.
-</td>
-<td class='confluenceTd'>
-name
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-pluralText
-</td>
-<td class='confluenceTd'>
-The text for a plural amount of items in the grouped column, ie: "Rows"
-</td>
-<td class='confluenceTd'>
-Records
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-singleText
-</td>
-<td class='confluenceTd'>
-The text for a single amount of items in the grouped column, ie: "Row"
-</td>
-<td class='confluenceTd'>
-Record
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-sortBy
-</td>
-<td class='confluenceTd'>
-The default column to sort by when grouping and remoteSort are true.
-</td>
-<td class='confluenceTd'>
-id
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-sortDir
-</td>
-<td class='confluenceTd'>
-The default column to sort by when grouping and remoteSort are true.
-</td>
-<td class='confluenceTd'>
-ASC
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-preventRender
-</td>
-<td class='confluenceTd'>
-Prevent the grid from rendering. Useful when putting the grid in panels or tabs.
-</td>
-<td class='confluenceTd'>
-1
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-autosave
-</td>
-<td class='confluenceTd'>
-If true, will automatically fire the 'updateFromGrid' processor (or the processor in the saveUrl config param) for this connector when doing in-line editing in the grid.
-</td>
-<td class='confluenceTd'>
-false
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-saveUrl
-</td>
-<td class='confluenceTd'>
-The connector URL to call when inline-editing with autosave on.
-</td>
-<td class='confluenceTd'>
-The value of config.url
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-save_action
-</td>
-<td class='confluenceTd'>
-The processor action to call when inline-editing with autosave on.
-</td>
-<td class='confluenceTd'>
-updateFromGrid
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-saveParams
-</td>
-<td class='confluenceTd'>
-A JS object of parameters to also send to the saveUrl when auto-saving or when using MODx.grid.Grid's remove method.
-</td>
-<td class='confluenceTd'>
-{}
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-save_callback
-</td>
-<td class='confluenceTd'>
-After auto-saving, run this method.
-</td>
-<td class='confluenceTd'>
-null
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-preventSaveRefresh
-</td>
-<td class='confluenceTd'>
-If autosave is true, after saving, will prevent the grid from refreshing. Makes for a more seamless editing experience.
-</td>
-<td class='confluenceTd'>
-1
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-primaryKey
-</td>
-<td class='confluenceTd'>
-If your grid items have a primary key that's not ID, set it here.
-</td>
-<td class='confluenceTd'>
-id
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-storeId
-</td>
-<td class='confluenceTd'>
-A custom ID to give the store for this grid. Will default to a unique Ext ID.
-</td>
-<td class='confluenceTd'>
-Ext.id()
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<p>
-For a complete list of all parameters not listed here for grids, see the <a href="http://sencha.com" class="external-link" rel="nofollow">ExtJS</a> documentation.
-</p>
-
-<h2>
-<a name="MODx.grid.Grid-CustomEvents"></a>Custom Events
-</h2>
-
-<p>
-MODx.grid.Grid adds a few extra events not found in Ext.grid.Grid objects:
-</p>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Name
-</th>
-<th class='confluenceTh'>
-Description
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-beforeRemoveRow
-</td>
-<td class='confluenceTd'>
-Fires before a row is removed when calling the remove() method on the grid (usually done in a context menu)
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-afterRemoveRow
-</td>
-<td class='confluenceTd'>
-Fires after a row is removed when calling the remove() method on the grid (usually done in a context menu)
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-afterAutoSave
-</td>
-<td class='confluenceTd'>
-Fires after an inline-edit save is done, if autosave is set to true.
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h2>
-<a name="MODx.grid.Grid-OtherUniqueFunctions"></a>Other Unique Functions
-</h2>
-
-<p>
-MODExt grids come with quite a few other features.
-</p>
-
-<h4>
-<a name="MODx.grid.Grid-CustomStoreExceptionMessages"></a>Custom Store Exception Messages
-</h4>
-
-<p>
-If the JSON returned is not a valid data store collection, and contains a "message" parameter, this will be set to the emptyText for the grid and displayed as the first row of the grid. A common usage is to use $modx-&gt;error-&gt;failure('Message here') in your processors.
-</p>
-
-<h4>
-<a name="MODx.grid.Grid-loadWindow"></a>loadWindow
-</h4>
-
-<p>
-Automatically load and show a window of any given xtype:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-grid.loadWindow({
-  xtype: 'my-xtype-<span class="code-keyword">for</span>-the-window'
-  ,blankValues: <span class="code-keyword">true</span> /* blanks the values of the window, good <span class="code-keyword">for</span> New <span class="code-object">Object</span> windows, set <span class="code-keyword">false</span> <span class="code-keyword">for</span> Update windows */
+<pre class="brush: php">
+    grid.loadWindow({
+  xtype: 'my-xtype-for-the-window'
+  ,blankValues: true /* blanks the values of the window, good for New Object windows, set false for Update windows */
 });
+    
 </pre>
-</div>
-</div>
-
 <p>
-This will, if blankValues is not set to true, automatically pass in the currently selected row's data into the Window as well, setting its values in the form (assuming your window extends <a href="/display/revolution20/MODx.Window" title="MODx.Window">MODx.Window</a>.)
+This will, if blankValues is not set to true, automatically pass in the currently selected row's data into the Window as well, setting its values in the form (assuming your window extends <a href="display/revolution20/MODx.Window" title="MODx.Window">MODx.Window</a>.)
 </p>
 
 <h4>
-<a name="MODx.grid.Grid-remove"></a>remove
+<a name="MODx.grid.Grid-remove" id="MODx.grid.Grid-remove"></a>remove
 </h4>
 
 <p>
@@ -539,36 +128,16 @@ MODx.grid.Grid comes with a custom method named 'remove', which automatically fi
 The method takes one parameter - text - which is the text to display in the confirm dialog that prompts the user if they want to remove the row before actually doing so. The beforeRemoveRow event is fired before the confirm dialog is loaded.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-grid.remove(<span class="code-quote">"Are you sure you want to remove <span class="code-keyword">this</span> Item?"</span>);
+<pre class="brush: php">
+    grid.confirm("approve","Are you sure you want to approve this article?");
+    
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="MODx.grid.Grid-confirm"></a>confirm
-</h4>
-
-<p>
-The confirm method is a custom method that allows you to pop up a confirmation dialog before executing an action:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-grid.confirm(<span class="code-quote">"approve"</span>,<span class="code-quote">"Are you sure you want to approve <span class="code-keyword">this</span> article?"</span>);
-</pre>
-</div>
-</div>
-
 <p>
 Similar to remove, it will take the ID/primaryKey of the currently selected row, and send it through to the processor action specified in the first parameter to the confirm method. Once finished, it will refresh the grid.
 </p>
 
 <h4>
-<a name="MODx.grid.Grid-refresh"></a>refresh
+<a name="MODx.grid.Grid-refresh" id="MODx.grid.Grid-refresh"></a>refresh
 </h4>
 
 <p>
@@ -576,7 +145,7 @@ A custom method that will refresh the grid whenever fired.
 </p>
 
 <h4>
-<a name="MODx.grid.Grid-encodeModified"></a>encodeModified
+<a name="MODx.grid.Grid-encodeModified" id="MODx.grid.Grid-encodeModified"></a>encodeModified
 </h4>
 
 <p>
@@ -584,7 +153,7 @@ This will return a JSON object of all modified (dirty) rows and fields. Useful i
 </p>
 
 <h4>
-<a name="MODx.grid.Grid-encode"></a>encode
+<a name="MODx.grid.Grid-encode" id="MODx.grid.Grid-encode"></a>encode
 </h4>
 
 <p>
@@ -592,19 +161,5 @@ This will return a JSON object of all rows.
 </p>
 
 <h2>
-<a name="MODx.grid.Grid-SeeAlso"></a>See Also
+<a name="MODx.grid.Grid-SeeAlso" id="MODx.grid.Grid-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678079" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678078" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FMODx.grid.Grid" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678078" />
-</fieldset>
-</fieldset>
-</div>

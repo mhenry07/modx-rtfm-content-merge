@@ -1,39 +1,25 @@
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 This feature is available since v.1.0.0-pl
-</td>
-</tr>
-</table>
 </div>
 
 <div>
 <ul>
 <li>
-<a href='#FileDownloadR.Plugins-Events'>Events</a>
+<a href="extras/revo/filedownload-r/filedownload-r.plugins#FileDownloadR.Plugins-Events">Events</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.Plugins-Properties'>Properties</a>
+<a href="extras/revo/filedownload-r/filedownload-r.plugins#FileDownloadR.Plugins-Properties">Properties</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.Plugins-APIs'>APIs</a>
+<a href="extras/revo/filedownload-r/filedownload-r.plugins#FileDownloadR.Plugins-APIs">APIs</a>
 </li>
 </ul>
 </div>
 
 <h2>
-<a name="FileDownloadR.Plugins-Events"></a>Events
+<a name="FileDownloadR.Plugins-Events" id="FileDownloadR.Plugins-Events"></a>Events
 </h2>
 
 <p>
@@ -78,113 +64,37 @@ After the file is downloaded
 The complete reference actually is written directly in the <b>core/components/filedownload/plugins/filedownloadplugin.events.php</b> file, including their available properties and the expected results.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-
-$events = array(
-    'OnLoad' =&gt; array(
-        'properties' =&gt; array(),
-        'returnType' =&gt; array(
-            NULL
-        )
-    ),
-    'BeforeDirOpen' =&gt; array(
-        'properties' =&gt; array(
-            'dirPath'
-        ),
-        'returnType' =&gt; array(
-            NULL,
-            FALSE,
-            '<span class="code-keyword">continue</span>'
-        )
-    ),
-    'AfterDirOpen' =&gt; array(
-        'properties' =&gt; array(
-            'dirPath',
-            'contents'
-        ),
-        'returnType' =&gt; array(
-            NULL,
-            FALSE,
-            '<span class="code-keyword">continue</span>'
-        )
-    ),
-    'BeforeFileDownload' =&gt; array(
-        'properties' =&gt; array(
-            'hash',
-            'ctx',
-            'filePath',
-            'count'
-        ),
-        'returnType' =&gt; array(
-            NULL,
-            FALSE
-        )
-    ),
-    'AfterFileDownload' =&gt; array(
-        'properties' =&gt; array(
-            'hash',
-            'ctx',
-            'filePath',
-            'count'
-        ),
-        'returnType' =&gt; array(
-            NULL
-        )
-    ),
-);
-<span class="code-keyword">return</span> $events;
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="FileDownloadR.Plugins-Properties"></a>Properties
-</h2>
-
-<p>
-<b>&amp;plugins</b>
-</p>
-
-<p>
-To call the plugins, you need to call it inside the snippet, as a JSON format, eg:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[!FileDownload?
 &amp;getDir=`assets/files`
 &amp;plugins=`[
     {
-        <span class="code-quote">"name"</span>:<span class="code-quote">"[[++core_path]]components/filedownload/plugins/formit.formsave.plugin.php"</span>
-        ,<span class="code-quote">"event"</span>:<span class="code-quote">"OnLoad"</span>
-        ,<span class="code-quote">"strict"</span>:<span class="code-keyword">true</span>
+        "name":"[[++core_path]]components/filedownload/plugins/formit.formsave.plugin.php"
+        ,"event":"OnLoad"
+        ,"strict":true
     },{
-        <span class="code-quote">"name"</span>:<span class="code-quote">"[[++core_path]]components/filedownload/plugins/formit.formsave.plugin.php"</span>
-        ,<span class="code-quote">"event"</span>:<span class="code-quote">"AfterFileDownload"</span>
+        "name":"[[++core_path]]components/filedownload/plugins/formit.formsave.plugin.php"
+        ,"event":"AfterFileDownload"
     },{
-        <span class="code-quote">"name"</span>:<span class="code-quote">"FileDownloadEmailPlugin"</span>
-        ,<span class="code-quote">"event"</span>:<span class="code-quote">"AfterFileDownload"</span>
+        "name":"FileDownloadEmailPlugin"
+        ,"event":"AfterFileDownload"
     }
 ]`
 &amp;emailProps=`{
-    <span class="code-quote">"emailTpl"</span>:<span class="code-quote">"FileDownloadEmailChunk"</span>,
-    <span class="code-quote">"emailSubject"</span>:<span class="code-quote">"New Downloader"</span>,
-    <span class="code-quote">"emailTo"</span>:<span class="code-quote">"your@email.com"</span>,
-    <span class="code-quote">"emailCC"</span>:<span class="code-quote">"your@other.email.com"</span>,
-    <span class="code-quote">"emailBCC"</span>:<span class="code-quote">"your@secret.email.com"</span>,
-    <span class="code-quote">"emailBCCName"</span>:<span class="code-quote">"secret"</span>
+    "emailTpl":"FileDownloadEmailChunk",
+    "emailSubject":"New Downloader",
+    "emailTo":"your@email.com",
+    "emailCC":"your@other.email.com",
+    "emailBCC":"your@secret.email.com",
+    "emailBCCName":"secret"
 }`
 ]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
-In this example, I'm using 2 default plugins for examples, <b><a href="/display/ADDON/FormSave" title="FormSave">FormSave</a></b> (as file based) and <b>Email</b> (as a snippet), which are both depend on <a href="/display/ADDON/FormIt" title="FormIt">FormIt</a>.
+In this example, I'm using 2 default plugins for examples, <b><a href="display/ADDON/FormSave" title="FormSave">FormSave</a></b> (as file based) and <b>Email</b> (as a snippet), which are both depend on <a href="display/ADDON/FormIt" title="FormIt">FormIt</a>.
 <br />
 These plugins will do:
 </p>
@@ -202,7 +112,7 @@ After the file is downloaded, store the information into FormSave, and then send
 </ul>
 
 <p>
-The email's properties are using the <a href="/display/ADDON/FormIt" title="FormIt">FormIt</a>'s properties, because it IS the <a href="/display/ADDON/FormIt" title="FormIt">FormIt</a>'s hook.
+The email's properties are using the <a href="display/ADDON/FormIt" title="FormIt">FormIt</a>'s properties, because it IS the <a href="display/ADDON/FormIt" title="FormIt">FormIt</a>'s hook.
 </p>
 
 <p>
@@ -234,7 +144,7 @@ Multiple plugins and events must be called repeatedly, because they have differe
 </p>
 
 <h2>
-<a name="FileDownloadR.Plugins-APIs"></a>APIs
+<a name="FileDownloadR.Plugins-APIs" id="FileDownloadR.Plugins-APIs"></a>APIs
 </h2>
 
 <p>

@@ -1,47 +1,33 @@
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 <b>Warning</b>
 <br />
 This is an unfinished first draft...
-</td>
-</tr>
-</table>
 </div>
 
 <div>
 <ul>
 <li>
-<a href='#YAMSTechnicalDetails-YAMSTechnicalDetails'>YAMS Technical Details</a>
+<a href="extras/evo/yams/yams-english-documentation/yams-technical-details#YAMSTechnicalDetails-YAMSTechnicalDetails">YAMS Technical Details</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#YAMSTechnicalDetails-YAMSConstructs'>YAMS Constructs</a>
+<a href="extras/evo/yams/yams-english-documentation/yams-technical-details#YAMSTechnicalDetails-YAMSConstructs">YAMS Constructs</a>
 </li>
 
 <li>
-<a href='#YAMSTechnicalDetails-YAMSParser'>YAMS Parser</a>
+<a href="extras/evo/yams/yams-english-documentation/yams-technical-details#YAMSTechnicalDetails-YAMSParser">YAMS Parser</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#YAMSTechnicalDetails-PreParse'>Pre-Parse</a>
+<a href="extras/evo/yams/yams-english-documentation/yams-technical-details#YAMSTechnicalDetails-PreParse">Pre-Parse</a>
 </li>
 
 <li>
-<a href='#YAMSTechnicalDetails-PostParse'>Post-Parse</a>
+<a href="extras/evo/yams/yams-english-documentation/yams-technical-details#YAMSTechnicalDetails-PostParse">Post-Parse</a>
 </li>
 </ul>
 </li>
@@ -50,9 +36,9 @@ This is an unfinished first draft...
 </ul>
 </div>
 
-<h1>
-<a name="YAMSTechnicalDetails-YAMSTechnicalDetails"></a>YAMS Technical Details
-</h1>
+<h2>
+<a name="YAMSTechnicalDetails-YAMSTechnicalDetails" id="YAMSTechnicalDetails-YAMSTechnicalDetails"></a>YAMS Technical Details
+</h2>
 
 <p>
 YAMS works by embedding the various language versions of each bit of multilingual content in the document using various YAMS Constructs:
@@ -82,7 +68,7 @@ For cacheable documents containing only cacheable snippet calls or uncacheable s
 </p>
 
 <h2>
-<a name="YAMSTechnicalDetails-YAMSConstructs"></a>YAMS Constructs
+<a name="YAMSTechnicalDetails-YAMSConstructs" id="YAMSTechnicalDetails-YAMSConstructs"></a>YAMS Constructs
 </h2>
 
 <p>
@@ -112,9 +98,7 @@ Description
 YAMS In Language Block
 </th>
 <td class='confluenceTd'>
-Forces the content of the <tt>yams-in</tt> block to be displayed as if the current language is that specified by the language group identifier <tt><em>langId</em></tt>.
-<br class="atl-forced-newline" />
-Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block. This allows blocks to be nested. <em>langId</em> is a language group id.
+Forces the content of the <tt>yams-in</tt> block to be displayed as if the current language is that specified by the language group identifier <tt><em>langId</em></tt>. Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block. This allows blocks to be nested. <em>langId</em> is a language group id.
 </td>
 </tr>
 
@@ -126,11 +110,7 @@ Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be un
 YAMS Select Language Block
 </th>
 <td class='confluenceTd'>
-This includes multiple language versions of content in the page. Only the current language version is displayed (except if it is within a <tt>yams-repeat</tt> block – see below.) The <tt>pagetitle</tt>, <tt>longtitle</tt>, <tt>description</tt>, <tt>introtext</tt>, <tt>menutitle</tt> and <tt>content</tt> document variables are automatically expanded into this form for the currently defined active languages. For any other content (chunks, tvs, etc.) that need to be expanded into multi-language form a YAMS snippet call can be used to generate the relevant construct.
-<br class="atl-forced-newline" />
-When a Yams Select block is being parsed to select the correct language content the current language is taken to be context dependent. Within Yams In blocks (and branches of Yams Repeat blocks which ultimately resolve to Yams In blocks) the current language switches to the specified language.
-<br class="atl-forced-newline" />
-Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block. This allows blocks to be nested. <tt><em>langId</em></tt> is a language group id.
+This includes multiple language versions of content in the page. Only the current language version is displayed (except if it is within a <tt>yams-repeat</tt> block – see below.) The <tt>pagetitle</tt>, <tt>longtitle</tt>, <tt>description</tt>, <tt>introtext</tt>, <tt>menutitle</tt> and <tt>content</tt> document variables are automatically expanded into this form for the currently defined active languages. For any other content (chunks, tvs, etc.) that need to be expanded into multi-language form a YAMS snippet call can be used to generate the relevant construct. When a Yams Select block is being parsed to select the correct language content the current language is taken to be context dependent. Within Yams In blocks (and branches of Yams Repeat blocks which ultimately resolve to Yams In blocks) the current language switches to the specified language. Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block. This allows blocks to be nested. <tt><em>langId</em></tt> is a language group id.
 </td>
 </tr>
 
@@ -154,9 +134,7 @@ This is the same as the Yams Select block, except that the current language is n
 YAMS Repeat Language Block 1
 </th>
 <td class='confluenceTd'>
-The <tt>yams-repeat</tt> block will repeat any content once for each active language and is similar to specifying one <tt>yams-in</tt> block for each active language. The current sub-block is optional and is to allow an alternative template to be used with the current language content.
-<br class="atl-forced-newline" />
-Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block.
+The <tt>yams-repeat</tt> block will repeat any content once for each active language and is similar to specifying one <tt>yams-in</tt> block for each active language. The current sub-block is optional and is to allow an alternative template to be used with the current language content. Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block.
 </td>
 </tr>
 
@@ -176,7 +154,7 @@ This variation on the YAMS Multi-Language Block will only repeat for the specifi
 </div>
 
 <h2>
-<a name="YAMSTechnicalDetails-YAMSParser"></a>YAMS Parser
+<a name="YAMSTechnicalDetails-YAMSParser" id="YAMSTechnicalDetails-YAMSParser"></a>YAMS Parser
 </h2>
 
 <p>
@@ -184,7 +162,7 @@ The YAMS parser has two phases. It does pre-parsing, which does the expansion of
 </p>
 
 <h3>
-<a name="YAMSTechnicalDetails-PreParse"></a>Pre-Parse
+<a name="YAMSTechnicalDetails-PreParse" id="YAMSTechnicalDetails-PreParse"></a>Pre-Parse
 </h3>
 
 <p>
@@ -231,7 +209,7 @@ Once the parser has arrived here it hands control back to the standard MODx pars
 </p>
 
 <h3>
-<a name="YAMSTechnicalDetails-PostParse"></a>Post-Parse
+<a name="YAMSTechnicalDetails-PostParse" id="YAMSTechnicalDetails-PostParse"></a>Post-Parse
 </h3>
 
 <p>

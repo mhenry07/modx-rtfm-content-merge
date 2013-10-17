@@ -1,43 +1,39 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#MODxPHPCodingStandards-General'>General</a>
+<a href="community/contribute/becoming-a-contributor/modx-php-coding-standards#MODxPHPCodingStandards-General">General</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Parenthesis'>Parenthesis</a>
+<a href="community/contribute/becoming-a-contributor/modx-php-coding-standards#MODxPHPCodingStandards-Parenthesis">Parenthesis</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Classes'>Classes</a>
+<a href="community/contribute/becoming-a-contributor/modx-php-coding-standards#MODxPHPCodingStandards-Classes">Classes</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Variables'>Variables</a>
+<a href="community/contribute/becoming-a-contributor/modx-php-coding-standards#MODxPHPCodingStandards-Variables">Variables</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-FunctionArgumentsandClassVariables'>Function Arguments and Class Variables</a>
+<a href="community/contribute/becoming-a-contributor/modx-php-coding-standards#MODxPHPCodingStandards-FunctionArgumentsandClassVariables">Function Arguments and Class Variables</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Arrays'>Arrays</a>
+<a href="community/contribute/becoming-a-contributor/modx-php-coding-standards#MODxPHPCodingStandards-Arrays">Arrays</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Constants'>Constants</a>
+<a href="community/contribute/becoming-a-contributor/modx-php-coding-standards#MODxPHPCodingStandards-Constants">Constants</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-FileStructure'>File Structure</a>
+<a href="community/contribute/becoming-a-contributor/modx-php-coding-standards#MODxPHPCodingStandards-FileStructure">File Structure</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Prefixing'>Prefixing</a>
+<a href="community/contribute/becoming-a-contributor/modx-php-coding-standards#MODxPHPCodingStandards-Prefixing">Prefixing</a>
 </li>
 </ul>
 </div>
@@ -80,48 +76,17 @@ null, true and false should always be lowercase.
 </li>
 
 <li>Do not use parenthesis in return statements when it's not necessary. Example:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> ($test) {
+
+<pre class="brush: php">
+    class modFactor {
+    public $publicVar;
+    private $_privateVar;
+    private function _privateFunc() { }
+    public function publicFunc() { }
 }
-<span class="code-keyword">while</span> ($test == $other) {
-}
-array_push($one,$two);
-<span class="code-keyword">return</span> $test;
+
+    
 </pre>
-</div>
-</div>
-</li>
-
-<li>Do <b>not</b> use parenthesis when using include, require, include_once, and require_once.
-</li>
-</ul>
-
-<h2>
-<a name="MODxPHPCodingStandards-Classes" id="MODxPHPCodingStandards-Classes"></a>Classes
-</h2>
-
-<ul>
-<li>All ''core'' classnames, unless stated otherwise for special conditions, will be prefixed with the "mod" prefix: ie, modChunk, modTemplate, etc.
-</li>
-
-<li>All method names will be camelCase and will start with a lowercase letter.
-</li>
-
-<li>All private methods and variables must be prefixed with the underscore _ character.
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-class modFactor {
-    <span class="code-keyword">public</span> $publicVar;
-    <span class="code-keyword">private</span> $_privateVar;
-    <span class="code-keyword">private</span> function _privateFunc() { }
-    <span class="code-keyword">public</span> function publicFunc() { }
-}
-</pre>
-</div>
-</div>
 </li>
 </ul>
 
@@ -147,42 +112,12 @@ Note these are not function arguments.
 
 <ul>
 <li>The first letter is lowercase, rest are camelCase. Example:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-class modFactor {
-    <span class="code-keyword">public</span> function testFunc($testVar, array &amp;$anotherTest = array()) {
-        $<span class="code-keyword">this</span>-&gt;_privateVar = $testVar;
-        $local_variable =&amp; $anotherTest;
-    }
-}
+
+<pre class="brush: php">
+    $_lang['chunk_create_text'] = 'Test';
+
+    
 </pre>
-</div>
-</div>
-</li>
-</ul>
-
-<h2>
-<a name="MODxPHPCodingStandards-Arrays" id="MODxPHPCodingStandards-Arrays"></a>Arrays
-</h2>
-
-<ul>
-<li>Array index names use the underscore _, not the dash as their separator. This prevents errors with magic_quotes.
-</li>
-
-<li>Array index names are always lowercase. Spaces are represented by an underscore.
-</li>
-
-<li>Array index names are always encapsulated with single quotes.
-<br />
-Example:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$_lang['chunk_create_text'] = 'Test';
-</pre>
-</div>
-</div>
 </li>
 </ul>
 
@@ -228,6 +163,6 @@ $_lang['mycomponent.welcome_message'] = 'Welcome!';
 <li>Always prefix class names; eg: 'finBank', 'finTransaction', etc.
 </li>
 
-<li>Always prefix <a href="/display/revolution20/Chunks" title="Chunks">Chunk</a> names; eg: 'finStatement', 'finDeposit'
+<li>Always prefix <a href="display/revolution20/Chunks" title="Chunks">Chunk</a> names; eg: 'finStatement', 'finDeposit'
 </li>
 </ul>

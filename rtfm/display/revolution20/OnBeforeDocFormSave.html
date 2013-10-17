@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="OnBeforeDocFormSave-Event%3AOnBeforeDocFormSave"></a>Event: OnBeforeDocFormSave
 </h2>
@@ -16,93 +12,65 @@ Service: 1 - Parser Service Events
 Group: Documents
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Be Careful with TVs</b>
+<div class="info">
+<strong>Be Careful with TVs</strong>
 <br />
-Changing or inserting TV values is better done <a href="/display/revolution20/OnDocFormSave" title="OnDocFormSave">OnDocFormSave</a> as the process for saving TVs during onBeforeDocFormSave is more complicated due to TV values being rendered.
-</td>
-</tr>
-</table>
+Changing or inserting TV values is better done <a href="display/revolution20/OnDocFormSave" title="OnDocFormSave">OnDocFormSave</a> as the process for saving TVs during onBeforeDocFormSave is more complicated due to TV values being rendered.
 </div>
 
 <p>
-Plugins tied to this event should return <b>null</b> on success. Any value returned will be sent to the logs as an error (but the page will still be saved).
+Plugins tied to this event should return <strong>null</strong> on success. Any value returned will be sent to the logs as an error (but the page will still be saved).
 </p>
 
 <p>
-You may also pass a message to the $modx-&gt;event-&gt;output() function and this will be displayed to the user in a modal pop-up window. If you pass a value here, <b>the page will <em>not</em> be saved!</b>
+You may also pass a message to the $modx-&gt;event-&gt;output() function and this will be displayed to the user in a modal pop-up window. If you pass a value here, <strong>the page will <em>not</em> be saved!</strong>
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Text Only</b>
+<div class="warning">
+<strong>Text Only</strong>
 <br />
 If you pass a value to the $modx-&gt;event-&gt;output(), it must be text only! HTML tags are not allowed: they will cause the modal window to hang.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="OnBeforeDocFormSave-EventParameters"></a>Event Parameters
+<a name="OnBeforeDocFormSave-EventParameters" id="OnBeforeDocFormSave-EventParameters"></a>Event Parameters
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<div class="table-wrap">
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Name
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 mode
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Either 'new' or 'upd', depending on the circumstances.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 resource
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 A reference to the modResource object.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 id
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The ID of the Resource. Will be 0 for new Resources.
 </td>
 </tr>
@@ -111,68 +79,44 @@ The ID of the Resource. Will be 0 for new Resources.
 </div>
 
 <h2>
-<a name="OnBeforeDocFormSave-Examples"></a>Examples
+<a name="OnBeforeDocFormSave-Examples" id="OnBeforeDocFormSave-Examples"></a>Examples
 </h2>
 
 <h3>
-<a name="OnBeforeDocFormSave-RequireaField"></a>Require a Field
+<a name="OnBeforeDocFormSave-RequireaField" id="OnBeforeDocFormSave-RequireaField"></a>Require a Field
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> (empty($resource-&gt;longtitle)) {
-        $modx-&gt;event-&gt;output('<span class="code-object">Long</span> title is required!'); <span class="code-comment">// to modal window
-</span> <span class="code-keyword">return</span> '[MyPlugin] Failed to save page id '.$id.' due to missing longtitle'); <span class="code-comment">// to the error log
-</span>}
+<pre class="brush: php">
+if (empty($resource-&gt;longtitle)) {
+    $modx-&gt;event-&gt;output('Long title is required!'); // to modal window
+    return '[MyPlugin] Failed to save page id '.$id.' due to missing longtitle'); // to the error log
+}
 </pre>
-</div>
-</div>
-
 <h3>
-<a name="OnBeforeDocFormSave-CalculateaFieldValue"></a>Calculate a Field Value
+Calculate a Field Value
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> ($resource-&gt;get('parent') == 123) {
+<pre class="brush: php">
+if ($resource-&gt;get('parent') == 123) {
         $resource-&gt;set('template') = 4;
 }
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Saving Happens Automatically</b>
+<div class="info">
+<strong>Saving Happens Automatically</strong>
 <br />
 No need to run the <tt>$resource-&gt;save()</tt> method as that happens automatically.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="OnBeforeDocFormSave-SeeAlso"></a>See Also
+<a name="OnBeforeDocFormSave-SeeAlso" id="OnBeforeDocFormSave-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/System+Events" title="System Events">System Events</a>
+<a href="display/revolution20/System+Events" title="System Events">System Events</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Plugins" title="Plugins">Plugins</a>
+<a href="display/revolution20/Plugins" title="Plugins">Plugins</a>
 </li>
 </ul>

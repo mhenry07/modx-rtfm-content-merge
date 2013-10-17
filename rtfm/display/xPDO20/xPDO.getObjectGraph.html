@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="xPDO.getObjectGraph-xPDO%3A%3AgetObjectGraph"></a>xPDO::getObjectGraph
 </h2>
@@ -18,90 +14,36 @@ The graph can be an array or JSON object that describes relations from the speci
 The criteria can be a primary key value, an array of primary key values (for multiple primary key objects) or an xPDOCriteria object. If no $criteria parameter is specified, no class is found, or an object cannot be located by the supplied criteria, null is returned.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>Hot Models</b>
 <br />
 In order to use <b>getObjectGraph</b> effectively, you need to understand the data model behind your object. It pays to keep one finger on the XML schema file that defines your objects and their relations. If you attempt to join on another object when that relationship does not exist, this method will fail!
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="xPDO.getObjectGraph-Syntax"></a>Syntax
+<a name="xPDO.getObjectGraph-Syntax" id="xPDO.getObjectGraph-Syntax"></a>Syntax
 </h2>
 
 <p>
 API Docs: <a href="http://api.modx.com/xpdo/xPDO.html#getObjectGraph" class="external-link" rel="nofollow">http://api.modx.com/xpdo/xPDO.html#getObjectGraph</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOObject|<span class="code-keyword">null</span> getObjectGraph (string $className, array|str $graph, [xPDOCriteria|array|str|<span class="code-object">int</span> $criteria = <span class="code-keyword">null</span>], [bool|<span class="code-object">int</span> $cacheFlag = <span class="code-keyword">true</span>])
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.getObjectGraph-ExampleusingTemplateVariables"></a>Example using Template Variables
-</h2>
-
-<p>
-Before you try using this method to walk through your custom data model, here's an example of how it might be used to retrieve built-in MODX objects.
-</p>
-
-<h3>
-<a name="xPDO.getObjectGraph-ExampleofwhatNOTtodo"></a>Example of what NOT to do
-</h3>
-
-<p>
-You may be tempted to retrieve MODX Template Variable values by using <b>getObjectGraph</b>:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// DO NOT DO THIS!!!  TV's have some special methods
-</span>$page = $modx-&gt;getObjectGraph('modResource', '{<span class="code-quote">"TemplateVarResources"</span>:{}}',123);
+<pre class="brush: php">
+    
+// DO NOT DO THIS!!!  TV's have some special methods
+$page = $modx-&gt;getObjectGraph('modResource', '{"TemplateVarResources":{}}',123);
 $output = '';
 foreach ($page-&gt;TemplateVarResources as $tv) {
-    $output .= $tv-&gt;get('value');  <span class="code-comment">// or <span class="code-keyword">do</span> something <span class="code-keyword">else</span> with <span class="code-keyword">this</span> value
-</span>}
-<span class="code-keyword">return</span> $output;
+    $output .= $tv-&gt;get('value');  // or do something else with this value
+}
+return $output;
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>Heads Up!</b>
 <br />
 It's critical to understand that even though you may think you are retrieving a single object, that object may be joined to a <em>collection</em> of related objects.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -109,41 +51,22 @@ You'll notice that if you use the above example to get your TV values, you'll so
 </p>
 
 <h3>
-<a name="xPDO.getObjectGraph-UsethegetTVValueHelperFunction"></a>Use the getTVValue Helper Function
+<a name="xPDO.getObjectGraph-UsethegetTVValueHelperFunction" id="xPDO.getObjectGraph-UsethegetTVValueHelperFunction"></a>Use the getTVValue Helper Function
 </h3>
 
 <p>
 Instead, use the helper functions <b>getTVValue</b> and <b>setTVValue</b>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$page = $modx-&gt;getObject('modResource', 123);
-<span class="code-keyword">return</span> $modx-&gt;getTVValue('my_tv_name');
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.getObjectGraph-Example"></a>Example
-</h2>
-
-<p>
-Get a Box object with ID 134, along with related BoxColors and Color instances already loaded.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $box = $xpdo-&gt;getObjectGraph('Box', array('BoxColors' =&gt; array('Color' =&gt; array())), 134);
 foreach ($box-&gt;getMany('BoxColors') as $boxColor) {
     echo $boxColor-&gt;getOne('Color')-&gt;get('name');
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 The same example using a JSON-format $graph parameter.
 </p>
@@ -159,49 +82,35 @@ foreach ($box-&gt;getMany('BoxColors') as $boxColor) {
 </div>
 </div>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>No additional queries</b>
 <br />
 The main benefit of using getObjectGraph is to retrieve data from related tables in a single query. No additional queries are executed when getMany() or getOne() are called on the related objects that are already loaded from the $graph.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="xPDO.getObjectGraph-SeeAlso"></a>See Also
+<a name="xPDO.getObjectGraph-SeeAlso" id="xPDO.getObjectGraph-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/xPDO20/Retrieving+Objects" title="Retrieving Objects">Retrieving Objects</a>
+<a href="display/xPDO20/Retrieving+Objects" title="Retrieving Objects">Retrieving Objects</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">xPDO.getObject</a>
+<a href="display/xPDO20/xPDO.getObject" title="xPDO.getObject">xPDO.getObject</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO.getCollection</a>
+<a href="display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO.getCollection</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getCollectionGraph" title="xPDO.getCollectionGraph">xPDO.getCollectionGraph</a>
+<a href="display/xPDO20/xPDO.getCollectionGraph" title="xPDO.getCollectionGraph">xPDO.getCollectionGraph</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getIterator" title="xPDO.getIterator">xPDO.getIterator</a>
+<a href="display/xPDO20/xPDO.getIterator" title="xPDO.getIterator">xPDO.getIterator</a>
 </li>
 
 <li>
@@ -209,6 +118,6 @@ The main benefit of using getObjectGraph is to retrieve data from related tables
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO" title="xPDO">xPDO</a>
+<a href="display/xPDO20/xPDO" title="xPDO">xPDO</a>
 </li>
 </ul>

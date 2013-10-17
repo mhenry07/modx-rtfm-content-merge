@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="modX.setPlaceholders-modX%3A%3AsetPlaceholders"></a>modX::setPlaceholders
 </h2>
@@ -13,7 +9,7 @@ An optional namespace parameter can be prepended to each placeholder key in the 
 </p>
 
 <p>
-Note that unlike <a href="/display/revolution20/modX.toPlaceholders" title="modX.toPlaceholders">modX.toPlaceholders</a> and <a href="/display/revolution20/modX.getChunk" title="modX.getChunk">modX.getChunk</a>, this function does not add separators between the namespace and the placeholder key. Use <a href="/display/revolution20/modX.toPlaceholders" title="modX.toPlaceholders">toPlaceholders()</a> when working with multi-dimensional arrays or objects with variables other than scalars so each level gets delimited by a separator.
+Note that unlike <a href="display/revolution20/modX.toPlaceholders" title="modX.toPlaceholders">modX.toPlaceholders</a> and <a href="display/revolution20/modX.getChunk" title="modX.getChunk">modX.getChunk</a>, this function does not add separators between the namespace and the placeholder key. Use <a href="display/revolution20/modX.toPlaceholders" title="modX.toPlaceholders">toPlaceholders()</a> when working with multi-dimensional arrays or objects with variables other than scalars so each level gets delimited by a separator.
 </p>
 
 <h2>
@@ -24,55 +20,32 @@ Note that unlike <a href="/display/revolution20/modX.toPlaceholders" title="modX
 API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::setPlaceholders()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::setPlaceholders()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-void setPlaceholders (array|object  $placeholders, [string $namespace = ''])
-</pre>
-</div>
-</div>
-
-<p>
-Unlike <span class="error">[getChunk]</span>, the <b>$placeholders</b> array can <em>not</em> be deeply nested. It must be a simple associative array.
-</p>
-
-<h2>
-<a name="modX.setPlaceholders-Example" id="modX.setPlaceholders-Example"></a>Example
-</h2>
-
-<p>
-Add an array of placeholders, and prefix 'my.' to their key.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;setPlaceholders(array(
+<pre class="brush: php">
+    $modx-&gt;setPlaceholders(array(
    'name' =&gt; 'John',
    'email' =&gt; 'jdoe@gmail.com',
 ),'my.');
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
 <a name="modX.setPlaceholders-SeeAlso" id="modX.setPlaceholders-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/modX.toPlaceholder" title="modX.toPlaceholder">modX.toPlaceholder</a>
+<a href="display/revolution20/modX.toPlaceholder" title="modX.toPlaceholder">modX.toPlaceholder</a>
 </li>
 
 <li>
-<a href="/display/revolution20/modX.toPlaceholders" title="modX.toPlaceholders">modX.toPlaceholders</a>
+<a href="display/revolution20/modX.toPlaceholders" title="modX.toPlaceholders">modX.toPlaceholders</a>
 </li>
 
 <li>
-<a href="/display/revolution20/modX.setPlaceholder" title="modX.setPlaceholder">modX.setPlaceholder</a>
+<a href="display/revolution20/modX.setPlaceholder" title="modX.setPlaceholder">modX.setPlaceholder</a>
 </li>
 
 <li>
-<a href="/display/revolution20/modX.getPlaceholder" title="modX.getPlaceholder">modX.getPlaceholder</a>
+<a href="display/revolution20/modX.getPlaceholder" title="modX.getPlaceholder">modX.getPlaceholder</a>
 </li>
 </ul>

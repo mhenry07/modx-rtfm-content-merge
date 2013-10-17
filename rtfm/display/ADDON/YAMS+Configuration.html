@@ -1,21 +1,21 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
 </p>
 
 <table class="tableview" width="100%">
 <tr>
 <td>
-<span class="icon icon-page">Page:</span> <a href="/display/ADDON/YAMS+Configuration">YAMS Configuration</a>
+<span class="icon icon-page">Page:</span> <a href="display/ADDON/YAMS+Configuration">YAMS Configuration</a>
 </td>
 </tr>
 </table>
 </div>
 
-<h1>
+<h2>
 <a name="YAMSConfiguration-YAMSConfigurationOptions"></a>YAMS Configuration Options
-</h1>
+</h2>
 
 <p>
 The following tables document the options available for configuring YAMS.
@@ -47,7 +47,6 @@ Description
 <td class='confluenceTd'>
 <ul>
 <li>Not Unique
-<br class="atl-forced-newline" />
 </li>
 
 <li>Unique
@@ -55,21 +54,12 @@ Description
 </ul>
 </td>
 <td class='confluenceTd'>
-Whether or not multilingual aliases (if they activated) will be unique. If you are intending to switch on multilingual alias functionality then this parameter should be set beforehand.
-<br class="atl-forced-newline" />
-Under normal circumstances aliases are considered to be non-unique. In that case YAMS must be able to identify the language of the current page from the server and root names alone. However, by respecting certain rules it is possible for YAMS to be able to identify the language of a page from the alias alone. In that case it is possible to use the same server and root name for different (or all) languages. If you wish to take advantage of this then here are the conditions that must be adhered to:
-<br class="atl-forced-newline" />
-
+Whether or not multilingual aliases (if they activated) will be unique. If you are intending to switch on multilingual alias functionality then this parameter should be set beforehand. Under normal circumstances aliases are considered to be non-unique. In that case YAMS must be able to identify the language of the current page from the server and root names alone. However, by respecting certain rules it is possible for YAMS to be able to identify the language of a page from the alias alone. In that case it is possible to use the same server and root name for different (or all) languages. If you wish to take advantage of this then here are the conditions that must be adhered to:
 <ul>
 <li>If using friendly alias paths then, for each document, all language variants of all its children must be given given unique aliases.
-<br class="atl-forced-newline" />
 </li>
 
-<li>If not using friendly alias paths, then all aliases of all language variants of all documents must be made unique.
-<br class="atl-forced-newline" />
-If unique multilingual aliases are used, then the default alias will be set to the document variable alias for the default language variant and <tt><em>langId</em>-<em>documentAlias</em></tt> for the other language variants.
-<br class="atl-forced-newline" />
-If unique multilingual aliases are not used, then when switching on multilingual alias mode the default values for multilingual aliases will be the document variable alias.
+<li>If not using friendly alias paths, then all aliases of all language variants of all documents must be made unique. If unique multilingual aliases are used, then the default alias will be set to the document variable alias for the default language variant and <tt><em>langId</em>-<em>documentAlias</em></tt> for the other language variants. If unique multilingual aliases are not used, then when switching on multilingual alias mode the default values for multilingual aliases will be the document variable alias.
 </li>
 </ul>
 </td>
@@ -82,7 +72,6 @@ If unique multilingual aliases are not used, then when switching on multilingual
 <td class='confluenceTd'>
 <ul>
 <li>Yes
-<br class="atl-forced-newline" />
 </li>
 
 <li>No
@@ -123,19 +112,15 @@ Description
 <td class='confluenceTd'>
 <ul>
 <li>None
-<br class="atl-forced-newline" />
 </li>
 
 <li>Default
-<br class="atl-forced-newline" />
 </li>
 
 <li>Current
-<br class="atl-forced-newline" />
 </li>
 
 <li>Current else Browser
-<br class="atl-forced-newline" />
 </li>
 
 <li>Browser
@@ -145,35 +130,28 @@ Description
 <td class='confluenceTd'>
 Controls redirection when a page request is not associated with a valid multilingual URL. Prior to making a page multilingual page it may have been situated at the site root. For example: <a href="http://www.example.com/example.html" class="external-link" rel="nofollow">http://www.example.com/example.html</a>
 <p>
-<br class="atl-forced-newline" />
 However, as a multilingual page it may now be located at
 </p>
 <a href="http://(server_name)/(root_name)/example.html" class="external-link" rel="nofollow">http://(server_name)/(root_name)/example.html</a>
 <p>
-<br class="atl-forced-newline" />
 where the server name and root name are language dependent. The available options are:
-<br class="atl-forced-newline" />
 </p>
 
 <ul>
 <li>
 <b>None</b>: Don't redirect. Show the content at the given URL using the current language. (This setting is not advised. It means duplicate content, which search engines don't like.)
-<br class="atl-forced-newline" />
 </li>
 
 <li>
 <b>Default</b>: Redirect to the correct URL for the default language.
-<br class="atl-forced-newline" />
 </li>
 
 <li>
 <b>Current</b>: Redirect to the correct URL for the current language, whatever that happens to be. (Will be the language of the last multilingual page if they have previously visited one, or the default language.)
-<br class="atl-forced-newline" />
 </li>
 
 <li>
 <b>Current else Browser</b>: Redirect to the correct URL for the current language, whatever that happens to be. (Will be the language of the last multilingual page if they have previously visited one, else it will be determined from the browser settings, else the default language.)
-<br class="atl-forced-newline" />
 </li>
 
 <li>
@@ -190,19 +168,15 @@ where the server name and root name are language dependent. The available option
 <td class='confluenceTd'>
 <ul>
 <li>multiple choices (300)
-<br class="atl-forced-newline" />
 </li>
 
 <li>permanent (301)
-<br class="atl-forced-newline" />
 </li>
 
 <li>found (302)
-<br class="atl-forced-newline" />
 </li>
 
 <li>see other (303)
-<br class="atl-forced-newline" />
 </li>
 
 <li>temporary (307)
@@ -221,19 +195,15 @@ The HTTP status code to use when performing the redirection described above to p
 <td class='confluenceTd'>
 <ul>
 <li>multiple choices (300)
-<br class="atl-forced-newline" />
 </li>
 
 <li>permanent (301)
-<br class="atl-forced-newline" />
 </li>
 
 <li>found (302)
-<br class="atl-forced-newline" />
 </li>
 
 <li>see other (303)
-<br class="atl-forced-newline" />
 </li>
 
 <li>temporary (307)
@@ -252,19 +222,15 @@ The HTTP status code to use when performing the redirection described above to p
 <td class='confluenceTd'>
 <ul>
 <li>multiple choices (300)
-<br class="atl-forced-newline" />
 </li>
 
 <li>permanent (301)
-<br class="atl-forced-newline" />
 </li>
 
 <li>found (302)
-<br class="atl-forced-newline" />
 </li>
 
 <li>see other (303)
-<br class="atl-forced-newline" />
 </li>
 
 <li>temporary (307)
@@ -283,7 +249,6 @@ The HTTP status code to use when performing a redirection in response to a reque
 <td class='confluenceTd'>
 <ul>
 <li>*
-<br class="atl-forced-newline" />
 </li>
 
 <li>a comma separated list of document ids
@@ -291,11 +256,7 @@ The HTTP status code to use when performing a redirection in response to a reque
 </ul>
 </td>
 <td class='confluenceTd'>
-Under normal circumstances YAMS will redirect MODx friendly URLs and URLs of the form index.php?id=... to the multilingual alias version of the URL for SEO friendliness. However, there may be occasions where it is preferable that YAMS accepts the old MODx form of the URL without redirection. This could occur when dealing with non-YAMS aware snippets and plugins.
-<br class="atl-forced-newline" />
-A comma separated list of document ids for which the standard MODx form of the URL will be accepted without redirection can be specified here. * can be used to represent all documents.
-<br class="atl-forced-newline" />
-Note that when using this option language information is lost from the URL and so a language cookie will be used to keep the document in the same language as the last page visited.
+Under normal circumstances YAMS will redirect MODx friendly URLs and URLs of the form index.php?id=... to the multilingual alias version of the URL for SEO friendliness. However, there may be occasions where it is preferable that YAMS accepts the old MODx form of the URL without redirection. This could occur when dealing with non-YAMS aware snippets and plugins. A comma separated list of document ids for which the standard MODx form of the URL will be accepted without redirection can be specified here. * can be used to represent all documents. Note that when using this option language information is lost from the URL and so a language cookie will be used to keep the document in the same language as the last page visited.
 </td>
 </tr>
 </tbody>
@@ -332,7 +293,6 @@ Description
 <td class='confluenceTd'>
 <ul>
 <li>Hide Fields
-<br class="atl-forced-newline" />
 </li>
 
 <li>Show Fields
@@ -351,7 +311,6 @@ Whether or not to show or hide a) the document variables on multilingual documen
 <td class='confluenceTd'>
 <ul>
 <li>Tabify TVs by Lang
-<br class="atl-forced-newline" />
 </li>
 
 <li>List TVs
@@ -370,7 +329,6 @@ This can be used to place the multilingual template variables for each language 
 <td class='confluenceTd'>
 <ul>
 <li>Yes
-<br class="atl-forced-newline" />
 </li>
 
 <li>No
@@ -411,7 +369,6 @@ Description
 <td class='confluenceTd'>
 <ul>
 <li>Yes
-<br class="atl-forced-newline" />
 </li>
 
 <li>No
@@ -430,7 +387,6 @@ Whether or not to use call the OnStripAlias event (or to call the stripAlias fun
 <td class='confluenceTd'>
 <ul>
 <li>Yes
-<br class="atl-forced-newline" />
 </li>
 
 <li>No
@@ -449,7 +405,6 @@ Whether or not to use alias suffixes which are dependent on the document mime/co
 <td class='confluenceTd'>
 <ul>
 <li>Include filename
-<br class="atl-forced-newline" />
 </li>
 
 <li>Don't include filename
@@ -468,7 +423,6 @@ Whether or not to include the filename (alias) of the site_start document in URL
 <td class='confluenceTd'>
 <ul>
 <li>Rewrite as folders
-<br class="atl-forced-newline" />
 </li>
 
 <li>Leave as files
@@ -488,11 +442,7 @@ The final document in an URL is normally considered to be a file and is formatte
 eg: yams_lang
 </td>
 <td class='confluenceTd'>
-The name of the GET param that can be used to confirm to YAMS what the language of the current document should be. The mod_rewrite rules in the htaccess file normally set this automatically to the language group id based on the request URL.
-<br class="atl-forced-newline" />
-EasyLingual users don't user server name mode or root name mode. Instead this query parameter should be used to specify the document language. The query param should be tagged on to the end of every document URL using a placeholder. (The <tt>(yams_doc)</tt> and <tt>(yams_docr)</tt> placeholders can be used to create a full URL that is valid across all configurations.) EasyLingual usually employs <tt>lang</tt> as the name this param.
-<br class="atl-forced-newline" />
-The name of this GET param can be accessed using the <tt>(yams_confirm)</tt> placeholder.
+The name of the GET param that can be used to confirm to YAMS what the language of the current document should be. The mod_rewrite rules in the htaccess file normally set this automatically to the language group id based on the request URL. EasyLingual users don't user server name mode or root name mode. Instead this query parameter should be used to specify the document language. The query param should be tagged on to the end of every document URL using a placeholder. (The <tt>(yams_doc)</tt> and <tt>(yams_docr)</tt> placeholders can be used to create a full URL that is valid across all configurations.) EasyLingual usually employs <tt>lang</tt> as the name this param. The name of this GET param can be accessed using the <tt>(yams_confirm)</tt> placeholder.
 </td>
 </tr>
 
@@ -504,9 +454,7 @@ The name of this GET param can be accessed using the <tt>(yams_confirm)</tt> pla
 eg: yams_new_lang
 </td>
 <td class='confluenceTd'>
-The name of the GET or POST param that should be submitted when the user wants to stay on the same page but change language. This cannot have the same value as the query parameter used to confirm the current language. The value of the POST/GET should be set to the language group id.
-<br class="atl-forced-newline" />
-The name of this GET/POST param can be accessed using the <tt>(yams_change)</tt> placeholder.
+The name of the GET or POST param that should be submitted when the user wants to stay on the same page but change language. This cannot have the same value as the query parameter used to confirm the current language. The value of the POST/GET should be set to the language group id. The name of this GET/POST param can be accessed using the <tt>(yams_change)</tt> placeholder.
 </td>
 </tr>
 
@@ -532,11 +480,9 @@ If MODx is installed into/configured as active within a subdirectory, eg: <a hre
 <td class='confluenceTd'>
 <ul>
 <li>None
-<br class="atl-forced-newline" />
 </li>
 
 <li>Default
-<br class="atl-forced-newline" />
 </li>
 
 <li>Resolve
@@ -550,21 +496,16 @@ Controls automatic conversion of standard MODx internal URLs to valid multilingu
 </p>
 <a href="http://www.example.com/en/doc-2-alias.html" class="external-link" rel="nofollow">http://www.example.com/en/doc-2-alias.html</a>
 <p>
-.
-<br class="atl-forced-newline" />
-Currently YAMS will only convert URLs that are enclosed in double quotes (as is always the case with (X)HTML) and which are of the form <tt>[~something~]</tt> or <tt>[(site_url)][~something~]</tt> or <tt>[(base_url)][~something~]</tt>. The available options are:
-<br class="atl-forced-newline" />
+. Currently YAMS will only convert URLs that are enclosed in double quotes (as is always the case with (X)HTML) and which are of the form <tt>[~something~]</tt> or <tt>[(site_url)][~something~]</tt> or <tt>[(base_url)][~something~]</tt>. The available options are:
 </p>
 
 <ul>
 <li>
 <b>None</b>: Do not do any automatic URL conversion.
-<br class="atl-forced-newline" />
 </li>
 
 <li>
 <b>Default</b>: Do standard URL conversion. The URL always resolves to the alias of the output document or weblink for the correct language.
-<br class="atl-forced-newline" />
 </li>
 
 <li>
@@ -607,7 +548,6 @@ Description
 <td class='confluenceTd'>
 <ul>
 <li>Yes
-<br class="atl-forced-newline" />
 </li>
 
 <li>No

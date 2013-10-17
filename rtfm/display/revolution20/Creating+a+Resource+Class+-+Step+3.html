@@ -6,18 +6,18 @@ This tutorial is part of a Series:
 
 <ul>
 <li>
-<a href="/display/revolution20/Creating+a+Resource+Class" title="Creating a Resource Class">Part I: Creating a Custom Resource Class</a>
+<a href="display/revolution20/Creating+a+Resource+Class" title="Creating a Resource Class">Part I: Creating a Custom Resource Class</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Creating+a+Resource+Class+-+Step+2" title="Creating a Resource Class - Step 2">Part II: Handling our CRC Behavior</a>
+<a href="display/revolution20/Creating+a+Resource+Class+-+Step+2" title="Creating a Resource Class - Step 2">Part II: Handling our CRC Behavior</a>
 </li>
 
 <li>Part III: Customizing the Controllers
 </li>
 
 <li>
-<a href="/display/revolution20/Creating+a+Resource+Class+-+Step+4" title="Creating a Resource Class - Step 4">Part IV: Customizing the Processors</a>
+<a href="display/revolution20/Creating+a+Resource+Class+-+Step+4" title="Creating a Resource Class - Step 4">Part IV: Customizing the Processors</a>
 </li>
 </ul>
 </div>
@@ -28,34 +28,20 @@ This tutorial is part of a Series:
 </h2>
 
 <p>
-Okay, remember how in <a href="/display/revolution20/Creating+a+Resource+Class" title="Creating a Resource Class">Step 1</a> we told MODX where our controllers/ directory was, via the "getControllerPath" method? To refresh your memory, here's the code from
+Okay, remember how in <a href="display/revolution20/Creating+a+Resource+Class" title="Creating a Resource Class">Step 1</a> we told MODX where our controllers/ directory was, via the "getControllerPath" method? To refresh your memory, here's the code from
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">return</span> $modx-&gt;getOption('copyrightedresource.core_path',<span class="code-keyword">null</span>,$modx-&gt;getOption('core_path').'components/copyrightedresource/').'controllers/';
-</pre>
-</div>
-</div>
-
-<p>
-As you might have guessed, we're going to put two files into the <tt>core/components/copyrightedresource/controllers/</tt> directory. Create the directory if you haven't already and then create a file named <b>create.class.php</b>:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 &lt;?php
-class CopyrightedResourceCreateManagerController <span class="code-keyword">extends</span> ResourceCreateManagerController {
-    <span class="code-keyword">public</span> function getLanguageTopics() {
-        <span class="code-keyword">return</span> array('resource','copyrightedresource:<span class="code-keyword">default</span>');
+class CopyrightedResourceCreateManagerController extends ResourceCreateManagerController {
+    public function getLanguageTopics() {
+        return array('resource','copyrightedresource:default');
     }
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Next add <b>update.class.php</b>:
 </p>
@@ -78,11 +64,11 @@ So when we're done with that, our file structure should look something like this
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/36634961/controllers.png?version=1&amp;modificationDate=1360981998000" style="border: 1px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/36634961/controllers.png?version=1&amp;modificationDate=1360981998000" style="border: 1px solid black" /></span>
 </p>
 
 <p>
-And that's all we need to get our custom controllers up and running. You don't even have to include the getLanguageTopics call, but we did so we can load our custom Lexicon for the page. Read that again: you do not need to create the <b>getLanguageTopics()</b> function! You do need to create the controllers and create the classes, but you do not need to add any functions to them. If you're confused, remember our hot tip from <a href="/display/revolution20/Creating+a+Resource+Class" title="Creating a Resource Class">Part I</a>: any time you extend a PHP class, you should review the parent class that you're extending. In this case, you can take a gander at the parent classes:
+And that's all we need to get our custom controllers up and running. You don't even have to include the getLanguageTopics call, but we did so we can load our custom Lexicon for the page. Read that again: you do not need to create the <b>getLanguageTopics()</b> function! You do need to create the controllers and create the classes, but you do not need to add any functions to them. If you're confused, remember our hot tip from <a href="display/revolution20/Creating+a+Resource+Class" title="Creating a Resource Class">Part I</a>: any time you extend a PHP class, you should review the parent class that you're extending. In this case, you can take a gander at the parent classes:
 </p>
 
 <ul>
@@ -104,9 +90,9 @@ Now you can go to the Resource tree, and create a "Copyrighted Page", and it wil
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/36634961/fe-view.png?version=1&amp;modificationDate=1322513681000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/36634961/fe-view.png?version=1&amp;modificationDate=1322513681000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
-Wonderful! This should give you a good understanding of how resources are handled by MODX. You could stop there, but we'll go on a little bit further to describe how to <a href="/display/revolution20/Creating+a+Resource+Class+-+Step+4" title="Creating a Resource Class - Step 4">extend the processors for your CRC</a>. That's where things get more interesting... you can customize the behavior of the manager and control where things get saved in the database, and all sorts of things...
+Wonderful! This should give you a good understanding of how resources are handled by MODX. You could stop there, but we'll go on a little bit further to describe how to <a href="display/revolution20/Creating+a+Resource+Class+-+Step+4" title="Creating a Resource Class - Step 4">extend the processors for your CRC</a>. That's where things get more interesting... you can customize the behavior of the manager and control where things get saved in the database, and all sorts of things...
 </p>

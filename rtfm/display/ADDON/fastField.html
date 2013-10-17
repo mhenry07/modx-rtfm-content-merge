@@ -1,27 +1,27 @@
 <div>
 <ul>
 <li>
-<a href='#fastField-WhatisfastField%3F'>What is fastField?</a>
+<a href="extras/revo/fastfield#fastField-WhatisfastField%3F">What is fastField?</a>
 </li>
 
 <li>
-<a href='#fastField-History'>History</a>
+<a href="extras/revo/fastfield#fastField-History">History</a>
 </li>
 
 <li>
-<a href='#fastField-Download'>Download</a>
+<a href="extras/revo/fastfield#fastField-Download">Download</a>
 </li>
 
 <li>
-<a href='#fastField-Usage'>Usage</a>
+<a href="extras/revo/fastfield#fastField-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#fastField-Examples'>Examples</a>
+<a href="extras/revo/fastfield#fastField-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#fastField-Howitworks'>How it works</a>
+<a href="extras/revo/fastfield#fastField-Howitworks">How it works</a>
 </li>
 </ul>
 </div>
@@ -78,74 +78,32 @@ In general, this plugin replaces <a href="http://rtfm.modx.com/display/ADDON/get
 Return the pagetitle from the resource with id 123:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- [[#123.pagetitle]]
+<pre class="brush: php">
+    
+ [[#[[*parent]].introtext:default=`[[#[[*parent]].description]]`]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Return the introtext of a parent of a current resource and display description for empty one:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- [[#[[*parent]].introtext:<span class="code-keyword">default</span>=`[[#[[*parent]].description]]`]]
-</pre>
-</div>
-</div>
-
 <p>
 Return the content of the resources in rowTpl chunk while <a href="http://rtfm.modx.com/display/ADDON/Wayfinder" class="external-link" rel="nofollow">Wayfinder</a> usage:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- [[#[[+wf.docid]].content]]
-</pre>
-</div>
-</div>
-
-<p>
-Return TV image from the resource with id 10:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
  [[#10.tv.image]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Return property articlesPerPage from the resource with id 1 of custom resource type <a href="http://rtfm.modx.com/display/ADDON/Articles" class="external-link" rel="nofollow">Articles</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- [[#1.properties.articles.articlesPerPage]]
-</pre>
-</div>
-</div>
-
-<p>
-Return the value of $_POST['myVar']:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
  [[!#post.myVar]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Supported global arrays: $_GET, $_POST, $_REQUEST, $_SERVER, $_FILES, $_COOKIE, $_SESSION. The type of array after # is case-insensitive. The name of array element is case-sensitive. You should use uncached tag, eg. [[!#get.name]], for cached resources.
 <br />

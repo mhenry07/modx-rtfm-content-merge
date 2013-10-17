@@ -1,39 +1,35 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#AccessingTemplateVariableValuesviatheAPI-AccessingTemplateVariableValuesviatheAPI'>Accessing Template Variable Values via the API</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/accessing-template-variable-values-via-the-api#AccessingTemplateVariableValuesviatheAPI-AccessingTemplateVariableValuesviatheAPI">Accessing Template Variable Values via the API</a>
 </li>
 
 <li>
-<a href='#AccessingTemplateVariableValuesviatheAPI-getTVValue'>getTVValue</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#AccessingTemplateVariableValuesviatheAPI-getTVValueUsage'>getTVValue Usage</a>
-</li>
-</ul>
-</li>
-
-<li>
-<a href='#AccessingTemplateVariableValuesviatheAPI-setTVValue'>setTVValue</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/accessing-template-variable-values-via-the-api#AccessingTemplateVariableValuesviatheAPI-getTVValue">getTVValue</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#AccessingTemplateVariableValuesviatheAPI-setTVValueUsage'>setTVValue Usage</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/accessing-template-variable-values-via-the-api#AccessingTemplateVariableValuesviatheAPI-getTVValueUsage">getTVValue Usage</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#AccessingTemplateVariableValuesviatheAPI-SeeAlso'>See Also</a>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/accessing-template-variable-values-via-the-api#AccessingTemplateVariableValuesviatheAPI-setTVValue">setTVValue</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/accessing-template-variable-values-via-the-api#AccessingTemplateVariableValuesviatheAPI-setTVValueUsage">setTVValue Usage</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/accessing-template-variable-values-via-the-api#AccessingTemplateVariableValuesviatheAPI-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -43,42 +39,20 @@
 </h2>
 
 <p>
-Like just about everything in the MODX GUI, you can access Template Variables and their values via the MODX API. This relies on the xPDO method <a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> and related functions, but we demonstrate some examples here because it relates directly to Template Variables.
+Like just about everything in the MODX GUI, you can access Template Variables and their values via the MODX API. This relies on the xPDO method <a href="display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> and related functions, but we demonstrate some examples here because it relates directly to Template Variables.
 </p>
 
 <h2>
 <a name="AccessingTemplateVariableValuesviatheAPI-getTVValue" id="AccessingTemplateVariableValuesviatheAPI-getTVValue"></a>getTVValue
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-string|<span class="code-keyword">null</span> getTVValue (str|integer $tv_name OR ID of TV)
-</pre>
-</div>
-</div>
-
-<p>
-See <b>core/model/modx/modresource.class.php</b>
-</p>
-
-<h3>
-<a name="AccessingTemplateVariableValuesviatheAPI-getTVValueUsage" id="AccessingTemplateVariableValuesviatheAPI-getTVValueUsage"></a>getTVValue Usage
-</h3>
-
-<p>
-Let's say we have a TV named 'bio', and we're going to retrieve page id 123 that uses this TV. Here's what our Snippet might look like:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $page = $modx-&gt;getObject('modResource', 123);
-<span class="code-keyword">return</span> $page-&gt;getTVValue('bio');
-</pre>
-</div>
-</div>
+return $page-&gt;getTVValue('bio');
 
+    
+</pre>
 <h2>
 <a name="AccessingTemplateVariableValuesviatheAPI-setTVValue" id="AccessingTemplateVariableValuesviatheAPI-setTVValue"></a>setTVValue
 </h2>
@@ -87,44 +61,16 @@ $page = $modx-&gt;getObject('modResource', 123);
 Use <b>setTVValue</b> to save a new value to a TV. Unlike some other xPDO API methods, this method stores values to the database immediately, so you do not need to invoke a separate call to a <b>save()</b> method.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> setTVValue (str|integer $tv_name OR ID of TV, string $value)
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="AccessingTemplateVariableValuesviatheAPI-setTVValueUsage" id="AccessingTemplateVariableValuesviatheAPI-setTVValueUsage"></a>setTVValue Usage
-</h3>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $page = $modx-&gt;getObject('modResource', 123);
 
-<span class="code-keyword">if</span> (!$page-&gt;setTVValue('bio', 'This is my <span class="code-keyword">new</span> bio...')) {
+if (!$page-&gt;setTVValue('bio', 'This is my new bio...')) {
     $modx-&gt;log(xPDO::LOG_LEVEL_ERROR, 'There was a problem saving your TV...');
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
 <a name="AccessingTemplateVariableValuesviatheAPI-SeeAlso" id="AccessingTemplateVariableValuesviatheAPI-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="39355582" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678062" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FAccessing%2BTemplate%2BVariable%2BValues%2Bvia%2Bthe%2BAPI" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678062" />
-</fieldset>
-</fieldset>
-</div>

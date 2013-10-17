@@ -1,25 +1,25 @@
 <div>
 <ul>
 <li>
-<a href='#Eletters.API-ElettersAPI'>Eletters API</a>
+<a href="extras/revo/eletters/eletters.api#Eletters.API-ElettersAPI">Eletters API</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Eletters.API-SnippetCodeexample'>Snippet Code example</a>
+<a href="extras/revo/eletters/eletters.api#Eletters.API-SnippetCodeexample">Snippet Code example</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Eletters.API-SeeAlso'>See Also</a>
+<a href="extras/revo/eletters/eletters.api#Eletters.API-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
 <h2>
-<a name="Eletters.API-ElettersAPI" id="Eletters.API-ElettersAPI"></a>Eletters API
+<a name="Eletters.API-ElettersAPI"></a>Eletters API
 </h2>
 
 <p>
@@ -27,27 +27,26 @@ New in version 1.1 are easy API to create your own Triggers to send out emails v
 </p>
 
 <h3>
-<a name="Eletters.API-SnippetCodeexample" id="Eletters.API-SnippetCodeexample"></a>Snippet Code example
+<a name="Eletters.API-SnippetCodeexample"></a>Snippet Code example
 </h3>
 
-<div class="code panel" style="border-color: #a2a2a2;border-style: solid;border-width: 1px;">
-<div class="codeHeader panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #a2a2a2;">
-<b>Snippet Example, found at: core/components/eltters/elements/snippets/elettertriggerexample.snippet.php</b>
-</div>
+<figure class="code">
+<figcaption>
+Snippet Example, found at: core/components/eltters/elements/snippets/elettertriggerexample.snippet.php
+</figcaption>
 
-<div class="codeContent panelContent">
-<pre class="code-javascript">
-&lt;?php
+<pre class="brush: php">
+    &lt;?php
 /**
  * Eletter Trigger/Response code example snippet
- * @<span class="code-keyword">return</span> (<span class="code-object">String</span>) $html
+ * @return (String) $html
  *
  *
  * This example will just email the MODX User on page load
  *
  */
 
-<span class="code-keyword">if</span> (!isset($modx-&gt;eletters)) {
+if (!isset($modx-&gt;eletters)) {
     $modx-&gt;addPackage('eletters', $modx-&gt;getOption('core_path').'components/eletters/model/');
     $modx-&gt;eletters = $modx-&gt;getService('eletters', 'Eletters', $modx-&gt;getOption('core_path').'components/eletters/model/eletters/');
 }
@@ -55,11 +54,11 @@ $eletters =&amp; $modx-&gt;eletters;
 
 $profile = $modx-&gt;user-&gt;getOne('Profile');
 $to = $to_name = '';
-<span class="code-keyword">if</span> ( is_object($profile) ) {
+if ( is_object($profile) ) {
     $to = $profile-&gt;get('email');
     $to_name = $profile-&gt;get('fullname');
-} <span class="code-keyword">else</span> {
-    <span class="code-keyword">return</span> 'Cannot find MODX user';
+} else {
+    return 'Cannot find MODX user';
 }
 
 $options = array(
@@ -72,7 +71,7 @@ $placeholders = $profile-&gt;toArray();
 
 /**
  *
- * @param (Array) $options  - name=&gt;value ex: <span class="code-keyword">for</span> auto response form_address=Fname Lname
+ * @param (Array) $options  - name=&gt;value ex: for auto response form_address=Fname Lname
  *              'from_address' =&gt; '',
                 'from_name' =&gt; '',
                 'to_address' =&gt; '',
@@ -89,38 +88,25 @@ $placeholders = $profile-&gt;toArray();
                 'uploads' =&gt; TRUE,
                 'files' =&gt; TRUE,
  * @param (Array) $placeholders - MODX placehoders -name=&gt;value
- * @param (<span class="code-object">Boolean</span>) $log - TRUE will save completed email to DB
+ * @param (Boolean) $log - TRUE will save completed email to DB
  * @param (Array) $attachments - add addtional attachments
  */
 
 $sent = $eletters-&gt;sendResponse($options, $placeholders, $log=TRUE);
 
 $output = '';
-<span class="code-keyword">if</span> ( $sent ) {
+if ( $sent ) {
     $output = 'An email was sent to '.$to_name.' at '.$to.' email address.';
-} <span class="code-keyword">else</span>  {
+} else  {
     $output = 'An email could not be sent to '.$to_name.' at '.$to.' email address.';
 }
 
-<span class="code-keyword">return</span> $output;
+return $output;
+
+    
 </pre>
-</div>
-</div>
+</figure>
 
 <h2>
-<a name="Eletters.API-SeeAlso" id="Eletters.API-SeeAlso"></a>See Also
+<a name="Eletters.API-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="45350946" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="39355133" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FEletters.API" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="39355133" />
-</fieldset>
-</fieldset>
-</div>

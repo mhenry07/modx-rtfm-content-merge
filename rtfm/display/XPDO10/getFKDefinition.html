@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="getFKDefinition-xPDOObject%3A%3AgetFKDefinition%28%29"></a>xPDOObject::getFKDefinition()
 </h2>
@@ -18,26 +14,8 @@ Get a foreign key definition for a specific classname. This is generally used to
 API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#getFKDefinition" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#getFKDefinition</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-array getFKDefinition (string $alias)
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="getFKDefinition-Examples" id="getFKDefinition-Examples"></a>Examples
-</h2>
-
-<p>
-Get the FK definition of a User who just edited the Document.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$document = $xpdo-&gt;getObject('Document',1);
+<pre class="brush: php">
+    $document = $xpdo-&gt;getObject('Document',1);
 $fkdef = $document-&gt;getFKDefinition('EditedBy');
 print_r($fkdef);
 
@@ -51,6 +29,5 @@ Array (
   [owner] =&gt; foreign
   [type] =&gt; aggregate 
 ) */
+    
 </pre>
-</div>
-</div>

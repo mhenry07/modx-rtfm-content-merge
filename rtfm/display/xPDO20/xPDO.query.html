@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="xPDO.query-xPDO%3A%3Aquery"></a>xPDO::query
 </h2>
@@ -10,102 +6,39 @@
 Executes an SQL statement, returning a result set as a PDOStatement object.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 <b>Tip</b>
 <br />
 This can be a good way to issue reporting queries without having to worry about the complex syntax normally required by xPDO.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="xPDO.query-Syntax"></a>Syntax
+<a name="xPDO.query-Syntax" id="xPDO.query-Syntax"></a>Syntax
 </h2>
 
 <p>
 API Docs: see <a href="http://us1.php.net/manual/en/pdo.query.php" class="external-link" rel="nofollow">http://us1.php.net/manual/en/pdo.query.php</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOObject|<span class="code-keyword">false</span> query (string $statement)
-</pre>
-</div>
-</div>
-
-<p>
-<b>$statement</b>
-</p>
-
-<p>
-The SQL statement to prepare and execute. Data inside the query should be <a href="http://us1.php.net/manual/en/pdo.quote.php" class="external-link" rel="nofollow">properly escaped</a>.
-</p>
-
-<h2>
-<a name="xPDO.query-Examples"></a>Examples
-</h2>
-
-<h3>
-<a name="xPDO.query-SelectaSingleRecord"></a>Select a Single Record
-</h3>
-
-<p>
-Here's a simple query to fetch one row from the database. Note that you would normally use <a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> or <a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getCollection</a> to fetch a data from built-in MODX tables.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$result = $modx-&gt;query(<span class="code-quote">"SELECT * FROM modx_users WHERE id=1"</span>);
-<span class="code-keyword">if</span> (!is_object($result)) {
-   <span class="code-keyword">return</span> 'No result!';
+<pre class="brush: php">
+    
+$result = $modx-&gt;query("SELECT * FROM modx_users WHERE id=1");
+if (!is_object($result)) {
+   return 'No result!';
 }
-<span class="code-keyword">else</span> {
+else {
    $row = $result-&gt;fetch(PDO::FETCH_ASSOC);
-   <span class="code-keyword">return</span> 'Result:' .print_r($row,<span class="code-keyword">true</span>);
+   return 'Result:' .print_r($row,true);
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Use the <b>PDO::FETCH_ASSOC</b> will force the result to be an associative array:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-Array
-(
-    [id] =&gt; 1
-    [username] =&gt; my_user
-    [password] =&gt; xxxxxxxxxxxxxxxxxxx
-    <span class="code-comment">// ...
-</span>)
-</pre>
-</div>
-</div>
-
-<p>
-Without it, the results are a mix of an associative and a regular array:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 Array
 (
     [id] =&gt; 1
@@ -114,73 +47,37 @@ Array
     [1] =&gt; my_user
     [password] =&gt; xxxxxxxxxxxxxxxxxxxxxxx
     [2] =&gt; xxxxxxxxxxxxxxxxxxxxx
-    <span class="code-comment">// ...  
-</span>)
+    // ...  
+)
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 <b>No One-Liners!</b>
 <br />
 The one-line method-chaining available to PDO is not possible with xPDO. The following <b>will not work</b>:
 <br />
 <tt>$row = $modx-&gt;query("SELECT * FROM cms_users WHERE id=1")-&gt;fetch();</tt>
-</td>
-</tr>
-</table>
 </div>
 
 <h3>
-<a name="xPDO.query-SelectingMultipleRecords"></a>Selecting Multiple Records
+<a name="xPDO.query-SelectingMultipleRecords" id="xPDO.query-SelectingMultipleRecords"></a>Selecting Multiple Records
 </h3>
 
 <p>
 PDO uses a lazy-loader, so you can't simply print out all of the results at once. Instead, you iterate over each result in the set using a loop, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$results = $xpdo-&gt;query(<span class="code-quote">"SELECT * FROM some_table"</span>);
-<span class="code-keyword">while</span> ($r = $results-&gt;fetch(PDO::FETCH_ASSOC)) {
-        print_r($r); exit;
-}
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="xPDO.query-QuotingInputs"></a>Quoting Inputs
-</h3>
-
-<p>
-For single queries that rely on user input, you should <a href="http://us1.php.net/manual/en/pdo.quote.php" class="external-link" rel="nofollow">manually quote</a> the input strings.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $username = $modx-&gt;quote($username);
-$sql = <span class="code-quote">"SELECT * FROM modx_users WHERE username = $username"</span>;
+$sql = "SELECT * FROM modx_users WHERE username = $username";
 $result = $modx-&gt;query($sql);
 $row = $result-&gt;fetch(PDO::FETCH_ASSOC);
-<span class="code-keyword">return</span> print_r($row,<span class="code-keyword">true</span>);
-</pre>
-</div>
-</div>
+return print_r($row,true);
 
+    
+</pre>
 <p>
 The <span class="error">[quote]</span> function can take a 2nd argument, which you can use to quote integers specifically
 </p>
@@ -195,41 +92,19 @@ The <span class="error">[quote]</span> function can take a 2nd argument, which y
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$id = $modx-&gt;quote(1, PDO::PARAM_INT);
-$sql = <span class="code-quote">"SELECT * FROM cms_users WHERE id = $id"</span>;
-$result = $modx-&gt;query($sql);
-$row = $result-&gt;fetch(PDO::FETCH_ASSOC);
-<span class="code-keyword">return</span> print_r($row,<span class="code-keyword">true</span>);
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="xPDO.query-SelectaCollection"></a>Select a Collection
-</h3>
-
-<p>
-Here's a simple query to fetch multiple rows from the database. Note that you would normally use <a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getObject</a> to retrive data from MODX tables.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $output = '';
-$sql = <span class="code-quote">"SELECT * FROM modx_users"</span>;
+$sql = "SELECT * FROM modx_users";
 foreach ($modx-&gt;query($sql) as $row) {
     $output .= $row['username'] .'&lt;br/&gt;';
 }
-<span class="code-keyword">return</span> $output;
-</pre>
-</div>
-</div>
+return $output;
 
+    
+</pre>
 <h3>
-<a name="xPDO.query-FetchStyle"></a>Fetch Style
+<a name="xPDO.query-FetchStyle" id="xPDO.query-FetchStyle"></a>Fetch Style
 </h3>
 
 <p>
@@ -263,7 +138,7 @@ From <a href="http://php.net/manual/en/pdostatement.fetch.php" class="external-l
 </ul>
 
 <h3>
-<a name="xPDO.query-PreparedStatements"></a>Prepared Statements
+<a name="xPDO.query-PreparedStatements" id="xPDO.query-PreparedStatements"></a>Prepared Statements
 </h3>
 
 <p>
@@ -281,32 +156,32 @@ See
 </ul>
 
 <h2>
-<a name="xPDO.query-SeeAlso"></a>See Also
+<a name="xPDO.query-SeeAlso" id="xPDO.query-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/xPDO20/Retrieving+Objects" title="Retrieving Objects">Retrieving Objects</a>
+<a href="display/xPDO20/Retrieving+Objects" title="Retrieving Objects">Retrieving Objects</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">xPDO.getObject</a>
+<a href="display/xPDO20/xPDO.getObject" title="xPDO.getObject">xPDO.getObject</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getObjectGraph" title="xPDO.getObjectGraph">xPDO.getObjectGraph</a>
+<a href="display/xPDO20/xPDO.getObjectGraph" title="xPDO.getObjectGraph">xPDO.getObjectGraph</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO.getCollection</a>
+<a href="display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO.getCollection</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getCollectionGraph" title="xPDO.getCollectionGraph">xPDO.getCollectionGraph</a>
+<a href="display/xPDO20/xPDO.getCollectionGraph" title="xPDO.getCollectionGraph">xPDO.getCollectionGraph</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getIterator" title="xPDO.getIterator">xPDO.getIterator</a>
+<a href="display/xPDO20/xPDO.getIterator" title="xPDO.getIterator">xPDO.getIterator</a>
 </li>
 
 <li>
@@ -314,6 +189,6 @@ See
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO" title="xPDO">xPDO</a>
+<a href="display/xPDO20/xPDO" title="xPDO">xPDO</a>
 </li>
 </ul>

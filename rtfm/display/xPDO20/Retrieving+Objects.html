@@ -1,8 +1,4 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 To get Objects in xPDO, there are a variety of methods. The two basic themes we'll concern ourselves with here is in the differences between an Object, a Collection, and an Iterator.
 </p>
 
@@ -19,7 +15,7 @@ An Iterator is a special kind of Collection which is accessed sequentially so th
 </p>
 
 <h3>
-<a name="RetrievingObjects-xPDO%3A%3AgetObjectxPDO.getObject"></a><a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">xPDO::getObject</a>
+<a name="RetrievingObjects-xPDO%3A%3AgetObjectxPDO.getObject"></a><a href="display/xPDO20/xPDO.getObject" title="xPDO.getObject">xPDO::getObject</a>
 </h3>
 
 <p>
@@ -49,102 +45,38 @@ Back to $criteria. This can be one of 3 things:
 We'll get back to the third option later. First, an example of the first option:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$box23 = $xpdo-&gt;getObject('Box',23);
-</pre>
-</div>
-</div>
-
-<p>
-If an object doesn't exist, it will return 'null'.
-</p>
-
-<p>
-You can specify multiple filter criteria inside your 2nd argument:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// GroupUser is a table with 2 PKs - 'user' and 'group'
-</span>$gu = $xpdo-&gt;getObject('GroupUser',array(
+<pre class="brush: php">
+    
+// GroupUser is a table with 2 PKs - 'user' and 'group'
+$gu = $xpdo-&gt;getObject('GroupUser',array(
    'user' =&gt; 12,
    'group' =&gt; 4,
 ));
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Or, let's say we wanted to grab the first Box object we find with a width of 150:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$bigbox = $xpdo-&gt;getObject('Box',array('width' =&gt; 150));
-</pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Handy Hint</b>
-<br />
-If your criteria matches multiple objects, getObject will only return the <em>first one</em>. Which one will be first? It's up to the database and how its natural sort order.
-</td>
-</tr>
-</table>
-</div>
-
-<p>
-We'll discuss the third option, xPDOCriteria, later in the xPDOQuery and xPDOCriteria sections.
-</p>
-
-<h3>
-<a name="RetrievingObjects-xPDO%3A%3AgetCollectionxPDO.getCollection"></a><a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO::getCollection</a>
-</h3>
-
-<p>
-xPDO::getCollection takes the same three arguments as getObject; except the $criteria field must be either an array or xPDOCriteria object.
-</p>
-
-<p>
-Let's say we wanted to grab all the Box objects with width of 14:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// assume we have 3 boxes
-</span>$boxes = $xpdo-&gt;getCollection('Box',array(
+<pre class="brush: php">
+    
+// assume we have 3 boxes
+$boxes = $xpdo-&gt;getCollection('Box',array(
   'width' =&gt; 14,
 ));
 foreach ($boxes as $box) {
-   echo $box-&gt;get('color').<span class="code-quote">"\n"</span>;
+   echo $box-&gt;get('color')."\n";
 }
-<span class="code-comment">// If our 3 boxes had a color of 'red','blue' and 'yellow', <span class="code-keyword">this</span> would print:
-</span><span class="code-comment">// red
-</span><span class="code-comment">// blue
-</span><span class="code-comment">// yellow</span>
-</pre>
-</div>
-</div>
+// If our 3 boxes had a color of 'red','blue' and 'yellow', this would print:
+// red
+// blue
+// yellow
 
+    
+</pre>
 <h3>
-<a name="RetrievingObjects-xPDO%3A%3AgetIteratorxPDO.getIterator"></a><a href="/display/xPDO20/xPDO.getIterator" title="xPDO.getIterator">xPDO::getIterator</a>
+<a name="RetrievingObjects-xPDO%3A%3AgetIteratorxPDO.getIterator"></a><a href="display/xPDO20/xPDO.getIterator" title="xPDO.getIterator">xPDO::getIterator</a>
 </h3>
 
 <p>
@@ -155,269 +87,108 @@ The xPDO::getIterator method is identical to xPDO::getCollection except that you
 The code for iterating over the Box objects with width of 14 is almost identical to that of getCollection:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// assume we have 3 boxes, with colors 'red','blue' and 'yellow'
-</span>$boxes = $xpdo-&gt;getIterator('Box', array(
-  'width' =&gt; 14,
-));
-foreach ($boxes as $box) {
-   echo $box-&gt;get('color').<span class="code-quote">"\n"</span>;
-}
-<span class="code-comment">// <span class="code-keyword">this</span> would print:
-</span><span class="code-comment">// red
-</span><span class="code-comment">// blue
-</span><span class="code-comment">// yellow</span>
-</pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Note that the index for each object when iterated over is not the primary key, unlike the array index when using getCollection.
-</td>
-</tr>
-</table>
-</div>
-
-<h3>
-<a name="RetrievingObjects-xPDO%3A%3AnewQueryxPDO.newQuery"></a><a href="/display/xPDO20/xPDO.newQuery" title="xPDO.newQuery">xPDO::newQuery</a>
-</h3>
-
-<p>
-One of the most powerful parts of xPDO is its ability to create complex queries in a simple fashion using the <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> wrapper. This class lets you build SQL queries using OOP methods that extend the xPDOCriteria class – you can pass its instance right into getObject or getCollection calls. The newQuery function creates an <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> object, and takes 3 parameters:
-</p>
-
-<ul>
-<li>
-<b>$class</b> - The class name to create the query for.
-</li>
-
-<li>
-<b>$criteria</b> - This is optional; but you can specify criteria here.
-</li>
-
-<li>
-<b>$cacheFlag</b> - Similar to getObject's cacheFlag, you can specify the caching behavior for this query.
-</li>
-</ul>
-
-<p>
-First, let's just show how you might use newQuery to define the criteria we used before: width = 14. We'll just add a sorting option to sort the results.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $c = $xpdo-&gt;newQuery('Box');
 $c-&gt;where(array('width' =&gt; 14));
 $c-&gt;sortby('name','ASC');
 $boxes = $xpdo-&gt;getCollection('Box',$c);
+
+    
 </pre>
-</div>
-</div>
-
 <p>
-Once you have your result, you can iterate over the array (see above). You can see the similarity between the defining a query object and passing a simple array to getObject or getCollection. So why use <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>? It's more flexible. Did you see how we could use it to specify the sorting order?
+Once you have your result, you can iterate over the array (see above). You can see the similarity between the defining a query object and passing a simple array to getObject or getCollection. So why use <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>? It's more flexible. Did you see how we could use it to specify the sorting order?
 </p>
 
 <p>
-Next, let's use the query to join on a related table using <a href="/display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's create an example query using <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> that will grab the first 5 Boxes with width of 5 and an owner of ID 2, sorted by their name. Our "Box" table has a many-to-many relationship with the "BoxOwner" table.
+Next, let's use the query to join on a related table using <a href="display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's create an example query using <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> that will grab the first 5 Boxes with width of 5 and an owner of ID 2, sorted by their name. Our "Box" table has a many-to-many relationship with the "BoxOwner" table.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $c = $xpdo-&gt;newQuery('Box');
-$c-&gt;innerJoin('BoxOwner','Owner'); <span class="code-comment">// arguments are className, alias
-</span>$c-&gt;where(array(
-   'width' =&gt; 5,
-   'Owner.user' =&gt; 2,
-));
-$c-&gt;sortby('name','ASC');
-$c-&gt;limit(5);
-$boxes = $xpdo-&gt;getCollection('Box',$c);
-</pre>
-</div>
-</div>
+$c-&gt;innerJoin('BoxOwner','Owner'); // arguments are: className, alias
+$c-&gt;innerJoin('User','User','Owner.user = User.id');
+// note the 3rd argument that defines the relationship in the innerJoin
 
-<p>
-We can join on 3rd table ("Owner") by using another call to <a href="/display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's also grab the 2nd 5 Boxes by specifying an offset – it's a 2nd argument to the limit() function:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$c = $xpdo-&gt;newQuery('Box');
-$c-&gt;innerJoin('BoxOwner','Owner'); <span class="code-comment">// arguments are: className, alias
-</span>$c-&gt;innerJoin('User','User','Owner.user = User.id');
-<span class="code-comment">// note the 3rd argument that defines the relationship in the innerJoin
-</span>
 $c-&gt;where(array(
    'Box.width' =&gt; 5,
    'User.user' =&gt; 2,
 ));
 $c-&gt;sortby('Box.name','ASC');
-$c-&gt;limit(5,5); <span class="code-comment">// limit, offset
-</span>$boxes = $xpdo-&gt;getCollection('Box',$c);
-</pre>
-</div>
-</div>
+$c-&gt;limit(5,5); // limit, offset
+$boxes = $xpdo-&gt;getCollection('Box',$c);
 
+    
+</pre>
 <p>
 You can see that the sortby and where functions can take dot syntax on their parameters; they can prefix their columns with alias – sometimes they have to do this to prevent collisions!
 </p>
 
 <p>
-More information on <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> can be found <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">here</a>.
+More information on <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> can be found <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">here</a>.
 </p>
 
 <h4>
-<a name="RetrievingObjects-Debugging"></a>Debugging
+<a name="RetrievingObjects-Debugging" id="RetrievingObjects-Debugging"></a>Debugging
 </h4>
 
 <p>
 Often it can be confusing to rely on an ORM layer, so you can force xPDO to print out the raw database queries.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$c = $xpdo-&gt;newQuery('Box');
-<span class="code-comment">// ... add some more criteria...
-</span>$c-&gt;prepare();
-print $c-&gt;toSQL();
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="RetrievingObjects-xPDOCriteria"></a>xPDOCriteria
-</h3>
-
-<p>
-One of the most powerful parts of xPDO is its ability to create complex queries in a simple fashion using the <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> wrapper. This class lets you build SQL queries using OOP methods that extend the xPDOCriteria class – you can pass its instance right into getObject or getCollection calls. The newQuery function creates an <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> object, and takes 3 parameters:
-</p>
-
-<ul>
-<li>
-<b>$class</b> - The class name to create the query for.
-</li>
-
-<li>
-<b>$criteria</b> - This is optional; but you can specify criteria here.
-</li>
-
-<li>
-<b>$cacheFlag</b> - Similar to getObject's cacheFlag, you can specify the caching behavior for this query.
-</li>
-</ul>
-
-<p>
-First, let's just show how you might use newQuery to define the criteria we used before: width = 14. We'll just add a sorting option to sort the results.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $c = $xpdo-&gt;newQuery('Box');
 $c-&gt;where(array('width' =&gt; 14));
 $c-&gt;sortby('name','ASC');
 $boxes = $xpdo-&gt;getCollection('Box',$c);
+
+    
 </pre>
-</div>
-</div>
-
 <p>
-Once you have your result, you can iterate over the array (see above). You can see the similarity between the defining a query object and passing a simple array to getObject or getCollection. So why use <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>? It's more flexible. Did you see how we could use it to specify the sorting order?
+Once you have your result, you can iterate over the array (see above). You can see the similarity between the defining a query object and passing a simple array to getObject or getCollection. So why use <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>? It's more flexible. Did you see how we could use it to specify the sorting order?
 </p>
 
 <p>
-Next, let's use the query to join on a related table using <a href="/display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's create an example query using <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> that will grab the first 5 Boxes with width of 5 and an owner of ID 2, sorted by their name. Our "Box" table has a many-to-many relationship with the "BoxOwner" table.
+Next, let's use the query to join on a related table using <a href="display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's create an example query using <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> that will grab the first 5 Boxes with width of 5 and an owner of ID 2, sorted by their name. Our "Box" table has a many-to-many relationship with the "BoxOwner" table.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $c = $xpdo-&gt;newQuery('Box');
-$c-&gt;innerJoin('BoxOwner','Owner'); <span class="code-comment">// arguments are className, alias
-</span>$c-&gt;where(array(
-   'width' =&gt; 5,
-   'Owner.user' =&gt; 2,
-));
-$c-&gt;sortby('name','ASC');
-$c-&gt;limit(5);
-$boxes = $xpdo-&gt;getCollection('Box',$c);
-</pre>
-</div>
-</div>
+$c-&gt;innerJoin('BoxOwner','Owner'); // arguments are: className, alias
+$c-&gt;innerJoin('User','User','Owner.user = User.id');
+// note the 3rd argument that defines the relationship in the innerJoin
 
-<p>
-We can join on 3rd table ("Owner") by using another call to <a href="/display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's also grab the 2nd 5 Boxes by specifying an offset – it's a 2nd argument to the limit() function:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$c = $xpdo-&gt;newQuery('Box');
-$c-&gt;innerJoin('BoxOwner','Owner'); <span class="code-comment">// arguments are: className, alias
-</span>$c-&gt;innerJoin('User','User','Owner.user = User.id');
-<span class="code-comment">// note the 3rd argument that defines the relationship in the innerJoin
-</span>
 $c-&gt;where(array(
    'Box.width' =&gt; 5,
    'User.user' =&gt; 2,
 ));
 $c-&gt;sortby('Box.name','ASC');
-$c-&gt;limit(5,5); <span class="code-comment">// limit, offset
-</span>$boxes = $xpdo-&gt;getCollection('Box',$c);
-</pre>
-</div>
-</div>
+$c-&gt;limit(5,5); // limit, offset
+$boxes = $xpdo-&gt;getCollection('Box',$c);
 
+    
+</pre>
 <p>
 You can see that the sortby and where functions can take dot syntax on their parameters; they can prefix their columns with alias – sometimes they have to do this to prevent collisions!
 </p>
 
 <p>
-More information on <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> can be found <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">here</a>.
+More information on <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> can be found <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">here</a>.
 </p>
 
 <p>
-See also <a href="/display/xPDO20/xPDOQuery.where" title="xPDOQuery.where">xPDOQuery.where</a>
+See also <a href="display/xPDO20/xPDOQuery.where" title="xPDOQuery.where">xPDOQuery.where</a>
 </p>
 
 <h2>
-<a name="RetrievingObjects-Graphs"></a>Graphs
+<a name="RetrievingObjects-Graphs" id="RetrievingObjects-Graphs"></a>Graphs
 </h2>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 A graph extends the idea of an object (or objects in collections). Instead of a simple object, a graph includes references to related objects. Graphs are a useful alternative to JOINs.
-</td>
-</tr>
-</table>
 </div>
 
 <h3>
@@ -432,58 +203,12 @@ This is the same as getCollectionGraph, but it returns a single object. See getC
 <a name="RetrievingObjects-xPDO%3A%3AgetCollectionGraph"></a>xPDO::getCollectionGraph
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$collection= $xpdo-&gt;getCollectionGraph('Zip', '{<span class="code-quote">"TZ"</span>:{},<span class="code-quote">"ST"</span>:{},<span class="code-quote">"CT"</span>:{}}');
-<span class="code-keyword">if</span> ($collection) {
-        foreach ($collection as $obj) {
-                $out = $obj-&gt;toArray();
-                $out['timezone'] = $obj-&gt;TZ-&gt;get('tzname');
-                $out['state'] = $obj-&gt;ST-&gt;get('statename');
-                $out['county'] = $obj-&gt;CT-&gt;get('countyname');
-                print_r($out);
-        }
-}
-</pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Aliases in JSON</b>
-<br />
-Remember that the JSON hash passed to getObjectGraph or getCollectionGraph needs to use <em>aliases</em>, not class names.
-</td>
-</tr>
-</table>
-</div>
-
-<p>
-You have direct access to all of the fields (table rows) in the Collection Graph comprised in these four tables. The alias is used to create the graph. In this example, the 'Zip' table is the primary table, so we look at that table and we define relationships from the perspective of that primary table.
-</p>
-
-<p>
-As with getObject and getCollection, we can supply a $criteria object to getCollectionGraph. Let's add some criteria to our getCollectionGraph() query. In this example, we can search for zipcodes in California (CA)
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $criteria = $modx-&gt;newQuery('Zip');
 $criteria-&gt;where(array('ST.statename' =&gt; 'CA'));
-$collection= $xpdo-&gt;getCollectionGraph('Zip', '{<span class="code-quote">"TZ"</span>:{},<span class="code-quote">"ST"</span>:{},<span class="code-quote">"CT"</span>:{}}', $criteria);
-<span class="code-keyword">if</span> ($collection) {
+$collection= $xpdo-&gt;getCollectionGraph('Zip', '{"TZ":{},"ST":{},"CT":{}}', $criteria);
+if ($collection) {
         foreach ($collection as $obj) {
                 $out = $obj-&gt;toArray();
                 $out['timezone'] = $obj-&gt;TZ-&gt;get('tzname');
@@ -492,28 +217,13 @@ $collection= $xpdo-&gt;getCollectionGraph('Zip', '{<span class="code-quote">"TZ"
                 print_r($out);
         }
 }
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 <b>Aliases in Criteria</b>
 <br />
 The table names you specify in your criteria must use the <em>aliases</em>, not the class names (just like the JSON hashes).
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -542,31 +252,31 @@ $pages = $modx-&gt;getCollectionGraph('modResource', '{<span class="code-quote">
 </div>
 
 <p>
-Please view the dedicated page:&nbsp; <a href="/display/xPDO20/getCollectionGraph" title="getCollectionGraph">getCollectionGraph</a>
+Please view the dedicated page:&nbsp; <a href="display/xPDO20/getCollectionGraph" title="getCollectionGraph">getCollectionGraph</a>
 </p>
 
 <h2>
-<a name="RetrievingObjects-SeeAlso"></a>See Also
+<a name="RetrievingObjects-SeeAlso" id="RetrievingObjects-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">xPDO.getObject</a>
+<a href="display/xPDO20/xPDO.getObject" title="xPDO.getObject">xPDO.getObject</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO.getCollection</a>
+<a href="display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO.getCollection</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/getCollectionGraph" title="getCollectionGraph">getCollectionGraph</a>
+<a href="display/xPDO20/getCollectionGraph" title="getCollectionGraph">getCollectionGraph</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
+<a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.newQuery" title="xPDO.newQuery">xPDO.newQuery</a>
+<a href="display/xPDO20/xPDO.newQuery" title="xPDO.newQuery">xPDO.newQuery</a>
 </li>
 </ul>

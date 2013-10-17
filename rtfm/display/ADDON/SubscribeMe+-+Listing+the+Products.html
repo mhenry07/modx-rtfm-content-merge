@@ -7,258 +7,15 @@ The smListProducts snippet, included in the package, can and should be used to o
 </h2>
 
 <p>
-SubscribeMe needs the soon to be paying member to already have a user account, so depending on your website structure, you may want to create a registration page before linking to this page.&nbsp; You could also use <a href="/display/ADDON/If" title="If">If</a> to display a user login/registration form, before showing the product list.&nbsp; You can use <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> to handle the user registration and making a <a href="/display/revolution20/Making+Member-Only+Pages" title="Making Member-Only Pages">member only page</a> if you haven't already setup a members area of your website.
+SubscribeMe needs the soon to be paying member to already have a user account, so depending on your website structure, you may want to create a registration page before linking to this page.&nbsp; You could also use <a href="display/ADDON/If" title="If">If</a> to display a user login/registration form, before showing the product list.&nbsp; You can use <a href="display/ADDON/Login.Register" title="Login.Register">Register</a> to handle the user registration and making a <a href="display/revolution20/Making+Member-Only+Pages" title="Making Member-Only Pages">member only page</a> if you haven't already setup a members area of your website.
 </p>
 
 <h2>
 <a name="SubscribeMe-ListingtheProducts-MinimumCall" id="SubscribeMe-ListingtheProducts-MinimumCall"></a>Minimum Call
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[smListProducts]]
-</pre>
-</div>
-</div>
-
-<p>
-The minimum call is a functional assuming you have set up a PayPal account, or PayPal Sandbox account properly and have <a href="/display/ADDON/FormIt" title="FormIt">FormIt</a> installed.&nbsp; You must edit the OptionsResource located in the smListProducts.outer file, in order for SubscribeMe to function properly.
-</p>
-
-<h2>
-<a name="SubscribeMe-ListingtheProducts-AvailableProperties" id="SubscribeMe-ListingtheProducts-AvailableProperties"></a>Available Properties
-</h2>
-
-<p>
-You can use all of the following properties in the smListProducts snippet, all of these are also available from the snippets' Properties tab.
-</p>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Property
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Default
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-start
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Possible offset for products.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-0
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-limit
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Number of products to show.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-5
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-sort
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The column to sort on (see tpl placeholders further down or the schema file on Github)
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-sortorder
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-sortdir
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-ASC or DESC
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-asc
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-tplOuter
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Chunk to wrap the results in.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-smListProducts.outer (included as file)
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-tplRow
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Chunk to use to output each result.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-smListProducts.row (included as file)
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-activeOnly
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-When 1 or true this will only display active products. Set to 0 to override and display all products.&nbsp;
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-true
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-separator
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Separator between the tplRow's.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-\n (linebreak)
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-toPlaceholder
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-When set the results will be outputted to a placeholder instead of returned right away
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-debug
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Set to 1 or true to output debug data on the screen.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-false (0)
-<br class="atl-forced-newline" />
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<p>
-This snippet also uses the following <b>system settings</b> for some parts of its behavior:
-</p>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Key
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-subscribeme.currencysign
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The currency sign to use. Defaults to €
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-subscribeme.currencycode
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The currency code. Defaults to EUR.
-<br class="atl-forced-newline" />
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h2>
-<a name="SubscribeMe-ListingtheProducts-tplOuter" id="SubscribeMe-ListingtheProducts-tplOuter"></a>tplOuter
-</h2>
-
-<p>
-Default value (from core/components/subscribeme/elements/chunks/smListProducts.outer.tpl):
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!FormIt?
+<pre class="brush: php">
+    [[!FormIt?
   &amp;hooks=`smNewSubscription`
   &amp;optionsResource=`4`
 ]]
@@ -266,16 +23,15 @@ Default value (from core/components/subscribeme/elements/chunks/smListProducts.o
 &lt;ul&gt;
     [[+products]]
 &lt;/ul&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 <b>Note</b>: You should NOT edit the default file directly, as future updates will overwrite any changes to this file.&nbsp; It is highly recommended you duplicate the file, or create a chunk with the contents, updating the snippet call, or snippet parameters accordingly.
 </p>
 
 <p>
-In your outer template (or near it) you should set up your FormIt call like the above. The optionsResource setting points to the next step in the checkout flow, which is the payment options screen. This ID is used to redirect from the smNewSubscription hook. If you use multiple formit calls and they seem to be conflicting, use unique form IDs, refer to the <a href="/display/ADDON/FormIt" title="FormIt">FormIt</a> documentation.
+In your outer template (or near it) you should set up your FormIt call like the above. The optionsResource setting points to the next step in the checkout flow, which is the payment options screen. This ID is used to redirect from the smNewSubscription hook. If you use multiple formit calls and they seem to be conflicting, use unique form IDs, refer to the <a href="display/ADDON/FormIt" title="FormIt">FormIt</a> documentation.
 </p>
 
 <p>
@@ -331,29 +87,24 @@ You can already see most of the placeholders in the default, here's a total list
 <tr>
 <th class='confluenceTh'>
 Placeholder
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Description
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 product_id
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Unique ID of the product.
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 name
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 &nbsp;
@@ -363,7 +114,6 @@ name
 <tr>
 <td class='confluenceTd'>
 description
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 &nbsp;
@@ -373,7 +123,6 @@ description
 <tr>
 <td class='confluenceTd'>
 sortorder
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 &nbsp;
@@ -383,110 +132,90 @@ sortorder
 <tr>
 <td class='confluenceTd'>
 price
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Subscription price
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 amount_shipping
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Shipping costs
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 amount_vat
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Sales tax / VAT costs
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 periods
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Number of periods per each cycle
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 period
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Length of one period (day/week/month/year)
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 active
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 1/0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 count
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Total amount of products in this list
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 amount_total
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Total amount (price + amount_shipping + amount_vat)
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 currency
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 The value from the subscribeme.currencysign system setting
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 currencycode
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 The value from the subscribeme.currencycode system setting
-<br class="atl-forced-newline" />
 </td>
 </tr>
 </tbody>
@@ -498,5 +227,5 @@ The value from the subscribeme.currencycode system setting
 </h2>
 
 <p>
-The next step in the checkout process is the <a href="/display/ADDON/SubscribeMe+-+Setting+up+the+Payment+Methods" title="SubscribeMe - Setting up the Payment Methods">payment methods</a> page.&nbsp; You may also optionally disable this page as outlined.
+The next step in the checkout process is the <a href="display/ADDON/SubscribeMe+-+Setting+up+the+Payment+Methods" title="SubscribeMe - Setting up the Payment Methods">payment methods</a> page.&nbsp; You may also optionally disable this page as outlined.
 </p>

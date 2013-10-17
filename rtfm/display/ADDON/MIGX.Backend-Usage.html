@@ -1,54 +1,46 @@
-<div>
 <ul>
 <li>
-<a href='#MIGX.Backend-Usage-HowtheMIGXCustomTemplateVariable%28TV%29Works'>How the MIGX Custom Template Variable (TV) Works</a>
+<a href="extras/revo/migx/migx.backend-usage#MIGX.Backend-Usage-HowtheMIGXCustomTemplateVariable%28TV%29Works">How the MIGX Custom Template Variable (TV) Works</a>
 </li>
 
 <li>
-<a href='#MIGX.Backend-Usage-CreatingyourfirstMIGXTV'>Creating your first MIGX TV</a>
+<a href="extras/revo/migx/migx.backend-usage#MIGX.Backend-Usage-CreatingyourfirstMIGXTV">Creating your first MIGX TV</a>
+<ul>
+<li>
+<a href="extras/revo/migx/migx.backend-usage#MIGX.Backend-Usage-Step1%3ACreatetheMIGXaggregateTV">Step 1: Create the MIGX aggregate TV</a>
+</li>
+
+<li>
+<a href="extras/revo/migx/migx.backend-usage#MIGX.Backend-Usage-Step2%3AConfiguretheMIGXinputtype">Step 2: Configure the MIGX input type</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#MIGX.Backend-Usage-Step1%3ACreatetheMIGXaggregateTV'>Step 1: Create the MIGX aggregate TV</a>
+<a href="extras/revo/migx/migx.backend-usage#MIGX.Backend-Usage-Step2.1FormTabs">Step 2.1 Form Tabs</a>
 </li>
 
 <li>
-<a href='#MIGX.Backend-Usage-Step2%3AConfiguretheMIGXinputtype'>Step 2: Configure the MIGX input type</a>
+<a href="extras/revo/migx/migx.backend-usage#MIGX.Backend-Usage-Step2.2GridColumns">Step 2.2 Grid Columns</a>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 
-<li style="list-style: none; display: inline">
+<li>
+<a href="extras/revo/migx/migx.backend-usage#MIGX.Backend-Usage-AdvancedMIGXConfiguration">Advanced MIGX Configuration</a>
 <ul>
 <li>
-<a href='#MIGX.Backend-Usage-Step2.1FormTabs'>Step 2.1 Form Tabs</a>
+<a href="extras/revo/migx/migx.backend-usage#MIGX.Backend-Usage-MultipleForms">Multiple Forms</a>
 </li>
 
 <li>
-<a href='#MIGX.Backend-Usage-Step2.2GridColumns'>Step 2.2 Grid Columns</a>
+<a href="extras/revo/migx/migx.backend-usage#MIGX.Backend-Usage-PreviewFeature">Preview Feature</a>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-
-<li>
-<a href='#MIGX.Backend-Usage-AdvancedMIGXConfiguration'>Advanced MIGX Configuration</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#MIGX.Backend-Usage-MultipleForms'>Multiple Forms</a>
-</li>
-
-<li>
-<a href='#MIGX.Backend-Usage-PreviewFeature'>Preview Feature</a>
-</li>
-</ul>
-</li>
-</ul>
-</div>
 
 <h2>
 <a name="MIGX.Backend-Usage-HowtheMIGXCustomTemplateVariable%28TV%29Works"></a>How the MIGX Custom Template Variable (TV) Works
@@ -63,7 +55,7 @@ Each complex data item can have multiple fields associated with it. These fields
 </p>
 
 <h2>
-<a name="MIGX.Backend-Usage-CreatingyourfirstMIGXTV"></a>Creating your first MIGX TV
+<a name="MIGX.Backend-Usage-CreatingyourfirstMIGXTV" id="MIGX.Backend-Usage-CreatingyourfirstMIGXTV"></a>Creating your first MIGX TV
 </h2>
 
 <p>
@@ -74,22 +66,8 @@ Sample MIGX configurations are stored under /core/components/migx/examples/. We 
 tabs.txt shows a sample implementation of a simple image gallery. The image gallery will consist of one complex data item that uses one richtext field (an image description), one image field (the image itself), and a short string (a caption). This short string will not be stored in a separate TV.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 "helper" TVs are no longer needed; use inputTVtype: instead of inputTV:
-</td>
-</tr>
-</table>
 </div>
 
 <h3>
@@ -97,13 +75,13 @@ tabs.txt shows a sample implementation of a simple image gallery. The image gall
 </h3>
 
 <ul>
-<li>&nbsp;fill in a name, caption, description, and category as you would for any other TV
+<li>fill in a name, caption, description, and category as you would for any other TV
 </li>
 
-<li>&nbsp;give the template access for which you would like to add data items. In this example, perhaps "Gallery"
+<li>give the template access for which you would like to add data items. In this example, perhaps "Gallery"
 </li>
 
-<li>&nbsp;select MIGX as the input type
+<li>select MIGX as the input type
 </li>
 </ul>
 
@@ -116,7 +94,7 @@ For your first MIGX TV, we are only concerned with two textarea fields: "Form Ta
 </p>
 
 <h4>
-<a name="MIGX.Backend-Usage-Step2.1FormTabs"></a>Step 2.1 Form Tabs
+<a name="MIGX.Backend-Usage-Step2.1FormTabs" id="MIGX.Backend-Usage-Step2.1FormTabs"></a>Step 2.1 Form Tabs
 </h4>
 
 <p>
@@ -127,24 +105,19 @@ The Form Tabs define the structure that end users will use to input their data.
 Content of tabs.txt:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [
-{<span class="code-quote">"caption"</span>:<span class="code-quote">"Info"</span>, <span class="code-quote">"fields"</span>: [
-    {<span class="code-quote">"field"</span>:<span class="code-quote">"title"</span>,<span class="code-quote">"caption"</span>:<span class="code-quote">"Title"</span>},
-    {<span class="code-quote">"field"</span>:<span class="code-quote">"description"</span>,<span class="code-quote">"caption"</span>:<span class="code-quote">"Description"</span>,<span class="code-quote">"inputTVtype"</span>:<span class="code-quote">"richtext"</span>}
+{"caption":"Info", "fields": [
+    {"field":"title","caption":"Title"},
+    {"field":"description","caption":"Description","inputTVtype":"richtext"}
 ]},
-{<span class="code-quote">"caption"</span>:<span class="code-quote">"Image"</span>, <span class="code-quote">"fields"</span>:[
-    {<span class="code-quote">"field"</span>:<span class="code-quote">"image"</span>,<span class="code-quote">"caption"</span>:<span class="code-quote">"Image"</span>,<span class="code-quote">"inputTVtype"</span>:<span class="code-quote">"image"</span>}
+{"caption":"Image", "fields":[
+    {"field":"image","caption":"Image","inputTVtype":"image"}
 ]}
-] 
+]
 </pre>
-</div>
-</div>
-
 <p>
-That's a lot of JSON -- let's break it down. The first key you see is entitled "Caption". This refers to the name of the first tab. The tab will be labeled "Info".&nbsp;
+That's a lot of JSON -- let's break it down. The first key you see is entitled "Caption". This refers to the name of the first tab. The tab will be labeled "Info".
 </p>
 
 <p>
@@ -156,103 +129,97 @@ The first key within the nested JSON string is entitled "field". This refers to 
 </p>
 
 <p>
-The second key within the nested JSON string is entitled "description". We have three keys this time: the first, "field", refers to the placeholder that we will access later. The second, "caption", is the label the user will see. The third, "inputTVtype", &nbsp;refers to the type of field that we want to use.
+The second key within the nested JSON string is entitled "description". We have three keys this time: the first, "field", refers to the placeholder that we will access later. The second, "caption", is the label the user will see. The third, "inputTVtype", refers to the type of field that we want to use.
 </p>
 
 <p>
-We're done with the first nested JSON string. We can now see that there is a second tab -- this one has a label of "Image" and specified an inputTVtype of "image".&nbsp;
+We're done with the first nested JSON string. We can now see that there is a second tab -- this one has a label of "Image" and specified an inputTVtype of "image".
 </p>
 
 <p>
 We are now halfway done with our first MIGX TV. We have now created the form for each of the individual data items. The keys for each field are listed below in a table for your viewing convenience. Let's now define the summary view of the data items using Grid Columns in Step 3.2
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
+<table>
+<thead>
 <tr>
-<th class='confluenceTh'>
+<th>
 Key
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
+</thead>
 
+<tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 field
 </td>
-<td class='confluenceTd'>
+<td>
 this is the name for your placeholder to use with getImageList and a template
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 caption
 </td>
-<td class='confluenceTd'>
+<td>
 this will be the caption in your form for the end user to see
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 description
 </td>
-<td class='confluenceTd'>
+<td>
 this is the description in your form, if empty MIGX will use the description of the inputTV, if any
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 inputTV
 </td>
-<td class='confluenceTd'>
+<td>
 Pick either this or "inputTVtype". If you use this, specify the name of the TV that you would like to use. This is useful if your data type requires any custom functionality (ie, a default value, output options, etc). You can use the same input TV for different fields (ie, if you have an object that has multiple images).
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 inputTVtype
 </td>
-<td class='confluenceTd'>
+<td>
 Pick either this or "inputTV". If you use this, specify the name of the TV type that you would like to use. This is useful if your data type does not require any custom functionality.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h4>
-<a name="MIGX.Backend-Usage-Step2.2GridColumns"></a>Step 2.2 Grid Columns
+<a name="MIGX.Backend-Usage-Step2.2GridColumns" id="MIGX.Backend-Usage-Step2.2GridColumns"></a>Step 2.2 Grid Columns
 </h4>
 
 <p>
-In the grid columns, we're specifying the summary view that users will see to view their information. &nbsp;
+In the grid columns, we're specifying the summary view that users will see to view their information.
 </p>
 
 <p>
 Content of columns.txt:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [
-{<span class="code-quote">"header"</span>: <span class="code-quote">"Title"</span>, <span class="code-quote">"width"</span>: <span class="code-quote">"160"</span>, <span class="code-quote">"sortable"</span>: <span class="code-quote">"<span class="code-keyword">true</span>"</span>, <span class="code-quote">"dataIndex"</span>: <span class="code-quote">"title"</span>},
-{<span class="code-quote">"header"</span>: <span class="code-quote">"Image"</span>, <span class="code-quote">"width"</span>: <span class="code-quote">"50"</span>, <span class="code-quote">"sortable"</span>: <span class="code-quote">"<span class="code-keyword">false</span>"</span>, <span class="code-quote">"dataIndex"</span>: <span class="code-quote">"image"</span>,<span class="code-quote">"renderer"</span>: <span class="code-quote">"<span class="code-keyword">this</span>.renderImage"</span>}
+{"header": "Title", "width": "160", "sortable": "&lt;span class="code-keyword"&gt;true", "dataIndex": "title"},
+{"header": "Image", "width": "50", "sortable": "&lt;span class="code-keyword"&gt;false", "dataIndex": "image","renderer": "&lt;span class="code-keyword"&gt;this.renderImage"}
 ]
 </pre>
-</div>
-</div>
-
 <p>
-Here is some more JSON for us to tackle! &nbsp;This JSON shows the caption of the image as well as a preview of it. &nbsp;Let's break it down.
+Here is some more JSON for us to tackle! This JSON shows the caption of the image as well as a preview of it. Let's break it down.
 </p>
 
 <p>
@@ -264,25 +231,11 @@ The second entry has a fifth key: renderer. This key allows us to render a view 
 </p>
 
 <p>
-We're now done specifying our first MIGX TV. Feels great, right? Make sure you click save.&nbsp;
+We're now done specifying our first MIGX TV. Feels great, right? Make sure you click save.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 Don't forget to save your Resource after adding or editing MIGX items!
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -293,131 +246,126 @@ We're now half done our MIGX experience. Next step: <a href="/display/ADDON/MIGX
 The keys for this grid are listed here:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
+<table>
+<thead>
 <tr>
-<th class='confluenceTh'>
+<th>
 Key
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
+</thead>
 
+<tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 header
 </td>
-<td class='confluenceTd'>
+<td>
 the caption of the column
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortable
 </td>
-<td class='confluenceTd'>
+<td>
 if the columns is sortable by clicking the header
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dataIndex
 </td>
-<td class='confluenceTd'>
+<td>
 the field, you want to render into this column
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 renderer
 </td>
-<td class='confluenceTd'>
+<td>
 you can use a renderer for each column. For example the included function "this.renderImage". This will render an image-preview in the grid-cell, if you are using an image-TV for this field.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h2>
-<a name="MIGX.Backend-Usage-AdvancedMIGXConfiguration"></a>Advanced MIGX Configuration
+<a name="MIGX.Backend-Usage-AdvancedMIGXConfiguration" id="MIGX.Backend-Usage-AdvancedMIGXConfiguration"></a>Advanced MIGX Configuration
 </h2>
 
 <h3>
-<a name="MIGX.Backend-Usage-MultipleForms"></a>Multiple Forms
+<a name="MIGX.Backend-Usage-MultipleForms" id="MIGX.Backend-Usage-MultipleForms"></a>Multiple Forms
 </h3>
 
 <p>
 Content of switchFormTabs.txt
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[
-{<span class="code-quote">"formname"</span>:<span class="code-quote">"image_description"</span>, <span class="code-quote">"formtabs"</span>:
+{"formname":"image_description", "formtabs":
 [
-{<span class="code-quote">"caption"</span>:<span class="code-quote">"Info"</span>, <span class="code-quote">"fields"</span>: [
-{<span class="code-quote">"field"</span>:<span class="code-quote">"title"</span>,<span class="code-quote">"caption"</span>:<span class="code-quote">"Title"</span>},
-{<span class="code-quote">"field"</span>:<span class="code-quote">"tpl"</span>,<span class="code-quote">"caption"</span>:<span class="code-quote">"Tpl"</span>,<span class="code-quote">"inputTV"</span>:<span class="code-quote">"tplDropdown"</span>},  {<span class="code-quote">"field"</span>:<span class="code-quote">"description"</span>,<span class="code-quote">"caption"</span>:<span class="code-quote">"Description"</span>,<span class="code-quote">"inputTV"</span>:<span class="code-quote">"richtext"</span>}
+{"caption":"Info", "fields": [
+{"field":"title","caption":"Title"},
+{"field":"tpl","caption":"Tpl","inputTV":"tplDropdown"},  {"field":"description","caption":"Description","inputTV":"richtext"}
 ]},
-{<span class="code-quote">"caption"</span>:<span class="code-quote">"Image"</span>, <span class="code-quote">"fields"</span>:[
-{<span class="code-quote">"field"</span>:<span class="code-quote">"image"</span>,<span class="code-quote">"caption"</span>:<span class="code-quote">"Image"</span>,<span class="code-quote">"inputTV"</span>:<span class="code-quote">"image"</span>}
+{"caption":"Image", "fields":[
+{"field":"image","caption":"Image","inputTV":"image"}
 ]}
 ]
-},{<span class="code-quote">"formname"</span>:<span class="code-quote">"textonly"</span>, <span class="code-quote">"formtabs"</span>:
+},{"formname":"textonly", "formtabs":
 [
-{<span class="code-quote">"caption"</span>:<span class="code-quote">"Info"</span>, <span class="code-quote">"fields"</span>: [
-{<span class="code-quote">"field"</span>:<span class="code-quote">"title"</span>,<span class="code-quote">"caption"</span>:<span class="code-quote">"Title"</span>},
-{<span class="code-quote">"field"</span>:<span class="code-quote">"tpl"</span>,<span class="code-quote">"caption"</span>:<span class="code-quote">"Tpl"</span>,<span class="code-quote">"inputTV"</span>:<span class="code-quote">"tplDropdown"</span>}, {<span class="code-quote">"field"</span>:<span class="code-quote">"description"</span>,<span class="code-quote">"caption"</span>:<span class="code-quote">"Description"</span>,<span class="code-quote">"inputTV"</span>:<span class="code-quote">"richtext"</span>}
+{"caption":"Info", "fields": [
+{"field":"title","caption":"Title"},
+{"field":"tpl","caption":"Tpl","inputTV":"tplDropdown"}, {"field":"description","caption":"Description","inputTV":"richtext"}
 ]}
 ]
-}]] 
+}]]
 </pre>
-</div>
-</div>
-
 <p>
 here we have an additional outer array with two keys.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
+<table>
+<thead>
 <tr>
-<th class='confluenceTh'>
+<th>
 key
 </th>
-<th class='confluenceTh'>
+<th>
 description
 </th>
 </tr>
+</thead>
 
+<tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 formname
 </td>
-<td class='confluenceTd'>
+<td>
 give each form an unique name. This is the value, which you will see in the generated dropdown to switch the form
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 formtabs
 </td>
-<td class='confluenceTd'>
+<td>
 this are the formtabs for this form
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 when using multiple forms this will produce an additional field with name 'MIGX_formname'.
@@ -426,22 +374,17 @@ You can use the value of this field to switch tpls in the frontend by using &amp
 </p>
 
 <h3>
-<a name="MIGX.Backend-Usage-PreviewFeature"></a>Preview Feature
+<a name="MIGX.Backend-Usage-PreviewFeature" id="MIGX.Backend-Usage-PreviewFeature"></a>Preview Feature
 </h3>
 
 <p>
 MIGX has a preview featured that allows you to see rendered output of items in an iframe window. In order to use this preview feature, you need to create a preview resource. This resource should have content like:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
+<pre class="brush: php">
 [[!getImageList? &amp;tpl=`@FIELD:MIGX_formname`&amp;tvname=`multiitemsgridTv`]]
 [[!getImageList? &amp;tvname=`multiitemsgridTv2`]]
 </pre>
-</div>
-</div>
-
 <p>
 If you have multiple calls on the preview resource you will also need unique values for each TV in 'Preview JsonVarKey' - default is 'migx_outputvalue'
 </p>

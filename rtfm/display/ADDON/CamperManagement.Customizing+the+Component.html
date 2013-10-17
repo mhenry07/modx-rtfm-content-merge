@@ -5,23 +5,23 @@ CamperManagement was created for a specific website, and with that it has some q
 <div>
 <ul>
 <li>
-<span class='TOCOutline'>1</span> <a href='#CamperManagement.CustomizingtheComponent-ChangingComponentterminologyandfields'>Changing Component terminology and fields</a>
+<span class='TOCOutline'>1</span> <a href="extras/revo/campermanagement/campermanagement.customizing-the-component#CamperManagement.CustomizingtheComponent-ChangingComponentterminologyandfields">Changing Component terminology and fields</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<span class='TOCOutline'>1.1</span> <a href='#CamperManagement.CustomizingtheComponent-FirstlookatusingLexiconManagement'>First look at using Lexicon Management</a>
+<span class='TOCOutline'>1.1</span> <a href="extras/revo/campermanagement/campermanagement.customizing-the-component#CamperManagement.CustomizingtheComponent-FirstlookatusingLexiconManagement">First look at using Lexicon Management</a>
 </li>
 
 <li>
-<span class='TOCOutline'>1.2</span> <a href='#CamperManagement.CustomizingtheComponent-ChangingsomeStrings'>Changing some Strings</a>
+<span class='TOCOutline'>1.2</span> <a href="extras/revo/campermanagement/campermanagement.customizing-the-component#CamperManagement.CustomizingtheComponent-ChangingsomeStrings">Changing some Strings</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<span class='TOCOutline'>1.2.1</span> <a href='#CamperManagement.CustomizingtheComponent-Statusnames'>Status names</a>
+<span class='TOCOutline'>1.2.1</span> <a href="extras/revo/campermanagement/campermanagement.customizing-the-component#CamperManagement.CustomizingtheComponent-Statusnames">Status names</a>
 </li>
 </ul>
 </li>
@@ -29,11 +29,11 @@ CamperManagement was created for a specific website, and with that it has some q
 </li>
 
 <li>
-<span class='TOCOutline'>2</span> <a href='#CamperManagement.CustomizingtheComponent-CustombuttonontopoftheCampersgrid'>Custom button on top of the Campers grid</a>
+<span class='TOCOutline'>2</span> <a href="extras/revo/campermanagement/campermanagement.customizing-the-component#CamperManagement.CustomizingtheComponent-CustombuttonontopoftheCampersgrid">Custom button on top of the Campers grid</a>
 </li>
 
 <li>
-<span class='TOCOutline'>3</span> <a href='#CamperManagement.CustomizingtheComponent-CustomContextMenuitems'>Custom Context Menu items</a>
+<span class='TOCOutline'>3</span> <a href="extras/revo/campermanagement/campermanagement.customizing-the-component#CamperManagement.CustomizingtheComponent-CustomContextMenuitems">Custom Context Menu items</a>
 </li>
 </ul>
 </div>
@@ -55,7 +55,7 @@ In this example we will change the title of the component ("CamperManagement") a
 </h3>
 
 <p>
-We will first need to move to the "campermanagement" <a href="/display/revolution20/Namespaces" title="Namespaces">namespace</a>. When you're in the Lexicon Management screen, you should see a dropdown that defaults to "core". Open that and choose the campermanagement one. <span class="image-wrap" style=""><img src="/download/attachments/35586669/screenlexmgmt.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" /></span>
+We will first need to move to the "campermanagement" <a href="display/revolution20/Namespaces" title="Namespaces">namespace</a>. When you're in the Lexicon Management screen, you should see a dropdown that defaults to "core". Open that and choose the campermanagement one. <span class="image-wrap" style=""><img src="download/attachments/35586669/screenlexmgmt.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" /></span>
 <br />
 Every string has a name (also called the key) which is being called from the code to display certain text. These names are usually quite recognizable and make sense. The button that says "Back to Overview" (on a camper listing page in the top right) has a key of "campermgmt.button.backtooverview", and the title of the "Options" tab has a key of "campermgmt.tab.options". If you can't find the right one, just enter the text you are seeing in the search box to the right of the screen.
 </p>
@@ -69,7 +69,7 @@ We will change the title of the addon to "Used Equipment Management". The title 
 </p>
 
 <p>
-If you were to refresh the grid (there's a refresh button at the bottom) you will see it is now listed in green, and has a "Last modifed on" date set. <span class="image-wrap" style=""><img src="/download/attachments/35586669/screenlexmgmt2.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" /></span>
+If you were to refresh the grid (there's a refresh button at the bottom) you will see it is now listed in green, and has a "Last modifed on" date set. <span class="image-wrap" style=""><img src="download/attachments/35586669/screenlexmgmt2.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" /></span>
 <br />
 The good thing about Lexicon Management is that your overrides are saved in the database. That means that even if you update your addon or MODX itself, the lexicon overrides should remain the same and are not being discarded in the process. Changing the lexicon files which are shipped with the component would be discarded when updating that.
 </p>
@@ -114,28 +114,13 @@ When the user clicks the button, they will be sent to the resource you specified
 This is an example of what you could use:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!cmCampers? &amp;limit=`0` &amp;sort=`keynr` &amp;dir=`asc` &amp;includeImages=`<span class="code-keyword">false</span>` &amp;status=`1,2,3,4` &amp;tplOuter=`cmVoorraadOuter` &amp;tplItem=`cmVoorraadItem` &amp;optionsSeparator=` / `]]
-</pre>
-</div>
-</div>
-
-<p>
-cmVoorradOuter chunk:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;table id=<span class="code-quote">"voorraadPrint"</span>&gt;
+<pre class="brush: php">
+    &lt;table id="voorraadPrint"&gt;
    [[+items]]
 &lt;/table&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 cmVoorraadItem chunk:
 </p>
@@ -176,7 +161,7 @@ cmVoorraadItem chunk:
 <p>
 Which results (with some css applied) in:
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/35586669/overview.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/35586669/overview.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" /></span>
 </p>
 
 <h2>

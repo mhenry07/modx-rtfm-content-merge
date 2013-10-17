@@ -1,59 +1,55 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#SystemSettings-CreatingnewSystemSettings%28viatheGUI%29'>Creating new System Settings (via the GUI)</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-CreatingnewSystemSettings%28viatheGUI%29">Creating new System Settings (via the GUI)</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#SystemSettings-Parameters'>Parameters</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-Parameters">Parameters</a>
 </li>
 
 <li>
-<a href='#SystemSettings-Localization'>Localization</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-Localization">Localization</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SystemSettings-UsingSystemSettingsinyourCode'>Using System Settings in your Code</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-UsingSystemSettingsinyourCode">Using System Settings in your Code</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#SystemSettings-GettingaSystemSetting%28programmatically%29'>Getting a System Setting (programmatically)</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-GettingaSystemSetting%28programmatically%29">Getting a System Setting (programmatically)</a>
 </li>
 
 <li>
-<a href='#SystemSettings-SavingaSystemSetting%28programmatically%29'>Saving a System Setting (programmatically)</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-SavingaSystemSetting%28programmatically%29">Saving a System Setting (programmatically)</a>
 </li>
 
 <li>
-<a href='#SystemSettings-RetrievingaSetting%27sMetaData'>Retrieving a Setting's Meta Data</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-RetrievingaSetting%27sMetaData">Retrieving a Setting's Meta Data</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SystemSettings-RetrievingalistofRelatedSettings'>Retrieving a list of Related Settings</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-RetrievingalistofRelatedSettings">Retrieving a list of Related Settings</a>
 </li>
 
 <li>
-<a href='#SystemSettings-CreatingaSystemSettingProgrammatically'>Creating a System Setting Programmatically</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-CreatingaSystemSettingProgrammatically">Creating a System Setting Programmatically</a>
 </li>
 
 <li>
-<a href='#SystemSettings-TypesofSystemSettings'>Types of System Settings</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-TypesofSystemSettings">Types of System Settings</a>
 </li>
 
 <li>
-<a href='#SystemSettings-SettingsList'>Settings List</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings#SystemSettings-SettingsList">Settings List</a>
 </li>
 </ul>
 </div>
@@ -76,7 +72,7 @@ To create a new system setting, click the "Create New Settings" link under Syste
 </p>
 
 <p>
-<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/18678127/system+settings+annotated.png?version=1&amp;modificationDate=1303174387000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style="display: block; text-align: center"><img src="download/attachments/18678127/system+settings+annotated.png?version=1&amp;modificationDate=1303174387000" style="border: 0px solid black" /></span>
 </p>
 
 <h3>
@@ -93,7 +89,7 @@ To create a new system setting, click the "Create New Settings" link under Syste
 <li>Field Type: There are currently 3 supported input types: TextField, TextArea, Yes/No
 </li>
 
-<li>Namespace: as with <a href="/display/revolution20/Custom+Manager+Pages" title="Custom Manager Pages">Custom Manager Pages</a>, the namespace defines a folder inside core/components/.
+<li>Namespace: as with <a href="display/revolution20/Custom+Manager+Pages" title="Custom Manager Pages">Custom Manager Pages</a>, the namespace defines a folder inside core/components/.
 </li>
 
 <li>Area Lexicon Entry: this value affects the grouping of system settings; create multiple system settings that share the "Area Lexicon Entry" and they will be grouped together.
@@ -130,59 +126,14 @@ For example, if we look at Quip's [[++quip.emailsFrom]] setting, we see that it 
 In our Quip example, we see a name of <em>setting_quip.emailsFrom</em> and a description of <em>setting_quip.emailsFrom_desc</em>. These two values correspond to keys in the <b>$_lang</b> array inside of <b>default.inc.php</b>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$_lang['setting_quip.emailsFrom'] = 'From Email';
-$_lang['setting_quip.emailsFrom_desc'] = 'The email address to send system emails from.';
-</pre>
-</div>
-</div>
-
-<p>
-We encourage you to right-click an existing system setting and choose to "Update System Setting" to get an idea of how this works.
-</p>
-
-<h2>
-<a name="SystemSettings-UsingSystemSettingsinyourCode"></a>Using System Settings in your Code
-</h2>
-
-<p>
-Frequently, you'll want to be able to retrieve the values for your system settings in your Snippets or Plugins. There's more information <a href="/display/revolution20/Settings" title="Settings">on this page</a>.
-</p>
-
-<h3>
-<a name="SystemSettings-GettingaSystemSetting%28programmatically%29"></a>Getting a System Setting (programmatically)
-</h3>
-
-<p>
-In a nutshell, you do it using the <a href="/display/xPDO20/getOption" title="getOption">getOption</a> function and passing it the unique key for the option, for example:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $siteStartId = $modx-&gt;getOption('site_start');
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 In WordPress, the comparable API function is <b>get_option()</b>.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -194,44 +145,25 @@ This function retrieves the value from the settings cache.
 </h3>
 
 <p>
-Here's where things get a little bit more complicated: when we retrieve the value using <a href="/display/xPDO20/getOption" title="getOption">getOption</a>, we are retrieving the object from the settings cache. This has the distinct advantage of speed, but it means that we essentially have a read-only copy of the setting's value.
+Here's where things get a little bit more complicated: when we retrieve the value using <a href="display/xPDO20/getOption" title="getOption">getOption</a>, we are retrieving the object from the settings cache. This has the distinct advantage of speed, but it means that we essentially have a read-only copy of the setting's value.
 </p>
 
 <p>
-This is for architectural reasons: the system settings are meant to defined as <em>configurations</em>, <b>NOT runtime dynamic values</b>. They are typically set at the time of install and then not often updated. However, there may be legitimate times when you need to update system settings programmatically, e.g. perhaps you have written a <a href="/display/revolution20/Custom+Manager+Pages+Tutorial" title="Custom Manager Pages Tutorial">Custom Manager Page</a> that offers a customized form to your users for its system settings.
+This is for architectural reasons: the system settings are meant to defined as <em>configurations</em>, <b>NOT runtime dynamic values</b>. They are typically set at the time of install and then not often updated. However, there may be legitimate times when you need to update system settings programmatically, e.g. perhaps you have written a <a href="display/revolution20/Custom+Manager+Pages+Tutorial" title="Custom Manager Pages Tutorial">Custom Manager Page</a> that offers a customized form to your users for its system settings.
 </p>
 
 <p>
-If we want to update a system setting, we default to the powerful xPDO <a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> function. So let's revisit our retrieval of a simple site setting and compare it side by side with the more verbose (and more flexible) xPDO counterpart:
+If we want to update a system setting, we default to the powerful xPDO <a href="display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> function. So let's revisit our retrieval of a simple site setting and compare it side by side with the more verbose (and more flexible) xPDO counterpart:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-print $modx-&gt;getOption('site_name');
-
-<span class="code-comment">// prints the same thing as <span class="code-keyword">this</span>:
-</span>
-$Setting = $modx-&gt;getObject('modSystemSetting', 'site_name');
-print $Setting-&gt;get('value');
-</pre>
-</div>
-</div>
-
-<p>
-The difference is that using <b>getObject</b> retrieves the object from the database uncached, and we can do far more things with an object, including saving that object. So here's how we would retrieve and save a system setting:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $Setting = $modx-&gt;getObject('modSystemSetting', 'site_name');
 $Setting-&gt;set('value', 'My New Site Name');
 $Setting-&gt;save();
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 However, note that this does not clear the settings cache, so any subsequent calls to <b>getOption</b> will still return the older cached version of the setting.
 </p>
@@ -240,45 +172,16 @@ However, note that this does not clear the settings cache, so any subsequent cal
 To rectify this in MODx 2.0.x, you have to clear the <em>entire</em> cache, including your page cache. Clearing your entire cache frequently could slow down your system because it would keep having to rebuild it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// clear cache in MODx 2.0.x
-</span>$modx-&gt;cacheManager-&gt;clearCache();
-</pre>
-</div>
-</div>
-
-<p>
-MODx 2.1.x offers more granular caching, which helps us in this case:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// clear cache in MODx 2.1.x
-</span>$cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
+<pre class="brush: php">
+    
+// clear cache in MODx 2.1.x
+$cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
 $modx-&gt;cacheManager-&gt; refresh($cacheRefreshOptions);
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 In WordPress, the comparable API function is <b>update_option()</b>.
-</td>
-</tr>
-</table>
 </div>
 
 <h3>
@@ -289,85 +192,21 @@ In WordPress, the comparable API function is <b>update_option()</b>.
 Once we start retrieving the <em>Objects</em> that represent the system settings instead of just their value, we can see all of the meta data for any given setting (i.e. all of the attributes). Look at this code as an example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$Setting = $modx-&gt;getObject('modSystemSetting', 'site_name');
-print_r( $Setting-&gt;toArray() );
-/* 
-prints out something like <span class="code-keyword">this</span>:
-Array ( 
-        [key] =&gt; site_name 
-        [value] =&gt; My Skiphop Site 
-        [xtype] =&gt; textfield 
-        [namespace] =&gt; core 
-        [area] =&gt; site 
-        [editedon] =&gt; 2010-10-24 21:53:55 
-)
-*/
-</pre>
-</div>
-</div>
-
-<p>
-Once you understand how to manipulate objects using MODx and xPDO, you'll be able to retrieve and modify just about everything inside of MODx, because just about everything is an object.
-</p>
-
-<h2>
-<a name="SystemSettings-RetrievingalistofRelatedSettings"></a>Retrieving a list of Related Settings
-</h2>
-
-<p>
-If you have noticed in the GUI above, MODx allows for some very logical grouping of system settings. The most useful groupings are <b>area</b> and by the prefix of the <b>key</b>. Using xPDO's <a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getCollection</a> method, we can easily supply some search criteria to get the settings that we want.
-</p>
-
-<p>
-Here's how we would pull up all settings from the 'Mail' area:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $relatedSettings = $modx-&gt;getCollection('modSystemSetting', array('area'=&gt;'Mail'));
 foreach ( $relatedSettings as $Setting ) {
         print $Setting-&gt;get('value');
 }
+
+    
 </pre>
-</div>
-</div>
-
 <p>
-This leads us naturally to one of xPDO's other features: the <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">Query</a> object. We can use it to pass more complex criteria to our <b>getCollection call</b>. Here's how we would pull up all settings that used the prefix of "quip.":
+This leads us naturally to one of xPDO's other features: the <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">Query</a> object. We can use it to pass more complex criteria to our <b>getCollection call</b>. Here's how we would pull up all settings that used the prefix of "quip.":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $modx-&gt;newQuery('modSystemSetting');
-$query-&gt;where(array('key:LIKE' =&gt; 'quip.%') );
-$relatedSettings = $modx-&gt;getCollection('modSystemSetting', $query);
-foreach ( $relatedSettings as $Setting ) {
-        print $Setting-&gt;get('value');
-}
-</pre>
-</div>
-</div>
-
-<p>
-You may not have been expecting an introduction to xPDO while you were simply trying to retrieve and set system settings, but it's in there.
-</p>
-
-<h2>
-<a name="SystemSettings-CreatingaSystemSettingProgrammatically"></a>Creating a System Setting Programmatically
-</h2>
-
-<p>
-You may desire to create a System Setting programmatically in order to provide your users with a cleaner UX/UI. In your code, you can put something like the following:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $MySetting = $modx-&gt;newObject('modSystemSetting');
 $MySetting-&gt;set('key', 'mykey');
 $MySetting-&gt;set('value', 'my_value');
@@ -377,13 +216,12 @@ $MySetting-&gt;set('area', 'MyArea');
 
 $MySetting-&gt;save();
 
-<span class="code-comment">// Clear the cache:
-</span>$cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
+// Clear the cache:
+$cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
 $modx-&gt;cacheManager-&gt; refresh($cacheRefreshOptions);
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Note that you must create lexicon entries that match your key name (see the section above on Localization):
 </p>
@@ -479,16 +317,24 @@ The <b>xtype</b> attribute defines what type of field the GUI will use when rend
 A description of each setting follows:
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc">
+<li>
+<a href="/revolution/2.x/administering-your-site/settings/system-settings/access_category_enabled">access_category_enabled</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=alpha&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678127" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678127" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="4" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FSystem%2BSettings" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678127" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/revolution/2.x/administering-your-site/settings/system-settings/access_context_enabled">access_context_enabled</a>
+</li>
+
+<li>
+<a href="/revolution/2.x/administering-your-site/settings/system-settings/access_resource_group_enabled">access_resource_group_enabled</a>
+</li>
+
+<li>
+<a href="/revolution/2.x/administering-your-site/settings/system-settings/allow_duplicate_alias">allow_duplicate_alias</a>
+</li>
+
+<li>
+<a href="/revolution/2.x/administering-your-site/settings/system-settings/allow_forward_across_contexts">allow_forward_across_contexts</a>
+</li>
+</ol>

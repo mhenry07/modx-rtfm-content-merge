@@ -5,31 +5,31 @@ We're putting this here because often a Snippet will use Chunks to format data.
 <div>
 <ul>
 <li>
-<a href='#HowtoWriteaGoodChunk-DoNOTOverRelyonPHxStyleLogic%21'>Do NOT Over-Rely on PHx-Style Logic!</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-DoNOTOverRelyonPHxStyleLogic%21">Do NOT Over-Rely on PHx-Style Logic!</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#HowtoWriteaGoodChunk-TheWRONGWaytodoIt'>The WRONG Way to do It</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-TheWRONGWaytodoIt">The WRONG Way to do It</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodChunk-ReasonsWhyPHxMightDestroyYourSite'>Reasons Why PHx Might Destroy Your Site</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-ReasonsWhyPHxMightDestroyYourSite">Reasons Why PHx Might Destroy Your Site</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodChunk-TheRightWaytoDoIt'>The Right Way to Do It</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-TheRightWaytoDoIt">The Right Way to Do It</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodChunk-GoodChunkkeepingChecklist'>Good Chunk-keeping Checklist</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-GoodChunkkeepingChecklist">Good Chunk-keeping Checklist</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodChunk-SeeAlso'>See Also</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -39,7 +39,7 @@ We're putting this here because often a Snippet will use Chunks to format data.
 </h2>
 
 <p>
-What is <a href="/display/ADDON/PHx" title="PHx">PHx</a>? It is a simplified set of parser rules and output modifies that allows you to manipulate data in your view layer (i.e. in your Chunks and Templates). Technically, it's a plugin for MODX Evolution, but MODx Revolution allows for similar output modifiers – this page refers to all such modifiers simply as "PHx".
+What is <a href="display/ADDON/PHx" title="PHx">PHx</a>? It is a simplified set of parser rules and output modifies that allows you to manipulate data in your view layer (i.e. in your Chunks and Templates). Technically, it's a plugin for MODX Evolution, but MODx Revolution allows for similar output modifiers – this page refers to all such modifiers simply as "PHx".
 </p>
 
 <p>
@@ -47,93 +47,25 @@ This is probably the single biggest mistake you can do: adding too much logic to
 </p>
 
 <h3>
-<a name="HowtoWriteaGoodChunk-TheWRONGWaytodoIt"></a>The WRONG Way to do It
+<a name="HowtoWriteaGoodChunk-TheWRONGWaytodoIt" id="HowtoWriteaGoodChunk-TheWRONGWaytodoIt"></a>The WRONG Way to do It
 </h3>
 
 <p>
 Here's an example of a Chunk that got completely out of hand:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+tv.RemovePin:eq=`active`:then=`[[+modx.user.id:memberof=`
-Members`:then=`{address:'[[+tv.country]], [[+pagetitle]]', data:'&lt;div class=<span class="code-quote">"googleBubble"</span>&gt;
-[[+tv.Socialicons:replace=`||==`:replace=`facebook==&lt;img src=<span class="code-quote">"/assets/images/mapof/facebook.png"</span>
-alt=<span class="code-quote">"Facebook"</span> width=<span class="code-quote">"16"</span> height=<span class="code-quote">"16"</span> class=<span class="code-quote">"pull-right mR2"</span>&gt;`:replace=`linkedin==&lt;img 
-src=<span class="code-quote">"/assets/images/mapof/linkedin.png"</span> alt=<span class="code-quote">"linked in"</span> width=<span class="code-quote">"16"</span> height=<span class="code-quote">"16"</span> class="pull-right 
-mR2<span class="code-quote">"&gt;`:replace=`twitter==&lt;img src="</span>/assets/images/mapof/twitter.png<span class="code-quote">" alt="</span>twitter<span class="code-quote">" width="</span>16" 
-height=<span class="code-quote">"16"</span> class=<span class="code-quote">"pull-right mR2"</span>&gt;`]]&lt;b&gt;[[+tv.GPGroupName:replace=`'==&amp;apos;`:<span class="code-keyword">default</span>=`Dr 
-[[+createdby:userinfo=`fullname`:ucwords]]`]]&lt;/b&gt;&lt;br&gt;[[+tv.occupation:notempty=`Occupation: 
-[[+tv.occupation]]&lt;br&gt;`]][[+tv.other:notempty=`Occupation: [[+tv.other]]&lt;br&gt;&lt;br&gt;`]]
-[[+content:replace=`
-==&lt;br&gt;`:replace=`'==&amp;apos;`:strip]]&lt;br&gt;[[+tv.leadadmin:notempty=`&lt;br&gt;Admin contact: 
-[[+tv.leadadmin]]`]] [[+tv.opentomembers:notempty=`&lt;br&gt;Open to <span class="code-keyword">new</span> members?: [[+tv.opentomembers]]`]]
-&lt;br&gt;[[+tv.showEmailAddress:eq=`Yes`:then=`Email: &lt;a href=<span class="code-quote">"mailto:[[+createdby:userinfo=`email`]]"</span>&gt;
-[[+createdby:userinfo=`email`]]&lt;/a&gt;`:<span class="code-keyword">else</span>=``]]&lt;/div&gt;',options:{[[+tv.leadadmin:neq=``:then=`icon: <span class="code-keyword">new</span> 
-google.maps.MarkerImage('/assets/images/mapof/pin-gold.png')`:<span class="code-keyword">else</span>=`icon: <span class="code-keyword">new</span> 
-google.maps.MarkerImage('/assets/images/mapof/pin-blue.png')`]]}},`:<span class="code-keyword">else</span>=`{address:'[[+tv.country]], 
-[[+pagetitle]]', data:'&lt;div class=<span class="code-quote">"googleBubble"</span>&gt;&lt;h3&gt;Login to view&lt;/h3&gt;&lt;p&gt;To view the details of <span class="code-keyword">this</span> 
-pin please &lt;a href=<span class="code-quote">"[[~702]]"</span>&gt;create an account&lt;/a&gt; or &lt;a href=<span class="code-quote">"[[~702]]"</span>&gt;login&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;',options:{[[+tv.leadadmin:neq=``:then=`icon: <span class="code-keyword">new</span> 
-google.maps.MarkerImage('/assets/images/mapof/pin-gold.png')`:<span class="code-keyword">else</span>=`icon: <span class="code-keyword">new</span> 
-google.maps.MarkerImage('/assets/images/mapof/pin-blue.png')`]]}},`]]`]]
-</pre>
-</div>
-</div>
-
-<p>
-If you are writing stuff like this for your site, <font color="red">stop now</font>. You will save yourself <em>hours and hours</em> of time if you rethink the problem and move all of that logic into a Snippet or put it somewhere else altogether.
-</p>
-
-<h3>
-<a name="HowtoWriteaGoodChunk-ReasonsWhyPHxMightDestroyYourSite"></a>Reasons Why PHx Might Destroy Your Site
-</h3>
-
-<ol>
-<li>Increased Maintenance costs: it will take <em>much</em> more time to edit your HTML if you obscure it with complex logic.
-</li>
-
-<li>Speed! You cannot fully cache a dynamic Chunk or Template that uses logical conditions. PHx is much slower than simple PHP.
-</li>
-
-<li>Unlike PHP, PHx does not send out error messages or line numbers, so it's much, <em>much</em> harder to debug errors!
-</li>
-
-<li>PHx does not use brackets, and it's impossible to match back-ticks in a text editor, so it's very easy to make syntax errors in your code.
-</li>
-</ol>
-
-<p>
-There are hundreds if not thousands of MODX sites out there that have been corrupted and abused by having inefficient logical mayhem crammed into their Chunks and Templates. Yes, it's a great feature that you <em>can</em> do some last-minute tweaking of data in your presentation layer, but it can be terribly abused and although your crazy Chunks might make sense to <em>you</em>, once another developer has to work on them, chances are good that they'll want to scrap the whole site and replace it with something more sensible.
-</p>
-
-<p>
-One of the things that distinguishes MODX is that its view layer is clean (or it should be anyway). Implementing complex HTML and CSS is a breeze in MODX. Compare this to WordPress, Drupal, or Joomla: bids on eLance say it all. It is a lot more work to integrate templates using those other systems <em>because they all put logic into their view layers</em>. When you do that, you are defeating the entire purpose.
-</p>
-
-<h2>
-<a name="HowtoWriteaGoodChunk-TheRightWaytoDoIt"></a>The Right Way to Do It
-</h2>
-
-<p>
-Keep your Chunks and Templates <em>clean</em>. They should be easy to read and easy to edit.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 Dear [[+first_name]], it was nice to see you last [[+day_of_week]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 See that? Simple. Short. Sweet.
 </p>
 
 <h2>
-<a name="HowtoWriteaGoodChunk-GoodChunkkeepingChecklist"></a>Good Chunk-keeping Checklist
+<a name="HowtoWriteaGoodChunk-GoodChunkkeepingChecklist" id="HowtoWriteaGoodChunk-GoodChunkkeepingChecklist"></a>Good Chunk-keeping Checklist
 </h2>
 
 <ol>
@@ -150,47 +82,20 @@ See that? Simple. Short. Sweet.
 </li>
 </ol>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>Rule of Thumb</b>
 <br />
 If your Chunk uses an Output Filter or PHx-Modifier, <b>it should fit on one line</b>. If it is longer than one-line, then you should probably find another way to accomplish what you're doing, e.g. use a Snippet, or create another page to handle the variations.
-</td>
-</tr>
-</table>
 </div>
 
 <hr />
 
 <h2>
-<a name="HowtoWriteaGoodChunk-SeeAlso"></a>See Also
+<a name="HowtoWriteaGoodChunk-SeeAlso" id="HowtoWriteaGoodChunk-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/Code+Standards" title="Code Standards">Code Standards</a>
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="42926149" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678225" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FHow%2Bto%2BWrite%2Ba%2BGood%2BChunk" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678225" />
-</fieldset>
-</fieldset>
-</div>
+<a href="display/revolution20/Code+Standards" title="Code Standards">Code Standards</a>
 </li>
 </ul>

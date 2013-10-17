@@ -1,15 +1,4 @@
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>API Function Definition</b>
 <br />
 
@@ -75,106 +64,50 @@ string
 Object hierarchy
 </td>
 <td class='confluenceTd'>
-<a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
+<a href="display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-Retrieves a snippet from the database (or cache) given the name of the snippet. Extra parameters may also be sent to the snippet via it's optional second parameter. This function is usually used to run a snippet from within other <a href="/display/Evo1/Snippets" title="Snippets">Snippets</a> or even <a href="/display/Evo1/Modules" title="Modules">Modules</a>.
+Retrieves a snippet from the database (or cache) given the name of the snippet. Extra parameters may also be sent to the snippet via it's optional second parameter. This function is usually used to run a snippet from within other <a href="display/Evo1/Snippets" title="Snippets">Snippets</a> or even <a href="display/Evo1/Modules" title="Modules">Modules</a>.
 </p>
 
 <h2>
-<a name="runSnippet-Examples"></a>Examples
+<a name="runSnippet-Examples" id="runSnippet-Examples"></a>Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$dittoOutput = $modx-&gt;runSnippet(
-        <span class="code-quote">"Ditto"</span>,
-        array(
-            <span class="code-quote">"tpl"</span> =&gt; <span class="code-quote">"&lt;post&gt;&lt;title&gt;[+title+]&lt;/title&gt;&lt;summary&gt;[+summary+]&lt;/summary&gt;&lt;/post&gt;"</span>
-        )
-);
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="runSnippet-Relatedfunctions"></a>Related functions
-</h2>
-
-<ul>
-<li>
-<span class="error">[getChunk]</span>
-</li>
-
-<li>
-<span class="error">[evalSnippet]</span>
-</li>
-</ul>
-
-<h2>
-<a name="runSnippet-Functionsource"></a>Function source
-</h2>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Source File - manager/includes/document.parser.class.inc.php - 1689</b>
-<br />
-</td>
-</tr>
-</table>
-</div>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-function runSnippet($snippetName, $params= array ()) {
-  <span class="code-keyword">if</span> (isset ($<span class="code-keyword">this</span>-&gt;snippetCache[$snippetName])) {
-      $snippet= $<span class="code-keyword">this</span>-&gt;snippetCache[$snippetName];
-      $properties= $<span class="code-keyword">this</span>-&gt;snippetCache[$snippetName . <span class="code-quote">"Props"</span>];
-  } <span class="code-keyword">else</span> { <span class="code-comment">// not in cache so let's check the db
-</span>      $sql= <span class="code-quote">"SELECT * FROM "</span> . $<span class="code-keyword">this</span>-&gt;getFullTableName(<span class="code-quote">"site_snippets"</span>) . <span class="code-quote">" WHERE "</span> . $<span class="code-keyword">this</span>-&gt;getFullTableName(<span class="code-quote">"site_snippets"</span>) . <span class="code-quote">".name='"</span> . mysql_escape_string($snippetName) . <span class="code-quote">"';"</span>;
-      $result= $<span class="code-keyword">this</span>-&gt;dbQuery($sql);
-      <span class="code-keyword">if</span> ($<span class="code-keyword">this</span>-&gt;recordCount($result) == 1) {
-          $row= $<span class="code-keyword">this</span>-&gt;fetchRow($result);
-          $snippet= $<span class="code-keyword">this</span>-&gt;snippetCache[$row['name']]= $row['snippet'];
-          $properties= $<span class="code-keyword">this</span>-&gt;snippetCache[$row['name'] . <span class="code-quote">"Props"</span>]= $row['properties'];
-      } <span class="code-keyword">else</span> {
-          $snippet= $<span class="code-keyword">this</span>-&gt;snippetCache[$snippetName]= <span class="code-quote">"<span class="code-keyword">return</span> <span class="code-keyword">false</span>;"</span>;
+<pre class="brush: php">
+    function runSnippet($snippetName, $params= array ()) {
+  if (isset ($this-&gt;snippetCache[$snippetName])) {
+      $snippet= $this-&gt;snippetCache[$snippetName];
+      $properties= $this-&gt;snippetCache[$snippetName . "Props"];
+  } else { // not in cache so let's check the db
+      $sql= "SELECT * FROM " . $this-&gt;getFullTableName("site_snippets") . " WHERE " . $this-&gt;getFullTableName("site_snippets") . ".name='" . mysql_escape_string($snippetName) . "';";
+      $result= $this-&gt;dbQuery($sql);
+      if ($this-&gt;recordCount($result) == 1) {
+          $row= $this-&gt;fetchRow($result);
+          $snippet= $this-&gt;snippetCache[$row['name']]= $row['snippet'];
+          $properties= $this-&gt;snippetCache[$row['name'] . "Props"]= $row['properties'];
+      } else {
+          $snippet= $this-&gt;snippetCache[$snippetName]= "return false;";
           $properties= '';
       }
   }
-  <span class="code-comment">// load <span class="code-keyword">default</span> params/properties
-</span>  $parameters= $<span class="code-keyword">this</span>-&gt;parseProperties($properties);
+  // load default params/properties
+  $parameters= $this-&gt;parseProperties($properties);
   $parameters= array_merge($parameters, $params);
-  <span class="code-comment">// run snippet
-</span>  <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;evalSnippet($snippet, $parameters);
+  // run snippet
+  return $this-&gt;evalSnippet($snippet, $parameters);
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
-<a name="runSnippet-Notes"></a>Notes
+<a name="runSnippet-Notes" id="runSnippet-Notes"></a>Notes
 </h2>
 
 <p>

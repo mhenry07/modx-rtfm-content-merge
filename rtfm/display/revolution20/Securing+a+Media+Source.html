@@ -1,51 +1,37 @@
 <div>
 <ul>
 <li>
-<a href='#SecuringaMediaSource-LockingDownourSourcetoAdmins'>Locking Down our Source to Admins</a>
+<a href="revolution/2.x/administering-your-site/media-sources/securing-a-media-source#SecuringaMediaSource-LockingDownourSourcetoAdmins">Locking Down our Source to Admins</a>
 </li>
 
 <li>
-<a href='#SecuringaMediaSource-RestrictingtoContentEditors'>Restricting to Content Editors</a>
+<a href="revolution/2.x/administering-your-site/media-sources/securing-a-media-source#SecuringaMediaSource-RestrictingtoContentEditors">Restricting to Content Editors</a>
 </li>
 
 <li>
-<a href='#SecuringaMediaSource-SeeAlso'>See Also</a>
+<a href="revolution/2.x/administering-your-site/media-sources/securing-a-media-source#SecuringaMediaSource-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
 <p>
-This article describes how to secure a Media Source to certain User Groups. It is recommended to read the <a href="/display/revolution20/Adding+a+Media+Source" title="Adding a Media Source">Adding a Media Source</a> article before reading this one. Before getting started, create a "Content Editors" user group, if you don't already have one.
+This article describes how to secure a Media Source to certain User Groups. It is recommended to read the <a href="display/revolution20/Adding+a+Media+Source" title="Adding a Media Source">Adding a Media Source</a> article before reading this one. Before getting started, create a "Content Editors" user group, if you don't already have one.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Those installing new installs of MODX 2.2.0-pl will need to add the string "sources.modAccessMediaSource" (no quotes) to the comma-separated list of values in the "principal_targets" System Setting. This is due to <a href="http://bugs.modx.com/issues/6470" class="external-link" rel="nofollow">this bug here</a>&nbsp;which has been fixed in 2.2.0-pl2.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="SecuringaMediaSource-LockingDownourSourcetoAdmins"></a>Locking Down our Source to Admins
+<a name="SecuringaMediaSource-LockingDownourSourcetoAdmins" id="SecuringaMediaSource-LockingDownourSourcetoAdmins"></a>Locking Down our Source to Admins
 </h2>
 
 <p>
-Media Sources use the common ACLs that the <a href="/display/revolution20/Security" title="Security">MODX Security System</a> uses. You can attach policies to them via User Groups, that allow you to restrict basic actions on them, such as saving, loading, and listing.
+Media Sources use the common ACLs that the <a href="display/revolution20/Security" title="Security">MODX Security System</a> uses. You can attach policies to them via User Groups, that allow you to restrict basic actions on them, such as saving, loading, and listing.
 </p>
 
 <p>
-Go ahead and edit our "My New Source" source that we created in the <a href="/display/revolution20/Adding+a+Media+Source" title="Adding a Media Source">Adding a Media Source</a> article. From there, click on the "Access Permissions" tab. You'll see an empty grid. Sources that have no User Groups assigned to them are "public" - in the sense that any user can use, edit and see them.
+Go ahead and edit our "My New Source" source that we created in the <a href="display/revolution20/Adding+a+Media+Source" title="Adding a Media Source">Adding a Media Source</a> article. From there, click on the "Access Permissions" tab. You'll see an empty grid. Sources that have no User Groups assigned to them are "public" - in the sense that any user can use, edit and see them.
 </p>
 
 <p>
@@ -53,37 +39,23 @@ We're going to first lock down our new source so that it can only be seen and ed
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35586541/20110907-jje3b536kann962u778as3gxj5.jpeg?version=1&amp;modificationDate=1315428999000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/35586541/20110907-jje3b536kann962u778as3gxj5.jpeg?version=1&amp;modificationDate=1315428999000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
-Fill it out as shown above, noting that there are two available <a href="/display/revolution20/Policies" title="Policies">Access Policies</a>. The "Media Source Admin" policy is what we want - it allows full access to the media source, including viewing, editing, removing and listing. The other - Media Source User - only allows viewing and listing of the source (basically a read-only policy). Since we're assigning this to our Administrator group, we want them to have full access.
+Fill it out as shown above, noting that there are two available <a href="display/revolution20/Policies" title="Policies">Access Policies</a>. The "Media Source Admin" policy is what we want - it allows full access to the media source, including viewing, editing, removing and listing. The other - Media Source User - only allows viewing and listing of the source (basically a read-only policy). Since we're assigning this to our Administrator group, we want them to have full access.
 </p>
 
 <p>
 Save your Source. Flush Sessions (Security -&gt; Flush Sessions) and then re-login to the manager. This will make it viewable now to only Administrators.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 If a non-administrator attempts to view or edit a TV in a Resource using your now-protected Source, they will only see the value - and not be able to edit it. This allows you to keep secure Sources in TVs protected.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="SecuringaMediaSource-RestrictingtoContentEditors"></a>Restricting to Content Editors
+<a name="SecuringaMediaSource-RestrictingtoContentEditors" id="SecuringaMediaSource-RestrictingtoContentEditors"></a>Restricting to Content Editors
 </h2>
 
 <p>
@@ -91,54 +63,32 @@ Now that you've added an ACL for the Admins, let's also add one for our Content 
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35586541/Screen+shot+2011-09-07+at+3.54.11+PM.png?version=1&amp;modificationDate=1315428999000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/35586541/Screen+shot+2011-09-07+at+3.54.11+PM.png?version=1&amp;modificationDate=1315428999000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
 Add it to the grid, and save your Source. This will allow all the Users in your Content Editors User Group to be able to see and use your Source, but not alter the Source. They'll be able to add it to TVs, view it in the Files tree, and browse the Source - but not edit the Source itself, nor remove it.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>Media source policy applies to files and folders it provides</b>
 <br />
 Media source policy decides what a user can do with files provided by the media source and <em>not the media source itself</em>. "Admin" policy is for administering or managing files, while "User" is only for using or accessing files.
 <p>
 In the above example Content Editors will be able to access files and folders provided by "My New Source", browse for them and pick them in TVs. However, they <b>will not be able to upload</b> any new files <b>nor create</b> any files and directories. For that they will need wider permissions than provided by the "Media Source User" policy. In that case the "Media Source Admin" policy should be used or a custom one with tailored permissions.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-That's the end of basic Media Source usage. Feel free to learn about the different <a href="/display/revolution20/Media+Source+Types" title="Media Source Types">Media Source Types</a>.
+That's the end of basic Media Source usage. Feel free to learn about the different <a href="display/revolution20/Media+Source+Types" title="Media Source Types">Media Source Types</a>.
 </p>
 
 <h2>
-<a name="SecuringaMediaSource-SeeAlso"></a>See Also
+<a name="SecuringaMediaSource-SeeAlso" id="SecuringaMediaSource-SeeAlso"></a>See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="35586541" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="35586532" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FSecuring%2Ba%2BMedia%2BSource" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="35586532" />
-</fieldset>
-</fieldset>
-</div>
+<ol class="ug-toc">
+<li>
+<a href="/revolution/2.x/administering-your-site/media-sources/securing-a-media-source/creating-a-media-source-for-clients-tutorial">Creating a Media Source for Clients Tutorial</a>
+</li>
+</ol>

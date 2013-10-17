@@ -1,97 +1,79 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Internationalization-AnOverview'>An Overview</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-AnOverview">An Overview</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Internationalization-Locales'>Locales</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-Locales">Locales</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Internationalization-LexiconEntries'>Lexicon Entries</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-LexiconEntries">Lexicon Entries</a>
 </li>
 
 <li>
-<a href='#Internationalization-LoadingandUsingLexicons'>Loading and Using Lexicons</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-LoadingandUsingLexicons">Loading and Using Lexicons</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Internationalization-LexiconsviaTag%28incontent%2Cchunks%2Ctemplatesetc%29'>Lexicons via Tag (in content, chunks, templates etc)</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-LexiconsviaTag%28incontent%2Cchunks%2Ctemplatesetc%29">Lexicons via Tag (in content, chunks, templates etc)</a>
 </li>
 
 <li>
-<a href='#Internationalization-LexiconsinPHP'>Lexicons in PHP</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-LexiconsinPHP">Lexicons in PHP</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Internationalization-LoadinglexicontopicswithmodLexicon%3A%3Aload%28%29'>Loading lexicon topics with modLexicon::load()</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-LoadinglexicontopicswithmodLexicon%3A%3Aload%28%29">Loading lexicon topics with modLexicon::load()</a>
 </li>
 
 <li>
-<a href='#Internationalization-DisplayingtranslatedcontentwithmodX%3A%3Alexicon%28%29'>Displaying translated content with modX::lexicon()</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-DisplayingtranslatedcontentwithmodX%3A%3Alexicon%28%29">Displaying translated content with modX::lexicon()</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Internationalization-LexiconsinJavaScript%28withinMODX%29'>Lexicons in JavaScript (within MODX)</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-LexiconsinJavaScript%28withinMODX%29">Lexicons in JavaScript (within MODX)</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Internationalization-LexiconsforSettings'>Lexicons for Settings</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-LexiconsforSettings">Lexicons for Settings</a>
 </li>
 
 <li>
-<a href='#Internationalization-Conclusion'>Conclusion</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-Conclusion">Conclusion</a>
 </li>
 
 <li>
-<a href='#Internationalization-SeeAlso'>See Also</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization#Internationalization-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
 <h2>
-<a name="Internationalization-AnOverview"></a>An Overview
+<a name="Internationalization-AnOverview" id="Internationalization-AnOverview"></a>An Overview
 </h2>
 
 <p>
 Internationalization, or i18n, is the process of extrapolating text strings in a document to separate languages, so that the document may be viewed by a multitude of different languages without having to duplicate the page for every different language. Technically speaking, <em>internationalization</em> refers to the process of <em>preparing</em> code so that it can be translated; in MODx this process often boils down to isolating translatable strings into separate placeholders.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>i18n</b>
 <br />
 The abbreviation <b>i18n</b> derives from the word "internationalization". It means "<b>i</b> plus 18 letters then <b>n</b>".
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -118,15 +100,15 @@ Furthermore, the modNamespace class is used to further separate Lexicon Topics i
 </p>
 
 <h3>
-<a name="Internationalization-Locales"></a>Locales
+<a name="Internationalization-Locales" id="Internationalization-Locales"></a>Locales
 </h3>
 
 <p>
-Some translation frameworks (such as <a href="http://www.gnu.org/software/gettext/" class="external-link" rel="nofollow">gettext</a>) rely on a specific <em>locale</em> and a context to help distinguish between meanings. For example "football" has a different meaning depending on locale (Britain or the United States). MODx willl likely not support locales in the core, but you can handle setting locales however you need to based on your site organization and i18n approach. The most logical place would probably be using a plugin tied to the <a href="/display/revolution20/OnInitCulture" title="OnInitCulture">OnInitCulture</a> event.
+Some translation frameworks (such as <a href="http://www.gnu.org/software/gettext/" class="external-link" rel="nofollow">gettext</a>) rely on a specific <em>locale</em> and a context to help distinguish between meanings. For example "football" has a different meaning depending on locale (Britain or the United States). MODx willl likely not support locales in the core, but you can handle setting locales however you need to based on your site organization and i18n approach. The most logical place would probably be using a plugin tied to the <a href="display/revolution20/OnInitCulture" title="OnInitCulture">OnInitCulture</a> event.
 </p>
 
 <h2>
-<a name="Internationalization-LexiconEntries"></a>Lexicon Entries
+<a name="Internationalization-LexiconEntries" id="Internationalization-LexiconEntries"></a>Lexicon Entries
 </h2>
 
 <p>
@@ -148,7 +130,7 @@ A Lexicon Entry (or modLexiconEntry in the MODx model) is simply a single transl
 </ul>
 
 <h2>
-<a name="Internationalization-LoadingandUsingLexicons"></a>Loading and Using Lexicons
+<a name="Internationalization-LoadingandUsingLexicons" id="Internationalization-LoadingandUsingLexicons"></a>Loading and Using Lexicons
 </h2>
 
 <p>
@@ -163,78 +145,10 @@ Lexicons must first be loaded if they are to be used in the front-end; however, 
 To use a Lexicon Entry in a tag, use the following syntax:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[%key? &amp;topic=`topicname` &amp;namespace=`namespace_name` &amp;language=`en`]]
+<pre class="brush: php">
+    $modx-&gt;getService('lexicon','modLexicon');
+    
 </pre>
-</div>
-</div>
-
-<p>
-The 'language', 'topic', and 'namespace' properties are optional; if the tag has been run earlier on the page with the same 'topic' property value, that topic will have already been loaded. If 'topic' is not specified, it will assume 'default'. If 'namespace' is not specified, it will assume 'core', or the MODx Revolution Core Namespace.
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-It is preferable not to use the 'language' property for every tag should you be changing languages; this is best done through a System or Context Setting for the entire site or context. The best option is different contexts for each language. But again, MODx leaves you with the preference.
-</td>
-</tr>
-</table>
-</div>
-
-<p>
-If you have placeholders in your lexicon string, for example "This is [[+userinput]]!", you simply specify the key ("userinput") as tag property and pass what you want it replaced with in the value. Example:
-</p>
-
-<p>
-[[!%key? &amp;topic=`topicname` &amp;namespace=`namespace_name` &amp;language=`en` &amp;userinput=`amazing`]]
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Note our ! prefix for the Tag; this makes sure the Tag isn't cached, since our string might be changing before the page cache does.
-</td>
-</tr>
-</table>
-</div>
-
-<h3>
-<a name="Internationalization-LexiconsinPHP"></a>Lexicons in PHP
-</h3>
-
-<p>
-Using lexicons in code is fairly simple; first off you'll want to make sure the modLexicon class is loaded by instantiating it as a service:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;getService('lexicon','modLexicon');
-</pre>
-</div>
-</div>
-
 <p>
 Then we'll want to load the Topic using the load() method.
 </p>
@@ -247,26 +161,10 @@ Then we'll want to load the Topic using the load() method.
 The syntax for the modLexicon::load method is pretty simple:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;lexicon-&gt;load('topicname');
+<pre class="brush: php">
+    $modx-&gt;lexicon-&gt;load('school:default');
+    
 </pre>
-</div>
-</div>
-
-<p>
-The load() function supports Namespace-specific loading. So, say you had a Lexicon Topic named 'default' in a Namespace called 'school'. You'd simply load it like so:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;lexicon-&gt;load('school:<span class="code-keyword">default</span>');
-</pre>
-</div>
-</div>
-
 <p>
 This would load the 'default' Topic in the 'school' Namespace. If the Namespace is not specified, it defaults to 'core', which is the default Namespace for the MODx Revolution backend.
 </p>
@@ -275,30 +173,10 @@ This would load the 'default' Topic in the 'school' Namespace. If the Namespace 
 The load() function also takes an infinite number of parameters; each parameter loads a separate Topic. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;lexicon-&gt;load('chunk','user','school:playground');
+<pre class="brush: php">
+    $modx-&gt;lexicon-&gt;load('es:school:playground');
+    
 </pre>
-</div>
-</div>
-
-<p>
-This would load 3 Topics: 'chunk', 'user', and the 'playground' Topic from the 'school' Namespace.
-</p>
-
-<p>
-Furthermore, the load parameter supports language-specific loading, should you want to override the default language that is being loaded (which defaults to the current value of $this-&gt;modx-&gt;cultureKey, which is set differently depending on the Context loaded, and can be set via Settings), you could load it like so:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;lexicon-&gt;load('es:school:playground');
-</pre>
-</div>
-</div>
-
 <p>
 This would load the Spanish version of the 'playground' Topic for the 'school' Namespace. Fun, huh?
 </p>
@@ -311,26 +189,11 @@ This would load the Spanish version of the 'playground' Topic for the 'school' N
 Now we can use the lexicon() method on the MODx object to get our Entry with key 'school.basketball':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;lexicon('school.basketball');
+<pre class="brush: php">
+    $modx-&gt;lexicon('school.basketball',array('sport' =&gt; 'basketball'));
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-If you have placeholders in your lexicon string, for example "This is [[+userinput]]!", you can pass an array as the second arguement which has key=&gt;value pairs of your placeholder content, like so:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;lexicon('school.basketball',array('sport' =&gt; 'basketball'));
-</pre>
-</div>
-</div>
-
 <h3>
 <a name="Internationalization-LexiconsinJavaScript%28withinMODX%29"></a>Lexicons in JavaScript (within MODX)
 </h3>
@@ -339,50 +202,20 @@ $modx-&gt;lexicon('school.basketball',array('sport' =&gt; 'basketball'));
 In CMPs you can use the following to use lexicons.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- _('lexicon.key')
+<pre class="brush: php">
+     _('lexicon.key',{ userinput: 'amazing' })
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Please note that this assumes you have loaded the lexicon in your connector - there is (at least to my knowledge at this time ~Mark H.) no way to dynamically load other lexicon topics through JavaScript.
-</p>
-
-<p>
-If you have placeholders in your lexicon string, for example "This is [[+userinput]]!", you can pass the values for the placeholders as a javascript object, like so:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- _('lexicon.key',{ userinput: 'amazing' })
-</pre>
-</div>
-</div>
-
 <h2>
-<a name="Internationalization-LexiconsforSettings"></a>Lexicons for Settings
+<a name="Internationalization-LexiconsforSettings" id="Internationalization-LexiconsforSettings"></a>Lexicons for Settings
 </h2>
 
 <p>
 So say you're creating System Settings for your 3rd Party Component (3PC). The syntax for auto-loading them into the Revolution Settings grid is simple. Let's say we have a Namespace for our Component called 'gallery', and a setting called 'gallery.display_thumbs'
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>Recommended Format</b>
 <br />
 The recommended format for 3PC developers is to use a prefix which identifies the parent component:
@@ -393,9 +226,6 @@ $<em>lang['_name-of-component</em>.key-name'] = 'Your translation here.';
 <p>
 This helps to prevent name collisions; keep in mind that the <b>$_lang</b> array may have thousands of entries, so you want to make sure each entry is unique.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -416,7 +246,7 @@ And we're done!
 </p>
 
 <h2>
-<a name="Internationalization-Conclusion"></a>Conclusion
+<a name="Internationalization-Conclusion" id="Internationalization-Conclusion"></a>Conclusion
 </h2>
 
 <p>
@@ -424,11 +254,11 @@ Lexicons provide MODx Revolution users with a plethora of avenues and options to
 </p>
 
 <h2>
-<a name="Internationalization-SeeAlso"></a>See Also
+<a name="Internationalization-SeeAlso" id="Internationalization-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/modX.lexicon" title="modX.lexicon">modX.lexicon</a>
+<a href="display/revolution20/modX.lexicon" title="modX.lexicon">modX.lexicon</a>
 </li>
 </ul>

@@ -14,33 +14,12 @@ This page is designed to demonstrate some basic principles about the MODX cache 
 Here's our first Snippet, named <b>cacheWrite</b>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$cacheManager = $modx-&gt;getCacheManager();
-$x = date('H:i:s');
-$cacheManager-&gt;set('my_cache_key',$x);
-<span class="code-keyword">return</span> $x;
-</pre>
-</div>
-</div>
-
-<p>
-Remember that we need to use the $x variable as an intermediary because the cacheManager relies on variable references. You can't simply pass it a static value.
-</p>
-
-<p>
-This snippet simple stores the current timestamp to a cache key named "my_cache_key". Put this Snippet on a page in your site (CACHED), e.g. on "Page One":
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[writeCache]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h3>
 <a name="CachingTutorial-BasicSnippets-SnippetTwo%3AReadfromCache"></a>Snippet Two: Read from Cache
 </h3>
@@ -49,27 +28,12 @@ This snippet simple stores the current timestamp to a cache key named "my_cache_
 Next, we will create simple snippet that will <em>read</em> values from the cache, named <b>readCache</b>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$cacheManager = $modx-&gt;getCacheManager();
-<span class="code-keyword">return</span> $cacheManager-&gt;get('my_cache_key');
-</pre>
-</div>
-</div>
-
-<p>
-And put this Snippet onto a different page on your site (UNCACHED), e.g. on "Page Two":
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[!readCache]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
 <a name="CachingTutorial-BasicSnippets-ObservingourSnippets" id="CachingTutorial-BasicSnippets-ObservingourSnippets"></a>Observing our Snippets
 </h2>

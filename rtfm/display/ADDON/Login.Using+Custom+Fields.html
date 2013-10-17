@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="Login.UsingCustomFields-WhatareCustomFields%3F"></a>What are Custom Fields?
 </h2>
@@ -11,173 +7,59 @@ Login supports setting custom (or, "Extended") fields using Revolution's User Pr
 </p>
 
 <p>
-Login does it quite simply: using the &amp;useExtended property on the <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a>, <a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> and <a href="/display/ADDON/Login.Profile" title="Login.Profile">Profile</a> snippets. It is set enabled by default.
+Login does it quite simply: using the &amp;useExtended property on the <a href="display/ADDON/Login.Register" title="Login.Register">Register</a>, <a href="display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> and <a href="display/ADDON/Login.Profile" title="Login.Profile">Profile</a> snippets. It is set enabled by default.
 </p>
 
 <h2>
-<a name="Login.UsingCustomFields-Usage"></a>Usage
+<a name="Login.UsingCustomFields-Usage" id="Login.UsingCustomFields-Usage"></a>Usage
 </h2>
 
 <p>
-Basically, to start using extended fields, all you have to do is add a form field to your <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> and <a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> forms. That's it. The snippets will automatically then check for any fields in the POST that aren't in the User table, and if found, store them as extended (custom) fields. They will then be expanded when using the <a href="/display/ADDON/Login.Profile" title="Login.Profile">Profile</a> snippet. For example, a Register form that has this in it:
+Basically, to start using extended fields, all you have to do is add a form field to your <a href="display/ADDON/Login.Register" title="Login.Register">Register</a> and <a href="display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> forms. That's it. The snippets will automatically then check for any fields in the POST that aren't in the User table, and if found, store them as extended (custom) fields. They will then be expanded when using the <a href="display/ADDON/Login.Profile" title="Login.Profile">Profile</a> snippet. For example, a Register form that has this in it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Register? &amp;submitVar=`go`]]
-...
-&lt;label&gt;Favorite Color:
-&lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.color]]&lt;/span&gt;
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"color:required"</span> value=<span class="code-quote">"[[+color]]"</span> /&gt;
-&lt;/label&gt;
-...
-&lt;input type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"go"</span> value=<span class="code-quote">"Register!"</span> /&gt;
-</pre>
-</div>
-</div>
-
-<p>
-will automatically store the "color" field in the extended fields data. You can even use validators, such as :required as shown here, on the custom field in your Register snippet.
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Login won't store the field named in the &amp;submitVar property. In this example, "go" wont be stored because it's passed in the &amp;submitVar property.
-</td>
-</tr>
-</table>
-</div>
-
-<p>
-Then, you can use <a href="/display/ADDON/Login.Profile" title="Login.Profile">Profile</a> to display this data somewhere on a page:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Profile]]
+<pre class="brush: php">
+    [[!Profile]]
 
 &lt;p&gt;[[+username]]'s Favorite Color: [[+color]]&lt;/p&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
-Or even when using the <a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> snippet:
+Or even when using the <a href="display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!UpdateProfile]]
-...
-&lt;label&gt;Favorite Color:
-&lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.color]]&lt;/span&gt;
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"color:required"</span> value=<span class="code-quote">"[[+color]]"</span> /&gt;
-&lt;/label&gt;
-</pre>
-</div>
-</div>
+<pre class="brush: php">
+                    &lt;input type="hidden" name="january[Spaces]" value="" /&gt;
+                &lt;input type="hidden" name="january[Tables]" value="" /&gt;
+                &lt;input type="hidden" name="january[Chairs]" value="" /&gt;
+                &lt;input type="hidden" name="january[NeedsElectric]" value="" /&gt;
+                &lt;input type="hidden" name="january[Misc]" value="" /&gt;
 
+    
+</pre>
 <p>
-Simple as that!
+<span class="image-wrap" style=""><img src="download/attachments/21135392/login.extendedUserContainers.png?version=1&amp;modificationDate=1329484036000" style="border: 1px solid black" /></span>
 </p>
 
 <h3>
-<a name="Login.UsingCustomFields-DirectlyCreatingandPopulatingAttributeContainers"></a>Directly Creating and Populating Attribute Containers
-</h3>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-                &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"january[Spaces]"</span> value="" /&gt;
-                &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"january[Tables]"</span> value="" /&gt;
-                &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"january[Chairs]"</span> value="" /&gt;
-                &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"january[NeedsElectric]"</span> value="" /&gt;
-                &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"january[Misc]"</span> value="" /&gt;
-</pre>
-</div>
-</div>
-
-<p>
-<span class="image-wrap" style=""><img src="/download/attachments/21135392/login.extendedUserContainers.png?version=1&amp;modificationDate=1329484036000" style="border: 1px solid black" /></span>
-</p>
-
-<h3>
-<a name="Login.UsingCustomFields-ExcludingFieldsfromSavingasExtended"></a>Excluding Fields from Saving as Extended
+<a name="Login.UsingCustomFields-ExcludingFieldsfromSavingasExtended" id="Login.UsingCustomFields-ExcludingFieldsfromSavingasExtended"></a>Excluding Fields from Saving as Extended
 </h3>
 
 <p>
-Both the <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> and <a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> snippets have a property called "excludeExtended" that takes a comma-separated list of field names to exclude from being saved as extended fields. So, say you had fields named 'nospam' and 'customProp', that you didn't want to be saved as custom fields in Register. You'd simply call Register like so:
+Both the <a href="display/ADDON/Login.Register" title="Login.Register">Register</a> and <a href="display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> snippets have a property called "excludeExtended" that takes a comma-separated list of field names to exclude from being saved as extended fields. So, say you had fields named 'nospam' and 'customProp', that you didn't want to be saved as custom fields in Register. You'd simply call Register like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Register? &amp;excludeExtended=`nospam,customProp`]]
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="Login.UsingCustomFields-IntheManager"></a>In the Manager
-</h3>
-
-<p>
-Extended fields can also be edited and added from within the Manager, by editing the User and clicking on the "Extended Fields" tab. Make sure if you add fields there, though, that you add them to your UpdateProfile and/or Register forms.
-</p>
-
-<p>
-Also, if you have an extended field in a container, such as in this example, where you have test -&gt; boo:
-</p>
-
-<p>
-<span class="image-wrap" style=""><img src="/download/attachments/21135392/login.extended.nest.png?version=1&amp;modificationDate=1281708667000" style="border: 0px solid black" /></span>
-</p>
-
-<p>
-You can access them with the . syntax:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Profile]]
+<pre class="brush: php">
+    [[!Profile]]
 
 Value of nested attribute: [[+test.below]]
+    
 </pre>
-</div>
-</div>
-
 <p>
 ...will display 'boo!' there.
 </p>
 
 <h2>
-<a name="Login.UsingCustomFields-SeeAlso"></a>See Also
+<a name="Login.UsingCustomFields-SeeAlso" id="Login.UsingCustomFields-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="21135392" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042888" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FLogin.Using%2BCustom%2BFields" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="33227183" /> <input type="hidden" name="ancestorId" value="11042888" />
-</fieldset>
-</fieldset>
-</div>

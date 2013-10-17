@@ -1,41 +1,41 @@
 <div>
 <ul>
 <li>
-<a href='#FormIt.Hooks.email-FormItemailHook'>FormIt email Hook</a>
+<a href="/extras/revo/formit/formit.hooks/formit.hooks.email#FormIt.Hooks.email-FormItemailHook">FormIt email Hook</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.email-AvailableProperties'>Available Properties</a>
+<a href="/extras/revo/formit/formit.hooks/formit.hooks.email#FormIt.Hooks.email-AvailableProperties">Available Properties</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.email-Usage'>Usage</a>
+<a href="/extras/revo/formit/formit.hooks/formit.hooks.email#FormIt.Hooks.email-Usage">Usage</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#FormIt.Hooks.email-SpecifyingaDynamicToAddress'>Specifying a Dynamic To Address</a>
+<a href="/extras/revo/formit/formit.hooks/formit.hooks.email#FormIt.Hooks.email-SpecifyingaDynamicToAddress">Specifying a Dynamic To Address</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.email-UsingaSubjectFieldastheEmailSubjectLine'>Using a Subject Field as the Email Subject Line</a>
+<a href="/extras/revo/formit/formit.hooks/formit.hooks.email#FormIt.Hooks.email-UsingaSubjectFieldastheEmailSubjectLine">Using a Subject Field as the Email Subject Line</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.email-HandlingCheckboxesandMultiSelectsintheEmail'>Handling Checkboxes and Multi-Selects in the Email</a>
+<a href="/extras/revo/formit/formit.hooks/formit.hooks.email#FormIt.Hooks.email-HandlingCheckboxesandMultiSelectsintheEmail">Handling Checkboxes and Multi-Selects in the Email</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.email-SeeAlso'>See Also</a>
+<a href="/extras/revo/formit/formit.hooks/formit.hooks.email#FormIt.Hooks.email-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
 <h2>
-<a name="FormIt.Hooks.email-FormItemailHook"></a>FormIt email Hook
+<a name="FormIt.Hooks.email-FormItemailHook" id="FormIt.Hooks.email-FormItemailHook"></a>FormIt email Hook
 </h2>
 
 <p>
@@ -43,206 +43,188 @@ The email hook will email out your form contents to any email(s).
 </p>
 
 <h2>
-<a name="FormIt.Hooks.email-AvailableProperties"></a>Available Properties
+<a name="FormIt.Hooks.email-AvailableProperties" id="FormIt.Hooks.email-AvailableProperties"></a>Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 name
 </th>
-<th class='confluenceTh'>
+<th>
 description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailTpl
 </td>
-<td class='confluenceTd'>
+<td>
 <font color="red">Required</font>. Tpl chunk for email message. If one is not specified, it will send a list of fields with their values.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailSubject
 </td>
-<td class='confluenceTd'>
+<td>
 The subject of the email.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailUseFieldForSubject
 </td>
-<td class='confluenceTd'>
+<td>
 If 1, and the field 'subject' is passed, then will use that field's value as the email's subject line.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailTo
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of emails to send to.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailToName
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. A comma-separated list of names to pair with the emailTo values.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailFrom
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. If set, will specify the From: address for the email. If not set, will first look for an `email` form field. If none is found, will default to the `emailsender` system setting.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailFromName
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. If set, will specify the From: name for the email.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailHtml
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. Whether or not the email should be in HTML-format. Defaults to 1.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailConvertNewlines
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. If set to 1, will convert all newlines to br tags.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailReplyTo
 </td>
-<td class='confluenceTd'>
+<td>
 An email to set as the reply-to.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailReplyToName
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. The name for the Reply-To field.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailCC
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of emails to send via cc.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailCCName
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. A comma-separated list of names to pair with the emailCC values.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailBCC
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of emails to send via bcc.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailBCCName
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. A comma-separated list of names to pair with the emailBCC values.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailMultiWrapper
 </td>
-<td class='confluenceTd'>
+<td>
 Wraps values submitted by checkboxes/multi-selects with this value. Defaults to just the value. (1.6.0+)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emailMultiSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 Separates checkboxes/multi-selects with this value. Defaults to a newline. (1.6.0+)
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Any of the email hook properties can have placeholders of field names from your form in them that will be evaluated.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="FormIt.Hooks.email-Usage"></a>Usage
+<a name="FormIt.Hooks.email-Usage" id="FormIt.Hooks.email-Usage"></a>Usage
 </h2>
 
 <p>
 Simply specify it as a hook in your FormIt call, and then specify the email-specific properties in the FormIt call as well.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
    &amp;emailTpl=`CentralizedDebtObligationEmailTpl`
    &amp;emailSubject=`Some Sucker Bought Another CDO`
@@ -252,126 +234,111 @@ Simply specify it as a hook in your FormIt call, and then specify the email-spec
    &amp;emailBCCName=`CDO Fraud Informant`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 Note the &amp;emailTpl property points to the name of a Chunk. In that Chunk, you'll have placeholders for each field in your form. Our Chunk could look like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;p&gt;Hello,&lt;/p&gt;
-
-&lt;p&gt;[[+name]] just purchased the CDO <span class="code-keyword">package</span>: [[+cdo_package]].&lt;/p&gt;
-
+&lt;p&gt;[[+name]] just purchased the CDO package: [[+cdo_package]].&lt;/p&gt;
 &lt;p&gt;Their email: [[+email]]&lt;/p&gt;
-
 &lt;p&gt;Thanks!&lt;/p&gt;
 </pre>
-</div>
-</div>
-
 <p>
 This assumes, of course, that you have the fields "name", "cdo_package" and "email" in your form.
 </p>
 
 <h3>
-<a name="FormIt.Hooks.email-SpecifyingaDynamicToAddress"></a>Specifying a Dynamic To Address
+<a name="FormIt.Hooks.email-SpecifyingaDynamicToAddress" id="FormIt.Hooks.email-SpecifyingaDynamicToAddress"></a>Specifying a Dynamic To Address
 </h3>
 
 <p>
 An example is using the form to specify who to send to:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
    &amp;emailTo=`[[+addressTo]]`
 ]]
 ...
-&lt;select name=<span class="code-quote">"addressTo"</span>&gt;
-   &lt;option value=<span class="code-quote">"john@doe.com"</span> [[!+fi.addressTo:FormItIsSelected=`john@doe.com`]]&gt;John&lt;/option&gt;
-   &lt;option value=<span class="code-quote">"jane@doe.com"</span> [[!+fi.addressTo:FormItIsSelected=`jane@doe.com`]]&gt;Jane&lt;/option&gt;
+&lt;select name="addressTo"&gt;
+   &lt;option value="john@doe.com" [[!+fi.addressTo:FormItIsSelected=`john@doe.com`]]&gt;John&lt;/option&gt;
+   &lt;option value="jane@doe.com" [[!+fi.addressTo:FormItIsSelected=`jane@doe.com`]]&gt;Jane&lt;/option&gt;
 &lt;/select&gt;
 </pre>
-</div>
-</div>
-
 <p>
 This will send the email to whoever is selected in the "addressTo" field.
 </p>
 
 <h3>
-<a name="FormIt.Hooks.email-UsingaSubjectFieldastheEmailSubjectLine"></a>Using a Subject Field as the Email Subject Line
+<a name="FormIt.Hooks.email-UsingaSubjectFieldastheEmailSubjectLine" id="FormIt.Hooks.email-UsingaSubjectFieldastheEmailSubjectLine"></a>Using a Subject Field as the Email Subject Line
 </h3>
 
 <p>
 Let's say you have a subject field in your form. You want that to be the subject of the email sent out. The email hook has the ability to do this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
     &amp;emailUseFieldForSubject=`1`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 This will then look for a field named "subject" that will be used in the email. If it's not found or empty, it will default to the &amp;emailSubject property.
 </p>
 
 <h3>
-<a name="FormIt.Hooks.email-HandlingCheckboxesandMultiSelectsintheEmail"></a>Handling Checkboxes and Multi-Selects in the Email
+<a name="FormIt.Hooks.email-HandlingCheckboxesandMultiSelectsintheEmail" id="FormIt.Hooks.email-HandlingCheckboxesandMultiSelectsintheEmail"></a>Handling Checkboxes and Multi-Selects in the Email
 </h3>
 
 <p>
 FormIt, as of 1.6.0+, will automatically handle checkboxes and combine them into one field. You can use the &amp;emailMultiSeparator and &amp;emailMultiWrapper properties to specify how they are joined. For example, to wrap checkboxes in LI tags:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
   &amp;emailMultiWrapper=`&lt;li&gt;[[+value]]&lt;/li&gt;`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 Or just to separate them with BR tags:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
   &amp;emailMultiSeparator=`&lt;br /&gt;`
 ]]
 </pre>
-</div>
-</div>
-
 <h2>
-<a name="FormIt.Hooks.email-SeeAlso"></a>See Also
+<a name="FormIt.Hooks.email-SeeAlso" id="FormIt.Hooks.email-SeeAlso"></a>See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc">
+<li>
+<a href="/extras/revo/formit/FormIt.Hooks">FormIt.Hooks</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33227038" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="33227035" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FFormIt.Hooks.email" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="33227035" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/extras/revo/formit/FormIt.Validators">FormIt.Validators</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItRetriever">FormIt.FormItRetriever</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/formit.Tutorials-and-Examples">FormIt.Tutorials and Examples</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.Roadmap">FormIt.Roadmap</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItCountryOptions">FormIt.FormItCountryOptions</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItStateOptions">FormIt.FormItStateOptions</a>
+</li>
+</ol>

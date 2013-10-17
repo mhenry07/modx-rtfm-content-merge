@@ -1,8 +1,4 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 In MODx, form processing is handled by 'Processors', which are isolated files located in the MODx core directory. They are accessed through 'Connectors', which handle AJAX requests from the User Interface (UI), which require a REQUEST variable named 'action' that specifies which processor to send to. Processors are sent the sanitized REQUEST data, and then when finished respond with a JSON message back to the browser.
 </p>
 
@@ -38,183 +34,69 @@ From there the connector will verify the request, and then send it to the proper
 And now on to the processor:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-/**
- * @<span class="code-keyword">package</span> modx
- * @subpackage processors.element.chunk
- */
-$modx-&gt;lexicon-&gt;load('chunk');
+<pre class="brush: php">
+    
+if (!$modx-&gt;hasPermission('new_chunk')) $modx-&gt;error-&gt;failure($modx-&gt;lexicon('permission_denied'));
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-First off, we include the root index.php file for the processors, which does some slight variable checking and includes licensing. Then, we load the proper lexicon foci. In MODx Revolution, i18n language files are separated into smaller files by their 'foci', which is a term we've coined for 'focus area'. Here, we want all language strings with foci 'chunk'. This saves processing power by only loading relevant i18n strings.
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>About Foci</b>
-<br />
-The lexicon <em>foci</em> are similar to how the popular <a href="http://www.gnu.org/software/gettext/" class="external-link" rel="nofollow">gettext</a> translation framework employs <em>contexts</em> to distinguish meanings and provide subsets of translation files. We mention this only for newcomers who may be familiar with systems that use gettext (e.g. WordPress): remember that contexts are something very different in MODx.
-</td>
-</tr>
-</table>
-</div>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> (!$modx-&gt;hasPermission('new_chunk')) $modx-&gt;error-&gt;failure($modx-&gt;lexicon('permission_denied'));
-</pre>
-</div>
-</div>
-
 <p>
 This checks to make sure the user has the correct permissions to run this processor. If not, then it sends a failure response back to the browser via $modx-&gt;error-&gt;failure(). The response is a string message translated via the lexicon.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// <span class="code-keyword">default</span> values
-</span><span class="code-keyword">if</span> ($_POST['name'] == '') $_POST['name'] = $modx-&gt;lexicon('chunk_untitled');
-
-<span class="code-comment">// get rid of invalid chars
-</span>$_POST['name'] = str_replace('&gt;','',$_POST['name']);
-$_POST['name'] = str_replace('&lt;','',$_POST['name']);
-
-
-<span class="code-comment">// <span class="code-keyword">if</span> the name already exists <span class="code-keyword">for</span> <span class="code-keyword">this</span> chunk, send back an error
-</span>$name_exists = $modx-&gt;getObject('modChunk',array('name' =&gt; $_POST['name']));
-<span class="code-keyword">if</span> ($name_exists != <span class="code-keyword">null</span>) <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('chunk_err_exists_name'));
-</pre>
-</div>
-</div>
-
-<p>
-Note now how we're sanitizing variables, and checking to make sure there already isn't a Chunk with this name.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// category
-</span>$category = $modx-&gt;getObject('modCategory',array('id' =&gt; $_POST['category']));
-<span class="code-keyword">if</span> ($category == <span class="code-keyword">null</span>) {
+<pre class="brush: php">
+    
+// category
+$category = $modx-&gt;getObject('modCategory',array('id' =&gt; $_POST['category']));
+if ($category == null) {
         $category = $modx-&gt;newObject('modCategory');
-        <span class="code-keyword">if</span> (empty($_POST['category'])) {
+        if (empty($_POST['category'])) {
                 $category-&gt;set('id',0);
-        } <span class="code-keyword">else</span> {
+        } else {
                 $category-&gt;set('category',$_POST['category']);
                 $category-&gt;save();
         }
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Okay, here, we allow dynamic Category creation. If the category specified exists, it will later assign it to that category. If not, then it creates the category in the database and prepares it for later association to the Chunk.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// invoke OnBeforeChunkFormSave event
-</span>$modx-&gt;invokeEvent('OnBeforeChunkFormSave',array(
-        'mode'  =&gt; modSystemEvent::MODE_NEW,
-        'id'    =&gt; $_POST['id'],
-));
-</pre>
-</div>
-</div>
-
-<p>
-Events are pretty much the same invoke-wise in Revolution as they were in 096 - however they are more optimized in their loading.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $chunk = $modx-&gt;newObject('modChunk', $_POST);
 $chunk-&gt;set('locked',isset($_POST['locked']));
 $chunk-&gt;set('snippet',$_POST['chunk']);
 $chunk-&gt;set('category',$category-&gt;get('id'));
-<span class="code-keyword">if</span> ($chunk-&gt;save() === <span class="code-keyword">false</span>) {
-    <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('chunk_err_save'));
+if ($chunk-&gt;save() === false) {
+    return $modx-&gt;error-&gt;failure($modx-&gt;lexicon('chunk_err_save'));
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Important: note the 2nd parameter of the newObject() method. This is basically the same as $obj-&gt;fromArray() - it allows you to specify an array of key-value pairs to assign to the new object.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// invoke OnChunkFormSave event
-</span>$modx-&gt;invokeEvent('OnChunkFormSave',array(
-   'mode' =&gt; modSystemEvent::MODE_NEW,
-   'id' =&gt; $chunk-&gt;get('id'),
-));
+<pre class="brush: php">
+    
+// log manager action
+$modx-&gt;logManagerAction('chunk_create','modChunk',$chunk-&gt;get('id'));
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Again, more event invoking.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// log manager action
-</span>$modx-&gt;logManagerAction('chunk_create','modChunk',$chunk-&gt;get('id'));
-</pre>
-</div>
-</div>
-
 <p>
 Now, how manager actions work in Revolution is a little different. This stores a lexicon string key ('chunk_create'), the class key of the object being modified, and the actual ID of the object. This allows for more detailed manager action reporting.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$cacheManager= $modx-&gt;getCacheManager();
-$cacheManager-&gt;clearCache();
+<pre class="brush: php">
+    
+return $modx-&gt;error-&gt;success('',$chunk-&gt;get(array('id', 'name', 'description', 'locked', 'category')));
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Let's simply and easily clear the cache. Pretty easy, huh?
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">return</span> $modx-&gt;error-&gt;success('',$chunk-&gt;get(array('id', 'name', 'description', 'locked', 'category')));
-</pre>
-</div>
-</div>
-
 <p>
 Now, send a success response back to the browser. The parameters of $modx-&gt;error-&gt;success() are as follows:
 </p>

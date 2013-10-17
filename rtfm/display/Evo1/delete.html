@@ -1,19 +1,8 @@
-<h1>
+<h2>
 <a name="delete-API%3ADB%3Adelete"></a>API:DB:delete
-</h1>
+</h2>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>API Quick reference</b>
 <br />
 
@@ -79,168 +68,74 @@ false
 Object parent:
 </td>
 <td class='confluenceTd'>
-<a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a> -&gt; <a href="/display/Evo1/DBAPI" title="DBAPI">DBAPI</a>
+<a href="display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a> -&gt; <a href="display/Evo1/DBAPI" title="DBAPI">DBAPI</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="delete-Description"></a>Description
+<a name="delete-Description" id="delete-Description"></a>Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-bool delete(string $from [, string $where [, string $fields]])
+<pre class="brush: php">
+    $rows_affected = $modx-&gt;db-&gt;delete("table"[, "where value"]); 
+    
 </pre>
-</div>
-</div>
-
-<p>
-Deleting a row from a table, or even all the rows in a table, is very easy using the DBAPI delete function.
-</p>
-
-<p>
-This function attempts to delete from the mysql table with the given paramaters. If no $where is given, this function will delete all the rows in the table $from. $where is the full string of a mysql where clause (eg: $where = "id=4 AND status='active'"). $fields denotes the specific fields to be deleted, leave blank to delete the whole row.
-</p>
-
-<p>
-Function returns true on success, and false on failure.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$rows_affected = $modx-&gt;db-&gt;delete(<span class="code-quote">"table"</span>[, <span class="code-quote">"where value"</span>]); 
-</pre>
-</div>
-</div>
-
 <p>
 <b>The "table" argument</b>
 <br />
 The "table" argument is the table to update. You can use the MODx function to return the full tablename; this is probably the best way, since you won't have to remember to include the prefix of the table names for your site:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$table = $modx-&gt;getFullTableName(<span class="code-quote">"table"</span>);
-$rows_affected = $modx-&gt;db-&gt;delete($table[, <span class="code-quote">"where value"</span>]); 
+<pre class="brush: php">
+    $table = $modx-&gt;getFullTableName("table");
+$rows_affected = $modx-&gt;db-&gt;delete($table, "field = value");
+    
 </pre>
-</div>
-</div>
-
-<p>
-<b>The "where" argument</b>
-<br />
-To optionally specify the specific record to delete, include the field and value to use in a WHERE clause:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$table = $modx-&gt;getFullTableName(<span class="code-quote">"table"</span>);
-$rows_affected = $modx-&gt;db-&gt;delete($table, <span class="code-quote">"field = value"</span>);
-</pre>
-</div>
-</div>
-
 <h2>
 <a name="delete-Usage%2FExamples"></a>Usage / Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$table = $modx-&gt;getFullTableName(<span class="code-quote">"site_templates"</span>);
-$rows_affected = $modx-&gt;db-&gt;delete($table, <span class="code-quote">"id = 5"</span>);  
-</pre>
-</div>
-</div>
-
-<p>
-will delete the template with ID 5.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-function login($username, $password)
+<pre class="brush: php">
+    function login($username, $password)
 {
    global $modx, $table_prefix;
    $username = $modx-&gt;db-&gt;escape($username);
    $password = $modx-&gt;db-&gt;escape($password);
  
-   $res = $modx-&gt;db-&gt;select(<span class="code-quote">"id"</span>, $table_prefix.<span class="code-quote">".modx_web_users"</span>, 
-      <span class="code-quote">"username='$username' AND password='"</span>.md5($password).<span class="code-quote">"'"</span>);
-   <span class="code-keyword">if</span>($modx-&gt;db-&gt;getRecordCount($res))
+   $res = $modx-&gt;db-&gt;select("id", $table_prefix.".modx_web_users", 
+      "username='$username' AND password='".md5($password)."'");
+   if($modx-&gt;db-&gt;getRecordCount($res))
    {
       $_SESSION['userid'] = $id;
-      <span class="code-comment">//other log in things...
-</span>   }
-   <span class="code-keyword">else</span>
+      //other log in things...
+   }
+   else
    {
-      <span class="code-comment">//incorrect login
-</span>   }
+      //incorrect login
+   }
 }
+    
 </pre>
-</div>
-</div>
-
 <p>
 <b>Example2:</b>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">//delete a user of id $id
-</span>global $modx, $table_prefix;
-$id = $modx-&gt;db-&gt;escape($id);
-$modx-&gt;db-&gt;delete($table_prefix.<span class="code-quote">".modx_web_users"</span>, <span class="code-quote">"id = $id"</span>); 
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="delete-Related"></a>Related
-</h2>
-
-<p>
-<a href="/display/Evo1/update" title="update">update</a>, <span class="error">[insert]</span>, <a href="/display/Evo1/select" title="select">select</a>, <a href="/display/Evo1/query" title="query">query</a>, <span class="error">[getAffectedRows]</span>.
-</p>
-
-<h2>
-<a name="delete-Notes"></a>Notes
-</h2>
-
-<p>
-Using this function without specifying a "where" value will delete all the rows in the table. For a number of reasons it would be better to use a "TRUNCATE" query to empty a table.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$table = $modx-&gt;getFullTableName(<span class="code-quote">"table_name"</span>);
-$sql = <span class="code-quote">"TRUNCATE [TABLE] $table"</span>;
+<pre class="brush: php">
+    $table = $modx-&gt;getFullTableName("table_name");
+$sql = "TRUNCATE [TABLE] $table";
 $modx-&gt;db-&gt;query($sql); 
+    
 </pre>
-</div>
-</div>
-
 <p>
 As with all mysql calls, care must be taken to sanitize the variables passed. One should use $s = $modx-&gt;db-&gt;escape($s) before passing to any of these functions.
 </p>
 
 <h2>
-<a name="delete-FunctionSource"></a>Function Source
+<a name="delete-FunctionSource" id="delete-FunctionSource"></a>Function Source
 </h2>
 
 <p>

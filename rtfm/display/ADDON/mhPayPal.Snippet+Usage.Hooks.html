@@ -1,5 +1,5 @@
 <p>
-<em>This document provides information on the mhPayPal snippet hooks, its properties and some example usages. If looking for more information about the mhPayPal package in which the snippet is included, please visit</em> <a href="/display/ADDON/mhPayPal" title="mhPayPal">?mhPayPal</a> <em>instead. If you are looking for more information on the mhPayPal snippet itself, please visit ?</em><em><a href="/display/ADDON/mhPayPal.Snippet+Usage" title="mhPayPal.Snippet Usage">mhPayPal.Snippet Usage</a></em><em>.</em>
+<em>This document provides information on the mhPayPal snippet hooks, its properties and some example usages. If looking for more information about the mhPayPal package in which the snippet is included, please visit</em> <a href="display/ADDON/mhPayPal" title="mhPayPal">?mhPayPal</a> <em>instead. If you are looking for more information on the mhPayPal snippet itself, please visit ?</em><em><a href="display/ADDON/mhPayPal.Snippet+Usage" title="mhPayPal.Snippet Usage">mhPayPal.Snippet Usage</a></em><em>.</em>
 </p>
 
 <h2>
@@ -17,39 +17,39 @@ A hook is either included in mhPayPal or is a snippet installed in your MODX set
 <div>
 <ul>
 <li>
-<a href='#mhPayPal.SnippetUsage.Hooks-Introduction'>Introduction</a>
+<a href="extras/revo/mhpaypal/mhpaypal.snippet-usage/mhpaypal.snippet-usage.hooks#mhPayPal.SnippetUsage.Hooks-Introduction">Introduction</a>
 </li>
 
 <li>
-<a href='#mhPayPal.SnippetUsage.Hooks-BuiltinHooks'>Built-in Hooks</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#mhPayPal.SnippetUsage.Hooks-email%2Cemail2'>email, email2</a>
-</li>
-
-<li>
-<a href='#mhPayPal.SnippetUsage.Hooks-Redirect'>Redirect</a>
-</li>
-</ul>
-</li>
-
-<li>
-<a href='#mhPayPal.SnippetUsage.Hooks-DevelopingCustomHooks'>Developing Custom Hooks</a>
+<a href="extras/revo/mhpaypal/mhpaypal.snippet-usage/mhpaypal.snippet-usage.hooks#mhPayPal.SnippetUsage.Hooks-BuiltinHooks">Built-in Hooks</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#mhPayPal.SnippetUsage.Hooks-Examples'>Examples</a>
+<a href="extras/revo/mhpaypal/mhpaypal.snippet-usage/mhpaypal.snippet-usage.hooks#mhPayPal.SnippetUsage.Hooks-email%2Cemail2">email, email2</a>
+</li>
+
+<li>
+<a href="extras/revo/mhpaypal/mhpaypal.snippet-usage/mhpaypal.snippet-usage.hooks#mhPayPal.SnippetUsage.Hooks-Redirect">Redirect</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#mhPayPal.SnippetUsage.Hooks-MoreDocumentation'>More Documentation</a>
+<a href="extras/revo/mhpaypal/mhpaypal.snippet-usage/mhpaypal.snippet-usage.hooks#mhPayPal.SnippetUsage.Hooks-DevelopingCustomHooks">Developing Custom Hooks</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href="extras/revo/mhpaypal/mhpaypal.snippet-usage/mhpaypal.snippet-usage.hooks#mhPayPal.SnippetUsage.Hooks-Examples">Examples</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="extras/revo/mhpaypal/mhpaypal.snippet-usage/mhpaypal.snippet-usage.hooks#mhPayPal.SnippetUsage.Hooks-MoreDocumentation">More Documentation</a>
 </li>
 </ul>
 </div>
@@ -80,83 +80,66 @@ When using the email2 hook, make sure to append a "2" to the property, eg emailT
 <tr>
 <th class='confluenceTh'>
 &amp;property
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Description
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Default value
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Version
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 emailTpl
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 [string] Name of a chunk to use for the email contents.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 mhPayPalEmail (file-based)
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 emailSubject
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 [string] The subject of the email to send. Can include all properties included in the data returned.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Thank you for your Donation!
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 emailTo
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 [string] Comma separated list of emails to send the email to. Can use [[+email]] in this property, which will be replaced with the email as received from PayPal.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 The "emailsender" system setting
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 emailCC
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 [string] Comma separated list of emails to CC the email to.
@@ -166,14 +149,12 @@ emailCC
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 emailBCC
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 [string] Comma separated list of emails to BCC the email to.
@@ -183,44 +164,36 @@ emailBCC
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 emailFrom
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 [string] Email address to set up as "from" email.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 The "emailsender" system setting
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 emailFromName
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 [string] The name to attach to the "from" email.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 The "site_name" system setting.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 </tbody>
@@ -241,93 +214,75 @@ The redirect hook can be used to redirect the user to a different page. You woul
 <tr>
 <th class='confluenceTh'>
 &amp;property
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Description
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Default value
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Version
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 redirectTo
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 [integer|string] Either a resource ID or a full URL.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 &nbsp;
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 redirectParams
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 [JSON string] A JSON style string with extra parameters you want to add to the URL. Only used if redirectTo is a resource ID.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 &nbsp;
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 redirectContext
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 [string] The key of the context to use in building the URL if redirectTo is a resource ID.
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Current context
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 redirectScheme
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
-Any valid value for the <a href="/display/revolution20/modX.makeUrl" title="modX.makeUrl">modX::makeUrl</a> scheme, indication what kind of url to build.
-<br class="atl-forced-newline" />
+Any valid value for the <a href="display/revolution20/modX.makeUrl" title="modX.makeUrl">modX::makeUrl</a> scheme, indication what kind of url to build.
 </td>
 <td class='confluenceTd'>
 link_tag_scheme setting or -1
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 1.1.0
-<br class="atl-forced-newline" />
 </td>
 </tr>
 </tbody>
@@ -364,6 +319,6 @@ Nothing yet. Sorry!
 
 <ul>
 <li>
-<a href="/display/ADDON/mhPayPal.Snippet+Usage" title="mhPayPal.Snippet Usage">mhPayPal.Snippet Usage</a>
+<a href="display/ADDON/mhPayPal.Snippet+Usage" title="mhPayPal.Snippet Usage">mhPayPal.Snippet Usage</a>
 </li>
 </ul>

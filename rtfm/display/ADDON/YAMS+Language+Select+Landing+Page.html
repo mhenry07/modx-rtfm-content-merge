@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
 </p>
 
 <table class="tableview" width="100%">
@@ -28,26 +28,10 @@ No content found for label(s) yams-language-select-landing-page.
 </li>
 
 <li>Create a chunk containing the following template called LandingPageRepeat, say:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li&gt;&lt;a href=<span class="code-quote">"(yams_docr:docId)"</span> title=<span class="code-quote">"[[YAMS? &amp;get=`data` &amp;from=`pagetitle` &amp;docid=`docId`]]"</span> &gt;(yams_name)&lt;/a&gt;&lt;/li&gt;
-</pre>
-</div>
-</div>
 
-<p>
-Replace docId by the identifier of the document that the user will to be redirected to from the landing page.
-</p>
-</li>
-
-<li>Somewhere in the template, use the following code to include a hyperlinked list of all available languages:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;ul&gt;[[YAMS? &amp;get=`repeat` &amp;repeattpl=`LandingPageRepeat`]]&lt;/ul&gt;
+<pre class="brush: php">
+    &lt;ul&gt;[[YAMS? &amp;get=`repeat` &amp;repeattpl=`LandingPageRepeat`]]&lt;/ul&gt;
+    
 </pre>
-</div>
-</div>
 </li>
 </ol>

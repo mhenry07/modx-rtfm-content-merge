@@ -2,18 +2,7 @@
 <a name="query-API%3ADB%3Aquery"></a>API:DB:query
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>API Quick reference</b>
 <br />
 
@@ -79,113 +68,55 @@ error
 Object parent:
 </td>
 <td class='confluenceTd'>
-<a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a> -&gt; <a href="/display/Evo1/DBAPI" title="DBAPI">DBAPI</a>
+<a href="display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a> -&gt; <a href="display/Evo1/DBAPI" title="DBAPI">DBAPI</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="query-Description"></a>Description
+<a name="query-Description" id="query-Description"></a>Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-mixed query(<span class="code-object">String</span> $sql)
-</pre>
-</div>
-</div>
-
-<p>
-This function is used by all of the MODx functions that run queries on your database (such as <a href="/display/Evo1/select" title="select">select</a>() or <a href="/display/Evo1/update" title="update">update</a>(). It takes a String as a parameter, which contains the full SQL query that should be run on your database. Essentially, the <a href="/display/Evo1/DBAPI" title="DBAPI">DBAPI</a> functions that query the database build a query based on the arguments passed to it, and then use this function to actually query the database.
-</p>
-
-<h2>
-<a name="query-Usage%2FExamples"></a>Usage / Examples
-</h2>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-function login($username, $password)
+<pre class="brush: php">
+    function login($username, $password)
 The following function will SELECT data from a users table and output it to the page:
 
 $output = '';
 $result = $modx-&gt;db-&gt;query( 'SELECT id, name, joined FROM `user_table` GROUP BY `member_type` ORDER BY name ASC' );
  
-<span class="code-keyword">while</span>( $row = $modx-&gt;db-&gt;getRow( $result ) ) {
+while( $row = $modx-&gt;db-&gt;getRow( $result ) ) {
         $output .= '&lt;br /&gt; ID: ' . $row['id'] . '&lt;br /&gt; Name: ' . $row['name'] . '&lt;br /&gt; Joined: ' . $row['joined']
         . '&lt;br /&gt;---------&lt;br /&gt;';
 }
 echo $output;
+    
 </pre>
-</div>
-</div>
-
 <p>
 Example2:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$table = $modx-&gt;getFullTableName(<span class="code-quote">"table_name"</span>);
-$sql = <span class="code-quote">"TRUNCATE TABLE $table"</span>;
-$modx-&gt;db-&gt;query($sql);  
-</pre>
-</div>
-</div>
-
-<p>
-This will empty the given table.
-</p>
-
-<h2>
-<a name="query-Related"></a>Related
-</h2>
-
-<p>
-conn, <a href="/display/Evo1/select" title="select">select</a>(), <a href="/display/Evo1/update" title="update">update</a>(), <a href="/display/Evo1/delete" title="delete">delete</a>(), <span class="error">[getAffectedRows]</span>(), <span class="error">[getRow]</span>(), <span class="error">[makeArray]</span>().
-</p>
-
-<h2>
-<a name="query-FunctionSource"></a>Function Source
-</h2>
-
-<p>
-File: manager/includes/extenders/dbapi.class.inc.php
-<br />
-Line: 131
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-function query($sql) {
+<pre class="brush: php">
+    function query($sql) {
       global $modx;
-      <span class="code-keyword">if</span> (empty ($<span class="code-keyword">this</span>-&gt;conn) || !is_resource($<span class="code-keyword">this</span>-&gt;conn)) {
-         $<span class="code-keyword">this</span>-&gt;connect();
+      if (empty ($this-&gt;conn) || !is_resource($this-&gt;conn)) {
+         $this-&gt;connect();
       }
       $tstart = $modx-&gt;getMicroTime();
-      <span class="code-keyword">if</span> (!$result = @ mysql_query($sql, $<span class="code-keyword">this</span>-&gt;conn)) {
-         $modx-&gt;messageQuit(<span class="code-quote">"Execution of a query to the database failed - "</span> . $<span class="code-keyword">this</span>-&gt;getLastError(), $sql);
-      } <span class="code-keyword">else</span> {
+      if (!$result = @ mysql_query($sql, $this-&gt;conn)) {
+         $modx-&gt;messageQuit("Execution of a query to the database failed - " . $this-&gt;getLastError(), $sql);
+      } else {
          $tend = $modx-&gt;getMicroTime();
          $totaltime = $tend - $tstart;
          $modx-&gt;queryTime = $modx-&gt;queryTime + $totaltime;
-         <span class="code-keyword">if</span> ($modx-&gt;dumpSQL) {
-            $modx-&gt;queryCode .= <span class="code-quote">"&lt;fieldset style='text-align:left'&gt;&lt;legend&gt;Query "</span> . ($<span class="code-keyword">this</span>-&gt;executedQueries + 1) . <span class="code-quote">" - "</span> . sprintf(<span class="code-quote">"%2.4f s"</span>, $totaltime) . <span class="code-quote">"&lt;/legend&gt;"</span> . $sql . <span class="code-quote">"&lt;/fieldset&gt;&lt;br /&gt;"</span>;
+         if ($modx-&gt;dumpSQL) {
+            $modx-&gt;queryCode .= "&lt;fieldset style='text-align:left'&gt;&lt;legend&gt;Query " . ($this-&gt;executedQueries + 1) . " - " . sprintf("%2.4f s", $totaltime) . "&lt;/legend&gt;" . $sql . "&lt;/fieldset&gt;&lt;br /&gt;";
          }
          $modx-&gt;executedQueries = $modx-&gt;executedQueries + 1;
-         <span class="code-keyword">return</span> $result;
+         return $result;
       }
    }
+    
 </pre>
-</div>
-</div>

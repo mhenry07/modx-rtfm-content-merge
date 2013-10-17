@@ -2,66 +2,10 @@
 <b>Syntax</b>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-@SELECT sql_query
+<pre class="brush: php">
+    @SELECT color_name, color_value FROM colors
+    
 </pre>
-</div>
-</div>
-
-<p>
-Binds the variable to a database query that returns a recordset. Where sql_query is the actual database query. The return value is a recordset.
-</p>
-
-<p>
-<b>Example:</b> We can use the @SELECT command the same way we would use a regular SQL SELECT statement:
-<br />
-<span class="image-wrap" style=""><img src="http://www.modxcms.com/assets/images/docs_img/bind_6.gif" style="border: 0px solid black" /></span>
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Note:</b> When using the CMS database tables you can use the [<ins>PREFIX</ins>] tag before the table name. This will append the database and table prefix to the table name. You can also use manually apply the table prefix to the table name if it's known. For example, modx_site_content, where modx_ is the table prefix used in this example.
-</td>
-</tr>
-</table>
-</div>
-
-<p>
-The result is a simple database listing of the first 10 documents.
-</p>
-
-<p>
-<span class="image-wrap" style=""><img src="http://www.modxcms.com/assets/images/docs_img/bind_7.gif" style="border: 0px solid black" /></span>
-</p>
-
-<p>
-You can also use the @SELECT command to provide your document editors with a dynamic list of options from a DropDown Menu.
-</p>
-
-<p>
-<b>Example:</b>
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-@SELECT color_name, color_value FROM colors
-</pre>
-</div>
-</div>
-
 <p>
 When the user edits the document he/she will see a list of color options from which to choose.
 </p>

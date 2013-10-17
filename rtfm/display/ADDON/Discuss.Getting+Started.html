@@ -9,15 +9,15 @@ Ready? Okay. Discuss is big.&nbsp;No really, it is. Even though you may not expe
 <div>
 <ul>
 <li>
-<a href='#Discuss.GettingStarted-DiscussController%28s%29'>Discuss Controller(s)</a>
+<a href="extras/revo/discuss/discuss.getting-started#Discuss.GettingStarted-DiscussController%28s%29">Discuss Controller(s)</a>
 </li>
 
 <li>
-<a href='#Discuss.GettingStarted-TheDiscussManifest'>The Discuss Manifest</a>
+<a href="extras/revo/discuss/discuss.getting-started#Discuss.GettingStarted-TheDiscussManifest">The Discuss Manifest</a>
 </li>
 
 <li>
-<a href='#Discuss.GettingStarted-Themes'>Themes</a>
+<a href="extras/revo/discuss/discuss.getting-started#Discuss.GettingStarted-Themes">Themes</a>
 </li>
 </ul>
 </div>
@@ -30,78 +30,8 @@ Ready? Okay. Discuss is big.&nbsp;No really, it is. Even though you may not expe
 If you installed Discuss with the demo data, you will see that we use one resource with a blank template and possibly the simplest yet most powerful snippet call in the world:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Discuss]]
-</pre>
-</div>
-</div>
-
-<p>
-This resource is essentially what routes every request to your forum (including print pages, xml feeds etc) to Discuss, which does all kinds of magic with it. This saves having to set up individual resources and templates for every different view (controller), and makes it easier to maintain. &nbsp;
-</p>
-
-<p>
-What Discuss does internally is basically look at the url for the request, which might be something like this:
-</p>
-
-<blockquote>
-<p>
-<a href="http://forums.modx.com/thread/32480/discuss-native-threaded-forum-for-modx-revolution" class="external-link" rel="nofollow">http://forums.modx.com/thread/32480/discuss-native-threaded-forum-for-modx-revolution</a>
-</p>
-</blockquote>
-
-<p>
-.. and Discuss than takes it apart to find out what you're really looking for. In this specific case, it will find that we're looking for a thread which has an ID of 32480 and it adds the alias for search friendly URLs. So it will basically hand over processing of the current page to the "thread" controller, which looks at the ID and more and does the hard lifting of showing that page. This routing process happens on every request, and it will point to any of the over 30 different controllers.&nbsp;
-</p>
-
-<p>
-Each controller needs a template too. Most controllers are wrapped by the "wrapper.tpl" template (exceptions are the xml controllers), which is then filled with the controller-specific template. These are also file based, and by default, these are named exactly the same as the controller (for example, the thread/unread controller has a template named thread/unread in the core/components/discuss/themes/&lt;theme_name&gt;/pages/ directory). That said, it is possible to use a different template file through the Manifest (more on that really soon), so it may not always be the same depending on the theme.
-</p>
-
-<h2>
-<a name="Discuss.GettingStarted-TheDiscussManifest" id="Discuss.GettingStarted-TheDiscussManifest"></a>The Discuss Manifest
-</h2>
-
-<p>
-In an effort to make an easy to maintain, theme-specific and super flexible theming solution, Discuss themes need a manifest. This manifest contains information on controller-specific javascript and css to load, but it also lets you change a number of controller-specific options and it even features a chunk-like approach for common markup (like sidebars) we reference to as modules.&nbsp;
-</p>
-
-<p>
-The Manifest is a single file which is attached to a theme and is located in the main directory of a theme, for example the manifest for the default theme is at&nbsp;<a href="https://github.com/modxcms/Discuss/blob/develop/core/components/discuss/themes/default/manifest.php" class="external-link" rel="nofollow">core/components/discuss/themes/default/manifest.php</a>. It is indeed a PHP file but if you don't know PHP, <em>don't run away yet</em>! It's really easy to understand what is going on and we'll guide you through how to do it later on and we will also provide a full spec of the options you can use.&nbsp;
-</p>
-
-<p>
-In a nutshell, the manifest allows you to define:
-</p>
-
-<ol>
-<li>The global CSS and JS to load. You don't have to define this in the manifest (could just do it in the wrapper.tpl itself), but any file you add here will be injected into the output on most pages (xml pages are the exception again).
-</li>
-
-<li>CSS and JS to load on specific controllers only, such as the print controller, home, thread/reply etc.&nbsp;
-</li>
-
-<li>Options to apply to specific <a href="/display/ADDON/Discuss.Controllers" title="Discuss.Controllers">controllers</a>.
-</li>
-
-<li>Modules (we'll cover these later).
-</li>
-</ol>
-
-<p>
-While the manifest brings you lot of opportunity, as a best practice it should be advisable to limit the amount of dynamically assigned CSS and JS files either globally or for specific controllers.&nbsp;
-</p>
-
-<p>
-The general structure of the manifest is a big multi-dimensional PHP array. Whoah, lot of big words there. It's basically a three level deep collection of keys and values, written in PHP. Here's a somewhat simplified excerpt:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$manifest = array(
+<pre class="brush: php">
+    $manifest = array(
     'global' =&gt; array(
         'css' =&gt; array(
             'header' =&gt; array(
@@ -132,31 +62,30 @@ $manifest = array(
             ),
         ),
         'options' =&gt; array(
-            'showBoards' =&gt; <span class="code-keyword">true</span>,
-            'showBreadcrumbs' =&gt; <span class="code-keyword">true</span>,
-            'showRecentPosts' =&gt; <span class="code-keyword">false</span>,
-            'showStatistics' =&gt; <span class="code-keyword">true</span>,
-            'showLoginForm' =&gt; <span class="code-keyword">false</span>,
-            'bypassUnreadCheck' =&gt; <span class="code-keyword">true</span>,
-            'checkUnread' =&gt; <span class="code-keyword">true</span>,
-            'showLogoutActionButton' =&gt; <span class="code-keyword">false</span>,
-            'hideIndexBreadcrumbs' =&gt; <span class="code-keyword">true</span>,
+            'showBoards' =&gt; true,
+            'showBreadcrumbs' =&gt; true,
+            'showRecentPosts' =&gt; false,
+            'showStatistics' =&gt; true,
+            'showLoginForm' =&gt; false,
+            'bypassUnreadCheck' =&gt; true,
+            'checkUnread' =&gt; true,
+            'showLogoutActionButton' =&gt; false,
+            'hideIndexBreadcrumbs' =&gt; true,
             'subBoardSeparator' =&gt; '',
         ),
     ),
 
 );
-<span class="code-keyword">return</span> $manifest;
-</pre>
-</div>
-</div>
+return $manifest;
 
+    
+</pre>
 <p>
 We'll see we are defining a variable $manifest as an array, with a first element called "global" which in turn defines an array. In this second level, we have two items: css and js. They both define the third level of the array which in this case defines files (relative from the assets/components/discuss/themes/theme_name/css or js/ directory) that should be loaded in the header of the page on every controller. In the case of js, we can also tell it to register it in the footer by replacing "header" with "footer" or adding that as another item in the array, and we can even define "inline" for js which wraps whatever you put there in a &lt;script&gt; tag in the header of the page. This can be useful for when your theme needs certain configuration options from settings or Discuss.&nbsp;
 </p>
 
 <p>
-Below the global definition, we will see a print and a home controller in which we can also define css or js in the same way as with the global, but you will also find the "options" array in the home controller's bit. This contains a bunch of options that either have a true or false value, or a string value such as the subBoardSeparator option shown in the excerpt above. These are the options you will want to change to adjust behaviour of the controller. So when you're looking at the <a href="/display/ADDON/Discuss.Controllers" title="Discuss.Controllers">controllers documentation</a>, keep that in mind.
+Below the global definition, we will see a print and a home controller in which we can also define css or js in the same way as with the global, but you will also find the "options" array in the home controller's bit. This contains a bunch of options that either have a true or false value, or a string value such as the subBoardSeparator option shown in the excerpt above. These are the options you will want to change to adjust behaviour of the controller. So when you're looking at the <a href="display/ADDON/Discuss.Controllers" title="Discuss.Controllers">controllers documentation</a>, keep that in mind.
 </p>
 
 <h2>
@@ -168,7 +97,7 @@ Theming in MODX revolves around the core/components/discuss/themes/theme_name/ d
 </p>
 
 <p>
-The files in the "pages" directory all end in .tpl, and mostly correspond directly with the name of a <a href="/display/ADDON/Discuss.Controllers" title="Discuss.Controllers">controller</a>, such as "board" or "thread/new". These are basically the content of the individual controllers and contain the markup specific to what controller is requested.
+The files in the "pages" directory all end in .tpl, and mostly correspond directly with the name of a <a href="display/ADDON/Discuss.Controllers" title="Discuss.Controllers">controller</a>, such as "board" or "thread/new". These are basically the content of the individual controllers and contain the markup specific to what controller is requested.
 </p>
 
 <p>

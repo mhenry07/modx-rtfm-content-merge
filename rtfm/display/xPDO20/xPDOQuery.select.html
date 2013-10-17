@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="xPDOQuery.select-xPDOQuery%3A%3Aselect"></a>xPDOQuery::select
 </h2>
@@ -11,49 +7,23 @@ Specify columns to return from the SQL query.
 </p>
 
 <h2>
-<a name="xPDOQuery.select-Syntax"></a>Syntax
+<a name="xPDOQuery.select-Syntax" id="xPDOQuery.select-Syntax"></a>Syntax
 </h2>
 
 <p>
 API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#xPDOQuery::select()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#\xPDOQuery::select()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-getSelectColumns($className, $tableAlias= '', $columnPrefix= '', $columns= array (), $exclude= <span class="code-keyword">false</span>)
+<pre class="brush: php">
+    xPDOQuery select ([string $columns = '*'])
+    
 </pre>
-</div>
-</div>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOQuery select ([string $columns = '*'])
-</pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 When selecting fields, <b>always</b> make sure to at least include the Primary Key of the table; otherwise, xPDO will not be able to make an object from it and get lost in recursion with the error that the maximum number of nested functions of 100 has been exceeded.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="xPDOQuery.select-Example"></a>Example
+<a name="xPDOQuery.select-Example" id="xPDOQuery.select-Example"></a>Example
 </h2>
 
 <p>
@@ -71,11 +41,11 @@ $boxes = $xpdo-&gt;getCollection('Box',$query);
 </div>
 
 <h2>
-<a name="xPDOQuery.select-SeeAlso"></a>See Also
+<a name="xPDOQuery.select-SeeAlso" id="xPDOQuery.select-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
+<a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
 </li>
 </ul>

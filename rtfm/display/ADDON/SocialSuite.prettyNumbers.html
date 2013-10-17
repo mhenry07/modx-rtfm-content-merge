@@ -1,9 +1,9 @@
 <p>
-<a href="/display/ADDON/SocialSuite" title="SocialSuite">SocialSuite&nbsp;</a>is a collection of useful tools for integrating various social media into your MODX website.&nbsp;
+<a href="display/ADDON/SocialSuite" title="SocialSuite">SocialSuite&nbsp;</a>is a collection of useful tools for integrating various social media into your MODX website.&nbsp;
 </p>
 
 <p>
-prettyNumbers is an <a href="/display/revolution20/Input+and+Output+Filters" title="Input and Output Filters">output filter</a>, part of SocialSuite, which formats numbers nicely depending on the size of the number. It can also be used as a standalone snippet by passing a number into the <b>input</b>&nbsp;property.
+prettyNumbers is an <a href="display/revolution20/Input+and+Output+Filters" title="Input and Output Filters">output filter</a>, part of SocialSuite, which formats numbers nicely depending on the size of the number. It can also be used as a standalone snippet by passing a number into the <b>input</b>&nbsp;property.
 </p>
 
 <h2>
@@ -14,117 +14,20 @@ prettyNumbers is an <a href="/display/revolution20/Input+and+Output+Filters" tit
 Assuming&nbsp;[[+count]] returns a number, you just add the prettyNumbers output filter to it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+count:prettyNumbers]]
+<pre class="brush: php">
+    [[!getFacebookShares:prettyNumbers? &amp;url=`http://google.com/`]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-and it will be prettyfied.
-</p>
-
-<p>
-When you want to parse the result of a snippet, you can also just use the output filter syntax, for example with getFacebookShares.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getFacebookShares:prettyNumbers? &amp;url=`http:<span class="code-comment">//google.com/`]]</span>
-</pre>
-</div>
-</div>
-
 <p>
 As a standalone snippet, the syntax is slightly different in both scenarios:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[prettyNumbers? &amp;input=`[[+count]]`]]
-[[prettyNumbers? &amp;input=`[[!getFacebookShares? &amp;url=`http:<span class="code-comment">//google.com/`]]`]]</span>
+<pre class="brush: php">
+    [[+count:prettyNumbers=`case=upper&amp;decimal=,&amp;thousands=.`]][[prettyNumbers? &amp;input=`[[!getFacebookShares? &amp;url=`http://google.com/`]]` &amp;options=`case=upper&amp;decimal=,&amp;thousands=.`]]
+
+    
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="SocialSuite.prettyNumbers-AdvancedUsage" id="SocialSuite.prettyNumbers-AdvancedUsage"></a>Advanced Usage
-</h2>
-
-<p>
-You can also specify options to the output filter or snippet to change how it formats the number. These are as follows:
-</p>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Option Key
-</th>
-<th class='confluenceTh'>
-Default
-</th>
-<th class='confluenceTh'>
-Description
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-case
-</td>
-<td class='confluenceTd'>
-lower
-</td>
-<td class='confluenceTd'>
-When set to "u", "ucase", "upper" or "strtoupper", this will change the suffix (k, m, b) to uppercase.
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-decimal
-</td>
-<td class='confluenceTd'>
-. (dot)
-</td>
-<td class='confluenceTd'>
-A string to use as decimal separator.
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-thousands
-</td>
-<td class='confluenceTd'>
-, (comma)
-</td>
-<td class='confluenceTd'>
-A string to use as thousands' separator.
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<p>
-You specify these like this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+count:prettyNumbers=`<span class="code-keyword">case</span>=upper&amp;decimal=,&amp;thousands=.`]][[prettyNumbers? &amp;input=`[[!getFacebookShares? &amp;url=`http:<span class="code-comment">//google.com/`]]` &amp;options=`<span class="code-keyword">case</span>=upper&amp;decimal=,&amp;thousands=.`]]</span>
-</pre>
-</div>
-</div>
-
 <h2>
 <a name="SocialSuite.prettyNumbers-Hownumbersareformattedbydefault" id="SocialSuite.prettyNumbers-Hownumbersareformattedbydefault"></a>How numbers are formatted by default
 </h2>

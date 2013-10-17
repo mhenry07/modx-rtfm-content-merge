@@ -8,58 +8,10 @@ In this example we're going through 1 possible way of achieving this. You can al
 <a name="VisionCart.Templating-Creatingatemplate" id="VisionCart.Templating-Creatingatemplate"></a>Creating a template
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;html&gt;</span>
-<span class="code-tag">&lt;head&gt;</span>
-<span class="code-tag">&lt;title&gt;</span>[[++site_name]] ([[+vc.shop.name]] :: [[+vc.product.name:default=`[[+vc.category.name]]`]])<span class="code-tag">&lt;/title&gt;</span>
-<span class="code-tag">&lt;base href=<span class="code-quote">"[[++site_url]]"</span> /&gt;</span>
-<span class="code-tag">&lt;link rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"assets/components/visioncart/web/css/style.css"</span> /&gt;</span>
-
-<span class="code-tag">&lt;/head&gt;</span>
-<span class="code-tag">&lt;body&gt;</span>
-<span class="code-tag">&lt;table width=<span class="code-quote">"100%"</span> cellpadding=<span class="code-quote">"0"</span> cellspacing=<span class="code-quote">"0"</span> border=<span class="code-quote">"0"</span>&gt;</span>
-    <span class="code-tag">&lt;tr&gt;</span>
-        <span class="code-tag">&lt;td colspan=<span class="code-quote">"2"</span>&gt;</span><span class="code-tag">&lt;h1&gt;</span>[[+vc.shop.name]] <span class="code-tag">&lt;span&gt;</span>[[+vc.category.name]] <span class="code-tag">&lt;span&gt;</span>[[+vc.product.name]]<span class="code-tag">&lt;/span&gt;</span><span class="code-tag">&lt;/span&gt;</span><span class="code-tag">&lt;/h1&gt;</span><span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span><span class="code-tag">&lt;div id=<span class="code-quote">"visioncart-shoppingcart"</span>&gt;</span><span class="code-tag">&lt;/div&gt;</span><span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>
-    <span class="code-tag">&lt;tr&gt;</span>
-        <span class="code-tag">&lt;td width=<span class="code-quote">"300"</span>&gt;</span>[[!vcWayfinder]]<span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>[[*content]]<span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td width=<span class="code-quote">"200"</span>&gt;</span>[[!Login?]]<span class="code-tag">&lt;hr /&gt;</span>[[!vcGetBasket]]<span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>
-<span class="code-tag">&lt;/table&gt;</span>
-<span class="code-tag">&lt;/body&gt;</span>
-<span class="code-tag">&lt;/html&gt;</span>
+<pre class="brush: php">
+    [[!vcGetCategories?parents=`0`]]
+    
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="VisionCart.Templating-Creatingtheresources" id="VisionCart.Templating-Creatingtheresources"></a>Creating the resources
-</h2>
-
-<p>
-VisionCart needs 6 resources,
-</p>
-
-<h3>
-<a name="VisionCart.Templating-Webshop" id="VisionCart.Templating-Webshop"></a>Webshop
-</h3>
-
-<p>
-Create a resource that has the name of the webshop or just 'webshop' and place this in the content field:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!vcGetCategories?parents=`0`]]
-</pre>
-</div>
-</div>
-
 <p>
 And set the template to the Template we just made and set it as folder.
 <br />
@@ -78,40 +30,16 @@ This will be the root of your web-shop
 Create a resource called 'Product' and place this in the content field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!vcGetProduct]]
-</pre>
-</div>
-</div>
-
-<p>
-And set the template to the Template we just made and hide in menu.
-</p>
-
-<h3>
-<a name="VisionCart.Templating-Category" id="VisionCart.Templating-Category"></a>Category
-</h3>
-
-<p>
-Create a resource called 'Category' and place this in the content field:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!vcGetCategory?id=`[[+vc.category.id]]`&amp;shopId=`[[+vc.shop.id]]`]]
+<pre class="brush: php">
+    [[!vcGetCategory?id=`[[+vc.category.id]]`&amp;shopId=`[[+vc.shop.id]]`]]
 
 &lt;table&gt;
 [[!vcGetProducts?parents=`[[+vc.category.id]]`]]
 &lt;/table&gt;
 
 [[!vcGetProductList?id=`[[+vc.category.id]]`&amp;shopId=`[[+vc.shop.id]]`&amp;sortBy=`Product.name`]]
+    
 </pre>
-</div>
-</div>
-
 <p>
 And set the template to the Template we just made and hide in menu.
 </p>
@@ -124,34 +52,10 @@ And set the template to the Template we just made and hide in menu.
 Create a resource called Order and place this in the content field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!vcOrderProcess]]
+<pre class="brush: php">
+    [[!vcOrderView]]
+    
 </pre>
-</div>
-</div>
-
-<p>
-And set the template to the Template we just made.
-</p>
-
-<h3>
-<a name="VisionCart.Templating-Vieworder" id="VisionCart.Templating-Vieworder"></a>View order
-</h3>
-
-<p>
-Create a resource called 'View order' and place this in the content field:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!vcOrderView]]
-</pre>
-</div>
-</div>
-
 <p>
 And set the template to the Template we just made.
 </p>
@@ -186,5 +90,5 @@ Go to Components -&gt; VisionCart -&gt; Shop management, right-click your shop a
 <br />
 Select settings-tab and then Templates / resources. Then select the resources we just created.
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/33587418/Afbeelding+7.png?version=1&amp;modificationDate=1294916729000" style="border: 1px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/33587418/Afbeelding+7.png?version=1&amp;modificationDate=1294916729000" style="border: 1px solid black" /></span>
 </p>

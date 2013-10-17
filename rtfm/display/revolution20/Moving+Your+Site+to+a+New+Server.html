@@ -6,24 +6,10 @@ MODX Revolution is a database-driven web application, so moving it to a new serv
 Following is the official documentation of how to move your site to a new location. Normally, the move is to a new server, but the steps here also apply if you move your site to a new folder on your current web server.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>Tip</b>
 <br />
 It's not required, but it's a very good idea to turn off Friendly URLs (FURLS) in the Manager, if you have them on, and rename .htaccess to ht.access on your site before performing any of the steps below. Do the reverse as your last step after everything is working at the new location (rename ht.access to .htaccess and turn on FURLS). It takes a big potential source of confusion out of the picture during the transition.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
@@ -46,26 +32,12 @@ Before doing anything else, it would be wise to empty all of the cached content.
 The first benefit of this is a smaller download / upload file.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 The safest and surest method to clear the cache is to clear it manually.&nbsp; Do this by deleting all the contents contained within the <b>core/cache folder</b>.&nbsp; This process is typically fastest when performed in the server's file manager, as opposed to FTP.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="MovingYourSitetoaNewServer-PackagingupyourFiles"></a>Packaging up your Files
+<a name="MovingYourSitetoaNewServer-PackagingupyourFiles" id="MovingYourSitetoaNewServer-PackagingupyourFiles"></a>Packaging up your Files
 </h2>
 
 <p>
@@ -76,57 +48,18 @@ Any time you pack up a site and move, it's best to package the files into "boxes
 On a UNIX style system, you can create a compressed file using the tar command:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-tar -czf /path/to/backups/modx_revo_site.tar.gz /path/to/modx_doc_root/
-</pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Forget me Not</b>
-<br />
-A good mnemonic for the "-czf" option is <b>C</b>reate <b>Z</b>ip <b>F</b>ile.
-</td>
-</tr>
-</table>
-</div>
-
-<p>
-Once you arrive on the other end, it's good to put the zipped file into its own directory before you extract it. The idea here is that if it explodes, it's easier to clean up the mess if it's contained in its own directory.
-</p>
-
-<p>
-On a UNIX style system, you can unpackage a .tar.gz file using the following commands from a command line:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-gunzip modx_revo_site.tar.gz
+<pre class="brush: php">
+    gunzip modx_revo_site.tar.gz
 tar xvf modx_revo_site.tar
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Once you've extracted the files, you can move the whole directory into the correct place. Again, be careful about moving files in bulk: you might inadvertently forget to copy those hidden files. It's better to rename or move the containing directory instead.
 </p>
 
 <h2>
-<a name="MovingYourSitetoaNewServer-ChangeFileOwnership"></a>Change File Ownership
+<a name="MovingYourSitetoaNewServer-ChangeFileOwnership" id="MovingYourSitetoaNewServer-ChangeFileOwnership"></a>Change File Ownership
 </h2>
 
 <p>
@@ -142,7 +75,7 @@ Some of the folders need to be may writable. Depending on the security configura
 </p>
 
 <h2>
-<a name="MovingYourSitetoaNewServer-DumpingyourDatabase"></a>Dumping your Database
+<a name="MovingYourSitetoaNewServer-DumpingyourDatabase" id="MovingYourSitetoaNewServer-DumpingyourDatabase"></a>Dumping your Database
 </h2>
 
 <p>
@@ -153,30 +86,11 @@ Some of the folders need to be may writable. Depending on the security configura
 You can dump your MySQL database using a GUI tool such as phpMyAdmin, or you can run the command-line <b>mysqldump</b> utility.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-mysqldump -u username -p your_revo_db &gt; /path/to/backups/my_revo_db.sql
+<pre class="brush: php">
+    mysql -u username -p target_db &lt; my_revo_db.sql
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-If you use <em>mysqldump</em>, be sure you use a username that has SELECT and LOCK permissions on all your MODX Revolution database tables – usually it's best to simply use the same username and password that are defined in your configuration file (<em>/core/config/config.inc.php</em>). Remember that <em>mysqldump</em> will prompt you for the password after you execute this command: when you type it (or paste it), you won't see anything in the terminal window.
-</p>
-
-<p>
-On the new server, you can simply use the "mysql" command to slurp the dump file into the new target database:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-mysql -u username -p target_db &lt; my_revo_db.sql
-</pre>
-</div>
-</div>
-
 <p>
 You can also use phpMyAdmin, but remember that web-based tools like this are subject to the same memory limits as PHP, so you're usually better off using a command-line tool if possible.
 </p>
@@ -190,69 +104,19 @@ Many server control panels offer database backup and compression tools as well.
 </p>
 
 <h2>
-<a name="MovingYourSitetoaNewServer-UpdatingyourConfigFiles"></a>Updating your Config Files
+<a name="MovingYourSitetoaNewServer-UpdatingyourConfigFiles" id="MovingYourSitetoaNewServer-UpdatingyourConfigFiles"></a>Updating your Config Files
 </h2>
 
 <p>
 Once you've deployed files to the new server, you need to update the main configuration file: <em>core/config/config.inc.php</em>. You have to update paths to <b>6</b> different resources. Open the file and update the values for the following variables doing a find and replace:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-/* PATHS */
-$modx_core_path= '/path/to/modx_doc_root/core/';
-$modx_processors_path= '/path/to/modx_doc_root/core/model/modx/processors/';
-$modx_connectors_path= '/path/to/modx_doc_root/connectors/';
-$modx_manager_path= '/path/to/modx_doc_root/manager/';
-$modx_base_path= '/path/to/modx_doc_root/';
-$modx_assets_path= '/path/to/modx_doc_root/assets/';
-
-/* HOST (used <span class="code-keyword">for</span> command-line PHP stuff) */
-$http_host='yoursite.com';
-</pre>
-</div>
-</div>
-
-<p>
-If you are also moving your site into or out of a subfolder, be sure to update the variables such as <b>$modx_connectors_url,</b> <b>$modx_manager_url,</b> and <b>$modx_base_url</b>. They should generally
-<br />
-end with a slash (e.g., <b>$modx_base_url='/'</b> for a site not in a subfolder).
-</p>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Permissions</b>
-<br />
-Before you can edit your config file, you may need to loosen up the permissions. After you've edited it, be sure you restore the read-only permissions on the file.
-</td>
-</tr>
-</table>
-</div>
-
-<p>
-There are also 3 additional configuration files that contain two PHP constants:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-define('MODX_CORE_PATH', '/path/to/modx_doc_root/core/');
+<pre class="brush: php">
+    define('MODX_CORE_PATH', '/path/to/modx_doc_root/core/');
 define('MODX_CONFIG_KEY', 'config');
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <ul>
 <li>/config.core.php
 </li>
@@ -269,27 +133,13 @@ Make sure you update the paths in these files as well.
 </p>
 
 <h2>
-<a name="MovingYourSitetoaNewServer-UpdateyourDatabase"></a>Update your Database
+<a name="MovingYourSitetoaNewServer-UpdateyourDatabase" id="MovingYourSitetoaNewServer-UpdateyourDatabase"></a>Update your Database
 </h2>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>Don't Forget the Database</b>
 <br />
 MODX stores some path data in its database! When you move servers, you may have to update the workspaces table, otherwise the manager page may show a white page.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -304,32 +154,13 @@ Sometimes developers structure their development and production servers to use t
 To see the path information that is stored inside the MODX database, type the following query into phpMyAdmin, the MySQL command line, or any other application that allows you to execute queries on your database:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-SELECT `path` FROM `your_revo_db`.`workspaces`;
+<pre class="brush: php">
+    UPDATE `your_revo_db`.`workspaces` SET path='/path/to/modx_doc_root/core/' WHERE id='1';
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Change "your_revo_db" to your database name, and add an appropriate prefix to the "workspaces" table if necessary, e.g. `modx_workspaces`.
-</p>
-
-<p>
-If the path on the new server is different than on the old server, you will need to update this record. You can edit it using a GUI editor (like SQL-Yog or phpMyAdmin), or you can execute the following command (again, you need to customize the query depending on your database, prefix, and the path to your data):
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-UPDATE `your_revo_db`.`workspaces` SET path='/path/to/modx_doc_root/core/' WHERE id='1';
-</pre>
-</div>
-</div>
-
 <h2>
-<a name="MovingYourSitetoaNewServer-Update.htaccess"></a>Update .htaccess
+<a name="MovingYourSitetoaNewServer-Update.htaccess" id="MovingYourSitetoaNewServer-Update.htaccess"></a>Update .htaccess
 </h2>
 
 <p>
@@ -337,7 +168,7 @@ When you change servers, you frequently wind up changing domain names. Make sure
 </p>
 
 <h2>
-<a name="MovingYourSitetoaNewServer-OntheNewServer"></a>On the New Server
+<a name="MovingYourSitetoaNewServer-OntheNewServer" id="MovingYourSitetoaNewServer-OntheNewServer"></a>On the New Server
 </h2>
 
 <p>
@@ -365,7 +196,7 @@ Sometimes clearing the site cache in the manager won't fix all path issues and i
 </p>
 
 <h2>
-<a name="MovingYourSitetoaNewServer-Rerunsetup"></a>Re-run setup
+<a name="MovingYourSitetoaNewServer-Rerunsetup" id="MovingYourSitetoaNewServer-Rerunsetup"></a>Re-run setup
 </h2>
 
 <p>
@@ -385,7 +216,7 @@ Whenever changes are made to a MODX Revolution site in regards to installs, upgr
 </p>
 
 <h2>
-<a name="MovingYourSitetoaNewServer-UpdatingyourExtrassettings%21modxnamespaces.pngalign%3Dright%2Cthumbnail%2Cborder%3D1%21"></a>Updating your Extras settings <span class="image-wrap" style="float: right"><a class="confluence-thumbnail-link 404x422" href='http://oldrtfm.modx.com/download/attachments/22183945/modx-namespaces.png'><img src="/download/thumbnails/22183945/modx-namespaces.png" style="border: 1px solid black" /></a></span>
+<a name="MovingYourSitetoaNewServer-UpdatingyourExtrassettings%21modxnamespaces.pngalign%3Dright%2Cthumbnail%2Cborder%3D1%21"></a>Updating your Extras settings <span class="image-wrap" style="float: right"><a class="confluence-thumbnail-link 404x422" href='http://rtfm.modx.com/download/attachments/22183945/modx-namespaces.png'><img src="download/thumbnails/22183945/modx-namespaces.png" style="border: 1px solid black" /></a></span>
 </h2>
 
 <p>
@@ -409,7 +240,7 @@ In progress... trying to document problems and solutions...
 </p>
 
 <h3>
-<a name="MovingYourSitetoaNewServer-SetupErrors"></a>Setup Errors
+<a name="MovingYourSitetoaNewServer-SetupErrors" id="MovingYourSitetoaNewServer-SetupErrors"></a>Setup Errors
 </h3>
 
 <p>
@@ -424,22 +255,8 @@ You may encounter problems when re-running Setup on the new server. Sometimes re
 This manifests itself as an error message like the following:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-Fatal error: <span class="code-object">Class</span> 'xPDODriver_' not found in /path/to/webroot/core/xpdo/xpdo.class.php on line 1823
-</pre>
-</div>
-</div>
-
-<p>
-This is usually a sign that your configuration file got mangled. Re-open your core/config/config.inc.php and verify that its contents are in place. A mangled config file contains placeholders instead of values.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$database_type = '{database_type}';
+<pre class="brush: php">
+    $database_type = '{database_type}';
 $database_server = '{database_server}';
 $database_user = '{database_user}';
 $database_password = '{database_password}';
@@ -449,12 +266,11 @@ $table_prefix = '{table_prefix}';
 $database_dsn = '{database_dsn}';
 $config_options = {config_options};
 $driver_options = {driver_options};
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h4>
-<a name="MovingYourSitetoaNewServer-InstallationSummaryshowsIncompleteItems"></a>Installation Summary shows Incomplete Items
+<a name="MovingYourSitetoaNewServer-InstallationSummaryshowsIncompleteItems" id="MovingYourSitetoaNewServer-InstallationSummaryshowsIncompleteItems"></a>Installation Summary shows Incomplete Items
 </h4>
 
 <p>
@@ -462,7 +278,7 @@ This can be a bad omen: the Installation Summary page does not describe messages
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/22183945/2013-01-24_14-39-36.png?version=2&amp;modificationDate=1359073561000" style="border: 1px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/22183945/2013-01-24_14-39-36.png?version=2&amp;modificationDate=1359073561000" style="border: 1px solid black" /></span>
 </p>
 
 <p>
@@ -470,11 +286,11 @@ When that page is working correctly, you should see messages next to each "Ok":
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/22183945/2013-01-24_15-35-56.png?version=2&amp;modificationDate=1359073584000" style="border: 1px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/22183945/2013-01-24_15-35-56.png?version=2&amp;modificationDate=1359073584000" style="border: 1px solid black" /></span>
 </p>
 
 <h4>
-<a name="MovingYourSitetoaNewServer-CheckyourDatabaseEncoding"></a>Check your Database Encoding
+<a name="MovingYourSitetoaNewServer-CheckyourDatabaseEncoding" id="MovingYourSitetoaNewServer-CheckyourDatabaseEncoding"></a>Check your Database Encoding
 </h4>
 
 <p>
@@ -482,7 +298,7 @@ It can be hugely problematic if your database on one server does not use the sam
 </p>
 
 <h2>
-<a name="MovingYourSitetoaNewServer-Finalthoughts"></a>Final thoughts
+<a name="MovingYourSitetoaNewServer-Finalthoughts" id="MovingYourSitetoaNewServer-Finalthoughts"></a>Final thoughts
 </h2>
 
 <p>
@@ -497,22 +313,8 @@ If you run into trouble after successfully running Setup, try manually deleting 
 Your site should now be up and running in its new location!
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <b>Final Checkup</b>
 <br />
 It's common for there to be problems during a site migration. There is a script available that will run tests on your MODX site to ensure that the configuration file is configured correctly. See the <b>test_config.php</b> script available as one of the MODX utility scripts here: <a href="https://github.com/craftsmancoding/modx_utils" class="external-link" rel="nofollow">https://github.com/craftsmancoding/modx_utils</a>
-</td>
-</tr>
-</table>
 </div>

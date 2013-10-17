@@ -5,11 +5,11 @@ The Home controller is the main forum overview. It contains listings of categori
 <div>
 <ul>
 <li>
-<a href='#Discuss.Controllers.home-BasicInformation'>Basic Information</a>
+<a href="extras/revo/discuss/discuss.controllers/discuss.controllers.home#Discuss.Controllers.home-BasicInformation">Basic Information</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.home-Options'>Options</a>
+<a href="extras/revo/discuss/discuss.controllers/discuss.controllers.home#Discuss.Controllers.home-Options">Options</a>
 </li>
 </ul>
 </div>
@@ -45,7 +45,6 @@ Controller Class Name
 </td>
 <td class='confluenceTd'>
 DiscussHomeController
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
@@ -75,7 +74,7 @@ home
 </h2>
 
 <p>
-If you don't know what the manifest is, please go back to the <a href="/display/ADDON/Discuss.Getting+Started" title="Discuss.Getting Started">Getting Started</a> document. The options below need to go into the "board" options array of the manifest.
+If you don't know what the manifest is, please go back to the <a href="display/ADDON/Discuss.Getting+Started" title="Discuss.Getting Started">Getting Started</a> document. The options below need to go into the "board" options array of the manifest.
 </p>
 
 <div class='table-wrap'>
@@ -96,7 +95,6 @@ Description
 <tr>
 <td class='confluenceTd'>
 showBoards
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 true
@@ -109,7 +107,6 @@ Choose if you want to see boards or not... you'll probably want this :) Gets set
 <tr>
 <td class='confluenceTd'>
 showRecentPosts
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 false
@@ -122,7 +119,6 @@ Enable if you want to get recent posts in the&nbsp;[[+recent_posts]] placeholder
 <tr>
 <td class='confluenceTd'>
 showLogoutActionButton
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 false
@@ -135,7 +131,6 @@ If enabled sets a&nbsp;[[+discuss.authLink]] placeholder (including &lt;a&gt; ta
 <tr>
 <td class='confluenceTd'>
 showLoginForm
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 false
@@ -148,7 +143,6 @@ If enabled sets a&nbsp;[[+discuss.loginForm]] placeholder with the contents of t
 <tr>
 <td class='confluenceTd'>
 hideIndexBreadcrumbs
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 false
@@ -188,7 +182,6 @@ postTpl
 </td>
 <td class='confluenceTd'>
 post/disThreadLi
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Chunk used for each individual post.
@@ -234,28 +227,12 @@ Amount of recent posts to view.
 <tr>
 <td class='confluenceTd'>
 lastPostTpl
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 board/disLastPostBy
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
-Fills the&nbsp;[[+lastPost]] placeholder. Available placeholders:
-<br class="atl-forced-newline" />
-- createdon
-<br class="atl-forced-newline" />
-- user (disUser ID)
-<br class="atl-forced-newline" />
-- username
-<br class="atl-forced-newline" />
-- thread (ID)
-<br class="atl-forced-newline" />
-- id (last post ID)
-<br class="atl-forced-newline" />
-- url (URL to the last post0
-<br class="atl-forced-newline" />
-- author_link
+Fills the&nbsp;[[+lastPost]] placeholder. Available placeholders: - createdon - user (disUser ID) - username - thread (ID) - id (last post ID) - url (URL to the last post0 - author_link
 </td>
 </tr>
 
@@ -284,7 +261,6 @@ rray(
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'author_link' =&gt; $canViewProfiles ? '&lt;a href="'.$discuss-&gt;request-&gt;makeUrl('u/'.$board['last_post_username']).'"&gt;'.$username.'&lt;/a&gt;' : $username,
 <br />
 &nbsp; &nbsp; &nbsp; &nbsp; );
-<br class="atl-forced-newline" />
 </td>
 </tr>
 

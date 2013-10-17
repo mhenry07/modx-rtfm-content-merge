@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="modX.sendRedirect-modX%3A%3AsendRedirect"></a>modX::sendRedirect
 </h2>
@@ -18,115 +14,41 @@ Sends a redirect to the specified URL using the specified method.
 API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::sendRedirect()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::sendRedirect()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-void sendRedirect (string $url, [array $options = <span class="code-keyword">false</span>], [string $type = ''], [string $responseCode])
-</pre>
-</div>
-</div>
-
-<p>
-Please note that the $type and $responseCode have been deprecated and will likely be removed in an upcoming release. <b>Do not rely on those</b>.
-</p>
-
-<p>
-$url needs to be a proper url, which could be generated using modX::makeUrl, to redirect to.&nbsp;
-</p>
-
-<p>
-$options accepts an array with one or more of the following key/value pairs:
-</p>
-
-<ul>
-<li>type, one of the following (REDIRECT_HEADER is the default):
-<ul>
-<li>
-<b>REDIRECT_REFRESH</b>&nbsp;- Uses the header refresh method
-</li>
-
-<li>
-<b>REDIRECT_META</b>&nbsp;- Sends a a META HTTP-EQUIV="Refresh" tag to the output
-</li>
-
-<li>
-<b>REDIRECT_HEADER</b>&nbsp;- Uses the header location method
-</li>
-</ul>
-</li>
-
-<li>responseCode which needs to be the proper HTTP response, so not just "301" or "302". It defaults to HTTP/1.1 302 Moved Temporarily, but you could set it to "HTTP/1.1 301 Moved Permanently" for a 301-style redirect.
-</li>
-
-<li>count_attempts indicates the number of attempts to redirect before halting.&nbsp;
-</li>
-</ul>
-
-<p>
-$type, which is deprecated and should not be used, is the same as the type $options array key.
-<br />
-$responseCode, which is deprecated and should not be used, is the same as the responseCode $options array key.
-</p>
-
-<h2>
-<a name="modX.sendRedirect-Examples" id="modX.sendRedirect-Examples"></a>Examples
-</h2>
-
-<p>
-Send a redirection request to the Resource with ID 54.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $url = $modx-&gt;makeUrl(54);
 $modx-&gt;sendRedirect($url);
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Send a redirect to modx.com. Do so via the META HTTP-EQUIV refresh tag.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;sendRedirect('http:<span class="code-comment">//modx.com',array('type' =&gt; 'REDIRECT_META'));</span>
+<pre class="brush: php">
+    
+$modx-&gt;sendRedirect('http://modx.com',array('responseCode' =&gt; 'HTTP/1.1 301 Moved Permanently'));
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Send a 301 Moved Permanently response code instead of the default 302 Moved Temporarily response code.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;sendRedirect('http:<span class="code-comment">//modx.com',array('responseCode' =&gt; 'HTTP/1.1 301 Moved Permanently'));</span>
-</pre>
-</div>
-</div>
-
 <h2>
 <a name="modX.sendRedirect-SeeAlso" id="modX.sendRedirect-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/modX" title="modX">modX</a>
+<a href="display/revolution20/modX" title="modX">modX</a>
 </li>
 
 <li>
-<a href="/display/revolution20/modX.makeUrl" title="modX.makeUrl">modX.makeUrl</a>
+<a href="display/revolution20/modX.makeUrl" title="modX.makeUrl">modX.makeUrl</a>
 </li>
 
 <li>
-<a href="/display/revolution20/modX.sendForward" title="modX.sendForward">modX.sendForward</a>
+<a href="display/revolution20/modX.sendForward" title="modX.sendForward">modX.sendForward</a>
 </li>
 
 <li>
-<a href="/display/revolution20/modX.sendErrorPage" title="modX.sendErrorPage">modX.sendErrorPage</a>
+<a href="display/revolution20/modX.sendErrorPage" title="modX.sendErrorPage">modX.sendErrorPage</a>
 </li>
 </ul>

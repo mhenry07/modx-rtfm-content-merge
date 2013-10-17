@@ -1,33 +1,29 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#UpgradingfromVersionsEarlierthan2.0.5-UpgradingtoRevolution2.0.5'>Upgrading to Revolution 2.0.5</a>
+<a href="revolution/2.x/administering-your-site/upgrading-modx/upgrading-from-versions-earlier-than-2.0.5#UpgradingfromVersionsEarlierthan2.0.5-UpgradingtoRevolution2.0.5">Upgrading to Revolution 2.0.5</a>
 </li>
 
 <li>
-<a href='#UpgradingfromVersionsEarlierthan2.0.5-FormCustomizationUpdates'>Form Customization Updates</a>
+<a href="revolution/2.x/administering-your-site/upgrading-modx/upgrading-from-versions-earlier-than-2.0.5#UpgradingfromVersionsEarlierthan2.0.5-FormCustomizationUpdates">Form Customization Updates</a>
 </li>
 
 <li>
-<a href='#UpgradingfromVersionsEarlierthan2.0.5-AccessPolicyUpdates'>Access Policy Updates</a>
+<a href="revolution/2.x/administering-your-site/upgrading-modx/upgrading-from-versions-earlier-than-2.0.5#UpgradingfromVersionsEarlierthan2.0.5-AccessPolicyUpdates">Access Policy Updates</a>
 </li>
 
 <li>
-<a href='#UpgradingfromVersionsEarlierthan2.0.5-extensionpackagesChanges'>extension_packages Changes</a>
+<a href="revolution/2.x/administering-your-site/upgrading-modx/upgrading-from-versions-earlier-than-2.0.5#UpgradingfromVersionsEarlierthan2.0.5-extensionpackagesChanges">extension_packages Changes</a>
 </li>
 
 <li>
-<a href='#UpgradingfromVersionsEarlierthan2.0.5-SeeAlso'>See Also</a>
+<a href="revolution/2.x/administering-your-site/upgrading-modx/upgrading-from-versions-earlier-than-2.0.5#UpgradingfromVersionsEarlierthan2.0.5-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
 <h2>
-<a name="UpgradingfromVersionsEarlierthan2.0.5-UpgradingtoRevolution2.0.5"></a>Upgrading to Revolution 2.0.5
+<a name="UpgradingfromVersionsEarlierthan2.0.5-UpgradingtoRevolution2.0.5" id="UpgradingfromVersionsEarlierthan2.0.5-UpgradingtoRevolution2.0.5"></a>Upgrading to Revolution 2.0.5
 </h2>
 
 <p>
@@ -57,26 +53,12 @@ If you didn't employ any of the above on your site you don't need to read furthe
 These upgrades should go smoothly; however, if they do not, please <a href="http://modxcms.com/forums" class="external-link" rel="nofollow">post on the forums</a> regarding your issue.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 It is always recommended to backup your database before upgrading.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="UpgradingfromVersionsEarlierthan2.0.5-FormCustomizationUpdates"></a>Form Customization Updates
+<a name="UpgradingfromVersionsEarlierthan2.0.5-FormCustomizationUpdates" id="UpgradingfromVersionsEarlierthan2.0.5-FormCustomizationUpdates"></a>Form Customization Updates
 </h2>
 
 <p>
@@ -114,7 +96,7 @@ Your old rules will be separated based on their constraints. If they had any Use
 </p>
 
 <h2>
-<a name="UpgradingfromVersionsEarlierthan2.0.5-AccessPolicyUpdates"></a>Access Policy Updates
+<a name="UpgradingfromVersionsEarlierthan2.0.5-AccessPolicyUpdates" id="UpgradingfromVersionsEarlierthan2.0.5-AccessPolicyUpdates"></a>Access Policy Updates
 </h2>
 
 <p>
@@ -130,51 +112,21 @@ Your old Policies will be upgraded into the Administrator Template if they used 
 </p>
 
 <h2>
-<a name="UpgradingfromVersionsEarlierthan2.0.5-extensionpackagesChanges"></a>extension_packages Changes
+<a name="UpgradingfromVersionsEarlierthan2.0.5-extensionpackagesChanges" id="UpgradingfromVersionsEarlierthan2.0.5-extensionpackagesChanges"></a>extension_packages Changes
 </h2>
 
 <p>
 The setting extension_packages has been changed to a JSON format. The format used to be:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-package_name:package_path,another_package:another_path
+<pre class="brush: php">
+    [{"package_name":{"path":"package_path"}},{"another_package":{"path":"another_path"}}]
+    
 </pre>
-</div>
-</div>
-
-<p>
-And is now:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[{<span class="code-quote">"package_name"</span>:{<span class="code-quote">"path"</span>:<span class="code-quote">"package_path"</span>}},{<span class="code-quote">"another_package"</span>:{<span class="code-quote">"path"</span>:<span class="code-quote">"another_path"</span>}}]
-</pre>
-</div>
-</div>
-
 <p>
 This should automatically upgrade without you having to adjust it.
 </p>
 
 <h2>
-<a name="UpgradingfromVersionsEarlierthan2.0.5-SeeAlso"></a>See Also
+<a name="UpgradingfromVersionsEarlierthan2.0.5-SeeAlso" id="UpgradingfromVersionsEarlierthan2.0.5-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33587218" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678122" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FUpgrading%2Bfrom%2BVersions%2BEarlier%2Bthan%2B2.0.5" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678122" />
-</fieldset>
-</fieldset>
-</div>

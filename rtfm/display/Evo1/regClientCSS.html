@@ -1,24 +1,10 @@
-<h1>
+<h2>
 <a name="regClientCSS-functionregClientCSS%28string%24src%29%3B"></a>function regClientCSS(string $src);
-</h1>
+</h2>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>API Function Definition</b>
 <br />
-</td>
-</tr>
-</table>
 </div>
 
 <div class='table-wrap'>
@@ -36,7 +22,6 @@ Available since
 <tr>
 <td class='confluenceTd'>
 Parameters
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 <ul>
@@ -67,76 +52,20 @@ Registers Client-side CSS scripts - these scripts are loaded just above the &lt;
 <a name="regClientCSS-Usage%2FExamples"></a>Usage / Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$myCSS = '&lt;style media=<span class="code-quote">"screen"</span>&gt;
-  * {margin:0; padding:0;}
-&lt;/style&gt;';
-
-$modx-&gt;regClientCSS( $myCSS );
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="regClientCSS-RelatedFunctions"></a>Related Functions
-</h2>
-
-<ul>
-<li>?regClientStartupScript
-</li>
-
-<li>regClientScript
-</li>
-
-<li>regClientStartupHTMLBlock
-</li>
-
-<li>regClientHTMLBlock
-</li>
-</ul>
-
-<h2>
-<a name="regClientCSS-FunctionSource"></a>Function Source
-</h2>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Source File - manager/includes/document.parser.class.inc.php - line 2287 in 1.0.5</b>
-<br />
-</td>
-</tr>
-</table>
-</div>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- function regClientCSS($src) {
-        <span class="code-keyword">if</span> (isset ($<span class="code-keyword">this</span>-&gt;loadedjscripts[$src]) &amp;&amp; $<span class="code-keyword">this</span>-&gt;loadedjscripts[$src])
-            <span class="code-keyword">return</span> '';
-        $<span class="code-keyword">this</span>-&gt;loadedjscripts[$src]= <span class="code-keyword">true</span>;
-        <span class="code-keyword">if</span> (stripos($src, <span class="code-quote">"&lt;style"</span>) !== <span class="code-keyword">false</span> || stripos($src, <span class="code-quote">"&lt;link"</span>) !== <span class="code-keyword">false</span>) {
-            $<span class="code-keyword">this</span>-&gt;sjscripts[count($<span class="code-keyword">this</span>-&gt;sjscripts)]= $src;
-        } <span class="code-keyword">else</span> {
-            $<span class="code-keyword">this</span>-&gt;sjscripts[count($<span class="code-keyword">this</span>-&gt;sjscripts)]= '&lt;!-- MODx registered --&gt;' . <span class="code-quote">"\n"</span> . '  &lt;link rel=<span class="code-quote">"stylesheet"</span> href=<span class="code-quote">"' . $src . '"</span> /&gt;';
+<pre class="brush: php">
+     function regClientCSS($src) {
+        if (isset ($this-&gt;loadedjscripts[$src]) &amp;&amp; $this-&gt;loadedjscripts[$src])
+            return '';
+        $this-&gt;loadedjscripts[$src]= true;
+        if (stripos($src, "&lt;style") !== false || stripos($src, "&lt;link") !== false) {
+            $this-&gt;sjscripts[count($this-&gt;sjscripts)]= $src;
+        } else {
+            $this-&gt;sjscripts[count($this-&gt;sjscripts)]= '&lt;!-- MODx registered --&gt;' . "\n" . '  &lt;link rel="stylesheet" href="' . $src . '" /&gt;';
         }
     }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
-<a name="regClientCSS-"></a>
+<a name="regClientCSS-" id="regClientCSS-"></a>
 </h2>

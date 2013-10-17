@@ -1,43 +1,39 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#ObjectValidation-WhatisObjectValidationinxPDO%3F'>What is Object Validation in xPDO?</a>
+<a href="xpdo/imported/object-validation#ObjectValidation-WhatisObjectValidationinxPDO%3F">What is Object Validation in xPDO?</a>
 </li>
 
 <li>
-<a href='#ObjectValidation-HowisitDone%3F'>How is it Done?</a>
+<a href="xpdo/imported/object-validation#ObjectValidation-HowisitDone%3F">How is it Done?</a>
 </li>
 
 <li>
-<a href='#ObjectValidation-ExampleUsage'>Example Usage</a>
+<a href="xpdo/imported/object-validation#ObjectValidation-ExampleUsage">Example Usage</a>
 </li>
 
 <li>
-<a href='#ObjectValidation-Rules'>Rules</a>
+<a href="xpdo/imported/object-validation#ObjectValidation-Rules">Rules</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#ObjectValidation-The%27callable%27Rule'>The 'callable' Rule</a>
+<a href="xpdo/imported/object-validation#ObjectValidation-The%27callable%27Rule">The 'callable' Rule</a>
 </li>
 
 <li>
-<a href='#ObjectValidation-The%27pregmatch%27Rule'>The 'preg_match' Rule</a>
+<a href="xpdo/imported/object-validation#ObjectValidation-The%27pregmatch%27Rule">The 'preg_match' Rule</a>
 </li>
 
 <li>
-<a href='#ObjectValidation-The%27xPDOValidationRule%27Rule'>The 'xPDOValidationRule' Rule</a>
+<a href="xpdo/imported/object-validation#ObjectValidation-The%27xPDOValidationRule%27Rule">The 'xPDOValidationRule' Rule</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#ObjectValidation-SeeAlso'>See Also</a>
+<a href="xpdo/imported/object-validation#ObjectValidation-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -55,62 +51,31 @@ Object validation is done through xPDOValidator, xPDO's validation class. It's a
 </h2>
 
 <p>
-Validation can be done either via the XML schema, or during run-time by <a href="/display/XPDO10/xPDOValidator" title="xPDOValidator">xPDOValidator</a> methods.
+Validation can be done either via the XML schema, or during run-time by <a href="display/XPDO10/xPDOValidator" title="xPDOValidator">xPDOValidator</a> methods.
 </p>
 
 <h2>
-<a name="ObjectValidation-ExampleUsage"></a>Example Usage
+<a name="ObjectValidation-ExampleUsage" id="ObjectValidation-ExampleUsage"></a>Example Usage
 </h2>
 
 <p>
 First, let's create our model with this object:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;model <span class="code-keyword">package</span>=<span class="code-quote">"test"</span> baseClass=<span class="code-quote">"xPDOObject"</span> platform=<span class="code-quote">"mysql"</span>
-       defaultEngine=<span class="code-quote">"MyISAM"</span> tablePrefix=<span class="code-quote">"test_"</span>&gt;    
-    &lt;object class=<span class="code-quote">"myTest"</span> table=<span class="code-quote">"test"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-        &lt;field key=<span class="code-quote">"name"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span>
-               phptype=<span class="code-quote">"string"</span> <span class="code-keyword">default</span>=<span class="code-quote">"" <span class="code-keyword">null</span>="</span><span class="code-keyword">false</span>" /&gt;
-                
-        &lt;validation&gt;
-            &lt;rule field=<span class="code-quote">"name"</span> 
-                  name=<span class="code-quote">"preventBlank"</span>
-                  type=<span class="code-quote">"xPDOValidationRule"</span>
-                  rule=<span class="code-quote">"xPDOMinLengthValidationRule"</span>
-                  value=<span class="code-quote">"1"</span>
-                  message=<span class="code-quote">"Please specify a name."</span>
-             /&gt;
-        &lt;/validation&gt;
-    &lt;/object&gt;
-&lt;/model&gt;
-</pre>
-</div>
-</div>
-
-<p>
-From there, go ahead and generate the model from the XML schema. And now in a Snippet we'll call Test:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$output = '';
+<pre class="brush: php">
+    $output = '';
 $modx-&gt;addPackage('test','/path/to/my/test/model/','test_');
 $obj = $modx-&gt;newObject('myTest');
 $validator = $obj-&gt;getValidator();
-<span class="code-keyword">if</span> ($validator-&gt;validate() == <span class="code-keyword">false</span>) {
+if ($validator-&gt;validate() == false) {
     $messages = $validator-&gt;getMessages();
     foreach ($messages as $errorMsg) {
-        $output .= 'An error occurred on field <span class="code-quote">"'.$errorMsg['field'].'"</span>: '.$errorMsg['message'];
+        $output .= 'An error occurred on field "'.$errorMsg['field'].'": '.$errorMsg['message'];
     }
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 This will output:
 </p>
@@ -122,7 +87,7 @@ An error occurred on field "name": Please specify a name.
 </blockquote>
 
 <h2>
-<a name="ObjectValidation-Rules"></a>Rules
+<a name="ObjectValidation-Rules" id="ObjectValidation-Rules"></a>Rules
 </h2>
 
 <p>
@@ -145,39 +110,21 @@ This can be done a few ways. In the "rule" parameter of the schema, you can spec
 The function is passed two parameters, the first of which is the value of the column in question, and the second an array of the other attributes on the Rule field in the schema. For example, a model with a rule as such:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;rule field=<span class="code-quote">"number"</span> name=<span class="code-quote">"callable2"</span> 
-      type=<span class="code-quote">"callable"</span> rule=<span class="code-quote">"myCallable"</span>
-      min=<span class="code-quote">"10"</span> message=<span class="code-quote">"Value is too high. Must be less than 10."</span> 
-/&gt;
-</pre>
-</div>
-</div>
-
-<p>
-Called with the code:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-function myCallable($value,$parameters) {
-    <span class="code-keyword">return</span> $value &lt; $parameters['min'];
+<pre class="brush: php">
+    function myCallable($value,$parameters) {
+    return $value &lt; $parameters['min'];
 }
 $obj-&gt;set('number',101);
 $validator = $obj-&gt;getValidator();
-<span class="code-keyword">if</span> ($validator-&gt;validate() == <span class="code-keyword">false</span>) {
+if ($validator-&gt;validate() == false) {
     $messages = $validator-&gt;getMessages();
     foreach ($messages as $errorMsg) {
-        $o .= 'An error occurred on field <span class="code-quote">"'.$errorMsg['field'].'"</span>: '.$errorMsg['message'].'&lt;br /&gt;';
+        $o .= 'An error occurred on field "'.$errorMsg['field'].'": '.$errorMsg['message'].'&lt;br /&gt;';
     }
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Will return:
 </p>
@@ -188,22 +135,8 @@ An error occurred on field "number": Callable failed.
 </p>
 </blockquote>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You can also call class methods as well; if you have class A with method B, you can make the rule xml attribute be "A::B" to access the function.
-</td>
-</tr>
-</table>
 </div>
 
 <h3>
@@ -214,35 +147,18 @@ You can also call class methods as well; if you have class A with method B, you 
 A preg_match rule is simply a regular expression rule that must pass on a field in order for the object to validate. An example rule in the schema is like such - this one checks to see if the field contains the string 'php':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;rule field=<span class="code-quote">"name"</span> name=<span class="code-quote">"phpMatch"</span>
-      type=<span class="code-quote">"preg_match"</span> rule=<span class="code-quote">"/php/i"</span> 
-      message=<span class="code-quote">"Does not contain the string 'php'."</span> /&gt;
-</pre>
-</div>
-</div>
-
-<p>
-And in the PHP:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$obj-&gt;set('name','test');
+<pre class="brush: php">
+    $obj-&gt;set('name','test');
 $validator = $obj-&gt;getValidator();
-<span class="code-keyword">if</span> ($validator-&gt;validate() == <span class="code-keyword">false</span>) {
+if ($validator-&gt;validate() == false) {
     $messages = $validator-&gt;getMessages();
     foreach ($messages as $errorMsg) {
-        $o .= 'An error occurred on field <span class="code-quote">"'.$errorMsg['field'].'"</span>: '.$errorMsg['message'].'&lt;br /&gt;';
+        $o .= 'An error occurred on field "'.$errorMsg['field'].'": '.$errorMsg['message'].'&lt;br /&gt;';
     }
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 This outputs:
 </p>
@@ -261,58 +177,30 @@ An error occurred on field "name": Does not contain the string 'php'.
 An xPDOValidationRule rule is a specific rule type that is based upon a class extension of the xPDOValidationRule class. This allows you to do more advanced rules, as well as use the built-in rules. The built in rules include:
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc">
+<li>
+<a href="/xpdo/1.x/advanced-features/object-validation/xpdoforeignkeyconstraint">xPDOForeignKeyConstraint</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="8192508" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="8192508" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="XPDO10" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FXPDO10%2FObject%2BValidation" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="8192508" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/xpdo/1.x/advanced-features/object-validation/xpdomaxlengthvalidationrule">xPDOMaxLengthValidationRule</a>
+</li>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
+<li>
+<a href="/xpdo/1.x/advanced-features/object-validation/xpdomaxvaluevalidationrule">xPDOMaxValueValidationRule</a>
+</li>
 
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-More documentation on these specific rules to come.
-</td>
-</tr>
-</table>
-</div>
+<li>
+<a href="/xpdo/1.x/advanced-features/object-validation/xpdominlengthvalidationrule">xPDOMinLengthValidationRule</a>
+</li>
 
-<h2>
-<a name="ObjectValidation-SeeAlso"></a>See Also
-</h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="8192508" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="8192508" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="XPDO10" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FXPDO10%2FObject%2BValidation" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="8192508" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/xpdo/1.x/advanced-features/object-validation/xpdominvaluevalidationrule">xPDOMinValueValidationRule</a>
+</li>
+</ol>
 
 <ul>
 <li>
-<a href="/display/XPDO10/xPDOValidator" title="xPDOValidator">xPDOValidator</a>
+<a href="display/XPDO10/xPDOValidator" title="xPDOValidator">xPDOValidator</a>
 </li>
 </ul>

@@ -18,46 +18,15 @@ Create a new TV (we called it "operatingHours") using the MIGX TV Input Type (th
 So for the Form Tabs:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[
-{<span class="code-quote">"caption"</span>:<span class="code-quote">"Operating Hours"</span>,<span class="code-quote">"fields"</span>: [
-{<span class="code-quote">"field"</span>:<span class="code-quote">"day"</span>,
-<span class="code-quote">"caption"</span>:<span class="code-quote">"Day"</span>
-},{
-<span class="code-quote">"field"</span>:<span class="code-quote">"from"</span>,
-<span class="code-quote">"caption"</span>:<span class="code-quote">"From"</span>
-},{
-<span class="code-quote">"field"</span>:<span class="code-quote">"until"</span>,
-<span class="code-quote">"caption"</span>:<span class="code-quote">"Until"</span>
-}
+<pre class="brush: php">
+    [
+{"header": "Day", "width": "60", "sortable": "false", "dataIndex": "day"},
+{"header": "From", "width": "50", "sortable": "false", "dataIndex": "from"},
+{"header": "Until", "width": "50", "sortable": "false", "dataIndex": "until"}
 ]
-}]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-We're giving the tab (we need one) the caption of "Operating Hours", and then add three fields to it. The day, the from time, and the until time. As we're not specifying an input type it will just assume a textfield.
-</p>
-
-<p>
-Now to display this in the resource panel, we will need to set up the Grid Columns too. We're using this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[
-{<span class="code-quote">"header"</span>: <span class="code-quote">"Day"</span>, <span class="code-quote">"width"</span>: <span class="code-quote">"60"</span>, <span class="code-quote">"sortable"</span>: <span class="code-quote">"<span class="code-keyword">false</span>"</span>, <span class="code-quote">"dataIndex"</span>: <span class="code-quote">"day"</span>},
-{<span class="code-quote">"header"</span>: <span class="code-quote">"From"</span>, <span class="code-quote">"width"</span>: <span class="code-quote">"50"</span>, <span class="code-quote">"sortable"</span>: <span class="code-quote">"<span class="code-keyword">false</span>"</span>, <span class="code-quote">"dataIndex"</span>: <span class="code-quote">"from"</span>},
-{<span class="code-quote">"header"</span>: <span class="code-quote">"Until"</span>, <span class="code-quote">"width"</span>: <span class="code-quote">"50"</span>, <span class="code-quote">"sortable"</span>: <span class="code-quote">"<span class="code-keyword">false</span>"</span>, <span class="code-quote">"dataIndex"</span>: <span class="code-quote">"until"</span>}
-]
-</pre>
-</div>
-</div>
-
 <p>
 We're setting three columns ("Day", "From", and "Until") and giving them a width, the proper dataIndex (which needs to be the same as the "field" value in the form) and we're also saying we don't want them to be sortable.
 </p>
@@ -67,7 +36,7 @@ Finally we're setting an "Add Item" Replacement, in my case it was set to "Add n
 </p>
 
 <p>
-You should now be able to get the following in the Manager (though the image has terms in Dutch). <span class="image-wrap" style=""><img src="/download/attachments/35586346/migx+grid.PNG?version=1&amp;modificationDate=1315272600000" style="border: 1px solid black" /></span>
+You should now be able to get the following in the Manager (though the image has terms in Dutch). <span class="image-wrap" style=""><img src="download/attachments/35586346/migx+grid.PNG?version=1&amp;modificationDate=1315272600000" style="border: 1px solid black" /></span>
 </p>
 
 <h2>
@@ -82,38 +51,14 @@ Now in the front-end we'll need to display that, using the getImageList snippet 
 Here's the snippet call to put in your template where you want it to appear:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;table&gt;
-[[getImageList?
-  &amp;tvname=`operatingHours`
-  &amp;tpl=`operatingHoursTpl`
-]]
-&lt;/table&gt;
-</pre>
-</div>
-</div>
-
-<p>
-This will check the operatingHours TV, and parse its values with the operatingHoursTpl chunk.
-</p>
-
-<p>
-Here's the chunk we used:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;tr&gt;
+<pre class="brush: php">
+    &lt;tr&gt;
   &lt;td&gt;[[+day]]&lt;/td&gt;
-  [[+from:notempty=`&lt;td&gt;[[+from]]&lt;/td&gt;&lt;td&gt;[[+until]]&lt;/td&gt;`:<span class="code-keyword">default</span>=`&lt;td colspan=<span class="code-quote">"2"</span>&gt;Closed&lt;/td&gt;`]]
+  [[+from:notempty=`&lt;td&gt;[[+from]]&lt;/td&gt;&lt;td&gt;[[+until]]&lt;/td&gt;`:default=`&lt;td colspan="2"&gt;Closed&lt;/td&gt;`]]
 &lt;/tr&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Whoah! What's going on there?
 </p>
@@ -137,5 +82,124 @@ And that's just another example of what you can do with MIGX! Of course you coul
 </p>
 
 <h2>
-<a name="MIGX.Simpleopeninghourstable-%21Knipsel.PNGborder%3D1%21"></a><span class="image-wrap" style=""><img src="/download/attachments/35586346/Knipsel.PNG?version=1&amp;modificationDate=1313929587000" style="border: 1px solid black" /></span>
+<a name="MIGX.Simpleopeninghourstable-%21Knipsel.PNGborder%3D1%21"></a><span class="image-wrap" style=""><img src="download/attachments/35586346/Knipsel.PNG?version=1&amp;modificationDate=1313929587000" style="border: 1px solid black" /></span>
 </h2>
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://rtfm.modx.com/display/ADDON/MIGX.Simple+opening+hours+table"
+    dc:identifier="http://rtfm.modx.com/display/ADDON/MIGX.Simple+opening+hours+table"
+    dc:title="MIGX.Simple opening hours table"
+    trackback:ping="http://rtfm.modx.com/rpc/trackback/35586346"/>
+</rdf:RDF>
+-->
+
+<fieldset class="hidden parameters">
+<legend>Labels parameters</legend> <input type="hidden" id="editLabel" value="Edit" /> <input type="hidden" id="addLabel" value="Add Labels" /> <input type="hidden" id="domainName" value="http://rtfm.modx.com" /> <input type="hidden" id="pageId" value="35586346" /> <input type="hidden" id="spaceKey" value="ADDON" />
+</fieldset>
+
+<div id="labels-section" class="pageSection">
+<div id="default-labels-header" class="section-header">
+<h2 id="labels-section-title" class="section-title hidden">
+Labels
+</h2>
+</div>
+
+<div class="labels-editor">
+<div id="labelsList">
+</div>
+<span class="errorMessage error" id="errorSpan"></span>
+<form method="get" action="" id="add-labels-form">
+<div id="labelInputSpan" class="labels-input">
+<div id="labelOperationErrorContainer" class="hidden">
+<span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
+</div>
+
+<div class="caption">
+Enter labels to add to this page:
+</div>
+
+<div id="label-input-fields">
+<input autocomplete="off" id="labelsString" name="labelsString" value="" size="40" /> <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add" /> <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done" />
+</div>
+
+<div id="waitImageAndStatus">
+<img class="waiting" alt="Please wait" src="s/1911/69/_/images/icons/wait.gif" />&nbsp; <span id="labelOperationStatus" class="smalltext"></span>
+</div>
+
+<div id="labelsAutocompleteList" class="aui-dd-parent">
+</div>
+
+<div class="labels-tip">
+<div id="suggestedLabelsSpan">
+</div>
+Looking for a label? Just start typing.
+</div>
+</div>
+</form>
+</div>
+</div>
+
+<fieldset class="parameters hidden">
+<input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?" /> <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment." />
+</fieldset>
+
+<div id="comments-section" class="pageSection">
+<div class="section-header">
+<h2 id="comments-section-title" class="section-title">
+<a name="comments" id="comments">Comments (1)</a>
+</h2>
+&nbsp;
+<ul id="comment-top-links" class="global-comment-actions">
+<li id="comment-show-hide">
+<a href="display/ADDON/MIGX.Simple+opening+hours+table?showComments=false#comments" id="comments-hide" name="comments-hide">Hide Comments</a> <a href="display/ADDON/MIGX.Simple+opening+hours+table?showComments=true#comments" id="comments-show" class="hidden" name="comments-show">Show Comments</a>
+</li>
+
+<li id="comments-expand-collapse">
+<a href="extras/revo/migx/migx.tutorials/migx.simple-opening-hours-table#" id="comments-collapse" name="comments-collapse">Collapse All</a> <span id="collapse-wait" class="hidden">Collapsing…</span> <span id="expand-wait" class="hidden">Expanding…</span> <a href="extras/revo/migx/migx.tutorials/migx.simple-opening-hours-table#" class="hidden" id="comments-expand" name="comments-expand">Expand All</a>
+</li>
+</ul>
+</div>
+
+<ol class="comment-threads top-level" id="page-comments">
+<li id="comment-thread-35586347" class="comment-thread">
+<div class="comment" id="comment-35586347">
+<p class="comment-user-logo">
+<img class="userLogo logo anonymous" src="s/1911/69/_/images/icons/profilepics/anonymous.png" alt="User icon: respawn" title="respawn" />
+</p>
+
+<p class="date" title="Aug 21, 2011 07:49">
+Aug 21, 2011
+</p>
+
+<div class="comment-header comment-toggle">
+<h4 class="author">
+<a href="display/~respawn" class="url fn">Mark Ernst</a> says:
+</h4>
+<span class="excerpt">Great example, just tried it out and it works flawless.</span>
+</div>
+
+<div class="comment-body">
+<div class="comment-content wiki-content">
+<p>
+Great example, just tried it out and it works flawless.
+</p>
+</div>
+
+<div class="comment-actions">
+<ul id="comment-actions-secondary">
+<li class="first comment-permalink">
+<a title="Permanent link to this comment" href="display/ADDON/MIGX.Simple+opening+hours+table?focusedCommentId=35586347#comment-35586347" id="comment-permalink-35586347" name="comment-permalink-35586347"><span>Permalink</span></a>
+</li>
+</ul>
+
+<ul id="comment-actions-primary">
+</ul>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>

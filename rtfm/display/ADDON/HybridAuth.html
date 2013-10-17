@@ -1,31 +1,31 @@
 <div>
 <ul>
 <li>
-<a href='#HybridAuth-Installation'>Installation</a>
+<a href="extras/revo/hybridauth#HybridAuth-Installation">Installation</a>
 </li>
 
 <li>
-<a href='#HybridAuth-Parameters'>Parameters</a>
+<a href="extras/revo/hybridauth#HybridAuth-Parameters">Parameters</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#HybridAuth-Examples'>Examples</a>
+<a href="extras/revo/hybridauth#HybridAuth-Examples">Examples</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#HybridAuth-Knownissues'>Known issues</a>
+<a href="extras/revo/hybridauth#HybridAuth-Knownissues">Known issues</a>
 </li>
 
 <li>
-<a href='#HybridAuth-Integrationofservice'>Integration of service</a>
+<a href="extras/revo/hybridauth#HybridAuth-Integrationofservice">Integration of service</a>
 </li>
 
 <li>
-<a href='#HybridAuth-Seealso'>See also</a>
+<a href="extras/revo/hybridauth#HybridAuth-Seealso">See also</a>
 </li>
 </ul>
 </div>
@@ -35,19 +35,11 @@ An integration of open source social sign on php library <a href="http://hybrida
 </p>
 
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 <em>The main goal of HybridAuth library is to act as an abstract api between your application and various social apis and identities providers such as Facebook, Twitter, MySpace, LinkedIn, Google and Yahoo.</em>
 </p>
 
 <p>
 <em>HybridAuth enable developers to easily build social applications to engage websites vistors and customers on a social level by implementing social signin, social sharing, users profiles, friends list, activities stream, status updates and more.</em>
-</p>
-
-<p>
-<br class="atl-forced-newline" />
 </p>
 
 <p>
@@ -79,340 +71,20 @@ Fist of all watch this video
 3. You need to set your keys as json sting with array.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-{<span class="code-quote">"key"</span>:<span class="code-quote">"you key from twitter"</span>,<span class="code-quote">"secret"</span>:<span class="code-quote">"secret from twitter"</span>}
+<pre class="brush: php">
+    [[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;groups=`Users`]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-<span class="image-wrap" style=""><img src="/download/attachments/43417801/ha3.png?version=1&amp;modificationDate=1356616628000" width="300" style="border: 1px solid black" /></span>
-<br />
-It needed for proper initialization of the library (<a href="http://hybridauth.sourceforge.net/userguide/Configuration.html" class="external-link" rel="nofollow">http://hybridauth.sourceforge.net/userguide/Configuration.html</a>).
-</p>
-
-<p>
-4. Now you can run snippet [[!HybriAuth?providers=`Twitter`]] on any page.
-</p>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-If there will be any errors on library initialization - it will be logged in system log.
-</td>
-</tr>
-</table>
-</div>
-
-<h2>
-<a name="HybridAuth-Parameters"></a>Parameters
-</h2>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Param
-</th>
-<th class='confluenceTh'>
-Description
-</th>
-<th class='confluenceTh'>
-Default
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-providers
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Comma separated list of a providers for authentification. All available providers are here /core/components/hybridauth/model/hybridauth/lib/Providers/. For example, &amp;providers=`Google,Twitter,Facebook`.
-</td>
-<td class='confluenceTd'>
-none
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-rememberme
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-If true, user will be remembered for a long time.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-true
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-groups
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Comma separated list of existing user groups for joining by user at the first login. For example, &amp;groups=`Users:1` will add new user to group "Users" with role "member"
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-none
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-action
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Mode of work. By default it loads chunks for user according to his status.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-loadTpl
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-loginTpl
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-This chunk will see any anonymous user.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-tpl.HybridAuth.login
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-logoutTpl
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-This chunk will see any authenticated user.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-tpl.HybridAuth.logout
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-profileTpl
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Chunk for display and edit user profile.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-tpl.HybridAuth.profile
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-loginContext
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Main context for authentication. By default - it is current context.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-current
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-addContexts
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Comma separated list of additional contexts for authentication. For example &amp;addContexts=`web,ru,en`
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-none
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-profileFields
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Chunk for display and edit user profile.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-username:25,email:50,fullname:50...
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-requiredFields
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Comma separated list of required user fields when update. This fields must be filled for successful update of profile. For example, &amp;requiredFields=`username,fullname,email`.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-username,email,fullname
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-loginResourceId
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Resource id to redirect to on successful login. By default, it is 0 - redirect to self.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-0
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-logoutResourceId
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Resource id to redirect to on successful logout. By default, it is 0 - redirect to self.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-0
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h3>
-<a name="HybridAuth-Examples"></a>Examples
-</h3>
-
-<p>
-Register to group Users
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-[[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;groups=`Users`]]
-</pre>
-</div>
-</div>
-
 <p>
 Update profile
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-[[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;action=`UpdateProfile`]]
+<pre class="brush: php">
+    [[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;action=`UpdateProfile` &amp;requiredFields=`username,email,photo` &amp;profileFields=`username,fullname,email,photo`]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Update profile width required photo
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-[[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;action=`UpdateProfile` &amp;requiredFields=`username,email,photo` &amp;profileFields=`username,fullname,email,photo`]]
-</pre>
-</div>
-</div>
-
 <h2>
 <a name="HybridAuth-Knownissues"></a>Known issues
 </h2>
@@ -441,20 +113,20 @@ Otherwise, your session will be cached and snippet will not working properly.
 <a name="HybridAuth-Integrationofservice"></a>Integration of service
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc">
+<li>
+<a href="/extras/revo/hybridauth/hybridauth.integrating-facebook">HybridAuth.Integrating Facebook</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="43417801" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="43417801" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FHybridAuth" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="43417801" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/extras/revo/hybridauth/hybridauth.integrating-google">HybridAuth.Integrating Google</a>
+</li>
 
-<h2>
-<a name="HybridAuth-Seealso"></a>See also
-</h2>
+<li>
+<a href="/extras/revo/hybridauth/hybridauth.integrating-twitter">HybridAuth.Integrating Twitter</a>
+</li>
+
+<li>
+<a href="/extras/revo/hybridauth/hybridauth.integrating-vk.com">HybridAuth.Integrating VK.com</a>
+</li>
+</ol>

@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="TemplatingYourSnippets-TemplatingSnippets" id="TemplatingYourSnippets-TemplatingSnippets"></a>Templating Snippets
 </h2>
@@ -13,31 +9,31 @@ One of the best practices in Snippet design is to make sure that you never write
 <div>
 <ul>
 <li>
-<a href='#TemplatingYourSnippets-TemplatingSnippets'>Templating Snippets</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/templating-your-snippets#TemplatingYourSnippets-TemplatingSnippets">Templating Snippets</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#TemplatingYourSnippets-OurInitialSnippet'>Our Initial Snippet</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/templating-your-snippets#TemplatingYourSnippets-OurInitialSnippet">Our Initial Snippet</a>
 </li>
 
 <li>
-<a href='#TemplatingYourSnippets-TemplatingtheSnippet'>Templating the Snippet</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/templating-your-snippets#TemplatingYourSnippets-TemplatingtheSnippet">Templating the Snippet</a>
 </li>
 
 <li>
-<a href='#TemplatingYourSnippets-AddingARowClass'>Adding A Row Class</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/templating-your-snippets#TemplatingYourSnippets-AddingARowClass">Adding A Row Class</a>
 </li>
 
 <li>
-<a href='#TemplatingYourSnippets-PassingaCustomID'>Passing a Custom ID</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/templating-your-snippets#TemplatingYourSnippets-PassingaCustomID">Passing a Custom ID</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#TemplatingYourSnippets-SeeAlso'>See Also</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/templating-your-snippets#TemplatingYourSnippets-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -54,88 +50,23 @@ Let's take a case scenario; say you want to iterate across the published, non-de
 Go ahead and create a snippet called 'ResourceLister', and put this inside:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-/* first, build the query */
-$c = $modx-&gt;newQuery('modResource');
-/* we only want published and undeleted resources */
-$c-&gt;where(array(
-  'published' =&gt; <span class="code-keyword">true</span>,
-  'deleted' =&gt; <span class="code-keyword">false</span>,
-));
-/* get all the children of ID 390 */
-$children = $modx-&gt;getChildIds(390);
-<span class="code-keyword">if</span> (count($children) &gt; 0) {
-    $c-&gt;where(array(
-        'id:IN' =&gt; $children,
-    ));
-}
-/* sort by menuindex ascending */
-$c-&gt;sortby('menuindex','ASC');
-/* get the resources as xPDOObjects */
-$resources = $modx-&gt;getCollection('modResource',$c);
+<pre class="brush: php">
+    &lt;li&gt;&lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle]]&lt;/a&gt;&lt;/li&gt;
 
-$output = '';
-foreach ($resources as $resource) {
-   $output .= '&lt;li&gt;&lt;a href=<span class="code-quote">"'.$modx-&gt;makeUrl($resource-&gt;get('id')).'"</span>&gt;'.$resource-&gt;get('pagetitle').'&lt;/a&gt;&lt;/li&gt;';
-}
-<span class="code-keyword">return</span> $output;
+    
 </pre>
-</div>
-</div>
-
-<p>
-This does what we want, but puts the HTML inline. We don't want that. It doesn't let the user control the markup, or change it if they want to. We want more flexibility.
-</p>
-
-<h3>
-<a name="TemplatingYourSnippets-TemplatingtheSnippet" id="TemplatingYourSnippets-TemplatingtheSnippet"></a>Templating the Snippet
-</h3>
-
-<p>
-First off, let's create a chunk that we'll use for each item in the result set. Call it "ResourceItem", and make this its content:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li&gt;&lt;a href=<span class="code-quote">"[[~[[+id]]]]"</span>&gt;[[+pagetitle]]&lt;/a&gt;&lt;/li&gt;
-</pre>
-</div>
-</div>
-
 <p>
 Basically, we make an LI tag, and put some placeholders were our content was. We have available any field in the Resource, and here we're just using the ID and pagetitle fields. The [[~ tells MODx to make a link from the ID passed in the [[+id]] property. Now let's add a default property to the snippet, called 'tpl', to the top of our snippet code:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$tpl = $modx-&gt;getOption('tpl',$scriptProperties,'ResourceItem');
-</pre>
-</div>
-</div>
-
-<p>
-This gets us the &amp;tpl= property from the Snippet call, since $scriptProperties just holds all the properties in the Snippet call. If 'tpl' doesn't exist, getOption defaults the value to ResourceItem (the Chunk we just made).
-</p>
-
-<p>
-And then, change the foreach loop in the Snippet to this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-foreach ($resources as $resource) {
+<pre class="brush: php">
+    foreach ($resources as $resource) {
    $resourceArray = $resource-&gt;toArray();
    $output .= $modx-&gt;getChunk($tpl,$resourceArray);
 }
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 The code first turns the modResource object into an array of field=name pairs (ie, $resourceArray['pagetitle'] is the pagetitle) via the toArray() method. Then, we use $modx-&gt;getChunk() to pass our tpl Chunk and the resource array into it as properties. MODx parses the chunk, replaces the properties, and returns us some content.
 </p>
@@ -144,35 +75,11 @@ The code first turns the modResource object into an array of field=name pairs (i
 An alternative and slightly faster (especially helpful when looping through a big xPDO result) but also a bit longer way to do the same would be
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// first get the template chunk in a variable
-</span>$tpl = $<span class="code-keyword">this</span>-&gt;modx-&gt;getParser()-&gt;getElement('modChunk', 'chunkName');
-$tpl-&gt;setCacheable(<span class="code-keyword">false</span>);
+<pre class="brush: php">
+    [[!ResourceLister? &amp;tpl=`MyOwnChunk`]]
 
-<span class="code-comment">// now loop trough the result collection
-</span>foreach ($resources as $resource) {
-   $resourceArray = $resource-&gt;toArray();
-   $tpl-&gt;_processed = <span class="code-keyword">false</span>; <span class="code-comment">// This line is important!
-</span>   $output .= $tpl-&gt;process($resourceArray);
-}
+    
 </pre>
-</div>
-</div>
-
-<p>
-Now the user can call the snippet this way to override the chunk for each Resource with this call:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!ResourceLister? &amp;tpl=`MyOwnChunk`]]
-</pre>
-</div>
-</div>
-
 <p>
 Meaning they can template their results however they want - using LIs, or table rows, or whatever! You've now created a flexible, powerful snippet. The available placeholders depend on what array is passed to $modx-&gt;getChunk(); or $tpl-&gt;process() methods. In this example the available placeholders would be all default fields (no TVs!) of a resource like for example&nbsp;[[+pagetitle]],&nbsp;[[+id]] or&nbsp;[[+content]].
 </p>
@@ -185,96 +92,36 @@ Meaning they can template their results however they want - using LIs, or table 
 What if we want the user to be able to specify a CSS class for each LI row, but not have to make their own custom chunk? Simple, we just add a default property 'rowCls' to our snippet code at the top, below our first getOption call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$rowCls = $modx-&gt;getOption('rowCls',$scriptProperties,'resource-item');
+<pre class="brush: php">
+    &lt;li class="[[+rowCls]]"&gt;&lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle]]&lt;/a&gt;&lt;/li&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-This tells MODx to default the &amp;rowCls property for the snippet to 'resource-item'. Let's go edit our ResourceItem chunk:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li class=<span class="code-quote">"[[+rowCls]]"</span>&gt;&lt;a href=<span class="code-quote">"[[~[[+id]]]]"</span>&gt;[[+pagetitle]]&lt;/a&gt;&lt;/li&gt;
-</pre>
-</div>
-</div>
-
 <p>
 And finally, change our foreach loop to this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-foreach ($resources as $resource) {
-   $resourceArray = $resource-&gt;toArray();
-   $resourceArray['rowCls'] = $rowCls;
-   $output .= $modx-&gt;getChunk($tpl,$resourceArray);
-}
+<pre class="brush: php">
+    $id = (int)$modx-&gt;getOption('id',$scriptProperties,390);
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Note how we're explicitly setting the 'rowCls' variable into our $resourceArray property array. We do this because we've already gotten the value of rowCls earlier in the snippet (with the getOption call), and we know that it's not going to vary per row.
-</p>
-
-<h3>
-<a name="TemplatingYourSnippets-PassingaCustomID" id="TemplatingYourSnippets-PassingaCustomID"></a>Passing a Custom ID
-</h3>
-
-<p>
-What if we want the user to be able to pass in what parent to grab resources from? Again, we just add a default property 'id' to our snippet code at the top, below our getOption calls:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$id = (<span class="code-object">int</span>)$modx-&gt;getOption('id',$scriptProperties,390);
-</pre>
-</div>
-</div>
-
 <p>
 Basically, allow the user to override the parent ID for the Snippet - to say Resource 123, with an &amp;id=`123` property - in their snippet call. But we want it to default to 390. And then we'll change the getChildIds line to this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$children = $modx-&gt;getChildIds($id);
-</pre>
-</div>
-</div>
-
-<p>
-Obviously, you could add more options to this snippet, such as firstRowCls (for only the first row in the results), lastRowCls, firstRowTpl, sortBy, sortDir, limit, or anything else you could dream up. We could even make it so the 'published' filter is a property as well, or hide resources that are folders, etc. The important part is that now you have the general idea.
-</p>
-
-<p>
-For reference, our final code looks like this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$tpl = $modx-&gt;getOption('tpl',$scriptProperties,'ResourceItem');
-$id = (<span class="code-object">int</span>)$modx-&gt;getOption('id',$scriptProperties,390);
+<pre class="brush: php">
+    $tpl = $modx-&gt;getOption('tpl',$scriptProperties,'ResourceItem');
+$id = (int)$modx-&gt;getOption('id',$scriptProperties,390);
 $rowCls = $modx-&gt;getOption('rowCls',$scriptProperties,'resource-item');
 
 $c = $modx-&gt;newQuery('modResource');
 $c-&gt;where(array(
-  'published' =&gt; <span class="code-keyword">true</span>,
-  'deleted' =&gt; <span class="code-keyword">false</span>,
+  'published' =&gt; true,
+  'deleted' =&gt; false,
 ));
 $children = $modx-&gt;getChildIds($id);
-<span class="code-keyword">if</span> (count($children) &gt; 0) {
+if (count($children) &gt; 0) {
     $c-&gt;where(array(
         'id:IN' =&gt; $children,
     ));
@@ -288,25 +135,10 @@ foreach ($resources as $resource) {
     $resourceArray['cls'] = $rowCls;
     $output .= $modx-&gt;getChunk($tpl,$resourceArray);
 }
-<span class="code-keyword">return</span> $output;
-</pre>
-</div>
-</div>
+return $output;
 
+    
+</pre>
 <h2>
 <a name="TemplatingYourSnippets-SeeAlso" id="TemplatingYourSnippets-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="19136545" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678225" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FTemplating%2BYour%2BSnippets" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678225" />
-</fieldset>
-</fieldset>
-</div>

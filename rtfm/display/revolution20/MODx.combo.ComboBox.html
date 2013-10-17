@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="MODx.combo.ComboBox-MODx.combo.ComboBox" id="MODx.combo.ComboBox-MODx.combo.ComboBox"></a>MODx.combo.ComboBox
 </h2>
@@ -13,7 +9,7 @@
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678077/modext_combobox.png?version=1&amp;modificationDate=1250517993000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/18678077/modext_combobox.png?version=1&amp;modificationDate=1250517993000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
@@ -25,7 +21,7 @@ One unique feature of the MODx ComboBox class is the built-in renderer for grids
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678077/modext_combobox_grid.png?version=1&amp;modificationDate=1250518045000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/18678077/modext_combobox_grid.png?version=1&amp;modificationDate=1250518045000" style="border: 0px solid black" /></span>
 </p>
 
 <h2>
@@ -102,15 +98,64 @@ The class also inherits all <a href="http://extjs.cachefly.net/ext-3.3.0/docs/?c
 MODx.combo.ComboBox also comes with a built-in renderer for usage in grids. To use in, in your grid's column model defintion, simply specify renderer: true in the editor definition, like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-{
-  header: _('usergroup')
-  ,dataIndex: 'usergroup'
-  ,width: 140
-  ,editor: { xtype: 'modx-combo-usergroup' ,renderer: <span class="code-keyword">true</span>}
-}
+<pre class="brush: php">
+    Doodles.combo.Units = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        store: new Ext.data.ArrayStore({
+            id: 0
+            ,fields: ['unit','display']
+            ,data: [
+                ['MB','Megabyte']
+                ,['GB','Gigabyte']
+                ,['TB','Terabyte']
+                ,['PB','Petabyte']
+                ,['EB','Exabyte']
+                ,['ZB','Zettabyte']
+                ,['YB','Yottabyte']
+            ]
+        })
+        ,mode: 'local'
+        ,displayField: 'display'
+        ,valueField: 'unit'
+    });
+    Doodles.combo.Units.superclass.constructor.call(this,config);
+};
+Ext.extend(Doodles.combo.Units,MODx.combo.ComboBox);
+Ext.reg('doodle-combo-units',Doodles.combo.Units);
+
+    
 </pre>
-</div>
+<p>
+'store' is used to create your 'fields' and 'data', the optional 'mode' must be set to 'local' for this method.
+</p>
+
+<p>
+And to view that combo box:
+</p>
+
+<pre class="brush: php">
+           {
+            xtype: 'doodle-combo-units'
+            ,fieldLabel: _('unit')
+            ,name: 'unit'
+            ,hiddenName: 'unit'
+            ,anchor: '100%'
+        }
+
+    
+</pre>
+<p>
+hiddenName must be set when calling from a create or update window to save the value, but is not needed in the grid view.
+</p>
+
+<div class="comment-actions">
+<ul id="comment-actions-secondary">
+<li class="first comment-permalink">
+<a title="Permanent link to this comment" href="display/revolution20/MODx.combo.ComboBox?focusedCommentId=37683566#comment-37683566" id="comment-permalink-37683566" name="comment-permalink-37683566"><span>Permalink</span></a>
+</li>
+</ul>
+
+<ul id="comment-actions-primary">
+</ul>
 </div>

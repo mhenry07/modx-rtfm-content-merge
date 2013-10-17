@@ -1,29 +1,25 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#FormIt.Examples.CustomHook-SnippetTag'>Snippet Tag</a>
+<a href="/extras/revo/formit/formit.tutorials-and-examples/formit.examples.custom-hook#FormIt.Examples.CustomHook-SnippetTag">Snippet Tag</a>
 </li>
 
 <li>
-<a href='#FormIt.Examples.CustomHook-customhookSnippet'>customhook Snippet</a>
+<a href="/extras/revo/formit/formit.tutorials-and-examples/formit.examples.custom-hook#FormIt.Examples.CustomHook-customhookSnippet">customhook Snippet</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#FormIt.Examples.CustomHook-Testing'>Testing</a>
+<a href="/extras/revo/formit/formit.tutorials-and-examples/formit.examples.custom-hook#FormIt.Examples.CustomHook-Testing">Testing</a>
 </li>
 
 <li>
-<a href='#FormIt.Examples.CustomHook-SettingValues'>Setting Values</a>
+<a href="/extras/revo/formit/formit.tutorials-and-examples/formit.examples.custom-hook#FormIt.Examples.CustomHook-SettingValues">Setting Values</a>
 </li>
 
 <li>
-<a href='#FormIt.Examples.CustomHook-ReadingValues'>Reading Values</a>
+<a href="/extras/revo/formit/formit.tutorials-and-examples/formit.examples.custom-hook#FormIt.Examples.CustomHook-ReadingValues">Reading Values</a>
 </li>
 </ul>
 </li>
@@ -43,12 +39,10 @@ We'll base this off of a generic contact form as outlined in the <a href="/displ
 </h2>
 
 <p>
-The only thing we need to add to the basic call here is a new <b>hook</b>: we've added a hook named <b>customhook</b>
+The only thing we need to add to the basic call here is a new <strong>hook</strong>: we've added a hook named <strong>customhook</strong>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
    &amp;hooks=`spam,customhook,email,redirect`
    &amp;emailTpl=`MyEmailChunk`
@@ -60,19 +54,16 @@ The only thing we need to add to the basic call here is a new <b>hook</b>: we've
       text:required:stripTags,
 ]]
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="FormIt.Examples.CustomHook-customhookSnippet" id="FormIt.Examples.CustomHook-customhookSnippet"></a>customhook Snippet
 </h2>
 
 <p>
-The name of the hook corresponds to the name of a Snippet. So we create a Snippet named <b>customhook</b>. It's useful when writing a custom hook to do some testing first, to make sure it is firing. Since the custom hook is only supposed to <em>return</em> either a true or false value, it's not easy to print out debugging information. Instead, we can write something to the MODx log using the <a href="http://rtfm.modx.com/display/xPDO20/xPDO.log" class="external-link" rel="nofollow">$modx-&gt;log()</a> function.
+The name of the hook corresponds to the name of a Snippet. So we create a Snippet named <strong>customhook</strong>. It's useful when writing a custom hook to do some testing first, to make sure it is firing. Since the custom hook is only supposed to <em>return</em> either a true or false value, it's not easy to print out debugging information. Instead, we can write something to the MODx log using the <a href="display/xPDO20/xPDO.log" rel="nofollow">$modx-&gt;log()</a> function.
 </p>
 
 <p>
-Remember you must return <b>true</b> if you want to consider your form validated! Here's our sample code for our new <b>customhook</b> Snippet:
+Remember you must return <strong>true</strong> if you want to consider your form validated! Here's our sample code for our new <strong>customhook</strong> Snippet:
 </p>
 
 <h3>
@@ -83,90 +74,93 @@ Remember you must return <b>true</b> if you want to consider your form validated
 The first thing you'll want to do when writing a custom hook is test it to make sure it is executing.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $modx-&gt;log(xPDO::LOG_LEVEL_ERROR,'Testing my custom hook.');
-<span class="code-keyword">return</span> <span class="code-keyword">true</span>;  <span class="code-comment">//&lt;-- <span class="code-keyword">if</span> you omit <span class="code-keyword">this</span> or <span class="code-keyword">return</span> <span class="code-keyword">false</span>, your form won't validate</span>
+return true;  //&lt;-- if you omit this or return false, your form won't validate
 </pre>
-</div>
-</div>
-
 <p>
-Save your Snippet, and try submitting your form. Check the MODx system log (<b>Reports --&gt; Error Log</b>) to ensure that your Snippet fired. You should see something like this in the logs:
+Save your Snippet, and try submitting your form. Check the MODx system log (<strong>Reports --&gt; Error Log</strong>) to ensure that your Snippet fired. You should see something like this in the logs:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [2011-10-24 11:23:20] (ERROR @ /index.php) Testing my custom hook.
 </pre>
-</div>
-</div>
-
 <h3>
 <a name="FormIt.Examples.CustomHook-SettingValues" id="FormIt.Examples.CustomHook-SettingValues"></a>Setting Values
 </h3>
 
 <p>
-One common thing for custom hooks to do is to calculate new field values – this emulates having a hidden field on the form. For example, your <b>customhook</b> Snippet can set a datestamp for when the form was submitted.
+One common thing for custom hooks to do is to calculate new field values – this emulates having a hidden field on the form. For example, your <strong>customhook</strong> Snippet can set a datestamp for when the form was submitted.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $datestamp = date('Y-m-d H:i:s');
 $hook-&gt;setValue('datestamp_submitted', $datestamp);
-<span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+return true;
 </pre>
-</div>
-</div>
-
 <p>
-Once you have saved this, you can update your <b>MyEmailChunk</b> chunk to include the new information, e.g.
+Once you have saved this, you can update your <strong>MyEmailChunk</strong> chunk to include the new information, e.g.
 </p>
 
 <p>
-<b>MyEmailChunk</b>:
+<strong>MyEmailChunk</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+name]] ([[+email]]) &lt;br/&gt;
-
 Date Submitted: [[+datestamp_submitted]]&lt;br/&gt;
 </pre>
-</div>
-</div>
-
 <h3>
 <a name="FormIt.Examples.CustomHook-ReadingValues" id="FormIt.Examples.CustomHook-ReadingValues"></a>Reading Values
 </h3>
 
 <p>
-Another common thing for custom hooks to do is to read the submitted information and do something with it, e.g. write data to the database. Values can be read individually using <b>$hook-&gt;getValue()</b>, e.g.:
+Another common thing for custom hooks to do is to read the submitted information and do something with it, e.g. write data to the database. Values can be read individually using <strong>$hook-&gt;getValue()</strong>, e.g.:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $email = $hook-&gt;getValue('email');
 </pre>
-</div>
-</div>
-
 <p>
-Or all values can be read at once using <b>$hook-&gt;getValues()</b>:
+Or all values can be read at once using <strong>$hook-&gt;getValues()</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $formFields = $hook-&gt;getValues();
 $email = $formFields['email'];
 </pre>
-</div>
-</div>
+<h2>
+<a name="FormIt.Roadmap-SeeAlso" id="FormIt.Roadmap-SeeAlso"></a>See Also
+</h2>
+
+<ol class="ug-toc">
+<li>
+<a href="/extras/revo/formit/FormIt.Hooks">FormIt.Hooks</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.Validators">FormIt.Validators</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItRetriever">FormIt.FormItRetriever</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/formit.Tutorials-and-Examples">FormIt.Tutorials and Examples</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.Roadmap">FormIt.Roadmap</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItCountryOptions">FormIt.FormItCountryOptions</a>
+</li>
+
+<li>
+<a href="/extras/revo/formit/FormIt.FormItStateOptions">FormIt.FormItStateOptions</a>
+</li>
+</ol>

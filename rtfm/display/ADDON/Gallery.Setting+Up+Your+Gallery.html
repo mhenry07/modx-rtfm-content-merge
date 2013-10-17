@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="Gallery.SettingUpYourGallery-SettingUpYourGallery" id="Gallery.SettingUpYourGallery-SettingUpYourGallery"></a>Setting Up Your Gallery
 </h2>
@@ -11,7 +7,7 @@ This quick reference shows you how to setup a barebones gallery on your site tha
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/32243714/gallery-demo.png?version=1&amp;modificationDate=1286546262000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/32243714/gallery-demo.png?version=1&amp;modificationDate=1286546262000" style="border: 1px solid rgb(204, 204, 204);" />
 </p>
 
 <h2>
@@ -53,38 +49,28 @@ Then, click on either the "Upload Item" or "Batch Upload" button and upload some
 First, off, paste this code in your Resource:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div style=<span class="code-quote">"<span class="code-object">float</span>: right"</span>&gt;
+<pre class="brush: php">
+&lt;div style="float: right"&gt;
 &lt;h2&gt;Galleries&lt;/h2&gt;
 &lt;ul&gt;
 [[!GalleryAlbums]]
 &lt;/ul&gt;
 &lt;/div&gt;
-
 &lt;h2&gt;Item&lt;/h2&gt;
-
 [[!GalleryItem]]
 [[!+galitem.image:notempty=`
-&lt;div class=<span class="code-quote">"image"</span>&gt;
-  &lt;a href=<span class="code-quote">"[[+galitem.image]]"</span>&gt;&lt;img class=<span class="code-quote">"[[+galitem.imgCls]]"</span> src=<span class="code-quote">"[[+galitem.image]]"</span> alt=<span class="code-quote">"[[+galitem.name]]"</span> /&gt;&lt;/a&gt;
+&lt;div class="image"&gt;
+  &lt;a href="[[+galitem.image]]"&gt;&lt;img class="[[+galitem.imgCls]]" src="[[+galitem.image]]" alt="[[+galitem.name]]" /&gt;&lt;/a&gt;
   &lt;br /&gt;Albums: [[+galitem.albums]]
   &lt;br /&gt;Tags: [[+galitem.tags]]
 &lt;/div&gt;
 `]]
-
 &lt;hr /&gt;
-
 [[!Gallery? &amp;album=`1` &amp;toPlaceholder=`gallery`]]
-&lt;h1&gt;&lt;a href=<span class="code-quote">"[[~[[*id]] &amp;galAlbum=`[[+gallery.id]]`]]"</span>&gt;[[+gallery.name]]&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="[[~[[*id]] &amp;galAlbum=`[[+gallery.id]]`]]"&gt;[[+gallery.name]]&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;[[+gallery.description]]&lt;/p&gt;
-
 [[+gallery]]
 </pre>
-</div>
-</div>
-
 <p>
 That's it! It will work now. Let's go through each part.
 </p>
@@ -97,19 +83,14 @@ That's it! It will work now. Let's go through each part.
 So the code we're using to display our Gallery Albums is this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div style=<span class="code-quote">"<span class="code-object">float</span>: right"</span>&gt;
+<pre class="brush: php">
+&lt;div style="float: right"&gt;
 &lt;h2&gt;Galleries&lt;/h2&gt;
 &lt;ul&gt;
 [[!GalleryAlbums]]
 &lt;/ul&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 We're first off running the GalleryAlbums snippet. Then in our HTML we've floated it to the right - you don't have to do this, but we did to preserve screen real estate. That's it - GalleryAlbums will then display a list of the albums, and make them clickable.
 </p>
@@ -122,18 +103,12 @@ We're first off running the GalleryAlbums snippet. Then in our HTML we've floate
 Okay, now once you've clicked them, we want Gallery to display all the images from that album. Luckily, the Gallery snippet works in tandem with the GalleryAlbums snippet to do just this - without any customizing:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Gallery? &amp;album=`1` &amp;toPlaceholder=`gallery`]]
-&lt;h1&gt;&lt;a href=<span class="code-quote">"[[~[[*id]] &amp;galAlbum=`[[+gallery.id]]`]]"</span>&gt;[[+gallery.name]]&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="[[~[[*id]] &amp;galAlbum=`[[+gallery.id]]`]]"&gt;[[+gallery.name]]&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;[[+gallery.description]]&lt;/p&gt;
-
 [[+gallery]]
 </pre>
-</div>
-</div>
-
 <p>
 So, we've set the Gallery album to by default display the Album with ID 1. If we clicked a link from our GalleryAlbums snippet call above, it will override this; but for now we want it to start with Album #1. We've also set it to a placeholder called 'gallery' so we can output some information about that album, such as its name and description.
 </p>
@@ -146,21 +121,16 @@ So, we've set the Gallery album to by default display the Album with ID 1. If we
 Now we've got our thumbnails, but we want when they're clicked to show a big image. Simple: the GalleryItem snippet will automatically handle this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!GalleryItem]]
 [[!+galitem.image:notempty=`
-&lt;div class=<span class="code-quote">"image"</span>&gt;
-  &lt;a href=<span class="code-quote">"[[+galitem.image]]"</span>&gt;&lt;img class=<span class="code-quote">"[[+galitem.imgCls]]"</span> src=<span class="code-quote">"[[+galitem.image]]"</span> alt=<span class="code-quote">"[[+galitem.name]]"</span> /&gt;&lt;/a&gt;
+&lt;div class="image"&gt;
+  &lt;a href="[[+galitem.image]]"&gt;&lt;img class="[[+galitem.imgCls]]" src="[[+galitem.image]]" alt="[[+galitem.name]]" /&gt;&lt;/a&gt;
   &lt;br /&gt;Albums: [[+galitem.albums]]
   &lt;br /&gt;Tags: [[+galitem.tags]]
 &lt;/div&gt;
 `]]
 </pre>
-</div>
-</div>
-
 <p>
 The GalleryItem snippet calls and looks for a "galItem" parameter in the URL. Once found, it will load that image from the album. The Gallery snippet uses those in its URLs for its thumbnails. Next, we output some metadata for the image, such as its name, albums, tags, and a direct link to it.
 </p>
@@ -176,3 +146,81 @@ And we're done! An immediately functioning Gallery.
 <p>
 There is much, much more you can do with Gallery, but hopefully this short reference gets you up to speed on how all the parts behave together.
 </p>
+
+<h2>
+<a name="Gallery.SettingUpYourGallery-SeeAlso" id="Gallery.SettingUpYourGallery-SeeAlso"></a>See Also
+</h2>
+
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.Gallery">Gallery.Gallery</a>
+<ul class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.Gallery.containerTpl">Gallery.Gallery.containerTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Gallery.thumbTpl">Gallery.Gallery.thumbTpl</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryAlbums">Gallery.GalleryAlbums</a>
+<ul class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.GalleryAlbums.rowTpl">Gallery.GalleryAlbums.rowTpl</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem">Gallery.GalleryItem</a>
+<ul class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.albumTpl">Gallery.GalleryItem.albumTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.GalleryItemPagination">Gallery.GalleryItem.GalleryItemPagination</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.tagTpl">Gallery.GalleryItem.tagTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.tpl">Gallery.GalleryItem.tpl</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Plugins">Gallery.Plugins</a>
+<ul class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.Plugins.Galleriffic">Gallery.Plugins.Galleriffic</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Plugins.Slimbox">Gallery.Plugins.Slimbox</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Roadmap">Gallery.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Setting+Up+Your+Gallery">Gallery.Setting Up Your Gallery</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Example1">Gallery.Example1</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Setting+Up+the+GalleryItem+TV">Gallery.Setting Up the GalleryItem TV</a>
+</li>
+</ol>

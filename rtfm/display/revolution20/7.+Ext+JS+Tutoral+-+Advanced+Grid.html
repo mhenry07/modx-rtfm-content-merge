@@ -22,122 +22,23 @@ An Ext JS Grid typically needs 2 pages:
 This can be a simple HTML page. In our example here, we're putting this alongside the MODX index.php in your docroot. Just like all the examples before, we include the Ext JS CSS and Javascript.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;html&gt;
-    &lt;title&gt;Ext JS Paging Grid&lt;/title&gt;
-    &lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;    
-    &lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
-
-Ext.onReady(function(){
-
-    <span class="code-comment">// create the Data Store
-</span>    <span class="code-keyword">var</span> store = <span class="code-keyword">new</span> Ext.data.JsonStore({
-        root: 'results',
-        totalProperty: 'total',
-        idProperty: 'id',
-        remoteSort: <span class="code-keyword">true</span>,
-
-        <span class="code-comment">// Define the fields you wish to display
-</span>        fields: [
-            'pagetitle', 
-            'alias', 
-            {name: 'createdby', type: '<span class="code-object">int</span>'}
-        ],
-
-        <span class="code-comment">// Use HttpProxy <span class="code-keyword">for</span> local stores, ScriptTagProxy <span class="code-keyword">for</span> remote stores
-</span>        proxy: <span class="code-keyword">new</span> Ext.data.HttpProxy({
-            url: 'store.php'
-        })
-    });
-    store.setDefaultSort('id', 'ASC');
-
-
-    <span class="code-keyword">var</span> grid = <span class="code-keyword">new</span> Ext.grid.GridPanel({
-        width:700,
-        height:500,
-        title:'MODExt - Browse Pages',
-        store: store,
-        trackMouseOver:<span class="code-keyword">true</span>,  <span class="code-comment">// will highlight rows on hover
-</span>        disableSelection:<span class="code-keyword">true</span>, <span class="code-comment">// will allow you to select row(s)
-</span>        loadMask: <span class="code-keyword">true</span>,  <span class="code-comment">// will generate a spinner icon
-</span>
-        <span class="code-comment">// grid columns
-</span>        columns:[{
-            header: <span class="code-quote">"Page Title"</span>,
-            dataIndex: 'pagetitle',
-            width: 420,
-            sortable: <span class="code-keyword">true</span>
-        },{
-            header: <span class="code-quote">"Alias"</span>,
-            dataIndex: 'alias',
-            width: 100,
-            sortable: <span class="code-keyword">true</span>
-        },{
-            header: <span class="code-quote">"Author"</span>,
-            dataIndex: 'createdby',
-            width: 80,
-            align: 'right',
-            sortable: <span class="code-keyword">true</span>
-        }],
-
-        <span class="code-comment">// paging bar on the bottom
-</span>        bbar: <span class="code-keyword">new</span> Ext.PagingToolbar({
-            pageSize: 25,
-            store: store,
-            displayInfo: <span class="code-keyword">true</span>,
-            displayMsg: 'Displaying Records {0} - {1} of {2}',
-            emptyMsg: <span class="code-quote">"No Records to display"</span>
-        })
-    });
-
-    <span class="code-comment">// render it
-</span>    grid.render('topic-grid');
-
-    <span class="code-comment">// trigger the data store load
-</span>    <span class="code-comment">// NOTE: the parameter names here correspond to keys in $_POST
-</span>    store.load({params:{start:0, limit:25}});
-});
-    &lt;/script&gt;
+<pre class="brush: php">
     
-    &lt;body&gt;
-        &lt;h1&gt;Advanced Grid&lt;/h1&gt;
-        &lt;div id=<span class="code-quote">"topic-grid"</span>&gt;&lt;/div&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="7.ExtJSTutoral-AdvancedGrid-TheStore"></a>The Store
-</h2>
-
-<p>
-This is a PHP file or a Snippet – here we're putting this alongside your MODX index.php file, so we have to add a few extra lines to gain access to the <b>$modx</b> object. Normally this code would be in a Snippet or in a CMP, so you'd already <em>have</em> access to the <b>$modx</b> object.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
 &lt;?php
-<span class="code-comment">// -- start the little hack -------------------
-</span><span class="code-comment">// This would not be necessary <span class="code-keyword">if</span> <span class="code-keyword">this</span> code were
-</span><span class="code-comment">// inside a Snippet or the MODX mgr! Demo purposes only!
-</span>define('MODX_API_MODE', <span class="code-keyword">true</span>); 
+// -- start the little hack -------------------
+// This would not be necessary if this code were
+// inside a Snippet or the MODX mgr! Demo purposes only!
+define('MODX_API_MODE', true); 
 require_once 'index.php';
-$modx= <span class="code-keyword">new</span> modX();
+$modx= new modX();
 $modx-&gt;initialize('mgr');
-<span class="code-comment">// -- end the little hack ---------------------
-</span>
-<span class="code-comment">// Get parameters sent here from the Grid controls
-</span><span class="code-comment">// The limit and start parameters are configurable,
-</span><span class="code-comment">// but the sort and dir are less so (?)
-</span>$limit = (<span class="code-object">int</span>) $modx-&gt;getOption('limit',$_POST,10);
-$start = (<span class="code-object">int</span>) $modx-&gt;getOption('start',$_POST,0);
+// -- end the little hack ---------------------
+
+// Get parameters sent here from the Grid controls
+// The limit and start parameters are configurable,
+// but the sort and dir are less so (?)
+$limit = (int) $modx-&gt;getOption('limit',$_POST,10);
+$start = (int) $modx-&gt;getOption('start',$_POST,0);
 $sort = $modx-&gt;getOption('sort',$_POST,'id');
 $dir = $modx-&gt;getOption('dir',$_POST,'ASC');
 
@@ -147,23 +48,22 @@ $criteria-&gt;limit($limit, $start);
 $criteria-&gt;sortby($sort,$dir);
 $pages = $modx-&gt;getCollection('modResource',$criteria);
 
-<span class="code-comment">// Init our array
-</span>$data = array(
+// Init our array
+$data = array(
     'results'=&gt;array(),
     'total' =&gt; $total_pages,
 );
 foreach ($pages as $p) {
     $data['results'][] = $p-&gt;toArray();
 }
-<span class="code-comment">// Use the log <span class="code-keyword">for</span> debugging Ajax
-</span>$modx-&gt;log(1,print_r($_POST,<span class="code-keyword">true</span>));
+// Use the log for debugging Ajax
+$modx-&gt;log(1,print_r($_POST,true));
 print json_encode($data);
 
 /*EOF*/
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 You can view the store.php in a browser and you should see some JSON data. If you're trying to see what's being posted to this file from the grid page, use the MODX log function to log the posted data.
 </p>
@@ -189,17 +89,3 @@ You can view the store.php in a browser and you should see some JSON data. If yo
 <a href="http://sottwell.pogwatch.com/datagrid-3.html" class="external-link" rel="nofollow">http://sottwell.pogwatch.com/datagrid-3.html</a>
 </li>
 </ul>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="46465084" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="46137364" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2F7.%2BExt%2BJS%2BTutoral%2B-%2BAdvanced%2BGrid" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="46137364" />
-</fieldset>
-</fieldset>
-</div>

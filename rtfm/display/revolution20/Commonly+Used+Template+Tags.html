@@ -1,807 +1,764 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<div>
 <ul>
 <li>
-<a href='#CommonlyUsedTemplateTags-DefaultResourceContentFieldTags'>Default Resource Content Field Tags</a>
+<a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags#CommonlyUsedTemplateTags-DefaultResourceContentFieldTags">Default Resource Content Field Tags</a>
 </li>
 
 <li>
-<a href='#CommonlyUsedTemplateTags-OtherCommonTags'>Other Common Tags</a>
+<a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags#CommonlyUsedTemplateTags-OtherCommonTags">Other Common Tags</a>
 </li>
 
 <li>
-<a href='#CommonlyUsedTemplateTags-AllTags'>All Tags</a>
+<a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags#CommonlyUsedTemplateTags-AllTags">All Tags</a>
 </li>
 
 <li>
-<a href='#CommonlyUsedTemplateTags-SeeAlso'>See Also</a>
+<a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags#CommonlyUsedTemplateTags-SeeAlso">See Also</a>
 </li>
 </ul>
-</div>
 
 <p>
-This page lists the most commonly used MODx Revolution tags as an aid to anyone converting HTML/CSS layouts into MODx <a href="/display/revolution20/Templates" title="Templates">Templates</a>. These are frequently referred to as "tags" or "placeholders" (and sometimes "template variables"), so we mention those terms here as an aid to searching, although technically speaking they are <b>not</b> placeholders or template variables: they are MODx tags. Yes, it can be confusing for the newcomer, so just remember that there are different flavors of these tags, each with its own purpose and name. <span class="error">[Placeholders]</span> are set in code and are displayed with placeholder tags. <a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a> are extra resource content fields created by the user; they can be thought of as custom fields. Neither placeholders, not template variables are pre-set by the MODx core.
+This page lists the most commonly used MODx Revolution tags as an aid to anyone converting HTML/CSS layouts into MODx <a href="display/revolution20/Templates" title="Templates">Templates</a>. These are frequently referred to as "tags" or "placeholders" (and sometimes "template variables"), so we mention those terms here as an aid to searching, although technically speaking they are <strong>not</strong> placeholders or template variables: they are MODx tags. Yes, it can be confusing for the newcomer, so just remember that there are different flavors of these tags, each with its own purpose and name. <span class="error">[[*Placeholders]]</span> are set in code and are displayed with placeholder tags. <a href="display/revolution20/Template+Variables" title="Template Variables">Template Variables</a> are extra resource content fields created by the user; they can be thought of as custom fields. Neither placeholders, not template variables are pre-set by the MODx core.
 </p>
 
 <h2>
-<a name="CommonlyUsedTemplateTags-DefaultResourceContentFieldTags"></a>Default Resource Content Field Tags
+<a name="CommonlyUsedTemplateTags-DefaultResourceContentFieldTags" id="CommonlyUsedTemplateTags-DefaultResourceContentFieldTags"></a>Default Resource Content Field Tags
 </h2>
 
 <p>
 In MODx Revolution, each page will always have the following content fields that you can use when constructing your templates. Except for the Resource ID and the parent field, they are all supplied by the user when editing the resource and may be empty if the user did not fill them in:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<p class="table-wrap">
+</p>
+
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Tag
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Example Usage
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*id]]</b>
+<td class="confluenceTd">
+<strong>[[*id]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 the Resource ID of the page (set by MODx when the page is created.
 </td>
-<td class='confluenceTd'>
-Often used in conjunction with the link syntax, e.g. <tt>&lt;a href="[[~[[*id]]]]"&gt;Bookmark this page!&lt;/a&gt;</tt>
+<td class="confluenceTd">
+Often used in conjunction with the link syntax, e.g. <tt><a href="[[~[[*id]]]]">Bookmark this page!</a></tt>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*pagetitle]]</b>
+<td class="confluenceTd">
+<strong>[[*pagetitle]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 the Title of the page.
 </td>
-<td class='confluenceTd'>
-<tt>&lt;title&gt;[[*pagetitle]]&lt;/title&gt;</tt>
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*longtitle]]</b>
+<td class="confluenceTd">
+<strong>[[*longtitle]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 the Long Title of the page
 </td>
-<td class='confluenceTd'>
-<tt>&lt;h1&gt;[[*longtitle]]&lt;/h1&gt;</tt>
+<td class="confluenceTd">
+<tt>[[*longtitle]]</tt>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*alias]]</b>
+<td class="confluenceTd">
+<strong>[[*alias]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 the page alias.
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 <em>Used to construct the URL of the page</em>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*description]]</b>
+<td class="confluenceTd">
+<strong>[[*description]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 the page Description
 </td>
-<td class='confluenceTd'>
-<tt>&lt;meta name="description" content="[[*description]]"/&gt;</tt>
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*introtext]]</b>
+<td class="confluenceTd">
+<strong>[[*introtext]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 the Introductory Text field (a.k.a. the summary).
 </td>
-<td class='confluenceTd'>
-Often used by Snippets to summarize posts, e.g. <a href="/display/ADDON/Ditto" title="Ditto">Ditto</a> <tt>&lt;div id="summary"&gt;[[*introtext]]&lt;/div&gt;</tt>
+<td class="confluenceTd">
+Often used by Snippets to summarize posts, e.g. <a href="display/ADDON/Ditto" title="Ditto">Ditto</a>
+<div id="summary">
+<tt>[[*introtext]]</tt>
+</div>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*parent]]</b>
+<td class="confluenceTd">
+<strong>[[*parent]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 the ID of the parent page (if any). Set by MODx when the page is created. Can be altered by the user.
 </td>
-<td class='confluenceTd'>
-Often used in conjunction with the link syntax, e.g. <tt>&lt;a href="[[~[[*parent]]]]"&gt;Up to parent page&lt;/a&gt;</tt>
+<td class="confluenceTd">
+Often used in conjunction with the link syntax, e.g. <tt><a href="[[~[[*parent]]]]">Up to parent page</a></tt>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*menutitle]]</b>
+<td class="confluenceTd">
+<strong>[[*menutitle]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 the Title used when the page appears in menus.
 </td>
-<td class='confluenceTd'>
-<em>Most frequently used by Snippets such as</em> <em><a href="/display/ADDON/Wayfinder" title="Wayfinder">Wayfinder</a></em> <em>when dynamically constructing menus</em>
+<td class="confluenceTd">
+<em>Most frequently used by Snippets such as</em> <em><a href="display/ADDON/Wayfinder" title="Wayfinder">Wayfinder</a></em> <em>when dynamically constructing menus</em>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*content]]</b>
+<td class="confluenceTd">
+<strong>[[*content]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 the content of the page.
 </td>
-<td class='confluenceTd'>
-<tt>&lt;body&gt;[[*content]]&lt;/body&gt;</tt>
+<td class="confluenceTd">
+<tt>[[*content]]</tt>
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h2>
-<a name="CommonlyUsedTemplateTags-OtherCommonTags"></a>Other Common Tags
+<a name="CommonlyUsedTemplateTags-OtherCommonTags" id="CommonlyUsedTemplateTags-OtherCommonTags"></a>Other Common Tags
 </h2>
 
 <p>
-These tags represent system settings, which are editable under the <b>System</b> menu -&gt; <b>System Settings</b>.
+These tags represent system settings, which are editable under the <strong>System</strong> menu -&gt; <strong>System Settings</strong>.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<p class="table-wrap">
+</p>
+
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Tag
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Example Usage
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[++site_url]]</b>
+<td class="confluenceTd">
+<strong>[[++site_url]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Contains the URL for your site, e.g. <a href="http://www.yoursite.com/" class="external-link" rel="nofollow">http://www.yoursite.com/</a>
 </td>
-<td class='confluenceTd'>
-With many CMS's that rely on Apache rewrites, it's common practice to include a base tag in your HTML head: <tt>&lt;base href="[[++site_url]]" /&gt;</tt>
+<td class="confluenceTd">
+With many CMS's that rely on Apache rewrites, it's common practice to include a base tag in your HTML head:
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[++site_name]]</b>
+<td class="confluenceTd">
+<strong>[[++site_name]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Name of the site
 </td>
-<td class='confluenceTd'>
-<tt>&lt;title&gt;[[++site_name]] | [[*pagetitle]]&lt;/title&gt;</tt>
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[++site_start]]</b>
+<td class="confluenceTd">
+<strong>[[++site_start]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Contains the ID of the page designated as your "home" page.
 </td>
-<td class='confluenceTd'>
-Often used in conjunction with the link syntax, e.g. <tt>&lt;a id="logo" href="[[~[[++site_start]]]]"&gt;Home&lt;/a&gt;</tt>
+<td class="confluenceTd">
+Often used in conjunction with the link syntax, e.g. <tt><a id="logo" href="[[~[[++site_start]]]]" name="logo">Home</a></tt>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[$chunk]]</b>
+<td class="confluenceTd">
+<strong>[[$chunk]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 This references a chunk by name. Chunks are any bit of reusable content.
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Common chunks might be for <em>header</em> or <em>footer</em>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[~link]]</b>
+<td class="confluenceTd">
+<strong>[[~link]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Use this syntax to build links to pages by referencing their unique id (visible in parentheses next to the page's name in the resource tree). These links will not break if pages are moved or renamed.
 </td>
-<td class='confluenceTd'>
-<tt>&lt;a id="logo" href="[[~1]]"&gt;Home&lt;/a&gt;</tt>
+<td class="confluenceTd">
+<tt><a id="logo" href="[[~1]]" name="logo">Home</a></tt>
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h2>
-<a name="CommonlyUsedTemplateTags-AllTags"></a>All Tags
+<a name="CommonlyUsedTemplateTags-AllTags" id="CommonlyUsedTemplateTags-AllTags"></a>All Tags
 </h2>
 
 <p>
 As you increase your understanding of how MODx templates work, you'll want to have at your disposal the complete list of available content fields. Here is the complete list of all tags, gleaned from this <a href="http://modxcms.com/forums/index.php/topic,63481.0/topicseen.html" class="external-link" rel="nofollow">blog post</a>.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<p class="table-wrap">
+</p>
+
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Tag
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Data Type
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Example Usage
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*alias]]</b>
+<td class="confluenceTd">
+<strong>[[*alias]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 text
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Alias
 </td>
-<td class='confluenceTd'>
-Normally, you will use the <em>id</em> to generate the URL, e.g. <tt>&lt;a href="[[~[[*id]]]]"&gt;Click Here!&lt;/a&gt;</tt>, but this lets you print out the alias parameter.
+<td class="confluenceTd">
+Normally, you will use the <em>id</em> to generate the URL, e.g. <tt><a href="[[~[[*id]]]]">Click Here!</a></tt>, but this lets you print out the alias parameter.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*cacheable]]</b>
+<td class="confluenceTd">
+<strong>[[*cacheable]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int 0/1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Cacheable
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*class_key]]</b>
+<td class="confluenceTd">
+<strong>[[*class_key]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Class Key of the Resource, e.g. <em>modDocument</em>
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*content]]</b>
+<td class="confluenceTd">
+<strong>[[*content]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 text
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Resource Content
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*content_type]]</b>
+<td class="confluenceTd">
+<strong>[[*content_type]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Content Type
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*createdon]]</b>
+<td class="confluenceTd">
+<strong>[[*createdon]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 date
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Created On date, e.g. <em>2011-04-14 20:40:50</em>, often used in conjunction with the <em>strtotime</em> output filter
 </td>
-<td class='confluenceTd'>
-<tt>[[*createdon:strtotime:date=`%a %b %e, %Y`]]</tt> See <a href="/display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
+<td class="confluenceTd">
+<tt>[[*createdon:strtotime:date=`%a %b %e, %Y`]]</tt> See <a href="display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*createdby]]</b>
+<td class="confluenceTd">
+<strong>[[*createdby]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Created By User ID Number
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*deleted]]</b>
+<td class="confluenceTd">
+<strong>[[*deleted]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int 0/1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Deleted
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*deletedby]]</b>
+<td class="confluenceTd">
+<strong>[[*deletedby]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Deleted By User ID Number
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*deletedon]]</b>
+<td class="confluenceTd">
+<strong>[[*deletedon]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 date
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Date of Deletions
 </td>
-<td class='confluenceTd'>
-<tt>[[*deletedon:strtotime:date=`%a %b %e, %Y`]]</tt> See <a href="/display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
+<td class="confluenceTd">
+<tt>[[*deletedon:strtotime:date=`%a %b %e, %Y`]]</tt> See <a href="display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*description]]</b>
+<td class="confluenceTd">
+<strong>[[*description]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 text
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Description
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*editedon]]</b>
+<td class="confluenceTd">
+<strong>[[*editedon]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 date
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Edited On date, e.g. <em>2011-04-18 09:06:08</em>
 </td>
-<td class='confluenceTd'>
-<tt>[[*editedon:strtotime:date=`%a %b %e, %Y`]]</tt> See <a href="/display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
+<td class="confluenceTd">
+<tt>[[*editedon:strtotime:date=`%a %b %e, %Y`]]</tt> See <a href="display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*editedby]]</b>
+<td class="confluenceTd">
+<strong>[[*editedby]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Edited By User ID number
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*hidemenu]]</b>
+<td class="confluenceTd">
+<strong>[[*hidemenu]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int 0/1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Hide From Menus; this attribute is read by many Snippets, e.g. WayFinder
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*id]]</b>
+<td class="confluenceTd">
+<strong>[[*id]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Resource ID
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Used frequently to generate links to this page.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*introtext]]</b>
+<td class="confluenceTd">
+<strong>[[*introtext]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 text
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Summary
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*isfolder]]</b>
+<td class="confluenceTd">
+<strong>[[*isfolder]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int 0/1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Container
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*link_attributes]]</b>
+<td class="confluenceTd">
+<strong>[[*link_attributes]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 text
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Link attributes; these are inserted automatically when you use the [[~123]] syntax
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*longtitle]]</b>
+<td class="confluenceTd">
+<strong>[[*longtitle]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 text
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Long Title
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*menuindex]]</b>
+<td class="confluenceTd">
+<strong>[[*menuindex]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Menu Index
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*menutitle]]</b>
+<td class="confluenceTd">
+<strong>[[*menutitle]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 text
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Menu Title
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*pagetitle]]</b>
+<td class="confluenceTd">
+<strong>[[*pagetitle]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 text
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Page Title
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*parent]]</b>
+<td class="confluenceTd">
+<strong>[[*parent]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Parent Resource
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*pub_date]]</b>
+<td class="confluenceTd">
+<strong>[[*pub_date]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 date ---Publish Date
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
+</td>
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*published]]</b>
+<td class="confluenceTd">
+<strong>[[*published]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int 0/1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Published
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*publishedby]]</b>
+<td class="confluenceTd">
+<strong>[[*publishedby]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Published By User ID Number
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*publishedon]]</b>
+<td class="confluenceTd">
+<strong>[[*publishedon]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 date
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Published On
 </td>
-<td class='confluenceTd'>
-<tt>[[*publishedon:strtotime:date=`%a %b %e, %Y`]]</tt> See <a href="/display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
+<td class="confluenceTd">
+<tt>[[*publishedon:strtotime:date=`%a %b %e, %Y`]]</tt> See <a href="display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*richtext]]</b>
+<td class="confluenceTd">
+<strong>[[*richtext]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int 0/1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Rich Text
 </td>
+<td class="confluenceTd">
+</td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*searchable]]</b>
+<td class="confluenceTd">
+<strong>[[*searchable]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int 0/1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Searchable
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*template]]</b>
+<td class="confluenceTd">
+<strong>[[*template]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Template ID number
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*unpub_date]]</b>
+<td class="confluenceTd">
+<strong>[[*unpub_date]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 date – Unpublish Date
 </td>
-<td class='confluenceTd'>
-<tt>[[*unpub_date:strtotime:date=`%a %b %e, %Y`]]</tt> See <a href="/display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
+<td class="confluenceTd">
+<tt>[[*unpub_date:strtotime:date=`%a %b %e, %Y`]]</tt> See <a href="display/revolution20/Date+Formats" title="Date Formats">Date Formats</a>.
+</td>
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*uri_override]]</b>
+<td class="confluenceTd">
+<strong>[[*uri_override]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int 0/1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Freeze URI
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>[[*uri]]</b>
+<td class="confluenceTd">
+<strong>[[*uri]]</strong>
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 URI
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<p class="note">
 Just to clarify on pub_date – it's only set when the user sets a future date for publication in the Publish On field. And when the doc is actually published, it's zeroed out.
+</p>
+
 <p>
 The publishedon field always contains the most recent date that the resource changed form unpublished to published (or the date a new doc was saved with Publish checked).
 </p>
-</td>
-</tr>
-</table>
-</div>
 
 <h2>
-<a name="CommonlyUsedTemplateTags-SeeAlso"></a>See Also
+<a name="CommonlyUsedTemplateTags-SeeAlso" id="CommonlyUsedTemplateTags-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/Date+Formats" title="Date Formats">Date Formats</a> : shows how to format date fields.
+<a href="display/revolution20/Date+Formats" title="Date Formats">Date Formats</a> : shows how to format date fields.
 </li>
 </ul>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33226843" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678460" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FCommonly%2BUsed%2BTemplate%2BTags" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678456" /> <input type="hidden" name="ancestorId" value="18678050" />
-</fieldset>
-</fieldset>
-</div>
+<ol class="ug-toc">
+<li>
+<a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats">Date Formats</a>
+</li>
+</ol>

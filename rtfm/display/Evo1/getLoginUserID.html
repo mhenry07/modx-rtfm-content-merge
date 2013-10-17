@@ -1,19 +1,8 @@
-<h1>
+<h2>
 <a name="getLoginUserID-API%3AgetLoginUserID"></a>API:getLoginUserID
-</h1>
+</h2>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>API Quick reference</b>
 <br />
 
@@ -79,68 +68,35 @@ Return on failure:
 Object parent:
 </td>
 <td class='confluenceTd'>
-<a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
+<a href="display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
 <a name="getLoginUserID-Description%2FUsage"></a>Description / Usage
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-integer getLoginUserID( );  
-</pre>
-</div>
-</div>
-
-<p>
-Determines if user is logged in, be it via Manager Interface, or Web Interface, and returns the ID (int) of the current user. If no user is logged in, null is returned.
-</p>
-
-<ul>
-<li>
-<b>$context</b> can be either 'web' or 'mgr'. Returns nothing if the user is not logged in.
-</li>
-</ul>
-
-<p>
-Returns current user id.
-</p>
-
-<h2>
-<a name="getLoginUserID-Examples"></a>Examples
-</h2>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// In the front end, returns an array of the logged in user's attributes.
-</span>    $userInfo = $modx-&gt;db-&gt;getRow(
+<pre class="brush: php">
+    // In the front end, returns an array of the logged in user's attributes.
+    $userInfo = $modx-&gt;db-&gt;getRow(
         $modx-&gt;db-&gt;select(
-            <span class="code-quote">"*"</span>, 
+            "*", 
             $modx-&gt;db-&gt;getFullTableName('web_user_attributes'), 
-            <span class="code-quote">"`internalKey`="</span>.$modx-&gt;getLoginUserID()
+            "`internalKey`=".$modx-&gt;getLoginUserID()
         )
     );
+    
 </pre>
-</div>
-</div>
-
 <h2>
-<a name="getLoginUserID-Related"></a>Related
+<a name="getLoginUserID-Related" id="getLoginUserID-Related"></a>Related
 </h2>
 
 <h2>
-<a name="getLoginUserID-Notes"></a>Notes
+<a name="getLoginUserID-Notes" id="getLoginUserID-Notes"></a>Notes
 </h2>
 
 <p>
@@ -148,7 +104,7 @@ In the manager, the value returned will be the manager user's ID.
 </p>
 
 <h2>
-<a name="getLoginUserID-FunctionSource"></a>Function Source
+<a name="getLoginUserID-FunctionSource" id="getLoginUserID-FunctionSource"></a>Function Source
 </h2>
 
 <p>

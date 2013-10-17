@@ -1,19 +1,8 @@
-<h1>
+<h2>
 <a name="escape-API%3ADB%3Aescape"></a>API:DB:escape
-</h1>
+</h2>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 <b>API Quick reference</b>
 <br />
 
@@ -79,108 +68,48 @@ string $s
 Object parent:
 </td>
 <td class='confluenceTd'>
-<a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a> -&gt; <a href="/display/Evo1/DBAPI" title="DBAPI">DBAPI</a>
+<a href="display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a> -&gt; <a href="display/Evo1/DBAPI" title="DBAPI">DBAPI</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="escape-Description"></a>Description
+<a name="escape-Description" id="escape-Description"></a>Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-string escape(string $s);
-</pre>
-</div>
-</div>
-
-<p>
-Escaping potential dangerous characters in a string before using it in a query can help protect your script against SQL injection attacks.
-</p>
-
-<p>
-Function escapes strings passed to it in preparation for inclusion in a MySQL query. If available, this function uses mysql_real_escape_string which is binary and character set safe. If mysql_real_escape_string is not available, it will instead use mysql_escape_string to escape the data.
-</p>
-
-<h2>
-<a name="escape-Usage%2FExamples"></a>Usage / Examples
-</h2>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-function login($username, $password)
+<pre class="brush: php">
+    function login($username, $password)
 {
    global $modx, $table_prefix;
    $username = $modx-&gt;db-&gt;escape($username);
    $password = $modx-&gt;db-&gt;escape($password);
  
-   $res = $modx-&gt;db-&gt;select(<span class="code-quote">"id"</span>, $table_prefix.<span class="code-quote">".modx_web_users"</span>, 
-      <span class="code-quote">"username='$username' AND password='"</span>.md5($password).<span class="code-quote">"'"</span>);
-   <span class="code-keyword">if</span>($modx-&gt;db-&gt;getRecordCount($res))
+   $res = $modx-&gt;db-&gt;select("id", $table_prefix.".modx_web_users", 
+      "username='$username' AND password='".md5($password)."'");
+   if($modx-&gt;db-&gt;getRecordCount($res))
    {
       $_SESSION['userid'] = $id;
-      <span class="code-comment">//other log in things...
-</span>   }
-   <span class="code-keyword">else</span>
+      //other log in things...
+   }
+   else
    {
-      <span class="code-comment">//incorrect login
-</span>   }
+      //incorrect login
+   }
 }
+    
 </pre>
-</div>
-</div>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$string = <span class="code-quote">"This is Joe's Page"</span>;
-$string = $modx-&gt;db-&gt;escape($string); 
-</pre>
-</div>
-</div>
-
-<p>
-This will result in the string "This is Joe\'s Page".
-</p>
-
-<h2>
-<a name="escape-Related"></a>Related
-</h2>
-
-<p>
-<a href="/display/Evo1/select" title="select">select</a>, <a href="/display/Evo1/query" title="query">query</a>, <span class="error">[insert]</span>, <a href="/display/Evo1/update" title="update">update</a>
-</p>
-
-<h2>
-<a name="escape-FunctionSource"></a>Function Source
-</h2>
-
-<p>
-File: manager/includes/extenders/dbapi.class.inc.php
-<br />
-Line: 117
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-function escape($s) {
-   <span class="code-keyword">if</span> (function_exists('mysql_real_escape_string') &amp;&amp; $<span class="code-keyword">this</span>-&gt;conn) {
-      $s = mysql_real_escape_string($s, $<span class="code-keyword">this</span>-&gt;conn);
-   } <span class="code-keyword">else</span> {
+<pre class="brush: php">
+    function escape($s) {
+   if (function_exists('mysql_real_escape_string') &amp;&amp; $this-&gt;conn) {
+      $s = mysql_real_escape_string($s, $this-&gt;conn);
+   } else {
       $s = mysql_escape_string($s);
    }
-   <span class="code-keyword">return</span> $s;
+   return $s;
 }
+    
 </pre>
-</div>
-</div>

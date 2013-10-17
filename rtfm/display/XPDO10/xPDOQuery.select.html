@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="xPDOQuery.select-xPDOQuery%3A%3Aselect"></a>xPDOQuery::select
 </h2>
@@ -18,38 +14,19 @@ Specify columns to return from the SQL query.
 API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#select" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOQuery.html#select</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOQuery select ([string $columns = '*'])
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.select-Example" id="xPDOQuery.select-Example"></a>Example
-</h2>
-
-<p>
-Get a collection of Boxes, with only the ID and name fields.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$query = $xpdo-&gt;newQuery('Box');
+<pre class="brush: php">
+    $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;select('Box.id, Box.name AS boxName');
 $boxes = $xpdo-&gt;getCollection('Box',$c);
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
 <a name="xPDOQuery.select-SeeAlso" id="xPDOQuery.select-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/XPDO10/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
+<a href="display/XPDO10/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
 </li>
 </ul>

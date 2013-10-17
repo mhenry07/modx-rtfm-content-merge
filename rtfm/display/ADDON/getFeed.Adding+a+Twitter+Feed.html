@@ -1,15 +1,4 @@
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 <b>Do NOT use this method for showing a twitter feed!</b>
 <br />
 Twitter has deprecated their API v1.0 (which this tutorial makes use of) and it will be disabled COMPLETELY starting June 11th.
@@ -20,96 +9,40 @@ See <a href="https://dev.twitter.com/blog/api-blackout-testing-continues-may-22-
 <p>
 You can use JSONDerulo (<a href="http://modx.com/extras/package/jsonderulo" class="external-link" rel="nofollow">http://modx.com/extras/package/jsonderulo</a>) or TwitterX (<a href="http://modx.com/extras/package/twitterx" class="external-link" rel="nofollow">http://modx.com/extras/package/twitterx</a>) to show twitter feeds instead.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="getFeed.AddingaTwitterFeed-AddingTwittertoYourSite"></a><del>Adding Twitter to Your Site</del>
+<a name="getFeed.AddingaTwitterFeed-AddingTwittertoYourSite" id="getFeed.AddingaTwitterFeed-AddingTwittertoYourSite"></a><del>Adding Twitter to Your Site</del>
 </h2>
 
 <p>
-<del>This tutorial shows you how to add Twitter feeds to your site through</del> <del><a href="/display/ADDON/getFeed" title="getFeed">getFeed</a></del><del>.</del>
+<del>This tutorial shows you how to add Twitter feeds to your site through</del> <del><a href="display/ADDON/getFeed" title="getFeed">getFeed</a></del><del>.</del>
 </p>
 
 <h2>
-<a name="getFeed.AddingaTwitterFeed-AddingthegetFeedCall"></a><del>Adding the getFeed Call</del>
+<a name="getFeed.AddingaTwitterFeed-AddingthegetFeedCall" id="getFeed.AddingaTwitterFeed-AddingthegetFeedCall"></a><del>Adding the getFeed Call</del>
 </h2>
 
 <p>
 <del>First off, after you've downloaded and installed getFeed, place this Snippet call wherever you want the Twitter feed to show up:</del>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;ul&gt;
-[[!getFeed?
-   &amp;url=`http:<span class="code-comment">//twitter.com/statuses/user_timeline/123456789.rss`
-</span>   &amp;tpl=`twitterFeedTpl`
-   &amp;limit=`3`
-]]
-&lt;/ul&gt;
-</pre>
-</div>
-</div>
-
-<p>
-<del>Make sure to change the number there to your own Twitter user ID or username.</del>
-</p>
-
-<p>
-<del>So we're calling this snippet uncached, and pointing it to our public Twitter timeline. Then we only want the latest 3 tweets. From there, create a 'twitterFeedTpl' Chunk, and put this in it:</del>
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"tweet"</span>&gt;
+<pre class="brush: php">
+    &lt;div class="tweet"&gt;
     &lt;p&gt;[[+description]]
-    &lt;br /&gt;&lt;a href=<span class="code-quote">"[[+link]]"</span>&gt;[[+pubDate:ago]]&lt;/a&gt; via [[+twitter.source]]&lt;/p&gt;
+    &lt;br /&gt;&lt;a href="[[+link]]"&gt;[[+pubDate:ago]]&lt;/a&gt; via [[+twitter.source]]&lt;/p&gt;
 &lt;/div&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
-<del>There we go! Our Twitter feed now shows up. Note we have our :ago</del> <del><a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">filter</a></del><del>, which formats the date in a nice, "X minutes, X hours" ago format.</del>
+<del>There we go! Our Twitter feed now shows up. Note we have our :ago</del> <del><a href="display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">filter</a></del><del>, which formats the date in a nice, "X minutes, X hours" ago format.</del>
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <del>Note that the placeholder to use for the date (as well as any other placeholders) can</del> <b><del>depend on the feed</del></b><del>. Check the raw XML source of a feed to see in what item the data is stored, and use that.</del>
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="getFeed.AddingaTwitterFeed-SeeAlso"></a>See Also
+<a name="getFeed.AddingaTwitterFeed-SeeAlso" id="getFeed.AddingaTwitterFeed-SeeAlso"></a>See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="21397506" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="16646377" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FgetFeed.Adding%2Ba%2BTwitter%2BFeed" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="16646377" />
-</fieldset>
-</fieldset>
-</div>

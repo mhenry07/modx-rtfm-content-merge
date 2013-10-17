@@ -1,227 +1,13 @@
 <p>
-If you haven't already make sure you have setup the <a href="/display/ADDON/SubscribeMe+-+Listing+the+Products" title="SubscribeMe - Listing the Products">product listing</a> page, and adjusted the optionsResource value.
+If you haven't already make sure you have setup the <a href="display/ADDON/SubscribeMe+-+Listing+the+Products" title="SubscribeMe - Listing the Products">product listing</a> page, and adjusted the optionsResource value.
 </p>
 
 <h2>
-<a name="SubscribeMe-SettingupthePaymentMethods-MinimumCall"></a>Minimum Call
+<a name="SubscribeMe-SettingupthePaymentMethods-MinimumCall" id="SubscribeMe-SettingupthePaymentMethods-MinimumCall"></a>Minimum Call
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!smCheckout]]
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="SubscribeMe-SettingupthePaymentMethods-AvailableProperties"></a>Available Properties
-</h2>
-
-<p>
-You can use all of the following properties in the smListProducts snippet, all of these are also available from the snippets' Properties tab.
-</p>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Property
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Default
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-debug
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Set to 1 or true to output debug data on the screen.
-</td>
-<td class='confluenceTd'>
-0
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-redirect
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-When enabled, the snippet will directly redirect to PayPal and not offer the payment options screen.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-0
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-tpl
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Name of a chunk to use for the output of the snippet
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-smcheckout.paymentoptions (included as file)
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-toPlaceholder
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The name of a placeholder to assign the output to. The snippet will, when set, output nothing.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-return_id
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The ID of a Resource to be used for the next checkout step. This will be passed to PayPal.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-cancel_id
-</td>
-<td class='confluenceTd'>
-The ID of a Resource to be displayed when the PayPal authorization was cancelled.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-fail_id
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-The ID of a Resource to be displayed when the PayPal authorization or transaction failed.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<p>
-This snippet also uses the following <b>system settings</b> for some parts of its behavior:
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Verification is needed for this snippets use of these system settings.
-</td>
-</tr>
-</table>
-</div>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Key
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-subscribeme.paypal.cancel_id
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Same as cancel_id
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-subscribeme.paypal.fail_id
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Same as fail_id
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-subscribeme.paypal.return_id
-</td>
-<td class='confluenceTd'>
-Same as return_id
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h2>
-<a name="SubscribeMe-SettingupthePaymentMethods-tpl"></a>tpl
-</h2>
-
-<p>
-Default value (from core/components/subscribeme/elements/chunks/smcheckout.paymentoptions.tpl):
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;style type=<span class="code-quote">"text/css"</span>&gt;
+<pre class="brush: php">
+    &lt;style type="text/css"&gt;
     #paymentoptions {
     width: 600px;
     }
@@ -238,26 +24,25 @@ Default value (from core/components/subscribeme/elements/chunks/smcheckout.payme
     border: 2px solid #000;
     }
 &lt;/style&gt;
-&lt;table id=<span class="code-quote">"paymentoptions"</span>&gt;
+&lt;table id="paymentoptions"&gt;
     &lt;tr&gt;
     &lt;td&gt;
         &lt;h3&gt;Checkout with PayPal&lt;/h3&gt;
         &lt;p&gt;By setting up a &lt;strong&gt;recurring payment&lt;/strong&gt; via PayPal you will automatically be billed every [[+period]], maintaining your subscription state.&lt;/p&gt;
-        &lt;p&gt;&lt;a href=<span class="code-quote">"[[+paypalurl]]"</span> title=<span class="code-quote">"Subscribe now!"</span>&gt;&lt;img src=<span class="code-quote">"http:<span class="code-comment">//www.paypal.com/en_US/i/btn/btn_subscribe_LG.gif"</span> alt=<span class="code-quote">"Subscribe using PayPal"</span> /&gt;&lt;/a&gt;&lt;/p&gt;
-</span>        &lt;p style=<span class="code-quote">"font-size: 80%"</span>&gt;You will be able to cancel your subscription at any time via your PayPal profile. Your subscription will then be cancelled at the end of the running billing cycle.&lt;/p&gt;
+        &lt;p&gt;&lt;a href="[[+paypalurl]]" title="Subscribe now!"&gt;&lt;img src="http://www.paypal.com/en_US/i/btn/btn_subscribe_LG.gif" alt="Subscribe using PayPal" /&gt;&lt;/a&gt;&lt;/p&gt;
+        &lt;p style="font-size: 80%"&gt;You will be able to cancel your subscription at any time via your PayPal profile. Your subscription will then be cancelled at the end of the running billing cycle.&lt;/p&gt;
     &lt;/td&gt;
     &lt;td&gt;
         &lt;h3&gt;Manual Payments&lt;/h3&gt;
         &lt;p&gt;Using PayPal is free and automates the process of giving you access to the content you are subscribing to.&lt;/p&gt;
-        &lt;p&gt;If you wish to subscribe without PayPal you can <span class="code-keyword">do</span> so by getting in touch - our staff will gladly help you get started.&lt;/p&gt;
+        &lt;p&gt;If you wish to subscribe without PayPal you can do so by getting in touch - our staff will gladly help you get started.&lt;/p&gt;
         &lt;p&gt;&lt;a href=""&gt;Contact us&lt;/a&gt;&lt;/p&gt;
     &lt;/td&gt;
     &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 <b>Note</b>: You should NOT edit the default file directly, as future updates will overwrite any changes to this file.&nbsp; It is highly recommended you duplicate the file, or create a chunk with the contents, updating the snippet call, or snippet parameters accordingly.
 </p>
@@ -271,7 +56,7 @@ If you dislike inline css and/or tables to format your content, you can also mak
 </p>
 
 <h2>
-<a name="SubscribeMe-SettingupthePaymentMethods-PayPalToken"></a>PayPal Token
+<a name="SubscribeMe-SettingupthePaymentMethods-PayPalToken" id="SubscribeMe-SettingupthePaymentMethods-PayPalToken"></a>PayPal Token
 </h2>
 
 <p>

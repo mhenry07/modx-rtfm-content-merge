@@ -1,17 +1,13 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#LighttpdGuide-LighttpdGuideforSetupandFriendlyURLs.'>Lighttpd Guide for Setup and Friendly URLs.</a>
+<a href="revolution/2.x/getting-started/installation/basic-installation/lighttpd-guide#LighttpdGuide-LighttpdGuideforSetupandFriendlyURLs.">Lighttpd Guide for Setup and Friendly URLs.</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#LighttpdGuide-FriendlyURLSetup'>Friendly URL Setup</a>
+<a href="revolution/2.x/getting-started/installation/basic-installation/lighttpd-guide#LighttpdGuide-FriendlyURLSetup">Friendly URL Setup</a>
 </li>
 </ul>
 </li>
@@ -19,21 +15,10 @@
 </div>
 
 <h2>
-<a name="LighttpdGuide-LighttpdGuideforSetupandFriendlyURLs."></a>Lighttpd Guide for Setup and Friendly URLs.
+<a name="LighttpdGuide-LighttpdGuideforSetupandFriendlyURLs." id="LighttpdGuide-LighttpdGuideforSetupandFriendlyURLs."></a>Lighttpd Guide for Setup and Friendly URLs.
 </h2>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 <ul>
 <li>This is still a work in progress, and currently only covers the URL rewriting aspect.
 </li>
@@ -44,31 +29,14 @@
 <li>This guide only covers proper settings and the use of friendly URL Rewriting.
 </li>
 </ul>
-</td>
-</tr>
-</table>
 </div>
 
 <h3>
-<a name="LighttpdGuide-FriendlyURLSetup"></a>Friendly URL Setup
+<a name="LighttpdGuide-FriendlyURLSetup" id="LighttpdGuide-FriendlyURLSetup"></a>Friendly URL Setup
 </h3>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 lighttpd does not use the same system, or even same idea as Apache does for URL rewriting. All URL rewriting is done in the lighttpd.conf file
-</td>
-</tr>
-</table>
 </div>
 
 <ul>
@@ -93,67 +61,23 @@ lighttpd does not use the same system, or even same idea as Apache does for URL 
 <li>Next we need to find the location in which to put the friendly URL code.
 <ul>
 <li>So lets search for something that looks like this:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-   $SERVER[<span class="code-quote">"socket"</span>] == <span class="code-quote">":80"</span> {
-  $HTTP[<span class="code-quote">"host"</span>] =~ <span class="code-quote">"yourdomainname.com"</span> {
-    server.document-root = <span class="code-quote">"/path/to/your/doc/root"</span>
-    server.name = <span class="code-quote">"yourservername"</span>
+
+<pre class="brush: php">
+    url.rewrite-once = ( "^/(assets|manager|core|connectors)(.*)$" =&gt; "/$1/$2",
+                         "^/(?!index(?:-ajax)?\.php)(.*)\?(.*)$" =&gt; "/index.php?q=$1&amp;$2",
+                         "^/(?!index(?:-ajax)?\.php)(.*)$" =&gt; "/index.php?q=$1"
+                   )
     
 </pre>
-</div>
-</div>
-</li>
-
-<li>Directly under this you should add the following code.
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-url.rewrite-once = ( <span class="code-quote">"^/(assets|manager|core|connectors)(.*)$"</span> =&gt; <span class="code-quote">"/$1/$2"</span>,
-                         <span class="code-quote">"^/(?!index(?:-ajax)?\.php)(.*)\?(.*)$"</span> =&gt; <span class="code-quote">"/index.php?q=$1&amp;$2"</span>,
-                         <span class="code-quote">"^/(?!index(?:-ajax)?\.php)(.*)$"</span> =&gt; <span class="code-quote">"/index.php?q=$1"</span>
-                   )
-</pre>
-</div>
-</div>
 </li>
 </ul>
 </li>
 </ul>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 This does not mean you are done! Lighttpd handles url-rewrites a bit differently. You HAVE to exclude any files or folders you do not want rewritten in the config file. Excluded dirs/files in the example above are (assets|manager|core|connectors). If you wish to add more to these, simple add another | followed by the folder or filename you wish to omit from url rewriting.
-</td>
-</tr>
-</table>
 </div>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 After this is done, you will have working friendly URLs again in lighttpd.
-</td>
-</tr>
-</table>
 </div>

@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="StaticResource-WhatisaStaticResource%3F"></a>What is a Static Resource?
 </h2>
@@ -11,28 +7,17 @@ A Static Resource is a Resource abstraction of an actual file on the filesystem.
 </p>
 
 <p>
-Static Resources can also have tags inside their content fields to determine the path of the file - so you can specify custom paths to set as System Settings, or use <a href="/display/revolution20/Snippets" title="Snippets">Snippets</a> to dynamically find the path.
+Static Resources can also have tags inside their content fields to determine the path of the file - so you can specify custom paths to set as System Settings, or use <a href="display/revolution20/Snippets" title="Snippets">Snippets</a> to dynamically find the path.
 </p>
 
 <p>
-They behave exactly like a Document (standard Resource). Content within a Static Resource is parsed and displayed in the exact same way as a Document, but often you will alter the <a href="/display/revolution20/Content+Types" title="Content Types">Content Type</a> and Content Disposition to match the type of file you are representing.
+They behave exactly like a Document (standard Resource). Content within a Static Resource is parsed and displayed in the exact same way as a Document, but often you will alter the <a href="display/revolution20/Content+Types" title="Content Types">Content Type</a> and Content Disposition to match the type of file you are representing.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>About Aliases</b>
+<div class="tip">
+<strong>About Aliases</strong>
 <br />
-When you create a Static Resource, the alias should not include a file extension: the file extension is determined by the <a href="/display/revolution20/Content+Types" title="Content Types">Content Type</a>. For example, if you create a Static Resource that points to a PDF file on your webserver, you might give the page an alias of "test". Once you select "PDF" as your Content Type, the ".pdf" extension will be appended to the alias (presuming that you have defined the PDF content type using ".pdf" as its file extension).
+When you create a Static Resource, the alias should not include a file extension: the file extension is determined by the <a href="display/revolution20/Content+Types" title="Content Types">Content Type</a>. For example, if you create a Static Resource that points to a PDF file on your webserver, you might give the page an alias of "test". Once you select "PDF" as your Content Type, the ".pdf" extension will be appended to the alias (presuming that you have defined the PDF content type using ".pdf" as its file extension).
 <p>
 If you have created a custom content type for PDF, then you do not need to set the content disposition field to 'attachment'. It can be left as inline, as modern browsers can negotiate PDFs and can then also choose their own preferred way to handle PDFs - for example Chrome will display the PDF in the browser, whereas others may download the file.
 </p>
@@ -40,25 +25,26 @@ If you have created a custom content type for PDF, then you do not need to set t
 <p>
 To ensure your file is transmitted correctly, you should use the (empty) template. The static resource becomes a link to the file as long as you use this template. If you need to add some meta information to the resource via some Template Variables, and you create your own 'empty' template to enable this, then you must set the contents of the template to [[*content]] before it will work correctly.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="StaticResource-SeeAlso"></a>See Also
+<a name="StaticResource-SeeAlso" id="StaticResource-SeeAlso"></a>See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ul>
+<li>
+<a href="/revolution/2.x/making-sites-with-modx/structuring-your-site/resources/content-types" title="Content Types">Content Types</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678217" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678067" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FStatic%2BResource" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678067" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="revolution/2.x/making-sites-with-modx/structuring-your-site/resources/named-anchor" title="Named Anchor">Named Anchor</a>
+</li>
+
+<li>
+<a href="revolution/2.x/making-sites-with-modx/structuring-your-site/resources/symlink" title="Symlink">Symlink</a>
+</li>
+
+<li>
+<a href="revolution/2.x/making-sites-with-modx/structuring-your-site/resources/weblink" title="Weblink">Weblink</a>
+</li>
+</ul>

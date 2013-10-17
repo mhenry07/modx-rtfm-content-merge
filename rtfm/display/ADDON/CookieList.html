@@ -32,30 +32,24 @@ CookieList is installable via the Package Manager or <a href="http://modx.com/ex
 <tr>
 <th class='confluenceTh'>
 Version
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Released On
-<br class="atl-forced-newline" />
 </th>
 <th class='confluenceTh'>
 Notes
-<br class="atl-forced-newline" />
 </th>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 1.0.0-pl
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 November 18th, 2011
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 First public release.
-<br class="atl-forced-newline" />
 </td>
 </tr>
 </tbody>
@@ -63,7 +57,7 @@ First public release.
 </div>
 
 <h2>
-<a name="CookieList-Usage"></a>Usage
+<a name="CookieList-Usage" id="CookieList-Usage"></a>Usage
 </h2>
 
 <p>
@@ -79,139 +73,20 @@ The second, <b>getCookieList</b>, simply fetches the cookie and returns the comm
 </p>
 
 <h3>
-<a name="CookieList-addToCookieList"></a>addToCookieList
+<a name="CookieList-addToCookieList" id="CookieList-addToCookieList"></a>addToCookieList
 </h3>
 
 <p>
 The minimum call below creates a link that either says "Add to your CookieList" or "Remove from your CookieList". You'll probably want to change those labels, and you can (look at the addText and removeText properties below).
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!addToCookieList]]
+<pre class="brush: php">
+    &lt;a href="[[+link]]" title="[[+label]]"&gt;[[+label]]&lt;/a&gt;
+
+    
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-You will *always* need to call the addToCookieList and getCookieList snippets uncached, as every request could be a different user and it is very likely to change before the resource cache is removed. If using with getPage make sure to pass &amp;cache=0 to that to prevent getPage from caching as well.
-</td>
-</tr>
-</table>
-</div>
-
 <h4>
-<a name="CookieList-SnippetProperties"></a>Snippet Properties
-</h4>
-
-<p>
-You can use the following properties:
-</p>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
-<tr>
-<th class='confluenceTh'>
-Property
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Description
-<br class="atl-forced-newline" />
-</th>
-<th class='confluenceTh'>
-Default value
-<br class="atl-forced-newline" />
-</th>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-value
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-What to store in the cookie. You'll probably want to store the unique ID of an object so you can use the getCookieList snippet to generate an overview of those objects with a snippet.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Current Resource ID
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-addText
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Override the language-specific default "add" label.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-"Add to your CookieList"
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-removeText
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Override the language-specific default "remove" label.
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-"Remove from your CookieList"
-<br class="atl-forced-newline" />
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-tpl
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-Allows you to override the default chunk template. You can use <ins>link</ins>, <ins>value</ins> and <ins>label</ins> in your chunk tpl. The default (filebased) chunk looks like this:
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a href=<span class="code-quote">"[[+link]]"</span> title=<span class="code-quote">"[[+label]]"</span>&gt;[[+label]]&lt;/a&gt;
-</pre>
-</div>
-</div>
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<h4>
-<a name="CookieList-Examples"></a>Examples
+<a name="CookieList-Examples" id="CookieList-Examples"></a>Examples
 </h4>
 
 <p>
@@ -219,7 +94,7 @@ The minimum call can be used to save the current resource ID to a cookie, which 
 </p>
 
 <h3>
-<a name="CookieList-getCookieList"></a>getCookieList
+<a name="CookieList-getCookieList" id="CookieList-getCookieList"></a>getCookieList
 </h3>
 
 <p>
@@ -239,7 +114,7 @@ There are no properties you can use to change the behavior of the snippet.
 </p>
 
 <h2>
-<a name="CookieList-SystemSettings"></a>System Settings
+<a name="CookieList-SystemSettings" id="CookieList-SystemSettings"></a>System Settings
 </h2>
 
 <p>

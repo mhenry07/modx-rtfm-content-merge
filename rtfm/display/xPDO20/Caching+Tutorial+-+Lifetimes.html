@@ -10,44 +10,12 @@ A common need is the ability to control how long a piece of data should live –
 In this example, we are going to create a snippet that stores a bit of data for a short period of time. Paste the following bit of code into a new Snippet named "testCache" and then save it.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-$cacheManager = $modx-&gt;getCacheManager();
-
-$lifetime = 10; <span class="code-comment">// in seconds
-</span>
-<span class="code-keyword">if</span> (!$payload = $cacheManager-&gt;get('my_cache_key')) {
-    $payload = date('H:i:s');
-    $cacheManager-&gt;set('my_cache_key',$payload, $lifetime);
-}
-
-<span class="code-keyword">return</span> $payload;
-</pre>
-</div>
-</div>
-
-<p>
-The trick here is that the output from the cacheManager will be null if the data either does not exist or has expired.
-</p>
-
-<h2>
-<a name="CachingTutorial-Lifetimes-ReferencetheSnippet" id="CachingTutorial-Lifetimes-ReferencetheSnippet"></a>Reference the Snippet
-</h2>
-
-<p>
-When you reference a snippet that is using custom caching like this, you <em>must</em> call it uncached. That bypasses the standard caching mechanisms and it allows your code to take caching into its own hands.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [[!testCache]]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
 <a name="CachingTutorial-Lifetimes-Observations" id="CachingTutorial-Lifetimes-Observations"></a>Observations
 </h2>

@@ -1,15 +1,15 @@
 <div>
 <ul>
 <li>
-<a href='#MODx.Console-WhatistheMODx.Console%3F'>What is the MODx.Console?</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.console#MODx.Console-WhatistheMODx.Console%3F">What is the MODx.Console?</a>
 </li>
 
 <li>
-<a href='#MODx.Console-HowitWorks'>How it Works</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.console#MODx.Console-HowitWorks">How it Works</a>
 </li>
 
 <li>
-<a href='#MODx.Console-Usage'>Usage</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/custom-manager-pages/modext/modx.console#MODx.Console-Usage">Usage</a>
 </li>
 </ul>
 </div>
@@ -19,15 +19,15 @@
 </h2>
 
 <p>
-The MODx.Console is a special Ext widget that has been built to act as a terminal-like output console for processors that need to return more detailed information. It can be found in <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, clearing the cache, or in other areas of MODX:
+The MODx.Console is a special Ext widget that has been built to act as a terminal-like output console for processors that need to return more detailed information. It can be found in <a href="display/revolution20/Package+Management" title="Package Management">Package Management</a>, clearing the cache, or in other areas of MODX:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/34636260/modx-console.png?version=1&amp;modificationDate=1302185248000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/34636260/modx-console.png?version=1&amp;modificationDate=1302185248000" style="border: 0px solid black" /></span>
 </p>
 
 <h2>
-<a name="MODx.Console-HowitWorks"></a>How it Works
+<a name="MODx.Console-HowitWorks" id="MODx.Console-HowitWorks"></a>How it Works
 </h2>
 
 <p>
@@ -49,45 +49,15 @@ First off, the Console starts up a Polling panel that queries the Registry with 
 </p>
 
 <h2>
-<a name="MODx.Console-Usage"></a>Usage
+<a name="MODx.Console-Usage" id="MODx.Console-Usage"></a>Usage
 </h2>
 
 <p>
 The console can easily be hooked up to nearly any processor and JS custom application in MODX. Simply instantiate a new console object:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> topic = '/mytopic/';
-<span class="code-keyword">var</span> register = 'mgr';
-<span class="code-keyword">var</span> console = MODx.load({
-   xtype: 'modx-console'
-   ,register: register
-   ,topic: topic
-   ,show_filename: 0
-   ,listeners: {
-     'shutdown': {fn:function() {
-         /* <span class="code-keyword">do</span> code here when you close the console */
-     },scope:<span class="code-keyword">this</span>}
-   }
-});
-console.show(Ext.getBody());
-</pre>
-</div>
-</div>
-
-<p>
-Note here that you fire up the console, and then load the topic that you want (make sure to include the beginning and ending slashes).
-</p>
-
-<p>
-When you've got that loaded, you can send a request to your processor:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 MODx.Ajax.request({
     url: URL_TO_MY_CONNECTOR
     ,params: {
@@ -98,59 +68,26 @@ MODx.Ajax.request({
     ,listeners: {
         'success':{fn:function() {
             console.fireEvent('complete');
-        },scope:<span class="code-keyword">this</span>}
+        },scope:this}
     }
 });
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 You'll need to specify the URL of your connector url, as well as the action you want to load (the processor). In your processor, you can output to the Console by using $modx-&gt;log:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;log(modX::LOG_LEVEL_INFO,'An information message in normal colors.');
-$modx-&gt;log(modX::LOG_LEVEL_ERROR,'An error in red!');
-$modx-&gt;log(modX::LOG_LEVEL_WARN,'A warning in blue!');
+<pre class="brush: php">
+    $modx-&gt;log(modX::LOG_LEVEL_INFO,'COMPLETED');
+    
 </pre>
-</div>
-</div>
-
-<p>
-Once you're done with your processor, you should do two things. One, fire off a log message with just "COMPLETED" in the body:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;log(modX::LOG_LEVEL_INFO,'COMPLETED');
-</pre>
-</div>
-</div>
-
 <p>
 This tells the console to stop polling, and enables the "OK" button which closes the console.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 MODX Revolution 2.1.0-rc2 and later do not need you to send the COMPLETED message in the registry - just firing the 'complete' event on the JS Console object will work. All prior versions require the COMPLETED message.
-</td>
-</tr>
-</table>
 </div>
 
 <p>

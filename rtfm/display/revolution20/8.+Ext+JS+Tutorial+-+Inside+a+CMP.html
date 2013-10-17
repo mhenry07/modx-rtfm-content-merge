@@ -1,5 +1,5 @@
 <p>
-Here's where we make the jump from stand-alone Ext JS to MODX. Many things are the same, but the learning curve still goes up, unfortunately. Our first challenge in this new playing field will be something as simple as possible: we are going to create a <a href="/display/revolution20/Custom+Manager+Pages+Tutorial" title="Custom Manager Pages Tutorial">Custom Manager Page (CMP)</a> that lists content types. Yes, this is something that MODX already does under the <b>System -&gt; Content Types</b> menu, but that's the point: we want to try our hand at re-creating something that MODX already provides.
+Here's where we make the jump from stand-alone Ext JS to MODX. Many things are the same, but the learning curve still goes up, unfortunately. Our first challenge in this new playing field will be something as simple as possible: we are going to create a <a href="display/revolution20/Custom+Manager+Pages+Tutorial" title="Custom Manager Pages Tutorial">Custom Manager Page (CMP)</a> that lists content types. Yes, this is something that MODX already does under the <b>System -&gt; Content Types</b> menu, but that's the point: we want to try our hand at re-creating something that MODX already provides.
 </p>
 
 <p>
@@ -7,7 +7,7 @@ Here's a screenshot of the built-in grid displaying Content Types. This is what 
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/46465130/content-types.jpg?version=1&amp;modificationDate=1372188410000" style="border: 1px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/46465130/content-types.jpg?version=1&amp;modificationDate=1372188410000" style="border: 1px solid black" /></span>
 </p>
 
 <h2>
@@ -56,24 +56,10 @@ The MODX manager acts as a self-contain application. Most of the files we'll be 
 Are you confused yet? I am, and I'm writing this stupid thing. So manager controllers are confusing, and they are poorly documented, and they will be changing in the next version, so what I am about to propose is a bit unorthodox perhaps, but it's a hell of a lot easier to follow.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 <b>Hold onto Your Butts</b>
 <br />
 Because the MODX manager controllers add an extra layer of complexity and they are not well documented, I'm going to skip them for this demonstration.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
@@ -84,119 +70,30 @@ Because the MODX manager controllers add an extra layer of complexity and they a
 Your Ajax controllers need to be accessible via HTTP, so the typical location for them would be inside the <tt>assets/</tt> folder, more specifically, inside <tt>assets/components/&lt;your_pkg&gt;/</tt> somewhere.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
-/**
- * Controller <span class="code-keyword">for</span> Ajax requests.
- */
-<span class="code-comment">// Adjust the path appropriately
-</span>$docroot = dirname(dirname(dirname(dirname(__FILE__))));
-include $docroot . '/config.core.php';
-<span class="code-keyword">if</span> (!defined('MODX_API_MODE')) {
-    define('MODX_API_MODE', <span class="code-keyword">false</span>);
-}
-include_once MODX_CORE_PATH . 'model/modx/modx.class.php';
-
-$modx = <span class="code-keyword">new</span> modX();
-$modx-&gt;initialize('mgr');
-
-<span class="code-keyword">if</span> (!$modx-&gt;hasPermission('view_document')) {
-    header('HTTP/1.0 401 Unauthorized');
-    print 'Operation not allowed.';
-    exit;
-}
-<span class="code-comment">// These are the standard values that are posted to the Ajax URL by Ext JS
-</span>$start = (<span class="code-object">int</span>) $modx-&gt;getOption('start',$_POST,0);
-$limit = (<span class="code-object">int</span>) $modx-&gt;getOption('limit',$_POST,20);
-$sort = $modx-&gt;getOption('sort',$_POST);
-$dir = $modx-&gt;getOption('dir',$_POST,'ASC');
-
-<span class="code-comment">// error_log(print_r($_POST,<span class="code-keyword">true</span>));  // &lt;--- uncomment <span class="code-keyword">this</span> <span class="code-keyword">for</span> debugging
-</span>
-$c = $modx-&gt;newQuery('modResource');
-$count = $modx-&gt;getCount('modResource',$c);
-$c-&gt;sortby($sort,$dir);
-$c-&gt;limit($limit,$start);
-
-<span class="code-comment">//$c-&gt;prepare(); error_log($c-&gt;toSQL()); // &lt;-- uncomment <span class="code-keyword">for</span> debugging
-</span>
-$pages = $modx-&gt;getCollection('modResource',$c);
-
-$list = array();
-foreach ($pages as $p) {
-    $array = $p-&gt;toArray();
-    $list[] = $array; 
-}
-
-<span class="code-comment">// The format of the output is not well documented, but it requires a node <span class="code-keyword">for</span> <span class="code-quote">"total"</span> and <span class="code-quote">"rows"</span>
-</span>print '{<span class="code-quote">"total"</span>:<span class="code-quote">"'.$count.'"</span>,<span class="code-quote">"results"</span>:'.$modx-&gt;toJSON($list).',<span class="code-quote">"success"</span>:<span class="code-keyword">true</span>,<span class="code-quote">"msg"</span>:<span class="code-quote">"Got our rows..."</span>}';
-
-<span class="code-comment">//error_log(print_r($list,<span class="code-keyword">true</span>));  // &lt;-- another debugging point
-</span>
-@session_write_close();
-exit();
-</pre>
-</div>
-</div>
-
-<p>
-Do you see that? After we instantiate MODX and check permissions, it's essentially the same thing you might see inside of a Snippet. Doing things this way has several important advantages:
-</p>
-
-<h3>
-<a name="8.ExtJSTutorial-InsideaCMP-AdvantagesofSimpleControllers"></a>Advantages of Simple Controllers
-</h3>
-
-<ol>
-<li>You can debug output by visiting the page directly, e.g. <a href="http://yoursite.com/assets/components/your_pkg/my_ajax_controller.php" class="external-link" rel="nofollow">http://yoursite.com/assets/components/your_pkg/my_ajax_controller.php</a> – you should see JSON data or maybe some PHP errors.
-</li>
-
-<li>Permission Checking is simple, just update the <tt>$modx-&gt;hasPermission('permission_key_here')</tt>
-</li>
-
-<li>No extra documentation or complexity required
-</li>
-</ol>
-
-<p>
-The disadvantages are that this isn't the "official" way of doing it (not sure where the "official" way is documented), so you cannot avail yourself of the manager's routing, and if you wanted to override custom controller behavior via a MODX manager theme, you can't because this stuff gets hard-coded. Seeing as this way is much simpler and the other way is not documented much, I think this is a worthy trade-off.
-</p>
-
-<h2>
-<a name="8.ExtJSTutorial-InsideaCMP-YourCMP"></a>Your CMP
-</h2>
-
-<p>
-The following code you can paste into your <tt>core/components/&lt;your_pkg_name/</tt> directory and reference it as an action when you create your CMP.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 &lt;?php
 /**
  * Generic MODX CMP
  */
-$url = MODX_ASSETS_URL.'components/your_pkg_name/'; <span class="code-comment">// &lt;-- update <span class="code-keyword">this</span>
-</span><span class="code-comment">//------------------------------------------------------------------------------
-</span><span class="code-comment">//!Grid
-</span><span class="code-comment">//------------------------------------------------------------------------------
-</span>$modx-&gt;regClientStartupHTMLBlock("&lt;script&gt;
+$url = MODX_ASSETS_URL.'components/your_pkg_name/'; // &lt;-- update this
+//------------------------------------------------------------------------------
+//!Grid
+//------------------------------------------------------------------------------
+$modx-&gt;regClientStartupHTMLBlock("&lt;script&gt;
 function myactions(val) {
-    <span class="code-keyword">return</span> '&lt;a href=\<span class="code-quote">"index.php?a=30&amp;id='+val+'\"</span>&gt;Edit&lt;/a&gt;';
+    return '&lt;a href=\"index.php?a=30&amp;id='+val+'\"&gt;Edit&lt;/a&gt;';
 }
 
 
 Ext.onReady(function(){
 
-    <span class="code-comment">// create the Data Store
-</span>    <span class="code-keyword">var</span> store = <span class="code-keyword">new</span> Ext.data.JsonStore({
+    // create the Data Store
+    var store = new Ext.data.JsonStore({
         root: 'results',
         totalProperty: 'total',
         idProperty: 'id',
-        remoteSort: <span class="code-keyword">true</span>,
+        remoteSort: true,
 
         fields: [
             'id',
@@ -205,70 +102,69 @@ Ext.onReady(function(){
             'action'
         ],
 
-        <span class="code-comment">// load using script tags <span class="code-keyword">for</span> cross domain, <span class="code-keyword">if</span> the data in on the same domain as
-</span>        <span class="code-comment">// <span class="code-keyword">this</span> page, an HttpProxy would be better
-</span>        proxy: <span class="code-keyword">new</span> Ext.data.HttpProxy({
-            url: '{$url}getpages.php'  <span class="code-comment">// &lt;------- set <span class="code-keyword">this</span> to point to your Ajax Controller
-</span>        })
+        // load using script tags for cross domain, if the data in on the same domain as
+        // this page, an HttpProxy would be better
+        proxy: new Ext.data.HttpProxy({
+            url: '{$url}getpages.php'  // &lt;------- set this to point to your Ajax Controller
+        })
     });
     store.setDefaultSort('id', 'ASC');
 
 
-    <span class="code-keyword">var</span> grid = <span class="code-keyword">new</span> Ext.grid.GridPanel({
+    var grid = new Ext.grid.GridPanel({
         id: 'articlesGrid',
         width:700,
         height:500,
         store: store,
-        trackMouseOver:<span class="code-keyword">true</span>,  <span class="code-comment">// will highlight rows on hover
-</span>        disableSelection:<span class="code-keyword">true</span>, <span class="code-comment">// will allow you to select row(s)
-</span>        loadMask: <span class="code-keyword">true</span>,  <span class="code-comment">// will generate a spinner icon
-</span>
-        <span class="code-comment">// grid columns
-</span>        columns:[{
+        trackMouseOver:true,  // will highlight rows on hover
+        disableSelection:true, // will allow you to select row(s)
+        loadMask: true,  // will generate a spinner icon
+
+        // grid columns
+        columns:[{
             header: 'Date',
             dataIndex: 'createdon',
             width: 150,
-            sortable: <span class="code-keyword">true</span>
+            sortable: true
         },{
             header: 'Page Title',
             dataIndex: 'pagetitle',
             width: 350,
-            sortable: <span class="code-keyword">true</span>
+            sortable: true
         },{
             header: '',
             dataIndex: 'id',
             width: 100,
-            sortable: <span class="code-keyword">false</span>,
+            sortable: false,
             renderer : myactions, 
         }],
 
-        <span class="code-comment">// paging bar on the bottom
-</span>        bbar: <span class="code-keyword">new</span> Ext.PagingToolbar({
+        // paging bar on the bottom
+        bbar: new Ext.PagingToolbar({
             pageSize: 25,
             store: store,
-            displayInfo: <span class="code-keyword">true</span>,
+            displayInfo: true,
             displayMsg: 'Displaying Records {0} - {1} of {2}',
             emptyMsg: 'No Records to display'
         })
     });
 
-    <span class="code-comment">// render it
-</span>    grid.render('articles-grid');
+    // render it
+    grid.render('articles-grid');
 
-    <span class="code-comment">// trigger the data store load
-</span>    <span class="code-comment">// NOTE: the parameter names here correspond to keys in _POST
-</span>    store.load({params:{start:0, limit:25}});
+    // trigger the data store load
+    // NOTE: the parameter names here correspond to keys in _POST
+    store.load({params:{start:0, limit:25}});
 });
 &lt;/script&gt;");
 
-<span class="code-comment">// Be sure to print an HTML div that is ref'd by the grid.render() method
-</span><span class="code-keyword">return</span> '
+// Be sure to print an HTML div that is ref'd by the grid.render() method
+return '
 &lt;h2&gt;Example&lt;/h2&gt;
-&lt;div id=<span class="code-quote">"articles-grid"</span>&gt;&lt;/div&gt;';
-</pre>
-</div>
-</div>
+&lt;div id="articles-grid"&gt;&lt;/div&gt;';
 
+    
+</pre>
 <p>
 You'll notice that we're printing our Javascript directly into the document head. Yes, this means we have to be extra careful about our quoting styles and our editor's syntax highlighting probably go out the window, but it does mean we can print a few PHP variables directly into the Javascript and we don't have to keep a half-dozen files open just to bootstrap this thing.
 </p>

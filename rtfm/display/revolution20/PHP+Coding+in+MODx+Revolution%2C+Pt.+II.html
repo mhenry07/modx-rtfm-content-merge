@@ -1,23 +1,19 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.II-CreatingObjects'>Creating Objects</a>
+<a href="revolution/2.x/case-studies-and-tutorials/php-coding-in-modx-revolution,-pt.-i/php-coding-in-modx-revolution,-pt.-ii#PHPCodinginMODxRevolution%2CPt.II-CreatingObjects">Creating Objects</a>
 </li>
 
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.II-RemovinganObject'>Removing an Object</a>
+<a href="revolution/2.x/case-studies-and-tutorials/php-coding-in-modx-revolution,-pt.-i/php-coding-in-modx-revolution,-pt.-ii#PHPCodinginMODxRevolution%2CPt.II-RemovinganObject">Removing an Object</a>
 </li>
 
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.II-MoreComplexQueries'>More Complex Queries</a>
+<a href="revolution/2.x/case-studies-and-tutorials/php-coding-in-modx-revolution,-pt.-i/php-coding-in-modx-revolution,-pt.-ii#PHPCodinginMODxRevolution%2CPt.II-MoreComplexQueries">More Complex Queries</a>
 </li>
 
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.II-SeeAlso'>See Also</a>
+<a href="revolution/2.x/case-studies-and-tutorials/php-coding-in-modx-revolution,-pt.-i/php-coding-in-modx-revolution,-pt.-ii#PHPCodinginMODxRevolution%2CPt.II-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -34,65 +30,12 @@ In this article, we'll talk about creating and removing objects (and their respe
 Object creation is handled by the <b>newObject</b> method. It assumes that the object you are trying to create has been properly defined inside your XML schema and that schema has generated the proper class files. For a simple example, we can look at the built-in MODX objects.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// let's create a Template
-</span>$template = $modx-&gt;newObject('modTemplate');
-
-<span class="code-comment">// now, lets save some data into the fields
-</span>$template-&gt;set('templatename','TestTemplate');
-$template-&gt;set('description','A test template.');
-
-<span class="code-comment">// we could have also done it like <span class="code-keyword">this</span>:
-</span>$data = array(
-        'templatename' =&gt; 'TestTemplate',
-        'description' =&gt; 'A test template.',
-);
-$template-&gt;fromArray($data);
-
-<span class="code-comment">// okay, now we're ready. let's save.
-</span><span class="code-keyword">if</span> ($template-&gt;save() === <span class="code-keyword">false</span>) {
-        die('An error occurred <span class="code-keyword">while</span> saving!');
-}
-</pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-A row is never actually added to the database until the object's save() command is run.
-</td>
-</tr>
-</table>
-</div>
-
-<h2>
-<a name="PHPCodinginMODxRevolution%2CPt.II-RemovinganObject"></a>Removing an Object
-</h2>
-
-<p>
-To remove an object from the database, we use the <b>remove</b> command:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $template-&gt;remove();
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 This will also remove any composite relationships defined in the object's schema. In the previous example with modTemplates, these are the modTemplateVarTemplate objects, which map Templates to TVs. Those will cascade and be removed.
 </p>
@@ -130,15 +73,15 @@ A couple of things to note. One, note that innerJoin first passes the class name
 </p>
 
 <p>
-<a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> supports the the methods: join, <a href="/display/xPDO20/xPDOQuery.rightJoin" title="xPDOQuery.rightJoin">rightJoin</a>, <a href="/display/xPDO20/xPDOQuery.leftJoin" title="xPDOQuery.leftJoin">leftJoin</a>, <a href="/display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">innerJoin</a>, <a href="/display/xPDO20/xPDOQuery.andCondition" title="xPDOQuery.andCondition">andCondition</a>, <a href="/display/xPDO20/xPDOQuery.orCondition" title="xPDOQuery.orCondition">orCondition</a>, <a href="/display/xPDO20/xPDOQuery.sortby" title="xPDOQuery.sortby">sortby</a>, <a href="/display/xPDO20/xPDOQuery.groupby" title="xPDOQuery.groupby">groupby</a>, <a href="/display/xPDO20/xPDOQuery.limit" title="xPDOQuery.limit">limit</a>, bindGraph, bindGraphNode, and <a href="/display/xPDO20/xPDOQuery.select" title="xPDOQuery.select">select</a>.
+<a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> supports the the methods: join, <a href="display/xPDO20/xPDOQuery.rightJoin" title="xPDOQuery.rightJoin">rightJoin</a>, <a href="display/xPDO20/xPDOQuery.leftJoin" title="xPDOQuery.leftJoin">leftJoin</a>, <a href="display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">innerJoin</a>, <a href="display/xPDO20/xPDOQuery.andCondition" title="xPDOQuery.andCondition">andCondition</a>, <a href="display/xPDO20/xPDOQuery.orCondition" title="xPDOQuery.orCondition">orCondition</a>, <a href="display/xPDO20/xPDOQuery.sortby" title="xPDOQuery.sortby">sortby</a>, <a href="display/xPDO20/xPDOQuery.groupby" title="xPDOQuery.groupby">groupby</a>, <a href="display/xPDO20/xPDOQuery.limit" title="xPDOQuery.limit">limit</a>, bindGraph, bindGraphNode, and <a href="display/xPDO20/xPDOQuery.select" title="xPDOQuery.select">select</a>.
 </p>
 
 <p>
-Obviously, you can go pretty wild here with complex queries. The nice thing about xPDO in MODx is that there's really a ton of different ways to do most things - you could also have used <a href="/display/xPDO20/getCollectionGraph" title="getCollectionGraph">$modx-&gt;getCollectionGraph</a> for this as well.
+Obviously, you can go pretty wild here with complex queries. The nice thing about xPDO in MODx is that there's really a ton of different ways to do most things - you could also have used <a href="display/xPDO20/getCollectionGraph" title="getCollectionGraph">$modx-&gt;getCollectionGraph</a> for this as well.
 </p>
 
 <p>
-In the <a href="/display/revolution20/PHP+Coding+in+MODx+Revolution%2C+Pt.+III" title="PHP Coding in MODx Revolution, Pt. III">next article</a>, we'll talk about how this is used in the context of MODx processors with JSON.
+In the <a href="display/revolution20/PHP+Coding+in+MODx+Revolution%2C+Pt.+III" title="PHP Coding in MODx Revolution, Pt. III">next article</a>, we'll talk about how this is used in the context of MODx processors with JSON.
 </p>
 
 <h2>
@@ -147,14 +90,14 @@ In the <a href="/display/revolution20/PHP+Coding+in+MODx+Revolution%2C+Pt.+III" 
 
 <ul>
 <li>
-<a href="/display/xPDO20/Creating+Objects" title="Creating Objects">xPDO: Creating Objects</a>
+<a href="display/xPDO20/Creating+Objects" title="Creating Objects">xPDO: Creating Objects</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/remove" title="remove">xPDOObject::remove</a>
+<a href="display/xPDO20/remove" title="remove">xPDOObject::remove</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
+<a href="display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
 </li>
 </ul>

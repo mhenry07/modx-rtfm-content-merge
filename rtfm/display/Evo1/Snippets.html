@@ -10,26 +10,12 @@ Snippets are useful for adding logic to websites. They can be used to create men
 Cached:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[snippetName]]
-</pre>
-</div>
-</div>
-
-<p>
-Uncached
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 [!snippetName!]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <h2>
 <a name="Snippets-AccessingSnippetsviatheMODxAPI%26nbsp%3B"></a>Accessing Snippets via the MODx API&nbsp;
 </h2>
@@ -42,27 +28,13 @@ Snippets can also be run inside of other snippets by using the MODx API:
 <a name="Snippets-Usage" id="Snippets-Usage"></a>Usage
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;runSnippet('snippetName' [, $params]);
-</pre>
-</div>
-</div>
-
-<p>
-You can optionally pass parameters to your snippet
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $params =&gt; array('dog' =&gt; 'Max');
 $modx-&gt;runSnippet('mySnippet', $params);
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Then inside your Snippet ("mySnippet"), you will have access to the corresponding variables via PHP's <a href="http://co.php.net/extract" class="external-link" rel="nofollow">extract</a> function, or you can access all parameters inside of the $modx object:
 </p>

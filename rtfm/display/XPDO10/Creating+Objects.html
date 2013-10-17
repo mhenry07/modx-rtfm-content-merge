@@ -1,67 +1,35 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
-Creating objects in xPDO utilizes the <a href="/display/xPDO20/xPDO.newObject" title="xPDO.newObject">newObject</a> xPDO method.
+Creating objects in xPDO utilizes the <a href="display/xPDO20/xPDO.newObject" title="xPDO.newObject">newObject</a> xPDO method.
 </p>
 
 <p>
 Let's say we have an object defined in our model of class "Box". We want to create a new object of it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$myBox = $xpdo-&gt;newObject('Box');
-</pre>
-</div>
-</div>
-
-<p>
-It's that simple. We can also create the Box object with some pre-filled field values:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
+    
 $myBox = $xpdo-&gt;newObject('Box',array(
    'width' =&gt; 5,
    'height' =&gt; 12,
    'color' =&gt; 'red',
 ));
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 This will give us an xPDOObject-based Box object that can be manipulated and saved.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 If your SQL table does not exist for the object you've created, and the object class has a defined table for that class, xPDO will automatically create the table in the database for you.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="CreatingObjects-SeeAlso"></a>See Also
+<a name="CreatingObjects-SeeAlso" id="CreatingObjects-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/XPDO10/xPDO.newObject" title="xPDO.newObject">xPDO.newObject</a>
+<a href="display/XPDO10/xPDO.newObject" title="xPDO.newObject">xPDO.newObject</a>
 </li>
 </ul>

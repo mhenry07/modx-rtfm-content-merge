@@ -1,43 +1,43 @@
 <div>
 <ul>
 <li>
-<a href='#CustomUrls-WhatisCustomUrls%3F'>What is CustomUrls?</a>
+<a href="extras/revo/customurls#CustomUrls-WhatisCustomUrls%3F">What is CustomUrls?</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#CustomUrls-Requirements'>Requirements</a>
+<a href="extras/revo/customurls#CustomUrls-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#CustomUrls-PublicReleases'>Public Releases</a>
+<a href="extras/revo/customurls#CustomUrls-PublicReleases">Public Releases</a>
 </li>
 
 <li>
-<a href='#CustomUrls-Download'>Download</a>
+<a href="extras/revo/customurls#CustomUrls-Download">Download</a>
 </li>
 
 <li>
-<a href='#CustomUrls-Support%2CComments%2CDevelopmentandBugReporting'>Support, Comments, Development and Bug Reporting</a>
+<a href="extras/revo/customurls#CustomUrls-Support%2CComments%2CDevelopmentandBugReporting">Support, Comments, Development and Bug Reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#CustomUrls-Usage'>Usage</a>
+<a href="extras/revo/customurls#CustomUrls-Usage">Usage</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#CustomUrls-Rulesproperties'>Rules properties</a>
+<a href="extras/revo/customurls#CustomUrls-Rulesproperties">Rules properties</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#CustomUrls-Patternexamples'>Pattern examples</a>
+<a href="extras/revo/customurls#CustomUrls-Patternexamples">Pattern examples</a>
 </li>
 </ul>
 </div>
@@ -130,7 +130,7 @@ Revolution
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via&nbsp;<a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here:&nbsp;<a href="http://modx.com/extras/package/customurls" class="external-link" rel="nofollow">http://modx.com/extras/package/customurls</a>
+It can be downloaded from within the MODx Revolution manager via&nbsp;<a href="display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here:&nbsp;<a href="http://modx.com/extras/package/customurls" class="external-link" rel="nofollow">http://modx.com/extras/package/customurls</a>
 </p>
 
 <h3>
@@ -173,21 +173,18 @@ Example
 <tr>
 <td class='confluenceTd'>
 Pattern &nbsp;
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Your custom URL pattern built from text, resource fields, TV, snippet and output filters. You also can use <em>cu.parent</em>&nbsp;placeholder to get the complete parent alias path.
 </td>
 <td class='confluenceTd'>
 [[+id]]-[[+alias]]
-<br class="atl-forced-newline" />
 </td>
 </tr>
 
 <tr>
 <td class='confluenceTd'>
 Constraint field
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 Can be any resource field : id, parent, template ...
@@ -200,7 +197,6 @@ template
 <tr>
 <td class='confluenceTd'>
 Constraint&nbsp;value
-<br class="atl-forced-newline" />
 </td>
 <td class='confluenceTd'>
 &nbsp;
@@ -269,94 +265,35 @@ true
 Simple text :
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-simple-text
+<pre class="brush: php">
+    [[+alias]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Default MODx alias :
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+alias]]
-</pre>
-</div>
-</div>
-
 <p>
 Resource placeholders :
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+id]]-[[+alias]]
+<pre class="brush: php">
+    [[+tv.mytv]]-[[+id]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-TVs :
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+tv.mytv]]-[[+id]]
-</pre>
-</div>
-</div>
-
 <p>
 Snippets :
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[MySnippet? &amp;id=`[[+id]]`]]
+<pre class="brush: php">
+    [[+publishedon:strtotime:date=`%Y-%m-%d`]]/[[+id]]-[[+alias]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Output filters :
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+publishedon:strtotime:date=`%Y-%m-%d`]]/[[+id]]-[[+alias]]
-</pre>
-</div>
-</div>
-
 <p>
 Default MODx URI :&nbsp;
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+cu.parent_uri]]/[[+alias]]
-</pre>
-</div>
-</div>
+<pre class="brush: php">
+    [[+cu.parent_uri]]/some-text/[[getResourceField? &amp;id=`[[+parent]]`]]/[[+id]]-[[+alias]]
 
-<p>
-More complex URI
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+cu.parent_uri]]/some-text/[[getResourceField? &amp;id=`[[+parent]]`]]/[[+id]]-[[+alias]]
+    
 </pre>
-</div>
-</div>

@@ -1,59 +1,55 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#FileLister-WhatisFileLister%3F'>What is FileLister?</a>
+<a href="extras/revo/filelister#FileLister-WhatisFileLister%3F">What is FileLister?</a>
 </li>
 
 <li>
-<a href='#FileLister-Requirements'>Requirements</a>
+<a href="extras/revo/filelister#FileLister-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#FileLister-HistoryandInfo'>History and Info</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<ul>
-<li>
-<a href='#FileLister-Download'>Download</a>
-</li>
-
-<li>
-<a href='#FileLister-DevelopmentandBugReporting'>Development and Bug Reporting</a>
-</li>
-</ul>
-</li>
-
-<li>
-<a href='#FileLister-Usage'>Usage</a>
+<a href="extras/revo/filelister#FileLister-HistoryandInfo">History and Info</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#FileLister-Snippets'>Snippets</a>
+<a href="extras/revo/filelister#FileLister-Download">Download</a>
 </li>
 
 <li>
-<a href='#FileLister-SystemSettings'>System Settings</a>
+<a href="extras/revo/filelister#FileLister-DevelopmentandBugReporting">Development and Bug Reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FileLister-Examples'>Examples</a>
+<a href="extras/revo/filelister#FileLister-Usage">Usage</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href="extras/revo/filelister#FileLister-Snippets">Snippets</a>
 </li>
 
 <li>
-<a href='#FileLister-SampleResourceContent'>Sample Resource Content</a>
+<a href="extras/revo/filelister#FileLister-SystemSettings">System Settings</a>
+</li>
+</ul>
 </li>
 
 <li>
-<a href='#FileLister-SeeAlso'>See Also</a>
+<a href="extras/revo/filelister#FileLister-Examples">Examples</a>
+</li>
+
+<li>
+<a href="extras/revo/filelister#FileLister-SampleResourceContent">Sample Resource Content</a>
+</li>
+
+<li>
+<a href="extras/revo/filelister#FileLister-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -87,7 +83,7 @@ FileLister was written by Shaun McCormick (splittingred) as a dynamic file listi
 </p>
 
 <p>
-You can view the <a href="/display/ADDON/FileLister.Roadmap" title="FileLister.Roadmap">roadmap here</a>.
+You can view the <a href="display/ADDON/FileLister.Roadmap" title="FileLister.Roadmap">roadmap here</a>.
 </p>
 
 <h3>
@@ -124,7 +120,7 @@ FileLister comes with one snippet:
 
 <ul class="alternate" type="square">
 <li>
-<a href="/display/ADDON/FileLister.FileLister" title="FileLister.FileLister">FileLister</a>
+<a href="display/ADDON/FileLister.FileLister" title="FileLister.FileLister">FileLister</a>
 </li>
 </ul>
 
@@ -164,50 +160,20 @@ A custom salt for the navigation.
 List all the files and directories in assets/downloads.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!FileLister? &amp;path=`assets/downloads/`]]
+<pre class="brush: php">
+    [[!FileLister? &amp;path=`assets/pdfs/`]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-List only files in the 'assets/pdfs' directory.
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!FileLister? &amp;path=`assets/pdfs/`]]
-</pre>
-</div>
-</div>
-
 <p>
 List all files and subdirectories in '/docs/marketing', but don't allow file viewing or downloading except for users logged in and in the 'Marketing' or 'CEO' groups.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!FileLister? &amp;path=`/docs/marketing/` &amp;allowDownloadGroups=`Marketing,CEO`]]
+<pre class="brush: php">
+    [[!FileLister? &amp;path=`assets/pdfs/` &amp;hideDirectories=`1` &amp;showExt=`pdf`]]
+
+    
 </pre>
-</div>
-</div>
-
-<p>
-Restrict file listings in 'assets/pdfs' to only PDF files:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!FileLister? &amp;path=`assets/pdfs/` &amp;hideDirectories=`1` &amp;showExt=`pdf`]]
-</pre>
-</div>
-</div>
-
 <h2>
 <a name="FileLister-SampleResourceContent" id="FileLister-SampleResourceContent"></a>Sample Resource Content
 </h2>
@@ -250,16 +216,12 @@ This is a sample of HTML that you can put inside a Resource to output your conte
 <a name="FileLister-SeeAlso" id="FileLister-SeeAlso"></a>See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc">
+<li>
+<a href="/extras/revo/filelister/filelister.filelister">FileLister.FileLister</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="17170480" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="17170480" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FFileLister" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="17170480" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/extras/revo/filelister/filelister.roadmap">FileLister.Roadmap</a>
+</li>
+</ol>

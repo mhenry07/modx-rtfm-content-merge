@@ -40,9 +40,7 @@ Once the extra is installed and the StaticCache plugin is enabled and generating
 <a name="StatCache-MODXinDOCUMENTROOT" id="StatCache-MODXinDOCUMENTROOT"></a>MODX in DOCUMENT_ROOT
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 location / {
     try_files /statcache$uri~index.html /statcache$uri $uri $uri/ @modx-rewrite;
 }
@@ -50,9 +48,6 @@ location @modx-rewrite {
     rewrite ^/(.*)$ /index.php?q=$1 last;
 }
 </pre>
-</div>
-</div>
-
 <p>
 This instructs nginx to look for a static representation of the requested resource within the&nbsp;statcache/&nbsp;directory inside your document root before all the standard MODX checks. The initial version with the&nbsp;~index.html&nbsp;check is there to handle MODX-generated URI's that end with a trailing&nbsp;/. These are written by the plugin as&nbsp;~index.html&nbsp;files so they can be served properly by the web server.
 </p>
@@ -61,9 +56,7 @@ This instructs nginx to look for a static representation of the requested resour
 <a name="StatCache-MODXinsubdirectoryofDOCUMENTROOT" id="StatCache-MODXinsubdirectoryofDOCUMENTROOT"></a>MODX in subdirectory of DOCUMENT_ROOT
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 location /modx {
     try_files /modx/statcache$uri~index.html /modx/statcache$uri $uri $uri/ @modx-rewrite2;
 }
@@ -71,9 +64,6 @@ location @modx-rewrite2 {
     rewrite ^/(.[^/]*)/(.*)$ /$1/index.php?q=$2 last;
 }
 </pre>
-</div>
-</div>
-
 <p>
 This instructs nginx to look for a static representation of the requested resource within the&nbsp;statcache/&nbsp;directory inside your MODX_BASE_PATH before all the standard MODX checks. The initial version with the&nbsp;~index.html&nbsp;check is there to handle MODX-generated URI's that end with a trailing&nbsp;/. These are written by the plugin as&nbsp;~index.html&nbsp;files so they can be served properly by the web server.
 </p>
@@ -90,51 +80,38 @@ Once the extra is installed and the StaticCache plugin is enabled and generating
 <a name="StatCache-MODXinDOCUMENTROOT" id="StatCache-MODXinDOCUMENTROOT"></a>MODX in DOCUMENT_ROOT
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 # If MODX is directly in your DOCUMENT_ROOT,
-# add <span class="code-keyword">this</span> before your MODX Friendly URLs RewriteCond's and RewriteRule...
+# add this before your MODX Friendly URLs RewriteCond's and RewriteRule...
 RewriteCond %{DOCUMENT_ROOT}/statcache%{REQUEST_URI}\~index.html \-f
 RewriteRule \^(.*)$ /statcache/$1~index.html [L,QSA]
 
 RewriteCond %{DOCUMENT_ROOT}/statcache%{REQUEST_URI} \-f
 RewriteRule \^(.*)$ /statcache/$1 [L,QSA]
 </pre>
-</div>
-</div>
-
 <h4>
 <a name="StatCache-MODXinsubdirectoryofDOCUMENTROOT" id="StatCache-MODXinsubdirectoryofDOCUMENTROOT"></a>MODX in subdirectory of DOCUMENT_ROOT
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 # If MODX is in a subdirectory of your DOCUMENT_ROOT,
-# add <span class="code-keyword">this</span> before your MODX Friendly URLs RewriteCond's and RewriteRule...
+# add this before your MODX Friendly URLs RewriteCond's and RewriteRule...
 RewriteCond %{DOCUMENT_ROOT}/modx/statcache%{REQUEST_URI}\~index.html \-f
 RewriteRule \^(.*)$ /modx/statcache/$1~index.html [L,QSA]
 
 RewriteCond %{DOCUMENT_ROOT}/modx/statcache%{REQUEST_URI} \-f
 RewriteRule \^(.*)$ /modx/statcache/$1 [L,QSA]
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 You can add an exemption to serve post requests and query strings directly from MODX instead of the static pages, by adding these two lines to your .htaccess
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 RewriteCond %{REQUEST_METHOD} !=POST
 RewriteCond %{QUERY_STRING} !.*=.*
 </pre>
-</div>
-</div>
-
 <p>
 Note: You will need this twice, ones before the first rule set and once before the second rule set.
 </p>

@@ -1,9 +1,5 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
-When you 'remove' an Object in xPDO, you delete its row from the database. xPDO abstracts this out into a <a href="/display/xPDO20/remove" title="remove">remove</a> function, seen here:
+When you 'remove' an Object in xPDO, you delete its row from the database. xPDO abstracts this out into a <a href="display/xPDO20/remove" title="remove">remove</a> function, seen here:
 </p>
 
 <div class="code panel" style="border-width: 1px;">
@@ -22,30 +18,16 @@ $box = $xpdo-&gt;getObject('Box',134);
 The remove function will return either true or false, depending on the outcome of the deletion. Errors will also be logged via $xpdo-&gt;log.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 This will also remove any composite related objects to this object. For example, if our Box had 4 "side" related objects that were mapped out as composites, they would be removed as well when $box-&gt;remove is called.
-</td>
-</tr>
-</table>
 </div>
 
 <h2>
-<a name="RemovingObjects-SeeAlso"></a>See Also
+<a name="RemovingObjects-SeeAlso" id="RemovingObjects-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/xPDO20/remove" title="remove">xPDOObject::remove</a>
+<a href="display/xPDO20/remove" title="remove">xPDOObject::remove</a>
 </li>
 </ul>

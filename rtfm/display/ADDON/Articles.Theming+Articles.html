@@ -1,31 +1,31 @@
 <div>
 <ul>
 <li>
-<a href='#Articles.ThemingArticles-DuplicatetheSampleTemplates'>Duplicate the Sample Templates</a>
+<a href="extras/revo/articles/articles.theming-articles#Articles.ThemingArticles-DuplicatetheSampleTemplates">Duplicate the Sample Templates</a>
 </li>
 
 <li>
-<a href='#Articles.ThemingArticles-EditingtheTemplates'>Editing the Templates</a>
+<a href="extras/revo/articles/articles.theming-articles#Articles.ThemingArticles-EditingtheTemplates">Editing the Templates</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#Articles.ThemingArticles-TheContainerTemplate'>The Container Template</a>
+<a href="extras/revo/articles/articles.theming-articles#Articles.ThemingArticles-TheContainerTemplate">The Container Template</a>
 </li>
 
 <li>
-<a href='#Articles.ThemingArticles-TheArticleTemplate'>The Article Template</a>
+<a href="extras/revo/articles/articles.theming-articles#Articles.ThemingArticles-TheArticleTemplate">The Article Template</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Articles.ThemingArticles-EditingChunks'>Editing Chunks</a>
+<a href="extras/revo/articles/articles.theming-articles#Articles.ThemingArticles-EditingChunks">Editing Chunks</a>
 </li>
 
 <li>
-<a href='#Articles.ThemingArticles-Conclusion'>Conclusion</a>
+<a href="extras/revo/articles/articles.theming-articles#Articles.ThemingArticles-Conclusion">Conclusion</a>
 </li>
 </ul>
 </div>
@@ -35,29 +35,15 @@ Articles is built in the MODX philosophy of always separating code from content.
 </p>
 
 <h2>
-<a name="Articles.ThemingArticles-DuplicatetheSampleTemplates"></a>Duplicate the Sample Templates
+<a name="Articles.ThemingArticles-DuplicatetheSampleTemplates" id="Articles.ThemingArticles-DuplicatetheSampleTemplates"></a>Duplicate the Sample Templates
 </h2>
 
 <p>
 Go ahead and duplicate the two templates, "sample.ArticlesContainerTemplate" and "sample.ArticlesTemplate". From there, rename them to whatever you want. We'll call ours "BlogTemplate" and "BlogPostTemplate", respectively.
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 If you edit the sample Templates directly, rather than editing duplicates of them, your changes will be overwritten when you upgrade Articles!
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -77,11 +63,11 @@ This sets the default Template for Containers and Articles as you create them.
 </p>
 
 <h2>
-<a name="Articles.ThemingArticles-EditingtheTemplates"></a>Editing the Templates
+<a name="Articles.ThemingArticles-EditingtheTemplates" id="Articles.ThemingArticles-EditingtheTemplates"></a>Editing the Templates
 </h2>
 
 <h3>
-<a name="Articles.ThemingArticles-TheContainerTemplate"></a>The Container Template
+<a name="Articles.ThemingArticles-TheContainerTemplate" id="Articles.ThemingArticles-TheContainerTemplate"></a>The Container Template
 </h3>
 
 <p>
@@ -110,7 +96,7 @@ You can move these placeholders around to adjust your new template to however yo
 </p>
 
 <h3>
-<a name="Articles.ThemingArticles-TheArticleTemplate"></a>The Article Template
+<a name="Articles.ThemingArticles-TheArticleTemplate" id="Articles.ThemingArticles-TheArticleTemplate"></a>The Article Template
 </h3>
 
 <p>
@@ -121,13 +107,13 @@ Our article template, or "BlogPostTemplate", has some placeholders as well:
 <li>[[+latest_posts]] - This shows the "Latest Posts" widget on the right-hand side of the sample template.
 </li>
 
-<li>[[+comments]] - The comments, provided by <a href="/display/ADDON/Quip" title="Quip">Quip</a>, for this article, if comments are enabled.
+<li>[[+comments]] - The comments, provided by <a href="display/ADDON/Quip" title="Quip">Quip</a>, for this article, if comments are enabled.
 </li>
 
-<li>[[+comments_count]] - a count of the number of comments made on the current article (i.e. on the current post). Relies on <a href="/display/ADDON/Quip.QuipCount" title="Quip.QuipCount">QuipCount</a>.
+<li>[[+comments_count]] - a count of the number of comments made on the current article (i.e. on the current post). Relies on <a href="display/ADDON/Quip.QuipCount" title="Quip.QuipCount">QuipCount</a>.
 </li>
 
-<li>[[+comments_form]] - The reply form, provided by <a href="/display/ADDON/Quip" title="Quip">Quip</a>, if comments are enabled.
+<li>[[+comments_form]] - The reply form, provided by <a href="display/ADDON/Quip" title="Quip">Quip</a>, if comments are enabled.
 </li>
 
 <li>[[*articlestags]] - Used with the "notempty" output filter, this can trigger whether or not you show the [[+article_tags]] placeholder (note the * instead of the +)
@@ -141,15 +127,15 @@ Our article template, or "BlogPostTemplate", has some placeholders as well:
 </ul>
 
 <p>
-If you are <em>outside</em> the Article Template and you need to display the number of comments that were made on a given post (e.g. if you want to display the number of comments on each post in your list of "Latest Posts"), then you cannot use the [[+comments_count]] placeholder. You must instead use <a href="/display/ADDON/Quip.QuipCount" title="Quip.QuipCount">QuipCount</a>. Go to the <b>Components -&gt; Quip</b> page and take a look at the thread names that Articles gives each post automatically. It follows this format: article-b{page-id-of-blog}-{page-id-of-post}, e.g. <b>article-b12-37</b>
+If you are <em>outside</em> the Article Template and you need to display the number of comments that were made on a given post (e.g. if you want to display the number of comments on each post in your list of "Latest Posts"), then you cannot use the [[+comments_count]] placeholder. You must instead use <a href="display/ADDON/Quip.QuipCount" title="Quip.QuipCount">QuipCount</a>. Go to the <b>Components -&gt; Quip</b> page and take a look at the thread names that Articles gives each post automatically. It follows this format: article-b{page-id-of-blog}-{page-id-of-post}, e.g. <b>article-b12-37</b>
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/36635030/Quip-Thread-Names.jpg?version=1&amp;modificationDate=1341982338000" style="border: 1px solid black" /></span>
+<span class="image-wrap" style=""><img src="download/attachments/36635030/Quip-Thread-Names.jpg?version=1&amp;modificationDate=1341982338000" style="border: 1px solid black" /></span>
 </p>
 
 <p>
-Knowing that, we can then use <a href="/display/ADDON/Quip.QuipCount" title="Quip.QuipCount">QuipCount</a> inside of a getResources call to retrieve the number of comments on each post, e.g.
+Knowing that, we can then use <a href="display/ADDON/Quip.QuipCount" title="Quip.QuipCount">QuipCount</a> inside of a getResources call to retrieve the number of comments on each post, e.g.
 </p>
 
 <div class="code panel" style="border-width: 1px;">
@@ -165,7 +151,7 @@ In the above example, the blog is page id 9.
 </p>
 
 <h2>
-<a name="Articles.ThemingArticles-EditingChunks"></a>Editing Chunks
+<a name="Articles.ThemingArticles-EditingChunks" id="Articles.ThemingArticles-EditingChunks"></a>Editing Chunks
 </h2>
 
 <p>
@@ -173,23 +159,9 @@ Articles also provides some basic Chunks for various display settings for your C
 </p>
 
 <h2>
-<a name="Articles.ThemingArticles-Conclusion"></a>Conclusion
+<a name="Articles.ThemingArticles-Conclusion" id="Articles.ThemingArticles-Conclusion"></a>Conclusion
 </h2>
 
 <p>
 Articles allows simple, MODX-style Templating and easy editing, without breaking upgradability. Theming your blog has never been easier.
 </p>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="36635030" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="36634790" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FArticles.Theming%2BArticles" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="36634790" />
-</fieldset>
-</fieldset>
-</div>

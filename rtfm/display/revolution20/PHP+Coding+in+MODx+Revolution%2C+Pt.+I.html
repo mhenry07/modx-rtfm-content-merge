@@ -1,19 +1,15 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.I-TheSimpleHow'>The Simple How</a>
+<a href="revolution/2.x/case-studies-and-tutorials/php-coding-in-modx-revolution,-pt.-i#PHPCodinginMODxRevolution%2CPt.I-TheSimpleHow">The Simple How</a>
 </li>
 
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.I-TheModel'>The Model</a>
+<a href="revolution/2.x/case-studies-and-tutorials/php-coding-in-modx-revolution,-pt.-i#PHPCodinginMODxRevolution%2CPt.I-TheModel">The Model</a>
 </li>
 
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.I-SeeAlso'>See Also</a>
+<a href="revolution/2.x/case-studies-and-tutorials/php-coding-in-modx-revolution,-pt.-i#PHPCodinginMODxRevolution%2CPt.I-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -38,58 +34,24 @@ The codebase in Revolution has switched to <a href="http://www.xpdo.org/" title=
 So, how does one actually get an object in the new modx? Well, you used to have to rely on a handful of different functions:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// The old way of doing things in MODx 1.x and earlier
-</span>$doc = $modx-&gt;getDocument(23);
-$doc = $modx-&gt;getDocument(45,'pagetitle,introtext');
-$chunk = $modx-&gt;getChunk('chunkName');
-
-<span class="code-comment">// or even more convoluted
-</span>$res = $modx-&gt;db-&gt;select('id,username',$table_prefix.'.modx_manager_users');
-$users = array();
-<span class="code-keyword">if</span> ($modx-&gt;db-&gt;getRecordCount($res))
-{
-   <span class="code-keyword">while</span> ($row = $modx-&gt;db-&gt;getRow($res)) {
-       array_push($users,$row);
-   }
-}
-<span class="code-keyword">return</span> $users;
-</pre>
-</div>
-</div>
-
-<p>
-Not anymore. Things are much simpler, and there's really only a few functions you'll need. Lets look at some examples:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// getting a chunk with ID 43
-</span>$chunk = $modx-&gt;getObject('modChunk',43);
-
-<span class="code-comment">// getting a chunk with name 'TestChunk'
-</span>$chunk = $modx-&gt;getObject('modChunk',array(
+<pre class="brush: php">
+// getting a chunk with ID 43
+$chunk = $modx-&gt;getObject('modChunk',43);
+// getting a chunk with name 'TestChunk'
+$chunk = $modx-&gt;getObject('modChunk',array(
     'name' =&gt; 'TestChunk'
 ));
-
-<span class="code-comment">// getting a collection of chunk objects, then outputting their names
-</span>$chunks = $modx-&gt;getCollection('modChunk');
+// getting a collection of chunk objects, then outputting their names
+$chunks = $modx-&gt;getCollection('modChunk');
 foreach ($chunks as $chunk) {
-    echo $chunk-&gt;get('name').<span class="code-quote">"&lt;br /&gt;\n"</span>;
+    echo $chunk-&gt;get('name')."&lt;br /&gt;\n";
 }
-
-<span class="code-comment">// getting a resource (i.e. a page) that is published, with a alias of 'test'
-</span>$document = $modx-&gt;getObject('modResource',array(
+// getting a resource (i.e. a page) that is published, with a alias of 'test'
+$document = $modx-&gt;getObject('modResource',array(
     'published' =&gt; 1,
     'alias' =&gt; 'test',
 ));
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="PHPCodinginMODxRevolution%2CPt.I-TheModel"></a>The Model
 </h2>
@@ -102,76 +64,29 @@ So, you're probably asking, Where is the list of table names to object names map
 For example, modChunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;object class=<span class="code-quote">"modChunk"</span> table=<span class="code-quote">"site_htmlsnippets"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"modElement"</span>&gt;
-    &lt;field key=<span class="code-quote">"name"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"50"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"" index="</span>unique" /&gt;
-    &lt;field key=<span class="code-quote">"description"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"Chunk"</span> /&gt;
-    &lt;field key=<span class="code-quote">"editor_type"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"11"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"0"</span> /&gt;
-    &lt;field key=<span class="code-quote">"category"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"11"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"0"</span> /&gt;
-    &lt;field key=<span class="code-quote">"cache_type"</span> dbtype=<span class="code-quote">"tinyint"</span> precision=<span class="code-quote">"1"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"0"</span> /&gt;
-    &lt;field key=<span class="code-quote">"snippet"</span> dbtype=<span class="code-quote">"mediumtext"</span> phptype=<span class="code-quote">"string"</span> /&gt;
-    &lt;field key=<span class="code-quote">"locked"</span> dbtype=<span class="code-quote">"tinyint"</span> precision=<span class="code-quote">"1"</span> attributes=<span class="code-quote">"unsigned"</span> phptype=<span class="code-quote">"<span class="code-object">boolean</span>"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"0"</span> /&gt;
-    &lt;aggregate alias=<span class="code-quote">"Category"</span> class=<span class="code-quote">"modCategory"</span> key=<span class="code-quote">"id"</span> local=<span class="code-quote">"category"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
-&lt;/object&gt;
+<pre class="brush: php">
+&lt;object class="modChunk" table="site_htmlsnippets" extends="modElement"&gt;
 </pre>
-</div>
-</div>
-
-<p>
-You can also define your own schemas for your own components and add them as packages - more on that in a future article. Lets go into the schema:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;object class=<span class="code-quote">"modChunk"</span> table=<span class="code-quote">"site_htmlsnippets"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"modElement"</span>&gt;
-</pre>
-</div>
-</div>
-
 <p>
 The <em>class</em> property tells you what the name of the class will be. The <em>table</em> property shows the actual MySQL table, and <em>extends</em> shows what object it extends. modElement is a base class for all Elements in MODx - snippets, modules, chunks, templates, etc.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;field key=<span class="code-quote">"name"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"50"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"" index="</span>unique" /&gt;
+<pre class="brush: php">
+&lt;aggregate alias="modCategory" class="modCategory" key="id" local="category" foreign="id" cardinality="one" owner="foreign" /&gt;
 </pre>
-</div>
-</div>
-
 <p>
-This tag represents a column in the database. Most of these attributes are pretty straightforward.
+Okay, this is where we get into DB relationships. An <strong>Aggregate</strong> relationship is a relationship where, in laymans terms, if you were to delete this chunk, it wouldn't delete the Category that it's related to. If it were a <strong>Composite</strong> relationship, it would. There is "dependence" in the Composite relationship that is related to the other object. For an example, let's get all the modContextSettings for a modContext:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;aggregate alias=<span class="code-quote">"modCategory"</span> class=<span class="code-quote">"modCategory"</span> key=<span class="code-quote">"id"</span> local=<span class="code-quote">"category"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
-</pre>
-</div>
-</div>
-
-<p>
-Okay, this is where we get into DB relationships. An <b>Aggregate</b> relationship is a relationship where, in laymans terms, if you were to delete this chunk, it wouldn't delete the Category that it's related to. If it were a <b>Composite</b> relationship, it would. There is "dependence" in the Composite relationship that is related to the other object. For an example, let's get all the modContextSettings for a modContext:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $context = $modx-&gt;getObject('modContext','web');
 $settings = $context-&gt;getMany('ContextSettings');
 foreach ($settings as $setting) {
     echo 'Setting name: '.$setting-&gt;get('key').' &lt;br /&gt;';
     echo 'Setting value: '.$setting-&gt;get('value').' &lt;br /&gt;';
 }
+                
 </pre>
-</div>
-</div>
-
 <p>
 Pretty easy, huh? We'll get into creating and removing objects, as well as more complex queries, such as inner joins, limits, sorting and others, in the <span class="error">[next article]</span>.
 </p>
@@ -182,10 +97,10 @@ Pretty easy, huh? We'll get into creating and removing objects, as well as more 
 
 <ul>
 <li>
-<a href="/display/xPDO20/Defining+a+Schema" title="Defining a Schema">xPDO: Defining a Schema</a>
+<a href="display/xPDO20/Defining+a+Schema" title="Defining a Schema">xPDO: Defining a Schema</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/Working+with+Related+Objects" title="Working with Related Objects">xPDO: Related Objects</a>
+<a href="display/xPDO20/Working+with+Related+Objects" title="Working with Related Objects">xPDO: Related Objects</a>
 </li>
 </ul>

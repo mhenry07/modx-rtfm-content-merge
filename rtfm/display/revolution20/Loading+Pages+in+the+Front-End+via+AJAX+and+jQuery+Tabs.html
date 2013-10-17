@@ -1,43 +1,39 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-TheProblem'>The Problem</a>
+<a href="revolution/2.x/case-studies-and-tutorials/loading-pages-in-the-front-end-via-ajax-and-jquery-tabs#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-TheProblem">The Problem</a>
 </li>
 
 <li>
-<a href='#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-CreatingtheResources'>Creating the Resources</a>
+<a href="revolution/2.x/case-studies-and-tutorials/loading-pages-in-the-front-end-via-ajax-and-jquery-tabs#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-CreatingtheResources">Creating the Resources</a>
 </li>
 
 <li>
-<a href='#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-DoingtheFrontEndLoading'>Doing the Front-End Loading</a>
+<a href="revolution/2.x/case-studies-and-tutorials/loading-pages-in-the-front-end-via-ajax-and-jquery-tabs#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-DoingtheFrontEndLoading">Doing the Front-End Loading</a>
 </li>
 
 <li>
-<a href='#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-Wait%2CIwantthePageTitlesasthetabheaders%5C%21'>Wait, I want the Page Titles as the tab headers!</a>
+<a href="revolution/2.x/case-studies-and-tutorials/loading-pages-in-the-front-end-via-ajax-and-jquery-tabs#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-Wait%2CIwantthePageTitlesasthetabheaders%5C%21">Wait, I want the Page Titles as the tab headers!</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href='#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsinggetResources'>Using getResources</a>
+<a href="revolution/2.x/case-studies-and-tutorials/loading-pages-in-the-front-end-via-ajax-and-jquery-tabs#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsinggetResources">Using getResources</a>
 </li>
 
 <li>
-<a href='#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsingWayfinder'>Using Wayfinder</a>
+<a href="revolution/2.x/case-studies-and-tutorials/loading-pages-in-the-front-end-via-ajax-and-jquery-tabs#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsingWayfinder">Using Wayfinder</a>
 </li>
 
 <li>
-<a href='#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsingagetFieldSnippet'>Using a getField Snippet</a>
+<a href="revolution/2.x/case-studies-and-tutorials/loading-pages-in-the-front-end-via-ajax-and-jquery-tabs#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsingagetFieldSnippet">Using a getField Snippet</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-Conclusion'>Conclusion</a>
+<a href="revolution/2.x/case-studies-and-tutorials/loading-pages-in-the-front-end-via-ajax-and-jquery-tabs#LoadingPagesintheFront-EndviaAJAXandjQueryTabs-Conclusion">Conclusion</a>
 </li>
 </ul>
 </div>
@@ -66,141 +62,44 @@ In the Resources you want to load via the tabs, you'll need to just create all y
 Now we'll use jQuery's fun tabs() command to create the front-end loading system. The code would look something like this (pulled from jquery UI's docs):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
-$(function() { $(<span class="code-quote">"#tabs"</span>).tabs(); });
-&lt;/script&gt;
-
-&lt;div id=<span class="code-quote">"tabs"</span>&gt;
-        &lt;ul&gt;
-                &lt;li&gt;&lt;a href=<span class="code-quote">"[[~92]]"</span>&gt;Resource with ID 92&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;&lt;a href=<span class="code-quote">"[[~546]]"</span>&gt;Resource with ID 546&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;&lt;a href=<span class="code-quote">"[[~123]]"</span>&gt;Resource with ID 123&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-&lt;/div&gt;
+<pre class="brush: php">
+    &lt;li id="[[+id]]"&gt;&lt;a href="[[~[[+id]]]]" title="[[+longtitle]]"&gt;[[+pagetitle]]&lt;/a&gt;&lt;/li&gt;
+    
 </pre>
-</div>
-</div>
-
-<p>
-Great! So this loads the pages via Ajax.
-</p>
-
-<h2>
-<a name="LoadingPagesintheFront-EndviaAJAXandjQueryTabs-Wait%2CIwantthePageTitlesasthetabheaders%5C%21"></a>Wait, I want the Page Titles as the tab headers!
-</h2>
-
-<p>
-There are a few ways you can do this; one, you can use <a href="/display/ADDON/getResources" title="getResources">getResources</a>, <a href="/display/ADDON/Wayfinder" title="Wayfinder">Wayfinder</a>, or use a getField snippet.
-</p>
-
-<h3>
-<a name="LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsinggetResources" id="LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsinggetResources"></a>Using getResources
-</h3>
-
-<p>
-For getResources, make sure you use the 'tpl' property, which you can create as a Chunk named 'myRowTpl' (or whatever you want), looks like this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li id=<span class="code-quote">"[[+id]]"</span>&gt;&lt;a href=<span class="code-quote">"[[~[[+id]]]]"</span> title=<span class="code-quote">"[[+longtitle]]"</span>&gt;[[+pagetitle]]&lt;/a&gt;&lt;/li&gt;
-</pre>
-</div>
-</div>
-
 <p>
 and in our tabs page:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
-$(function() { $(<span class="code-quote">"#tabs"</span>).tabs(); });
-&lt;/script&gt;
-
-&lt;div id=<span class="code-quote">"tabs"</span>&gt;
-        &lt;ul&gt;
-[[getResources? &amp;parents=`123` &amp;depth=`1` &amp;tpl=`myRowTpl` &amp;includeContent=`1` &amp;includeTVs=`1`]]
-        &lt;/ul&gt;
-&lt;/div&gt;
+<pre class="brush: php">
+    &lt;li[[+wf.id]][[+wf.classes]]&gt;&lt;a href="[[+wf.link]]" title="[[+wf.title]]"&gt;[[+wf.linktext]]&lt;/a&gt;&lt;/li&gt;
+    
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsingWayfinder" id="LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsingWayfinder"></a>Using Wayfinder
-</h3>
-
-<p>
-For Wayfinder, make sure your rowTpl template, which you can create as a Chunk named 'myRowTpl' (or whatever you want), looks like this:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li[[+wf.id]][[+wf.classes]]&gt;&lt;a href=<span class="code-quote">"[[+wf.link]]"</span> title=<span class="code-quote">"[[+wf.title]]"</span>&gt;[[+wf.linktext]]&lt;/a&gt;&lt;/li&gt;
-</pre>
-</div>
-</div>
-
 <p>
 and in our tabs page:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
-$(function() { $(<span class="code-quote">"#tabs"</span>).tabs(); });
-&lt;/script&gt;
-
-&lt;div id=<span class="code-quote">"tabs"</span>&gt;
-        &lt;ul&gt;
-[[Wayfinder? &amp;startId=`123` &amp;level=`1` &amp;rowTpl=`myRowTpl`]]
-        &lt;/ul&gt;
-&lt;/div&gt;
-</pre>
-</div>
-</div>
-
-<h3>
-<a name="LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsingagetFieldSnippet" id="LoadingPagesintheFront-EndviaAJAXandjQueryTabs-UsingagetFieldSnippet"></a>Using a getField Snippet
-</h3>
-
-<p>
-Or, you can use a Snippet such as this one to grab the pagetitle:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php
+<pre class="brush: php">
+    &lt;?php
 /**
- * Grabs a field <span class="code-keyword">for</span> a specified Resource
+ * Grabs a field for a specified Resource
  */
-/* setup some <span class="code-keyword">default</span> properties */
-$id = $modx-&gt;getOption('id',$scriptProperties,<span class="code-keyword">false</span>);
+/* setup some default properties */
+$id = $modx-&gt;getOption('id',$scriptProperties,false);
 $field = $modx-&gt;getOption('field',$scriptProperties,'pagetitle');
 
-<span class="code-keyword">if</span> ($id) { /* grab the resource object */
+if ($id) { /* grab the resource object */
     $resource = $modx-&gt;getObject('modResource',$id);
-    <span class="code-keyword">if</span> ($resource == <span class="code-keyword">null</span>) <span class="code-keyword">return</span> '';
-} <span class="code-keyword">else</span> { /* <span class="code-keyword">if</span> no id specified, use current doc */
+    if ($resource == null) return '';
+} else { /* if no id specified, use current doc */
     $resource =&amp; $modx-&gt;resource;
 }
 
-/* <span class="code-keyword">return</span> the field value */
-<span class="code-keyword">return</span> $resource-&gt;get($field);
+/* return the field value */
+return $resource-&gt;get($field);
 ?&gt;
-</pre>
-</div>
-</div>
 
+    
+</pre>
 <p>
 Call this Snippet getField like so in our tabs page:
 </p>

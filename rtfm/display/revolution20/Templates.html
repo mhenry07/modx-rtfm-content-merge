@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="Templates-WhatareTemplates%3F"></a>What are Templates?
 </h2>
@@ -11,32 +7,30 @@ Templates typically contain the HTML markup tags that determine the layout and a
 </p>
 
 <p>
-Think of a Template like a house. Your <a href="/display/revolution20/Resources" title="Resources">Resource's</a> content, then, is a person. A person can have many different houses, but only live in one house at a time.
+Think of a Template like a house. Your <a href="display/revolution20/Resources" title="Resources">Resource's</a> content, then, is a person. A person can have many different houses, but only live in one house at a time.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678060/template-info1.jpg?version=1&amp;modificationDate=1280149156000" style="border: 0px solid black" /></span>
+<span class="image-wrap"><img src="download/attachments/18678060/template-info1.jpg?version=1&amp;modificationDate=1280149156000" style="border: 0px solid black" /></span>
 </p>
 
 <p>
-<a href="/display/revolution20/Resources" title="Resources">Resources</a> can only use one Template at a time, however, a Resource can switch Templates at any time, just as a person can move from house to house at any time. The Template, just like a house, also changes the main way a page is displayed. A Template usually contains the header and footer of a page - and/or a sidebar, navigation bar, etc.
+<a href="display/revolution20/Resources" title="Resources">Resources</a> can only use one Template at a time, however, a Resource can switch Templates at any time, just as a person can move from house to house at any time. The Template, just like a house, also changes the main way a page is displayed. A Template usually contains the header and footer of a page - and/or a sidebar, navigation bar, etc.
 </p>
 
 <h2>
-<a name="Templates-Usage"></a>Usage
+<a name="Templates-Usage" id="Templates-Usage"></a>Usage
 </h2>
 
 <p>
 To create a Template -- Expand the "Elements" part of the tree and right click on Templates. Select "Create a New Template" then paste your HTML into the "Template Code" textarea; you can copy and paste the text below to get started with a very simple template:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;[[*pagetitle]]&lt;/title&gt;
-    &lt;meta name=<span class="code-quote">"description"</span> content=<span class="code-quote">"[[*description]]"</span>/&gt;
+    &lt;meta name="description" content="[[*description]]"/&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;h1&gt;[[*longtitle]]&lt;/h1&gt;
@@ -52,29 +46,12 @@ MenuTitle: [[*menutitle]]
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Note the important [[*content]] tag; this tag tells MODx where to put the Resource's content.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-MODX defaults to storing templates in its database, if you are using a version prior to 2.2.x this is your only option.&nbsp; In MODX 2.2.x and newer you have the option of storing templates as static files using Media Sources.
-</td>
-</tr>
-</table>
+<div class="note">
+MODX defaults to storing templates in its database, if you are using a version prior to 2.2.x this is your only option. In MODX 2.2.x and newer you have the option of storing templates as static files using Media Sources.
 </div>
 
 <p>
@@ -90,55 +67,40 @@ Templates can contain any tags, including <a href="/display/revolution20/Templat
 </p>
 
 <h3>
-<a name="Templates-UsingResourceFieldsintheTemplate"></a>Using Resource Fields in the Template
+<a name="Templates-UsingResourceFieldsintheTemplate" id="Templates-UsingResourceFieldsintheTemplate"></a>Using Resource Fields in the Template
 </h3>
 
 <p>
 As you noticed from our Template sample code above, the fields of a Resource can be referenced using the [[*fieldName]] syntax. A list of available Resource Fields can be <a href="/display/revolution20/Resources#Resources-ResourceFields">found here</a>. For example, if we wanted to show the current Resource's pagetitle in our &lt;title&gt; tag, we would simply do this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;title&gt;[[*pagetitle]]&lt;/title&gt;
 </pre>
-</div>
-</div>
-
 <p>
 You can also place the content of the current Resource using the "content" tag:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;body&gt;
 [[*content]]
 &lt;/body&gt;
 </pre>
-</div>
-</div>
-
 <p>
 These tags are like normal MODx tags, in that they can have <a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">output filters</a> applied to them. For example, say we wanted to display the "introtext" field on a right navbar, but strip any HTML tags from it, and only display the first 400 characters - and if longer, add an ellipsis (...):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div id=<span class="code-quote">"rightbar"</span>&gt;
+<pre class="brush: php">
+&lt;div id="rightbar"&gt;
 [[*introtext:stripTags:ellipsis=`400`]]
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <h3>
-<a name="Templates-TemplateVariablesinTemplates"></a>Template Variables in Templates
+<a name="Templates-TemplateVariablesinTemplates" id="Templates-TemplateVariablesinTemplates"></a>Template Variables in Templates
 </h3>
 
 <p>
-If Templates are like a house, think of <a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a> (TVs) like rooms in that house. You can have an infinite number of TVs in a Template; just think of it like adding new rooms to the house.
+If Templates are like a house, think of <a href="display/revolution20/Template+Variables" title="Template Variables">Template Variables</a> (TVs) like rooms in that house. You can have an infinite number of TVs in a Template; just think of it like adding new rooms to the house.
 </p>
 
 <p>
@@ -149,30 +111,25 @@ Template Variables allow you to have custom fields for any Resource with the spe
 You can then reference your "bioPhoto" TV in your content with the same tag syntax as a Resource Field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"photo"</span>&gt;
+<pre class="brush: php">
+&lt;div class="photo"&gt;
 [[*bioPhoto]]
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
-Again, it's important to note that <a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a> must be explicitly assigned to the Template to be used. Once assigned to the Template, a TV's value for that Resource will be able to be edited when editing the Resource. If you're not seeing a newly created TV in your Resources, make sure you've assigned that TV to the Template.
+Again, it's important to note that <a href="display/revolution20/Template+Variables" title="Template Variables">Template Variables</a> must be explicitly assigned to the Template to be used. Once assigned to the Template, a TV's value for that Resource will be able to be edited when editing the Resource. If you're not seeing a newly created TV in your Resources, make sure you've assigned that TV to the Template.
 </p>
 
 <h2>
-<a name="Templates-SeeAlso"></a>See Also
+<a name="Templates-SeeAlso" id="Templates-SeeAlso"></a>See Also
 </h2>
 
 <ul>
 <li>
-<a href="/display/revolution20/Tag+Syntax" title="Tag Syntax">Tag Syntax</a>
+<a href="display/revolution20/Tag+Syntax" title="Tag Syntax">Tag Syntax</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>
+<a href="display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>
 </li>
 </ul>

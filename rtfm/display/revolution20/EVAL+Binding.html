@@ -1,7 +1,3 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <h2>
 <a name="EVALBinding-Whatisthe@EVALBinding%3F"></a>What is the @EVAL Binding?
 </h2>
@@ -14,72 +10,15 @@ The @EVAL Binding executes the specified PHP code. It should be used with carefu
 <a name="EVALBinding-Syntax" id="EVALBinding-Syntax"></a>Syntax
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-@EVAL php_code_here
+<pre class="brush: php">
+    @EVAL return "The time stamp is now ".time();
+    
 </pre>
-</div>
-</div>
 
-<h2>
-<a name="EVALBinding-Usage" id="EVALBinding-Usage"></a>Usage
-</h2>
-
-<p>
-Simply put a PHP statement after the @EVAL tag:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-@EVAL <span class="code-keyword">return</span> <span class="code-quote">"The time stamp is now "</span>.time();
+<pre class="brush: php">
+    [[+username]]==[[+id]]
+    
 </pre>
-</div>
-</div>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-@EVAL $a = 'dog'; <span class="code-keyword">return</span> $a;
-</pre>
-</div>
-</div>
-
-<h2>
-<a name="EVALBinding-Examples" id="EVALBinding-Examples"></a>Examples
-</h2>
-
-<h3>
-<a name="EVALBinding-ShowingRelatedPosts" id="EVALBinding-ShowingRelatedPosts"></a>Showing Related Posts
-</h3>
-
-<p>
-There's a whole page showing an example of using the EVAL binding to execute a snippet: <a href="/display/revolution20/Creating+a+multi-select+box+for+related+pages+in+your+template" title="Creating a multi-select box for related pages in your template">Creating a multi-select box for related pages in your template</a>.
-</p>
-
-<h3>
-<a name="EVALBinding-dbdriveninputoptionvaluesbyusingrowboat" id="EVALBinding-dbdriveninputoptionvaluesbyusingrowboat"></a>db-driven input-option-values by using rowboat
-</h3>
-
-<p>
-Let's say we want to have a dropdown-box to select a user-id by username.
-<br />
-Requirements: The rowboat-snippet.
-</p>
-
-<p>
-First, we create a new chunk for our Options and name it 'userOption' with this code:
-</p>
-
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+username]]==[[+id]]
-</pre>
-</div>
-</div>
-
 <p>
 Then create a dropdown-type TV with this input-options:
 </p>
@@ -110,10 +49,10 @@ Thankfully, I've been unsuccessful in my attempts to unlink() a file using the @
 
 <ul>
 <li>
-<a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>
+<a href="display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Bindings" title="Bindings">Bindings</a>
+<a href="display/revolution20/Bindings" title="Bindings">Bindings</a>
 </li>
 </ul>

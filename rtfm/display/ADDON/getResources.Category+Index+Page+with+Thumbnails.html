@@ -1,3 +1,6 @@
+<div class="wiki-content">
+<!-- wiki content -->
+
 <p>
 Make sure you get phpThumbOf as this does the magic of scaling your thumbnail images.
 </p>
@@ -33,47 +36,38 @@ I like to put my snippet calls in a chunk, this way the RTE doesn't turn the &am
 <b>Create a chunk and name it list-docs-thumb</b>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"list-docs thumb grid"</span>&gt;
+<pre class="brush: php">
+&lt;div class="list-docs thumb grid"&gt;
  [[!getResources?  
-        &amp;parents=`[[*id]]` 
-         &amp;tpl=`list-docs-thumb-tpl`  
-        &amp;limit=`100`  
-        &amp;sortdir=`ASC`  
-        &amp;includeTVs=`1`  
-        &amp;includeContent=`1`   
-        &amp;depth=`0`  
-        &amp;sortby=`menuindex`  
-        ]]  
+&amp;parents=`[[*id]]` 
+ &amp;tpl=`list-docs-thumb-tpl`  
+&amp;limit=`100`  
+&amp;sortdir=`ASC`  
+&amp;includeTVs=`1`  
+&amp;includeContent=`1`   
+&amp;depth=`0`  
+&amp;sortby=`menuindex`  
+]]  
 &lt;/div&gt;&lt;!-- eof list-docs --&gt;?
 </pre>
-</div>
-</div>
-
 <p>
-<font color="black"><b>Create a second chunk for the getResources template, name it: list-docs-thumb-tpl</b></font> <font color="black">&nbsp; &nbsp;(see what I did there? Naming conventions are your friend.)</font>
+<b>Create a second chunk for the getResources template, name it: list-docs-thumb-tpl</b> &nbsp; &nbsp;(see what I did there? Naming conventions are your friend.)
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"list-item column span-6"</span>&gt;
-          &lt;h2&gt;[[+pagetitle]]&lt;/h2&gt;
-                 &lt;a href=<span class="code-quote">"[[~[[+id]]]]"</span> title=<span class="code-quote">"[[+pagetitle]]"</span>&gt;     
-                 &lt;img src=<span class="code-quote">"[[+tv.page-thumb:phpthumbof=`w=153&amp;h=200&amp;zc=1`]]"</span> alt=<span class="code-quote">"[[+pagetitle]]"</span> /&gt;
-             &lt;/a&gt;  
-        &lt;p&gt;[[+introtext]]&lt;/p&gt;   
+<pre class="brush: php">
+&lt;div class="list-item column span-6"&gt;
+  &lt;h2&gt;[[+pagetitle]]&lt;/h2&gt;
+ &lt;a href="[[~[[+id]]]]" title="[[+pagetitle]]"&gt;     
+ &lt;img src="[[+tv.page-thumb:phpthumbof=`w=153&amp;h=200&amp;zc=1`]]" alt="[[+pagetitle]]" /&gt;
+     &lt;/a&gt;  
+&lt;p&gt;[[+introtext]]&lt;/p&gt;   
 &lt;/div&gt;  &lt;!-- eof item --&gt;?
 </pre>
-</div>
-</div>
-
 <h2>
-<a name="getResources.CategoryIndexPagewithThumbnails-" id="getResources.CategoryIndexPagewithThumbnails-"></a><font color="black">Installation</font>
+<a name="getResources.CategoryIndexPagewithThumbnails-" id="getResources.CategoryIndexPagewithThumbnails-"></a>Installation
 </h2>
 
 <p>
-<font color="black">Now just paste&nbsp;[[$list-docs-thumb]] into any page with child pages and TV's set and away you go.</font>
+Now just paste&nbsp;[[$list-docs-thumb]] into any page with child pages and TV's set and away you go.
 </p>
+</div>
