@@ -1,63 +1,63 @@
 <div>
 <ul>
 <li>
-<a href="#ExtendingmodUser-IntendedAudience">Intended Audience</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-IntendedAudience">Intended Audience</a>
 <ul>
 <li>
-<a href="#ExtendingmodUser-SeeAlso">See Also</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-SeeAlso">See Also</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-Overview">Overview</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-Overview">Overview</a>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-Purpose">Purpose</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-Purpose">Purpose</a>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-TheRules">The Rules</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-TheRules">The Rules</a>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-StepstoextendingmodUser">Steps to extending modUser</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-StepstoextendingmodUser">Steps to extending modUser</a>
 <ul>
 <li>
-<a href="#ExtendingmodUser-1.%29Createtheschemaandgenerateamodel">1. ) Create the schema and generate a model</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-1.%29Createtheschemaandgenerateamodel">1. ) Create the schema and generate a model</a>
 <ul>
 <li>
-<a href="#ExtendingmodUser-SimpleExample">Simple Example</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-SimpleExample">Simple Example</a>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-MoreInvolvedExample">More Involved Example</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-MoreInvolvedExample">More Involved Example</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-2.%29Edittheextuser.class.php">2.) Edit the extuser.class.php</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-2.%29Edittheextuser.class.php">2.) Edit the extuser.class.php</a>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-3.%29Create%28oredit%29extensionpackagesinSystemSettings">3.) Create (or edit) <em>extension_packages in System Settings</em></a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-3.%29Create%28oredit%29extensionpackagesinSystemSettings">3.) Create (or edit) <em>extension_packages in System Settings</em></a>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-4.%29FinalStepCreateaclasstoaccessandutilizeyourextendedclass">4.) Final Step Create a class to access and utilize your extended class</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-4.%29FinalStepCreateaclasstoaccessandutilizeyourextendedclass">4.) Final Step Create a class to access and utilize your extended class</a>
 <ul>
 <li>
-<a href="#ExtendingmodUser-SimpleExample">Simple Example</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-SimpleExample">Simple Example</a>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-Morecomplexexample">More complex example</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-Morecomplexexample">More complex example</a>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-5.%29Accessingtheclass">5.) Accessing the class</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-5.%29Accessingtheclass">5.) Accessing the class</a>
 </li>
 </ul>
 </li>
@@ -65,15 +65,15 @@
 </li>
 
 <li>
-<a href="#ExtendingmodUser-Noteworthyitems">Noteworthy items</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-Noteworthyitems">Noteworthy items</a>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-Suggestedadditionalconsiderations">Suggested additional considerations</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-Suggestedadditionalconsiderations">Suggested additional considerations</a>
 </li>
 
 <li>
-<a href="#ExtendingmodUser-ExtendedmodUserClassescurrentlyAvailable">Extended modUser Classes currently Available</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/extending-moduser#ExtendingmodUser-ExtendedmodUserClassescurrentlyAvailable">Extended modUser Classes currently Available</a>
 </li>
 </ul>
 </div>
@@ -83,7 +83,7 @@ Intended Audience
 </h2>
 
 <p>
-This article is for developers who are looking to add additional data to their MODX users and functionality to the related classes. Although this is possible via a less integrated approach by simply adding a database table that includes a foreign key relation back to the original MODX users table, the approach outlined here is for a more thorough integration via extending the core modUser class. The steps here are highly technical and they rely on MODX's underlying xPDO framework. You should have some familiarity with xPDO's objects and methods (e.g. <a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a>) before attempting this tutorial.
+This article is for developers who are looking to add additional data to their MODX users and functionality to the related classes. Although this is possible via a less integrated approach by simply adding a database table that includes a foreign key relation back to the original MODX users table, the approach outlined here is for a more thorough integration via extending the core modUser class. The steps here are highly technical and they rely on MODX's underlying xPDO framework. You should have some familiarity with xPDO's objects and methods (e.g. <a href="xpdo/2.x/class-reference/xpdo/xpdo.getobject" title="xPDO.getObject">getObject</a>) before attempting this tutorial.
 </p>
 
 <h3 id="ExtendingmodUser-SeeAlso">
@@ -92,15 +92,15 @@ See Also
 
 <ul>
 <li>
-<a href="/display/revolution20/Reverse+Engineer+xPDO+Classes+from+Existing+Database+Table" title="Reverse Engineer xPDO Classes from Existing Database Table">Reverse Engineer xPDO Classes from Existing Database Table</a>
+<a href="revolution/2.x/case-studies-and-tutorials/reverse-engineer-xpdo-classes-from-existing-database-table" title="Reverse Engineer xPDO Classes from Existing Database Table">Reverse Engineer xPDO Classes from Existing Database Table</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/More+Examples+of+xPDO+XML+Schema+Files" title="More Examples of xPDO XML Schema Files">More Examples of xPDO XML Schema Files</a>
+<a href="xpdo/2.x/getting-started/creating-a-model-with-xpdo/defining-a-schema/more-examples-of-xpdo-xml-schema-files" title="More Examples of xPDO XML Schema Files">More Examples of xPDO XML Schema Files</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/Generating+the+Model+Code" title="Generating the Model Code">Generating the Model Code</a>
+<a href="xpdo/2.x/getting-started/creating-a-model-with-xpdo/generating-the-model-code" title="Generating the Model Code">Generating the Model Code</a>
 </li>
 </ul>
 
@@ -137,7 +137,7 @@ MODx Revolution already handles users and probably does not need much help. Whil
 </p>
 
 <p>
-Lastly, get familiar with <a href="/display/revolution20/modUser" title="modUser">modUser</a>, before you begin to code.&nbsp; Some methods are not one-to-one as you might assume, such as attributes, which can be assigned per context, resource, etc. Typically use the modUser suggestions to access modUser methods.
+Lastly, get familiar with <a href="revolution/2.x/developing-in-modx/other-development-resources/class-reference/moduser" title="modUser">modUser</a>, before you begin to code.&nbsp; Some methods are not one-to-one as you might assume, such as attributes, which can be assigned per context, resource, etc. Typically use the modUser suggestions to access modUser methods.
 </p>
 
 <h2 id="ExtendingmodUser-StepstoextendingmodUser">
@@ -216,7 +216,7 @@ Note that the <em>index="unique"</em> bit has been deprecated – the index decl
 &lt;/model&gt;
 </pre>
 <p>
-You will need to parse and create the model map associated with this schema. As this process is out of the scope of this topic, please refer to <a href="/display/revolution20/Using+Custom+Database+Tables+in+your+3rd+Party+Components" title="Using Custom Database Tables in your 3rd Party Components">Using Custom Database Tables in your 3rd Party Components</a> for further information.
+You will need to parse and create the model map associated with this schema. As this process is out of the scope of this topic, please refer to <a href="revolution/2.x/case-studies-and-tutorials/using-custom-database-tables-in-your-3rd-party-components" title="Using Custom Database Tables in your 3rd Party Components">Using Custom Database Tables in your 3rd Party Components</a> for further information.
 </p>
 
 <h3 id="ExtendingmodUser-2.)Edittheextuser.class.php">
@@ -250,7 +250,7 @@ class extUser extends modUser {
 </h3>
 
 <p>
-Access the System settings found in the System menu of the manager, and search for <a href="/display/revolution20/extension_packages" title="extension_packages">extension_packages</a>.
+Access the System settings found in the System menu of the manager, and search for <a href="revolution/2.x/administering-your-site/settings/system-settings/extension_packages" title="extension_packages">extension_packages</a>.
 </p>
 
 <p>

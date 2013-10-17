@@ -1,5 +1,5 @@
 <p>
-Related objects in xPDO can be accessed via newQuery, as shown earlier, or through xPDOObject's helper functions, <a href="/display/XPDO10/getOne" title="getOne">getOne</a> and <a href="/display/XPDO10/getMany" title="getMany">getMany</a> (depending on the relationship.
+Related objects in xPDO can be accessed via newQuery, as shown earlier, or through xPDOObject's helper functions, <a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/getone" title="getOne">getOne</a> and <a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/getmany" title="getMany">getMany</a> (depending on the relationship.
 </p>
 
 <h2 id="WorkingwithRelatedObjects-RetrievingObjects">
@@ -11,7 +11,7 @@ First off, let's look at the related object retrieval methods:
 </p>
 
 <h3 id="WorkingwithRelatedObjects-getOne">
-<a href="/display/XPDO10/getOne" title="getOne">getOne</a>
+<a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/getone" title="getOne">getOne</a>
 </h3>
 
 <p>
@@ -25,11 +25,11 @@ $owner = $car-&gt;getOne('Owner');
 echo 'The owner of this car is: '.$owner-&gt;get('name');
 </pre>
 <p>
-<a href="/display/XPDO10/getOne" title="getOne">getOne</a> also takes a $criteria and $cacheFlag parameter, similar to getObject and getCollection. This allows you to do a bit more filtering should you so desire.
+<a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/getone" title="getOne">getOne</a> also takes a $criteria and $cacheFlag parameter, similar to getObject and getCollection. This allows you to do a bit more filtering should you so desire.
 </p>
 
 <h3 id="WorkingwithRelatedObjects-getMany">
-<a href="/display/XPDO10/getMany" title="getMany">getMany</a>
+<a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/getmany" title="getMany">getMany</a>
 </h3>
 
 <p>
@@ -63,11 +63,11 @@ xPDO also has methods for adding related objects to an existing Object, to make 
 </p>
 
 <h3 id="WorkingwithRelatedObjects-addOne">
-<a href="/display/XPDO10/addOne" title="addOne">addOne</a>
+<a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/addone" title="addOne">addOne</a>
 </h3>
 
 <p>
-So we have our Car object, but say we want to set it a new owner that we've just created. We can use <a href="/display/XPDO10/addOne" title="addOne">addOne</a> to easily add it in:
+So we have our Car object, but say we want to set it a new owner that we've just created. We can use <a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/addone" title="addOne">addOne</a> to easily add it in:
 </p>
 
 <pre class="brush: php">
@@ -81,7 +81,7 @@ Saving the Car object will save the 'owner' field on the Car row to the Owner's 
 </p>
 
 <p>
-You can also do this with new (unsaved) objects; the <a href="/display/XPDO10/save" title="save">save</a> function will cascade and save both objects. Let's say we have a Car object, but we're adding an entirely new Owner:
+You can also do this with new (unsaved) objects; the <a href="xpdo/1.x/class-reference/xpdoobject/persistence-methods/save" title="save">save</a> function will cascade and save both objects. Let's say we have a Car object, but we're adding an entirely new Owner:
 </p>
 
 <pre class="brush: php">
@@ -99,7 +99,7 @@ This will save both the Car and the Owner object, and relate them together.
 </p>
 
 <p>
-Both <a href="/display/XPDO10/addOne" title="addOne">addOne</a> and <a href="/display/XPDO10/addMany" title="addMany">addMany</a> take a 2nd parameter, called 'alias'. This should be used when an object has more than one relationship with a single class. For example, adding an Owner and Seller relationships, which are both User objects:
+Both <a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/addone" title="addOne">addOne</a> and <a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/addmany" title="addMany">addMany</a> take a 2nd parameter, called 'alias'. This should be used when an object has more than one relationship with a single class. For example, adding an Owner and Seller relationships, which are both User objects:
 </p>
 
 <pre class="brush: php">
@@ -111,11 +111,11 @@ This helps xPDO differentiate between which object belongs to which relationship
 </p>
 
 <h3 id="WorkingwithRelatedObjects-addMany">
-<a href="/display/XPDO10/addMany" title="addMany">addMany</a>
+<a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/addmany" title="addMany">addMany</a>
 </h3>
 
 <p>
-Objects with one-to-many relationships can also be batch added via the <a href="/display/XPDO10/addMany" title="addMany">addMany</a> method. Let's say we want to add all the Wheel objects with width of 10 to our Car:
+Objects with one-to-many relationships can also be batch added via the <a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/addmany" title="addMany">addMany</a> method. Let's say we want to add all the Wheel objects with width of 10 to our Car:
 </p>
 
 <pre class="brush: php">
@@ -136,22 +136,22 @@ See Also
 
 <ul>
 <li>
-<a href="/display/XPDO10/getOne" title="getOne">getOne</a>
+<a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/getone" title="getOne">getOne</a>
 </li>
 
 <li>
-<a href="/display/XPDO10/getMany" title="getMany">getMany</a>
+<a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/getmany" title="getMany">getMany</a>
 </li>
 
 <li>
-<a href="/display/XPDO10/addOne" title="addOne">addOne</a>
+<a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/addone" title="addOne">addOne</a>
 </li>
 
 <li>
-<a href="/display/XPDO10/addMany" title="addMany">addMany</a>
+<a href="xpdo/1.x/class-reference/xpdoobject/related-object-accessors/addmany" title="addMany">addMany</a>
 </li>
 
 <li>
-<a href="/display/XPDO10/Defining+Relationships" title="Defining Relationships">Defining Relationships</a>
+<a href="xpdo/1.x/getting-started/creating-a-model-with-xpdo/defining-a-schema/defining-relationships" title="Defining Relationships">Defining Relationships</a>
 </li>
 </ul>

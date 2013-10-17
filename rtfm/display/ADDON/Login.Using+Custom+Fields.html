@@ -7,7 +7,7 @@ Login supports setting custom (or, "Extended") fields using Revolution's User Pr
 </p>
 
 <p>
-Login does it quite simply: using the &amp;useExtended property on the <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a>, <a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> and <a href="/display/ADDON/Login.Profile" title="Login.Profile">Profile</a> snippets. It is set enabled by default.
+Login does it quite simply: using the &amp;useExtended property on the <a href="extras/revo/login/login.register" title="Login.Register">Register</a>, <a href="extras/revo/login/login.updateprofile" title="Login.UpdateProfile">UpdateProfile</a> and <a href="extras/revo/login/login.profile" title="Login.Profile">Profile</a> snippets. It is set enabled by default.
 </p>
 
 <h2 id="Login.UsingCustomFields-Usage">
@@ -15,7 +15,7 @@ Usage
 </h2>
 
 <p>
-Basically, to start using extended fields, all you have to do is add a form field to your <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> and <a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> forms. That's it. The snippets will automatically then check for any fields in the POST that aren't in the User table, and if found, store them as extended (custom) fields. They will then be expanded when using the <a href="/display/ADDON/Login.Profile" title="Login.Profile">Profile</a> snippet. For example, a Register form that has this in it:
+Basically, to start using extended fields, all you have to do is add a form field to your <a href="extras/revo/login/login.register" title="Login.Register">Register</a> and <a href="extras/revo/login/login.updateprofile" title="Login.UpdateProfile">UpdateProfile</a> forms. That's it. The snippets will automatically then check for any fields in the POST that aren't in the User table, and if found, store them as extended (custom) fields. They will then be expanded when using the <a href="extras/revo/login/login.profile" title="Login.Profile">Profile</a> snippet. For example, a Register form that has this in it:
 </p>
 
 <pre class="brush: php">
@@ -37,7 +37,7 @@ Login won't store the field named in the &amp;submitVar property. In this exampl
 </div>
 
 <p>
-Then, you can use <a href="/display/ADDON/Login.Profile" title="Login.Profile">Profile</a> to display this data somewhere on a page:
+Then, you can use <a href="extras/revo/login/login.profile" title="Login.Profile">Profile</a> to display this data somewhere on a page:
 </p>
 
 <pre class="brush: php">
@@ -46,7 +46,7 @@ Then, you can use <a href="/display/ADDON/Login.Profile" title="Login.Profile">P
 &lt;p&gt;[[+username]]'s Favorite Color: [[+color]]&lt;/p&gt;
 </pre>
 <p>
-Or even when using the <a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> snippet:
+Or even when using the <a href="extras/revo/login/login.updateprofile" title="Login.UpdateProfile">UpdateProfile</a> snippet:
 </p>
 
 <pre class="brush: php">
@@ -73,7 +73,7 @@ Directly Creating and Populating Attribute Containers
                 &lt;input type="hidden" name="january[Misc]" value="" /&gt;
 </pre>
 <p>
-<img src="/download/attachments/21135392/login.extendedUserContainers.png?version=1&amp;modificationDate=1329484036000" style="border: 1px solid black" />
+<img src="download/attachments/21135392/login.extendedUserContainers.png?version=1&amp;modificationDate=1329484036000" style="border: 1px solid black" />
 </p>
 
 <h3 id="Login.UsingCustomFields-ExcludingFieldsfromSavingasExtended">
@@ -81,7 +81,7 @@ Excluding Fields from Saving as Extended
 </h3>
 
 <p>
-Both the <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> and <a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> snippets have a property called "excludeExtended" that takes a comma-separated list of field names to exclude from being saved as extended fields. So, say you had fields named 'nospam' and 'customProp', that you didn't want to be saved as custom fields in Register. You'd simply call Register like so:
+Both the <a href="extras/revo/login/login.register" title="Login.Register">Register</a> and <a href="extras/revo/login/login.updateprofile" title="Login.UpdateProfile">UpdateProfile</a> snippets have a property called "excludeExtended" that takes a comma-separated list of field names to exclude from being saved as extended fields. So, say you had fields named 'nospam' and 'customProp', that you didn't want to be saved as custom fields in Register. You'd simply call Register like so:
 </p>
 
 <pre class="brush: php">
@@ -100,7 +100,7 @@ Also, if you have an extended field in a container, such as in this example, whe
 </p>
 
 <p>
-<img src="/download/attachments/21135392/login.extended.nest.png?version=1&amp;modificationDate=1281708667000" />
+<img src="download/attachments/21135392/login.extended.nest.png?version=1&amp;modificationDate=1281708667000" />
 </p>
 
 <p>
@@ -122,72 +122,72 @@ See Also
 
 <ol class="ug-toc see-also">
 <li>
-<a href="/display/ADDON/Login.Login">Login.Login</a>
+<a href="extras/revo/login/login.login">Login.Login</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.Profile">Login.Profile</a>
+<a href="extras/revo/login/login.profile">Login.Profile</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.UpdateProfile">Login.UpdateProfile</a>
+<a href="extras/revo/login/login.updateprofile">Login.UpdateProfile</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.Register">Login.Register</a>
+<a href="extras/revo/login/login.register">Login.Register</a>
 <ol class="ug-toc">
 <li>
-<a href="/display/ADDON/Register.Example+Form+1">Register.Example Form 1</a>
+<a href="extras/revo/login/login.register/register.example-form-1">Register.Example Form 1</a>
 </li>
 </ol>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.ConfirmRegister">Login.ConfirmRegister</a>
+<a href="extras/revo/login/login.confirmregister">Login.ConfirmRegister</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.ForgotPassword">Login.ForgotPassword</a>
+<a href="extras/revo/login/login.forgotpassword">Login.ForgotPassword</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.ResetPassword">Login.ResetPassword</a>
+<a href="extras/revo/login/login.resetpassword">Login.ResetPassword</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.ChangePassword">Login.ChangePassword</a>
+<a href="extras/revo/login/login.changepassword">Login.ChangePassword</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.Tutorials">Login.Tutorials</a>
+<a href="extras/revo/login/login.tutorials">Login.Tutorials</a>
 <ol class="ug-toc">
 <li>
-<a href="/display/ADDON/Login.Basic+Setup">Login.Basic Setup</a>
+<a href="extras/revo/login/login.tutorials/login.basic-setup">Login.Basic Setup</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.Extended+User+Profiles">Login.Extended User Profiles</a>
+<a href="extras/revo/login/login.tutorials/login.extended-user-profiles">Login.Extended User Profiles</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.Request+Membership">Login.Request Membership</a>
+<a href="extras/revo/login/login.tutorials/login.request-membership">Login.Request Membership</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.User+Profiles">Login.User Profiles</a>
+<a href="extras/revo/login/login.tutorials/login.user-profiles">Login.User Profiles</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.Using+Custom+Fields">Login.Using Custom Fields</a>
+<a href="extras/revo/login/login.tutorials/login.using-custom-fields">Login.Using Custom Fields</a>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.Using+Pre+and+Post+Hooks">Login.Using Pre and Post Hooks</a>
+<a href="extras/revo/login/login.tutorials/login.using-pre-and-post-hooks">Login.Using Pre and Post Hooks</a>
 </li>
 </ol>
 </li>
 
 <li>
-<a href="/display/ADDON/Login.Roadmap">Login.Roadmap</a>
+<a href="extras/revo/login/login.roadmap">Login.Roadmap</a>
 </li>
 </ol>

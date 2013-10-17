@@ -1,31 +1,31 @@
 <div>
 <ul>
 <li>
-<a href="#Creatinga3rdPartyComponentBuildScript-DirectoryStructure">Directory Structure</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/package-management/creating-a-3rd-party-component-build-script#Creatinga3rdPartyComponentBuildScript-DirectoryStructure">Directory Structure</a>
 </li>
 
 <li>
-<a href="#Creatinga3rdPartyComponentBuildScript-StartingtheBuildScript">Starting the Build Script</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/package-management/creating-a-3rd-party-component-build-script#Creatinga3rdPartyComponentBuildScript-StartingtheBuildScript">Starting the Build Script</a>
 </li>
 
 <li>
-<a href="#Creatinga3rdPartyComponentBuildScript-PackaginginObjects">Packaging in Objects</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/package-management/creating-a-3rd-party-component-build-script#Creatinga3rdPartyComponentBuildScript-PackaginginObjects">Packaging in Objects</a>
 </li>
 
 <li>
-<a href="#Creatinga3rdPartyComponentBuildScript-ValidatorsandResolvers">Validators and Resolvers</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/package-management/creating-a-3rd-party-component-build-script#Creatinga3rdPartyComponentBuildScript-ValidatorsandResolvers">Validators and Resolvers</a>
 </li>
 
 <li>
-<a href="#Creatinga3rdPartyComponentBuildScript-Lexicons">Lexicons</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/package-management/creating-a-3rd-party-component-build-script#Creatinga3rdPartyComponentBuildScript-Lexicons">Lexicons</a>
 </li>
 
 <li>
-<a href="#Creatinga3rdPartyComponentBuildScript-PackageAttributes%3ALicense%2CReadmeandSetupOptions">Package Attributes: License, Readme and Setup Options</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/package-management/creating-a-3rd-party-component-build-script#Creatinga3rdPartyComponentBuildScript-PackageAttributes%3ALicense%2CReadmeandSetupOptions">Package Attributes: License, Readme and Setup Options</a>
 </li>
 
 <li>
-<a href="#Creatinga3rdPartyComponentBuildScript-RelatedPages">Related Pages</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/package-management/creating-a-3rd-party-component-build-script#Creatinga3rdPartyComponentBuildScript-RelatedPages">Related Pages</a>
 </li>
 </ul>
 </div>
@@ -51,7 +51,7 @@ First off, let's take a quick look at our directory structure. This isn't always
 </p>
 
 <p>
-<img src="/download/attachments/18678073/quip-dir1.png?version=1&amp;modificationDate=1273237771000" />
+<img src="download/attachments/18678073/quip-dir1.png?version=1&amp;modificationDate=1273237771000" />
 </p>
 
 <h2 id="Creatinga3rdPartyComponentBuildScript-StartingtheBuildScript">
@@ -151,11 +151,11 @@ we'll be doing quip-0.1-alpha7, so let's go with that.
 </p>
 
 <p>
-Next, we'll register a <a href="/display/revolution20/Namespaces" title="Namespaces">Namespace</a> to this package. Not all packages need <a href="/display/revolution20/Namespaces" title="Namespaces">Namespaces</a>; but all 3rd Party Components do. Basically, a Namespace is an organizing tool for MODx so that MODx can know what objects are tied to what package. This is helpful later on should we want to uninstall our package; we'd want it to remove the objects we'd install.
+Next, we'll register a <a href="revolution/2.x/developing-in-modx/advanced-development/namespaces" title="Namespaces">Namespace</a> to this package. Not all packages need <a href="revolution/2.x/developing-in-modx/advanced-development/namespaces" title="Namespaces">Namespaces</a>; but all 3rd Party Components do. Basically, a Namespace is an organizing tool for MODx so that MODx can know what objects are tied to what package. This is helpful later on should we want to uninstall our package; we'd want it to remove the objects we'd install.
 </p>
 
 <p>
-Plus, should we want to add any <a href="/display/revolution20/Internationalization" title="Internationalization">Lexicon Entries</a> to this package (which we will), MODx does so by relating it to it's Namespace. Our package builder will assign our Lexicon Entries to the Namespace, so we can easily manage <em>just</em> our Lexicon Entries; not any others.
+Plus, should we want to add any <a href="revolution/2.x/developing-in-modx/advanced-development/internationalization" title="Internationalization">Lexicon Entries</a> to this package (which we will), MODx does so by relating it to it's Namespace. Our package builder will assign our Lexicon Entries to the Namespace, so we can easily manage <em>just</em> our Lexicon Entries; not any others.
 </p>
 
 <h2 id="Creatinga3rdPartyComponentBuildScript-PackaginginObjects">
@@ -392,7 +392,7 @@ $snippet-&gt;setProperties($properties);
 $category-&gt;addMany($snippet);
 </pre>
 <div class="note">
-We're using the addMany method here, and not the addOne method. Wether you need to use one or the other does not so much depend on the amount of objects you are relating (in this case only one snippet), but the cardinality of the relationship. That may sound complex - but the cardinality simply means if it is a one-on-one or one-to-many relationship. In this case, a category has a one-to-many relationship with snippets (there can be many snippets in one category) and that means you will have to use the addMany method. You can pass an array of objects or just one object to that method, but which one you use depends on the cardinality. Read more about <a href="/display/xPDO20/Defining+Relationships" title="Defining Relationships">relationships</a>, <a href="/display/xPDO20/addOne" title="addOne">addOne</a> and <a href="/display/xPDO20/addMany" title="addMany">addMany</a>.
+We're using the addMany method here, and not the addOne method. Wether you need to use one or the other does not so much depend on the amount of objects you are relating (in this case only one snippet), but the cardinality of the relationship. That may sound complex - but the cardinality simply means if it is a one-on-one or one-to-many relationship. In this case, a category has a one-to-many relationship with snippets (there can be many snippets in one category) and that means you will have to use the addMany method. You can pass an array of objects or just one object to that method, but which one you use depends on the cardinality. Read more about <a href="xpdo/2.x/getting-started/creating-a-model-with-xpdo/defining-a-schema/defining-relationships" title="Defining Relationships">relationships</a>, <a href="xpdo/2.x/class-reference/xpdoobject/related-object-accessors/addone" title="addOne">addOne</a> and <a href="xpdo/2.x/class-reference/xpdoobject/related-object-accessors/addmany" title="addMany">addMany</a>.
 </div>
 
 <p>
@@ -540,7 +540,7 @@ We have our lexicon structured nicely in our \core/components/quip/lexicon direc
 </p>
 
 <p>
-<img src="/download/attachments/18678073/quip-dir2.png?version=1&amp;modificationDate=1273237861000" />
+<img src="download/attachments/18678073/quip-dir2.png?version=1&amp;modificationDate=1273237861000" />
 </p>
 
 <p>
@@ -676,7 +676,7 @@ Basically, we're presenting them with a form before install that looks like this
 </p>
 
 <p>
-<img src="/download/attachments/18678073/setupopt.png?version=1&amp;modificationDate=1247328432000" />
+<img src="download/attachments/18678073/setupopt.png?version=1&amp;modificationDate=1247328432000" />
 </p>
 
 <p>
@@ -775,14 +775,14 @@ Related Pages
 
 <ul>
 <li>
-<a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/package-management" title="Package Management">Package Management</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Transport+Packages" title="Transport Packages">Transport Packages</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/package-management/transport-packages" title="Transport Packages">Transport Packages</a>
 </li>
 
 <li>
-<a href="/display/revolution20/Providers" title="Providers">Transport Providers</a>
+<a href="revolution/2.x/developing-in-modx/advanced-development/package-management/providers" title="Providers">Transport Providers</a>
 </li>
 </ul>

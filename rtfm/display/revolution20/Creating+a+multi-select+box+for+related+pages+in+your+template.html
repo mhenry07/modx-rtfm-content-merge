@@ -1,5 +1,5 @@
 <p>
-This brief tutorial will explain how you can make a client-proof&nbsp; "Related pages" template variable. This specific example will introduce you to several MODX subjects including writing custom <a href="/display/revolution20/Snippets" title="Snippets">snippets</a> and using <a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">custom output modifiers</a>, however there are many different ways to achieve the same result. This tutorial will hopefully allow you to get a deeper understanding of several of the used concepts and help you further develop highly customizable content editing.
+This brief tutorial will explain how you can make a client-proof&nbsp; "Related pages" template variable. This specific example will introduce you to several MODX subjects including writing custom <a href="revolution/2.x/developing-in-modx/basic-development/snippets" title="Snippets">snippets</a> and using <a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)" title="Input and Output Filters (Output Modifiers)">custom output modifiers</a>, however there are many different ways to achieve the same result. This tutorial will hopefully allow you to get a deeper understanding of several of the used concepts and help you further develop highly customizable content editing.
 </p>
 
 <h2 id="Creatingamulti-selectboxforrelatedpagesinyourtemplate-SettinguptheTemplateVariable">
@@ -19,14 +19,14 @@ Next link the Template Variable to the template that needs it on the "Template A
 </p>
 
 <p>
-To fill the template variable with some values, we will need to write simple snippet* and run it in the Input Options field. To do this we will be using what is known as an <a href="/display/revolution20/Bindings" title="Bindings">@BINDING</a>. Add the following code to the Input Options field:
+To fill the template variable with some values, we will need to write simple snippet* and run it in the Input Options field. To do this we will be using what is known as an <a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/bindings" title="Bindings">@BINDING</a>. Add the following code to the Input Options field:
 </p>
 
 <pre class="brush: php">
  @EVAL return $modx-&gt;runSnippet('listMyResources',array('parent' =&gt; 9));
 </pre>
 <p>
-This makes use of the <a href="/display/revolution20/EVAL+Binding" title="EVAL Binding">@EVAL binding</a> to wrap the rest of the input in an eval() PHP statement. This can be used to execute PHP, and therefore access the very powerful $modx object. We are then using that to use the runSnippet method which, well, runs a snippet, while passing the array in the second parameter as properties. In this case we are telling it that "parent" is equal to 9. The result of this snippet will then be returned - not echoed. This is needed to make sure it can be parsed and will not be placed on the page randomly.
+This makes use of the <a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/bindings/eval-binding" title="EVAL Binding">@EVAL binding</a> to wrap the rest of the input in an eval() PHP statement. This can be used to execute PHP, and therefore access the very powerful $modx object. We are then using that to use the runSnippet method which, well, runs a snippet, while passing the array in the second parameter as properties. In this case we are telling it that "parent" is equal to 9. The result of this snippet will then be returned - not echoed. This is needed to make sure it can be parsed and will not be placed on the page randomly.
 </p>
 
 <p>
@@ -158,7 +158,7 @@ $tpl = $modx-&gt;getOption('tpl',$scriptProperties,'relatedPagesTpl');
 if ($modx-&gt;getChunk($tpl) == '') { return 'We found some related pages, but don\'t know how to present it.'; }
 </pre>
 <p>
-What you see here is first checking if the $input variable (derived from the &amp;input property) is empty and return an error message if so. The reason we're using this directly and not in the way as shown with the $tpl variable (using modX::getOption) is because we could also use the snippet as an output filter, and when we do that we can assume the $input variable is set. <a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">More about output filters here</a>. On the second line we are first assigning a value to $tpl, which is either the "tpl" property passed in the snippet call, or the default of 'relatedPagesTpl'. On the third line we fetch the chunk by its name using modX::getChunk, and if that is empty (so it does not exist, or is empty) we return a nice error message.
+What you see here is first checking if the $input variable (derived from the &amp;input property) is empty and return an error message if so. The reason we're using this directly and not in the way as shown with the $tpl variable (using modX::getOption) is because we could also use the snippet as an output filter, and when we do that we can assume the $input variable is set. <a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)" title="Input and Output Filters (Output Modifiers)">More about output filters here</a>. On the second line we are first assigning a value to $tpl, which is either the "tpl" property passed in the snippet call, or the default of 'relatedPagesTpl'. On the third line we fetch the chunk by its name using modX::getChunk, and if that is empty (so it does not exist, or is empty) we return a nice error message.
 </p>
 
 <p>
@@ -261,22 +261,22 @@ Further reading..
 </h2>
 
 <ul>
-<li>?<a href="/display/revolution20/Template+Variable+Input+Types" title="Template Variable Input Types">Template Variable Input Types</a>
+<li>?<a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables/template-variable-input-types" title="Template Variable Input Types">Template Variable Input Types</a>
 </li>
 
-<li>?<a href="/display/revolution20/Input+and+Output+Filters" title="Input and Output Filters">Input and Output Filters</a>
-</li>
-
-<li>
-<a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">modX::getCollection</a>
+<li>?<a href="display/revolution20/Input+and+Output+Filters" title="Input and Output Filters">Input and Output Filters</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">modX::getObject</a>
+<a href="xpdo/2.x/class-reference/xpdo/xpdo.getcollection" title="xPDO.getCollection">modX::getCollection</a>
 </li>
 
 <li>
-<a href="/display/revolution20/modX.getChunk" title="modX.getChunk">modX::getChunk</a>
+<a href="xpdo/2.x/class-reference/xpdo/xpdo.getobject" title="xPDO.getObject">modX::getObject</a>
+</li>
+
+<li>
+<a href="revolution/2.x/developing-in-modx/other-development-resources/class-reference/modx/modx.getchunk" title="modX.getChunk">modX::getChunk</a>
 </li>
 </ul>
 

@@ -15,7 +15,7 @@ An Iterator is a special kind of Collection which is accessed sequentially so th
 </p>
 
 <h3 id="RetrievingObjects-xPDO::getObjectxPDO.getObject">
-<a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">xPDO::getObject</a>
+<a href="xpdo/2.x/class-reference/xpdo/xpdo.getobject" title="xPDO.getObject">xPDO::getObject</a>
 </h3>
 
 <p>
@@ -81,7 +81,7 @@ We'll discuss the third option, xPDOCriteria, later in the xPDOQuery and xPDOCri
 </p>
 
 <h3 id="RetrievingObjects-xPDO::getCollectionxPDO.getCollection">
-<a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO::getCollection</a>
+<a href="xpdo/2.x/class-reference/xpdo/xpdo.getcollection" title="xPDO.getCollection">xPDO::getCollection</a>
 </h3>
 
 <p>
@@ -106,7 +106,7 @@ foreach ($boxes as $box) {
 // yellow
 </pre>
 <h3 id="RetrievingObjects-xPDO::getIteratorxPDO.getIterator">
-<a href="/display/xPDO20/xPDO.getIterator" title="xPDO.getIterator">xPDO::getIterator</a>
+<a href="xpdo/2.x/class-reference/xpdo/xpdo.getiterator" title="xPDO.getIterator">xPDO::getIterator</a>
 </h3>
 
 <p>
@@ -135,11 +135,11 @@ Note that the index for each object when iterated over is not the primary key, u
 </div>
 
 <h3 id="RetrievingObjects-xPDO::newQueryxPDO.newQuery">
-<a href="/display/xPDO20/xPDO.newQuery" title="xPDO.newQuery">xPDO::newQuery</a>
+<a href="xpdo/2.x/class-reference/xpdo/xpdo.newquery" title="xPDO.newQuery">xPDO::newQuery</a>
 </h3>
 
 <p>
-One of the most powerful parts of xPDO is its ability to create complex queries in a simple fashion using the <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> wrapper. This class lets you build SQL queries using OOP methods that extend the xPDOCriteria class – you can pass its instance right into getObject or getCollection calls. The newQuery function creates an <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> object, and takes 3 parameters:
+One of the most powerful parts of xPDO is its ability to create complex queries in a simple fashion using the <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a> wrapper. This class lets you build SQL queries using OOP methods that extend the xPDOCriteria class – you can pass its instance right into getObject or getCollection calls. The newQuery function creates an <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a> object, and takes 3 parameters:
 </p>
 
 <ul>
@@ -167,11 +167,11 @@ $c-&gt;sortby('name','ASC');
 $boxes = $xpdo-&gt;getCollection('Box',$c);
 </pre>
 <p>
-Once you have your result, you can iterate over the array (see above). You can see the similarity between the defining a query object and passing a simple array to getObject or getCollection. So why use <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>? It's more flexible. Did you see how we could use it to specify the sorting order?
+Once you have your result, you can iterate over the array (see above). You can see the similarity between the defining a query object and passing a simple array to getObject or getCollection. So why use <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a>? It's more flexible. Did you see how we could use it to specify the sorting order?
 </p>
 
 <p>
-Next, let's use the query to join on a related table using <a href="/display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's create an example query using <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> that will grab the first 5 Boxes with width of 5 and an owner of ID 2, sorted by their name. Our "Box" table has a many-to-many relationship with the "BoxOwner" table.
+Next, let's use the query to join on a related table using <a href="xpdo/2.x/class-reference/xpdoquery/xpdoquery.innerjoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's create an example query using <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a> that will grab the first 5 Boxes with width of 5 and an owner of ID 2, sorted by their name. Our "Box" table has a many-to-many relationship with the "BoxOwner" table.
 </p>
 
 <pre class="brush: php">
@@ -186,7 +186,7 @@ $c-&gt;limit(5);
 $boxes = $xpdo-&gt;getCollection('Box',$c);
 </pre>
 <p>
-We can join on 3rd table ("Owner") by using another call to <a href="/display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's also grab the 2nd 5 Boxes by specifying an offset – it's a 2nd argument to the limit() function:
+We can join on 3rd table ("Owner") by using another call to <a href="xpdo/2.x/class-reference/xpdoquery/xpdoquery.innerjoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's also grab the 2nd 5 Boxes by specifying an offset – it's a 2nd argument to the limit() function:
 </p>
 
 <pre class="brush: php">
@@ -208,7 +208,7 @@ You can see that the sortby and where functions can take dot syntax on their par
 </p>
 
 <p>
-More information on <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> can be found <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">here</a>.
+More information on <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a> can be found <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">here</a>.
 </p>
 
 <h4 id="RetrievingObjects-Debugging">
@@ -230,7 +230,7 @@ xPDOCriteria
 </h3>
 
 <p>
-One of the most powerful parts of xPDO is its ability to create complex queries in a simple fashion using the <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> wrapper. This class lets you build SQL queries using OOP methods that extend the xPDOCriteria class – you can pass its instance right into getObject or getCollection calls. The newQuery function creates an <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> object, and takes 3 parameters:
+One of the most powerful parts of xPDO is its ability to create complex queries in a simple fashion using the <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a> wrapper. This class lets you build SQL queries using OOP methods that extend the xPDOCriteria class – you can pass its instance right into getObject or getCollection calls. The newQuery function creates an <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a> object, and takes 3 parameters:
 </p>
 
 <ul>
@@ -258,11 +258,11 @@ $c-&gt;sortby('name','ASC');
 $boxes = $xpdo-&gt;getCollection('Box',$c);
 </pre>
 <p>
-Once you have your result, you can iterate over the array (see above). You can see the similarity between the defining a query object and passing a simple array to getObject or getCollection. So why use <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>? It's more flexible. Did you see how we could use it to specify the sorting order?
+Once you have your result, you can iterate over the array (see above). You can see the similarity between the defining a query object and passing a simple array to getObject or getCollection. So why use <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a>? It's more flexible. Did you see how we could use it to specify the sorting order?
 </p>
 
 <p>
-Next, let's use the query to join on a related table using <a href="/display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's create an example query using <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> that will grab the first 5 Boxes with width of 5 and an owner of ID 2, sorted by their name. Our "Box" table has a many-to-many relationship with the "BoxOwner" table.
+Next, let's use the query to join on a related table using <a href="xpdo/2.x/class-reference/xpdoquery/xpdoquery.innerjoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's create an example query using <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a> that will grab the first 5 Boxes with width of 5 and an owner of ID 2, sorted by their name. Our "Box" table has a many-to-many relationship with the "BoxOwner" table.
 </p>
 
 <pre class="brush: php">
@@ -277,7 +277,7 @@ $c-&gt;limit(5);
 $boxes = $xpdo-&gt;getCollection('Box',$c);
 </pre>
 <p>
-We can join on 3rd table ("Owner") by using another call to <a href="/display/xPDO20/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's also grab the 2nd 5 Boxes by specifying an offset – it's a 2nd argument to the limit() function:
+We can join on 3rd table ("Owner") by using another call to <a href="xpdo/2.x/class-reference/xpdoquery/xpdoquery.innerjoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's also grab the 2nd 5 Boxes by specifying an offset – it's a 2nd argument to the limit() function:
 </p>
 
 <pre class="brush: php">
@@ -299,11 +299,11 @@ You can see that the sortby and where functions can take dot syntax on their par
 </p>
 
 <p>
-More information on <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> can be found <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">here</a>.
+More information on <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a> can be found <a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">here</a>.
 </p>
 
 <p>
-See also <a href="/display/xPDO20/xPDOQuery.where" title="xPDOQuery.where">xPDOQuery.where</a>
+See also <a href="xpdo/2.x/class-reference/xpdoquery/xpdoquery.where" title="xPDOQuery.where">xPDOQuery.where</a>
 </p>
 
 <h2 id="RetrievingObjects-Graphs">
@@ -393,7 +393,7 @@ if ($pages) {
 }
 </pre>
 <p>
-Please view the dedicated page:&nbsp; <a href="/display/xPDO20/getCollectionGraph" title="getCollectionGraph">getCollectionGraph</a>
+Please view the dedicated page:&nbsp; <a href="xpdo/2.x/getting-started/using-your-xpdo-model/retrieving-objects/getcollectiongraph" title="getCollectionGraph">getCollectionGraph</a>
 </p>
 
 <h2 id="RetrievingObjects-SeeAlso">
@@ -402,22 +402,22 @@ See Also
 
 <ul>
 <li>
-<a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">xPDO.getObject</a>
+<a href="xpdo/2.x/class-reference/xpdo/xpdo.getobject" title="xPDO.getObject">xPDO.getObject</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">xPDO.getCollection</a>
+<a href="xpdo/2.x/class-reference/xpdo/xpdo.getcollection" title="xPDO.getCollection">xPDO.getCollection</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/getCollectionGraph" title="getCollectionGraph">getCollectionGraph</a>
+<a href="xpdo/2.x/getting-started/using-your-xpdo-model/retrieving-objects/getcollectiongraph" title="getCollectionGraph">getCollectionGraph</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
+<a href="xpdo/2.x/class-reference/xpdoquery" title="xPDOQuery">xPDOQuery</a>
 </li>
 
 <li>
-<a href="/display/xPDO20/xPDO.newQuery" title="xPDO.newQuery">xPDO.newQuery</a>
+<a href="xpdo/2.x/class-reference/xpdo/xpdo.newquery" title="xPDO.newQuery">xPDO.newQuery</a>
 </li>
 </ul>
