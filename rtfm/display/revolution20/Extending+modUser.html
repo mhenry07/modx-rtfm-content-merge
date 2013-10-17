@@ -1,0 +1,1338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+            <title>Extending modUser - MODx Revolution 2.x - MODX Documentation</title>
+    
+        
+
+                        
+    
+
+            
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="atlassian-token" name="atlassian-token" content="OAm3fcNMVh">
+<meta id="confluence-space-key" name="confluence-space-key" content="revolution20">
+
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+    
+
+<!-- include system css resources -->
+<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?media=print" media="print">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
+<![endif]-->
+
+<!-- end system css resources -->
+
+    <link rel="stylesheet" href="/s/1911/69/6/_/styles/combined.css?spaceKey=revolution20" type="text/css">
+
+    <meta name="confluence-request-time" content="1381731348778">
+
+<meta name="loggedInUsername" content="">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/s/1911/69/_/images/logo/confluence_16.png">
+
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="MODX Documentation"/>
+
+        <!-- include system javascript resources -->
+                        
+    
+    <script type="text/javascript" src="/s/1911/69/2/_/download/superbatch/js/batch.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
+<script type="text/javascript" src="/s/1911/69/3.3/_/download/batch/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.2/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
+
+    <!-- end system javascript resources -->
+
+    <link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/docs.css" />
+<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/syntaxhighlighter/css/all.css" />
+<!--<script type="text/javascript" src="http://misc.modx.com/js/jquery-1.3.2.min.js"></script>-->
+<script type="text/javascript" src="http://misc.modx.com/confluence/syntaxhighlighter/js/all.js"></script>
+<script type="text/javascript" src="http://misc.modx.com/confluence/loadcode.js"></script>
+<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/promo/ad.css" />
+
+    
+    <link rel="canonical" href="http://oldrtfm.modx.com/display/revolution20/Extending+modUser">
+    <link rel="shortlink" href="http://oldrtfm.modx.com/x/D4BSAQ">
+    <meta name="wikilink" content="[revolution20:Extending modUser]">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-documentation ">
+<div id="full-height-container">
+<!-- CODE FOR AD THAT SEEMS TO BE INSERTABLE DIRECTLY AFTER OPEN BODY TAG IN CONFLUENCE THEME ADMIN -->
+<!--<a href="https://modxcloud.com/signup/lab-account.html?utm_source=rtfm&utm_medium=banner&utm_campaign=one_percent%2B" class="modx-cloud-link">
+    <div class="modx-cloud-ad-wrap">
+        <div class="modx-cloud-ad">
+            <div class="logo-wrap">
+                <img src="http://misc.modx.com/confluence/promo/modx-cloud-logo.png" alt="MODX Cloud" width="161" height="40">
+            </div>
+            <p>The Most Productive MODX Learning Playground Ever</p>
+            <span class="faux-btn">
+                Claim Free Lab Account
+            </span>
+
+        </div>
+    </div>
+</a>-->
+<!-- END OF AD -->
+
+<div class="editors_note" style="background-color:#ff9a91;border: 1px solid red; padding:5px;color:black;">
+    <strong>Important Note:</strong> This is an archive of the official MODX Documentation. Please do not edit or make changes here.  The current documentation is located at <a href="rtfm.modx.com">rtfm.modx.com</a>.
+</div>
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
+    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
+    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
+    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
+    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
+</fieldset>
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
+    <input type="hidden" id="userLocale" value="en_GB">
+    <input type="hidden" id="staticResourceUrlPrefix" value="/s/1911/69/_">
+    <input type="hidden" id="contextPath" value="">
+</fieldset>
+
+    
+<div id="header" class="sectionbottom ">
+        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
+        <fieldset>
+            <legend>Quick Search</legend>
+            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
+            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
+            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
+        </fieldset>
+        <fieldset class="hidden parameters">
+            <input type="hidden" id="quickNavEnabled" value="true" />
+                    </fieldset>
+    </form>
+    <ul id="header-menu-bar" class="ajs-menu-bar">
+                    
+        
+            <li class="normal ajs-menu-item">
+        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
+                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
+                                        <li>
+    
+        
+    
+    <a  id="space-pages-link" href="/pages/listpages.action?key=revolution20"  class=""   title="Attachments: 1">
+                   <span>Pages</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=revolution20"  class=""   title="Attachments: 1">
+                   <span>Blog</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=revolution20"  class=""   title="Attachments: 1">
+                   <span>Labels</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=revolution20"  class=""   title="Attachments: 1">
+                   <span>Attachments</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/spaces/space-bookmarks.action?spaceKey=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
+                   <span>Bookmarks</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
+                   <span>Mail</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
+                   <span>Advanced</span></a>        </li>
+                            </ul>
+                        <ul  id="browse-menu-link-global"                 class="section-global">
+                                        <li>
+    
+            
+    
+    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
+                   <span>Confluence Gadgets</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+        
+                                                         <li class="ajs-menu-item normal">
+        
+        
+    
+    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FExtending%2BmodUser"  class="user-item login-link"  >
+                   <span>Log In</span></a>        </li>
+                                <li class="normal ajs-menu-item">
+            <div id="splitter-button" class="hidden" title="Sidebar"></div>
+        </li>
+
+    </ul>
+    
+    
+    <ol id="breadcrumbs">
+                    
+        <li class="first" >
+                                    <span><a href="/dashboard.action">Dashboard</a></span>
+                </li>
+                    
+        <li>
+                                    <span><a href="/display/revolution20">MODx Revolution 2.x</a></span>
+                </li>
+                                        <li id="ellipsis" title="    &#8230;
+                    Home
+             &gt;         Developing in MODx
+        &#8230;
+"><span><strong>&#8230;</strong></span></li>
+                                    
+        <li class="hidden-crumb" >
+                                    <span><a href="/display/revolution20/Home">Home</a></span>
+                </li>
+                                
+        <li class="hidden-crumb" >
+                                    <span><a href="/display/revolution20/Developing+in+MODx">Developing in MODx</a></span>
+                </li>
+                    
+        <li>
+                                    <span><a href="/display/revolution20/Advanced+Development">Advanced Development</a></span>
+                </li>
+                    
+        <li>
+                                    <span>Extending modUser</span>
+                </li>
+        </ol>
+
+</div>
+
+    <div id="splitter">
+    <div id="splitter-sidebar">
+
+        
+
+                    
+    
+    
+
+<div class="plugin_pagetree">
+
+                <div id="pagetreesearch">
+            <form method="POST" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
+                                    <input type="hidden" name="ancestorId" value="18678050">
+                                <input type="hidden" name="spaceKey" value="revolution20">
+                <input type="text"  size="20" name="queryString">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children">
+        </div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
+        <input type="hidden" name="treePageId" value="22183951">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="18678050">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="revolution20" >
+
+        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FExtending%2BmodUser">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="18678466">
+                                    <input type="hidden" name="ancestorId" value="18678458">
+                                    <input type="hidden" name="ancestorId" value="18678050">
+                                    </fieldset>
+    </fieldset>
+</div>
+
+
+
+            </div>
+    <div id="splitter-content">
+
+                    <script type="text/javascript" src="/s/1911/69/2/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
+    
+            
+    
+<div id="main" >
+    
+    
+    <div id="navigation" class="content-navigation view">
+        <fieldset class="hidden parameters">
+            <input type="hidden" id="pageId" value="22183951">
+        </fieldset>
+        <ul class="ajs-menu-bar">
+                                
+                        
+            <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
+                        <ul  id="action-menu-link-primary"                 class="section-primary first">
+                                        <li>
+    
+        
+    
+    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=22183951"  class="action-view-attachments"  accessKey="a" >
+                   <span><u>A</u>ttachments (1)</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=22183951"  class="action-view-history"  >
+                   <span>Page History</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="mailPageLink" href="/pages/mailpage/mailpage.action?pageId=22183951"  class=""  >
+                    <span>
+                <img alt="E-mail" src="/images/icons/mail_content_16.gif" height="16" width="16" title="E-mail">
+                E-mail
+            </span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=22183951"  class="action-page-permissions"  >
+                   <span>Restrictions</span></a>        </li>
+                            </ul>
+                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
+                                        <li>
+    
+        
+    
+    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=22183951"  class="action-view-info"  >
+                   <span>Info</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=22183951"  class=""  >
+                   <span>Link to this Page&hellip;</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=revolution20&openId=22183951#selectedPageInHierarchy"  class=""  >
+                   <span>View in Hierarchy</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=22183951"  class="action-view-source popup-link"  >
+                   <span>View Wiki Markup</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+    
+    <h1 id="title-heading" class="pagetitle">
+                    <a href="/display/revolution20"><img class="logo global custom" src="/download/attachments/9109505/global.logo?version=2&modificationDate=1356105314000" alt=""></a>        
+		<span id="title-text">
+					            <a href="/display/revolution20/Extending+modUser">Extending modUser</a>
+    				</span>
+    </h1>
+
+    
+
+    
+    
+    
+    <div id="content" class="page view">
+    
+
+
+
+<fieldset id="link-to-page-fields" class="hidden parameters">
+    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
+    <input type="hidden" id="linkToThisPageLink" value="Link">
+    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
+    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
+    <input type="hidden" id="linkToThisPageClose" value="Close">
+</fieldset>
+<fieldset class="hidden parameters">
+    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;Extending modUser&#8217;">
+    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
+    <input type="hidden" title="movePageDialogMoveButton" value="Move">
+    <input type="hidden" title="movePageDialogOkButton" value="OK">
+    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
+    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
+    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
+    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
+    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
+    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
+    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
+    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
+    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
+    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
+    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
+    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
+    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
+    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
+    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
+    <input type="hidden" title="pageTitle" value="Extending modUser"/>
+    <input type="hidden" title="parentPageTitle" value="Advanced Development"/>
+    <input type="hidden" title="fromPageTitle" value=""/>
+    <input type="hidden" title="spaceKey" value="revolution20"/>
+    <input type="hidden" title="spaceName" value="MODx Revolution 2.x"/>
+    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
+    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
+    <input type="hidden" title="movePageDialogBackButton" value="Back"/>
+    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder"/>
+    <input type="hidden" title="movePageDialogNextButton" value="Move"/>    
+</fieldset>
+
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        Specify the new parent page for this page and its children by space and title.
+    </div>
+    <div class="form">
+        <fieldset>
+            
+
+    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
+            <div class="row">
+                <label for="new-space">New space:</label>
+                <div class="value new-space-value">
+                    <input id="new-space-key" name="new-space-key" type="hidden" value="revolution20">
+                                            <span class="space-input">
+                            <input id="new-space" name="new-space" value="MODx Revolution 2.x" disabled="disabled">
+                        </span>
+                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
+                                        <div class="new-space-dropdown aui-dd-parent"></div>
+                </div>
+            </div>
+            <div class="row">
+                <label for="new-parent-page">New parent page:</label>
+                <div class="value new-parent-page-value">
+                    <span class="page-input">
+                        <input id="new-parent-page" name="new-parent-page" value="Advanced Development">
+                    </span>
+                    <span class="description">Start typing a page title to see a list of suggestions.</span>
+                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="location-info">
+        <div class="row">
+            <label>Current location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>New location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageErrors">
+    <div id="move-errors" class="hidden warning"></div>
+</script>
+<script type="text/x-template" title="movePageBreadcrumb">
+    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbLoading">
+    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbError">
+    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
+</script>
+<script type="text/x-template" title="movePageNoMatchingPages">
+    <ol><li><span class="warning">No matching pages found.</span></li></ol>
+</script>
+<script type="text/x-template" title="movePageNoMatchingSpaces">
+    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+<div class="row information">
+    Search for and select the new parent page for this page and its children.
+</div>
+<div id="move-page-search-container" class="row">
+    <div class="search-form">
+        <fieldset>
+            
+
+    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
+            
+
+    <label  for="move-page-search-query" class="assistive">Search keywords</label>
+            <input class="search-query" id="move-page-search-query">
+            
+
+    <label  for="move-page-search-space" class="assistive">Search in space</label>
+                            <select id="move-page-search-space" class="search-space" disabled="disabled">
+                    <option value="revolution20" selected="selected">MODx Revolution 2.x</option>
+                </select>
+                        <input type="button" value="Search">
+                            <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
+                    </fieldset>
+    </div>
+    <div class="search-results">
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="movePageSearchResultsLoading">
+    <div class="searching">Searching…</div>
+</script>
+
+<script type="text/x-template" title="movePageHistoryPanel">
+<div class="row information">
+    Select the new parent page for this page and its children from your history.
+</div>
+<div id="move-page-search-container" class="row">
+    <div class="search-results">
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="movePageHistoryLoading">
+    <div class="searching">Loading…</div>
+</script>
+<script type="text/x-template" title="movePageBrowsePanel">
+    <div class="row information">
+        Click to select the new parent page for this page and its children.
+    </div>
+    <div class="tree"></div>
+</script>
+<script type="text/x-template" title="movePagePanelLoading">
+    <span>Loading…</span>
+</script>
+<script type="text/x-template" title="movePageBrowsePanelSpace">
+    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
+</script>
+<script type="text/x-template" title="orderingPagePanel">
+<div id="orderingPlaceHolder"></div>
+</script>
+<script type="text/x-template" title="reorderCheckbox">
+<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
+</script>
+<script type="text/x-template" title="move-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-33/Moving+a+Page" target="_blank">Help</a>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table>
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+<!-- Start restrictions section -->
+<fieldset class="hidden parameters i18n">
+        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
+        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
+        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
+        <input type="hidden" id="i18n.cancel.name" value="Cancel">
+        <input type="hidden" id="i18n.close.name" value="Close">
+        <input type="hidden" id="i18n.update.name" value="Save">
+</fieldset>
+
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+
+                <div id="page-permissions-error-div" class="hidden">
+            <a href="#" id="permissions-error-div-close">Ok</a>
+            <div></div>
+        </div>
+
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div>
+                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">Restrict viewing of this page</label>
+                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">Restrict editing of this page</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">To:</div>
+            <div id="page-permissions-chooser-box">
+                                <span id="page-permissions-choose-user" class="ajs-button">
+                    
+
+
+
+    
+
+
+
+<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
+<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="ajs-button">
+                    
+
+
+
+    
+
+ 
+
+<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
+<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                                <span>
+                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
+                </span>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1911/69/_/images/border/spacer.gif"/>
+                <input type="button" id="add-typed-names" value="Restrict">
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">Show/Hide</a>
+                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/x-template" title="permissions-row-template">
+    <tr class="permission-row">
+                                
+                <td class="page-permissions-marker-cell" width="20%">
+            <span>Viewing restricted to:</span>
+        </td>
+                <td class="permission-entity" nowrap="true" width="40%">
+            <span class="entity-container">
+                <img class="permission-entity-picture"/>
+                <span class="permission-entity-display-name"></span>
+                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
+            </span>
+        </td>
+        <td class="permission-detail-column">
+            <div class="permission-remove-div">
+                <a href="#" class="remove-permission-link">Remove restriction</a>
+            </div>
+        </td>
+    </tr>
+</script>
+<script type="text/x-template" title="permissions-username-no-suggestion-template">
+    <ol>
+        <li><a href="#" class="message"><span>No matches</span></a></li>
+    </ol>
+</script>
+<script type="text/x-template" title="page-inherited-permissions-table-div-template">
+        <div class="page-inherited-permissions-owner-div">
+        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
+        <table class="page-permissions-table"></table>
+    </div>
+</script>
+<script type="text/x-template" title="page-restrictions-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-33/Page+Restrictions" target="_blank">Help</a>
+    </div>
+</script>
+<!-- End restrictions section -->
+
+        
+    
+    
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="parentPageId" value="18678466">
+        </fieldset>
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+                            <li class="page-metadata-item noprint">
+    
+            
+    
+    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Page restrictions apply</span></a>        </li>
+                            <li class="page-metadata-item noprint">
+    
+        
+    
+    <a  id="content-metadata-attachments" href="/pages/viewpageattachments.action?pageId=22183951&metadataLink=true"  class="page-metadata-icon action-view-attachments"  accessKey="a"  title="Attachments: 1">
+                   <span><span class="page-metadata-attachments-text">Attachments:</span><span class="page-metadata-attachments-count">1</span></span></a>        </li>
+                        <li class="page-metadata-modification-info">
+                                    Added by <a href="/display/~wshawn"
+                          class="url fn"
+                   >W. Shawn Wilkerson</a>, last edited by <a href="/display/~everettg_99"
+                          class="url fn"
+                   >Everett Griffiths</a> on May 31, 2012
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=22183951&originalId=39355658">view change</a>)</span>
+                                                </li>
+                    </ul>
+          <div id="version-comment" class="noteMacro" style="display: none;">
+      <strong>Comment:</strong>
+      <br />
+  </div>
+    </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+        
+        <fieldset class="hidden parameters">
+                        <input type="hidden" title="browsePageTreeMode" value="view">
+        </fieldset>
+
+        <div class="wiki-content">
+           <!-- wiki content -->
+            <div>
+<ul>
+    <li><a href='#ExtendingmodUser-IntendedAudience'>Intended Audience</a></li>
+<ul>
+    <li><a href='#ExtendingmodUser-SeeAlso'>See Also</a></li>
+</ul>
+    <li><a href='#ExtendingmodUser-Overview'>Overview</a></li>
+    <li><a href='#ExtendingmodUser-Purpose'>Purpose</a></li>
+    <li><a href='#ExtendingmodUser-TheRules'>The Rules</a></li>
+    <li><a href='#ExtendingmodUser-StepstoextendingmodUser'>Steps to extending modUser</a></li>
+<ul>
+    <li><a href='#ExtendingmodUser-1.%29Createtheschemaandgenerateamodel'>1. ) Create the schema and generate a model</a></li>
+<ul>
+    <li><a href='#ExtendingmodUser-SimpleExample'>Simple Example</a></li>
+    <li><a href='#ExtendingmodUser-MoreInvolvedExample'>More Involved Example</a></li>
+</ul>
+    <li><a href='#ExtendingmodUser-2.%29Edittheextuser.class.php'>2.) Edit the extuser.class.php</a></li>
+    <li><a href='#ExtendingmodUser-3.%29Create%28oredit%29extensionpackagesinSystemSettings'>3.) Create (or edit) <em>extension_packages in System Settings</em></a></li>
+    <li><a href='#ExtendingmodUser-4.%29FinalStepCreateaclasstoaccessandutilizeyourextendedclass'>4.) Final Step Create a class to access and utilize your extended class</a></li>
+<ul>
+    <li><a href='#ExtendingmodUser-SimpleExample'>Simple Example</a></li>
+    <li><a href='#ExtendingmodUser-Morecomplexexample'>More complex example</a></li>
+    <li><a href='#ExtendingmodUser-5.%29Accessingtheclass'>5.) Accessing the class</a></li>
+</ul>
+</ul>
+    <li><a href='#ExtendingmodUser-Noteworthyitems'>Noteworthy items</a></li>
+    <li><a href='#ExtendingmodUser-Suggestedadditionalconsiderations'>Suggested additional considerations</a></li>
+    <li><a href='#ExtendingmodUser-ExtendedmodUserClassescurrentlyAvailable'>Extended modUser Classes currently Available</a></li>
+</ul></div>
+
+<h2><a name="ExtendingmodUser-IntendedAudience"></a>Intended Audience</h2>
+
+<p>This article is for developers who are looking to add additional data to their MODX users and functionality to the related classes.  Although this is possible via a less integrated approach by simply adding a database table that includes a foreign key relation back to the original MODX users table, the approach outlined here is for a more thorough integration via extending the core modUser class.  The steps here are highly technical and they rely on MODX's underlying xPDO framework.  You should have some familiarity with xPDO's objects and methods (e.g. <a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a>) before attempting this tutorial.</p>
+
+<h3><a name="ExtendingmodUser-SeeAlso"></a>See Also </h3>
+
+<ul>
+	<li><a href="/display/revolution20/Reverse+Engineer+xPDO+Classes+from+Existing+Database+Table" title="Reverse Engineer xPDO Classes from Existing Database Table">Reverse Engineer xPDO Classes from Existing Database Table</a></li>
+	<li><a href="/display/xPDO20/More+Examples+of+xPDO+XML+Schema+Files" title="More Examples of xPDO XML Schema Files">More Examples of xPDO XML Schema Files</a></li>
+	<li><a href="/display/xPDO20/Generating+the+Model+Code" title="Generating the Model Code">Generating the Model Code</a></li>
+</ul>
+
+
+
+<h2><a name="ExtendingmodUser-Overview"></a>Overview</h2>
+
+<p>By extending the MODx Revolution authentication layer we can build very complex and varied user subsystems, e.g. for social networking, user management systems, or other applications not yet conceptualized. This ability to extend the modUser class is just one example of how to extend a core class &#8211; a similar approach could be used to extend any MODX core class.</p>
+
+<h2><a name="ExtendingmodUser-Purpose"></a>Purpose</h2>
+
+<p>Extending modUser is for those situations when user authentication or user interaction need to be extended or enhanced, e.g. for easier custom authentication.</p>
+
+
+<h2><a name="ExtendingmodUser-TheRules"></a>The Rules</h2>
+
+<p>Extending modUser does <em>not</em> mean we are adding anything to the <em>modx</em>&#95;users table in the database. Instead, we will be adding a separate related table, bound to the original table via a foreign key.  At no time should an extended application actually attempt to completely replace the modUser Class.  We use the modUser class as our foundation and we build on it. The only indication that the user has been extended will be found by the class_key being changed from "modUser" to the extended class name.</p>
+
+<p>Your extension should be used to access <b>your extension</b>. If the user (object) has not been extended, do not allow your extension to interact with them &#45;&#45; hence: let your extension die.</p>
+
+<p>MODx Revolution already handles users and probably does not need much help. While we may use your extension on &#42;our&#42; data, please do not begin writing "bloat" which is simply repeating code already provided in the modUser class.&nbsp; In other words use the Revolution resources for your extended users, but do not create code to replace modUser.</p>
+
+<p>Lastly, get familiar with <a href="/display/revolution20/modUser" title="modUser">modUser</a>, before you begin to code.&nbsp; Some methods are not one-to-one as you might assume, such as attributes, which can be assigned per context, resource, etc. Typically use the modUser suggestions to access modUser methods.</p>
+
+
+
+<h2><a name="ExtendingmodUser-StepstoextendingmodUser"></a>Steps to extending modUser</h2>
+
+<h3><a name="ExtendingmodUser-1.%29Createtheschemaandgenerateamodel"></a>1. ) Create the schema and generate a model</h3>
+
+<p>The first thing we need to accomplish, is to create an extended user schema which extends modUser.&nbsp; Please note that there is no aggregate relation upwards from your "main" class which is extending modUser. </p>
+
+<h4><a name="ExtendingmodUser-SimpleExample"></a>Simple Example</h4>
+
+<p>The simplest example we could imagine is that we want to add a single extra attribute to the user data &#8211; so in the database, this would mean we have a separate table with 2 columns: one for the foreign key relation back to the <b>modx_users</b> table, and the other column containing our new "extra" attribute, e.g. a <em>fackbook_url</em>:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;model <span class="code-keyword">package</span>=<span class="code-quote">"extendeduser"</span> baseClass=<span class="code-quote">"xPDOObject"</span> platform=<span class="code-quote">"mysql"</span> defaultEngine=<span class="code-quote">"MyISAM"</span> tablePrefix=<span class="code-quote">"ext_"</span>&gt;
+	&lt;!-- extend the modUser class --&gt;
+	&lt;object class=<span class="code-quote">"extUser"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"modUser"</span>&gt;
+		&lt;composite alias=<span class="code-quote">"Data"</span> local=<span class="code-quote">"id"</span> class=<span class="code-quote">"Userdata"</span> foreign=<span class="code-quote">"userdata_id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"local"</span> /&gt;
+	&lt;/object&gt;
+
+   	&lt;object class=<span class="code-quote">"Userdata"</span> table=<span class="code-quote">"data"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
+   		&lt;field key=<span class="code-quote">"userdata_id"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"11"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> attributes=<span class="code-quote">"unsigned"</span>/&gt;
+		&lt;field key=<span class="code-quote">"facebook_url"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"100"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+		&lt;index alias=<span class="code-quote">"userdata_id"</span> name=<span class="code-quote">"userdata_id"</span> primary=<span class="code-quote">"<span class="code-keyword">false</span>"</span> unique=<span class="code-quote">"<span class="code-keyword">true</span>"</span> type=<span class="code-quote">"BTREE"</span>&gt;
+        	    &lt;column key=<span class="code-quote">"userdata_id"</span> length=<span class="code-quote">"" collation="</span>A<span class="code-quote">" <span class="code-keyword">null</span>="</span><span class="code-keyword">false</span>" /&gt;
+        	&lt;/index&gt;
+		&lt;aggregate alias=<span class="code-quote">"extUser"</span> local=<span class="code-quote">"userdata_id"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
+	&lt;/object&gt;
+ &lt;/model&gt;
+</pre>
+</div></div>
+
+<p>Note that the extending of modUser class happens all within that single <em>object</em> node.  Also notice that we specify the prefix for our ancillary table in the <em>model</em> node: <b>ext_</b> </p>
+
+<h4><a name="ExtendingmodUser-MoreInvolvedExample"></a>More Involved Example</h4>
+
+<p>Note that the <em>index="unique"</em> bit has been deprecated &#8211; the index declaration should go into its own node as in the example above.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
+&lt;model <span class="code-keyword">package</span>=<span class="code-quote">"extendeduser"</span> baseClass=<span class="code-quote">"xPDOObject"</span> platform=<span class="code-quote">"mysql"</span> defaultEngine=<span class="code-quote">"MyISAM"</span> tablePrefix=<span class="code-quote">"ext_"</span>&gt;
+    &lt;!-- inherit the modx user and extend it --&gt;
+    &lt;object class=<span class="code-quote">"extUser"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"modUser"</span>&gt;
+        &lt;composite alias=<span class="code-quote">"Phones"</span> local=<span class="code-quote">"id"</span> foreign=<span class="code-quote">"user"</span> cardinality=<span class="code-quote">"many"</span> owner=<span class="code-quote">"local"</span> /&gt;
+        &lt;composite alias=<span class="code-quote">"Table2"</span> local=<span class="code-quote">"id"</span> foreign=<span class="code-quote">"user"</span> cardinality=<span class="code-quote">"many"</span> owner=<span class="code-quote">"local"</span> /&gt;
+    &lt;/object&gt;
+
+    &lt;!-- track all user phone numbers --&gt;
+    &lt;object table=<span class="code-quote">"phone_numbers"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
+        &lt;field key=<span class="code-quote">"user"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"0"</span> index=<span class="code-quote">"index"</span> /&gt;
+        &lt;field key=<span class="code-quote">"areacode"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"3"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>="" /&gt;
+        &lt;field key=<span class="code-quote">"number"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"7"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>="" /&gt;
+        &lt;aggregate alias=<span class="code-quote">"extUser"</span> local=<span class="code-quote">"user"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
+    &lt;/object&gt;
+
+    &lt;!-- user extension --&gt;
+    &lt;object table=<span class="code-quote">"table2"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
+        &lt;field key=<span class="code-quote">"user"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"0"</span> index=<span class="code-quote">"index"</span> /&gt;
+        &lt;field key=<span class="code-quote">"myspaceurl"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> /&gt;        
+        &lt;aggregate alias=<span class="code-quote">"extUser"</span> local=<span class="code-quote">"user"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
+    &lt;/object&gt;
+&lt;/model&gt;
+</pre>
+</div></div>
+
+<p>You will need to parse and create the model map associated with this schema. As this process is out of the scope of this topic, please refer to <a href="/display/revolution20/Using+Custom+Database+Tables+in+your+3rd+Party+Components" title="Using Custom Database Tables in your 3rd Party Components">Using Custom Database Tables in your 3rd Party Components</a> for further information.</p>
+
+
+<h3><a name="ExtendingmodUser-2.%29Edittheextuser.class.php"></a>2.) Edit the extuser.class.php</h3>
+
+<p>To access the extended class, we have to inform modUser that the user in question has been extended. The <em>modx</em>&#95;users table in the database contains a field specifically for this purpose: class_key. The default value in this field is modUser. As users are added to your site using your extension we need to "force" the name of our "main" class in the schema, namely extUser in our example.</p>
+
+<p>Edit the extuser.class.php file created when you generated the model. The specific file is the one found in the top of the model tree (you should see a mysql directory) in this same folder. Edit the file to resemble the following:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+ &lt;?php
+/**
+ * @<span class="code-keyword">package</span> extendeduser
+ * @subpackage user.mysql
+ */
+class extUser <span class="code-keyword">extends</span> modUser {
+    function __construct(xPDO &amp; $xpdo) {
+        parent::__construct($xpdo);
+        $<span class="code-keyword">this</span>-&gt;set('class_key','extUser');
+    }
+}
+?&gt;
+</pre>
+</div></div>
+
+<h3><a name="ExtendingmodUser-3.%29Create%28oredit%29extensionpackagesinSystemSettings"></a>3.) Create (or edit) <em>extension_packages in System Settings</em></h3>
+
+<p>Access the System settings found in the System menu of the manager, and search for <a href="/display/revolution20/extension_packages" title="extension_packages">extension&#95;packages</a>.</p>
+
+<p><b>If the key already exists</b>, add inside the json array</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+,{<span class="code-quote">"extendeduser"</span>:{<span class="code-quote">"path"</span>:<span class="code-quote">"[[++core_path]]components/extendeduser/model/"</span>}}
+</pre>
+</div></div>
+
+<p><b>If the key does not exists</b></p>
+
+<ul>
+	<li>&nbsp;Create a new system setting with name of extension_packages</li>
+	<li>Key of extension_packages</li>
+	<li>Fieldtype: Textfield</li>
+	<li>value&nbsp;
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+[{<span class="code-quote">"extendeduser"</span>:{<span class="code-quote">"path"</span>:<span class="code-quote">"[[++core_path]]components/extendeduser/model/"</span>}}]
+</pre>
+</div></div></li>
+</ul>
+
+
+
+<h3><a name="ExtendingmodUser-4.%29FinalStepCreateaclasstoaccessandutilizeyourextendedclass"></a>4.) Final Step Create a class to access and utilize your extended class</h3>
+
+<p>The whole reason for extending a core class is so you could interact with your extended data more easily.  So at some point in a Snippet or Plugin or CMP, you'd be working with your new data.</p>
+
+<h4><a name="ExtendingmodUser-SimpleExample"></a>Simple Example</h4>
+
+<p>Here's how you might interact with your extended data in a Snippet:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+$modx-&gt;addPackage('extendeduser', MODX_CORE_PATH . 'components/extendeduser/model/', 'ext_');
+$user = $modx-&gt;getObject('extUser', 123); <span class="code-comment">// where 123 is the id of a user
+</span>$data = $user-&gt;getOne('Data'); <span class="code-comment">// use the alias from the schema
+</span><span class="code-comment">// toArray will print all the extra data, e.g. facebook_url
+</span><span class="code-keyword">return</span> print_r($data-&gt;toArray(), <span class="code-keyword">true</span>);  
+</pre>
+</div></div>
+
+<h4><a name="ExtendingmodUser-Morecomplexexample"></a>More complex example</h4>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+ &lt;?php
+/**
+ *  File        sample.class.php (requires MODx Revolution 2.x)
+ * Created on    Aug 18, 2010
+ * Project        shawn_wilkerson
+ * @<span class="code-keyword">package</span>     extendedUser
+ * @version    1.0
+ * @category    User Extension
+ * @author        W. Shawn Wilkerson
+ * @link        http:<span class="code-comment">//www.shawnWilkerson.com
+</span> * @copyright  Copyright (c) 2010, W. Shawn Wilkerson.  All rights reserved.
+ * @license      GPL
+ *
+ */
+<span class="code-keyword">if</span> (!class_exists('Sampleclass')) {
+    class Sampleclass
+    {
+        function __construct(modX &amp; $modx, array $config= array ()) {
+
+            /* Import modx as a reference */
+            $<span class="code-keyword">this</span>-&gt;modx= &amp; $modx;
+
+            /* Establish the environment */
+            $<span class="code-keyword">this</span>-&gt;extPath= $modx-&gt;getOption('core_path',<span class="code-keyword">null</span>, MODX_CORE_PATH).'components/extendeduser/';
+            $<span class="code-keyword">this</span>-&gt;modx-&gt;addPackage('extendeduser', $<span class="code-keyword">this</span>-&gt;extPath .'model/', 'ut_');
+            $<span class="code-keyword">this</span>-&gt;_config= array_merge(array (
+                'userID' =&gt; $<span class="code-keyword">this</span>-&gt;modx-&gt;user-&gt;get('id'),
+            ), $config);
+
+            /* Define the user */
+            $<span class="code-keyword">this</span>-&gt;userObj = $<span class="code-keyword">this</span>-&gt;setUser($<span class="code-keyword">this</span>-&gt;_config['userID']);
+            $<span class="code-keyword">this</span>-&gt;userID = $<span class="code-keyword">this</span>-&gt;userObj-&gt;get('id');
+        }
+
+        function __destruct() {
+            unset ($<span class="code-keyword">this</span>-&gt;extPath, $<span class="code-keyword">this</span>-&gt;userObj, $<span class="code-keyword">this</span>-&gt;userID, $<span class="code-keyword">this</span>-&gt;_config);
+        }
+
+        /**
+         * Returns object of type Phone.
+         */
+        <span class="code-keyword">public</span> function getPhoneObj() {
+            $<span class="code-keyword">this</span>-&gt;userObj-&gt;getOne('Phones');
+            <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;userObj-&gt;Phones;
+        }
+
+        /**
+         * Returns object utUser instance of modUser Defaults to current user.
+         * @param $userID
+         */
+        <span class="code-keyword">public</span> function getUserObj($userID) {
+            <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;modx-&gt;getObject('modUser', $userID);
+        }
+
+        /**
+         * Establishes the user.
+         * @param <span class="code-object">int</span> $userID
+         */
+        <span class="code-keyword">public</span> function setUser($userID){
+            <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;getUserObj($userID);
+        }
+    }
+}
+</pre>
+</div></div>
+
+<h4><a name="ExtendingmodUser-5.%29Accessingtheclass"></a>5.) Accessing the class</h4>
+
+<p>In our example we will be accessing our extended user throughout our site, therefore we load it as a service as shown in the following example:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+ &lt;?php
+$x = $modx-&gt;getService('extendeduser','Sampleclass',$modx-&gt;getOption('core_path',<span class="code-keyword">null</span>, MODX_CORE_PATH).'components/extendeduser/',$scriptProperties);
+<span class="code-keyword">if</span> (!($x <span class="code-keyword">instanceof</span> Extendeduser)) {
+    $modx-&gt;log(modX::LOG_LEVEL_ERROR,'[Extendeduser] Could not load Extendeduser class.');
+    $modx-&gt;event-&gt;output(<span class="code-keyword">true</span>);
+}
+<span class="code-keyword">return</span>;
+</pre>
+</div></div>
+
+<h2><a name="ExtendingmodUser-Noteworthyitems"></a>Noteworthy items</h2>
+
+<ol>
+	<li>Any pre existing user, will still have modUser as the class_key and therefore will <b>not</b> be extended or produce user objects of type extUser unless you change it</li>
+	<li>Double check the modx.mysql.schema.xml file to make sure you are not using classes or alias it is already using, as yours will supersede the default moduser prohibiting you access to items such as the user attributes (with alias Profile)</li>
+	<li>The extUser will <b>not</b> have a table created in the database, but the attached relations will</li>
+	<li>The extended class table(s) <b>must</b> be in the same database as the regular <em>modx</em>&#95;users table</li>
+	<li>Symptoms of step 3 (extension_packages path) not being correct:
+	<ol>
+		<li>Any user with the class_key of extUser will return an error upon login: "User cannot be found...".&nbsp; If this is the admin, access your database directly, return the class_key to modUser, login correctly and then alter the path to a correct representation of the path.</li>
+		<li>The snippets attached to the class will intermittently work or fail altogether</li>
+	</ol>
+	</li>
+	<li>To get counts from your data (i.e. how many phone numbers does this person have) use either (any criteria can be added):
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+$<span class="code-keyword">this</span>-&gt;modx-&gt;getCount('extPhones', array('user' =&gt; $<span class="code-keyword">this</span>-&gt;userID));
+$<span class="code-keyword">this</span>-&gt;modx-&gt;getCount('extPhones');
+</pre>
+</div></div></li>
+</ol>
+
+
+<p>It is completely possible to have multiple extended modUser systems active at the same time.&nbsp; It would even be feasible to extend Jason Coward's rpx extension into a hybrid system utilizing the benefits of both systems.&nbsp; It is also completely possible to have multiple extended modUser applications running autonomously.&nbsp; This is simply done by following this process for each of your extensions, changing only the "class_key" field to reflect the extended class belonging to each respective user.</p>
+
+<h2><a name="ExtendingmodUser-Suggestedadditionalconsiderations"></a>Suggested additional considerations</h2>
+
+<p>The model files can be edited with methods and descriptions. Take a look at much of the MODx / xPDO models and you will see this done extensively.</p>
+
+<p>This process can be automated and captured upon user login. For the sake of brevity, it is best to refer you to splittingred's github, where he provides a real world application:</p>
+
+<p>The plugins:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/plugins/plugin.activedirectory.php" class="external-link" rel="nofollow">http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/plugins/plugin.activedirectory.php</a></p>
+
+
+
+
+
+
+<p>The events:<a href="http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onauthentication.php" class="external-link" rel="nofollow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onauthentication.php</a></p>
+
+
+
+
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onusernotfound.php" class="external-link" rel="nofollow">http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onusernotfound.php</a></p>
+
+
+
+
+
+
+
+<h2><a name="ExtendingmodUser-ExtendedmodUserClassescurrentlyAvailable"></a>Extended modUser Classes currently Available</h2>
+
+<p><a href="http://github.com/splittingred/modActiveDirectory" class="external-link" rel="nofollow">modActiveDirectory</a> an application which provides interaction with a Microsoft Domain Controller</p>
+
+<p><a href="http://github.com/opengeek/engaged" class="external-link" rel="nofollow">rpx extension</a> allows people to login via Facebook and other social networking medium</p>
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://oldrtfm.modx.com/display/revolution20/Extending+modUser"
+    dc:identifier="http://oldrtfm.modx.com/display/revolution20/Extending+modUser"
+    dc:title="Extending modUser"
+    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/22183951"/>
+</rdf:RDF>
+-->
+
+            
+    
+
+
+<fieldset class="hidden parameters">
+    <legend>Labels parameters</legend>
+    <input type="hidden" id="editLabel" value="Edit">
+    <input type="hidden" id="addLabel" value="Add Labels">
+    <input type="hidden" id="domainName" value="http://oldrtfm.modx.com">
+    <input type="hidden" id="pageId" value="22183951">
+    <input type="hidden" id="spaceKey" value="revolution20">
+</fieldset>
+
+<div id="labels-section" class="pageSection">
+    <div id="default-labels-header" class="section-header">
+        <h2 id="labels-section-title" class="section-title ">Labels</h2>
+            </div>
+
+    <div class="labels-editor">
+        <div id="labelsList">
+            <div id="label-13074438" class="confluence-label">
+    <a class="label" rel="nofollow" href="/label/revolution20/revolution">revolution</a>    <span class="remove-label-caption">revolution</span>
+    <a class="remove-label" href="#">Delete</a>
+</div>
+<div id="label-23003137" class="confluence-label">
+    <a class="label" rel="nofollow" href="/label/revolution20/moduser">moduser</a>    <span class="remove-label-caption">moduser</span>
+    <a class="remove-label" href="#">Delete</a>
+</div>
+<div id="label-23003138" class="confluence-label">
+    <a class="label" rel="nofollow" href="/label/revolution20/extend">extend</a>    <span class="remove-label-caption">extend</span>
+    <a class="remove-label" href="#">Delete</a>
+</div>
+        </div>
+
+        <span class="errorMessage error" id="errorSpan"></span>
+        <form method="GET" action="" id="add-labels-form">
+            <div id="labelInputSpan" class="labels-input">
+                <div id="labelOperationErrorContainer" class="hidden">
+                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
+                </div>
+
+                <div class="caption">Enter labels to add to this page:</div>
+                <div id="label-input-fields">
+                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
+                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
+                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
+                </div>
+                <div id="waitImageAndStatus">
+                    <img class="waiting" alt="Please wait" src="/s/1911/69/_/images/icons/wait.gif">&nbsp;
+                    <span id="labelOperationStatus" class="smalltext"></span>
+                </div>
+                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
+                <div class="labels-tip">
+                    <div id="suggestedLabelsSpan"></div>
+                    Looking for a label? Just start typing.
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+            
+            
+
+
+
+
+            
+    
+
+        
+<fieldset class="parameters hidden">
+    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
+    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
+        </fieldset>
+
+
+
+
+
+
+<div id="comments-section" class="pageSection">
+    
+    
+    
+    
+                                    </div>
+
+
+            
+</div>
+
+
+    
+
+
+
+
+        
+        
+
+    
+    
+    
+
+
+<fieldset class="hidden parameters">
+        <input type="hidden" id="i18n.manage.watchers.dialog.title" value="Manage Watchers">
+        <input type="hidden" id="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
+        <input type="hidden" id="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
+</fieldset>
+<script type="text/x-template" title="manage-watchers-dialog">
+<div class="dialog-content">
+    <div class="column page-watchers">
+        <h3>Watching this page</h3>
+        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
+        <form action="/json/addwatch.action" method="POST">
+                <input type="hidden" name="atl_token" value="OAm3fcNMVh">
+            <input type="hidden" name="pageId" value="22183951"/>
+            <input type="hidden" id="add-watcher-username" name="username" value=""/>
+            <label for="add-watcher-user">User</label>
+            <input id="add-watcher-user" name="userFullName" type="search" class="has-placeholder autocomplete-user"
+               value="" placeholder="Full name or username" autocomplete="off"
+               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
+               data-template="{title}" data-none-message="No matching users found.">
+            <input id="add-watcher-submit" type="submit" name="add" value="Add">
+            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
+            <div class="status hidden"></div>
+        </form>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No page watchers</li>
+        </ul>
+    </div>
+    <div class="column space-watchers">
+        <h3>Watching this space</h3>
+        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No space watchers</li>
+        </ul>
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="manage-watchers-user">
+    <li class="watch-user">
+        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
+        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
+        <span class="remove-watch" title="Remove"
+            data-username="{username}">Remove</span>
+    </li>
+</script>
+<script type="text/x-template" title="manage-watchers-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-33/Managing+Watchers" target="_blank">Help</a>
+    </div>
+</script>
+    <br class="clear">
+</div>
+  
+    </div>
+</div>
+
+<div id="footer">
+                                                <p class="license license-opensource">
+                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to MODx CMS / xPDO. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                        
+    <ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.3, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
+        <li class="print-only">Printed by Atlassian Confluence 3.3, the Enterprise Wiki.</li>        
+        <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
+        <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+    </ul>
+
+    
+
+            <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-71684-1']);
+  _gaq.push(['_setDomainName', 'oldrtfm.modx.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </div>    <!-- include system javascript resources -->
+                        
+    
+    
+    <!-- end system javascript resources -->
+</div>
+</body>
+</html>

@@ -1,0 +1,1085 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+            <title>YAMS Technical Details - MODx Add-Ons - MODX Documentation</title>
+    
+        
+
+                        
+    
+
+            
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="atlassian-token" name="atlassian-token" content="MZerR5Mcrl">
+<meta id="confluence-space-key" name="confluence-space-key" content="ADDON">
+
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+    
+
+<!-- include system css resources -->
+<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?media=print" media="print">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
+<![endif]-->
+
+<!-- end system css resources -->
+
+    <link rel="stylesheet" href="/s/1911/69/11/_/styles/combined.css?spaceKey=ADDON" type="text/css">
+
+    <meta name="confluence-request-time" content="1381729165075">
+
+<meta name="loggedInUsername" content="">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/s/1911/69/_/images/logo/confluence_16.png">
+
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="MODX Documentation"/>
+
+        <!-- include system javascript resources -->
+                        
+    
+    <script type="text/javascript" src="/s/1911/69/2/_/download/superbatch/js/batch.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
+<script type="text/javascript" src="/s/1911/69/3.3/_/download/batch/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.2/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
+
+    <!-- end system javascript resources -->
+
+    <link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/docs.css" />
+<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/syntaxhighlighter/css/all.css" />
+<!--<script type="text/javascript" src="http://misc.modx.com/js/jquery-1.3.2.min.js"></script>-->
+<script type="text/javascript" src="http://misc.modx.com/confluence/syntaxhighlighter/js/all.js"></script>
+<script type="text/javascript" src="http://misc.modx.com/confluence/loadcode.js"></script>
+<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/promo/ad.css" />
+
+    
+    <link rel="canonical" href="http://oldrtfm.modx.com/display/ADDON/YAMS+Technical+Details">
+    <link rel="shortlink" href="http://oldrtfm.modx.com/x/Q4HJ">
+    <meta name="wikilink" content="[ADDON:YAMS Technical Details]">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-documentation ">
+<div id="full-height-container">
+<!-- CODE FOR AD THAT SEEMS TO BE INSERTABLE DIRECTLY AFTER OPEN BODY TAG IN CONFLUENCE THEME ADMIN -->
+<!--<a href="https://modxcloud.com/signup/lab-account.html?utm_source=rtfm&utm_medium=banner&utm_campaign=one_percent%2B" class="modx-cloud-link">
+    <div class="modx-cloud-ad-wrap">
+        <div class="modx-cloud-ad">
+            <div class="logo-wrap">
+                <img src="http://misc.modx.com/confluence/promo/modx-cloud-logo.png" alt="MODX Cloud" width="161" height="40">
+            </div>
+            <p>The Most Productive MODX Learning Playground Ever</p>
+            <span class="faux-btn">
+                Claim Free Lab Account
+            </span>
+
+        </div>
+    </div>
+</a>-->
+<!-- END OF AD -->
+
+<div class="editors_note" style="background-color:#ff9a91;border: 1px solid red; padding:5px;color:black;">
+    <strong>Important Note:</strong> This is an archive of the official MODX Documentation. Please do not edit or make changes here.  The current documentation is located at <a href="rtfm.modx.com">rtfm.modx.com</a>.
+</div>
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
+    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
+    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
+    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
+    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
+</fieldset>
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
+    <input type="hidden" id="userLocale" value="en_GB">
+    <input type="hidden" id="staticResourceUrlPrefix" value="/s/1911/69/_">
+    <input type="hidden" id="contextPath" value="">
+</fieldset>
+
+    
+<div id="header" class="sectionbottom ">
+        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
+        <fieldset>
+            <legend>Quick Search</legend>
+            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
+            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
+            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
+        </fieldset>
+        <fieldset class="hidden parameters">
+            <input type="hidden" id="quickNavEnabled" value="true" />
+                    </fieldset>
+    </form>
+    <ul id="header-menu-bar" class="ajs-menu-bar">
+                    
+        
+            <li class="normal ajs-menu-item">
+        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
+                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
+                                        <li>
+    
+        
+    
+    <a  id="space-pages-link" href="/pages/listpages.action?key=ADDON"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Pages</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=ADDON"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Blog</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=ADDON"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Labels</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=ADDON"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Attachments</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/spaces/space-bookmarks.action?spaceKey=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
+                   <span>Bookmarks</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
+                   <span>Mail</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
+                   <span>Advanced</span></a>        </li>
+                            </ul>
+                        <ul  id="browse-menu-link-global"                 class="section-global">
+                                        <li>
+    
+            
+    
+    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
+                   <span>Confluence Gadgets</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+        
+                                                         <li class="ajs-menu-item normal">
+        
+        
+    
+    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2FADDON%2FYAMS%2BTechnical%2BDetails"  class="user-item login-link"  >
+                   <span>Log In</span></a>        </li>
+                                <li class="normal ajs-menu-item">
+            <div id="splitter-button" class="hidden" title="Sidebar"></div>
+        </li>
+
+    </ul>
+    
+    
+    <ol id="breadcrumbs">
+                    
+        <li class="first" >
+                                    <span><a href="/dashboard.action">Dashboard</a></span>
+                </li>
+                    
+        <li>
+                                    <span><a href="/display/ADDON">MODx Add-Ons</a></span>
+                </li>
+                                        <li id="ellipsis" title="    &#8230;
+                    Home
+             &gt;         YAMS
+        &#8230;
+"><span><strong>&#8230;</strong></span></li>
+                                    
+        <li class="hidden-crumb" >
+                                    <span><a href="/display/ADDON/Home">Home</a></span>
+                </li>
+                                
+        <li class="hidden-crumb" >
+                                    <span><a href="/display/ADDON/YAMS">YAMS</a></span>
+                </li>
+                    
+        <li>
+                                    <span><a href="/display/ADDON/YAMS+English+Documentation">YAMS English Documentation</a></span>
+                </li>
+                    
+        <li>
+                                    <span>YAMS Technical Details</span>
+                </li>
+        </ol>
+
+</div>
+
+    <div id="splitter">
+    <div id="splitter-sidebar">
+
+        
+
+                    
+    
+    
+
+<div class="plugin_pagetree">
+
+                <div id="pagetreesearch">
+            <form method="POST" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
+                                    <input type="hidden" name="ancestorId" value="425998">
+                                <input type="hidden" name="spaceKey" value="ADDON">
+                <input type="text"  size="20" name="queryString">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children">
+        </div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
+        <input type="hidden" name="treePageId" value="13205827">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="425998">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="ADDON" >
+
+        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FYAMS%2BTechnical%2BDetails">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="13205556">
+                                    <input type="hidden" name="ancestorId" value="13205551">
+                                    <input type="hidden" name="ancestorId" value="425998">
+                                    </fieldset>
+    </fieldset>
+</div>
+
+
+
+            </div>
+    <div id="splitter-content">
+
+                    <script type="text/javascript" src="/s/1911/69/2/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
+    
+            
+    
+<div id="main" >
+    
+    
+    <div id="navigation" class="content-navigation view">
+        <fieldset class="hidden parameters">
+            <input type="hidden" id="pageId" value="13205827">
+        </fieldset>
+        <ul class="ajs-menu-bar">
+                                
+                        
+            <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
+                        <ul  id="action-menu-link-primary"                 class="section-primary first">
+                                        <li>
+    
+        
+    
+    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=13205827"  class="action-view-attachments"  accessKey="a" >
+                   <span><u>A</u>ttachments (0)</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=13205827"  class="action-view-history"  >
+                   <span>Page History</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="mailPageLink" href="/pages/mailpage/mailpage.action?pageId=13205827"  class=""  >
+                    <span>
+                <img alt="E-mail" src="/images/icons/mail_content_16.gif" height="16" width="16" title="E-mail">
+                E-mail
+            </span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=13205827"  class="action-page-permissions"  >
+                   <span>Restrictions</span></a>        </li>
+                            </ul>
+                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
+                                        <li>
+    
+        
+    
+    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=13205827"  class="action-view-info"  >
+                   <span>Info</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=13205827"  class=""  >
+                   <span>Link to this Page&hellip;</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=ADDON&openId=13205827#selectedPageInHierarchy"  class=""  >
+                   <span>View in Hierarchy</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=13205827"  class="action-view-source popup-link"  >
+                   <span>View Wiki Markup</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+    
+    <h1 id="title-heading" class="pagetitle">
+                    <a href="/display/ADDON"><img class="logo global custom" src="/download/attachments/9109505/global.logo?version=2&modificationDate=1356105314000" alt=""></a>        
+		<span id="title-text">
+					            <a href="/display/ADDON/YAMS+Technical+Details">YAMS Technical Details</a>
+    				</span>
+    </h1>
+
+    
+
+    
+    
+    
+    <div id="content" class="page view">
+    
+
+
+
+<fieldset id="link-to-page-fields" class="hidden parameters">
+    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
+    <input type="hidden" id="linkToThisPageLink" value="Link">
+    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
+    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
+    <input type="hidden" id="linkToThisPageClose" value="Close">
+</fieldset>
+<fieldset class="hidden parameters">
+    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;YAMS Technical Details&#8217;">
+    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
+    <input type="hidden" title="movePageDialogMoveButton" value="Move">
+    <input type="hidden" title="movePageDialogOkButton" value="OK">
+    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
+    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
+    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
+    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
+    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
+    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
+    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
+    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
+    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
+    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
+    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
+    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
+    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
+    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
+    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
+    <input type="hidden" title="pageTitle" value="YAMS Technical Details"/>
+    <input type="hidden" title="parentPageTitle" value="YAMS English Documentation"/>
+    <input type="hidden" title="fromPageTitle" value=""/>
+    <input type="hidden" title="spaceKey" value="ADDON"/>
+    <input type="hidden" title="spaceName" value="MODx Add-Ons"/>
+    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
+    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
+    <input type="hidden" title="movePageDialogBackButton" value="Back"/>
+    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder"/>
+    <input type="hidden" title="movePageDialogNextButton" value="Move"/>    
+</fieldset>
+
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        Specify the new parent page for this page and its children by space and title.
+    </div>
+    <div class="form">
+        <fieldset>
+            
+
+    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
+            <div class="row">
+                <label for="new-space">New space:</label>
+                <div class="value new-space-value">
+                    <input id="new-space-key" name="new-space-key" type="hidden" value="ADDON">
+                                            <span class="space-input">
+                            <input id="new-space" name="new-space" value="MODx Add-Ons" disabled="disabled">
+                        </span>
+                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
+                                        <div class="new-space-dropdown aui-dd-parent"></div>
+                </div>
+            </div>
+            <div class="row">
+                <label for="new-parent-page">New parent page:</label>
+                <div class="value new-parent-page-value">
+                    <span class="page-input">
+                        <input id="new-parent-page" name="new-parent-page" value="YAMS English Documentation">
+                    </span>
+                    <span class="description">Start typing a page title to see a list of suggestions.</span>
+                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="location-info">
+        <div class="row">
+            <label>Current location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>New location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageErrors">
+    <div id="move-errors" class="hidden warning"></div>
+</script>
+<script type="text/x-template" title="movePageBreadcrumb">
+    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbLoading">
+    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbError">
+    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
+</script>
+<script type="text/x-template" title="movePageNoMatchingPages">
+    <ol><li><span class="warning">No matching pages found.</span></li></ol>
+</script>
+<script type="text/x-template" title="movePageNoMatchingSpaces">
+    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+<div class="row information">
+    Search for and select the new parent page for this page and its children.
+</div>
+<div id="move-page-search-container" class="row">
+    <div class="search-form">
+        <fieldset>
+            
+
+    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
+            
+
+    <label  for="move-page-search-query" class="assistive">Search keywords</label>
+            <input class="search-query" id="move-page-search-query">
+            
+
+    <label  for="move-page-search-space" class="assistive">Search in space</label>
+                            <select id="move-page-search-space" class="search-space" disabled="disabled">
+                    <option value="ADDON" selected="selected">MODx Add-Ons</option>
+                </select>
+                        <input type="button" value="Search">
+                            <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
+                    </fieldset>
+    </div>
+    <div class="search-results">
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="movePageSearchResultsLoading">
+    <div class="searching">Searching…</div>
+</script>
+
+<script type="text/x-template" title="movePageHistoryPanel">
+<div class="row information">
+    Select the new parent page for this page and its children from your history.
+</div>
+<div id="move-page-search-container" class="row">
+    <div class="search-results">
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="movePageHistoryLoading">
+    <div class="searching">Loading…</div>
+</script>
+<script type="text/x-template" title="movePageBrowsePanel">
+    <div class="row information">
+        Click to select the new parent page for this page and its children.
+    </div>
+    <div class="tree"></div>
+</script>
+<script type="text/x-template" title="movePagePanelLoading">
+    <span>Loading…</span>
+</script>
+<script type="text/x-template" title="movePageBrowsePanelSpace">
+    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
+</script>
+<script type="text/x-template" title="orderingPagePanel">
+<div id="orderingPlaceHolder"></div>
+</script>
+<script type="text/x-template" title="reorderCheckbox">
+<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
+</script>
+<script type="text/x-template" title="move-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-33/Moving+a+Page" target="_blank">Help</a>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table>
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+<!-- Start restrictions section -->
+<fieldset class="hidden parameters i18n">
+        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
+        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
+        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
+        <input type="hidden" id="i18n.cancel.name" value="Cancel">
+        <input type="hidden" id="i18n.close.name" value="Close">
+        <input type="hidden" id="i18n.update.name" value="Save">
+</fieldset>
+
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+
+                <div id="page-permissions-error-div" class="hidden">
+            <a href="#" id="permissions-error-div-close">Ok</a>
+            <div></div>
+        </div>
+
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div>
+                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">Restrict viewing of this page</label>
+                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">Restrict editing of this page</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">To:</div>
+            <div id="page-permissions-chooser-box">
+                                <span id="page-permissions-choose-user" class="ajs-button">
+                    
+
+
+
+    
+
+
+
+<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=ADDON&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
+<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=ADDON&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="ajs-button">
+                    
+
+
+
+    
+
+ 
+
+<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=ADDON&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
+<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=ADDON&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                                <span>
+                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
+                </span>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1911/69/_/images/border/spacer.gif"/>
+                <input type="button" id="add-typed-names" value="Restrict">
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">Show/Hide</a>
+                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/x-template" title="permissions-row-template">
+    <tr class="permission-row">
+                                
+                <td class="page-permissions-marker-cell" width="20%">
+            <span>Viewing restricted to:</span>
+        </td>
+                <td class="permission-entity" nowrap="true" width="40%">
+            <span class="entity-container">
+                <img class="permission-entity-picture"/>
+                <span class="permission-entity-display-name"></span>
+                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
+            </span>
+        </td>
+        <td class="permission-detail-column">
+            <div class="permission-remove-div">
+                <a href="#" class="remove-permission-link">Remove restriction</a>
+            </div>
+        </td>
+    </tr>
+</script>
+<script type="text/x-template" title="permissions-username-no-suggestion-template">
+    <ol>
+        <li><a href="#" class="message"><span>No matches</span></a></li>
+    </ol>
+</script>
+<script type="text/x-template" title="page-inherited-permissions-table-div-template">
+        <div class="page-inherited-permissions-owner-div">
+        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
+        <table class="page-permissions-table"></table>
+    </div>
+</script>
+<script type="text/x-template" title="page-restrictions-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-33/Page+Restrictions" target="_blank">Help</a>
+    </div>
+</script>
+<!-- End restrictions section -->
+
+        
+    
+    
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="parentPageId" value="13205556">
+        </fieldset>
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+                            <li class="page-metadata-item noprint">
+    
+            
+    
+    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Page restrictions apply</span></a>        </li>
+                        <li class="page-metadata-modification-info">
+                                    Added by <a href="/display/~pms"
+                          class="url fn"
+                   >pms</a>, last edited by <a href="/display/~pms"
+                          class="url fn"
+                   >pms</a> on Dec 17, 2009
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=13205827&originalId=13205832">view change</a>)</span>
+                                                </li>
+                            <li class="show-hide-comment-link">
+                    <a id="show-version-comment" class="inline-control-link" href="#">show comment</a>
+                    <a id="hide-version-comment" class="inline-control-link" style="display:none;" href="#">hide comment</a>
+                </li>
+                    </ul>
+          <div id="version-comment" class="noteMacro" style="display: none;">
+      <strong>Comment:</strong>
+      typo correction<br />
+  </div>
+    </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+        
+        <fieldset class="hidden parameters">
+                        <input type="hidden" title="browsePageTreeMode" value="view">
+        </fieldset>
+
+        <div class="wiki-content">
+           <!-- wiki content -->
+            <div class='panelMacro'><table class='warningMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b>Warning</b><br />This is an unfinished first draft...</td></tr></table></div> 
+
+<div>
+<ul>
+    <li><a href='#YAMSTechnicalDetails-YAMSTechnicalDetails'>YAMS Technical Details</a></li>
+<ul>
+    <li><a href='#YAMSTechnicalDetails-YAMSConstructs'>YAMS Constructs</a></li>
+    <li><a href='#YAMSTechnicalDetails-YAMSParser'>YAMS Parser</a></li>
+<ul>
+    <li><a href='#YAMSTechnicalDetails-PreParse'>Pre-Parse</a></li>
+    <li><a href='#YAMSTechnicalDetails-PostParse'>Post-Parse</a></li>
+</ul>
+</ul>
+</ul></div>
+<h1><a name="YAMSTechnicalDetails-YAMSTechnicalDetails"></a>YAMS Technical Details</h1>
+
+<p>YAMS works by embedding the various language versions of each bit of multilingual content in the document using various YAMS Constructs:</p>
+
+<ul>
+	<li>The YAMS snippet call generates such constructs.</li>
+	<li>Standard document variables are replaced by constructs containing the multilingual tv language variants.</li>
+	<li>Most <span class="error">&#91;YAMS placeholders&#93;</span> are expanded out into YAMS constructs.</li>
+</ul>
+
+
+<p>Unless something goes wrong (like PHx truncating some content which breaks an embedded construct for example), these constructs are completely hidden to the user.</p>
+
+<p>Once all multilingual content has been expanded out into constructs, the end result is a single document containing all language information in a complete nested mess. It is the job of the YAMS parser to evaluate and reorder this nested mess into one single construct, containing one version of the document for each language. It will do as much of this reorganisation as possible before the document is cached, so as to minimise the performance hit from this. Up until the point that the caching occurs all language variants are retained. After that all language variants apart from the requested language are thrown away. If the document contains uncacheable snippet calls containing YAMS constructs then this can sometimes provoke some additional processing or reorganisation of the document before it is sent out.</p>
+
+<p>For cacheable documents containing only cacheable snippet calls or uncacheable snippet calls that don't contain multilingual content then there is virtually no performance hit due to YAMS processing after first page access.</p>
+
+<h2><a name="YAMSTechnicalDetails-YAMSConstructs"></a>YAMS Constructs</h2>
+
+<p>These constructs are used internally by YAMS, which also generates and manages the <tt><em>yamsId</em></tt> parameter to avoid clashes. The constructs are provided here for reference only. Under normal circumstances these constructs do not need to be used. Instead a YAMS snippet call should be used, which will automatically generate the correct constructs.</p>
+
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> YAMS Constructs Construct </th>
+<th class='confluenceTh'> Name </th>
+<th class='confluenceTh'> Description </th>
+</tr>
+<tr>
+<td class='confluenceTd'> <tt>(yams-in:<em>yamsId</em>:<em>langId</em>)<em>...content...</em>(/yams-in:<em>yamsId</em>)</tt> </td>
+<th class='confluenceTh'> YAMS In Language Block </th>
+<td class='confluenceTd'> Forces the content of the <tt>yams-in</tt> block to be displayed as if the current language is that specified by the language group identifier <tt><em>langId</em></tt>. <br class="atl-forced-newline" />
+Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block. This allows blocks to be nested. <em>langId</em> is a language group id.</td>
+</tr>
+<tr>
+<td class='confluenceTd'> <tt>(yams-select:<em>yamsId</em>)(lang:<em>yamsId</em>:<em>langId1</em>)<em>...content1...</em>(lang:<em>yamsId</em>:<em>langId2</em>)<em>...content2...</em>(/yams-select:<em>yamsId</em>)</tt> </td>
+<th class='confluenceTh'> YAMS Select Language Block </th>
+<td class='confluenceTd'> This includes multiple language versions of content in the page. Only the current language version is displayed (except if it is within a <tt>yams-repeat</tt> block &#8211; see below.) The <tt>pagetitle</tt>, <tt>longtitle</tt>, <tt>description</tt>, <tt>introtext</tt>, <tt>menutitle</tt> and <tt>content</tt> document variables are automatically expanded into this form for the currently defined active languages. For any other content (chunks, tvs, etc.) that need to be expanded into multi-language form a YAMS snippet call can be used to generate the relevant construct. <br class="atl-forced-newline" />
+When a Yams Select block is being parsed to select the correct language content the current language is taken to be context dependent. Within Yams In blocks (and branches of Yams Repeat blocks which ultimately resolve to Yams In blocks) the current language switches to the specified language.<br class="atl-forced-newline" />
+Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block. This allows blocks to be nested. <tt><em>langId</em></tt> is a language group id.</td>
+</tr>
+<tr>
+<td class='confluenceTd'> <tt>(yams-select+:<em>yamsId</em>)(lang:<em>yamsId</em>:<em>langId1</em>)<em>...content1...</em>(lang:<em>yamsId</em>:<em>langId2</em>)<em>...content2...</em>(/yams-select+:<em>yamsId</em>)</tt> </td>
+<th class='confluenceTh'> YAMS Select Plus Language Block </th>
+<td class='confluenceTd'> This is the same as the Yams Select block, except that the current language is not context sensitive. So, the current language will always be the language in which the page is being viewed. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <tt>(yams-repeat:<em>yamsId</em>)<em>...content...</em>(current:<em>yamsId</em>)<em>...current language content...</em>(/yams-repeat:<em>yamsId</em>)</tt> </td>
+<th class='confluenceTh'> YAMS Repeat Language Block 1 </th>
+<td class='confluenceTd'> The <tt>yams-repeat</tt> block will repeat any content once for each active language and is similar to specifying one <tt>yams-in</tt> block for each active language. The current sub-block is optional and is to allow an alternative template to be used with the current language content. <br class="atl-forced-newline" />
+Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block. </td>
+</tr>
+<tr>
+<td class='confluenceTd'> <tt>(yams-repeat:<em>yamsId</em>:<em>langId1</em>,<em>langId2</em>,<em>...</em>)<em>...content...</em>(/yams-repeat:<em>yamsId</em>)</tt> </td>
+<th class='confluenceTh'> YAMS Repeat Language Block 2 </th>
+<td class='confluenceTd'> This variation on the YAMS Multi-Language Block will only repeat for the specified language groups. This functionality is not currently accessible via a YAMS Snippet call. </td>
+</tr>
+</tbody></table>
+</div>
+
+
+<h2><a name="YAMSTechnicalDetails-YAMSParser"></a>YAMS Parser</h2>
+
+<p>The YAMS parser has two phases. It does pre-parsing, which does the expansion of constructs, evaluation of placeholders and reorganisation of the document. It does a final post-parse each time the document is requested just before it is send out. Post-parsing selects a single language variant.</p>
+
+<h3><a name="YAMSTechnicalDetails-PreParse"></a>Pre-Parse</h3>
+
+<p>The pre-parse step does the following:</p>
+
+<ol>
+	<li>If the document hasn't changed since the last pre-parse, exit.</li>
+	<li>Evaluate all chunks. The normal YAMS chunk parser removes chunks from the document if it doesn't recognise them. However, at this stage the chunk names could contain YAMS placholders, like {{<tt>myname_(yams_id)</tt>}}. Since we don't want MODx to remove this, a custom chunk parser is used that leaves these intact (<tt>YAMS::MergeChunkContent</tt>). If the document has changed as a result of this processing the pre-parse restarts.</li>
+	<li>For multilingual documents, the standard document variables are expanded out into constructs containing <tt>(yams_data)</tt> placeholders that will pull in the multilingual template variable content later in the parse process.</li>
+	<li>The document variables and template variables belonging to the current document are evaluated. Once again, a custom parser is used (<tt>YAMS::MergeDocumentContent</tt>) rather than the standard MODx method. The custom method doesn't delete unrecognised document variables or template variables so that names that include YAMS placeholders persist until later in the parse process. If the document has changed as a result of this processing the pre-parse restarts.</li>
+	<li>Next, the document is searched for all <tt>(yams_data)</tt> placeholders in the document (<tt>YAMS::MergeOtherDocumentContent</tt>). These placeholders request data from template variables on different documents. Having worked out what data is needed, YAMS will grab the data from the database, <tt>YAMS_DOC_LIMIT</tt> items at a time. <tt>YAMS_DOC_LIMIT</tt> is defined as 50 by default. The <tt>(yams_data)</tt> placeholders are then replaced by their content. If the document has changed as a result of this processing the pre-parse restarts.</li>
+	<li>All MODx URL placeholders enclosed in quotes, like <tt>"[&#126;...&#126;]"</tt>, <tt>"[&#40;site_url&#41;][&#126;...&#126;]"</tt> or <tt>"[&#40;base_url&#41;][&#126;...&#126;]"</tt> are now replaced by YAMS multilingual URL placeholders <tt>(yams_doc)</tt> or <tt>(yams_docr)</tt>, depending on how YAMS has been configured.</li>
+	<li>All YAMS settings placeholders are evaluated using the standard MODx function (<tt>modx::mergeSettingsContent</tt>).</li>
+	<li>All YAMS placeholders are evaluated for each language and expanded out using YAMS constructs.</li>
+	<li>Pre-parse optimisation takes place. This untangles the nested web of YAMS constructs and replaces them by a single YAMS construct with one branch per language, taking into account the fact that some content will be repeated in multiple languages, that some content may appear in a different language to the current document, and that there may still be snippets in the document which will output more multilingual constructs later. If the document has changed as a result of this processing the pre-parse restarts.</li>
+	<li>The evaluation and expansion of YAMS placeholders into constructs and reorganisation of those constructs may have made more chunks and template variables which previously had YAMS placheholders in their name possible to evaluate now. Steps 2, 4 and 7 are repeated.</li>
+	<li>Snippets are evaluated using the standard MODx function (<tt>modx::evalSnippets</tt>). If the document has changed as a result of this processing the pre-parse restarts.</li>
+</ol>
+
+
+<p>Once the parser has arrived here it hands control back to the standard MODx parser, which will first call the other plugins. If PHx has been installed and has been placed after YAMS in the plugin execution order, it will do its evaluation next... but by now all YAMS constructs and placeholders have been evaluated and tidied up, so it should be pretty safe to do so. MODx will then do its standard parsing ... but there is very little left for it to do. Most chunks, document variables, template variables and snippets have already been evaluated during the YAMS preparse step.</p>
+
+<h3><a name="YAMSTechnicalDetails-PostParse"></a>Post-Parse</h3>
+
+<p>... to be continued ...</p>
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://oldrtfm.modx.com/display/ADDON/YAMS+Technical+Details"
+    dc:identifier="http://oldrtfm.modx.com/display/ADDON/YAMS+Technical+Details"
+    dc:title="YAMS Technical Details"
+    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/13205827"/>
+</rdf:RDF>
+-->
+
+            
+    
+
+
+<fieldset class="hidden parameters">
+    <legend>Labels parameters</legend>
+    <input type="hidden" id="editLabel" value="Edit">
+    <input type="hidden" id="addLabel" value="Add Labels">
+    <input type="hidden" id="domainName" value="http://oldrtfm.modx.com">
+    <input type="hidden" id="pageId" value="13205827">
+    <input type="hidden" id="spaceKey" value="ADDON">
+</fieldset>
+
+<div id="labels-section" class="pageSection">
+    <div id="default-labels-header" class="section-header">
+        <h2 id="labels-section-title" class="section-title ">Labels</h2>
+            </div>
+
+    <div class="labels-editor">
+        <div id="labelsList">
+            <div id="label-13369367" class="confluence-label">
+    <a class="label" rel="nofollow" href="/label/ADDON/yams-technical-details">yams-technical-details</a>    <span class="remove-label-caption">yams-technical-details</span>
+    <a class="remove-label" href="#">Delete</a>
+</div>
+        </div>
+
+        <span class="errorMessage error" id="errorSpan"></span>
+        <form method="GET" action="" id="add-labels-form">
+            <div id="labelInputSpan" class="labels-input">
+                <div id="labelOperationErrorContainer" class="hidden">
+                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
+                </div>
+
+                <div class="caption">Enter labels to add to this page:</div>
+                <div id="label-input-fields">
+                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
+                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
+                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
+                </div>
+                <div id="waitImageAndStatus">
+                    <img class="waiting" alt="Please wait" src="/s/1911/69/_/images/icons/wait.gif">&nbsp;
+                    <span id="labelOperationStatus" class="smalltext"></span>
+                </div>
+                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
+                <div class="labels-tip">
+                    <div id="suggestedLabelsSpan"></div>
+                    Looking for a label? Just start typing.
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+            
+            
+
+
+
+
+            
+    
+
+        
+<fieldset class="parameters hidden">
+    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
+    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
+        </fieldset>
+
+
+
+
+
+
+<div id="comments-section" class="pageSection">
+    
+    
+    
+    
+                                    </div>
+
+
+            
+</div>
+
+
+    
+
+
+
+
+        
+        
+
+    
+    
+    
+
+
+<fieldset class="hidden parameters">
+        <input type="hidden" id="i18n.manage.watchers.dialog.title" value="Manage Watchers">
+        <input type="hidden" id="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
+        <input type="hidden" id="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
+</fieldset>
+<script type="text/x-template" title="manage-watchers-dialog">
+<div class="dialog-content">
+    <div class="column page-watchers">
+        <h3>Watching this page</h3>
+        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
+        <form action="/json/addwatch.action" method="POST">
+                <input type="hidden" name="atl_token" value="MZerR5Mcrl">
+            <input type="hidden" name="pageId" value="13205827"/>
+            <input type="hidden" id="add-watcher-username" name="username" value=""/>
+            <label for="add-watcher-user">User</label>
+            <input id="add-watcher-user" name="userFullName" type="search" class="has-placeholder autocomplete-user"
+               value="" placeholder="Full name or username" autocomplete="off"
+               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
+               data-template="{title}" data-none-message="No matching users found.">
+            <input id="add-watcher-submit" type="submit" name="add" value="Add">
+            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
+            <div class="status hidden"></div>
+        </form>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No page watchers</li>
+        </ul>
+    </div>
+    <div class="column space-watchers">
+        <h3>Watching this space</h3>
+        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No space watchers</li>
+        </ul>
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="manage-watchers-user">
+    <li class="watch-user">
+        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
+        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
+        <span class="remove-watch" title="Remove"
+            data-username="{username}">Remove</span>
+    </li>
+</script>
+<script type="text/x-template" title="manage-watchers-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-33/Managing+Watchers" target="_blank">Help</a>
+    </div>
+</script>
+    <br class="clear">
+</div>
+  
+    </div>
+</div>
+
+<div id="footer">
+                                                <p class="license license-opensource">
+                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to MODx CMS / xPDO. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                        
+    <ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.3, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
+        <li class="print-only">Printed by Atlassian Confluence 3.3, the Enterprise Wiki.</li>        
+        <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
+        <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+    </ul>
+
+    
+
+            <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-71684-1']);
+  _gaq.push(['_setDomainName', 'oldrtfm.modx.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </div>    <!-- include system javascript resources -->
+                        
+    
+    
+    <!-- end system javascript resources -->
+</div>
+</body>
+</html>

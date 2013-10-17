@@ -1,0 +1,1981 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+            <title>Developing an Extra in MODX Revolution, Part II - MODX 2.1 and Earlier - MODx Revolution 2.x - MODX Documentation</title>
+    
+        
+
+                        
+    
+
+            
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="atlassian-token" name="atlassian-token" content="75w82E3AZp">
+<meta id="confluence-space-key" name="confluence-space-key" content="revolution20">
+
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+    
+
+<!-- include system css resources -->
+<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?media=print" media="print">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
+<![endif]-->
+
+<!-- end system css resources -->
+
+    <link rel="stylesheet" href="/s/1911/69/6/_/styles/combined.css?spaceKey=revolution20" type="text/css">
+
+    <meta name="confluence-request-time" content="1381731568293">
+
+<meta name="loggedInUsername" content="">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/s/1911/69/_/images/logo/confluence_16.png">
+
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="MODX Documentation"/>
+
+        <!-- include system javascript resources -->
+                        
+    
+    <script type="text/javascript" src="/s/1911/69/2/_/download/superbatch/js/batch.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
+<script type="text/javascript" src="/s/1911/69/3.3/_/download/batch/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.2/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
+<script type="text/javascript" src="/s/1911/69/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
+
+    <!-- end system javascript resources -->
+
+    <link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/docs.css" />
+<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/syntaxhighlighter/css/all.css" />
+<!--<script type="text/javascript" src="http://misc.modx.com/js/jquery-1.3.2.min.js"></script>-->
+<script type="text/javascript" src="http://misc.modx.com/confluence/syntaxhighlighter/js/all.js"></script>
+<script type="text/javascript" src="http://misc.modx.com/confluence/loadcode.js"></script>
+<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/promo/ad.css" />
+
+    
+    <link rel="canonical" href="http://oldrtfm.modx.com/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+II+-+MODX+2.1+and+Earlier">
+    <link rel="shortlink" href="http://oldrtfm.modx.com/x/aAA-Ag">
+    <meta name="wikilink" content="[revolution20:Developing an Extra in MODX Revolution, Part II - MODX 2.1 and Earlier]">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-documentation ">
+<div id="full-height-container">
+<!-- CODE FOR AD THAT SEEMS TO BE INSERTABLE DIRECTLY AFTER OPEN BODY TAG IN CONFLUENCE THEME ADMIN -->
+<!--<a href="https://modxcloud.com/signup/lab-account.html?utm_source=rtfm&utm_medium=banner&utm_campaign=one_percent%2B" class="modx-cloud-link">
+    <div class="modx-cloud-ad-wrap">
+        <div class="modx-cloud-ad">
+            <div class="logo-wrap">
+                <img src="http://misc.modx.com/confluence/promo/modx-cloud-logo.png" alt="MODX Cloud" width="161" height="40">
+            </div>
+            <p>The Most Productive MODX Learning Playground Ever</p>
+            <span class="faux-btn">
+                Claim Free Lab Account
+            </span>
+
+        </div>
+    </div>
+</a>-->
+<!-- END OF AD -->
+
+<div class="editors_note" style="background-color:#ff9a91;border: 1px solid red; padding:5px;color:black;">
+    <strong>Important Note:</strong> This is an archive of the official MODX Documentation. Please do not edit or make changes here.  The current documentation is located at <a href="rtfm.modx.com">rtfm.modx.com</a>.
+</div>
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
+    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
+    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
+    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
+    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
+</fieldset>
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
+    <input type="hidden" id="userLocale" value="en_GB">
+    <input type="hidden" id="staticResourceUrlPrefix" value="/s/1911/69/_">
+    <input type="hidden" id="contextPath" value="">
+</fieldset>
+
+    
+<div id="header" class="sectionbottom ">
+        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
+        <fieldset>
+            <legend>Quick Search</legend>
+            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
+            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
+            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
+        </fieldset>
+        <fieldset class="hidden parameters">
+            <input type="hidden" id="quickNavEnabled" value="true" />
+                    </fieldset>
+    </form>
+    <ul id="header-menu-bar" class="ajs-menu-bar">
+                    
+        
+            <li class="normal ajs-menu-item">
+        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
+                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
+                                        <li>
+    
+        
+    
+    <a  id="space-pages-link" href="/pages/listpages.action?key=revolution20"  class=""   title="Attachments: 8">
+                   <span>Pages</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=revolution20"  class=""   title="Attachments: 8">
+                   <span>Blog</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=revolution20"  class=""   title="Attachments: 8">
+                   <span>Labels</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=revolution20"  class=""   title="Attachments: 8">
+                   <span>Attachments</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/spaces/space-bookmarks.action?spaceKey=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
+                   <span>Bookmarks</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
+                   <span>Mail</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
+                   <span>Advanced</span></a>        </li>
+                            </ul>
+                        <ul  id="browse-menu-link-global"                 class="section-global">
+                                        <li>
+    
+            
+    
+    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
+                   <span>Confluence Gadgets</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+        
+                                                         <li class="ajs-menu-item normal">
+        
+        
+    
+    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FDeveloping%2Ban%2BExtra%2Bin%2BMODX%2BRevolution%2C%2BPart%2BII%2B-%2BMODX%2B2.1%2Band%2BEarlier"  class="user-item login-link"  >
+                   <span>Log In</span></a>        </li>
+                                <li class="normal ajs-menu-item">
+            <div id="splitter-button" class="hidden" title="Sidebar"></div>
+        </li>
+
+    </ul>
+    
+    
+    <ol id="breadcrumbs">
+                    
+        <li class="first" >
+                                    <span><a href="/dashboard.action">Dashboard</a></span>
+                </li>
+                    
+        <li>
+                                    <span><a href="/display/revolution20">MODx Revolution 2.x</a></span>
+                </li>
+                                        <li id="ellipsis" title="    &#8230;
+                    Home
+             &gt;         Case Studies and Tutorials
+        &#8230;
+"><span><strong>&#8230;</strong></span></li>
+                                    
+        <li class="hidden-crumb" >
+                                    <span><a href="/display/revolution20/Home">Home</a></span>
+                </li>
+                                
+        <li class="hidden-crumb" >
+                                    <span><a href="/display/revolution20/Case+Studies+and+Tutorials">Case Studies and Tutorials</a></span>
+                </li>
+                    
+        <li>
+                                    <span><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution+-+MODX+2.1+and+Earlier">Developing an Extra in MODX Revolution - MODX 2.1 and Earlier</a></span>
+                </li>
+                    
+        <li>
+                                    <span>Developing an Extra in MODX Revolution, Part II - MODX 2.1 and Earlier</span>
+                </li>
+        </ol>
+
+</div>
+
+    <div id="splitter">
+    <div id="splitter-sidebar">
+
+        
+
+                    
+    
+    
+
+<div class="plugin_pagetree">
+
+                <div id="pagetreesearch">
+            <form method="POST" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
+                                    <input type="hidden" name="ancestorId" value="18678050">
+                                <input type="hidden" name="spaceKey" value="revolution20">
+                <input type="text"  size="20" name="queryString">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children">
+        </div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
+        <input type="hidden" name="treePageId" value="37683304">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="18678050">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="revolution20" >
+
+        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FDeveloping%2Ban%2BExtra%2Bin%2BMODX%2BRevolution%2C%2BPart%2BII%2B-%2BMODX%2B2.1%2Band%2BEarlier">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="37683302">
+                                    <input type="hidden" name="ancestorId" value="18678106">
+                                    <input type="hidden" name="ancestorId" value="18678050">
+                                    </fieldset>
+    </fieldset>
+</div>
+
+
+
+            </div>
+    <div id="splitter-content">
+
+                    <script type="text/javascript" src="/s/1911/69/2/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
+    
+            
+    
+<div id="main" >
+    
+    
+    <div id="navigation" class="content-navigation view">
+        <fieldset class="hidden parameters">
+            <input type="hidden" id="pageId" value="37683304">
+        </fieldset>
+        <ul class="ajs-menu-bar">
+                                
+                        
+            <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
+                        <ul  id="action-menu-link-primary"                 class="section-primary first">
+                                        <li>
+    
+        
+    
+    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=37683304"  class="action-view-attachments"  accessKey="a" >
+                   <span><u>A</u>ttachments (8)</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=37683304"  class="action-view-history"  >
+                   <span>Page History</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="mailPageLink" href="/pages/mailpage/mailpage.action?pageId=37683304"  class=""  >
+                    <span>
+                <img alt="E-mail" src="/images/icons/mail_content_16.gif" height="16" width="16" title="E-mail">
+                E-mail
+            </span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=37683304"  class="action-page-permissions"  >
+                   <span>Restrictions</span></a>        </li>
+                            </ul>
+                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
+                                        <li>
+    
+        
+    
+    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=37683304"  class="action-view-info"  >
+                   <span>Info</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=37683304"  class=""  >
+                   <span>Link to this Page&hellip;</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=revolution20&openId=37683304#selectedPageInHierarchy"  class=""  >
+                   <span>View in Hierarchy</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=37683304"  class="action-view-source popup-link"  >
+                   <span>View Wiki Markup</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+    
+    <h1 id="title-heading" class="pagetitle">
+                    <a href="/display/revolution20"><img class="logo global custom" src="/download/attachments/9109505/global.logo?version=2&modificationDate=1356105314000" alt=""></a>        
+		<span id="title-text">
+					            <a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+II+-+MODX+2.1+and+Earlier">Developing an Extra in MODX Revolution, Part II - MODX 2.1 and Earlier</a>
+    				</span>
+    </h1>
+
+    
+
+    
+    
+    
+    <div id="content" class="page view">
+    
+
+
+
+<fieldset id="link-to-page-fields" class="hidden parameters">
+    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
+    <input type="hidden" id="linkToThisPageLink" value="Link">
+    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
+    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
+    <input type="hidden" id="linkToThisPageClose" value="Close">
+</fieldset>
+<fieldset class="hidden parameters">
+    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;Developing an Extra in MODX Revolution, Part II - MODX 2.1 and Earlier&#8217;">
+    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
+    <input type="hidden" title="movePageDialogMoveButton" value="Move">
+    <input type="hidden" title="movePageDialogOkButton" value="OK">
+    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
+    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
+    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
+    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
+    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
+    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
+    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
+    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
+    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
+    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
+    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
+    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
+    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
+    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
+    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
+    <input type="hidden" title="pageTitle" value="Developing an Extra in MODX Revolution, Part II - MODX 2.1 and Earlier"/>
+    <input type="hidden" title="parentPageTitle" value="Developing an Extra in MODX Revolution - MODX 2.1 and Earlier"/>
+    <input type="hidden" title="fromPageTitle" value=""/>
+    <input type="hidden" title="spaceKey" value="revolution20"/>
+    <input type="hidden" title="spaceName" value="MODx Revolution 2.x"/>
+    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
+    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
+    <input type="hidden" title="movePageDialogBackButton" value="Back"/>
+    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder"/>
+    <input type="hidden" title="movePageDialogNextButton" value="Move"/>    
+</fieldset>
+
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        Specify the new parent page for this page and its children by space and title.
+    </div>
+    <div class="form">
+        <fieldset>
+            
+
+    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
+            <div class="row">
+                <label for="new-space">New space:</label>
+                <div class="value new-space-value">
+                    <input id="new-space-key" name="new-space-key" type="hidden" value="revolution20">
+                                            <span class="space-input">
+                            <input id="new-space" name="new-space" value="MODx Revolution 2.x" disabled="disabled">
+                        </span>
+                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
+                                        <div class="new-space-dropdown aui-dd-parent"></div>
+                </div>
+            </div>
+            <div class="row">
+                <label for="new-parent-page">New parent page:</label>
+                <div class="value new-parent-page-value">
+                    <span class="page-input">
+                        <input id="new-parent-page" name="new-parent-page" value="Developing an Extra in MODX Revolution - MODX 2.1 and Earlier">
+                    </span>
+                    <span class="description">Start typing a page title to see a list of suggestions.</span>
+                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="location-info">
+        <div class="row">
+            <label>Current location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>New location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageErrors">
+    <div id="move-errors" class="hidden warning"></div>
+</script>
+<script type="text/x-template" title="movePageBreadcrumb">
+    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbLoading">
+    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbError">
+    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
+</script>
+<script type="text/x-template" title="movePageNoMatchingPages">
+    <ol><li><span class="warning">No matching pages found.</span></li></ol>
+</script>
+<script type="text/x-template" title="movePageNoMatchingSpaces">
+    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+<div class="row information">
+    Search for and select the new parent page for this page and its children.
+</div>
+<div id="move-page-search-container" class="row">
+    <div class="search-form">
+        <fieldset>
+            
+
+    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
+            
+
+    <label  for="move-page-search-query" class="assistive">Search keywords</label>
+            <input class="search-query" id="move-page-search-query">
+            
+
+    <label  for="move-page-search-space" class="assistive">Search in space</label>
+                            <select id="move-page-search-space" class="search-space" disabled="disabled">
+                    <option value="revolution20" selected="selected">MODx Revolution 2.x</option>
+                </select>
+                        <input type="button" value="Search">
+                            <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
+                    </fieldset>
+    </div>
+    <div class="search-results">
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="movePageSearchResultsLoading">
+    <div class="searching">Searching…</div>
+</script>
+
+<script type="text/x-template" title="movePageHistoryPanel">
+<div class="row information">
+    Select the new parent page for this page and its children from your history.
+</div>
+<div id="move-page-search-container" class="row">
+    <div class="search-results">
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="movePageHistoryLoading">
+    <div class="searching">Loading…</div>
+</script>
+<script type="text/x-template" title="movePageBrowsePanel">
+    <div class="row information">
+        Click to select the new parent page for this page and its children.
+    </div>
+    <div class="tree"></div>
+</script>
+<script type="text/x-template" title="movePagePanelLoading">
+    <span>Loading…</span>
+</script>
+<script type="text/x-template" title="movePageBrowsePanelSpace">
+    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
+</script>
+<script type="text/x-template" title="orderingPagePanel">
+<div id="orderingPlaceHolder"></div>
+</script>
+<script type="text/x-template" title="reorderCheckbox">
+<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
+</script>
+<script type="text/x-template" title="move-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-33/Moving+a+Page" target="_blank">Help</a>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table>
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+<!-- Start restrictions section -->
+<fieldset class="hidden parameters i18n">
+        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
+        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
+        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
+        <input type="hidden" id="i18n.cancel.name" value="Cancel">
+        <input type="hidden" id="i18n.close.name" value="Close">
+        <input type="hidden" id="i18n.update.name" value="Save">
+</fieldset>
+
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+
+                <div id="page-permissions-error-div" class="hidden">
+            <a href="#" id="permissions-error-div-close">Ok</a>
+            <div></div>
+        </div>
+
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div>
+                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">Restrict viewing of this page</label>
+                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">Restrict editing of this page</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">To:</div>
+            <div id="page-permissions-chooser-box">
+                                <span id="page-permissions-choose-user" class="ajs-button">
+                    
+
+
+
+    
+
+
+
+<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
+<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="ajs-button">
+                    
+
+
+
+    
+
+ 
+
+<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
+<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                                <span>
+                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
+                </span>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1911/69/_/images/border/spacer.gif"/>
+                <input type="button" id="add-typed-names" value="Restrict">
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">Show/Hide</a>
+                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/x-template" title="permissions-row-template">
+    <tr class="permission-row">
+                                
+                <td class="page-permissions-marker-cell" width="20%">
+            <span>Viewing restricted to:</span>
+        </td>
+                <td class="permission-entity" nowrap="true" width="40%">
+            <span class="entity-container">
+                <img class="permission-entity-picture"/>
+                <span class="permission-entity-display-name"></span>
+                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
+            </span>
+        </td>
+        <td class="permission-detail-column">
+            <div class="permission-remove-div">
+                <a href="#" class="remove-permission-link">Remove restriction</a>
+            </div>
+        </td>
+    </tr>
+</script>
+<script type="text/x-template" title="permissions-username-no-suggestion-template">
+    <ol>
+        <li><a href="#" class="message"><span>No matches</span></a></li>
+    </ol>
+</script>
+<script type="text/x-template" title="page-inherited-permissions-table-div-template">
+        <div class="page-inherited-permissions-owner-div">
+        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
+        <table class="page-permissions-table"></table>
+    </div>
+</script>
+<script type="text/x-template" title="page-restrictions-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-33/Page+Restrictions" target="_blank">Help</a>
+    </div>
+</script>
+<!-- End restrictions section -->
+
+        
+    
+    
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="parentPageId" value="37683302">
+        </fieldset>
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+                            <li class="page-metadata-item noprint">
+    
+            
+    
+    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Page restrictions apply</span></a>        </li>
+                            <li class="page-metadata-item noprint">
+    
+        
+    
+    <a  id="content-metadata-attachments" href="/pages/viewpageattachments.action?pageId=37683304&metadataLink=true"  class="page-metadata-icon action-view-attachments"  accessKey="a"  title="Attachments: 8">
+                   <span><span class="page-metadata-attachments-text">Attachments:</span><span class="page-metadata-attachments-count">8</span></span></a>        </li>
+                        <li class="page-metadata-modification-info">
+                                    Added by <a href="/display/~splittingred"
+                          class="url fn"
+                   >Shaun McCormick</a>, last edited by <a href="/display/~splittingred"
+                          class="url fn"
+                   >Shaun McCormick</a> on Jan 05, 2012
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=37683304&originalId=37683311">view change</a>)</span>
+                                                </li>
+                    </ul>
+          <div id="version-comment" class="noteMacro" style="display: none;">
+      <strong>Comment:</strong>
+      <br />
+  </div>
+    </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+        
+        <fieldset class="hidden parameters">
+                        <input type="hidden" title="browsePageTreeMode" value="view">
+        </fieldset>
+
+        <div class="wiki-content">
+           <!-- wiki content -->
+            <div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>This tutorial is part of a Series:</p>
+<ul>
+	<li><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution+-+MODX+2.1+and+Earlier" title="Developing an Extra in MODX Revolution - MODX 2.1 and Earlier">Part I: Getting Started and Creating the Doodles Snippet</a></li>
+	<li>Part II: Creating our Custom Manager Page</li>
+	<li><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III+-+MODX+2.1+and+Earlier" title="Developing an Extra in MODX Revolution, Part III - MODX 2.1 and Earlier">Part III: Packaging Our Extra</a></li>
+</ul>
+</div></div>
+
+<div>
+<ul>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-FirstSetupSteps'>First Setup Steps</a></li>
+<ul>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-Namespaces'>Namespaces</a></li>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-ActionsandMenus'>Actions and Menus</a></li>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-Lexicons'>Lexicons</a></li>
+</ul>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-SettinguptheControllerswithMODExt'>Setting up the Controllers with MODExt</a></li>
+<ul>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-TheBaseController'>The Base Controller</a></li>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-CustomRequestRouting'>Custom Request Routing</a></li>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-TheHeaderController'>The Header Controller</a></li>
+</ul>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-OurDoodlesCMPPage'>Our Doodles CMP Page</a></li>
+<ul>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-TheSectionJSFile'>The Section JS File</a></li>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-ThePanelJSFile'>The Panel JS File</a></li>
+</ul>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-TheDoodlesGrid'>The Doodles Grid</a></li>
+<ul>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-HookingUpviaConnectors'>Hooking Up via Connectors</a></li>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-AddingSearch'>Adding Search</a></li>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-AddinganUpdateWindow'>Adding an Update Window</a></li>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-AddingaRemoveContextMenuOption'>Adding a Remove Context Menu Option</a></li>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-CreatingtheCreateForm'>Creating the Create Form</a></li>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-AddingInlineEditing'>Adding Inline-Editing</a></li>
+</ul>
+    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-Summary'>Summary</a></li>
+</ul></div>
+
+<p>This section will cover creating the Custom Manager Page (CMP) for our Doodles Extra we created in <a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution+-+MODX+2.1+and+Earlier" title="Developing an Extra in MODX Revolution - MODX 2.1 and Earlier">step 1</a>. This includes explaining controllers/connectors/processors, making our Namespace, Action and Menu item, and working with ExtJS to create the UI.</p>
+
+<h2><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-FirstSetupSteps"></a>First Setup Steps</h2>
+
+<p>We've got our snippet and our basic directory structure. Now we need to setup a few things before we can start developing our Custom Manager Page. The first is our Namespace.</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-Namespaces"></a>Namespaces</h3>
+
+<p><a href="/display/revolution20/Namespaces" title="Namespaces">Namespaces</a> in MODX Revolution are basically silos of development in the system. They load the base path for your CMP, and allow MODX to know where to grab the files for it and for Lexicon files (i18n). They allow you to develop and run your Extras without having to modify core MODX files or get in the way of Git/SVN deployments of MODX.</p>
+
+<p>We'll want to create ours. Go ahead and click on the Namespaces submenu item in the System menu:</p>
+
+<p><span class="image-wrap" style=""><img src="/download/attachments/37683304/namespaces-menu.png?version=1&amp;modificationDate=1325795553000" style="border: 0px solid black" /></span></p>
+
+<p>From there, go ahead and click the 'Create New' button above the grid to load a Create Namespace window. Input these values into the form:</p>
+
+<ul>
+	<li><b>Name</b> &#45; doodles</li>
+	<li><b>Path</b> &#45; /www/doodles/core/components/doodles/</li>
+</ul>
+
+
+<p>Let's explain. This gives us a Namespace key of 'doodles', which we can reference our Namespace with. Secondly, we're pointing the path to our doodles core directory that we've been developing in. This tells MODX to load the controller files that load the CMP (more on that in a sec) from that directory, which is what we want. When someone else installs this component later, their Namespace path will look like:</p>
+
+<blockquote><p>{core_path}components/doodles/</p></blockquote>
+
+<p>Because that's where we'll be installing the files with the Transport Package. However, setting it to an absolute path in our environment allows us to develop it outside of the MODX webroot.</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-ActionsandMenus"></a>Actions and Menus</h3>
+
+<p>Next, we'll need to create our Actions and Menus for the CMP. What is an "Action" in MODX? Well, it's basically an abstract representation of a Manager page. Each MODX manager page has an Action in the modx_actions table, which can be referenced. This allows you to create any number of "Actions" that can be used as CMPs in the manager.</p>
+
+<p>Load up the Actions page on System &#45;&gt; Actions. This should load 2 trees:</p>
+
+<p><span class="image-wrap" style=""><img src="/download/attachments/37683304/doodles-actions.png?version=1&amp;modificationDate=1325795553000" style="border: 0px solid black" /></span></p>
+
+<p>We'll be first focused on the left-hand tree, which is the tree of Actions. The first level of the tree is all our Namespaces, which show as little computer icons. Below that are all the Actions for that Namespace. Our 'doodles' Namespace shows up there, but it's empty and has no Actions inside it. Let's remedy that. Right-click on the 'doodles' Namespace icon, and click 'Create Action Here'.</p>
+
+<p>That should load a window, in which we'll want to input these values:</p>
+
+<ul>
+	<li><b>Controller</b> &#45; controllers/index</li>
+	<li><b>Namespace</b> &#45; doodles</li>
+	<li><b>Parent Controller</b> &#45; <em>(leave blank)</em></li>
+	<li><b>Load Headers</b> &#45; <em>checked</em></li>
+	<li><b>Language Topics</b> &#45; doodles:default</li>
+	<li><b>Assets</b> &#45; <em>(leave blank)</em></li>
+</ul>
+
+
+<p>Let's explain what each of these fields mean.</p>
+
+<p><b>Controller</b>: This tells MODX where the controller file is at for this Action, relative to the Namespace path, without the .php extension. Our file is going to be at /www/doodles/core/components/doodles/controllers/index.php. So, minus our Namespace path, that ends up being controllers/index.php. We drop the .php, and we get "controllers/index".</p>
+
+<p><b>Namespace</b>: The reference to the Namespace this Action is a part of. This should have automatically been filled in for you.</p>
+
+<p><b>Parent Controller</b>: For hierarchical display, Actions can be structured in tree form. This doesn't affect their behavior at all, and doesn't really concern us, so we'll skip it and leave it blank.</p>
+
+<p><b>Load Headers</b>: This tells MODX whether or not to load the contents of the controller in the manager's header and footer template, or if not checked, to only load the contents of the file and nothing else. This can be useful to uncheck if you want to create a CMP that runs isolated of the manager interface but is accessible via a menu. We want to leave it checked.</p>
+
+<p><b>Language Topics</b>: MODX will automatically load any Lexicon Topics (language files) that are listed here, in comma-separated format. We want to load a custom topic, called 'default', from our Doodles namespace. So we set it as 'doodles:default', which tells MODX to load the 'default' topic from the 'doodles' Namespace. We'll create this file later.</p>
+
+<p><b>Assets</b> &#45; This field is currently not used in MODX Revolution, so we'll skip it.</p>
+
+<p>Great, we've now got ourselves an Action. Now we need to tie that Action to a Menu item, which will show up in our main menu at the top of the manager. 'Menu' objects in MODX allow you to completely rearrange (and hide) menu items in the manager interface, enabling you to completely customize navigation for your MODX installation.</p>
+
+<p>We're going to want to create our Doodles menu item under the 'Components' menu, which is where 3rd Party Extras usually go. We could place it anywhere, but for standards-sake, let's place it under Components. Right-click on the 'Components' tree node in the right-hand tree, and click 'Place Action Here'. That will load a window, which we can fill with these values:</p>
+
+<ul>
+	<li><b>Lexicon Key</b> &#45; doodles</li>
+	<li><b>Description</b> &#45; doodles.desc</li>
+	<li><b>Action</b> &#45; doodles - controllers/index</li>
+	<li><b>Icon</b> &#45;</li>
+	<li><b>Parameters</b> &#45;</li>
+	<li><b>Handler</b> &#45;</li>
+	<li><b>Permissions</b> &#45;</li>
+</ul>
+
+
+<p>And let's explain each field:</p>
+
+<p><b>Lexicon Key</b>: This is the lexicon key for the menu item. Since MODX allows you to view the manager in a multiple number of languages, MODX provides us the option to load a Lexicon string (in our lexicon topic we said to load for the action earlier, <em>doodles:default</em>) to translate this with. We'll put <em>doodles</em> and provide that as a Lexicon string later.</p>
+
+<p><b>Description</b>: Similar to the first field, this allows us to provide either a straight up description, or a lexicon key to be translated. We'll provide a lexicon key, because we want that to be translated.</p>
+
+<p><b>Action</b> &#45; This tells MODX what action to load when the Menu item is clicked.</p>
+
+<p><b>Icon</b> &#45; Currently not used in the default manager interface, this allows menu items to have an icon. We'll skip it.</p>
+
+<p><b>Parameters</b> &#45; This allows you to attach GET parameters to the menu item when clicked. We don't need this, so we'll skip it.</p>
+
+<p><b>Handler</b> &#45; This allows you to run JavaScript instead of loading a page when running a menu item. It's useful for menu items that don't actually load a page but do things, such as the "Clear Cache" menu item under the Site menu. We'll skip this.</p>
+
+<p><b>Permissions</b> &#45; Here you can specify a MODX Permission that MODX will check to see if the user has when loading the menu. If the user doesn't have this Permission, this menu item won't load. We don't want to restrict our CMP, so we'll leave this blank.</p>
+
+<p>Great&#33; We've got an Action and Menu now. Let's go ahead and create our default Lexicon Topic.</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-Lexicons"></a>Lexicons</h3>
+
+<p><a href="/display/revolution20/Internationalization" title="Internationalization">Lexicons</a> in MODX Revolution allow you to provide MODX with translations for your Extra (and anything, really) in any language. We want our Extra to be i18n-compatible, so we want to utilize this feature. Each string (also called an Entry) has its own key, such as 'doodles.desc' shown above. The common practice for Lexicon keys for Extras is to prefix them with the Namespace path and a dot. This prevents collisions with other Extras.</p>
+
+<p>Lexicon strings are collected in files called 'Lexicon Topics'. This means your strings can be isolated by a specific area (similar to how the core/lexicon/ directory does it), and makes it so you don't have to load <em>all</em> the strings for your Extra when you may only want to load a few.</p>
+
+<p>If you wanted to use your Lexicons in a Snippet, you could use $modx-&gt;lexicon-&gt;load('doodles:default'). This would load the 'default' topic from the 'doodles' Namespace. For CMPs, however, this is a little different; you load it in the Action via the 'Language Topics' field we filled out earlier. This loads the topic in our page so we can easily access it.</p>
+
+<p>But we haven't actually <em>made</em> that Lexicon Topic file, so let's go do this now. Lexicons on the filesystem are structured thus:</p>
+
+<blockquote><p>{namespace_path}/lexicon/{language}/{topic}.inc.php</p></blockquote>
+
+<p>So we'll go ahead and create our file here: /www/doodles/core/components/doodles/lexicon/en/default.inc.php and fill it with this:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+$_lang['doodle'] = 'Doodle';
+$_lang['doodles'] = 'Doodles';
+$_lang['doodles.desc'] = 'Manage your doodles here.';
+$_lang['doodles.description'] = 'Description';
+$_lang['doodles.doodle_err_ae'] = 'A doodle with that name already exists.';
+$_lang['doodles.doodle_err_nf'] = 'Doodle not found.';
+$_lang['doodles.doodle_err_ns'] = 'Doodle not specified.';
+$_lang['doodles.doodle_err_ns_name'] = 'Please specify a name <span class="code-keyword">for</span> the doodle.';
+$_lang['doodles.doodle_err_remove'] = 'An error occurred <span class="code-keyword">while</span> trying to remove the doodle.';
+$_lang['doodles.doodle_err_save'] = 'An error occurred <span class="code-keyword">while</span> trying to save the doodle.';
+$_lang['doodles.doodle_create'] = 'Create New Doodle';
+$_lang['doodles.doodle_remove'] = 'Remove Doodle';
+$_lang['doodles.doodle_remove_confirm'] = 'Are you sure you want to remove <span class="code-keyword">this</span> doodle?';
+$_lang['doodles.doodle_update'] = 'Update Doodle';
+$_lang['doodles.downloads'] = 'Downloads';
+$_lang['doodles.location'] = 'Location';
+$_lang['doodles.management'] = 'Doodles Management';
+$_lang['doodles.management_desc'] = 'Manage your doodles here. You can edit them by either <span class="code-object">double</span>-clicking on the grid or right-clicking on the respective row.';
+$_lang['doodles.name'] = 'Name';
+$_lang['doodles.search...'] = 'Search...';
+$_lang['doodles.top_downloaded'] = 'Top Downloaded Doodles';</pre>
+</div></div>
+
+<p>There's quite a few strings in there&#33; We'll use them, don't worry. Note that all we're doing is filling a PHP array called $_lang. That's it; MODX will do the rest.</p>
+
+<p>You can also see our 'doodles' and 'doodles.desc' strings we referenced earlier in here.</p>
+
+<p>Great&#33; We're all setup to start developing our CMP.</p>
+
+<h2><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-SettinguptheControllerswithMODExt"></a>Setting up the Controllers with MODExt</h2>
+
+<p>CMPs in MODX are generated with <a href="http://sencha.com/" class="external-link" rel="nofollow">ExtJS</a>, a JavaScript framework by Sencha that allows for rapid and powerful UI development. MODX adds functionality to a few of the ExtJS tools (and calls them MODExt). We're going to use those tools in our CMP. This tutorial is not meant to teach you ExtJS, as there are plenty of tutorials on that on the web, and on the <a href="http://sencha.com/" class="external-link" rel="nofollow">Sencha main site</a>. But we will go over how to use them to create a neat grid that can do CRUD actions.</p>
+
+<p>We're going to need to setup some basic controllers first before we can proceed with development.</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-TheBaseController"></a>The Base Controller</h3>
+
+<p>Let's create our controller at: /www/doodles/core/components/doodles/controllers/index.php. And put this in it:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">return</span> 'Test.'</pre>
+</div></div>
+
+<p>That should return something like this:</p>
+
+<p><span class="image-wrap" style=""><img src="/download/attachments/37683304/cmp-test.png?version=1&amp;modificationDate=1325795553000" style="border: 0px solid black" /></span></p>
+
+<p>Alright&#33; We've got our own CMP working&#33; Now, you could just output forms and code here, and do all your stuff in this index.php file. You don't have to use ExtJS, or any of the other functions. But, MODX provides it, and it's pretty darn powerful, and it would make your CMP be all shiny. So why not?</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-CustomRequestRouting"></a>Custom Request Routing</h3>
+
+<p>Now that we know that it works, let's up the complexity a bit to make our CMP a bit more flexible. What if we wanted to have multiple pages in our CMP? Well, we <em>could</em> use Actions, or we could create a custom request handler to redirect to the page we want (which is what we're going to do) while still using our main Action. This allows us to do all our development and URL mapping from within our single Action. Replace the controllers/index.php file with this:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+require_once dirname(dirname(__FILE__)).'/model/doodles/doodles.class.php';
+$doodles = <span class="code-keyword">new</span> Doodles($modx);
+<span class="code-keyword">return</span> $doodles-&gt;initialize('mgr');</pre>
+</div></div>
+
+<p>That's it. Note how we're loading our Doodles class that we loaded in Part I of this tutorial. See, told you it'd come in handy&#33; Next, we are running the &#45;&gt;initialize('mgr') method on it...wait, we never created that method&#33; Let's do so now. Go into doodles.class.php and add this method:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+<span class="code-keyword">public</span> function initialize($ctx = 'web') {
+   <span class="code-keyword">switch</span> ($ctx) {
+        <span class="code-keyword">case</span> 'mgr':
+            $<span class="code-keyword">this</span>-&gt;modx-&gt;lexicon-&gt;load('doodles:<span class="code-keyword">default</span>');
+            <span class="code-keyword">if</span> (!$<span class="code-keyword">this</span>-&gt;modx-&gt;loadClass('doodlesControllerRequest',$<span class="code-keyword">this</span>-&gt;config['modelPath'].'doodles/request/',<span class="code-keyword">true</span>,<span class="code-keyword">true</span>)) {
+               <span class="code-keyword">return</span> 'Could not load controller request handler.';
+            }
+            $<span class="code-keyword">this</span>-&gt;request = <span class="code-keyword">new</span> doodlesControllerRequest($<span class="code-keyword">this</span>);
+            <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;request-&gt;handleRequest();
+        <span class="code-keyword">break</span>;
+    }
+    <span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+}</pre>
+</div></div>
+<p>Okay, so we're using this method to initialize the mgr context for our Doodles CMP. We tell it to load our default Doodles Lexicon Topic, and then to load another class (via our custom paths) and run the &#45;&gt;handleRequest method on it. But we haven't made that class yet&#33; Let's do so. In this method, note how we're loading the class name in the first parameter of the loadClass call, and then the 2nd is the path, which translates into: /www/doodles/core/components/doodles/model/doodles/request/. So we'll create our file here:</p>
+
+<blockquote><p>/www/doodles/core/components/doodles/model/doodles/request/doodlescontrollerrequest.class.php</p></blockquote>
+
+<p>And we'll fill it with this:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+require_once MODX_CORE_PATH . 'model/modx/modrequest.class.php';
+class doodlesControllerRequest <span class="code-keyword">extends</span> modRequest {
+    <span class="code-keyword">public</span> $doodles = <span class="code-keyword">null</span>;
+    <span class="code-keyword">public</span> $actionVar = 'action';
+    <span class="code-keyword">public</span> $defaultAction = 'index';
+
+    function __construct(Doodles &amp;$doodles) {
+        parent :: __construct($doodles-&gt;modx);
+        $<span class="code-keyword">this</span>-&gt;doodles =&amp; $doodles;
+    }
+
+    <span class="code-keyword">public</span> function handleRequest() {
+        $<span class="code-keyword">this</span>-&gt;loadErrorHandler();
+
+        /* save page to manager object. allow custom actionVar choice <span class="code-keyword">for</span> extending classes. */
+        $<span class="code-keyword">this</span>-&gt;action = isset($_REQUEST[$<span class="code-keyword">this</span>-&gt;actionVar]) ? $_REQUEST[$<span class="code-keyword">this</span>-&gt;actionVar] : $<span class="code-keyword">this</span>-&gt;defaultAction;
+
+        $modx =&amp; $<span class="code-keyword">this</span>-&gt;modx;
+        $doodles =&amp; $<span class="code-keyword">this</span>-&gt;doodles;
+        $viewHeader = include $<span class="code-keyword">this</span>-&gt;doodles-&gt;config['corePath'].'controllers/mgr/header.php';
+
+        $f = $<span class="code-keyword">this</span>-&gt;doodles-&gt;config['corePath'].'controllers/mgr/'.$<span class="code-keyword">this</span>-&gt;action.'.php';
+        <span class="code-keyword">if</span> (file_exists($f)) {
+            $viewOutput = include $f;
+        } <span class="code-keyword">else</span> {
+            $viewOutput = 'Controller not found: '.$f;
+        }
+
+        <span class="code-keyword">return</span> $viewHeader.$viewOutput;
+    }
+}</pre>
+</div></div>
+
+<p>Okay. So note how we're including the MODX request handler class, modRequest, and extending it with this class. The modRequest class does all of our sanitization, error class loading, and other stuff for us. We're going to override the handleRequest method in this, though, and tell it to load the MODX Error Handler class, and then add an 'action' parameter. MODX loads its Actions via the ?a= param; we're going to load our internal controller files in that Action we created earlier via the ?action= parameter. Think of our custom ones as like a 'sub-action', so to speak.</p>
+
+<p>We also at the beginning of the class define which action with load first, with the 'defaultAction' class var. This is important, as it tells our class which file to load when someone clicks the Menu item we made earlier.</p>
+
+<p>Next, we make references to the MODX object, and the Doodles object, so our controllers can use them. Then, we'll load a "mgr/header.php" controller, which we'll be creating shortly - this will have all of our Doodles-CMP-shared code in it. And finally, we'll load the current active controller, and return it. Cool&#33;</p>
+
+<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>You don't have to use a custom request router. You could just load the contents of mgr/header.php and mgr/index.php (discussed later) in the controllers/index.php file and be done with it. Custom request routing as described here, though, allows you to have multiple pages for your CMP - which might be useful.</td></tr></table></div>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-TheHeaderController"></a>The Header Controller</h3>
+
+<p>So now we need to create our header controller, which has all the base Doodles CMP stuff in it. Let's add a file here: /www/doodles/core/components/doodles/controllers/mgr/header.php and put this in it:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+$modx-&gt;regClientStartupScript($doodles-&gt;config['jsUrl'].'mgr/doodles.js');
+$modx-&gt;regClientStartupHTMLBlock('&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+Ext.onReady(function() {
+    Doodles.config = '.$modx-&gt;toJSON($doodles-&gt;config).';
+});
+&lt;/script&gt;');
+<span class="code-keyword">return</span> '';
+</pre>
+</div></div>
+
+<p>So this header basically loads a common JS file, <em>mgr/doodles.js</em>, in our JS directory. Then it runs a JS method when ExtJS has loaded that loads the config vars for our $doodles-&gt;config in the 'Doodles.config' JS object (which we'll use for paths and such). In our doodles.js file (which is found at /www/doodles/assets/components/doodles/js/mgr/doodles.js), we have this:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> Doodles = function(config) {
+    config = config || {};
+    Doodles.superclass.constructor.call(<span class="code-keyword">this</span>,config);
+};
+Ext.extend(Doodles,Ext.Component,{
+    page:{},window:{},grid:{},tree:{},panel:{},combo:{},config: {}
+});
+Ext.reg('doodles',Doodles);
+Doodles = <span class="code-keyword">new</span> Doodles();</pre>
+</div></div>
+<p>So, basically, we're loading a Doodles object which extends the Ext.Component class. This also gives us a nice JavaScript namespace of 'Doodles'. We're done with the header stuff. Let's start on our initial page.</p>
+
+<h2><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-OurDoodlesCMPPage"></a>Our Doodles CMP Page</h2>
+
+<p>Create a file at /www/doodles/core/components/doodles/controllers/mgr/index.php (remember in our defaultAction var, 'index' was it?) and fill it with this:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+<span class="code-comment">//$modx-&gt;regClientStartupScript($doodles-&gt;config['jsUrl'].'mgr/widgets/doodles.grid.js');
+</span>$modx-&gt;regClientStartupScript($doodles-&gt;config['jsUrl'].'mgr/widgets/home.panel.js');
+$modx-&gt;regClientStartupScript($doodles-&gt;config['jsUrl'].'mgr/sections/index.js');
+
+<span class="code-keyword">return</span> '&lt;div id=<span class="code-quote">"doodles-panel-home-div"</span>&gt;&lt;/div&gt;';</pre>
+</div></div>
+
+<p>Great&#33; So we're doing a couple things here. We're loading a few 'widgets', and then loading a 'section'. These terms are arbitrary, but we're using them here in the same way MODX uses them in MODExt to render the manager interface. Basically, a "widget" is something like a grid of objects (such as Doodles), or a tree, or a specialized panel. Putting them in separate files allows you to use them in different pages without having to duplicate code. A "section" is a piece of JS that actually <em>loads</em> the widgets onto a page. Including a widget won't load and render it - a section will render it.</p>
+
+<p>We're going to load first the doodles.grid.js, which is a widget that displays a grid of Doodles. Secondly, we load the 'home' panel, which is our home page's main panel, that the grid will reside in. And finally, we load the 'index' section, which renders the UI.</p>
+
+<p>We're going to leave the grid commented out for now, but we'll come back to it. Promise.</p>
+
+<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>We could have put all these JS files in one file, which would have loaded the page faster. For illustration purposes, we put them in 3 separate files, to make explaining this tutorial easier. Feel free to do whatever you want when developing your CMP.</td></tr></table></div>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-TheSectionJSFile"></a>The Section JS File</h3>
+
+<p>Let's first create the index.js file, at /www/doodles/assets/components/doodles/js/mgr/sections/index.js:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Ext.onReady(function() {
+    MODx.load({ xtype: 'doodles-page-home'});
+});
+
+Doodles.page.Home = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        components: [{
+            xtype: 'doodles-panel-home'
+            ,renderTo: 'doodles-panel-home-div'
+        }]
+    });
+    Doodles.page.Home.superclass.constructor.call(<span class="code-keyword">this</span>,config);
+};
+Ext.extend(Doodles.page.Home,MODx.Component);
+Ext.reg('doodles-page-home',Doodles.page.Home);</pre>
+</div></div>
+
+<p>Okay, let's explain. The first thing that happens is that we tell ExtJS, when the page is nice and loaded, "load" the component (or widget/object/panel) with 'xtype' <em>doodles-page-home</em>. How ExtJS works is that it allows you to define components with an 'xtype', which is kind of like a unique identifier for a panel, tree, etc. Think of it like an ID for a class. MODx.load simply instantiates that object.</p>
+
+<p>Below that, we actually define the 'doodles-page-home' object, and make it extend MODx.Component. MODx.Component is basically an abstracted JS class that renders a page in the MODX manager interface. It provides a few helper methods that make quick generation of MODX pages smoother. All we have to pass into it is the components we want to load; currently, in this case, the 'doodles-panel-home' component (which we haven't defined yet; it'll be in the home.panel.js file mentioned earlier). We also want it to render to the DOM ID of 'doodles-panel-home-div', which, as you might remember, was the "div" we returned earlier in our mgr/index.php controller.</p>
+
+<p>Finally, we register this page to the 'doodles-page-home' xtype, which we are referencing in the MODx.load call earlier.</p>
+
+<p>Great&#33; On to the panel.</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-ThePanelJSFile"></a>The Panel JS File</h3>
+
+<p>We've got our page, but now we want to load a panel in it. Let's create a file at www/doodles/assets/components/doodles/js/mgr/widgets/home.panel.js and put this in it:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Doodles.panel.Home = function(config) {
+    config = config || {};
+    Ext.apply(config,{
+        border: <span class="code-keyword">false</span>
+        ,baseCls: 'modx-formpanel'
+        ,items: [{
+            html: '&lt;h2&gt;'+_('doodles.management')+'&lt;/h2&gt;'
+            ,border: <span class="code-keyword">false</span>
+            ,cls: 'modx-page-header'
+        },{
+            xtype: 'modx-tabs'
+            ,bodyStyle: 'padding: 10px'
+            ,defaults: { border: <span class="code-keyword">false</span> ,autoHeight: <span class="code-keyword">true</span> }
+            ,border: <span class="code-keyword">true</span>
+            ,items: [{
+                title: _('doodles')
+                ,defaults: { autoHeight: <span class="code-keyword">true</span> }
+                ,items: [{
+                    html: '&lt;p&gt;'+_('doodles.management_desc')+'&lt;/p&gt;&lt;br /&gt;'
+                    ,border: <span class="code-keyword">false</span>
+                }]
+            }]
+        }]
+    });
+    Doodles.panel.Home.superclass.constructor.call(<span class="code-keyword">this</span>,config);
+};
+Ext.extend(Doodles.panel.Home,MODx.Panel);
+Ext.reg('doodles-panel-home',Doodles.panel.Home);</pre>
+</div></div>
+
+<p>So, first, at the bottom, note how we're registering this panel to 'doodles-panel-home', which we referenced in our section. Also note that this panel extends MODx.Panel, which in turn extends Ext.Panel. Why not just extend Ext.Panel? Well, extending MODx.Panel does the same, and adds a CSS class to the panel to give it the nice manager MODX styling.</p>
+
+<p>We're going to give this panel a baseCls of 'modx-formpanel', which lets our top part have a transparent background. Then, we'll make sure it doesn't have a border.</p>
+
+<p>Next, we'll define the 'items' in the panel. First, we add a header:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">{
+   html: '&lt;h2&gt;'+_('doodles.management')+'&lt;/h2&gt;'
+   ,border: <span class="code-keyword">false</span>
+   ,cls: 'modx-page-header'
+}</pre>
+</div></div>
+
+<p>Basically this just inserts some HTML into the top of the panel with a class of 'modx-page-header', and puts a nice h2 tag up there. Note the &#95;() method. This is MODX's way of doing i18n (Lexicons) in the manager JS. This tells MODX to translate this key. If you remember, we defined the 'doodles.management' string earlier with: "Doodles Management". So this will render the translation of this key in the h2 tag.</p>
+
+<p>Next, we'll add a TabPanel. We could just load the panel straight without tabs, but what if down the line we wanted to add another tab? Let's define it:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">,{
+   xtype: 'modx-tabs'
+   ,bodyStyle: 'padding: 10px'
+   ,defaults: { border: <span class="code-keyword">false</span> ,autoHeight: <span class="code-keyword">true</span> }
+   ,border: <span class="code-keyword">true</span>
+   ,items: /* ... */
+}</pre>
+</div></div>
+
+<p>Note we load our tabpanel with the xtype 'modx-tabs'. This loads a MODX-specific tabpanel, which has some MODX-specific configuration options. Then we give it some padding, a border, and make sure the defaults for its tabs have no border and an automatic height. Then, we add the tab itself:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+{
+   title: _('doodles')
+   ,defaults: { autoHeight: <span class="code-keyword">true</span> }
+   ,items: [{
+      html: '&lt;p&gt;'+_('doodles.management_desc')+'&lt;/p&gt;&lt;br /&gt;'
+      ,border: <span class="code-keyword">false</span>
+   }]
+}</pre>
+</div></div>
+
+<p>Okay, this is going to load our first tab with a tab title translated to 'Doodles'. Then, we'll put some stuff in the tab (which is an Ext.Panel, by the way). We'll first put a nice little description with our "doodles.management_desc" lexicon string.</p>
+
+<p>Let's load the page and take a look now.</p>
+
+<p><span class="image-wrap" style=""><img src="/download/attachments/37683304/doodles-panel1.png?version=1&amp;modificationDate=1325795553000" style="border: 0px solid black" /></span></p>
+
+<p>Cool&#33; We've got a MODX-styled panel going. Unfortunately, it's pretty useless. We need to add a grid to manage our Doodles. Let's go ahead and do that now.</p>
+
+<h2><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-TheDoodlesGrid"></a>The Doodles Grid</h2>
+
+<p>First off, go ahead and uncomment this line in your mgr/index.php controller:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">$modx-&gt;regClientStartupScript($doodles-&gt;config['jsUrl'].'mgr/widgets/doodles.grid.js');</pre>
+</div></div>
+
+<p>This tells MODX to load the grid widget file, which we'll now create at /www/doodles/assets/components/doodles/js/mgr/widgets/doodles.grid.js:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Doodles.grid.Doodles = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        id: 'doodles-grid-doodles'
+        ,url: Doodles.config.connectorUrl
+        ,baseParams: { action: 'mgr/doodle/getList' }
+        ,fields: ['id','name','description','menu']
+        ,paging: <span class="code-keyword">true</span>
+        ,remoteSort: <span class="code-keyword">true</span>
+        ,anchor: '97%'
+        ,autoExpandColumn: 'name'
+        ,columns: [{
+            header: _('id')
+            ,dataIndex: 'id'
+            ,sortable: <span class="code-keyword">true</span>
+            ,width: 60
+        },{
+            header: _('doodles.name')
+            ,dataIndex: 'name'
+            ,sortable: <span class="code-keyword">true</span>
+            ,width: 100
+            ,editor: { xtype: 'textfield' }
+        },{
+            header: _('doodles.description')
+            ,dataIndex: 'description'
+            ,sortable: <span class="code-keyword">false</span>
+            ,width: 350
+            ,editor: { xtype: 'textfield' }
+        }]
+    });
+    Doodles.grid.Doodles.superclass.constructor.call(<span class="code-keyword">this</span>,config)
+};
+Ext.extend(Doodles.grid.Doodles,MODx.grid.Grid);
+Ext.reg('doodles-grid-doodles',Doodles.grid.Doodles);</pre>
+</div></div>
+
+<p>Whew, a lot in there&#33; Let's start off with the configuration parameters we're setting.</p>
+<ul>
+	<li><b>id</b>: We give this panel an ID of 'doodles-grid-doodles'.</li>
+	<li><b>url</b>: We point it to the connector file at Doodles.config.connectorUrl (we'll get to connectors here in a second).</li>
+	<li><b>baseParams</b>: We setup it's base parameters to send when getting records for the grid via REQUEST with a key of 'action' and a value of 'mgr/doodle/getList'. More on this in a second.</li>
+	<li><b>fields</b>: We setup the fields we'll get from the AJAX request to populate the grid. Basically, these are the fields of our Doodle.</li>
+	<li><b>paging</b>: We want pagination for our grid, so MODExt handles all of this just by setting 'paging: true' here.</li>
+	<li><b>remoteSort</b>: We set this to true, and Ext will allow our grid columns to be sortable.</li>
+	<li><b>anchor</b>: We want this grid to stretch the panel width, so we set it to 97% (3% less to account for padding).</li>
+	<li><b>autoExpandColumn</b>: We want to stretch the 'name' column to dynamically be the biggest column on the grid.</li>
+</ul>
+
+
+<p>Then, we define some columns for our grid. We also allow 'name' and 'description' to be editable by attaching an editor to each column. More on this later. Note how the 'dataIndex' parameter matches the name of the Doodles field we want to display.</p>
+
+<p>Finally, let's add the grid to our panel. Change this part in our Doodles.panel.Home:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">,items: [{
+   html: '&lt;p&gt;'+_('doodles.management_desc')+'&lt;/p&gt;&lt;br /&gt;'
+   ,border: <span class="code-keyword">false</span>
+}]</pre>
+</div></div>
+
+<p>to this:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+[{
+   html: '&lt;p&gt;'+_('doodles.management_desc')+'&lt;/p&gt;&lt;br /&gt;'
+   ,border: <span class="code-keyword">false</span>
+},{
+   xtype: 'doodles-grid-doodles'
+   ,preventRender: <span class="code-keyword">true</span>
+}]</pre>
+</div></div>
+
+<p>That loads our grid right below the message we posted earlier in our panel. The preventRender attribute tells Ext not to render the grid until the rest of the panel loads.</p>
+
+<p>If you tried to load the page now, the grid would show, but not load any data - we haven't made our Connector yet, and so the grid doesn't have anywhere to fetch its data. Let's do that.</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-HookingUpviaConnectors"></a>Hooking Up via Connectors</h3>
+
+<p>What is a Connector in MODX? A Connector is, technically, a file that 'connects' to the model layer of MODX, or the Processors. Processors are form-layer files that run DB queries and other things that modify the model and/or database.</p>
+
+<p>In laymen's terms, Processors are where you will do all your database modifying. Connectors are a 'gateway' to them. They restrict access, check access permissions, and 'route' requests to the appropriate processor. They also limit the access points to your model, further securing your app. Think of your model as a fortress, your DB as the palace in the center, the processors the roads in that fortress, and connectors as the gates in the walls around your fortress. You want those gates to be secure, and limited in number.</p>
+
+<p>Back to our Extra. Our ExtJS grid needs to load its data for its rows via AJAX by our connector. But we need to <b>create</b> our connector first. Let's make it at /www/doodles/assets/components/doodles/connector.php:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+require_once dirname(dirname(dirname(dirname(__FILE__)))).'/config.core.php';
+require_once MODX_CORE_PATH.'config/'.MODX_CONFIG_KEY.'.inc.php';
+require_once MODX_CONNECTORS_PATH.'index.php';
+
+$corePath = $modx-&gt;getOption('doodles.core_path',<span class="code-keyword">null</span>,$modx-&gt;getOption('core_path').'components/doodles/');
+require_once $corePath.'model/doodles/doodles.class.php';
+$modx-&gt;doodles = <span class="code-keyword">new</span> Doodles($modx);
+
+$modx-&gt;lexicon-&gt;load('doodles:<span class="code-keyword">default</span>');
+
+/* handle request */
+$path = $modx-&gt;getOption('processorsPath',$modx-&gt;doodles-&gt;config,$corePath.'processors/');
+$modx-&gt;request-&gt;handleRequest(array(
+    'processors_path' =&gt; $path,
+    'location' =&gt; '',
+));
+</pre>
+</div></div>
+<p>That's it. We first load the config.core.php file. We'll go ahead and add it here in our development environment; in standard MODX installs, this will already exist.</p>
+
+<p>Create a file at /www/doodles/config.core.php and put this in it:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+define('MODX_CORE_PATH', '/www/modx/core/');
+define('MODX_CONFIG_KEY', 'config');
+</pre>
+</div></div>
+
+<p>Obviously, you'll need to change those values to your MODx installation paths. And if you're using SVN or Git for your Extra, you'll want to add those to your ignore file (ie, .gitignore), since you don't want those in your source repository.</p>
+
+<p>Next in our connector, we load the config file, and the MODX connectors/index.php file.</p>
+
+<p>Then, we load our Doodles class (with our magic system settings&#33;), which will add our xPDO custom Doodles model into MODX, and then load our default doodles Lexicon Topic. Finally, we 'handle' the request using our custom Processors path we defined in our Doodles class, and tell MODX to load the processors.</p>
+
+<p>This file will do nothing on its own when access. Loading it directly will give you this:</p>
+
+<blockquote><p>{"success":false,"message":"Access denied.","total":0,"data":[],"object":[]}</p></blockquote>
+
+<p>There's a few reasons for this. One is that the connectors are locked down and don't allow anyone without a MODX manager session to access them. Secondly, all requests to connectors <b>must</b> pass a unique-to-your-site authorization key that prevents CRSF attacks. It can either be passed in the HTTP headers as 'modAuth', or in a REQUEST var as HTTP_MODAUTH. The value will be $modx-&gt;siteId, which is set on a new install, and loaded when MODX is loaded.</p>
+
+<div class='panelMacro'><table class='warningMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>Don't ever paste or share with anyone your $modx-&gt;siteId or HTTP_MODAUTH key. It keeps your site secure.</td></tr></table></div>
+
+<p>The great thing, though, is you won't have to worry about this. MODX already handles this in MODExt - all HTTP requests made by ExtJS in MODX pass this variable in via their HTTP headers.</p>
+
+<p>The second reason loading the connector file directly wont work is that we didn't specify a routing path - remember baseParams in the grid? Remember how we set the 'action' param in it to 'mgr/doodle/getList'? That's our routing path. That tells the connector to load the file at:</p>
+
+<blockquote><p>/www/doodles/core/components/doodles/processors/mgr/doodle/getlist.php</p></blockquote>
+
+<p>So let's go ahead and make that file to give our grid some data:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+$isLimit = !empty($scriptProperties['limit']);
+$start = $modx-&gt;getOption('start',$scriptProperties,0);
+$limit = $modx-&gt;getOption('limit',$scriptProperties,10);
+$sort = $modx-&gt;getOption('sort',$scriptProperties,'name');
+$dir = $modx-&gt;getOption('dir',$scriptProperties,'ASC');
+
+/* build query */
+$c = $modx-&gt;newQuery('Doodle');
+$count = $modx-&gt;getCount('Doodle',$c);
+$c-&gt;sortby($sort,$dir);
+<span class="code-keyword">if</span> ($isLimit) $c-&gt;limit($limit,$start);
+$doodles = $modx-&gt;getIterator('Doodle', $c);
+
+/* iterate */
+$list = array();
+foreach ($doodles as $doodle) {
+    $doodleArray = $doodle-&gt;toArray();
+    $list[]= $doodleArray;
+}
+<span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;outputArray($list,$count);</pre>
+</div></div>
+
+<p>Great. So a few things. You'll note the $modx object, and an array called $scriptProperties, is already available. What is $scriptProperties? Well here it's a sanitized array of REQUEST vars - anything passed in goes in that array. So you'll notice we're setting up some default parameters to handle sorting and pagination at the beginning.</p>
+
+<p>Then, we're creating a new <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a> object to do sorting and pagination on the query with our passed-in parameters. We grab a collection of Doodle objects then with $modx-&gt;getIterator. $modx-&gt;getIterator is the same as $modx-&gt;getCollection, with one big caveat; it only loads objects as they are requested - so it's faster than getCollection when just looping over a collection of objects like we're doing here.</p>
+
+<p>Finally, we use a foreach loop to loop over our data, store an associative array of their fields and values using &#45;&gt;toArray, and then run a special-to-processors method called 'outputArray'. This method returns a JSON array of data, with 2 parameters - the first being the array of data, and the second being the total number of objects. We are passing in a $count var here, because if we had more than 10 Doodles, we'd want to get the total number (as we're only returning 10 by default).</p>
+
+<p>That's it. Now let's load up our grid:</p>
+
+<p><span class="image-wrap" style=""><img src="/download/attachments/37683304/doodles-grid1.png?version=1&amp;modificationDate=1325795553000" style="border: 0px solid black" /></span></p>
+
+<p>Great&#33; We've got a working grid. Now, let's add some functionality to it, since right now all it does is list Doodles.</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-AddingSearch"></a>Adding Search</h3>
+
+<p>Add this bit of code to your grid panel, right after the columns: definition:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">,tbar:[{
+    xtype: 'textfield'
+    ,id: 'doodles-search-filter'
+    ,emptyText: _('doodles.search...')
+    ,listeners: {
+        'change': {fn:<span class="code-keyword">this</span>.search,scope:<span class="code-keyword">this</span>}
+        ,'render': {fn: function(cmp) {
+            <span class="code-keyword">new</span> Ext.KeyMap(cmp.getEl(), {
+                key: Ext.EventObject.ENTER
+                ,fn: function() {
+                    <span class="code-keyword">this</span>.fireEvent('change',<span class="code-keyword">this</span>);
+                    <span class="code-keyword">this</span>.blur();
+                    <span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+                }
+                ,scope: cmp
+            });
+        },scope:<span class="code-keyword">this</span>}
+    }
+}]</pre>
+</div></div>
+
+<p>We just added a textfield to the top bar of our grid, and we gave it some 'emptyText', meaning that when empty, display this text. Also, we gave it a DOM ID of 'doodles-search-filter', and told it to run the 'this.search' method when it changes. Also, the code in the 'render' listener means to fire the change event when someone hits ENTER on their keyboard when editing it.</p>
+
+<p>So let's define the 'this.search' method - since our Panel is OOP, this means that this.search can be defined in our grid object. To do that, find this code:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Ext.extend(Doodles.grid.Doodles,MODx.grid.Grid);</pre>
+</div></div>
+
+<p>And replace it with this:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+Ext.extend(Doodles.grid.Doodles,MODx.grid.Grid,{
+    search: function(tf,nv,ov) {
+        <span class="code-keyword">var</span> s = <span class="code-keyword">this</span>.getStore();
+        s.baseParams.query = tf.getValue();
+        <span class="code-keyword">this</span>.getBottomToolbar().changePage(1);
+        <span class="code-keyword">this</span>.refresh();
+    }
+});</pre>
+</div></div>
+<p>What we're telling it to do here is to extend the MODx.grid.Grid class, and then add another method called 'search'. In that method, we're getting the grid's "Store", which is where the data for the grid is stored and what determines where the data comes from. Then, we are adding a 'query' parameter to our baseParams (remember that earlier?), changing the current page of the grid back to 1, and refreshing it.</p>
+
+<p>This will pass a 'query' REQUEST parameter to our getList processor. Since we're not doing anything to handle that yet, let's go open it up. Right below our $dir = $modx-&gt;getOption line, add this:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">$query = $modx-&gt;getOption('query',$scriptProperties,'');</pre>
+</div></div>
+
+<p>And right below our $modx-&gt;newQuery('Doodle') call, add this:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">if</span> (!empty($query)) {
+    $c-&gt;where(array(
+        'name:LIKE' =&gt; '%'.$query.'%',
+        'OR:description:LIKE' =&gt; '%'.$query.'%',
+    ));
+}</pre>
+</div></div>
+
+<p>Note the first part sets the default query. The 2nd bit adds a WHERE statement to our SQL query if the search value isn't empty, and checks to see if the value of any of our DB entries contain the value of our search. Now load your grid, and you'll get:</p>
+
+<p><span class="image-wrap" style=""><img src="/download/attachments/37683304/doodles-grid-search.png?version=1&amp;modificationDate=1325795553000" style="border: 0px solid black" /></span></p>
+
+<p>And there's our searchable grid. Now let's work on updating records.</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-AddinganUpdateWindow"></a>Adding an Update Window</h3>
+
+<p>First off, MODX grids usually have context menus when you click them. Ours doesn't, and that's because we haven't defined it yet. Let's go ahead and define it. Add a 'getMenu' method to your Doodles.grid.Grid definition, right below your search: method we just added:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">,getMenu: function() {
+    <span class="code-keyword">var</span> m = [{
+        text: _('doodles.doodle_update')
+        ,handler: <span class="code-keyword">this</span>.updateDoodle
+    },'-',{
+        text: _('doodles.doodle_remove')
+        ,handler: <span class="code-keyword">this</span>.removeDoodle
+    }];
+    <span class="code-keyword">this</span>.addContextMenuItem(m);
+    <span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+}</pre>
+</div></div>
+
+<p>MODX looks for a getMenu method on grids that extend it, and if it finds it, it runs it. Here we've added 2 menu items for our context menu, one that runs a this.updateDoodle method, and the other that runs a this.removeDoodle method. We'll get to the removeDoodle method here in a bit. For now, let's add another JS method below the getMenu call, and call it updateDoodle:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">,updateDoodle: function(btn,e) {
+    <span class="code-keyword">if</span> (!<span class="code-keyword">this</span>.updateDoodleWindow) {
+        <span class="code-keyword">this</span>.updateDoodleWindow = MODx.load({
+            xtype: 'doodles-window-doodle-update'
+            ,record: <span class="code-keyword">this</span>.menu.record
+            ,listeners: {
+                'success': {fn:<span class="code-keyword">this</span>.refresh,scope:<span class="code-keyword">this</span>}
+            }
+        });
+    } <span class="code-keyword">else</span> {
+        <span class="code-keyword">this</span>.updateDoodleWindow.setValues(<span class="code-keyword">this</span>.menu.record);
+    }
+    <span class="code-keyword">this</span>.updateDoodleWindow.show(e.target);
+}</pre>
+</div></div>
+<p>A few things. What this little bit of code does is checks for a class variable named 'updateDoodleWindow'. If it doesn't find it, it creates it. This prevents us from having to have ExtJS create a new window every time (it's faster and better to prevent DOM ID conflicts). Also, it passes in a few values:</p>
+
+<ul>
+	<li><b>xtype</b> &#45; This is obviously our unique xtype for the window, which is 'doodles-window-doodle-update'. We'll get to that soon.</li>
+	<li><b>record</b> &#45; MODx.Window objects will automatically fill their fields with whatever is passed into the 'record' configuration param. Also, MODx.grid.Grid objects always have the current row values stored in the 'this.menu.record' object. So we'll just pass that right in to our Window.</li>
+	<li><b>listeners</b> &#45; These execute on different events in the window. For now, we just want to refresh the grid (via the 'this.refresh' method for the MODx.grid.Grid) whenever the window succeeds; meaning whenever the window's form successfully submits and returns a 'success' response.</li>
+</ul>
+
+
+<p>After we create the window, we'll run the show() method on it to show it. The 'e.target' just tells it to animate the opening from wherever the mouse was. If we already had a window object, before that we call setValues on it, which sets the values of the Window's form to the passed in value (similar to the record: param). This allows us to re-use windows.</p>
+
+<p>Now let's actually define the window:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Doodles.window.UpdateDoodle = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        title: _('doodles.doodle_update')
+        ,url: Doodles.config.connectorUrl
+        ,baseParams: {
+            action: 'mgr/doodle/update'
+        }
+        ,fields: [{
+            xtype: 'hidden'
+            ,name: 'id'
+        },{
+            xtype: 'textfield'
+            ,fieldLabel: _('doodles.name')
+            ,name: 'name'
+            ,width: 300
+        },{
+            xtype: 'textarea'
+            ,fieldLabel: _('doodles.description')
+            ,name: 'description'
+            ,width: 300
+        }]
+    });
+    Doodles.window.UpdateDoodle.superclass.constructor.call(<span class="code-keyword">this</span>,config);
+};
+Ext.extend(Doodles.window.UpdateDoodle,MODx.Window);
+Ext.reg('doodles-window-doodle-update',Doodles.window.UpdateDoodle);</pre>
+</div></div>
+
+<p>Similar to what you've seen in the grids, except this time we have 'fields' as the fields for the Window's form. We've provided some fields to edit - and remember, since this is an "Update" form, we need to provide the ID of the Doodle, passed in as a hidden field.</p>
+
+<p>MODx.Window wraps Ext.Window, but provides a form inside that will automatically try and connect to the url: param with the baseParams: parameters, as well as the fields' values. It also automatically provides OK/Cancel buttons. Right-click on a record in the grid, and your window should look like this now:</p>
+
+<p><span class="image-wrap" style=""><img src="/download/attachments/37683304/doodles-window-update.png?version=1&amp;modificationDate=1325795553000" style="border: 0px solid black" /></span></p>
+
+<p>Excellent&#33; We've got a nice little update window. Now as you probably noticed in our baseParams, we're looking now for the 'mgr/doodle/update' processor. So let's create a file at: /www/doodles/core/components/doodles/processors/mgr/doodle/update.php:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?php
+/* get Doodle */
+<span class="code-keyword">if</span> (empty($scriptProperties['id'])) <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('doodles.doodle_err_ns'));
+$doodle = $modx-&gt;getObject('Doodle',$scriptProperties['id']);
+<span class="code-keyword">if</span> (empty($doodle)) <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('doodles.doodle_err_nf'));
+
+/* set Doodle fields */
+$doodle-&gt;fromArray($scriptProperties);
+
+/* save Doodle */
+<span class="code-keyword">if</span> ($doodle-&gt;save() == <span class="code-keyword">false</span>) {
+    <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('doodles.doodle_err_save'));
+}
+
+<span class="code-keyword">return</span> $modx-&gt;error-&gt;success('',$doodle);</pre>
+</div></div>
+
+<p>Here we're grabbing the Doodle object by its passed ID. If we don't find it, we'll run a 'failure' method on the $modx-&gt;error object. This method basically just passes back a failure message to our form, with the message of the first parameter.</p>
+
+<p>If we find it, however, we'll set its fields with $doodle-&gt;fromArray from the $scriptProperties parameter (which, remember, contains all the fields in the form). Then, we'll save it. Finally, we'll return a success response, with the 2nd parameter being our updated Doodle (this will allow us to reference it from the JS if we want). Now we have a working Update form&#33;</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-AddingaRemoveContextMenuOption"></a>Adding a Remove Context Menu Option</h3>
+
+<p>Let's finish off the remove part of our UI. We've already got the context menu showing up, so we just need to add the JS method and the processor. After our updateDoodle method in our JS grid, add this:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">,removeDoodle: function() {
+    MODx.msg.confirm({
+        title: _('doodles.doodle_remove')
+        ,text: _('doodles.doodle_remove_confirm')
+        ,url: <span class="code-keyword">this</span>.config.url
+        ,params: {
+            action: 'mgr/doodle/remove'
+            ,id: <span class="code-keyword">this</span>.menu.record.id
+        }
+        ,listeners: {
+            'success': {fn:<span class="code-keyword">this</span>.refresh,scope:<span class="code-keyword">this</span>}
+        }
+    });
+}</pre>
+</div></div>
+<p>MODx.msg.confirm pops up a confirmation dialog, and if confirmed, runs a processor via a connector. Let's take a look at each parameter:</p>
+
+<ul>
+	<li><b>title</b> &#45; This is the title of the confirmation dialog.</li>
+	<li><b>text</b> &#45; The text of the dialog. Here it basically asks if we really want to remove a Doodle.</li>
+	<li><b>url</b> &#45; The URL to the connector.</li>
+	<li><b>params</b> &#45; Any REQUEST parameters to send to the processor. We're going to send the processor path, and the ID of the Doodle to remove.</li>
+	<li><b>listeners</b> &#45; Similar to our update form's listeners, whenever this succeeds, refresh the grid.</li>
+</ul>
+
+
+<p>Now let's create our remove processor at /www/doodles/core/components/doodles/processors/mgr/doodle/remove.php:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?php
+<span class="code-keyword">if</span> (empty($scriptProperties['id'])) <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('doodles.doodle_err_ns'));
+$doodle = $modx-&gt;getObject('Doodle',$scriptProperties['id']);
+<span class="code-keyword">if</span> (empty($doodle)) <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('doodles.doodle_err_nf'));
+
+<span class="code-keyword">if</span> ($doodle-&gt;remove() == <span class="code-keyword">false</span>) {
+    <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('doodles.doodle_err_remove'));
+}
+
+<span class="code-keyword">return</span> $modx-&gt;error-&gt;success('',$doodle);</pre>
+</div></div>
+
+<p>Pretty similar to the update processor, except this time, we run $doodle-&gt;remove, which deletes the Doodle from the database. That's it&#33; We can now remove Doodles.</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-CreatingtheCreateForm"></a>Creating the Create Form</h3>
+
+<p>So we've got R, U and D of our CRUD interface. What about C? Let's work on a create form. Let's add a button to the top toolbar of the grid to load the create window. Add this to the tbar: property on the grid config, right after our search textfield:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">,{
+   text: _('doodles.doodle_create')
+   ,handler: { xtype: 'doodles-window-doodle-create' ,blankValues: <span class="code-keyword">true</span> }
+}</pre>
+</div></div>
+
+<p>MODExt allows you to pass JSON objects into the handler: method on toolbars. What this does is loads the Window with the xtype 'doodles-window-doodle-create', makes sure its values are blanked on load, and runs this.success on a successful window form submit (basically shortcuts the stuff we've been doing). That's what we want, so let's now define the window at the end of our file:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Doodles.window.CreateDoodle = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        title: _('doodles.doodle_create')
+        ,url: Doodles.config.connectorUrl
+        ,baseParams: {
+            action: 'mgr/doodle/create'
+        }
+        ,fields: [{
+            xtype: 'textfield'
+            ,fieldLabel: _('doodles.name')
+            ,name: 'name'
+            ,width: 300
+        },{
+            xtype: 'textarea'
+            ,fieldLabel: _('doodles.description')
+            ,name: 'description'
+            ,width: 300
+        }]
+    });
+    Doodles.window.CreateDoodle.superclass.constructor.call(<span class="code-keyword">this</span>,config);
+};
+Ext.extend(Doodles.window.CreateDoodle,MODx.Window);
+Ext.reg('doodles-window-doodle-create',Doodles.window.CreateDoodle);</pre>
+</div></div>
+
+<p>This is <b>very</b> similar to our Update window, except this one doesn't have an ID field, and passes 'create' as the processor. So, on to the processor at: /www/doodles/core/components/doodles/processors/mgr/doodle/create.php:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?php
+<span class="code-keyword">if</span> (empty($scriptProperties['name'])) {
+    $modx-&gt;error-&gt;addField('name',$modx-&gt;lexicon('doodles.doodle_err_ns_name'));
+} <span class="code-keyword">else</span> {
+    $alreadyExists = $modx-&gt;getObject('Doodle',array('name' =&gt; $scriptProperties['name']));
+    <span class="code-keyword">if</span> ($alreadyExists) {
+        $modx-&gt;error-&gt;addField('name',$modx-&gt;lexicon('doodles.doodle_err_ae'));
+    }
+}
+
+<span class="code-keyword">if</span> ($modx-&gt;error-&gt;hasError()) { <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure(); }
+
+$doodle = $modx-&gt;newObject('Doodle');
+$doodle-&gt;fromArray($scriptProperties);
+
+<span class="code-keyword">if</span> ($doodle-&gt;save() == <span class="code-keyword">false</span>) {
+    <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('doodles.doodle_err_save'));
+}
+
+<span class="code-keyword">return</span> $modx-&gt;error-&gt;success('',$doodle);</pre>
+</div></div>
+
+<p>Similar to the update and remove methods, again, except we aren't grabbing the object, but rather using newObject to create it. Also, we have a bit of form validation beforehand - we're going to make sure the name isn't blank, and if it is, return a custom error message on that specific field. If it's not blank, then we'll make sure there's no other Doodles with that name. The $modx-&gt;error-&gt;hasError() method checks to see if any errors have been registered earlier in the processor, and returns true if there were. If there were errors, we'll return a failure message, and we'll get an error message like so:</p>
+
+<p><span class="image-wrap" style=""><img src="/download/attachments/37683304/doodles-error-no-name.png?version=1&amp;modificationDate=1325795553000" style="border: 0px solid black" /></span></p>
+
+<p>Pretty neat, huh? Field-specific validation, built right in. And we've got a working create form&#33;</p>
+
+<h3><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-AddingInlineEditing"></a>Adding Inline-Editing</h3>
+
+<p>MODExt also has automatic inline editing built right into its grids. Simply add this to your Doodles.grid.Grid config object, right below the 'autoExpandColumn' property:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+,save_action: 'mgr/doodle/updateFromGrid'
+,autosave: <span class="code-keyword">true</span>
+</pre>
+</div></div>
+
+<p>That tells the grid to turn on inline editing and saving; and also to send any saves to the processor at mgr/doodle/updateFromGrid. So let's create it, at: /www/doodles/core/components/doodles/processors/mgr/doodle/updatefromgrid.php:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+/* parse JSON */
+<span class="code-keyword">if</span> (empty($scriptProperties['data'])) <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure('Invalid data.');
+$_DATA = $modx-&gt;fromJSON($scriptProperties['data']);
+<span class="code-keyword">if</span> (!is_array($_DATA)) <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure('Invalid data.');
+
+/* get obj */
+<span class="code-keyword">if</span> (empty($_DATA['id'])) <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('doodles.doodle_err_ns'));
+$doodle = $modx-&gt;getObject('Doodle',$_DATA['id']);
+<span class="code-keyword">if</span> (empty($doodle)) <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('doodles.doodle_err_nf'));
+
+$doodle-&gt;fromArray($_DATA);
+
+/* save */
+<span class="code-keyword">if</span> ($doodle-&gt;save() == <span class="code-keyword">false</span>) {
+    <span class="code-keyword">return</span> $modx-&gt;error-&gt;failure($modx-&gt;lexicon('doodles.doodle_err_save'));
+}
+
+<span class="code-keyword">return</span> $modx-&gt;error-&gt;success('',$doodle);</pre>
+</div></div>
+
+<p>Note the similarity to our update.php processor, except one thing - we're first processing a param in the $scriptProperties array called "data". This contains a JSON object of our row in the grid, with all the values. We'll just use $modx-&gt;fromJSON() to convert it to a nice, readable array, and then use its values in the rest of our processor. Simple, eh?</p>
+
+<h2><a name="DevelopinganExtrainMODXRevolution%2CPartII-MODX2.1andEarlier-Summary"></a>Summary</h2>
+
+<p>We've got ourselves a nice CRUD user interface now, with creating, updating, removing, searching, pagination, and sorting. And all pretty easily, too.</p>
+
+<p>Next, in Part III, we'll explore <a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III+-+MODX+2.1+and+Earlier" title="Developing an Extra in MODX Revolution, Part III - MODX 2.1 and Earlier">creating a Transport Package</a> for our Doodles Extra so that we can distribute it on modxcms.com and via Revolution's Package Management system.</p>
+
+<div class="panel" style="border-width: 1px;"><div class="panelContent">
+<p>This tutorial is part of a Series:</p>
+<ul>
+	<li><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution+-+MODX+2.1+and+Earlier" title="Developing an Extra in MODX Revolution - MODX 2.1 and Earlier">Part I: Getting Started and Creating the Doodles Snippet</a></li>
+	<li>Part II: Creating our Custom Manager Page</li>
+	<li><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III+-+MODX+2.1+and+Earlier" title="Developing an Extra in MODX Revolution, Part III - MODX 2.1 and Earlier">Part III: Packaging Our Extra</a></li>
+</ul>
+</div></div>
+
+<style type='text/css'>/*<![CDATA[*/
+table.ScrollbarTable  {border: none;padding: 3px;width: 100%;padding: 3px;margin: 0px;background-color: #f0f0f0}
+table.ScrollbarTable td.ScrollbarPrevIcon {text-align: center;width: 16px;border: none;}
+table.ScrollbarTable td.ScrollbarPrevName {text-align: left;border: none;}
+table.ScrollbarTable td.ScrollbarParent {text-align: center;border: none;}
+table.ScrollbarTable td.ScrollbarNextName {text-align: right;border: none;}
+table.ScrollbarTable td.ScrollbarNextIcon {text-align: center;width: 16px;border: none;}
+
+/*]]>*/</style><div class="Scrollbar"><table class='ScrollbarTable'><tr><td width='33%' class='ScrollbarPrevName'>&nbsp;</td><td width='33%' class='ScrollbarParent'><sup><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution+-+MODX+2.1+and+Earlier"><img border='0' align='middle' src='/images/icons/up_16.gif' width='8' height='8'></a></sup><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution+-+MODX+2.1+and+Earlier">Developing an Extra in MODX Revolution - MODX 2.1 and Earlier</a></td><td width='33%' class='ScrollbarNextName'>&nbsp;<a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III+-+MODX+2.1+and+Earlier">Developing an Extra in MODX Revolution, Part III - MODX 2.1 and Earlier</a></td><td class='ScrollbarNextIcon'><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III+-+MODX+2.1+and+Earlier"><img border='0' align='middle' src='/images/icons/forwd_16.gif' width='16' height='16'></a></td></tr></table></div>
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://oldrtfm.modx.com/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+II+-+MODX+2.1+and+Earlier"
+    dc:identifier="http://oldrtfm.modx.com/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+II+-+MODX+2.1+and+Earlier"
+    dc:title="Developing an Extra in MODX Revolution, Part II - MODX 2.1 and Earlier"
+    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/37683304"/>
+</rdf:RDF>
+-->
+
+            
+    
+
+
+<fieldset class="hidden parameters">
+    <legend>Labels parameters</legend>
+    <input type="hidden" id="editLabel" value="Edit">
+    <input type="hidden" id="addLabel" value="Add Labels">
+    <input type="hidden" id="domainName" value="http://oldrtfm.modx.com">
+    <input type="hidden" id="pageId" value="37683304">
+    <input type="hidden" id="spaceKey" value="revolution20">
+</fieldset>
+
+<div id="labels-section" class="pageSection">
+    <div id="default-labels-header" class="section-header">
+        <h2 id="labels-section-title" class="section-title ">Labels</h2>
+            </div>
+
+    <div class="labels-editor">
+        <div id="labelsList">
+            <div id="label-37847041" class="confluence-label">
+    <a class="label" rel="nofollow" href="/label/revolution20/favourite">favourite</a>    <span class="remove-label-caption">favourite</span>
+    <a class="remove-label" href="#">Delete</a>
+</div>
+        </div>
+
+        <span class="errorMessage error" id="errorSpan"></span>
+        <form method="GET" action="" id="add-labels-form">
+            <div id="labelInputSpan" class="labels-input">
+                <div id="labelOperationErrorContainer" class="hidden">
+                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
+                </div>
+
+                <div class="caption">Enter labels to add to this page:</div>
+                <div id="label-input-fields">
+                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
+                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
+                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
+                </div>
+                <div id="waitImageAndStatus">
+                    <img class="waiting" alt="Please wait" src="/s/1911/69/_/images/icons/wait.gif">&nbsp;
+                    <span id="labelOperationStatus" class="smalltext"></span>
+                </div>
+                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
+                <div class="labels-tip">
+                    <div id="suggestedLabelsSpan"></div>
+                    Looking for a label? Just start typing.
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+            
+            
+
+
+
+
+            
+    
+
+        
+<fieldset class="parameters hidden">
+    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
+    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
+        </fieldset>
+
+
+
+
+
+
+<div id="comments-section" class="pageSection">
+    
+    
+    
+    
+                                    </div>
+
+
+            
+</div>
+
+
+    
+
+
+
+
+        
+        
+
+    
+    
+    
+
+
+<fieldset class="hidden parameters">
+        <input type="hidden" id="i18n.manage.watchers.dialog.title" value="Manage Watchers">
+        <input type="hidden" id="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
+        <input type="hidden" id="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
+</fieldset>
+<script type="text/x-template" title="manage-watchers-dialog">
+<div class="dialog-content">
+    <div class="column page-watchers">
+        <h3>Watching this page</h3>
+        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
+        <form action="/json/addwatch.action" method="POST">
+                <input type="hidden" name="atl_token" value="75w82E3AZp">
+            <input type="hidden" name="pageId" value="37683304"/>
+            <input type="hidden" id="add-watcher-username" name="username" value=""/>
+            <label for="add-watcher-user">User</label>
+            <input id="add-watcher-user" name="userFullName" type="search" class="has-placeholder autocomplete-user"
+               value="" placeholder="Full name or username" autocomplete="off"
+               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
+               data-template="{title}" data-none-message="No matching users found.">
+            <input id="add-watcher-submit" type="submit" name="add" value="Add">
+            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
+            <div class="status hidden"></div>
+        </form>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No page watchers</li>
+        </ul>
+    </div>
+    <div class="column space-watchers">
+        <h3>Watching this space</h3>
+        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No space watchers</li>
+        </ul>
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="manage-watchers-user">
+    <li class="watch-user">
+        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
+        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
+        <span class="remove-watch" title="Remove"
+            data-username="{username}">Remove</span>
+    </li>
+</script>
+<script type="text/x-template" title="manage-watchers-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-33/Managing+Watchers" target="_blank">Help</a>
+    </div>
+</script>
+    <br class="clear">
+</div>
+  
+    </div>
+</div>
+
+<div id="footer">
+                                                <p class="license license-opensource">
+                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to MODx CMS / xPDO. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                        
+    <ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.3, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
+        <li class="print-only">Printed by Atlassian Confluence 3.3, the Enterprise Wiki.</li>        
+        <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
+        <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+    </ul>
+
+    
+
+            <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-71684-1']);
+  _gaq.push(['_setDomainName', 'oldrtfm.modx.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </div>    <!-- include system javascript resources -->
+                        
+    
+    
+    <!-- end system javascript resources -->
+</div>
+</body>
+</html>
