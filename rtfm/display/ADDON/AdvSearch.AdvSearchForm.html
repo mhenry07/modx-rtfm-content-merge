@@ -62,34 +62,296 @@ This snippet displays a search form for AdvSearch.
 Simply place wherever you want a SearchForm to render, and add the 'landing' property to the call to specify the Resource where the <a href="display/ADDON/AdvSearch.AdvSearch" title="AdvSearch.AdvSearch">AdvSearch</a> snippet call is located (which is where the results will display).
 </p>
 
-<pre class="brush: php">
-    [[AdvSearchForm? &amp;method=`POST`]]
+<pre class="brush: plain">
+[[!AdvSearchForm? &amp;landing=`82`]]
+</pre>
+<p>
+If you'd like the results to show on the same page, simply place the <a href="http://oldrtfm.modx.com/display/ADDON/AdvSearch.AdvSearch">AdvSearch</a> snippet call below the AdvSearchForm call, and don't specify a 'landing' parameter.
+</p>
 
-    
+<h2>
+<a name="AdvSearch.AdvSearchForm-AvailableProperties" id="AdvSearch.AdvSearchForm-AvailableProperties"></a>Available Properties
+</h2>
+
+<h3>
+<a name="AdvSearch.AdvSearchForm-AdvSearchFeatures" id="AdvSearch.AdvSearchForm-AdvSearchFeatures"></a>AdvSearch Features
+</h3>
+
+<p>
+To set or unset features.
+</p>
+
+<table>
+<thead>
+<tr>
+<th>
+Name
+</th>
+<th>
+Description
+</th>
+<th>
+Default
+</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>
+clearDefault
+</td>
+<td>
+Clearing default text. Set this to 0 if you wouldn't like the clear default text feature.
+</td>
+<td>
+1
+</td>
+</tr>
+
+<tr>
+<td>
+help
+</td>
+<td>
+To add a help link near the search form. Set 1 (displayed) or 0 (hidden).
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a name="AdvSearch.AdvSearchForm-OverallAdvSearchdesign" id="AdvSearch.AdvSearchForm-OverallAdvSearchdesign"></a>Overall AdvSearch design
+</h3>
+
+<p>
+To design your own search.
+</p>
+
+<table>
+<thead>
+<tr>
+<th>
+Name
+</th>
+<th>
+Description
+</th>
+<th>
+Default
+</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>
+asId
+</td>
+<td>
+Unique id for AdvSearch instance. Any combination of characters a-z, underscores, and numbers 0-9. Case sensitive.
+</td>
+<td>
+as0
+</td>
+</tr>
+
+<tr>
+<td>
+landing
+</td>
+<td>
+The Resource that the AdvSearch snippet is called on, that will display the results of the search.
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+method
+</td>
+<td>
+Whether to send the search over POST or GET.
+</td>
+<td>
+GET
+</td>
+</tr>
+
+<tr>
+<td>
+searchIndex
+</td>
+<td>
+The name of the REQUEST parameter that the search will use.
+</td>
+<td>
+search
+</td>
+</tr>
+
+<tr>
+<td>
+toPlaceholder
+</td>
+<td>
+Whether to set the output to directly return, or set to a placeholder with this propertys name.
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+tpl
+</td>
+<td>
+The chunk that will be used to display the search form.
+</td>
+<td>
+SearchForm
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a name="AdvSearch.AdvSearchForm-Custominstallation" id="AdvSearch.AdvSearchForm-Custominstallation"></a>Custom installation
+</h3>
+
+<p>
+The parameters that could help you for a custom installation.
+</p>
+
+<table>
+<thead>
+<tr>
+<th>
+Name
+</th>
+<th>
+Description
+</th>
+<th>
+Default
+</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>
+addJs
+</td>
+<td>
+Set this to 1 if you would like to include the advsearchform.min.js file, 0 if not
+</td>
+<td>
+1
+</td>
+</tr>
+
+<tr>
+<td>
+addCss
+</td>
+<td>
+Set this to 1 if you would like to include the advsearch.css file, 0 if not
+</td>
+<td>
+1
+</td>
+</tr>
+
+<tr>
+<td>
+addJQuery
+</td>
+<td>
+Set this to 1 if you would like to include or not the jQuery library in the header of your pages automatically
+</td>
+<td>
+1
+</td>
+</tr>
+
+<tr>
+<td>
+jsJQuery
+</td>
+<td>
+Url where is located the jquery javascript library
+</td>
+<td>
+assets/components/advsearch/js/jquery-1.5.1.min.js
+</td>
+</tr>
+
+<tr>
+<td>
+jsSearchForm
+</td>
+<td>
+Url (under assets/) where is located the js library used with the form (help, clearDefault, ...)
+</td>
+<td>
+assets/components/advsearch/js/advsearchform.min.js
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="AdvSearch.AdvSearchForm-AdvSearchFormChunks" id="AdvSearch.AdvSearchForm-AdvSearchFormChunks"></a>AdvSearchForm Chunks
+</h2>
+
+<p>
+There is 1 chunk that is processed in AdvSearchForm. Its corresponding AdvSearchForm parameter is:
+</p>
+
+<ul>
+<li>
+<a href="http://oldrtfm.modx.com/display/ADDON/Advsearch.AdvSearchForm.tpl">tpl</a> - The Chunk to use for the search form.
+</li>
+</ul>
+
+<h2>
+<a name="AdvSearch.AdvSearchForm-Examples" id="AdvSearch.AdvSearchForm-Examples"></a>Examples
+</h2>
+
+<pre class="brush: php">
+[[AdvSearchForm? &amp;method=`POST`]]
 </pre>
 <p>
 Set the search form to a 'search.form' placeholder, specify a landing page on Resource 82, and use a custom Chunk called 'MySearchForm' for the form template:
 </p>
 
-<pre class="brush: php">
-    [[AdvSearchForm? &amp;help=`0`]]
-
-    
+<pre class="brush: plain">
+[[AdvSearchForm? &amp;tpl=`MySearchForm` &amp;landing=`82` &amp;toPlaceholder=`search.form`]]
+&lt;h2&gt;Search&lt;/h2&gt;
+[[+search.form]]
 </pre>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<p>
+Display two search forms, the first one (as0) without the help link and the second one (as1) without the clearDefault feature:
+</p>
+
+<pre class="brush: plain">
+[[AdvSearchForm? &amp;help=`0`]]
+</pre>
+
+<pre class="brush: plain">
 [[AdvSearchForm? &amp;asId=`as1` &amp;clearDefault=`0`]]
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="AdvSearch.AdvSearchForm-Errors" id="AdvSearch.AdvSearchForm-Errors"></a>Errors
 </h2>
 
 <p>
-The following erro message are possible:
+The following error message are possible:
 </p>
 
 <ul class="alternate" type="square">
@@ -106,6 +368,6 @@ The following erro message are possible:
 
 <ol class="ug-toc">
 <li>
-<a href="/extras/revo/advsearch/advsearch.advsearchform/advsearch.advsearchform.tpl">Advsearch.AdvSearchForm.tpl</a>
+<a href="extras/revo/advsearch/advsearch.advsearchform/advsearch.advsearchform.tpl">Advsearch.AdvSearchForm.tpl</a>
 </li>
 </ol>

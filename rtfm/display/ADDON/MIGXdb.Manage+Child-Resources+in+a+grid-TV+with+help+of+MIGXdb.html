@@ -1,4 +1,3 @@
-<div>
 <ul>
 <li>
 <a href="extras/revo/migxdb/migxdb.tutorials/migxdb.manage-child-resources-in-a-grid-tv-with-help-of-migxdb#MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-ManageChildResourcesinagridTVwithhelpofMIGXdb">Manage Child-Resources in a grid-TV with help of MIGXdb</a>
@@ -13,7 +12,7 @@
 </li>
 
 <li>
-<a href="extras/revo/migxdb/migxdb.tutorials/migxdb.manage-child-resources-in-a-grid-tv-with-help-of-migxdb#MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-SettheTemplateforourchildren.">Set the Template for our children.</a>
+<a href="extras/revo/migxdb/migxdb.tutorials/migxdb.manage-child-resources-in-a-grid-tv-with-help-of-migxdb#MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-SettheTemplateforourchildren">Set the Template for our children.</a>
 </li>
 
 <li>
@@ -21,7 +20,7 @@
 </li>
 
 <li>
-<a href="extras/revo/migxdb/migxdb.tutorials/migxdb.manage-child-resources-in-a-grid-tv-with-help-of-migxdb#MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-CreatingandEditingchildResources.">Creating and Editing child-Resources.</a>
+<a href="extras/revo/migxdb/migxdb.tutorials/migxdb.manage-child-resources-in-a-grid-tv-with-help-of-migxdb#MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-CreatingandEditingchildResources">Creating and Editing child-Resources.</a>
 </li>
 
 <li>
@@ -76,7 +75,6 @@
 <a href="extras/revo/migxdb/migxdb.tutorials/migxdb.manage-child-resources-in-a-grid-tv-with-help-of-migxdb#MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-Hidingchildrenfromtree">Hiding children from tree</a>
 </li>
 </ul>
-</div>
 
 <h2>
 <a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-ManageChildResourcesinagridTVwithhelpofMIGXdb" id="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-ManageChildResourcesinagridTVwithhelpofMIGXdb"></a>Manage Child-Resources in a grid-TV with help of MIGXdb
@@ -103,7 +101,7 @@ Later we want to add one or more TVs, which we want to have editable and we want
 </h2>
 
 <p>
-First off we will need to install <a href="display/ADDON/MIGX" title="MIGX">MIGX</a> by package-management, if not allready done, and do some <a href="display/ADDON/MIGXdb.Configuration" title="MIGXdb.Configuration">basic configurations</a>.
+First off we will need to install <a href="/extras/revo/migx" title="MIGX">MIGX</a> by package-management, if not allready done, and do some <a href="/extras/revo/migxdb/migxdb.configuration" title="MIGXdb.Configuration">basic configurations</a>.
 <br />
 Minimum Required version: MIGX 2.2.3 (31.07.2012)
 </p>
@@ -158,36 +156,251 @@ Right-Click our record and choose 'Export/Import'
 Add this code into the one field 'Json' :
 </p>
 
+<pre class="brush: php">
+{"formtabs":"[{\"MIGX_id\":\"1\",\"caption\":\"Resource\",\"fields\":\"[{\\\"MIGX_id\\\":\\\"1\\\",\\\"field\\\":\\\"pagetitle\\\",\\\"caption\\\":\\\"Pagetitle\\\",\\\"inputTV\\\":\\\"\\\",\\\"inputTVtype\\\":\\\"\\\",\\\"configs\\\":\\\"\\\",\\\"sourceFrom\\\":\\\"config\\\",\\\"sources\\\":\\\"\\\",\\\"inputOptionValues\\\":\\\"\\\",\\\"default\\\":\\\"\\\"},{\\\"MIGX_id\\\":\\\"2\\\",\\\"field\\\":\\\"template\\\",\\\"caption\\\":\\\"\\\",\\\"inputTV\\\":\\\"\\\",\\\"inputTVtype\\\":\\\"hidden\\\",\\\"configs\\\":\\\"\\\",\\\"sourceFrom\\\":\\\"config\\\",\\\"sources\\\":\\\"\\\",\\\"inputOptionValues\\\":\\\"\\\",\\\"default\\\":\\\"2\\\"}]\"},{\"MIGX_id\":\"2\",\"caption\":\"Content\",\"fields\":[{\"MIGX_id\":\"1\",\"field\":\"content\",\"caption\":\"Content\",\"inputTV\":\"\",\"inputTVtype\":\"richtext\",\"configs\":\"\",\"sourceFrom\":\"config\",\"sources\":\"\",\"inputOptionValues\":\"\",\"default\":\"\"}]}]","contextmenus":"recall_remove_delete","actionbuttons":"addItem||bulk||toggletrash","columnbuttons":"update||publish||unpublish","filters":"","extended":{"migx_add":"Add Childresource","formcaption":"Child Resource","win_id":"childstutorial","packageName":"","classname":"modResource","task":"childresources","getlistsort":"","getlistsortdir":"","use_custom_prefix":"0","prefix":"","grid":"","gridload_mode":"1","check_resid":"1","check_resid_TV":"","join_alias":"","getlistwhere":"","joins":"","cmpmaincaption":"","cmptabcaption":"","cmptabdescription":"","cmptabcontroller":""},"columns":"[{\"MIGX_id\":\"1\",\"header\":\"ID\",\"dataIndex\":\"id\",\"width\":\"10\",\"renderer\":\"\",\"sortable\":\"true\",\"show_in_grid\":\"1\"},{\"MIGX_id\":\"2\",\"header\":\"Pagetitle\",\"dataIndex\":\"pagetitle\",\"width\":\"30\",\"renderer\":\"this.renderRowActions\",\"sortable\":\"true\",\"show_in_grid\":\"1\"},{\"MIGX_id\":\"3\",\"header\":\"Published\",\"dataIndex\":\"published\",\"width\":\"10\",\"renderer\":\"this.renderCrossTick\",\"sortable\":\"false\",\"show_in_grid\":\"1\"},{\"MIGX_id\":\"4\",\"header\":\"\",\"dataIndex\":\"deleted\",\"width\":\"\",\"renderer\":\"\",\"sortable\":\"false\",\"show_in_grid\":\"0\"}]"}
+</pre>
+<p>
+Click 'done'.
+</p>
+
+<p>
+You can check what it has done by right-clicking the record and choose 'edit' and go through the tabs and their nested grids.
+</p>
+
+<h2>
+<a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-SettheTemplateforourchildren" id="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-SettheTemplateforourchildren"></a>Set the Template for our children
+</h2>
+
+<p>
+We want all our children have a given template. So we need to set the template-value somehow.
+<br />
+This can be done by a hidden-field in our form.
+<br />
+To do so:
+<br />
+1. right-click our childstutorial - record in the MIGX-configurator-grid and click 'Edit'
+<br />
+2. open the tab 'formtabs'
+<br />
+3. right-click on 'Resources' and click 'Edit'
+<br />
+4. right-click on 'template' and click 'Edit'
+<br />
+5. open the tab 'Input Options' and change the Default-Value to the template-ID, which our child-resources should have.
+<br />
+6. click done, done, done on all three windows to save the changes we made.
+</p>
+
+<h2>
+<a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-CreatetheMIGXdbTV" id="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-CreatetheMIGXdbTV"></a>Create the MIGXdb - TV
+</h2>
+
+<p>
+now we create our MIGXdb - TV.
+<br />
+Create a new TV.
+<br />
+Name: childstutorial
+</p>
+
+<p>
+Go to the tab: 'Input Options'
+<br />
+Under 'Configurations' add: 'childstutorial'
+</p>
+
+<p>
+This says MIGX to search for configurations with name 'childstutorial' This can be configuration-records as we have done above or php-files as it is done for the MIGX-configs-CMP.
+<br />
+The MIGX-config-CMP is nothing else as a MIGXdb-CMP itself.
+</p>
+
+<p>
+Add this TV to our parent-Resource-template.
+</p>
+
+<p>
+click 'Save' to save the new created TV.
+</p>
+
+<h2>
+<a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-CreatingandEditingchildResources" id="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-CreatingandEditingchildResources"></a>Creating and Editing child-Resources
+</h2>
+
+<p>
+Create a parent-Resource in the resource-tree with your parent-resource-template.
+</p>
+
+<p>
+Go to the TV-tab.
+<br />
+By clicking 'Load grid' this should load our db-grid where we can add,edit,delete child-resources of our parent-Resource.
+</p>
+
+<p>
+Now we have created a very basic child-Resources-management, which should allready work for minimal requirements.
+</p>
+
+<div class="warning">
+When using the grid in TV tab don't set the grid to "autoload" (in MIGXdb Settings tab in the MIGX configurator) because the grid will not render to full width, as explained here: <a href="https://github.com/Bruno17/MIGX/issues/75#issuecomment-15505640">https://github.com/Bruno17/MIGX/issues/75#issuecomment-15505640</a>
+</div>
+
+<h2>
+<a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-AddingsomeTVstoourform" id="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-AddingsomeTVstoourform"></a>Adding some TVs to our form
+</h2>
+
+<p>
+In this step we want to add three TVs to our form:
+</p>
+
+<ul>
+<li>MIGX-TV to add and manage some images to our child-resource
+</li>
+
+<li>Text-TV for a Price-field
+</li>
+
+<li>Multiselect-TV for choosing one or more Categories for our child-resource
+</li>
+</ul>
+
+<h3>
+<a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-TheMIGXTVforsomeimages" id="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-TheMIGXTVforsomeimages"></a>The MIGX-TV for some images
+</h3>
+
+<p>
+Create a new TV:
+<br />
+Name: images
+<br />
+Type: migx
+</p>
+
+<p>
+Formtabs:
+</p>
+
 <table class="sectionMacro" border="0" cellpadding="5" cellspacing="0" width="100%">
-<tbody>
-<tr>
-<td>
-</td>
-</tr>
-</tbody>
 </table>
 
 <pre class="brush: php">
-    [
+[
 {"caption":"Image", "fields": [
     {"field":"title","caption":"Title","description":"Title for the image."},
     {"field":"image","caption":"Image","inputTVtype":"image"}
-
 ]}
-]
-
-    
+]&lt;br&gt;
 </pre>
 <p>
 Grid Columns:
 </p>
 
 <pre class="brush: php">
-    &lt;?php
+[
+{"header": "Title", "width": "160", "sortable": "true", "dataIndex": "title"},
+{"header": "Image", "width": "50", "sortable": "false", "dataIndex": "image","renderer": "this.renderImage"}
+]
+</pre>
+<p>
+"Add Item" Replacement: Add Image
+</p>
+
+<h3>
+<a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-TextTVforaPricefield" id="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-TextTVforaPricefield"></a>Text-TV for a Price-field
+</h3>
+
+<p>
+Name: price
+<br />
+Type: text
+</p>
+
+<h3>
+<a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-MultiselectTVforchoosingoneormoreCategoriesforourchildresource" id="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-MultiselectTVforchoosingoneormoreCategoriesforourchildresource"></a>Multiselect-TV for choosing one or more Categories for our child-resource
+</h3>
+
+<p>
+Name: categories
+<br />
+Type: listbox multiple
+<br />
+Input-option-values:
+<br />
+---==||categoryA||categoryB||categoryC||categoryD
+</p>
+
+<div class="warning">
+Add this TVs to your child-resources-template, but not to your parent-resource-template!
+</div>
+
+<h3>
+<a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-AddingtheTVstoourForm" id="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-AddingtheTVstoourForm"></a>Adding the TVs to our Form
+</h3>
+
+<p>
+Go to the MIGX-Management-Component into the TAB 'MIGX'
+<br />
+-&gt; right click to the record 'childstutorial' -&gt; click 'edit'
+<br />
+-&gt; go to 'Formtabs'
+<br />
+-&gt; click 'Add Item'
+<br />
+caption: TVs
+<br />
+fields: -&gt; Add three items
+</p>
+
+<p>
+fieldname: price
+<br />
+caption: Price
+</p>
+
+<p>
+fieldname: images
+<br />
+caption: Images
+<br />
+iputTV: images
+</p>
+
+<p>
+fieldname: categories
+<br />
+Caption: Categories
+<br />
+inputTV: categories
+</p>
+
+<p>
+to save them, click -&gt;Done
+</p>
+
+<h3>
+<a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-RegistertheTVsforourprocessors%28getlist%2Cfields%29"></a>Register the TVs for our processors (getlist,fields)
+</h3>
+
+<p>
+We need to register TVs to include them in the getlist- and fields-processors.
+<br />
+Todo so we need a new config-file under /core/components/migx/configs/
+</p>
+
+<p>
+with the same name as our MIGX-configuration: childstutorial.config.inc.php (should allready be installed with the MIGX-package)
+<br />
+and this content:
+</p>
+
+<p>
+<strong>/core/components/migx/configs/childstutorial.config.inc.php</strong>
+</p>
+
+<pre class="brush: php">
+&lt;?php
 $this-&gt;customconfigs['includeTVs'] = 1;
 $this-&gt;customconfigs['includeTVList'] = 'price,images,categories';
-
-    
 </pre>
 <div class="info">
 All TVs you want to edit or you want to show in the grid needs to be in the includeTVList - customconfig
@@ -261,9 +474,26 @@ getlist-where:
 </p>
 
 <pre class="brush: php">
-    tvFilter::categories=inArray=[[+category]]
+{"pagetitle:LIKE":"%[[+search]]%","OR:longtitle:LIKE":"%[[+search]]%","OR:content:LIKE":"%[[+search]]%"}
+</pre>
+<h3>
+<a name="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-DropdownFilterforfilteringbycategories" id="MIGXdb.ManageChild-Resourcesinagrid-TVwithhelpofMIGXdb-DropdownFilterforfilteringbycategories"></a>Dropdown Filter for filtering by categories
+</h3>
 
-    
+<p>
+filter Name: category
+<br />
+label: category
+<br />
+empty text: - category filter -
+<br />
+filter type: combobox
+<br />
+getlist-where:
+</p>
+
+<pre class="brush: php">
+tvFilter::categories=inArray=[[+category]]&lt;br&gt;
 </pre>
 <p>
 getcombo processor: getTVcombo

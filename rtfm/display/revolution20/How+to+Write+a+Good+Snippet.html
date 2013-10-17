@@ -5,69 +5,55 @@ For some, writing a MODX snippet might be their first foray into coding. Here ar
 <div>
 <ul>
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-OurExampleSnippet">Our Example Snippet</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-OurExampleSnippet">Our Example Snippet</a>
+</li>
+
+<li>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-AGoodName">A Good Name</a>
+</li>
+
+<li>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-Description">Description</a>
+</li>
+
+<li>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-CommentBlock">Comment Block</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-YourSnippetChecklist">Your Snippet Checklist</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-DESCRIPTION">DESCRIPTION</a>
+</li>
+
+<li>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-PROPERTIES">PROPERTIES</a>
+</li>
+
+<li>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-USAGE">USAGE</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-AGoodName">A Good Name</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-SetDefaultProperties">Set Default Properties</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-Description">Description</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-DonotincludeHTML">Do not include HTML</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-CommentBlock">Comment Block</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<div style="margin-left: 2em">
-<ul>
-<li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-DESCRIPTION">DESCRIPTION</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-DonotPrint">Do not Print or Echo</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-PARAMETERS">PARAMETERS</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-Consistency">Consistency</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-USAGE">USAGE</a>
-</li>
-</ul>
-</div>
-</li>
-
-<li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-SetDefaultValues">Set Default Values</a>
-</li>
-
-<li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-DonotincludeHTML">Do not include HTML</a>
-</li>
-
-<li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-DonotPrint">Do not Print</a>
-</li>
-
-<li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-Consistency">Consistency</a>
-</li>
-
-<li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-LogErrorsandInfo">Log Errors and Info</a>
-</li>
-
-<li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-SeeAlso">See Also</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-snippet#HowtoWriteaGoodSnippet-LogErrorsandInfo">Log Errors and Info</a>
 </li>
 </ul>
 </div>
@@ -77,9 +63,119 @@ For some, writing a MODX snippet might be their first foray into coding. Here ar
 </h2>
 
 <pre class="brush: php">
-    $headTpl = $modx-&gt;getOption('headTpl', $scriptProperties, 'myHeadTpl');
+&lt;?php
+/**
+ * mySnippet
+ *
+ * DESCRIPTION
+ *
+ * This Snippet multiplies numbers &amp;x and &amp;y. This demonstrates
+ * some good habits.
+ *
+ * PROPERTIES:
+ *
+ * &amp;x integer required
+ * &amp;y integer required
+ * &amp;z integer optional. Default: 1
+ *
+ * USAGE:
+ *
+ * [[!mySnippet? &amp;x=`5` &amp;y=`7`]]
+ *
+ */
+$x = (int) $modx-&gt;getOption('x', $scriptProperties);
+$y = (int) $modx-&gt;getOption('y', $scriptProperties);
+$z = (int) $modx-&gt;getOption('z', $scriptProperties, 1);
+// For debugging:
+$modx-&gt;log(modX::LOG_LEVEL_DEBUG
+    , '[mySnippet] called on page '. $modx-&gt;resource-&gt;id . ' with the following properties: '
+    .print_r($scriptProperties, true));
+// Verify Inputs
+if (!isset($scriptProperties['x']) || !isset($scriptProperties['y'])) {
+    $modx-&gt;log(modX::LOG_LEVEL_ERROR, '[mySnippet] missing required properties &amp;x and &amp;y!');
+    return;
+}
+return $x * $y * $z;
+?&gt;
+</pre>
+<h2>
+<a name="HowtoWriteaGoodSnippet-AGoodName" id="HowtoWriteaGoodSnippet-AGoodName"></a>A Good Name
+</h2>
 
-    
+<p>
+Give your Snippet a name that makes sense to someone who is not familiar with it. A good name is easy to remember.
+</p>
+
+<h2>
+<a name="HowtoWriteaGoodSnippet-Description" id="HowtoWriteaGoodSnippet-Description"></a>Description
+</h2>
+
+<p>
+<em>Always</em> include a brief description that explains what your Snippet does. It should be clear enough that a stranger (e.g. another manager user, not necessarily a developer) could understand what your code does just by reading your description.
+</p>
+
+<h2>
+<a name="HowtoWriteaGoodSnippet-CommentBlock" id="HowtoWriteaGoodSnippet-CommentBlock"></a>Comment Block
+</h2>
+
+<p>
+<em>Always</em> include a comment block in your Snippet! This is probably the single most important part of your Snippet! Even if you are not a coder, you can spot a good developer simply by the quality of their documentation and comments.
+</p>
+
+<p>
+Your comment block should include the following items:
+</p>
+
+<ul>
+<li>
+<h4>
+<a name="HowtoWriteaGoodSnippet-DESCRIPTION" id="HowtoWriteaGoodSnippet-DESCRIPTION"></a>DESCRIPTION
+</h4>
+
+<p>
+This is where you can describe your code in more detail.
+</p>
+</li>
+
+<li>
+<h4>
+<a name="HowtoWriteaGoodSnippet-PROPERTIES" id="HowtoWriteaGoodSnippet-PROPERTIES"></a>PROPERTIES
+</h4>
+
+<p>
+Detail exactly which properties can be passed to your Snippet <em>and</em> what type of data each property accepts. You should also specify whether the property is required or whether there is a default value. Here are some examples:
+</p>
+
+<p>
+<tt>&amp;day integer a number from 0 (Sunday) to 6 (Saturday) representing the day of the week. (required)</tt>
+<br />
+<tt>&amp;is_secure boolean 1 will force an HTTPS connection; 0 uses an HTTP connection. Default: 1</tt>
+<br />
+<tt>&amp;formatTpl string name of a Chunk used to format output. Default myChunk</tt>
+</p>
+</li>
+
+<li>
+<h4>
+<a name="HowtoWriteaGoodSnippet-USAGE" id="HowtoWriteaGoodSnippet-USAGE"></a>USAGE
+</h4>
+
+<p>
+<em>Always</em> include some examples of how to use your Snippet. These should be examples that users can literally copy and paste into their pages to see how your Snippet works.
+</p>
+</li>
+</ul>
+
+<h2>
+<a name="HowtoWriteaGoodSnippet-SetDefaultProperties" id="HowtoWriteaGoodSnippet-SetDefaultProperties"></a>Set Default Properties
+</h2>
+
+<p>
+Set default properties in the snippet's Properties tab. You can read properties passed to the Snippet and set default properties using the <strong>getOption</strong> method. Remember that all Snippets are passed an array of $scriptProperties.
+</p>
+
+<pre class="brush: php">
+$headTpl = $modx-&gt;getOption('headTpl', $scriptProperties, 'myHeadTpl');
 </pre>
 <h2>
 <a name="HowtoWriteaGoodSnippet-DonotincludeHTML" id="HowtoWriteaGoodSnippet-DonotincludeHTML"></a>Do not include HTML
@@ -90,32 +186,47 @@ Your Snippet should be as clean from HTML as possible. If you need to format the
 </p>
 
 <pre class="brush: php">
-    $modx-&gt;log(modX::LOG_LEVEL_ERROR, '[mySnippet] missing the &amp;xyz parameter!');
+$props = array(
+    'cow' =&gt; 'Moo',
+    'pig' =&gt; 'Oink',
+);
+return $modx-&gt;getChunk('myChunk', $props);
+</pre>
+<h2>
+<a name="HowtoWriteaGoodSnippet-DonotPrint" id="HowtoWriteaGoodSnippet-DonotPrint"></a>Do not Print or Echo
+</h2>
 
-    
+<p>
+Never print or echo values in your Snippet. Snippets are like functions: they should <em>return</em> data. While using print or echo statements may appear to work, they can have unexpected results. Always gather your output into a variable string such as $output and return that variable string.
+</p>
+
+<h2>
+<a name="HowtoWriteaGoodSnippet-Consistency" id="HowtoWriteaGoodSnippet-Consistency"></a>Consistency
+</h2>
+
+<p>
+<strong>Variable Names:</strong> Whatever your coding style, be consistent. If you want to use camelCase variable names, then make sure all your variables use that style.
+</p>
+
+<p>
+<strong>Indents:</strong> Use the same indenting style throughout. See the MODX <a href="/revolution/2.x/developing-in-modx/code-standards">Code Standards</a> for some great recommendations on how to structure your code.
+</p>
+
+<h2>
+<a name="HowtoWriteaGoodSnippet-LogErrorsandInfo" id="HowtoWriteaGoodSnippet-LogErrorsandInfo"></a>Log Errors and Info
+</h2>
+
+<p>
+MODX has a logging function: <em>use it</em>. See <a href="xpdo/2.x/class-reference/xpdo/xpdo.log">xPDO::log()</a>. If your users forgot to include a required property, log an error so your users will know it.
+</p>
+
+<pre class="brush: php">
+$modx-&gt;log(modX::LOG_LEVEL_ERROR, '[mySnippet] missing the &amp;xyz property!');&lt;br&gt;
 </pre>
 <p>
 You can also log debugging info, which is useful for users who are debugging things. This will only be written to the error log when the log_level system setting is set to the appropriate level.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;log(modX::LOG_LEVEL_DEBUG, '[mySnippet] was called with the following parameters: '.print_r($scriptProperties,<span class="code-keyword">true</span>));
+<pre class="brush: php">
+$modx-&gt;log(modX::LOG_LEVEL_DEBUG, '[mySnippet] was called with the following properties: '.print_r($scriptProperties,&lt;span class="code-keyword"&gt;true&lt;/span&gt;));
 </pre>
-</div>
-</div>
-
-<p>
--------------------
-</p>
-
-<h2>
-<a name="HowtoWriteaGoodSnippet-SeeAlso" id="HowtoWriteaGoodSnippet-SeeAlso"></a>See Also
-</h2>
-
-<ul>
-<li>
-<a href="display/revolution20/Code+Standards" title="Code Standards">Code Standards</a>
-</li>
-</ul>

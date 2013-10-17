@@ -7,12 +7,12 @@ So, you've got a Snippet that you've been writing and want to add CSS and/or Jav
 </p>
 
 <div class="info">
-<b>Other CMSs</b>
+<strong>Other CMSs</strong>
 <br />
 This is a common need in any CMS, so if you're coming from another platform, here are some of the related functions.
 <ul>
 <li>
-<b>WordPress</b> – uses its <em>wp_enqueue_script</em>, <em>wp_register_script</em>, <em>wp_enqueue_style</em>, <em>wp_register_style</em> functions.
+<strong>WordPress</strong> – uses its <em>wp_enqueue_script</em>, <em>wp_register_script</em>, <em>wp_enqueue_style</em>, <em>wp_register_style</em> functions.
 </li>
 </ul>
 </div>
@@ -34,8 +34,14 @@ This function lets you register any CSS file to the HEAD of the content by provi
 </p>
 
 <pre class="brush: php">
-    $modx-&gt;regClientCSS(MODX_ASSETS_URL.'css/my-custom.css');
-    
+$modx-&gt;regClientCSS('assets/css/my-custom.css');
+</pre>
+<p>
+Or, more correctly, you would use the <strong>MODX_ASSETS_URL</strong> constant so your Snippet or plugin would work even on a site that was configured to use a non-standard assets location.
+</p>
+
+<pre class="brush: php">
+$modx-&gt;regClientCSS(MODX_ASSETS_URL.'css/my-custom.css');<br />
 </pre>
 <h3>
 <a name="AddingCSSandJStoYourPagesThroughSnippets-regClientStartupScript" id="AddingCSSandJStoYourPagesThroughSnippets-regClientStartupScript"></a>regClientStartupScript
@@ -46,13 +52,22 @@ This function lets you register any custom JavaScript to the HEAD of the documen
 </p>
 
 <pre class="brush: php">
-    
+$modx-&gt;regClientStartupScript('assets/js/site.js');
+</pre>
+<h3>
+regClientStartupHTMLBlock
+</h3>
+
+<p>
+This function is useful if you need to set some JS variables, or output some HTML into the HEAD:
+</p>
+
+<pre class="brush: php">
 $modx-&gt;regClientStartupHTMLBlock('
 &lt;meta tag="here" /&gt;
 &lt;script type="text/javascript"&gt;
 var myCustomJSVar = 123;
-&lt;/script&gt;');
-    
+&lt;/script&gt;');<br />
 </pre>
 <h2>
 <a name="AddingCSSandJStoYourPagesThroughSnippets-AddingBeforetheBODYEnd" id="AddingCSSandJStoYourPagesThroughSnippets-AddingBeforetheBODYEnd"></a>Adding Before the BODY End
@@ -71,13 +86,22 @@ Similar to <a href="revolution/2.x/developing-in-modx/basic-development/snippets
 </p>
 
 <pre class="brush: php">
-    
+$modx-&gt;regClientScript('assets/js/footer.js');
+</pre>
+<h3>
+regClientHTMLBlock
+</h3>
+
+<p>
+Similar to <a href="http://oldrtfm.modx.com/display/revolution20/Adding+CSS+and+JS+to+Your+Pages+Through+Snippets#AddingCSSandJStoYourPagesThroughSnippets-regClientStartupHTMLBlock">regClientStartupHTMLBlock</a> except that it runs before the closing BODY tag:
+</p>
+
+<pre class="brush: php">
 $modx-&gt;regClientHTMLBlock('
 &lt;div&gt;custom stuff here&lt;/div&gt;
 &lt;script type="text/javascript"&gt;
 runAnalytics();
-&lt;/script&gt;');
-    
+&lt;/script&gt;');<br />
 </pre>
 <h2>
 <a name="AddingCSSandJStoYourPagesThroughSnippets-Conclusion" id="AddingCSSandJStoYourPagesThroughSnippets-Conclusion"></a>Conclusion
@@ -86,7 +110,3 @@ runAnalytics();
 <p>
 MODx offers Extras developers many options on how to insert custom CSS/JS into their pages at the Snippet level. However, MODx also recommends in any Extras you are distributing, to make sure inserting CSS or JS into a page is a toggleable option, so that the user can customize the content or javascript framework should they so choose.
 </p>
-
-<h2>
-<a name="AddingCSSandJStoYourPagesThroughSnippets-SeeAlso" id="AddingCSSandJStoYourPagesThroughSnippets-SeeAlso"></a>See Also
-</h2>

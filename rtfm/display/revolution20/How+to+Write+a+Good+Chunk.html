@@ -5,7 +5,7 @@ We're putting this here because often a Snippet will use Chunks to format data.
 <div>
 <ul>
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-DoNOTOverRelyonPHxStyleLogic%21">Do NOT Over-Rely on PHx-Style Logic!</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-DoNOTOverRelyonPHxStyleLogic%21">Do NOT Over-Rely on Output Modifier Logic!</a>
 </li>
 
 <li style="list-style: none; display: inline">
@@ -15,7 +15,7 @@ We're putting this here because often a Snippet will use Chunks to format data.
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-ReasonsWhyPHxMightDestroyYourSite">Reasons Why PHx Might Destroy Your Site</a>
+<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-ReasonsWhyOutputModifiersMightDestroyYourSite">Reasons Why Output Modifiers Might Destroy Your Site</a>
 </li>
 </ul>
 </li>
@@ -27,23 +27,19 @@ We're putting this here because often a Snippet will use Chunks to format data.
 <li>
 <a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-GoodChunkkeepingChecklist">Good Chunk-keeping Checklist</a>
 </li>
-
-<li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/how-to-write-a-good-chunk#HowtoWriteaGoodChunk-SeeAlso">See Also</a>
-</li>
 </ul>
 </div>
 
 <h2>
-<a name="HowtoWriteaGoodChunk-DoNOTOverRelyonPHxStyleLogic%21"></a>Do NOT Over-Rely on PHx-Style Logic!
+<a name="HowtoWriteaGoodChunk-DoNOTOverRelyonPHxStyleLogic%21"></a>Do NOT Over-Rely on Output Modifier Logic!
 </h2>
 
 <p>
-What is <a href="display/ADDON/PHx" title="PHx">PHx</a>? It is a simplified set of parser rules and output modifies that allows you to manipulate data in your view layer (i.e. in your Chunks and Templates). Technically, it's a plugin for MODX Evolution, but MODx Revolution allows for similar output modifiers – this page refers to all such modifiers simply as "PHx".
+What are <a href="/revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)" title="PHx">Output Modifiers</a>? It is a simplified set of parser rules and output modifies that allows you to manipulate data in your view layer (i.e. in your Chunks and Templates).
 </p>
 
 <p>
-This is probably the single biggest mistake you can do: adding too much logic to your Chunks or templates. The beautiful thing about MODX as a framework is its adherence to sound architecture, and when you put too much logic in your view layer (i.e. in Chunks and Templates), you are destroying all that's good in this world. Sometimes you have to put an output filter or a little if statement into your Chunk, but please, keep it to an absolute minimum. It's a lot like morphine: morphine is a great pain-killer when used responsibly, but it is terribly addictive and it can destroy lives. Yes, that's a crazy analogy, but I have considered opening a "PHx-Rehab Center" for developers with bad coding habits.
+This is probably the single biggest mistake you can do: adding too much logic to your Chunks or templates. The beautiful thing about MODX as a framework is its adherence to sound architecture, and when you put too much logic in your view layer (i.e. in Chunks and Templates), you are destroying all that's good in this world. Sometimes you have to put an output filter or a little if statement into your Chunk, but please, keep it to an absolute minimum. It's a lot like morphine: morphine is a great pain-killer when used responsibly, but it is terribly addictive and it can destroy lives. Yes, that's a crazy analogy, but I have considered opening a "Rehab Center" for developers with bad coding habits.
 </p>
 
 <h3>
@@ -51,25 +47,87 @@ This is probably the single biggest mistake you can do: adding too much logic to
 </h3>
 
 <p>
-Here's an example of a Chunk that got completely out of hand:
+Here's an example of a tpl Chunk that got completely out of hand:
 </p>
 
 <pre class="brush: php">
-    
-Dear [[+first_name]], it was nice to see you last [[+day_of_week]]
+[[+tv.RemovePin:eq=`active`:then=`[[+modx.user.id:memberof=`
+Members`:then=`{address:'[[+tv.country]], [[+pagetitle]]', data:'&lt;div class="googleBubble"&gt;
+[[+tv.Socialicons:replace=`||==`:replace=`facebook==&lt;img src="/assets/images/mapof/facebook.png"
+alt="Facebook" width="16" height="16" class="pull-right mR2"&gt;`:replace=`linkedin==&lt;img 
+src="/assets/images/mapof/linkedin.png" alt="linked in" width="16" height="16" class="pull-right 
+mR2"&gt;`:replace=`twitter==&lt;img src="/assets/images/mapof/twitter.png" alt="twitter" width="16" 
+height="16" class="pull-right mR2"&gt;`]]&lt;b&gt;[[+tv.GPGroupName:replace=`'==&amp;apos;`:default=`Dr 
+[[+createdby:userinfo=`fullname`:ucwords]]`]]&lt;/b&gt;&lt;br&gt;[[+tv.occupation:notempty=`Occupation: 
+[[+tv.occupation]]&lt;br&gt;`]][[+tv.other:notempty=`Occupation: [[+tv.other]]&lt;br&gt;&lt;br&gt;`]]
+[[+content:replace=`
+==&lt;br&gt;`:replace=`'==&amp;apos;`:strip]]&lt;br&gt;[[+tv.leadadmin:notempty=`&lt;br&gt;Admin contact: 
+[[+tv.leadadmin]]`]] [[+tv.opentomembers:notempty=`&lt;br&gt;Open to new members?: [[+tv.opentomembers]]`]]
+&lt;br&gt;[[+tv.showEmailAddress:eq=`Yes`:then=`Email: &lt;a href="mailto:[[+createdby:userinfo=`email`]]"&gt;
+[[+createdby:userinfo=`email`]]&lt;/a&gt;`:else=``]]&lt;/div&gt;',options:{[[+tv.leadadmin:neq=``:then=`icon: new
+google.maps.MarkerImage('/assets/images/mapof/pin-gold.png')`:else=`icon: new
+google.maps.MarkerImage('/assets/images/mapof/pin-blue.png')`]]}},`:else=`{address:'[[+tv.country]], 
+[[+pagetitle]]', data:'&lt;div class="googleBubble"&gt;&lt;h3&gt;Login to view&lt;/h3&gt;&lt;p&gt;To view the details of this 
+pin please &lt;a href="[[~702]]"&gt;create an account&lt;/a&gt; or &lt;a href="[[~702]]"&gt;login&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;',options:{[[+tv.leadadmin:neq=``:then=`icon: new
+google.maps.MarkerImage('/assets/images/mapof/pin-gold.png')`:else=`icon: new
+google.maps.MarkerImage('/assets/images/mapof/pin-blue.png')`]]}},`]]`]]
+</pre>
+<p>
+If you are writing stuff like this for your site, <em><strong>stop now</strong></em>. You will save yourself <em>hours and hours</em> of time if you rethink the problem and move all of that logic into a Snippet or put it somewhere else altogether.
+</p>
 
-    
+<h3>
+<a name="HowtoWriteaGoodChunk-ReasonsWhyOutputModifiersMightDestroyYourSite" id="HowtoWriteaGoodChunk-ReasonsWhyOutputModifiersMightDestroyYourSite"></a>Reasons Why Output Modifiers Might Destroy Your Site
+</h3>
+
+<ol>
+<li>Increased Maintenance costs: it will take <em>much</em> more time to edit your HTML if you obscure it with complex logic.
+</li>
+
+<li>Speed! You cannot fully cache a dynamic Chunk or Template that uses logical conditions. Output Modifiers are much slower than simple PHP.
+</li>
+
+<li>Unlike PHP, Output Modifiers do not send out error messages or line numbers, so it's much, <em>much</em> harder to debug errors!
+</li>
+
+<li>Output Modifiers do not use brackets, and it's impossible to match back-ticks in a text editor, so it's very easy to make syntax errors in your code.
+</li>
+</ol>
+
+<p>
+There are hundreds if not thousands of MODX sites out there that have been corrupted and abused by having inefficient logical mayhem crammed into their Chunks and Templates. Yes, it's a great feature that you <em>can</em> do some last-minute tweaking of data in your presentation layer, but it can be terribly abused and although your crazy Chunks might make sense to <em>you</em>, once another developer has to work on them, chances are good that they'll want to scrap the whole site and replace it with something more sensible.
+</p>
+
+<p>
+One of the things that distinguishes MODX is that its view layer is clean (or it should be anyway). Implementing complex HTML and CSS is a breeze in MODX. Compare this to WordPress, Drupal, or Joomla: bids on eLance say it all. It is a lot more work to integrate templates using those other systems <em>because they all put logic into their view layers</em>. When you do that, you are defeating the entire purpose of the MODX MVC architecture.
+</p>
+
+<p>
+If you really do need to use them, here is <a href="http://modx.com/blog/2012/09/14/tags-as-the-result-or-how-conditionals-are-like-mosquitoes/">an excellent article</a> describing how to use Output Modifiers as conditionals with a minimum of overhead.
+</p>
+
+<h2>
+<a name="HowtoWriteaGoodChunk-TheRightWaytoDoIt" id="HowtoWriteaGoodChunk-TheRightWaytoDoIt"></a>The Right Way to Do It
+</h2>
+
+<p>
+Keep your Chunks and Templates <em>clean</em>. They should be easy to read and easy to edit.
+</p>
+
+<pre class="brush: php">
+Dear [[+first_name]], it was nice to see you last [[+day_of_week]]
 </pre>
 <p>
 See that? Simple. Short. Sweet.
 </p>
 
 <h2>
-<a name="HowtoWriteaGoodChunk-GoodChunkkeepingChecklist" id="HowtoWriteaGoodChunk-GoodChunkkeepingChecklist"></a>Good Chunk-keeping Checklist
+<a name="HowtoWriteaGoodChunk-GoodChunkkeepingChecklist" id="HowtoWriteaGoodChunk-GoodChunkkeepingChecklist"></a>Good Chunk tpl-keeping Checklist
 </h2>
 
 <ol>
-<li>Give your Chunk a good description so people will know what it contains and which Snippets rely on it.
+<li>Give your Chunk tpl a good description so people will know what it contains and which Snippets rely on it.
 </li>
 
 <li>Do not include other Chunks in Chunks! Things can get very confusing if you start going down that rabbit-hole.
@@ -78,24 +136,12 @@ See that? Simple. Short. Sweet.
 <li>Use proper indenting so your HTML is easy to read.
 </li>
 
-<li>If you do use some logic in your Chunks, make sure you use it <em>responsibly</em>. <b>Do not nest tags</b>, and do not chain long if-statements together. A good rule-of-thumb is this: if your Output Filter/PHx-Modifier does not fit on one line, then you should do it another way.
+<li>If you do use some logic in your Chunk tpls, make sure you use it <em>responsibly</em>. <strong>Do not nest tags</strong>, and do not chain long if-else statements together. A good rule-of-thumb is this: if your Output Modifier does not fit on one line, then you should do it another way.
 </li>
 </ol>
 
 <div class="note">
-<b>Rule of Thumb</b>
+<strong>Rule of Thumb</strong>
 <br />
-If your Chunk uses an Output Filter or PHx-Modifier, <b>it should fit on one line</b>. If it is longer than one-line, then you should probably find another way to accomplish what you're doing, e.g. use a Snippet, or create another page to handle the variations.
+If your Chunk tpl uses an Output Modifier, <strong>it should fit on one line</strong>. If it is longer than one-line, then you should probably find another way to accomplish what you're doing, e.g. use a Snippet, or create another page to handle the variations.
 </div>
-
-<hr />
-
-<h2>
-<a name="HowtoWriteaGoodChunk-SeeAlso" id="HowtoWriteaGoodChunk-SeeAlso"></a>See Also
-</h2>
-
-<ul>
-<li>
-<a href="display/revolution20/Code+Standards" title="Code Standards">Code Standards</a>
-</li>
-</ul>

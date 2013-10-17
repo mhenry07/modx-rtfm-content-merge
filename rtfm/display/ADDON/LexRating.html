@@ -76,22 +76,22 @@ There are 2 snippets for this package:
 
 <ol>
 <li>
-<b>LexRating</b>,
+<strong>LexRating</strong>,
 </li>
 
 <li>
-<b>LexRatingList</b>, to list the rating results.
+<strong>LexRatingList</strong>, to list the rating results.
 </li>
 </ol>
 
 <p>
-There is a Quip's hook:&nbsp;<b>LexRatingQuipPostHook</b>, to create a star rating on each comment.
+There is a Quip's hook: <strong>LexRatingQuipPostHook</strong>, to create a star rating on each comment.
 <br />
 Think about a comment based star rating.
 </p>
 
 <p>
-<span class="image-wrap" style=""><a class="confluence-thumbnail-link 697x1105" href='http://rtfm.modx.com/download/attachments/43417740/comment%20based%20rating.jpg'><img src="download/thumbnails/43417740/comment%20based%20rating.jpg" style="border: 1px solid black" /></a></span>
+<span class="image-wrap"><a class="confluence-thumbnail-link 697x1105" href="download/attachments/43417740/comment%20based%20rating.jpg"><img src="download/thumbnails/43417740/comment%20based%20rating.jpg" style="border: 1px solid black" /></a></span>
 </p>
 
 <h1>
@@ -108,257 +108,257 @@ This snippet checks the visitor's IP address, and if visitor logged in, the visi
 <a name="LexRating-Properties" id="LexRating-Properties"></a>Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<div class="table-wrap">
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Name
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Example
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Default Value
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 name
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Defines the name of the rating's item
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;name=`[[*pagetitle]]`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[*id]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 group
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Defines the rating's group name. This will be useful to compare the results using LexRatingList
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;group=`articles`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 modResource
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 userGroups
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Defines who is able to vote.
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;userGroups=`Members`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 empty
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 comma separated group names
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 extended
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 (@since 1.0.0-beta.2) To set and get an additional extended parameter of individual vote account
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;extended=`{"quipReplyId":"[<span class="error">[+idprefix]</span>][<span class="error">[+id]</span>]"}`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 empty
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 practically any string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 initialAjax
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Load the initial values using Ajax
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;initialAjax=`1`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1 | 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 readOnly
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 (@since 1.0.0-beta.2) read only mode
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;readOnly=`1`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1 | 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 tpl
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Template chunk for the output, can be chunk or file based chunk.
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;tpl=`[[++core_path]]templates/blabla.tpl`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 lexrating
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 chunk name or file path
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 css
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 CSS filename
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;css=`assets/templates/css/blabla.css`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 assets/components/lexrating/default/css/lexrating.css
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string | empty - disabling
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 js
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Javascript filename
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;css=`assets/templates/js/blabla.js`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 assets/components/lexrating/default/js/lexrating.js
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string | empty - disabling
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 loadjQuery
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Auto load/disable jQuery
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;loadjQuery=`0`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1 | 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 phsPrefix
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Prefix for placeholders
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;phsPrefix=`blabla.`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 lexrating.
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 toArray
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Return an array of placeholders
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;toArray=`1`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 null
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1 | 0 | null
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Save the output into the given name placeholder
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;toPlaceholder=`my_rating`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 null
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string
 </td>
 </tr>
@@ -371,53 +371,53 @@ string
 </h2>
 
 <p>
-To get the complete placeholders, just use <b>&amp;toArray=`1`</b> to spit out the keys.
+To get the complete placeholders, just use <strong>&amp;toArray=`1`</strong> to spit out the keys.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<div class="table-wrap">
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Name
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+lexrating.name]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The name you specify in the snippet
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+lexrating.group]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The group name you specify in the snippet
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+lexrating.total.voters]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Total number of the voters
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+lexrating.initialAjax]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The property you set in the snippet call
 </td>
 </tr>
@@ -430,15 +430,12 @@ The property you set in the snippet call
 </h2>
 
 <pre class="brush: php">
-    
 [[LexRating?
 &amp;name=`[[*pagetitle]]`
 &amp;group=`articles`
 &amp;initialAjax=`0`
 &amp;readOnly=`1`
 ]]
-
-    
 </pre>
 <h1>
 <a name="LexRating-LexRatingList" id="LexRating-LexRatingList"></a>LexRatingList
@@ -452,239 +449,239 @@ This snippet retrieves the items of the LexRating's results based on the given g
 <a name="LexRating-Properties" id="LexRating-Properties"></a>Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<div class="table-wrap">
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Name
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Example
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Default Value
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 group
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The group name to be retrieved
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;group=`articles`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 modResource
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 limit
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Limit the number of ouput
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;limit=`10`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 10
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 offset
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Query's limit offset
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;offset=`10`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 0
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 int
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 sort
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Sorting direction
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;sort=`asc`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 desc
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 asc (lo-hi) | desc (hi-lo)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 tplListWrapper
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Template chunk for wrapper, can be chunk or file based chunk
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;tplListWrapper=`lexratinglist.wrapper`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 lexratinglist.wrapper
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 chunk name or file path
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 tplListItem
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Template chunk for each item, can be chunk or file based chunk
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;tplListItem=`lexratinglist.item`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 lexratinglist.item
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 chunk name or file path
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 css
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 CSS filename
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;css=`assets/templates/css/blabla.css`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 assets/components/lexrating/default/css/lexrating.css
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string | empty - disabling
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 js
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Javascript filename
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;css=`assets/templates/js/blabla.js`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 assets/components/lexrating/default/js/lexrating.js
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string | empty - disabling
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 loadjQuery
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Auto load/disable jQuery
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;loadjQuery=`0`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1 | 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 phsPrefix
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Prefix for placeholders
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;phsPrefix=`blabla.`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 lexrating.
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 toArray
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Return an array of placeholders
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;toArray=`1`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 null
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1 | 0 | null
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Save the output into the given name placeholder
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 &amp;toPlaceholder=`my_rating`
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 null
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 string
 </td>
 </tr>
@@ -697,30 +694,30 @@ string
 </h2>
 
 <p>
-To get the complete placeholders, just use <b>&amp;toArray=`1`</b> to spit out the keys.
+To get the complete placeholders, just use <strong>&amp;toArray=`1`</strong> to spit out the keys.
 </p>
 
 <p>
-<b>WRAPPER</b>
+<strong>WRAPPER</strong>
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<div class="table-wrap">
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Name
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+lexrating.list.items]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The holder of the list of the items
 </td>
 </tr>
@@ -729,53 +726,53 @@ The holder of the list of the items
 </div>
 
 <p>
-<b>LIST</b>
+<strong>LIST</strong>
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<div class="table-wrap">
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Name
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+lexrating.name]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The name you specify in the snippet
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+lexrating.group]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The group name you specify in the snippet
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+lexrating.total.voters]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Total number of the voters
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 [[+lexrating.initialAjax]]
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 The property you set in the snippet call
 </td>
 </tr>
@@ -784,11 +781,30 @@ The property you set in the snippet call
 </div>
 
 <h2>
-<a name="LexRating-Example" id="LexRating-Example"></a>Example
+Example<a name="LexRating-Example" id="LexRating-Example"></a>
 </h2>
 
+<div>
+<code>[[LexRatingList? &amp;group=`articles`]]</code>
+</div>
+
+<h1 id="LexRating-LexRatingQuipPostHook">
+LexRatingQuipPostHook
+</h1>
+
+<p>
+This hook requires quip's thread name.
+<br />
+This only works once for each IP Address + userID.
+<br />
+So any logged in user can not vote twice.
+</p>
+
+<p>
+On the quip's call, try to use this as an example:
+</p>
+
 <pre class="brush: php">
-    
 &lt;p&gt;Total Rating:&lt;/p&gt;
 [[!LexRatingList?
 &amp;name=`threadNameHere`
@@ -806,32 +822,26 @@ The property you set in the snippet call
 &amp;tplAddComment=`lexrating.quipAddComment`
 &amp;redirectTo=`[[*id]]`
 ]]
-
-    
 </pre>
 <p>
-You can sync the connection between the thread's name (eg:<b>threadNameHere</b>) with the <b>LexRating</b> inside the other chunk, <b>lexrating.quipComment</b>.
+You can sync the connection between the thread's name (eg:<strong>threadNameHere</strong>) with the <strong>LexRating</strong> inside the other chunk, <strong>lexrating.quipComment</strong>.
 <br />
-Basically, it only adds up the <b>LexRating</b> call but with the proper properties to make this works:
+Basically, it only adds up the <strong>LexRating</strong> call but with the proper properties to make this works:
 </p>
 
 <pre class="brush: php">
     data-rateit-extended="[[+lexrating.extended]]"
-    
 </pre>
 <p>
 You must specify different names for the quip's thread names, remember to change/duplicate part of the chunks:
 </p>
 
 <p>
-the duplicate of <b>lexrating.quipAddComment</b>
+the duplicate of <strong>lexrating.quipAddComment</strong>
 </p>
 
 <pre class="brush: php">
-    
 &amp;group=`Overall Rating` // &lt;== replace this
-
-    
 </pre>
 <div class="warning">
 You need to empty out the database when testing, because LexRating fills up the data automatically, while the access is limited to once per IP/user ID

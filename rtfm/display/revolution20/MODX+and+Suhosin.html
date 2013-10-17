@@ -1,19 +1,19 @@
 <div>
 <ul>
 <li>
-<a href="revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-KnownIssueswithSuhosin">Known Issues with Suhosin</a>
+<a href="/revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-KnownIssueswithSuhosin">Known Issues with Suhosin</a>
 </li>
 
 <li style="list-style: none; display: inline">
 <ul>
 <li>
-<a href="revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-RecommendedConfiguration">Recommended Configuration</a>
+<a href="/revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-RecommendedConfiguration">Recommended Configuration</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href="revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-SeeAlso">See Also</a>
+<a href="/revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -23,7 +23,7 @@
 </h2>
 
 <p>
-Suhosin is a PHP extension that adds extra security measures to PHP. One of these, however, is a check to prevent access on a server if a GET variable is too long. This causes issues in the MODX manager in versions equal to or later than 2.2, as MODX uses <a href="http://code.google.com/p/minify" class="external-link" rel="nofollow">Google minify</a> to minimize and compress the JavaScript in the manager.
+Suhosin is a PHP extension that adds extra security measures to PHP. One of these, however, is a check to prevent access on a server if a GET variable is too long. This causes issues in the MODX manager in versions equal to or later than 2.2, as MODX uses <a href="http://code.google.com/p/minify" rel="nofollow">Google minify</a> to minimize and compress the JavaScript in the manager.
 </p>
 
 <p>
@@ -38,22 +38,16 @@ This is remedied in setup/, as during MODX installation, MODX will attempt to fi
 If the user has suhosin on, and wants JS compression, it is recommended to set the offending param value to a higher limit, such as 4096 or greater. This can be done by editing the php.ini file and restarting the server:
 </p>
 
-<blockquote>
-<p>
+<pre class="brush: php">
 suhosin.get.max_value_length = 4096
-</p>
-</blockquote>
-
+</pre>
 <p>
 In some cases, it may also happen that some functionality doesn't work as expected due to the use of the eval() statement and suhosin blocking that as well. If that happens, you can disable it using the following configuration:
 </p>
 
-<blockquote>
-<p>
+<pre class="brush: php">
 suhosin.executor.disable_eval 0
-</p>
-</blockquote>
-
+</pre>
 <p>
 If you cannot edit the php.ini directly, consult with your host on the best way to set up these configurations. Some hosts might allow changing it through htaccess files, a control panel interface or they can do it for you.
 </p>
@@ -61,3 +55,29 @@ If you cannot edit the php.ini directly, consult with your host on the best way 
 <h2>
 <a name="MODXandSuhosin-SeeAlso" id="MODXandSuhosin-SeeAlso"></a>See Also
 </h2>
+
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/MODx+Revolution+on+Debian">MODx Revolution on Debian</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Lighttpd+Guide">Lighttpd Guide</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Problems+with+WAMPServer+2.0i">Problems with WAMPServer 2.0i</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Installation+on+a+server+running+ModSecurity">Installation on a server running ModSecurity</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODX+and+Suhosin">MODX and Suhosin</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Nginx+Server+Config">Nginx Server Config</a>
+</li>
+</ol>

@@ -51,43 +51,139 @@
 </h2>
 
 <p>
-Custom Output Filters are simply MODx Snippets dedicated to formatting placeholder output. If a raw placeholder, e.g.
+Custom Output Filters are MODx Snippets dedicated to formatting placeholder output in the view layer (in a Template or in a Chunk). If a raw placeholder, e.g.
+</p>
+
+<pre class="brush: php">
+    [[*pagetitle]]
+</pre>
+<p>
+returns a string of text, you can modify it via a custom Output Filter, e.g.
 </p>
 
 <pre class="brush: php">
     [[*pagetitle:myOutputFilter]]
-    
 </pre>
 <p>
-simply by creating a Snippet named <b>myOutputFilter</b>
+In the above example, the pagetitle value will be modified by a Snippet named <strong>myOutputFilter</strong>
 </p>
 
 <p>
-This page serves as a place where some basic custom output filters can be found. These are not included in the core package, however you need to add these yourself.
-</p>
-
-<p>
-You can find <a href="display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">more information on the built-in output filters</a>, if that is what you're looking.
+Check the page on MODX's <a href="display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">built-in output filters</a> before writing your own filter.
 </p>
 
 <h2>
-<a name="CustomOutputFilterExamples-CreatingaCustomOutputModifier" id="CustomOutputFilterExamples-CreatingaCustomOutputModifier"></a>Creating a Custom Output Modifier
+Creating a Custom Output Modifier
 </h2>
 
 <p>
-A custom output filter is simply a <a href="display/revolution20/Snippets" title="Snippets">Snippet</a> that is earmarked to modify content. Simply put the <a href="display/revolution20/Snippets" title="Snippets">Snippet</a> name instead of the modifier. Example with a snippet named 'makeDownloadLink':
+When writing your own Output Modifier, your Snippet can take the following inputs:
+</p>
+
+<pre class="brush: php">
+$input; // the value that is being formatted/filtered
+$options; // optional values passed via backticks
+</pre>
+<p>
+The syntax is that the Snippet name comes after a colon. Example with a snippet named 'makeDownloadLink':
+</p>
+
+<pre class="brush: php">
+[[+file:makeDownloadLink=`notitle`]]
+</pre>
+<p>
+This will pass these properties to the snippet:
+</p>
+
+<table class="confluenceTable">
+<tbody>
+<tr>
+<th>
+Param
+</th>
+<th>
+Value
+</th>
+<th>
+Example Result
+</th>
+</tr>
+
+<tr>
+<td>
+input
+</td>
+<td>
+The element's value.
+</td>
+<td>
+The value of [[+file]]
+</td>
+</tr>
+
+<tr>
+<td>
+options
+</td>
+<td>
+Any value passed to the modifier.
+</td>
+<td>
+'notitle'
+</td>
+</tr>
+
+<tr>
+<td>
+token
+</td>
+<td>
+The type of the parent element.
+</td>
+<td>
++ (the token on `file`)
+</td>
+</tr>
+
+<tr>
+<td>
+name
+</td>
+<td>
+The name of the parent element.
+</td>
+<td>
+file
+</td>
+</tr>
+
+<tr>
+<td>
+tag
+</td>
+<td>
+The complete parent tag.
+</td>
+<td>
+[[+file:makeDownloadLink=`notitle`]]
+</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+The most important (and perhaps the most obvious) of these parameters is the <strong>$input</strong> parameter. Your Snippet could do something as simple as this:
 </p>
 
 <pre class="brush: php">
     return strtolower($input);
-    
 </pre>
 <h2>
 <a name="CustomOutputFilterExamples-PortingPHxtoCustomOutputFilters" id="CustomOutputFilterExamples-PortingPHxtoCustomOutputFilters"></a>Porting PHx to Custom Output Filters
 </h2>
 
 <p>
-PHx is a very popular MODX Evolution extra that offers similar functionality as output filters in Revolution, however they are not exactly the same. The most important thing to remember when porting PHx code to a custom output filter in Revolution is probably that the input (the tag's content being processed) is now available in the $input variable, contrary to the $output one which was the case in PHx.
+PHx is a popular MODX Evolution extra that offers similar functionality as output filters in Revolution, however they are not exactly the same. The most important thing to remember when porting PHx code to a custom output filter in Revolution is probably that the input (the tag's content being processed) is now available in the $input variable, contrary to the $output one which was the case in PHx.
 </p>
 
 <p>
@@ -115,21 +211,52 @@ alternateClass simply checks if an integer (for example, a counting placeholder)
 </p>
 
 <pre class="brush: php">
-    
-[[+component.idx:alternateClass=`alt`]]
+&lt;?php
+/*
+ * Based on phx:alternateClass by Smashingred
+ * Updated for Revolution by Mark Hamstra
+ */
+if ($input % 2) {
+  return $options;
+} else {
+  return ''; // Could set another class here
+}
+?&gt;
+</pre>
+<p>
+Use like this:
+</p>
 
-    
+<pre class="brush: php">
+[[+component.idx:alternateClass=`alt`]]
 </pre>
 <h3>
 <a name="CustomOutputFilterExamples-parseLinks" id="CustomOutputFilterExamples-parseLinks"></a>parseLinks
 </h3>
 
 <p>
-The parseLinks output filter finds links, and replaces them with a html &lt;a&gt; attribute.
+The parseLinks output filter finds links, and replaces them with a html <a>attribute.</a>
 </p>
 
 <pre class="brush: php">
-    
+&lt;?php
+/*
+ * Based on phx:parseLinks
+ */
+$t = $input;
+$t = ereg_replace("[a-zA-Z]+://([.]?[a-zA-Z0-9_/-])*", "&lt;a href=\"\\0\"&gt;\\0&lt;/a&gt;", $t);
+$t = ereg_replace("(^| |\n)(www([.]?[a-zA-Z0-9_/-])*)", "\\1&lt;a href=\"http://\\2\"&gt;\\2&lt;/a&gt;", $t);
+return $t;
+</pre>
+<h3>
+<a name="CustomOutputFilterExamples-parseTags" id="CustomOutputFilterExamples-parseTags"></a>parseTags
+</h3>
+
+<p>
+This parseTags takes input as a comma delimited list, and makes all individual tags a link to resource 9 with tag=tagname query parameter appended to the link.
+</p>
+
+<pre class="brush: php">
 &lt;?php
 /*
  * parseTags output filter
@@ -141,9 +268,7 @@ if ($input == '') { return ''; } // Output filters are also processed when the i
   foreach ($tags as $key =&gt; $value) { // Process them individually
     $output[] = '&lt;a href="'.$modx-&gt;makeurl(9, '', array('tag' =&gt; $value)).'"&gt;'.$value.'&lt;/a&gt;';
   }
-  return implode(', ',$output); // Delimite again with a comma-space
-
-    
+  return implode(', ',$output); // Delimit again with a comma-space
 </pre>
 <h3>
 <a name="CustomOutputFilterExamples-shorten" id="CustomOutputFilterExamples-shorten"></a>shorten
@@ -154,23 +279,53 @@ This shortens the input like :ellipsis but it does not truncate words. Defaults 
 </p>
 
 <pre class="brush: php">
-    &lt;?php
+&lt;?php
+$output = '';
+$options = !empty($options)?$options:50;
+if (!empty($input) &amp;&amp; !empty($options)) {
+  if (strlen($input) &gt; $options) {
+    $output = substr($input, 0, strrpos(substr($input, 0, $options), ' ')).' &amp;hellip;';
+  }
+  else{
+    $output = $input;
+  }
+}
+return $output;
+?&gt;
+</pre>
+<h3>
+<a name="CustomOutputFilterExamples-substring" id="CustomOutputFilterExamples-substring"></a>substring
+</h3>
+
+<p>
+Get a substring of the input.
+</p>
+
+<pre class="brush: php">
+&lt;?php
 $options=explode(',',$options);
 return count($options)&gt;1 ? substr($input,$options[0],$options[1]) : substr($input,$options[0]);
 ?&gt;
-
-    
 </pre>
 <p>
 Example:
 </p>
 
 <pre class="brush: php">
-    &lt;?php
+&lt;span&gt;[[*introtext:substring=`0,1`]]&lt;/span&gt;[[*introtext:substring=`1`]]
+</pre>
+<h3>
+<a name="CustomOutputFilterExamples-numberformat" id="CustomOutputFilterExamples-numberformat"></a>numberformat
+</h3>
 
+<p>
+<a href="http://php.net/manual/en/function.number-format.php" class="external-link" rel="nofollow">http://php.net/manual/en/function.number-format.php</a>
+</p>
+
+<pre class="brush: php">
+&lt;?php
 $number = floatval($input);
 $optionsXpld = @explode('&amp;', $options);
-
 $optionsArray = array();
 foreach ($optionsXpld as $xpld) {
     $params = @explode('=', $xpld);
@@ -181,24 +336,16 @@ foreach ($optionsXpld as $xpld) {
         $optionsArray[$params[0]] = '';
     }
 }
-
 $decimals = isset($optionsArray['decimals']) ? $optionsArray['decimals'] : null;
 $dec_point = isset($optionsArray['dec_point']) ? $optionsArray['dec_point'] : null;
 $thousands_sep = isset($optionsArray['thousands_sep']) ? $optionsArray['thousands_sep'] : null;
-
 $output = number_format($number, $decimals, $dec_point, $thousands_sep);
-
 return $output;
-    
 </pre>
 <p>
 Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+price:numberformat=`&amp;decimals=2&amp;dec_point=,&amp;thousands_sep=.`]]
 </pre>
-</div>
-</div>

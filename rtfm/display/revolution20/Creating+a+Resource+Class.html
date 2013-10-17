@@ -43,180 +43,16 @@ First, we are going to create a xPDO package using a schema (if you're not famil
 If you are planning on versioning this code in Git, your paths may be different, but ultimately you want your files to end up inside the <tt>core/components/your_component/</tt> directory. So for this tutorial our package is named "copyrightedresource", so we will create the schema file <tt>core/components/copyrightedresource/model/schema/copyrightedresource.mysql.schema.xml</tt>:
 </p>
 
-<pre class="brush: php">
-    
-&lt;?php
-/**
- * Parses a MODX XML schema file in order to create the corresponding PHP classes
- * and (optionally) database tables.  Use this script when you are editing a MODX XML
- * schema file and you are using it as your basis for creating PHP classes.  Do not
- * use this script if you are trying to reverse-engineer existing database tables!
- *
- * See http://rtfm.modx.com/display/revolution20/Creating+a+Resource+Class
- * 
- * USAGE:
- * 1. Create this file in the docroot (webroot) of your MODX installation.
- * 2. Execute the file by visiting it in a browser, e.g. http://yoursite.com/parse_schema.php
- */
-//------------------------------------------------------------------------------
-//! CONFIGURATION
-//------------------------------------------------------------------------------
-// Your package shortname:
-$package_name = 'copyrightedresource';
+<p>
+Refer to the script at <a href="https://github.com/craftsmancoding/modx_utils/blob/master/parse_schema.php">parse_schema.php</a> and adjust it to your own setup.
+</p>
 
-// Set this to false if you've started to customize the PHP classes, otherwise
-// your changes will be overwritten!
-$regenerate_classes = true;
-
-
-//------------------------------------------------------------------------------
-//  DO NOT TOUCH BELOW THIS LINE
-//------------------------------------------------------------------------------
-require_once 'config.core.php';
-
-if (!defined('MODX_CORE_PATH')) {
-    print_msg('&lt;h1&gt;Parsing Error&lt;/h1&gt;
-        &lt;p&gt;MODX_CORE_PATH not defined! Did you include the correct config file?&lt;/p&gt;');
-    exit;
-}
-require_once MODX_CORE_PATH . 'config/config.inc.php';
-$xpdo_path = strtr(MODX_CORE_PATH . 'xpdo/xpdo.class.php', '\\', '/');
-include_once ( $xpdo_path );
- 
-// A few definitions of files/folders:
-$package_dir = MODX_CORE_PATH . "components/$package_name/";
-$model_dir = MODX_CORE_PATH . "components/$package_name/model/";
-$class_dir = MODX_CORE_PATH . "components/$package_name/model/$package_name";
-$schema_dir = MODX_CORE_PATH . "components/$package_name/model/schema";
-$mysql_class_dir = MODX_CORE_PATH . "components/$package_name/model/$package_name/mysql";
-$xml_schema_file = MODX_CORE_PATH . "components/$package_name/model/schema/$package_name.mysql.schema.xml";
- 
-// A few variables used to track execution times.
-$mtime= microtime();
-$mtime= explode(' ', $mtime);
-$mtime= $mtime[1] + $mtime[0];
-$tstart= $mtime;
- 
-// Validations
-if ( empty($package_name) ) {
-    print_msg('&lt;h1&gt;Parsing Error&lt;/h1&gt;
-        &lt;p&gt;The $package_name cannot be empty!  Please adjust the configuration and try again.&lt;/p&gt;');
-    exit;
-}
- 
-// Create directories if necessary
-$dirs = array($package_dir, $schema_dir ,$mysql_class_dir, $class_dir);
- 
-foreach ($dirs as $d) {
-    if ( !file_exists($d) ) {
-        if ( !mkdir($d, 0777, true) ) {
-            print_msg( sprintf('&lt;h1&gt;Parsing Error&lt;/h1&gt;
-                &lt;p&gt;Error creating &lt;code&gt;%s&lt;/code&gt;&lt;/p&gt;
-                &lt;p&gt;Create the directory (and its parents) and try again.&lt;/p&gt;'
-                , $d
-            ));
-            exit;
-        }
-    }
-    if ( !is_writable($d) ) {
-        print_msg( sprintf('&lt;h1&gt;Parsing Error&lt;/h1&gt;
-            &lt;p&gt;The &lt;code&gt;%s&lt;/code&gt; directory is not writable by PHP.&lt;/p&gt;
-            &lt;p&gt;Adjust the permissions and try again.&lt;/p&gt;'
-        , $d));
-        exit;
-    }
-}
- 
-
-print_msg( sprintf('&lt;br/&gt;&lt;strong&gt;Ok:&lt;/strong&gt; The necessary directories exist and have the correct permissions inside of &lt;br/&gt;
-        &lt;code&gt;%s&lt;/code&gt;', $package_dir));
- 
-if (file_exists($xml_schema_file)) {
-    print_msg( sprintf('&lt;br/&gt;&lt;strong&gt;Ok:&lt;/strong&gt; Using existing XML schema file:&lt;br/&gt;&lt;code&gt;%s&lt;/code&gt;',$xml_schema_file));
-}
-
-$xpdo = new xPDO("mysql:host=$database_server;dbname=$dbase", $database_user, $database_password, $table_prefix);
-$xpdo-&gt;setLogLevel(xPDO::LOG_LEVEL_INFO);
-$xpdo-&gt;setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
-
-$manager = $xpdo-&gt;getManager();
-$generator = $manager-&gt;getGenerator();
-
-// Use this to generate classes and maps from your schema
-if ($regenerate_classes) { 
-    print_msg('&lt;br/&gt;Attempting to remove/regenerate class files...');
-    delete_class_files($class_dir);
-    delete_class_files($mysql_class_dir);
-}
-
-$generator-&gt;parseSchema($xml_schema_file,$model_dir);
-
-
-$mtime= microtime();
-$mtime= explode(" ", $mtime);
-$mtime= $mtime[1] + $mtime[0];
-$tend= $mtime;
-$totalTime= ($tend - $tstart);
-$totalTime= sprintf("%2.4f s", $totalTime);
-
-print_msg("&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Finished!&lt;/strong&gt; Execution time: {$totalTime}&lt;br/&gt;");
-print_msg("&lt;br/&gt;Check &lt;code&gt;$class_dir&lt;/code&gt; for your newly generated class files!"); 
-exit();
-
-//------------------------------------------------------------------------------
-//! FUNCTIONS
-//------------------------------------------------------------------------------
-/**
- * Deletes the MODX class files in a given directory.
- *
- * @param string $dir: full path to directory containing class files you wish to delete.
- * @return void
- */
-function delete_class_files($dir) {
-    global $verbose;
- 
-    $all_files = scandir($dir);
-    foreach ( $all_files as $f ) {
-        if ( preg_match('#\.class\.php$#i', $f) || preg_match('#\.map\.inc\.php$#i', $f)) {
-            if ( unlink("$dir/$f") ) {
-                if ($verbose) {
-                    print_msg( sprintf('&lt;br/&gt;Deleted file: &lt;code&gt;%s/%s&lt;/code&gt;',$dir,$f) );
-                }
-            }
-            else {
-                print_msg( sprintf('&lt;br/&gt;Failed to delete file: &lt;code&gt;%s/%s&lt;/code&gt;',$dir,$f) );
-            }
-        }
-    }
-}
-
-/**
- * Formats/prints messages. HTML is stripped if this is run via the command line.
- *
- * @param string $msg to be printed
- * @return void this actually prints data to stdout
- */
-function print_msg($msg) {
-    if ( php_sapi_name() == 'cli' ) {
-        $msg = preg_replace('#&lt;br\s*/&gt;#i', "\n", $msg);
-        $msg = preg_replace('#&lt;h1&gt;#i', '== ', $msg);
-        $msg = preg_replace('#&lt;/h1&gt;#i', ' ==', $msg);
-        $msg = preg_replace('#&lt;h2&gt;#i', '=== ', $msg);
-        $msg = preg_replace('#&lt;/h2&gt;#i', ' ===', $msg);
-        $msg = strip_tags($msg) . "\n";
-    }
-    print $msg;
-}
-?&gt;
-
-    
-</pre>
 <p>
 After this script runs, a handful of PHP files should have been created inside your <tt>core/components/copyrightedresource/model/</tt> directory. See the image below.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="download/attachments/36634952/copyrightedresource_class_files.png?version=1&amp;modificationDate=1360972022000" style="border: 1px solid black" /></span>
+<span class="image-wrap"><img src="download/attachments/36634952/copyrightedresource_class_files.png?version=1&amp;modificationDate=1360972022000" style="border: 1px solid black" /></span>
 </p>
 
 <p>
@@ -224,7 +60,6 @@ The <tt>copyrightedresource.class.php</tt> file should look like this:
 </p>
 
 <pre class="brush: php">
-    
 &lt;?php
 class CopyrightedResource extends modResource {
     public $showInContextMenu = true;
@@ -233,15 +68,13 @@ class CopyrightedResource extends modResource {
         $this-&gt;set('class_key','CopyrightedResource');
     }
 }
-
-    
 </pre>
 <p>
 This forces the class_key to "CopyrightedResource", which is our class, and ensures our Resource class shows up in the left-hand tree's context menu. This is how we govern the value set in the modx_site_content "class_key" column.
 </p>
 
 <div class="warning">
-You should <b>never</b> add fields to the modResource table (yes, some Extras have done this, but it's not the proper way). Rather, create a separate related table to join into, or use Revolution 2.2.1+'s new properties field to store extra data.
+You should <strong>never</strong> add fields to the modResource table (yes, some Extras have done this, but it's not the proper way). Rather, create a separate related table to join into, or use Revolution 2.2.1+'s new properties field to store extra data.
 </div>
 
 <h3>
@@ -253,25 +86,22 @@ For those of you geeks who want to code responsibly, it's a very good idea to lo
 </p>
 
 <div class="tip">
-<b>Code Responsibly</b>
+<strong>Code Responsibly</strong>
 <br />
 Any time you extend a PHP class, you should look at the parent class, otherwise you won't know what you are implementing!
 </div>
 
 <p>
-If you look in the modResource class file, you'll see at the top a PHP Interface that defines what methods <b>must</b> be defined for a CRC to work:
+If you look in the modResource class file, you'll see at the top a PHP Interface that defines what methods <strong>must</strong> be defined for a CRC to work:
 </p>
 
 <pre class="brush: php">
-    
 Namespace: copyrightedresource
 Core Path: {core_path}components/copyrightedresource/
 Assets Path: {assets_path}components/copyrightedresource/
-
-    
 </pre>
 <p>
-<span class="image-wrap" style=""><img src="download/attachments/36634952/create_namespace.png?version=1&amp;modificationDate=1360974139000" style="border: 1px solid black" /></span>
+<span class="image-wrap"><img src="download/attachments/36634952/create_namespace.png?version=1&amp;modificationDate=1360974139000" style="border: 1px solid black" /></span>
 </p>
 
 <p>
@@ -294,41 +124,49 @@ Once you've added a namespace, we're going to add the getControllerPath method t
     'text_create_here' =&gt; $this-&gt;xpdo-&gt;lexicon('copyrightedresource_create_here'),
   );
 }
-    
 </pre>
 <p>
 This returns two translated strings that MODX will insert into the "Create" context menu when right-clicking on a node in the Resource tab on the left-hand tree.
 </p>
 
 <p>
-Just to be clear, you don't necessarily <em>need</em> to use the MODX lexicon here. You could simply return the text like so:
+Just to be clear, you don't necessarily <em>need</em> to use the MODX lexicon here. You could return the text like so:
 </p>
 
 <pre class="brush: php">
-    
+public function getContextMenuText() {
+  return array(
+    'text_create' =&gt; 'Copyrighted Page',
+    'text_create_here' =&gt; 'Create a Copyrighted Page Here',
+  );
+}
+</pre>
+
+<pre class="brush: php">
 public function getResourceTypeName() {
   $this-&gt;xpdo-&gt;lexicon-&gt;load('copyrightedresource:default');
   return $this-&gt;xpdo-&gt;lexicon('copyrightedresource');
 }
-    
 </pre>
 <p>
 Again, this could just return a string:
 </p>
 
 <pre class="brush: php">
+public function getResourceTypeName() {
+  return 'Copyrighted Page';
+}
+</pre>
+
+<pre class="brush: php">
     $modx-&gt;addExtensionPackage('copyrightedresource','/path/to/copyrightedresource/model/');
-    
 </pre>
 <p>
-Simply run this code once and MODX will automatically add it to the Extension Packages. Here is another sample script for helping you to do this:
+Run this code once and MODX will automatically add it to the Extension Packages. Here is another sample script for helping you to do this:
 </p>
 
 <pre class="brush: php">
-    
 [{"copyrightedresource":{"path":"[[++core_path]]components/copyrightedresource/model/"}}]
-
-    
 </pre>
 <p>
 Note that you can use core_path placeholder in this path: this offers way to ensure that your path will work should you ever migrate your MODX site to a different server.
@@ -351,7 +189,7 @@ Now, if you reload the page and right-click on a Resource in the tree, then move
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="download/attachments/36634952/context-menu.png?version=1&amp;modificationDate=1322512993000" style="border: 0px solid black" /></span>
+<span class="image-wrap"><img src="download/attachments/36634952/context-menu.png?version=1&amp;modificationDate=1322512993000" style="border: 0px solid black" /></span>
 </p>
 
 <p>

@@ -113,7 +113,7 @@ Makes an URL to the resource with ID 4.
 </p>
 
 <pre>
-<span style="font-family: Menlo, Monaco, monospace, sans-serif; white-space: pre;">$url = $modx-&gt;makeUrl(4);</span>
+&lt;span  style="font-family: Menlo, Monaco, monospace, sans-serif; white-space: pre;"&gt;$url = $modx-&gt;makeUrl(4);&lt;/span&gt;
 </pre>
 <p>
 Make a URL for the Resource with ID 12, but make sure it's in HTTPS.
@@ -129,4 +129,11 @@ Add some URL parameters to the generated url (both examples have the same result
 <pre class="brush: php">
 $url = $modx-&gt;makeUrl(25, '', array('hello' =&gt; 'world'));
 $url = $modx-&gt;makeUrl(25, '', 'hello=world');
+</pre>
+<p>
+Note that the arguments available to this function can be passed to the <code>[[~link]]</code> tags, e.g.
+</p>
+
+<pre class="brush: php">
+[[~123? &amp;scheme=`full`]]
 </pre>

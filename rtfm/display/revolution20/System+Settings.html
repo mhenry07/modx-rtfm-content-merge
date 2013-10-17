@@ -55,13 +55,13 @@
 </div>
 
 <p>
-MODx comes with a flexible amount of system settings. They are found in System -&gt; System Settings, and can easily be edited and changed. All system settings are available in your templates by using the [[++placeholder]] notation. See <a href="http://rtfm.modx.com/display/revolution20/Commonly+Used+Template+Tags" class="external-link" rel="nofollow">Template Tags</a> for more information.
+MODx comes with a flexible amount of system settings. They are found in System -&gt; System Settings, and can easily be edited and changed. All system settings are available in your templates by using the [[++placeholder]] notation. See <a href="display/revolution20/Commonly+Used+Template+Tags" class="external-link" rel="nofollow">Template Tags</a> for more information.
 </p>
 <object width="780" height="500">
-<param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" />
+<param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" />
 <param name="allowFullScreen" value="true" />
 <param name="allowscriptaccess" value="always" />
-<embed src="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="780" height="500" flashvars="$flashVars" />
+<embed src="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="780" height="500" flashvars="$flashVars" />
 </object>
 <h2>
 <a name="SystemSettings-CreatingnewSystemSettings%28viatheGUI%29"></a>Creating new System Settings (via the GUI)
@@ -119,21 +119,18 @@ The values used to describe system settings can be optionally localized (i.e. tr
 </ul>
 
 <p>
-For example, if we look at Quip's [[++quip.emailsFrom]] setting, we see that it uses the the <b>quip</b> namespace. The expected folder structure is to look for localization files in the namespace's folder, then in a "lexicon" folder, then in folders divided by language codes, and then in the <b>default.inc.php</b> file, for example <b>core/components/quip/lexicon/en/default.inc.php</b>
+For example, if we look at Quip's [[++quip.emailsFrom]] setting, we see that it uses the the <strong>quip</strong> namespace. The expected folder structure is to look for localization files in the namespace's folder, then in a "lexicon" folder, then in folders divided by language codes, and then in the <strong>default.inc.php</strong> file, for example <strong>core/components/quip/lexicon/en/default.inc.php</strong>
 </p>
 
 <p>
-In our Quip example, we see a name of <em>setting_quip.emailsFrom</em> and a description of <em>setting_quip.emailsFrom_desc</em>. These two values correspond to keys in the <b>$_lang</b> array inside of <b>default.inc.php</b>:
+In our Quip example, we see a name of <em>setting_quip.emailsFrom</em> and a description of <em>setting_quip.emailsFrom_desc</em>. These two values correspond to keys in the <strong>$_lang</strong> array inside of <strong>default.inc.php</strong>:
 </p>
 
 <pre class="brush: php">
-    
 $siteStartId = $modx-&gt;getOption('site_start');
-
-    
 </pre>
 <div class="note">
-In WordPress, the comparable API function is <b>get_option()</b>.
+In WordPress, the comparable API function is <strong>get_option()</strong>.
 </div>
 
 <p>
@@ -149,7 +146,7 @@ Here's where things get a little bit more complicated: when we retrieve the valu
 </p>
 
 <p>
-This is for architectural reasons: the system settings are meant to defined as <em>configurations</em>, <b>NOT runtime dynamic values</b>. They are typically set at the time of install and then not often updated. However, there may be legitimate times when you need to update system settings programmatically, e.g. perhaps you have written a <a href="display/revolution20/Custom+Manager+Pages+Tutorial" title="Custom Manager Pages Tutorial">Custom Manager Page</a> that offers a customized form to your users for its system settings.
+This is for architectural reasons: the system settings are meant to defined as <em>configurations</em>, <strong>NOT runtime dynamic values</strong>. They are typically set at the time of install and then not often updated. However, there may be legitimate times when you need to update system settings programmatically, e.g. perhaps you have written a <a href="display/revolution20/Custom+Manager+Pages+Tutorial" title="Custom Manager Pages Tutorial">Custom Manager Page</a> that offers a customized form to your users for its system settings.
 </p>
 
 <p>
@@ -157,15 +154,12 @@ If we want to update a system setting, we default to the powerful xPDO <a href="
 </p>
 
 <pre class="brush: php">
-    
 $Setting = $modx-&gt;getObject('modSystemSetting', 'site_name');
 $Setting-&gt;set('value', 'My New Site Name');
 $Setting-&gt;save();
-
-    
 </pre>
 <p>
-However, note that this does not clear the settings cache, so any subsequent calls to <b>getOption</b> will still return the older cached version of the setting.
+However, note that this does not clear the settings cache, so any subsequent calls to <strong>getOption</strong> will still return the older cached version of the setting.
 </p>
 
 <p>
@@ -173,15 +167,12 @@ To rectify this in MODx 2.0.x, you have to clear the <em>entire</em> cache, incl
 </p>
 
 <pre class="brush: php">
-    
 // clear cache in MODx 2.1.x
 $cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
 $modx-&gt;cacheManager-&gt; refresh($cacheRefreshOptions);
-
-    
 </pre>
 <div class="note">
-In WordPress, the comparable API function is <b>update_option()</b>.
+In WordPress, the comparable API function is <strong>update_option()</strong>.
 </div>
 
 <h3>
@@ -193,34 +184,26 @@ Once we start retrieving the <em>Objects</em> that represent the system settings
 </p>
 
 <pre class="brush: php">
-    
 $relatedSettings = $modx-&gt;getCollection('modSystemSetting', array('area'=&gt;'Mail'));
 foreach ( $relatedSettings as $Setting ) {
         print $Setting-&gt;get('value');
 }
-
-    
 </pre>
 <p>
-This leads us naturally to one of xPDO's other features: the <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">Query</a> object. We can use it to pass more complex criteria to our <b>getCollection call</b>. Here's how we would pull up all settings that used the prefix of "quip.":
+This leads us naturally to one of xPDO's other features: the <a href="display/xPDO20/xPDOQuery" title="xPDOQuery">Query</a> object. We can use it to pass more complex criteria to our <strong>getCollection call</strong>. Here's how we would pull up all settings that used the prefix of "quip.":
 </p>
 
 <pre class="brush: php">
-    
 $MySetting = $modx-&gt;newObject('modSystemSetting');
 $MySetting-&gt;set('key', 'mykey');
 $MySetting-&gt;set('value', 'my_value');
 $MySetting-&gt;set('xtype', 'textfield');
 $MySetting-&gt;set('namespace', 'my_namespace');
 $MySetting-&gt;set('area', 'MyArea');
-
 $MySetting-&gt;save();
-
 // Clear the cache:
 $cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
 $modx-&gt;cacheManager-&gt; refresh($cacheRefreshOptions);
-
-    
 </pre>
 <p>
 Note that you must create lexicon entries that match your key name (see the section above on Localization):
@@ -243,6 +226,7 @@ So in this example, you would need to add the following lexicon entries to a lex
 <pre class="code-java">
 $_lang['setting_mykey'] = 'Name of My Setting';
 $_lang['setting_mykey_desc'] = 'Description of my key';
+                
 </pre>
 </div>
 </div>
@@ -251,61 +235,68 @@ $_lang['setting_mykey_desc'] = 'Description of my key';
 MODX will populate the values for the name and description based on those lexicon entries.
 </p>
 
+<p>
+You may find it useful to reference your localized language strings inside your Templates or CMPs. You can do this via a lexicon tag, but you must specify the "setting" topic, e.g.
+</p>
+
+<pre class="brush: php">
+[[!%setting_emailsender? &amp;topic=`setting` &amp;namespace=`core` &amp;language=`en`]]
+</pre>
 <h2>
 <a name="SystemSettings-TypesofSystemSettings"></a>Types of System Settings
 </h2>
 
 <p>
-The <b>xtype</b> attribute defines what type of field the GUI will use when rendering the interface for this field:
+The <strong>xtype</strong> attribute defines what type of field the GUI will use when rendering the interface for this field:
 </p>
 
 <ul>
 <li>
-<b>combo-boolean</b> : stored values are 1 and 0; the GUI will display "Yes" and "No"
+<strong>combo-boolean</strong> : stored values are 1 and 0; the GUI will display "Yes" and "No"
 </li>
 
 <li>
-<b>textfield</b> : standard text field
+<strong>textfield</strong> : standard text field
 </li>
 
 <li>
-<b>textarea</b> : standard textearea
+<strong>textarea</strong> : standard textearea
 </li>
 
 <li>
-<b>text-password</b> : standard password field (input is masked)
+<strong>text-password</strong> : standard password field (input is masked)
 </li>
 
 <li>
-<b>numberfield</b> : used for entering numbers
+<strong>numberfield</strong> : used for entering numbers
 </li>
 
 <li>
-<b>modx-combo-language</b> : allows user to select a language
+<strong>modx-combo-language</strong> : allows user to select a language
 </li>
 
 <li>
-<b>modx-combo-source</b> :
+<strong>modx-combo-source</strong> :
 </li>
 
 <li>
-<b>modx-combo-template</b> : allows user to select a template
+<strong>modx-combo-template</strong> : allows user to select a template
 </li>
 
 <li>
-<b>modx-combo-content-type</b> : allows user to select a content type
+<strong>modx-combo-content-type</strong> : allows user to select a content type
 </li>
 
 <li>
-<b>modx-combo-charset</b> : allows user to select a character set
+<strong>modx-combo-charset</strong> : allows user to select a character set
 </li>
 
 <li>
-<b>modx-combo-rte</b> : like the textarea, but with formatting controls
+<strong>modx-combo-rte</strong> : like the textarea, but with formatting controls
 </li>
 
 <li>
-<b>modx-combo-context</b> : allows user to select a context
+<strong>modx-combo-context</strong> : allows user to select a context
 </li>
 </ul>
 
@@ -319,22 +310,22 @@ A description of each setting follows:
 
 <ol class="ug-toc">
 <li>
-<a href="/revolution/2.x/administering-your-site/settings/system-settings/access_category_enabled">access_category_enabled</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings/access_category_enabled">access_category_enabled</a>
 </li>
 
 <li>
-<a href="/revolution/2.x/administering-your-site/settings/system-settings/access_context_enabled">access_context_enabled</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings/access_context_enabled">access_context_enabled</a>
 </li>
 
 <li>
-<a href="/revolution/2.x/administering-your-site/settings/system-settings/access_resource_group_enabled">access_resource_group_enabled</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings/access_resource_group_enabled">access_resource_group_enabled</a>
 </li>
 
 <li>
-<a href="/revolution/2.x/administering-your-site/settings/system-settings/allow_duplicate_alias">allow_duplicate_alias</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings/allow_duplicate_alias">allow_duplicate_alias</a>
 </li>
 
 <li>
-<a href="/revolution/2.x/administering-your-site/settings/system-settings/allow_forward_across_contexts">allow_forward_across_contexts</a>
+<a href="revolution/2.x/administering-your-site/settings/system-settings/allow_forward_across_contexts">allow_forward_across_contexts</a>
 </li>
 </ol>

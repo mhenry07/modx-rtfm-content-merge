@@ -27,7 +27,7 @@ The codebase in Revolution has switched to <a href="http://www.xpdo.org/" title=
 </p>
 
 <h2>
-<a name="PHPCodinginMODxRevolution%2CPt.I-TheSimpleHow"></a>The Simple How
+<a name="PHPCodinginMODxRevolution,Pt.I-TheSimpleHow"></a>The Simple How
 </h2>
 
 <p>
@@ -53,7 +53,7 @@ $document = $modx-&gt;getObject('modResource',array(
 ));
 </pre>
 <h2>
-<a name="PHPCodinginMODxRevolution%2CPt.I-TheModel"></a>The Model
+<a name="PHPCodinginMODxRevolution,Pt.I-TheModel"></a>The Model
 </h2>
 
 <p>
@@ -80,19 +80,18 @@ Okay, this is where we get into DB relationships. An <strong>Aggregate</strong> 
 
 <pre class="brush: php">
 $context = $modx-&gt;getObject('modContext','web');
-$settings = $context-&gt;getMany('ContextSettings');
+$settings = $context-&gt;getMany('ContextSetting');
 foreach ($settings as $setting) {
     echo 'Setting name: '.$setting-&gt;get('key').' &lt;br /&gt;';
     echo 'Setting value: '.$setting-&gt;get('value').' &lt;br /&gt;';
 }
-                
 </pre>
 <p>
 Pretty easy, huh? We'll get into creating and removing objects, as well as more complex queries, such as inner joins, limits, sorting and others, in the <span class="error">[next article]</span>.
 </p>
 
 <h2>
-<a name="PHPCodinginMODxRevolution%2CPt.I-SeeAlso"></a>See Also
+<a name="PHPCodinginMODxRevolution,Pt.I-SeeAlso"></a>See Also
 </h2>
 
 <ul>

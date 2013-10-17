@@ -47,7 +47,7 @@
 </div>
 
 <h2>
-<a name="Login.Login-WhatisLogin%3F"></a>What is Login?
+<a name="Login.Login-WhatisLogin?"></a>What is Login?
 </h2>
 
 <p>
@@ -62,10 +62,21 @@ This component loads a simple login and logout form, and processes User authenti
 Example for Login:
 </p>
 
-<pre class="brush: php">
-    [[!Login? &amp;tplType=`modChunk` &amp;loginTpl=`myLoginChunk`]]
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="brush:php">
+[[!Login]]
+                
+</pre>
+</div>
+</div>
 
-    
+<p>
+You can also specify the template, however make sure to call the &amp;tplType parameter also:
+</p>
+
+<pre class="brush:php">
+[[!Login? &amp;tplType=`modChunk` &amp;loginTpl=`myLoginChunk`]]
 </pre>
 <p>
 See the snippet properties for more options.
@@ -79,296 +90,269 @@ See the snippet properties for more options.
 Login comes with some configuration properties you can set to adjust the way Login behaves.
 </p>
 
-<div class='table-wrap'>
-<table id='TBL1372672617298' class='confluenceTable'>
+<div class="table-wrap">
+<table id="TBL1376497245839">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 actionKey
 </td>
-<td class='confluenceTd'>
+<td>
 The REQUEST variable that indicates what action to take. Defaults to 'service'. This is useful to change if you're already using the 'service' REQUEST variable in your website.
 </td>
-<td class='confluenceTd'>
+<td>
 service
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginKey
 </td>
-<td class='confluenceTd'>
+<td>
 The login action key. Defaults to 'login'. This tells Login to fire only if the <em>actionKey</em> property is set to this value. For example, if <em>actionKey</em> is set to 'service', and this is set to 'login', then the login processor will only fire if the request '&amp;service=login' is found.
 </td>
-<td class='confluenceTd'>
+<td>
 login
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutKey
 </td>
-<td class='confluenceTd'>
+<td>
 The logout action key. Defaults to 'logout'. This tells Login to fire only if the <em>actionKey</em> property is set to this value. For example, if <em>actionKey</em> is set to 'service', and this is set to 'logout', then the logout processor will only fire if the request '&amp;service=logout' is found.
 </td>
-<td class='confluenceTd'>
+<td>
 logout
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rememberMeKey
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. The field name of the Remember Me toggle to preserve login state. Defaults to "rememberme".
 </td>
-<td class='confluenceTd'>
+<td>
 rememberme
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplType
 </td>
-<td class='confluenceTd'>
+<td>
 The type of tpls being provided by loginTpl or logoutTpl. See the section below for the possible values.
+<br class="atl-forced-newline" />
 </td>
-<td class='confluenceTd'>
+<td>
 inline
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The login form tpl. May be the type specified by the <em>tplType</em> property.
 </td>
-<td class='confluenceTd'>
+<td>
 lgnLoginTpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The logout form tpl. May be the type specified by the <em>tplType</em> property
 </td>
-<td class='confluenceTd'>
+<td>
 lgnLogoutTpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 errTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The error message tpl. May be the type specified by the <em>errTplType</em> property.
 </td>
-<td class='confluenceTd'>
+<td>
 lgnErrTpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 errTplType
 </td>
-<td class='confluenceTd'>
+<td>
 The type of tpls being provided by errTpl.
 </td>
-<td class='confluenceTd'>
+<td>
 modChunk
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginResourceId
 </td>
-<td class='confluenceTd'>
+<td>
 The resource to direct users to on successful login. 0 will redirect to self. Leave out if using the default unauthorized page.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginResourceParams
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON object of parameters to append to the login redirection URL. Ex: {"test":123} translates to url.html?test=123
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutResourceId
 </td>
-<td class='confluenceTd'>
+<td>
 Resource ID to redirect to on successful logout. 0 will redirect to self.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutResourceParams
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON object of parameters to append to the logout redirection URL. Ex: {"test":123} translates to url.html?test=123
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginMsg
 </td>
-<td class='confluenceTd'>
+<td>
 Optional label message for login action. If blank, will default to lexicon string for Login.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutMsg
 </td>
-<td class='confluenceTd'>
+<td>
 Optional label message for logout action. If blank, will default to lexicon string for Logout.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 redirectToPrior
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will redirect to the referring page (HTTP_REFERER) on successful login.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 contexts
 </td>
-<td class='confluenceTd'>
+<td>
 (Experimental) A comma-separated list of contexts to log in to. Defaults to the current context if not explicitly set.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 preHooks
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of 'hooks', or Snippets, that will be executed before the user is registered but after validation. Also can specify 'recaptcha' as a hook.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 postHooks
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of 'hooks', or Snippets, that will be executed after the user is registered.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will set the output of the login snippet to a placeholder of this name rather than directly outputting the return contents.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 <font color="#000000">redirectToOnFailedAuth</font>
 </td>
-<td class='confluenceTd'>
+<td>
 (<font color="#000000">1.6.4-pl &amp; +) redirects to a separate page on failed logins</font>
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<script type='text/javascript'>
-//<![CDATA[
- <!-- 
-//Copyright(c)2005,2010 Bob Swift and other contributors. All rights reserved. 
-function getElementInnerText(element){var str="";for(var i=0;i<element.childNodes.length;i++){switch(element.childNodes.item(i).nodeType){case 1:str+=getElementInnerText(element.childNodes.item(i));break;case 3:str+=element.childNodes.item(i).nodeValue;break;}}return str;}
-function trimSafe(v){return((v==undefined)||(v==null))?"":v.Trim();}String.prototype.Trim=new Function("return this.replace(/^\\s+|\\s+$/g,'')");
-function compareNumber(v1,v2){if(isNaN(v2)){if(isNaN(v1))return 0;return-1;}if(v1<v2)return-1;if(v1==v2)return 0;return 1;}
-function compareSeparatedNumber(v1,v2){for(i=0;(i<v1.length)&&(i<v2.length);i++){var result=compareNumber(parseInt(v1[i]),parseInt(v2[i]));if(result!=0)return result;}if(v1.length<v2.length)return-1;if(v2.length<v1.length)return 1;return 0;}
-function sortByCell(sortCell,firstDataRowIndex,footingCount){var compareFunction;var valueParser;compareFunction=compareNumber;if(sortCell.columnType=="I"){valueParser=function(value){return parseInt(getElementInnerText(value));};}else if(sortCell.columnType=="F"){valueParser=function(value){return parseFloat(getElementInnerText(value));};}else if(sortCell.columnType=="C"){valueParser=function(value){return parseFloat(getElementInnerText(value).replace(/[^\d\.\,\-]*([\d\.\,\-*]*).*/,'$1'));};}else if(sortCell.columnType.charAt(0)=='D'){if(Date.parseString){valueParser=function(value){var date=Date.parseString(trimSafe(getElementInnerText(value)),sortCell.columnType.substring(1));return((date==null)?NaN:date.getTime());};}else{valueParser=function(value){return Date.parse(getElementInnerText(value));};}}else if((sortCell.columnType=="/")||(sortCell.columnType==".")||(sortCell.columnType=="-")||(sortCell.columnType==":")){compareFunction=compareSeparatedNumber;valueParser=function(value){return getElementInnerText(value).split(sortCell.columnType);};}else if(sortCell.columnType=="A"){valueParser=function(value){return 0;};}else{compareFunction=function(v1,v2){if(v1<v2)return-1;if(v1==v2)return 0;return 1;};valueParser=function(value){return trimSafe(getElementInnerText(value)).toUpperCase();};}var headRowCount=(sortCell.sortTable.tHead==null)?0:sortCell.sortTable.tHead.rows.length;firstDataRowIndex=firstDataRowIndex-headRowCount;var table=sortCell.sortTable.tBodies[0];var rowCount=table.rows.length-firstDataRowIndex-footingCount;var map=Array(rowCount);var values=Array(rowCount);var compareTest=(sortCell.sortDescending?-1:1);sortCell.sortDescending=!sortCell.sortDescending;var firstCell=(((sortCell.sortTable.tHead==null)||(sortCell.sortTable.tHead.rows.length==0))?table.rows[0].cells[sortCell.columnIndex]:sortCell.sortTable.tHead.rows[0].cells[sortCell.columnIndex]);if((firstCell!=null)&&(firstCell.sortTable!=null)&&(firstCell.sortTable!=undefined)&&(firstCell.sortTable.sortImage!=null)&&(firstCell.sortTable.sortImage!=undefined)){firstCell.sortTable.sortImage.setAttribute("src",firstCell.sortDescending?firstCell.sortTable.sortAttributeDescending:firstCell.sortTable.sortAttributeAscending);firstCell.appendChild(firstCell.sortTable.sortImage);}var i;for(i=0;i<rowCount;i++){map[i]=sortCell.sortFirstTime?i:(rowCount-1-i);var row=table.rows[i+firstDataRowIndex];var cellValue=row.cells[sortCell.columnIndex];values[i]=valueParser(cellValue);}sortCell.sortFirstTime=false;var didSwap;do{didSwap=false;for(i=0;i<rowCount-1;i++){if(compareFunction(values[map[i&#93;&#93;,values[map[i+1&#93;&#93;)==compareTest){saveIndex=map[i];map[i]=map[i+1];map[i+1]=saveIndex;didSwap=true;}}}while(didSwap);var tableRows=new Array();for(i=0;i<rowCount+footingCount;i++){tableRows.push(table.rows[i+firstDataRowIndex]);}for(i=0;i<rowCount+footingCount;i++){table.removeChild(tableRows[i]);}for(i=0;i<rowCount;i++){var row=tableRows[map[i&#93;&#93;;table.appendChild(row);if(row.autoNumber){row.cells[0].innerHTML=i+1;}}for(i=0;i<footingCount;i++){table.appendChild(tableRows[i+rowCount]);}}
-function enableSortOnCell(cell,columnIndex,table,columnTypes,customize){cell.style.cursor="pointer";cell.sortTable=table;cell.sortFirstTime=true;cell.sortDescending=false;cell.columnIndex=(customize.autoNumber?(columnIndex+1):columnIndex);if(columnIndex==-1){cell.columnType="I";}else{cell.columnType=(columnTypes&&columnTypes[columnIndex])?columnTypes[columnIndex]:"S";}if(cell.columnType!="X"){cell.onmouseover=function(){this.saveTitle=this.getAttribute('title');this.setAttribute('title',customize.sortTip+" "+((this.saveTitle!=null)&&(this.saveTitle!=undefined)?this.saveTitle:''));};cell.onmouseout=function(){this.setAttribute('title',this.saveTitle);};cell.onclick=function(){sortByCell(this,customize.firstDataRowIndex,customize.footingCount);};}else{cell.columnType=cell.columnType.substring(1);}}
-function sumColumn(table,index,firstDataRowIndex,columnType){var total=0;for(var i=firstDataRowIndex;i<table.rows.length;i++){var cell=table.rows[i].cells[index];var value;if(cell){if(columnType=='C'){value=parseFloat(getElementInnerText(cell).replace(/[^\d\.\,\-]*([\d\.\,\-*]*).*/,'$1'))}else{value=parseFloat(getElementInnerText(cell));}if(!isNaN(value)){total=total+value;}}}return total;}
-function appendTotalRow(table,columnTypes,firstDataRowIndex){var row=document.createElement('tr');var table=table.tBodies[0];var columnCount=(0<table.rows.length)?table.rows[table.rows.length-1].cells.length:0;for(var columnIndex=0;columnIndex<columnCount;columnIndex++){var column=document.createElement('th');column.className='confluenceTh';column.innerHTML=(columnIndex<columnTypes.length&&((columnTypes[columnIndex]=='I')||(columnTypes[columnIndex]=='F')||(columnTypes[columnIndex]=='C')))?sumColumn(table,columnIndex,firstDataRowIndex,columnTypes[columnIndex]):'';row.appendChild(column);}table.appendChild(row);}
-function handleRow(table,row,rowIndex,customize){var columnCount=row.cells.length;for(var i=0;i<columnCount;i++){if(customize.enableSorting&&(rowIndex<=customize.lastClickableRow)){enableSortOnCell(row.cells[i],i,table,customize.columnTypes,customize);}if((rowIndex==0)&&(customize.sortColumn!='')&&(customize.sortCell==null)&&(((i+1).toString()==customize.sortColumn)||(trimSafe(getElementInnerText(row.cells[i]))==customize.sortColumn)||(trimSafe(row.cells[i].getAttribute('title'))==customize.sortColumn))){customize.sortCell=row.cells[i];}if(customize.firstDataRowIndex<=rowIndex){if((customize.columnTypes[i]=="I")||(customize.columnTypes[i]=="F")||(customize.columnTypes[i]=="C")){row.cells[i].style.textAlign="right";}}if(customize.columnTypes[i]=="H"){row.cells[i].style.display="none";}if(customize.enableHeadingAttributes||(customize.firstDataRowIndex<=rowIndex)){if(i<customize.attrList.length){for(var j=0;j<customize.attrList[i].length;j++){var attr=customize.attrList[i][j].Trim().split("=");if(1<attr.length){var aName=attr[0].Trim();var aValue=attr[1].Trim();if((aName.toLowerCase()=="style")&&(2<aValue.length)){if((aValue.charAt(0)=='"')){aValue=aValue.substring(1,aValue.length-1);}row.cells[i].style.cssText=aValue;}else{row.cells[i].setAttribute(aName,aValue);}}}}}}if(customize.autoNumber){var column=document.createElement(!customize.autoNumberSort||(rowIndex<customize.firstDataRowIndex)?'th':'td');column.className=(!customize.autoNumberSort||(rowIndex<customize.firstDataRowIndex)?'confluenceTh':'confluenceTd');column.innerHTML=((rowIndex<customize.firstDataRowIndex)||(customize.totalRowCount-customize.firstDataRowIndex-customize.footingCount<rowIndex)?'':customize.dataRowCount++);column.setAttribute('align','right');row.autoNumber=!customize.autoNumberSort;row.insertBefore(column,row.cells[0]);if(customize.enableSorting&&customize.autoNumberSort&&(rowIndex<=customize.lastClickableRow)){enableSortOnCell(column,-1,table,null,customize);}}if((customize.highlightColor!="")&&(customize.firstDataRowIndex<=rowIndex)){row.onmouseover=function(){this.tableHighLightRowColor=this.bgColor;this.bgColor=customize.highlightColor;};row.onmouseout=function(){this.bgColor=this.tableHighLightRowColor;this.tableHighLightRowColor=null;};}}
-function customizeMacroTable(tableId,columnTypes,firstDataRowIndex,highlightColor,enableSorting,sortTip,sortColumn,sortDescending,autoNumber,autoNumberSort,enableHeadingAttributes,footingCount,autoTotal,iconLocation){var customize=new Object;customize.columnTypes=columnTypes;customize.firstDataRowIndex=firstDataRowIndex;customize.highlightColor=highlightColor;customize.enableSorting=enableSorting;customize.sortTip=sortTip;customize.sortColumn=sortColumn;customize.sortDescending=sortDescending;customize.autoNumber=autoNumber;customize.autoNumberSort=autoNumberSort;customize.enableHeadingAttributes=enableHeadingAttributes;customize.footingCount=footingCount;customize.autoTotal=autoTotal;customize.iconLocation=iconLocation;var table=(typeof(tableId)=="string")?document.getElementById(tableId):null;if(table){if(customize.autoTotal){appendTotalRow(table,customize.columnTypes,customize.firstDataRowIndex);customize.footingCount++;}if(customize.iconLocation!=""){table.sortAttributeAscending=contextPath+customize.iconLocation+"down.gif";table.sortAttributeDescending=contextPath+customize.iconLocation+"up.gif";table.sortImage=document.createElement("IMG");}customize.lastClickableRow=customize.firstDataRowIndex-1;if(customize.lastClickableRow<0){customize.lastClickableRow=0;}customize.sortCell=null;customize.dataRowCount=1;var colAttrs=columnAttributes.split(",");customize.attrList=Array(colAttrs.length);for(var i=0;i<colAttrs.length;i++){customize.attrList[i]=colAttrs[i].Trim().split(";;");}var rowIndex=0;var headRowCount=(table.tHead==null)?0:table.tHead.rows.length;var footRowCount=(table.tFoot==null)?0:table.tFoot.rows.length;var bodyRowCount=table.tBodies[0].rows.length;customize.totalRowCount=headRowCount+footRowCount+bodyRowCount;for(var i=0;i<headRowCount;i++){var row=table.tHead.rows[i];handleRow(table,row,rowIndex,customize);rowIndex++;}for(var i=0;i<bodyRowCount;i++){var row=table.tBodies[0].rows[i];handleRow(table,row,rowIndex,customize);rowIndex++;}for(var i=0;i<footRowCount;i++){var row=table.tFoot.rows[i];handleRow(table,row,rowIndex,customize);rowIndex++;}if(customize.sortCell!=null){customize.sortCell.sortDescending=customize.sortDescending;sortByCell(customize.sortCell,customize.firstDataRowIndex,customize.footingCount);}}return table;}
+<!--  //Copyright(c)2005,2010 Bob Swift and other contributors. All rights reserved.  function getElementInnerText(element){var str="";for(var i=0;i<element.childNodes.length;i++){switch(element.childNodes.item(i).nodeType){case 1:str+=getElementInnerText(element.childNodes.item(i));break;case 3:str+=element.childNodes.item(i).nodeValue;break;}}return str;} function trimSafe(v){return((v==undefined)||(v==null))?"":v.Trim();}String.prototype.Trim=new Function("return this.replace(/^\\s+|\\s+$/g,'')"); function compareNumber(v1,v2){if(isNaN(v2)){if(isNaN(v1))return 0;return-1;}if(v1<v2)return-1;if(v1==v2)return 0;return 1;} function compareSeparatedNumber(v1,v2){for(i=0;(i<v1.length)&&(i<v2.length);i++){var result=compareNumber(parseInt(v1[i]),parseInt(v2[i]));if(result!=0)return result;}if(v1.length<v2.length)return-1;if(v2.length<v1.length)return 1;return 0;} function sortByCell(sortCell,firstDataRowIndex,footingCount){var compareFunction;var valueParser;compareFunction=compareNumber;if(sortCell.columnType=="I"){valueParser=function(value){return parseInt(getElementInnerText(value));};}else if(sortCell.columnType=="F"){valueParser=function(value){return parseFloat(getElementInnerText(value));};}else if(sortCell.columnType=="C"){valueParser=function(value){return parseFloat(getElementInnerText(value).replace(/&#91;^\d\.\,\-]*([\d\.\,\-*]*).*/,'$1'));};}else if(sortCell.columnType.charAt(0)=='D'){if(Date.parseString){valueParser=function(value){var date=Date.parseString(trimSafe(getElementInnerText(value)),sortCell.columnType.substring(1));return((date==null)?NaN:date.getTime());};}else{valueParser=function(value){return Date.parse(getElementInnerText(value));};}}else if((sortCell.columnType=="/")||(sortCell.columnType==".")||(sortCell.columnType=="-")||(sortCell.columnType==":")){compareFunction=compareSeparatedNumber;valueParser=function(value){return getElementInnerText(value).split(sortCell.columnType);};}else if(sortCell.columnType=="A"){valueParser=function(value){return 0;};}else{compareFunction=function(v1,v2){if(v1<v2)return-1;if(v1==v2)return 0;return 1;};valueParser=function(value){return trimSafe(getElementInnerText(value)).toUpperCase();};}var headRowCount=(sortCell.sortTable.tHead==null)?0:sortCell.sortTable.tHead.rows.length;firstDataRowIndex=firstDataRowIndex-headRowCount;var table=sortCell.sortTable.tBodies[0];var rowCount=table.rows.length-firstDataRowIndex-footingCount;var map=Array(rowCount);var values=Array(rowCount);var compareTest=(sortCell.sortDescending?-1:1);sortCell.sortDescending=!sortCell.sortDescending;var firstCell=(((sortCell.sortTable.tHead==null)||(sortCell.sortTable.tHead.rows.length==0))?table.rows[0].cells[sortCell.columnIndex]:sortCell.sortTable.tHead.rows[0].cells[sortCell.columnIndex]);if((firstCell!=null)&&(firstCell.sortTable!=null)&&(firstCell.sortTable!=undefined)&&(firstCell.sortTable.sortImage!=null)&&(firstCell.sortTable.sortImage!=undefined)){firstCell.sortTable.sortImage.setAttribute("src",firstCell.sortDescending?firstCell.sortTable.sortAttributeDescending:firstCell.sortTable.sortAttributeAscending);firstCell.appendChild(firstCell.sortTable.sortImage);}var i;for(i=0;i<rowCount;i++){map[i]=sortCell.sortFirstTime?i:(rowCount-1-i);var row=table.rows[i+firstDataRowIndex];var cellValue=row.cells[sortCell.columnIndex];values[i]=valueParser(cellValue);}sortCell.sortFirstTime=false;var didSwap;do{didSwap=false;for(i=0;i<rowCount-1;i++){if(compareFunction(values[map[i&#93;&#93;,values[map[i+1&#93;&#93;)==compareTest){saveIndex=map[i];map[i]=map[i+1];map[i+1]=saveIndex;didSwap=true;}}}while(didSwap);var tableRows=new Array();for(i=0;i<rowCount+footingCount;i++){tableRows.push(table.rows[i+firstDataRowIndex]);}for(i=0;i<rowCount+footingCount;i++){table.removeChild(tableRows[i]);}for(i=0;i<rowCount;i++){var row=tableRows[map[i&#93;&#93;;table.appendChild(row);if(row.autoNumber){row.cells[0].innerHTML=i+1;}}for(i=0;i<footingCount;i++){table.appendChild(tableRows[i+rowCount]);}} function enableSortOnCell(cell,columnIndex,table,columnTypes,customize){cell.style.cursor="pointer";cell.sortTable=table;cell.sortFirstTime=true;cell.sortDescending=false;cell.columnIndex=(customize.autoNumber?(columnIndex+1):columnIndex);if(columnIndex==-1){cell.columnType="I";}else{cell.columnType=(columnTypes&&columnTypes[columnIndex])?columnTypes[columnIndex]:"S";}if(cell.columnType!="X"){cell.onmouseover=function(){this.saveTitle=this.getAttribute('title');this.setAttribute('title',customize.sortTip+" "+((this.saveTitle!=null)&&(this.saveTitle!=undefined)?this.saveTitle:''));};cell.onmouseout=function(){this.setAttribute('title',this.saveTitle);};cell.onclick=function(){sortByCell(this,customize.firstDataRowIndex,customize.footingCount);};}else{cell.columnType=cell.columnType.substring(1);}} function sumColumn(table,index,firstDataRowIndex,columnType){var total=0;for(var i=firstDataRowIndex;i<table.rows.length;i++){var cell=table.rows[i].cells[index];var value;if(cell){if(columnType=='C'){value=parseFloat(getElementInnerText(cell).replace(/&#91;^\d\.\,\-]*([\d\.\,\-*]*).*/,'$1'))}else{value=parseFloat(getElementInnerText(cell));}if(!isNaN(value)){total=total+value;}}}return total;} function appendTotalRow(table,columnTypes,firstDataRowIndex){var row=document.createElement('tr');var table=table.tBodies[0];var columnCount=(0<table.rows.length)?table.rows[table.rows.length-1].cells.length:0;for(var columnIndex=0;columnIndex<columnCount;columnIndex++){var column=document.createElement('th');column.className='confluenceTh';column.innerHTML=(columnIndex<columnTypes.length&&((columnTypes[columnIndex]=='I')||(columnTypes[columnIndex]=='F')||(columnTypes[columnIndex]=='C')))?sumColumn(table,columnIndex,firstDataRowIndex,columnTypes[columnIndex]):'';row.appendChild(column);}table.appendChild(row);} function handleRow(table,row,rowIndex,customize){var columnCount=row.cells.length;for(var i=0;i<columnCount;i++){if(customize.enableSorting&&(rowIndex<=customize.lastClickableRow)){enableSortOnCell(row.cells[i],i,table,customize.columnTypes,customize);}if((rowIndex==0)&&(customize.sortColumn!='')&&(customize.sortCell==null)&&(((i+1).toString()==customize.sortColumn)||(trimSafe(getElementInnerText(row.cells[i]))==customize.sortColumn)||(trimSafe(row.cells[i].getAttribute('title'))==customize.sortColumn))){customize.sortCell=row.cells[i];}if(customize.firstDataRowIndex<=rowIndex){if((customize.columnTypes[i]=="I")||(customize.columnTypes[i]=="F")||(customize.columnTypes[i]=="C")){row.cells[i].style.textAlign="right";}}if(customize.columnTypes[i]=="H"){row.cells[i].style.display="none";}if(customize.enableHeadingAttributes||(customize.firstDataRowIndex<=rowIndex)){if(i<customize.attrList.length){for(var j=0;j<customize.attrList[i].length;j++){var attr=customize.attrList[i][j].Trim().split("=");if(1<attr.length){var aName=attr[0].Trim();var aValue=attr[1].Trim();if((aName.toLowerCase()=="style")&&(2<aValue.length)){if((aValue.charAt(0)=='"')){aValue=aValue.substring(1,aValue.length-1);}row.cells[i].style.cssText=aValue;}else{row.cells[i].setAttribute(aName,aValue);}}}}}}if(customize.autoNumber){var column=document.createElement(!customize.autoNumberSort||(rowIndex<customize.firstDataRowIndex)?'th':'td');column.className=(!customize.autoNumberSort||(rowIndex<customize.firstDataRowIndex)?'confluenceTh':'confluenceTd');column.innerHTML=((rowIndex<customize.firstDataRowIndex)||(customize.totalRowCount-customize.firstDataRowIndex-customize.footingCount<rowIndex)?'':customize.dataRowCount++);column.setAttribute('align','right');row.autoNumber=!customize.autoNumberSort;row.insertBefore(column,row.cells[0]);if(customize.enableSorting&&customize.autoNumberSort&&(rowIndex<=customize.lastClickableRow)){enableSortOnCell(column,-1,table,null,customize);}}if((customize.highlightColor!="")&&(customize.firstDataRowIndex<=rowIndex)){row.onmouseover=function(){this.tableHighLightRowColor=this.bgColor;this.bgColor=customize.highlightColor;};row.onmouseout=function(){this.bgColor=this.tableHighLightRowColor;this.tableHighLightRowColor=null;};}} function customizeMacroTable(tableId,columnTypes,firstDataRowIndex,highlightColor,enableSorting,sortTip,sortColumn,sortDescending,autoNumber,autoNumberSort,enableHeadingAttributes,footingCount,autoTotal,iconLocation){var customize=new Object;customize.columnTypes=columnTypes;customize.firstDataRowIndex=firstDataRowIndex;customize.highlightColor=highlightColor;customize.enableSorting=enableSorting;customize.sortTip=sortTip;customize.sortColumn=sortColumn;customize.sortDescending=sortDescending;customize.autoNumber=autoNumber;customize.autoNumberSort=autoNumberSort;customize.enableHeadingAttributes=enableHeadingAttributes;customize.footingCount=footingCount;customize.autoTotal=autoTotal;customize.iconLocation=iconLocation;var table=(typeof(tableId)=="string")?document.getElementById(tableId):null;if(table){if(customize.autoTotal){appendTotalRow(table,customize.columnTypes,customize.firstDataRowIndex);customize.footingCount++;}if(customize.iconLocation!=""){table.sortAttributeAscending=contextPath+customize.iconLocation+"down.gif";table.sortAttributeDescending=contextPath+customize.iconLocation+"up.gif";table.sortImage=document.createElement("IMG");}customize.lastClickableRow=customize.firstDataRowIndex-1;if(customize.lastClickableRow<0){customize.lastClickableRow=0;}customize.sortCell=null;customize.dataRowCount=1;var colAttrs=columnAttributes.split(",");customize.attrList=Array(colAttrs.length);for(var i=0;i<colAttrs.length;i++){customize.attrList[i]=colAttrs[i].Trim().split(";;");}var rowIndex=0;var headRowCount=(table.tHead==null)?0:table.tHead.rows.length;var footRowCount=(table.tFoot==null)?0:table.tFoot.rows.length;var bodyRowCount=table.tBodies[0].rows.length;customize.totalRowCount=headRowCount+footRowCount+bodyRowCount;for(var i=0;i<headRowCount;i++){var row=table.tHead.rows[i];handleRow(table,row,rowIndex,customize);rowIndex++;}for(var i=0;i<bodyRowCount;i++){var row=table.tBodies[0].rows[i];handleRow(table,row,rowIndex,customize);rowIndex++;}for(var i=0;i<footRowCount;i++){var row=table.tFoot.rows[i];handleRow(table,row,rowIndex,customize);rowIndex++;}if(customize.sortCell!=null){customize.sortCell.sortDescending=customize.sortDescending;sortByCell(customize.sortCell,customize.firstDataRowIndex,customize.footingCount);}}return table;}  var columnTypes = ['S']; var columnAttributes = ''; customizeMacroTable('TBL1376497245839', columnTypes, 1, 'lightgoldenrodyellow', true, 'Click to sort', '', false, true, false, true, 0, false, '' ); //-->
 
-var columnTypes = ['S'];
-var columnAttributes = '';
-customizeMacroTable('TBL1372672617298', columnTypes, 1, 'lightgoldenrodyellow', true, 'Click to sort', '', false, true, false, true, 0, false, '' );
-//-->
-//]]>
-</script>
 <h3>
 <a name="Login.Login-" id="Login.Login-"></a>
 </h3>
@@ -378,75 +362,68 @@ customizeMacroTable('TBL1372672617298', columnTypes, 1, 'lightgoldenrodyellow', 
 </p>
 
 <h2>
-<a name="Login.Login-OptionalProperties%28nonLogin%29"></a>Optional Properties (non Login)
+<a name="Login.Login-OptionalProperties(nonLogin)"></a>Optional Properties (non Login)
 </h2>
 
 <p>
 Helpful parameters which can facilitate Login.
 </p>
 
-<div class='table-wrap'>
-<table id='TBL1372672617299' class='confluenceTable'>
+<div class="table-wrap">
+<table id="TBL1376497245840" class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Name
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 recaptchaHeight
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to modify the ReCaptcha iframe Height attribute size.
 </td>
-<td class='confluenceTd'>
+<td>
 300
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 recaptchaTheme
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to modify the ReCaptcha theme to 'red', 'white', 'blackglass', 'clean', or others as they are introduced by Google.
 </td>
-<td class='confluenceTd'>
+<td>
 clean
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 recaptchaWidth
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to modify the ReCaptcha iframe Width attribute size.
 </td>
-<td class='confluenceTd'>
+<td>
 500
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<script type='text/javascript'>
-//<![CDATA[
- <!-- 
-var columnTypes = ['S'];
-var columnAttributes = '';
-customizeMacroTable('TBL1372672617299', columnTypes, 1, 'lightgoldenrodyellow', true, 'Click to sort', '', false, true, false, true, 0, false, '' );
-//-->
-//]]>
-</script>
+<!--  var columnTypes = ['S']; var columnAttributes = ''; customizeMacroTable('TBL1376497245840', columnTypes, 1, 'lightgoldenrodyellow', true, 'Click to sort', '', false, true, false, true, 0, false, '' ); //-->
+
 <h3>
 <a name="Login.Login-tplTypeOptions" id="Login.Login-tplTypeOptions"></a>tplType Options
 </h3>
@@ -481,12 +458,97 @@ The tplType and errTplType properties have a list of different options to choose
 First off, make sure your `recaptcha.public_key` and `recaptcha.private_key` System Settings are set with your reCaptcha API keys. Then, to add it, all you have to do is add the "recaptcha" preHook to your snippet call:
 </p>
 
-<pre class="brush: php">
-    &lt;a href="[[~21? &amp;service=logout]]" title="Logout"&gt;Logout&lt;/a&gt;
-(which automatically appends '&amp;service=logout' to your URL)
+<pre class="brush:php">
+[[!Login? &amp;preHooks=`recaptcha`]]
+</pre>
+<p>
+And make sure that the [[+login.recaptcha_html]] placeholder is in your loginTpl chunk. This will make reCaptcha be required for login.
+</p>
 
-    
+<p>
+See <a href="#Login.Login-optionalProperties">See Optional Properties for ReCaptcha specific settings</a>
+</p>
+
+<h2>
+<a name="Login.Login-Logout" id="Login.Login-Logout"></a>Logout
+</h2>
+
+<p>
+How do I log out? You simply call the page containing your <strong>Login</strong> snippet call and pass specify 'logout' as the service via the URL. In this example, the Login snippet is contained on page 21:
+</p>
+
+<pre class="brush:php">
+&lt;a href="[[~21? &amp;service=logout]]" title="Logout"&gt;Logout&lt;/a&gt;
+(which automatically appends '&amp;service=logout' to your URL)
 </pre>
 <h2>
 <a name="Login.Login-SeeAlso" id="Login.Login-SeeAlso"></a>See Also
 </h2>
+
+<ol class="ug-toc">
+<li>
+<a href="extras/revo/login/login.profile">Login.Profile</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.updateprofile">Login.UpdateProfile</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.register">Login.Register</a>
+<ol class="ug-toc">
+<li>
+<a href="extras/revo/login/login.register/register.example-form-1">Register.Example.Form.1</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="extras/revo/login/login.confirmregister">Login.ConfirmRegister</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.forgotpassword">Login.ForgotPassword</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.resetpassword">Login.ResetPassword</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.changepassword">Login.ChangePassword</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials">Login.Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="extras/revo/login/login.tutorials/login.basic-setup">Login.Basic Setup</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials/login.extended-User-Profiles">Login.Extended User Profiles</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials/login.request-membership">Login.Request Membership</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials/login.user-profiles">Login.User Profiles</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials/login.using-custom-fields">Login.Using Custom Fields</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials/login.using-pre-and-post-hooks">Login.Using Pre and Post Hooks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="extras/revo/login/login.roadmap">Login.Roadmap</a>
+</li>
+</ol>

@@ -1,5 +1,5 @@
 <h2>
-<a name="tagLister.tagLister-tagListerSnippet" id="tagLister.tagLister-tagListerSnippet"></a>tagLister Snippet
+<a name="tagLister.tagLister-tagListerSnippet"></a>tagLister Snippet
 </h2>
 
 <p>
@@ -7,7 +7,7 @@ This snippet displays a list of the most commonly used tags on your site.
 </p>
 
 <h2>
-<a name="tagLister.tagLister-Usage" id="tagLister.tagLister-Usage"></a>Usage
+<a name="tagLister.tagLister-Usage"></a>Usage
 </h2>
 
 <p>
@@ -16,18 +16,345 @@ Simply place the snippet anywhere you want to show a list of commonly-used tags,
 
 <pre class="brush: php">
     [[!tagLister? &amp;tv=`tags` &amp;limit=`5` &amp;target=`123`]]
-    
 </pre>
+<h2 name="tagLister.tagLister-Properties">
+Properties
+</h2>
+
+<table class="confluenceTable">
+<tbody>
+<tr>
+<th class="confluenceTh">
+Name
+</th>
+<th class="confluenceTh">
+Description
+</th>
+<th class="confluenceTh">
+Default Value
+</th>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+tpl
+</td>
+<td class="confluenceTd">
+Name of a Chunk that will be used for each result.
+</td>
+<td class="confluenceTd">
+tag
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+tv
+</td>
+<td class="confluenceTd">
+The name or ID of the TV being used for tags.
+</td>
+<td class="confluenceTd">
+tags
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+tvDelimiter
+</td>
+<td class="confluenceTd">
+The delimiter being used between tags in the TV. Usually a comma, sometimes a space.
+</td>
+<td class="confluenceTd">
+,
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+target
+</td>
+<td class="confluenceTd">
+The target Resource to point the tag links to.
+</td>
+<td class="confluenceTd">
+1
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+tagVar
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+The request parameter used for outputting the tag in the default tpl.
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+tag
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+tagKeyVar
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+The request parameter used for outputting the key in the default tpl.
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+sortBy
+</td>
+<td class="confluenceTd">
+Field to sort by. Can be set to <strong>tag</strong>, <strong>count</strong>, or <strong>publishedon</strong>.
+</td>
+<td class="confluenceTd">
+count
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+sortDir
+</td>
+<td class="confluenceTd">
+Order which to sort by.
+</td>
+<td class="confluenceTd">
+ASC
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+limit
+</td>
+<td class="confluenceTd">
+Limits the number of tags returned.
+</td>
+<td class="confluenceTd">
+10
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+cls
+</td>
+<td class="confluenceTd">
+A CSS class to add to each row.
+</td>
+<td class="confluenceTd">
+tl-tag
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+all
+</td>
+<td class="confluenceTd">
+Whether to show 'All tags' link.
+</td>
+<td class="confluenceTd">
+false
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+allTpl
+</td>
+<td class="confluenceTd">
+Name of a Chunk that will be used for the 'All Tags' link
+</td>
+<td class="confluenceTd">
+all
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+altCls
+</td>
+<td class="confluenceTd">
+A CSS class to add to each alternate row.
+</td>
+<td class="confluenceTd">
+tl-tag-alt
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+firstCls
+</td>
+<td class="confluenceTd">
+Optional. A CSS class to add to the first row. If empty will ignore.
+</td>
+<td class="confluenceTd">
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+lastCls
+</td>
+<td class="confluenceTd">
+Optional. A CSS class to add to the last row. If empty will ignore.
+</td>
+<td class="confluenceTd">
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+activeCls
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+Optional. A CSS class to add to the active row. Will be ignored if empty.
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+toPlaceholder
+</td>
+<td class="confluenceTd">
+If set, will set the output of this snippet to this placeholder rather than output it.
+</td>
+<td class="confluenceTd">
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+toLower
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+If set to 1/true the tags will be changed to lowercase text.
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+false
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+weights
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+</td>
+<td class="confluenceTd">
+0
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+weightCls
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+</td>
+<td class="confluenceTd">
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+parents
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+Comma delimited list of parents to use to limit the search for tags to.
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+</td>
+</tr>
+
+<tr>
+<td class="confluenceTd">
+depth
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+Depth of parents to search in.
+<br class="atl-forced-newline" />
+</td>
+<td class="confluenceTd">
+10
+<br class="atl-forced-newline" />
+</td>
+</tr>
+</tbody>
+</table>
+
 <h2>
-<a name="tagLister.tagLister-SeeAlso" id="tagLister.tagLister-SeeAlso"></a>See Also
+<a name="tagLister.tagLister-tagListerChunks"></a>tagLister Chunks
+</h2>
+
+<p>
+There are 2 chunks that are processed in tagLister. Their corresponding parameters are:
+</p>
+
+<ul class="alternate" type="square">
+<li>
+<a href="/display/ADDON/tagLister.tagLister.tpl" title="tagLister.tagLister.tpl">tpl</a> - The Chunk to use for each tag listed.
+</li>
+
+<li>
+<a href="/display/ADDON/tagLister.tagLister.all" title="tagLister.tagLister.all">allTpl</a> - The Chunk to use for the 'All Tags' link.
+</li>
+</ul>
+
+<h2>
+<a name="tagLister.tagLister-Examples"></a>Examples
+</h2>
+
+<p>
+Display a list of the top 5 tags for the 'tags' TV, and link to Resource ID 123:
+</p>
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+[[!tagLister? &amp;tv=`tags` &amp;limit=`5` &amp;target=`123`]]
+                
+</pre>
+</div>
+</div>
+
+<h2>
+<a name="tagLister.tagLister-SeeAlso"></a>See Also
 </h2>
 
 <ol class="ug-toc">
 <li>
-<a href="/extras/revo/taglister/taglister.taglister/taglister.taglister.all">tagLister.tagLister.all</a>
+<a href="extras/revo/taglister/taglister.taglister/taglister.taglister.all">tagLister.tagLister.all</a>
 </li>
 
 <li>
-<a href="/extras/revo/taglister/taglister.taglister/taglister.taglister.tpl">tagLister.tagLister.tpl</a>
+<a href="extras/revo/taglister/taglister.taglister/taglister.taglister.tpl">tagLister.tagLister.tpl</a>
 </li>
 </ol>

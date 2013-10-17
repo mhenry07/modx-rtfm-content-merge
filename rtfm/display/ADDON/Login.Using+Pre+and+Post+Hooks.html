@@ -39,10 +39,15 @@ The fields in the form are available in the snippet in the 'fields' via the Hook
 </p>
 
 <pre class="brush: php">
-    $formFields = $hook-&gt;getValues();
-$email = $formFields['email'];
+$email = $hook-&gt;getValue('email');
+</pre>
+<p>
+You can also grab all the values of the form:
+</p>
 
-    
+<pre class="brush: php">
+$formFields = $hook-&gt;getValues();
+$email = $formFields['email'];
 </pre>
 <p>
 Post-Hooks have special fields in addition to the ones passed in the form that can be accessed for each Snippet:
@@ -53,16 +58,24 @@ Post-Hooks have special fields in addition to the ones passed in the form that c
 </h4>
 
 <pre class="brush: php">
-    // A reference to the modUser object
-$user = $hook-&gt;getValue('updateprofile.user');
+// A reference to the modUser object
+$user = $hook-&gt;getValue('register.user');
+// A reference to the modUserProfile object
+$profile = $hook-&gt;getValue('register.profile');
+// An array of usergroup names that the User joined
+$usergroups = $hook-&gt;getValue('register.usergroups');
+</pre>
+<h4>
+<a name="Login.UpdateProfile" id="Login.UpdateProfile"></a>UpdateProfile
+</h4>
 
+<pre class="brush:php">
+// A reference to the modUser object
+$user = $hook-&gt;getValue('updateprofile.user');
 // A reference to the modUserProfile object
 $profile = $hook-&gt;getValue('updateprofile.profile');
-
 // A boolean stating if the username was changed
 $changed = $hook-&gt;getValue('updateprofile.usernameChanged');
-
-    
 </pre>
 <h3>
 <a name="Login.UsingPreandPostHooks-CustompreHookreturnvalues" id="Login.UsingPreandPostHooks-CustompreHookreturnvalues"></a>Custom preHook return values
@@ -77,9 +90,33 @@ The $hook object is available in the snippet in the 'hook' member of the $script
 </p>
 
 <pre class="brush: php">
-    $message = 'Hi, a new User signed up: '.$hook-&gt;getValue('username')
- . ' with email '.$hook-&gt;getValue('email').'.';
+$errorMsg = 'User not found';
+$hook-&gt;addError('user',$errorMsg);
+return false;
+</pre>
+<h2>
+<a name="Login.UsingPreandPostHooks-Examples" id="Login.UsingPreandPostHooks-Examples"></a>Examples
+</h2>
 
+<p>
+This is a list of Examples of hooks:
+</p>
+
+<h3>
+<a name="Login.UsingPreandPostHooks-RegistercustomemailpostHook" id="Login.UsingPreandPostHooks-RegistercustomemailpostHook"></a>Register custom email postHook
+</h3>
+
+<p>
+Say we want to send a custom email to communitymanager@jerrys.com every time a user signs up.
+</p>
+
+<p>
+We'd create a snippet named 'hookComEmail', and use this code:
+</p>
+
+<pre class="brush: php">
+$message = 'Hi, a new User signed up: '.$hook-&gt;getValue('username')
+ . ' with email '.$hook-&gt;getValue('email').'.';
 $modx-&gt;getService('mail', 'mail.modPHPMailer');
 $modx-&gt;mail-&gt;set(modMail::MAIL_BODY,$message);
 $modx-&gt;mail-&gt;set(modMail::MAIL_FROM,'admin@jerrys.org');
@@ -94,8 +131,6 @@ if (!$modx-&gt;mail-&gt;send()) {
 $modx-&gt;mail-&gt;reset();
 /* tell our snippet we're good and can continue */
 return true;
-
-    
 </pre>
 <p>
 Then we'd adjust our Register snippet call to load the postHook:
@@ -105,6 +140,7 @@ Then we'd adjust our Register snippet call to load the postHook:
 <div class="codeContent panelContent">
 <pre class="code-java">
 [[!Register? &amp;postHooks=`hookComEmail`]]
+                
 </pre>
 </div>
 </div>
@@ -116,3 +152,71 @@ And we're done!
 <h2>
 <a name="Login.UsingPreandPostHooks-SeeAlso" id="Login.UsingPreandPostHooks-SeeAlso"></a>See Also
 </h2>
+
+<ol>
+<li>
+<a href="extras/revo/login/login.profile">Login.Profile</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.updateprofile">Login.UpdateProfile</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.register">Login.Register</a>
+<ol>
+<li>
+<a href="extras/revo/login/login.register/register.example-form-1">Register.Example.Form.1</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="extras/revo/login/login.confirmregister">Login.ConfirmRegister</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.forgotpassword">Login.ForgotPassword</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.resetpassword">Login.ResetPassword</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.changepassword">Login.ChangePassword</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials">Login.Tutorials</a>
+<ol>
+<li>
+<a href="extras/revo/login/login.tutorials/login.basic-setup">Login.Basic Setup</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials/login.extended-User-Profiles">Login.Extended User Profiles</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials/login.request-membership">Login.Request Membership</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials/login.user-profiles">Login.User Profiles</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials/login.using-custom-fields">Login.Using Custom Fields</a>
+</li>
+
+<li>
+<a href="extras/revo/login/login.tutorials/login.using-pre-and-post-hooks">Login.Using Pre and Post Hooks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="extras/revo/login/login.roadmap">Login.Roadmap</a>
+</li>
+</ol>

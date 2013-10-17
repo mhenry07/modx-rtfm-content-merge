@@ -3,110 +3,105 @@
 </h2>
 
 <p>
-A Chunk named "<b>AdvSearchForm</b>" is provided with AdvSearch. This Chunk name is set as &amp;tpl property on the <a href="display/ADDON/AdvSearch.AdvSearchForm" title="AdvSearch.AdvSearchForm">AdvSearchForm</a> snippet.
+A Chunk named "<strong>AdvSearchForm</strong>" is provided with AdvSearch. This Chunk name is set as &amp;tpl property on the <a href="display/ADDON/AdvSearch.AdvSearchForm" title="AdvSearch.AdvSearchForm">AdvSearchForm</a> snippet.
 </p>
 
 <h2>
 <a name="Advsearch.AdvSearchForm.tpl-DefaultValue" id="Advsearch.AdvSearchForm.tpl-DefaultValue"></a>Default Value
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;form class=<span class="code-quote">"advsea-search-form"</span> action=<span class="code-quote">"[[~[[+landing]]]]"</span> method=<span class="code-quote">"[[+method]]"</span>&gt;
+<pre class="brush: html">
+&lt;form class=&lt;span class="code-quote"&gt;"advsea-search-form"&lt;/span&gt; action=&lt;span class="code-quote"&gt;"[[~[[+landing]]]]"&lt;/span&gt; method=&lt;span class="code-quote"&gt;"[[+method]]"&lt;/span&gt;&gt;
   &lt;fieldset&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"id"</span> value=<span class="code-quote">"[[+landing]]"</span> /&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"asId"</span> value=<span class="code-quote">"[[+asId]]"</span> /&gt;
-    [[+helpLink]]&lt;input type=<span class="code-quote">"text"</span> id=<span class="code-quote">"[[+asId]]_search"</span> name=<span class="code-quote">"[[+searchIndex]]"</span> value=<span class="code-quote">"[[+searchValue]]"</span> /&gt;
-    &lt;input type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"sub"</span> value=<span class="code-quote">"[[%advsearch.search? &amp;namespace=`advsearch` &amp;topic=`<span class="code-keyword">default</span>`]]"</span> /&gt;
+    &lt;input type=&lt;span class="code-quote"&gt;"hidden"&lt;/span&gt; name=&lt;span class="code-quote"&gt;"id"&lt;/span&gt; value=&lt;span class="code-quote"&gt;"[[+landing]]"&lt;/span&gt; /&gt;
+    &lt;input type=&lt;span class="code-quote"&gt;"hidden"&lt;/span&gt; name=&lt;span class="code-quote"&gt;"asId"&lt;/span&gt; value=&lt;span class="code-quote"&gt;"[[+asId]]"&lt;/span&gt; /&gt;
+    [[+helpLink]]&lt;input type=&lt;span class="code-quote"&gt;"text"&lt;/span&gt; id=&lt;span class="code-quote"&gt;"[[+asId]]_search"&lt;/span&gt; name=&lt;span class="code-quote"&gt;"[[+searchIndex]]"&lt;/span&gt; value=&lt;span class="code-quote"&gt;"[[+searchValue]]"&lt;/span&gt; /&gt;
+    &lt;input type=&lt;span class="code-quote"&gt;"submit"&lt;/span&gt; name=&lt;span class="code-quote"&gt;"sub"&lt;/span&gt; value=&lt;span class="code-quote"&gt;"[[%advsearch.search? &amp;namespace=`advsearch` &amp;topic=`&lt;span class="code-keyword"&gt;default&lt;/span&gt;`]]"&lt;/span&gt; /&gt;
   &lt;/fieldset&gt;
 &lt;/form&gt;
 [[+resultsWindow]]
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="Advsearch.AdvSearchForm.tpl-AvailablePlaceholders" id="Advsearch.AdvSearchForm.tpl-AvailablePlaceholders"></a>Available Placeholders
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
-<tbody>
+<table>
+<thead>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
+</thead>
 
+<tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 asId
 </td>
-<td class='confluenceTd'>
+<td>
 AdvSearch identifier. This placeholder is required in the search form template to distinguish advSearch instances.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 helpLink
 </td>
-<td class='confluenceTd'>
+<td>
 Where is displayed the link for opening the advanced search help
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 landing
 </td>
-<td class='confluenceTd'>
+<td>
 The id of the resource to show search results on. Defaults to the current Resource.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 method
 </td>
-<td class='confluenceTd'>
+<td>
 Whether to submit over GET or POST. Defaults to GET.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 searchValue
 </td>
-<td class='confluenceTd'>
+<td>
 The default or current search value.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 searchIndex
 </td>
-<td class='confluenceTd'>
+<td>
 The REQUEST var used for the search parameter.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resultsWindow
 </td>
-<td class='confluenceTd'>
+<td>
 div section where will be attached the search results window. (ajax mode)
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <h2>
 <a name="Advsearch.AdvSearchForm.tpl-Searchformcustomization" id="Advsearch.AdvSearchForm.tpl-Searchformcustomization"></a>Search form customization
@@ -117,16 +112,16 @@ The searchForm chunk should contain:
 </p>
 
 <ul class="alternate" type="square">
-<li>an action: action="[[~[<span class="error">[+landing]</span>]]]"
+<li>an action: action="[[~[[+landing]]]]"
 </li>
 
-<li>a method: method="[<span class="error">[+method]</span>]"
+<li>a method: method="[[+method]]"
 </li>
 
-<li>a hidden input field named asId: &lt;input type="hidden" name="asId" value="[<span class="error">[+asId]</span>]" /&gt; for the form instance
+<li>a hidden input field named asId: &lt;input type="hidden" name="asId" value="[[+asId]]"&gt; for the form instance
 </li>
 
-<li>a hidden input field named id: &lt;input type="hidden" name="id" value="[<span class="error">[+landing]</span>]" /&gt; with the landing page id
+<li>a hidden input field named id: &lt;input type="hidden" name="id" value="[[+landing]]"&gt; with the landing page id
 </li>
 
 <li>a submit input field named "sub".
@@ -138,26 +133,15 @@ and possibly:
 </p>
 
 <ul class="alternate" type="square">
-<li>an input text : &lt;input type="text" id="[<span class="error">[+asId]</span>]_search" name="[<span class="error">[+searchIndex]</span>]" value="[<span class="error">[+searchValue]</span>]" /&gt;
+<li>an input text field: &lt;input type="text" id="[[+asId]]_search" name="[[+searchIndex]]" value="[[+searchValue]]" /&gt;
 <br />
 For a form without a search input field, simply remove this line from the form.
 </li>
 </ul>
 
 <ul class="alternate" type="square">
-<li>the help link: [<span class="error">[+helpLink]</span>]
+<li>the help link: [[+helpLink]]
 <br />
-To hide the help link use the &amp;help parameter rather to remove the placeholder.
+To hide the help link use the &amp;help parameter to remove the placeholder altogether.
 </li>
 </ul>
-
-<h2>
-<a name="Advsearch.AdvSearchForm.tpl-SeeAlso" id="Advsearch.AdvSearchForm.tpl-SeeAlso"></a>See Also
-</h2>
-
-<div class="plugin_pagetree">
-<div id="pagetree-error" class="error">
-<span class="errorMessage">The root page AdvSearchForm could not be found in space MODx Add-Ons.
-<br /></span>
-</div>
-</div>

@@ -64,47 +64,315 @@ Fist of all watch this video
 </p>
 
 <p>
-2. Open system settings in manager, switch to hybridauth and make\update ha.keys.Servicename. In our wxample it will be ha.keys.Twitter
+2. Open system settings in manager, switch to hybridauth and make\update ha.keys.Servicename. In our example it will be ha.keys.Twitter
 </p>
 
 <p>
-3. You need to set your keys as json sting with array.
+3. You need to set your keys as json string with array.
 </p>
 
 <pre class="brush: php">
-    [[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;groups=`Users`]]
+{"key":"your key from twitter","secret":"secret from twitter"}
+</pre>
+<p>
+<img src="/download/attachments/43417801/ha3.png?version=1&amp;modificationDate=1356616628000" />
+</p>
 
-    
+<p>
+It is needed for proper initialization of the library (<a href="http://hybridauth.sourceforge.net/userguide/Configuration.html" class="external-link" rel="nofollow">http://hybridauth.sourceforge.net/userguide/Configuration.html</a>).
+</p>
+
+<p>
+4. Now you can run snippet <code>[[!HybridAuth?providers=`Twitter`]]</code> on any page.
+</p>
+
+<div class="info">
+If there are any errors on library initialization - it will be logged in system log.
+</div>
+
+<h2>
+<a name="HybridAuth-Parameters"></a>Parameters
+</h2>
+
+<table>
+<tbody>
+<tr>
+<th>
+Param
+</th>
+<th>
+Description
+</th>
+<th>
+Default
+</th>
+</tr>
+
+<tr>
+<td>
+providers
+</td>
+<td>
+Comma separated list of a providers for authentification. All available providers are here /core/components/hybridauth/model/hybridauth/lib/Providers/. For example, &amp;providers=`Google,Twitter,Facebook`.
+</td>
+<td>
+none
+</td>
+</tr>
+
+<tr>
+<td>
+rememberme
+<br class="atl-forced-newline" />
+</td>
+<td>
+If true, user will be remembered for a long time.
+<br class="atl-forced-newline" />
+</td>
+<td>
+true
+</td>
+</tr>
+
+<tr>
+<td>
+groups
+<br class="atl-forced-newline" />
+</td>
+<td>
+Comma separated list of existing user groups for joining by user at the first login. For example, &amp;groups=`Users:1` will add new user to group "Users" with role "member"
+<br class="atl-forced-newline" />
+</td>
+<td>
+none
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td>
+action
+<br class="atl-forced-newline" />
+</td>
+<td>
+Mode of work. By default it loads chunks for user according to his status.
+<br class="atl-forced-newline" />
+</td>
+<td>
+loadTpl
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+loginTpl
+<br class="atl-forced-newline" />
+</td>
+<td>
+This chunk will see any anonymous user.
+<br class="atl-forced-newline" />
+</td>
+<td>
+tpl.HybridAuth.login
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td>
+logoutTpl
+<br class="atl-forced-newline" />
+</td>
+<td>
+This chunk will see any authenticated user.
+<br class="atl-forced-newline" />
+</td>
+<td>
+tpl.HybridAuth.logout
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td>
+profileTpl
+<br class="atl-forced-newline" />
+</td>
+<td>
+Chunk for display and edit user profile.
+<br class="atl-forced-newline" />
+</td>
+<td>
+tpl.HybridAuth.profile
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+loginContext
+<br class="atl-forced-newline" />
+</td>
+<td>
+Main context for authentication. By default - it is current context.
+<br class="atl-forced-newline" />
+</td>
+<td>
+current
+</td>
+</tr>
+
+<tr>
+<td>
+addContexts
+<br class="atl-forced-newline" />
+</td>
+<td>
+Comma separated list of additional contexts for authentication. For example &amp;addContexts=`web,ru,en`
+<br class="atl-forced-newline" />
+</td>
+<td>
+none
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+profileFields
+<br class="atl-forced-newline" />
+</td>
+<td>
+Chunk for display and edit user profile.
+<br class="atl-forced-newline" />
+</td>
+<td>
+username:25,email:50,fullname:50...
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td>
+requiredFields
+<br class="atl-forced-newline" />
+</td>
+<td>
+Comma separated list of required user fields when update. This fields must be filled for successful update of profile. For example, &amp;requiredFields=`username,fullname,email`.
+<br class="atl-forced-newline" />
+</td>
+<td>
+username,email,fullname
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+loginResourceId
+<br class="atl-forced-newline" />
+</td>
+<td>
+Resource id to redirect to on successful login. By default, it is 0 - redirect to self.
+<br class="atl-forced-newline" />
+</td>
+<td>
+0
+</td>
+</tr>
+
+<tr>
+<td>
+logoutResourceId
+<br class="atl-forced-newline" />
+</td>
+<td>
+Resource id to redirect to on successful logout. By default, it is 0 - redirect to self.
+<br class="atl-forced-newline" />
+</td>
+<td>
+0
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a name="HybridAuth-Examples"></a>Examples
+</h3>
+
+<p>
+Register to group Users
+</p>
+
+<pre class="brush: php">
+[[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;groups=`Users`]]
 </pre>
 <p>
 Update profile
 </p>
 
 <pre class="brush: php">
-    [[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;action=`UpdateProfile` &amp;requiredFields=`username,email,photo` &amp;profileFields=`username,fullname,email,photo`]]
+[[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;action=`UpdateProfile` &amp;requiredFields=`username,email,photo` &amp;profileFields=`username,fullname,email,photo`]]
+</pre>
+<p>
+Update profile with required photo
+</p>
 
-    
+<pre class="brush: php">
+[[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;action=`UpdateProfile` &amp;requiredFields=`username,email,photo` &amp;profileFields=`username,fullname,email,photo`]]
 </pre>
 <h2>
 <a name="HybridAuth-Knownissues"></a>Known issues
 </h2>
 
 <p>
-1. Error "<b>You cannot access this page directly</b>" occurs when user session is cached by opcode-cacher, such as <b>php-apc</b>. For example, at&nbsp;<a href="http://modxcloud.com" class="external-link" rel="nofollow">MODXCloud</a>&nbsp;this error always occurs.
+1. Error "<strong>You cannot access this page directly</strong>" occurs when user session is cached by opcode-cacher, such as <strong>php-apc</strong>. For example, at <a href="http://modxcloud.com" class="external-link" rel="nofollow">MODXCloud</a> this error always occurs.
 </p>
 
 <p>
 For solving this, you need to add to the /index.php at the root of site this line for disabling apc caching:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
+<pre class="brush: php">
 ini_set('apc.cache_by_default', 0);
 </pre>
-</div>
-</div>
-
 <p>
 Otherwise, your session will be cached and snippet will not working properly.
 </p>
@@ -115,18 +383,18 @@ Otherwise, your session will be cached and snippet will not working properly.
 
 <ol class="ug-toc">
 <li>
-<a href="/extras/revo/hybridauth/hybridauth.integrating-facebook">HybridAuth.Integrating Facebook</a>
+<a href="extras/revo/hybridauth/hybridauth.integrating-facebook">HybridAuth.Integrating Facebook</a>
 </li>
 
 <li>
-<a href="/extras/revo/hybridauth/hybridauth.integrating-google">HybridAuth.Integrating Google</a>
+<a href="extras/revo/hybridauth/hybridauth.integrating-google">HybridAuth.Integrating Google</a>
 </li>
 
 <li>
-<a href="/extras/revo/hybridauth/hybridauth.integrating-twitter">HybridAuth.Integrating Twitter</a>
+<a href="extras/revo/hybridauth/hybridauth.integrating-twitter">HybridAuth.Integrating Twitter</a>
 </li>
 
 <li>
-<a href="/extras/revo/hybridauth/hybridauth.integrating-vk.com">HybridAuth.Integrating VK.com</a>
+<a href="extras/revo/hybridauth/hybridauth.integrating-vk.com">HybridAuth.Integrating VK.com</a>
 </li>
 </ol>

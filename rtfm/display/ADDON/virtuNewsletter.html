@@ -110,6 +110,10 @@
 virtuNewsletter is another newsletter system for MODX Revolution.
 </p>
 
+<p>
+If you want to read the old doc, please see here <a href="http://oldrtfm.modx.com/display/ADDON/virtuNewsletter.">http://oldrtfm.modx.com/display/ADDON/virtuNewsletter.</a>
+</p>
+
 <h2>
 <a name="virtuNewsletter-Download" id="virtuNewsletter-Download"></a>Download
 </h2>
@@ -137,7 +141,7 @@ virtuNewsletteris stored and developed in GitHub, and can be found here: <a href
 <br />
 3. Then add a Newsletter, to this Category
 <br />
-4. <b><em>is recurring</em></b>, means that newsletter will be used recursively based on the given time range (weekly, monthly, or yearly), and split into the number of recurring (1 - monthly, 7 - weekly =&gt; means daily).
+4. <strong><em>is recurring</em></strong>, means that newsletter will be used recursively based on the given time range (weekly, monthly, or yearly), and split into the number of recurring (1 - monthly, 7 - weekly =&gt; means daily).
 </p>
 
 <p>
@@ -163,11 +167,11 @@ These templates are resources, not chunks.
 <br />
 Leave them unpublished or hidden, it doesn't matter.
 <br />
-Its <b>pagetitle</b> will be the <em>subject</em> of the email.
+Its <strong>pagetitle</strong> will be the <em>subject</em> of the email.
 <br />
-Its <b>content</b> will be the <em>body</em> of the email.
+Its <strong>content</strong> will be the <em>body</em> of the email.
 <br />
-<b>ALL SNIPPETS AND CHUNKS</b> will be processed.
+<strong>ALL SNIPPETS AND CHUNKS</strong> will be processed.
 </p>
 
 <p>
@@ -179,45 +183,35 @@ By using resources, non-techie user won't be horrified with HTML tags if they wa
 </p>
 
 <h2>
-<a name="virtuNewsletter-Tpl%3AThankyouforyoursubscription"></a>Tpl: Thank you for your subscription
+<a name="virtuNewsletter-Tpl:Thankyouforyoursubscription" id="virtuNewsletter-Tpl:Thankyouforyoursubscription"></a>Tpl: Thank you for your subscription
 </h2>
 
 <p>
 Email template for subscribe confirmation.
 <br />
-The default is in <b>core/components/virtunewsletter/elements/emails/activation-email.tpl</b>
+The default is in <strong>core/components/virtunewsletter/elements/emails/activation-email.tpl</strong>
 </p>
 
 <pre class="brush: php">
-    
 [[!virtuNewsletter.confirm]]
-
-    
 </pre>
 <h2>
-<a name="virtuNewsletter-Tpl%3AYoursubscriptionhasbeenactivatedsuccessfully."></a>Tpl: Your subscription has been activated successfully.
+<a name="virtuNewsletter-Tpl:Yoursubscriptionhasbeenactivatedsuccessfully." id="virtuNewsletter-Tpl:Yoursubscriptionhasbeenactivatedsuccessfully."></a>Tpl: Your subscription has been activated successfully.
 </h2>
 
 <p>
 Email template for confirmed subscription.
 <br />
-The default is in <b>core/components/virtunewsletter/elements/emails/activated-email.tpl</b>
+The default is in <strong>core/components/virtunewsletter/elements/emails/activated-email.tpl</strong>
 </p>
 
 <pre class="brush: php">
     &lt;p&gt;Thank you.&lt;/p&gt;
-
 &lt;p&gt;Your subscription has been cancelled successfully.&lt;/p&gt;
-
 &lt;p&gt;We will no longer send you the upcoming newsletters.&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
+&lt;p&gt; &lt;/p&gt;
 &lt;p&gt;Regards,&lt;/p&gt;
-
 &lt;p&gt;&lt;a href="http://www.example.com" target="_blank"&gt;Example.com&lt;/a&gt;&lt;/p&gt;
-
-    
 </pre>
 <p>
 At this point, the subscriber won't be removed from the system.
@@ -229,95 +223,95 @@ Only be deactivated.
 <a name="virtuNewsletter-SystemSettings" id="virtuNewsletter-SystemSettings"></a>System Settings
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<div class="table-wrap">
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Settings
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 virtunewsletter.usergroups
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Fill up names of usergroups, delimited by comma, to make these usergroups will be automatically subscribed
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>virtunewsletter.email_debug</b>
+<td class="confluenceTd">
+<strong>virtunewsletter.email_debug</strong>
 </td>
-<td class='confluenceTd'>
-<b>Turn this on to dump the email's placeholders to MODX's error log without sending the email</b>
+<td class="confluenceTd">
+<strong>Turn this on to dump the email's placeholders to MODX's error log without sending the email</strong>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 virtunewsletter.email_limit
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Number of emails per hour for the cron job. Please consult your webhost about this. 0 (zero) or empty value means unlimited which will send all emails in 1 (one) batch. Default: 50.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 virtunewsletter.email_sender
 </td>
-<td class='confluenceTd'>
-From whom the newsletter comes from as the Email's header. Default is any value in the System Setting's <b>emailsender</b>
+<td class="confluenceTd">
+From whom the newsletter comes from as the Email's header. Default is any value in the System Setting's <strong>emailsender</strong>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 virtunewsletter.subscribe_confirmation_tpl
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Resource's ID as the email template for the new subscription, as the above <em>Tpl: Thank you for your subscription</em>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 virtunewsletter.subscribe_succeeded_tpl
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Resource's ID as the email template for the unsubscription confirmation
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 virtunewsletter.unsubscribe_confirmation_tpl
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Resource's ID as the email template for the unsubscription
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 virtunewsletter.unsubscribe_succeeded_tpl
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Resource's ID as the email template for the completed confirmation of the unsubscription
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 virtunewsletter.readerpage
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Resource's ID where visitor can access the newsletter via web
 </td>
 </tr>
@@ -326,7 +320,7 @@ Resource's ID where visitor can access the newsletter via web
 </div>
 
 <h1>
-<a name="virtuNewsletter-Resources%2CSnippets%26aChunk"></a>Resources, Snippets &amp; a Chunk
+<a name="virtuNewsletter-Resources,Snippets&amp;aChunk"></a>Resources, Snippets &amp; a Chunk
 </h1>
 
 <p>
@@ -338,28 +332,26 @@ You need to create 3 more resources with its own snippet in it:
 </h2>
 
 <p>
-<b>Example: this is the ID# 61 for the subscribe form below.</b>
+<strong>Example: this is the ID# 61 for the subscribe form below.</strong>
 </p>
 
 <pre class="brush: php">
     [[!virtuNewsletter.confirm]]
-    
 </pre>
 <h2>
 <a name="virtuNewsletter-3.Read" id="virtuNewsletter-3.Read"></a>3. Read
 </h2>
 
 <p>
-<b>Example: this is the ID# 63 for the link in the email's body of the newsletter below.</b>
+<strong>Example: this is the ID# 63 for the link in the email's body of the newsletter below.</strong>
 <br />
 This resource will be the website's newsletter reader page.
 <br />
-Use the MODX's original <b>BaseTemplate</b>, without any CSS styles.
+Use the MODX's original <strong>BaseTemplate</strong>, without any CSS styles.
 </p>
 
 <pre class="brush: php">
     [[!virtuNewsletter.reader? &amp;toArray=`1`]]
-    
 </pre>
 <h2>
 <a name="virtuNewsletter-4.aChunk" id="virtuNewsletter-4.aChunk"></a>4. a Chunk
@@ -370,7 +362,43 @@ The subscribe form (can be a chunk) is simply like this:
 </p>
 
 <pre class="brush: php">
-    
+&lt;form action="[[~61]]" method="POST"&gt;
+    &lt;p&gt;Email: &lt;input type="email" name="email"&gt;&lt;/p&gt;
+    &lt;input type="hidden" name="category" value="Customer News"&gt;
+    &lt;p&gt;&lt;input type="submit" name="submit" value="Subscribe"&gt;&lt;/p&gt;
+&lt;/form&gt;
+</pre>
+<p>
+<strong>NO FORMIT, NO HOOK!</strong>
+<br />
+Simply point the action to the Subscribe page above.
+<br />
+The <strong>category</strong> field is required to set the subscriber to the appropriate <strong>Category</strong> inside the CMP.
+<br />
+The name itself can be changed, but make sure you have to apply this also to the <strong>[[!virtuNewsletter.subscribe? &amp;categoryKey=`category`]]</strong>
+</p>
+
+<h2>
+5. The Newsletters
+</h2>
+
+<p>
+You are now ready to create the newsletters using the common resource.
+</p>
+
+<p>
+1. Create another template that will be acting as the email's body, means without &lt;!DOCTYPE&gt; and &lt;head&gt; tags.
+</p>
+
+<p>
+2. Put the CSS styles inside the tag, and it will parsed automatically inline to the email's body.
+</p>
+
+<p>
+3. You might also want to add these placeholders as the unsubscribe link, or link to read this on your website:
+</p>
+
+<pre class="brush: php">
 &lt;!-- unsubscribe link --&gt;
 &lt;a href="[[~62? 
 &amp;subid=`[[+virtuNewsletter.email.id]]` 
@@ -380,21 +408,18 @@ The subscribe form (can be a chunk) is simply like this:
 ]]"&gt;
 Unsubscribe
 &lt;/a&gt;
-
 &lt;!-- read the newsletter on the website --&gt;
 &lt;a href="[[~63?
 &amp;newsid=`[[+virtuNewsletter.email.id]]`
 &amp;scheme=`full`
 ]]"&gt;read this newsletter on the website&lt;/a&gt;
-
-    
 </pre>
 <p>
-Just remember to always put <b>&amp;scheme=`full`</b> to all link tags, so they will be appended with the full URL of the website.
+Just remember to always put <strong>&amp;scheme=`full`</strong> to all link tags, so they will be appended with the full URL of the website.
 </p>
 
 <h1>
-<a name="virtuNewsletter-CustomManagerPage%28CMP%29"></a>Custom Manager Page (CMP)
+<a name="virtuNewsletter-CustomManagerPage(CMP)"></a>Custom Manager Page (CMP)
 </h1>
 
 <h2>
@@ -410,7 +435,7 @@ Category is a group definition of subscribers.
 <br />
 The subscriber can be from usergroups, or anonymous subscriber from web page, whom registered using the subscription form.
 <br />
-Because this is required for newsletter, then the subscription form <b>MUST</b> have category field (or anything you define which matches with [[!virtuNewsletter.subscriber? &amp;categoryKey=`category`]] controller snippet).
+Because this is required for newsletter, then the subscription form <strong>MUST</strong> have category field (or anything you define which matches with [[!virtuNewsletter.subscriber? &amp;categoryKey=`category`]] controller snippet).
 </p>
 
 <p>
@@ -430,21 +455,25 @@ To use cron in your own hosting, set this command:
 </p>
 
 <pre class="brush: php">
-    
-http://www.your_cool_website.com/assets/components/virtunewsletter/conn/web.php?action=web/crons/queues/process&amp;site_id=modx12abc345678d90.12345678
-
-    
+php -q /home/xxx[absolute_path]xxx/public_html/assets/components/virtunewsletter/conn/web.php?action=web/crons/queues/process&amp;site_id=modx12abc345678d90.12345678
 </pre>
 <p>
-<b>site_id</b> is required!
+If you use 3rd party cron service, point the address to:
+</p>
+
+<pre class="brush: php">
+&lt;a href="http://www.your_cool_website.com/assets/components/virtunewsletter/conn/web.php?action=web/crons/queues/process&amp;site_id=modx12abc345678d90.12345678"&gt;http://www.your_cool_website.com/assets/components/virtunewsletter/conn/web.php?action=web/crons/queues/process&amp;site_id=modx12abc345678d90.12345678&lt;/a&gt;
+</pre>
+<p>
+<strong>site_id</strong> is required!
 <br />
-Replace <b>site_id=modx12abc345678d90.12345678</b> with your site's ID.
+Replace <strong>site_id=modx12abc345678d90.12345678</strong> with your site's ID.
 <br />
-Look for it inside the core/config/config.inc.php, check the <b>$site_id</b> variable.
+Look for it inside the core/config/config.inc.php, check the <strong>$site_id</strong> variable.
 </p>
 
 <div class="warning">
-<b>Heads Up</b>
+<strong>Heads Up</strong>
 <br />
 Do not share this site_id to anybody else!
 <br />

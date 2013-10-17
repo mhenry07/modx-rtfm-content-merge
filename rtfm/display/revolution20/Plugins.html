@@ -100,7 +100,7 @@ switch($eventName) {
     case 'OnWebPagePrerender':
         /* do something else */
         break;
-}<br />
+}
 </pre>
 <h2>
 <a name="Plugins-PluginExamples" id="Plugins-PluginExamples"></a>Plugin Examples
@@ -138,7 +138,7 @@ Custom Validation
 <pre class="brush: php">
 // Do some logical stuff.... if validation failed:
 $modx-&gt;event-&gt;output('Something did not validate!');
-return "This goes to the logs";<br />
+return "This goes to the logs";&lt;br&gt;
 </pre>
 <p>
 The trick here is that what you want to message the user has to be passed to the <strong>$modx-&gt;event-&gt;output()</strong> function; any text you want to write to the logs can simply be returned by the plugin. If you pass validation, simply return null.

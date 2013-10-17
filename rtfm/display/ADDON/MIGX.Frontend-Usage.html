@@ -82,11 +82,12 @@ Let's display some images that we input in Step 3. Paste this code wherever you 
 &lt;ul&gt;
   [[!getImageList?
     &amp;tvname=`myMIGXtv`
-    &amp;tpl=`thumbTpl`]]
+    &amp;tpl=`@CODE:&lt;li&gt;[[+idx]]&lt;img src="[[+image]]"/&gt;&lt;p&gt;[[+title]]&lt;/p&gt;&lt;/li&gt;
+  `]]
 &lt;/ul&gt;
 </pre>
 <p>
-Let's break this down. The first parameter, &amp;tvname, refers to the name of the MIGX TV that we created in Backend Usage, Step 2. &amp;tpl refers to either a code string for which to use with the MIGX items or the name of a chunk. If you're using a code string, make sure to prepend the code as above with @CODE:.
+Let's break this down. The first parameter, &amp;tvname, refers to the name of the MIGX TV that we created in Backend Usage, Step 2. &amp;tpl refers to either a code string for which to use with the MIGX items or the name of a chunk. If you're using a code string, make sure to prepend the code as above with @CODE.
 </p>
 
 <p>
@@ -106,14 +107,8 @@ If you're using <a href="http://oldrtfm.modx.com/display/ADDON/phpThumbOf">phpth
 
 <pre class="brush: php">
 &lt;li&gt;
-  &lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle]]&lt;/a&gt;  
-  [[!getImageList?
-    &amp;tvname=`myMIGXtv`
-    &amp;tpl=`thumbTpl`
-    &amp;limit=`1`
-    &amp;docid=`[[+id]]`
-  ]]
-&lt;/li&gt;&lt;br&gt;
+  &lt;img src="[[+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`]]" alt="[[+title]]"/&gt;
+&lt;/li&gt;
 </pre>
 <h2>
 <a name="MIGX.Frontend-Usage-UsingMIGXwithgetResources" id="MIGX.Frontend-Usage-UsingMIGXwithgetResources"></a>Using MIGX with getResources
@@ -124,7 +119,7 @@ You can call getImageList from <a href="http://oldrtfm.modx.com/display/ADDON/ge
 </p>
 
 <pre class="brush: php">
-&lt;p&gt;&lt;li&gt;
+&lt;li&gt;
   &lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle]]&lt;/a&gt;  
   [[!getImageList?
     &amp;tvname=`myMIGXtv`
@@ -132,7 +127,7 @@ You can call getImageList from <a href="http://oldrtfm.modx.com/display/ADDON/ge
     &amp;limit=`1`
     &amp;docid=`[[+id]]`
   ]]
-&lt;/li&gt;&lt;/p&gt;
+&lt;/li&gt;
 </pre>
 <p>
 … and that's that! You now have your very own MIGX image gallery.
@@ -148,6 +143,20 @@ If you would like to use getResources values in your chunk called by getImageLis
 
 <p>
 Include them in the snippet call:
+</p>
+
+<pre class="brush: php">
+[[!getImageList?
+    &amp;tvname=`myMIGXtv`
+    &amp;tpl=`thumbTpl2`
+    &amp;docid=`[[+id]]`
+    &amp;limit=`1`
+    &amp;pagetitle=`[[+pagetitle]]`
+    &amp;originalResourceId=`[[+id]]`
+]]
+</pre>
+<p>
+and then refer to them in the chunk, prepended with "+property.":
 </p>
 
 <pre class="brush: php">
@@ -292,7 +301,7 @@ where
 <td>
 filter items. example:
 <br />
-<span style="font-family: Menlo, Monaco, monospace, sans-serif; white-space: pre;">[{"sortby":"age","sortdir":"DESC","sortmode":"numeric"},{"sortby":"name","sortdir":"ASC"}]</span>
+<span style="font-family: Menlo, Monaco, monospace, sans-serif; white-space: pre;">{"active:=":"1","rating:&gt;":"5"}</span>
 </td>
 <td>
 </td>
@@ -305,8 +314,7 @@ sort
 <td>
 sort items by multiple fields. example:
 <br />
-[{"sortby":"age","sortdir":"DESC","sortmode":"numeric"},{"sortby":"name","sortdir":"ASC"}]
-<br />
+<span style="font-family: Menlo, Monaco, monospace, sans-serif; white-space: pre;">[{"sortby":"age","sortdir":"DESC","sortmode":"numeric"},{"sortby":"name","sortdir":"ASC"}]</span>
 </td>
 <td>
 </td>

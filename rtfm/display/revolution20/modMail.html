@@ -37,10 +37,20 @@ Let's say we have an email template in the Chunk 'myEmailTemplate'. We want to s
 </p>
 
 <pre class="brush: php">
-    $modx-&gt;mail-&gt;address('to','user@example.com');
-$modx-&gt;mail-&gt;address('to','mom@example.org');
-
-    
+$message = $modx-&gt;getChunk('myEmailTemplate');
+ 
+$modx-&gt;getService('mail', 'mail.modPHPMailer');
+$modx-&gt;mail-&gt;set(modMail::MAIL_BODY,$message);
+$modx-&gt;mail-&gt;set(modMail::MAIL_FROM,'me@example.org');
+$modx-&gt;mail-&gt;set(modMail::MAIL_FROM_NAME,'Johnny Tester');
+$modx-&gt;mail-&gt;set(modMail::MAIL_SUBJECT,'Check out my new email template!');
+$modx-&gt;mail-&gt;address('to','user@example.com');
+$modx-&gt;mail-&gt;address('reply-to','me@xexample.org');
+$modx-&gt;mail-&gt;setHTML(true);
+if (!$modx-&gt;mail-&gt;send()) {
+    $modx-&gt;log(modX::LOG_LEVEL_ERROR,'An error occurred while trying to send the email: '.$modx-&gt;mail-&gt;mailer-&gt;ErrorInfo);
+}
+$modx-&gt;mail-&gt;reset();
 </pre>
 <p>
 And finally, the example code above will send a message to our error.log if the mail isn't sent for some reason (usually a server misconfiguration).
@@ -51,7 +61,7 @@ And finally, the example code above will send a message to our error.log if the 
 </h2>
 
 <p>
-In the example above, <a href="display/revolution20/modX.getChunk" title="modX.getChunk">modX.getChunk</a> was used as the mail message. See the documentation on that function for how to use its optional second argument. As far as modMail is concerned, the placeholders used are entirely up to you; you don't even have to use getChunk at all. You could just as easily pass the <b>modMail::MAIL_BODY</b> setting a static string.
+In the example above, <a href="display/revolution20/modX.getChunk" title="modX.getChunk">modX.getChunk</a> was used as the mail message. See the documentation on that function for how to use its optional second argument. As far as modMail is concerned, the placeholders used are entirely up to you; you don't even have to use getChunk at all. You could just as easily pass the <strong>modMail::MAIL_BODY</strong> setting a static string.
 </p>
 
 <h2>

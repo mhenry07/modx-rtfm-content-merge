@@ -53,20 +53,60 @@ Now put in the Plugin code:
 </p>
 
 <pre class="brush: php">
-    &lt;?php
+$corePath = $modx-&gt;getOption('core_path',null,MODX_CORE_PATH).'components/ourtvs/';
+        switch ($modx-&gt;event-&gt;name) {
+            case 'OnTVInputRenderList':
+                $modx-&gt;event-&gt;output($corePath.'tv/input/');
+                break;
+            case 'OnTVOutputRenderList':
+                $modx-&gt;event-&gt;output($corePath.'tv/output/');
+                break;
+            case 'OnTVInputPropertiesList':
+                $modx-&gt;event-&gt;output($corePath.'tv/inputoptions/');
+                break;
+            case 'OnTVOutputRenderPropertiesList':
+                $modx-&gt;event-&gt;output($corePath.'tv/properties/');
+                break;
+            case 'OnManagerPageBeforeRender':
+                break;
+        }
+</pre>
+<p>
+These event handlers tell MODX to check these directories for our TV files when doing all the rendering and processing. Think of it like adding library or include paths.
+</p>
+
+<div class="info">
+The pathing plugin will not be required in MODX 2.3; the Namespace will handle all the pathing. This is why we told you earlier to make the Namespace.
+</div>
+
+<h2>
+<a name="AddingaCustomTVType-MODX2.2-CreatingTheInputController" id="AddingaCustomTVType-MODX2.2-CreatingTheInputController"></a>Creating the Input Controller
+</h2>
+
+<p>
+The input controller is what actually loads the markup for the custom TV input. Create the input controller file here:
+</p>
+
+<blockquote>
+core/components/ourtvs/tv/input/templateselect.class.php
+</blockquote>
+
+<p>
+And inside, you can put this code:
+</p>
+
+<pre class="brush: php">
+&lt;?php
 if(!class_exists('TemplateSelectInputRender')) {
     class TemplateSelectInputRender extends modTemplateVarInputRender {
         public function getTemplate() {
             return $this-&gt;modx-&gt;getOption('core_path').'components/ourtvs/tv/input/tpl/templateselect.tpl';
         }
         public function process($value,array $params = array()) {
-
         }
     }
 }
 return 'TemplateSelectInputRender';
-
-    
 </pre>
 <p>
 Here we tell it where to find our smarty template for rendering the TV, as well as having a process() method to do any business logic we want to do prior to rendering the TV.
@@ -77,13 +117,60 @@ Now you can see here we are specifying a "tpl" file for rendering our TV. Go ahe
 </p>
 
 <blockquote>
-<p>
 core/components/ourtvs/tv/input/tpl/templateselect.tpl
-</p>
 </blockquote>
 
 <p>
 And make its content:
+</p>
+
+<pre class="brush: php">
+&lt;select id="tv{$tv-&gt;id}" name="tv{$tv-&gt;id}" class="combobox"&gt;&lt;/select&gt;
+&lt;script type="text/javascript"&gt;
+// &lt;![CDATA[
+{literal}
+MODx.load({
+{/literal}
+    xtype: 'modx-combo-template'
+    ,name: 'tv{$tv-&gt;id}'
+    ,hiddenName: 'tv{$tv-&gt;id}'
+    ,transform: 'tv{$tv-&gt;id}'
+    ,id: 'tv{$tv-&gt;id}'
+    ,width: 300
+    ,value: '{$tv-&gt;value}'
+{literal}
+    ,listeners: { 'select': { fn:MODx.fireResourceFormChange, scope:this}}
+});
+{/literal}
+// ]]&gt;
+&lt;/script&gt;
+</pre>
+<div class="info">
+You don't have to use the ExtJS code as shown here to have a custom input type. It could even just be a straight HTML input. It's really up to you.
+</div>
+
+<p style="">
+And that should render us a nice template dropdown in the backend:
+</p>
+
+<p>
+<img src="download/attachments/39354478/ctv1.png?version=1&amp;modificationDate=1334932146000" />
+</p>
+
+<h2>
+<a name="AddingaCustomTVType-MODX2.2-CreatingTheOutputController" id="AddingaCustomTVType-MODX2.2-CreatingTheOutputController"></a>Creating the Output Controller
+</h2>
+
+<p>
+Okay, so now we want to make the output controller, let's create the file at:
+</p>
+
+<blockquote>
+core/components/ourtvs/tv/output/templateselect.class.php
+</blockquote>
+
+<p>
+And the content:
 </p>
 
 <pre class="brush: php">
@@ -95,8 +182,6 @@ And make its content:
     }
 }
 return 'TemplateSelectOutputRender';
-
-    
 </pre>
 <p>
 There we go - now when we render this in the front-end, it will display the ID of our selected Template wrapped in a div.
@@ -105,3 +190,7 @@ There we go - now when we render this in the front-end, it will display the ID o
 <h2>
 <a name="AddingaCustomTVType-MODX2.2-SeeAlso" id="AddingaCustomTVType-MODX2.2-SeeAlso"></a>See Also
 </h2>
+
+<p>
+Coming soon...
+</p>

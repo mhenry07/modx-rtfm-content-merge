@@ -85,7 +85,7 @@ where you can manage events, which are child-resources of a resource-folder.
 </h2>
 
 <p>
-First off we will need to install <a href="display/ADDON/MIGX" title="MIGX">MIGX</a> by package-management, if not allready done, and do some <a href="display/ADDON/MIGXdb.Configuration" title="MIGXdb.Configuration">basic configurations</a>.
+First off we will need to install <a href="/extras/revo/migx" title="MIGX">MIGX</a> by package-management, if not allready done, and do some <a href="/extras/revo/migxdb/migxdb.configuration" title="MIGXdb.Configuration">basic configurations</a>.
 <br />
 Minimum Required version: MIGX 2.3.2 (10.09.2012)
 </p>
@@ -140,11 +140,35 @@ Right-Click our record and choose 'Export/Import'
 Add this code into the one field 'Json' :
 </p>
 
-<table class="sectionMacro" border="0" cellpadding="5" cellspacing="0" width="100%">
-</table>
+<pre class="brush: php">
+{"formtabs":"[{\"MIGX_id\":\"1\",\"caption\":\"Event\",\"fields\":\"[{\\\"MIGX_id\\\":\\\"1\\\",\\\"field\\\":\\\"pagetitle\\\",\\\"caption\\\":\\\"Pagetitle\\\",\\\"inputTV\\\":\\\"\\\",\\\"inputTVtype\\\":\\\"\\\",\\\"configs\\\":\\\"\\\",\\\"sourceFrom\\\":\\\"config\\\",\\\"sources\\\":\\\"\\\",\\\"inputOptionValues\\\":\\\"\\\",\\\"default\\\":\\\"\\\"},{\\\"MIGX_id\\\":\\\"7\\\",\\\"field\\\":\\\"location\\\",\\\"caption\\\":\\\"Location\\\",\\\"inputTV\\\":\\\"\\\",\\\"inputTVtype\\\":\\\"\\\",\\\"configs\\\":\\\"\\\",\\\"sourceFrom\\\":\\\"config\\\",\\\"sources\\\":\\\"\\\",\\\"inputOptionValues\\\":\\\"\\\",\\\"default\\\":\\\"\\\"},{\\\"MIGX_id\\\":\\\"3\\\",\\\"field\\\":\\\"eventstart\\\",\\\"caption\\\":\\\"Start\\\",\\\"inputTV\\\":\\\"\\\",\\\"inputTVtype\\\":\\\"date\\\",\\\"configs\\\":\\\"\\\",\\\"sourceFrom\\\":\\\"config\\\",\\\"sources\\\":\\\"\\\",\\\"inputOptionValues\\\":\\\"\\\",\\\"default\\\":\\\"\\\"},{\\\"MIGX_id\\\":\\\"4\\\",\\\"field\\\":\\\"eventend\\\",\\\"caption\\\":\\\"End\\\",\\\"inputTV\\\":\\\"\\\",\\\"inputTVtype\\\":\\\"date\\\",\\\"configs\\\":\\\"\\\",\\\"sourceFrom\\\":\\\"config\\\",\\\"sources\\\":\\\"\\\",\\\"inputOptionValues\\\":\\\"\\\",\\\"default\\\":\\\"\\\"},{\\\"MIGX_id\\\":\\\"5\\\",\\\"field\\\":\\\"template\\\",\\\"caption\\\":\\\"\\\",\\\"inputTV\\\":\\\"\\\",\\\"inputTVtype\\\":\\\"hidden\\\",\\\"configs\\\":\\\"\\\",\\\"sourceFrom\\\":\\\"config\\\",\\\"sources\\\":\\\"\\\",\\\"inputOptionValues\\\":\\\"\\\",\\\"default\\\":\\\"6\\\"},{\\\"MIGX_id\\\":\\\"2\\\",\\\"field\\\":\\\"parent\\\",\\\"caption\\\":\\\"\\\",\\\"inputTV\\\":\\\"\\\",\\\"inputTVtype\\\":\\\"hidden\\\",\\\"configs\\\":\\\"\\\",\\\"sourceFrom\\\":\\\"config\\\",\\\"sources\\\":\\\"\\\",\\\"inputOptionValues\\\":\\\"\\\",\\\"default\\\":\\\"25\\\"},{\\\"MIGX_id\\\":\\\"6\\\",\\\"field\\\":\\\"context_key\\\",\\\"caption\\\":\\\"\\\",\\\"inputTV\\\":\\\"\\\",\\\"inputTVtype\\\":\\\"hidden\\\",\\\"configs\\\":\\\"\\\",\\\"sourceFrom\\\":\\\"config\\\",\\\"sources\\\":\\\"\\\",\\\"inputOptionValues\\\":\\\"\\\",\\\"default\\\":\\\"web\\\"}]\"},{\"MIGX_id\":\"2\",\"caption\":\"Content\",\"fields\":\"[{\\\"MIGX_id\\\":\\\"1\\\",\\\"field\\\":\\\"content\\\",\\\"caption\\\":\\\"Content\\\",\\\"inputTV\\\":\\\"\\\",\\\"inputTVtype\\\":\\\"richtext\\\",\\\"configs\\\":\\\"\\\",\\\"sourceFrom\\\":\\\"config\\\",\\\"sources\\\":\\\"\\\",\\\"inputOptionValues\\\":\\\"\\\",\\\"default\\\":\\\"\\\"}]\"}]","contextmenus":"","actionbuttons":"addItem||toggletrash","columnbuttons":"update||publish||unpublish||recall_remove_delete","filters":"[{\"MIGX_id\":\"1\",\"name\":\"eventsfilter\",\"label\":\"eventsfilter\",\"emptytext\":\"-- Filter Events --\",\"type\":\"combobox\",\"getlistwhere\":\"[[migxFilterevents]]\",\"getcomboprocessor\":\"getTVcombo\",\"combotextfield\":\"eventsfiltercombo\",\"comboidfield\":\"\",\"comboparent\":\"\"}]","extended":{"migx_add":"Create Event","formcaption":"Event","win_id":"events","multiple_formtabs":"","packageName":"migxresourceevents","classname":"modResource","task":"childresources","getlistsort":"","getlistsortdir":"","use_custom_prefix":"0","prefix":"","grid":"","gridload_mode":"1","check_resid":"1","check_resid_TV":"","join_alias":"","getlistwhere":"{\"parent\":\"25\"}","joins":"","cmpmaincaption":"Events","cmptabcaption":"Events","cmptabdescription":"Manage your events here","cmptabcontroller":""},"columns":"[{\"MIGX_id\":\"1\",\"header\":\"ID\",\"dataIndex\":\"id\",\"width\":\"10\",\"renderer\":\"\",\"sortable\":\"true\",\"show_in_grid\":\"1\"},{\"MIGX_id\":\"2\",\"header\":\"Pagetitle\",\"dataIndex\":\"pagetitle\",\"width\":\"30\",\"renderer\":\"this.renderRowActions\",\"sortable\":\"true\",\"show_in_grid\":\"1\"},{\"MIGX_id\":\"7\",\"header\":\"Location\",\"dataIndex\":\"location\",\"width\":\"20\",\"renderer\":\"\",\"sortable\":\"false\",\"show_in_grid\":\"1\"},{\"MIGX_id\":\"5\",\"header\":\"Start\",\"dataIndex\":\"eventstart\",\"width\":\"20\",\"renderer\":\"this.renderDate\",\"sortable\":\"true\",\"show_in_grid\":\"1\"},{\"MIGX_id\":\"6\",\"header\":\"End\",\"dataIndex\":\"eventend\",\"width\":\"20\",\"renderer\":\"this.renderDate\",\"sortable\":\"true\",\"show_in_grid\":\"1\"},{\"MIGX_id\":\"4\",\"header\":\"Published\",\"dataIndex\":\"published\",\"width\":\"10\",\"renderer\":\"this.renderCrossTick\",\"sortable\":\"false\",\"show_in_grid\":\"1\"},{\"MIGX_id\":\"3\",\"header\":\"\",\"dataIndex\":\"deleted\",\"width\":\"\",\"renderer\":\"\",\"sortable\":\"false\",\"show_in_grid\":\"0\"}]"}
+</pre>
+<p>
+click 'done'
+</p>
+
+<p>
+you can check what it has done by right-clicking the record and choose 'edit' and go thrue the tabs and its nested grids.
+</p>
+
+<h2>
+<a name="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-Createaparentresourceforourevents." id="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-Createaparentresourceforourevents."></a>Create a parent-resource for our events.
+</h2>
+
+<p>
+Just create a new Resource, which will be the parent for all our event-resources.
+</p>
+
+<p>
+Don't forget to set the resource-id into the getlist-where in the MIGX-manager
+<br />
+tab: MIGXdb-settings
+<br />
+field where:
+</p>
 
 <pre class="brush: php">
-    {"parent":"XX"}
+{"parent":"XX"}
 </pre>
 <h2>
 <a name="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-CreatesomeeventTVs" id="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-CreatesomeeventTVs"></a>Create some event-TVs
@@ -165,13 +189,69 @@ Create a template with some basic content and place at least this placeholders s
 </p>
 
 <pre class="brush: php">
+[[*eventstart]],[[*eventend]],[[*location]],[[*pagetitle]],[[*content]]
+</pre>
+<p>
+don't forget to assign all this TVs to this template.
+</p>
+
+<h2>
+<a name="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-SettheTemplateforourevents." id="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-SettheTemplateforourevents."></a>Set the Template for our events.
+</h2>
+
+<p>
+We want all our events have the template created above. So we need to set the template-value somehow.
+<br />
+This can be done by a hidden-field in our form.
+<br />
+To do so:
+<br />
+1. right-click our events - record in the MIGX-configurator-grid and click 'Edit'
+<br />
+2. open the tab 'formtabs'
+<br />
+3. right-click on 'Event' and click 'Edit'
+<br />
+4. right-click on 'template' and click 'Edit'
+<br />
+5. open the tab 'Input Options' and change the Default-Value to the template-ID, which our events-resources should have.
+<br />
+6. click done to save the values
+</p>
+
+<p>
+Do the same for parent (add the ID of the parent-resource created above into as default-value) and context_key, if you need another one, than 'web'
+</p>
+
+<p>
+Close all windows with 'Done'
+</p>
+
+<h2>
+<a name="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-RegistertheTVsforourprocessors%28getlist%2Cfields%29"></a>Register the TVs for our processors (getlist,fields)
+</h2>
+
+<p>
+We need to register TVs to include them in the getlist- and fields-processors.
+<br />
+Todo so we need a new config-file under /core/components/migx/configs/
+</p>
+
+<p>
+with the same name as our MIGX-configuration: events.config.inc.php (should allready be installed with the MIGX-package)
+<br />
+and this content:
+</p>
+<strong>/core/components/migx/configs/events.config.inc.php</strong>
+
+<pre class="brush: php">
 &lt;?php
 $this-&gt;customconfigs['includeTVs'] = 1;
 $this-&gt;customconfigs['includeTVList'] = 'eventstart,eventend,location';
 </pre>
-<div class="info">
+<p>
 All TVs you want to edit or you want to show in the grid needs to be in the includeTVList - customconfig
-</div>
+</p>
 
 <h2>
 <a name="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-dropdownTVforoureventsfilter" id="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-dropdownTVforoureventsfilter"></a>dropdown-TV for our events-filter
@@ -206,6 +286,51 @@ content:
 </p>
 
 <pre class="brush: php">
+$now = strftime('%Y-%m-%d %H:%M:%S');
+switch ($_REQUEST['eventsfilter']){
+    case 'current':
+        return 'tvFilter::eventstart&lt;='.$now.',eventend&gt;='.$now;
+    break;    
+    case 'upcoming':
+        return 'tvFilter::eventstart&gt;&gt;'.$now;
+    break;
+    case 'expired':
+        return 'tvFilter::eventend&lt;&lt;'.$now;
+    break;
+}
+return '';
+</pre>
+<h2>
+<a name="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-Filters" id="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-Filters"></a>Filters
+</h2>
+
+<p>
+Go to MIGX-Management and open our configuration (events)
+<br />
+Open the TAB 'DB-Filters'
+</p>
+
+<h3>
+<a name="MIGXdb.ManageEvents-ResourcesinaCMPwithhelpofMIGXdb-DropdownFilterforfilteringcurrent%2Cupcoming%2Cexpiredevents"></a>Dropdown Filter for filtering current,upcoming,expired events
+</h3>
+
+<p>
+with the configuration above we have allready created this filter
+</p>
+
+<p>
+filter Name: eventsfilter
+<br />
+label: eventsfilter
+<br />
+empty text: - filter events -
+<br />
+filter type: combobox
+<br />
+getlist-where:
+</p>
+
+<pre class="brush: php">
 [[migxFilterevents]]
 </pre>
 <p>
@@ -232,14 +357,9 @@ empty text: search...
 getlist-where:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-{"pagetitle:LIKE":"%[[+search]]%","OR:longtitle:LIKE":"%[[+search]]%","OR:content:LIKE":"%[[+search]]%"}<br />                
+<pre class="brush: php">
+{"pagetitle:LIKE":"%[[+search]]%","OR:longtitle:LIKE":"%[[+search]]%","OR:content:LIKE":"%[[+search]]%"}
 </pre>
-</div>
-</div>
-
 <p>
 Save them all with clicking 'Done' on all windows
 </p>

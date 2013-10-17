@@ -99,15 +99,86 @@ In MODx Evolution (versions 1.x and earlier), Custom Manager Pages were handled 
 </p>
 
 <pre class="brush: php">
-    
+&lt;a href="/path/to/my/file.php"&gt;My Custom Manager Page&lt;/a&gt;
+</pre>
+<p>
+That should work, right? Well... maybe, but it's not that simple. There are a lot of moving parts that have to get connected to make this seemingly "simple" task work. Allowing for internationalization, permissions schema, and scalability requires that this process include several layers of abstraction that are not immediately obvious. It goes far beyond what's possible with the simple anchor tag solution above. But rest assured, the extra steps will ensure that the solution will be usable in a far greater number of scenarios.
+</p>
+
+<h3>
+<a name="CustomManagerPagesTutorial-Whatwe%27llneed%3A"></a>What we'll need:
+</h3>
+
+<ul>
+<li>A PHP file on the webserver which generates the text for our CMP (a.k.a. the controller).
+</li>
+
+<li>A Namespace (i.e. a path) which defines a dedicated folder for our script(s).
+</li>
+
+<li>A clickable Menu object (modMenu) which associates the clickable link to the action.
+</li>
+
+<li>An Action object (modAction) which is an abstract representation of your file.
+</li>
+
+<li>And optionally, a Lexicon entry which would allow you to translate the label on your menu item.
+</li>
+</ul>
+
+<p>
+Maybe you're baffled by the complexity here, and to be fair, for simple scenarios, this is more complicated than is strictly required, but you may find yourself at some point getting into more complicated use-cases at which point you'll realize "<em>AHA</em>!!! THAT'S why they did it this way!" For now, just trust that the smart folks behind MODx put a lot of thought into how this was built, and there's a good reason that it is the way it is. Onward.
+</p>
+
+<h2>
+<a name="CustomManagerPagesTutorial-CreatetheNamespace" id="CustomManagerPagesTutorial-CreatetheNamespace"></a>Create the Namespace
+</h2>
+
+<p>
+You can think of the Namespace as a dedicated directory for your PHP file(s) that pertain to this particular manager page. Keep in mind that creating the Namespace inside the MODx manager does not actually create the directory; likewise, removing a Namespace from the manager will not actually delete files and folders. When you "create" the namespace, you're just telling MODx to treat a certain folder in a certain way.
+</p>
+
+<p>
+In our example, we've chosen to call our namespace (and its folder) <strong>mycmp.</strong>
+</p>
+
+<ol>
+<li>System-&gt;Namespaces
+<ol>
+<li>Click <strong>Create New</strong>
+</li>
+
+<li>Name: <strong>mycmp</strong> <em>(all lowercase, one word)</em>
+</li>
+
+<li>Path: <strong>{core_path}components/mycmp/</strong> <em>(note the use of the system "core_path" placeholder, and remember to include the trailing slash)</em>
+</li>
+</ol>
+</li>
+
+<li>Using your FTP client, create a directory inside <strong>core/components</strong> named <strong>mycmp</strong>.
+</li>
+</ol>
+
+<div class="warning">
+<strong>Watch out for typos!</strong> Make sure the Namespace path matches the directory name!
+</div>
+
+<h2>
+<a name="CustomManagerPagesTutorial-MaketheControllerFile" id="CustomManagerPagesTutorial-MaketheControllerFile"></a>Make the Controller File
+</h2>
+
+<p>
+For our first manager page, we're going to keep it simple. Create a file named <strong>index.php</strong> which contains the following:
+</p>
+
+<pre class="brush: php">
 &lt;?php
 return 'This is my first Custom Manager Page';
 ?&gt;
-
-    
 </pre>
 <p>
-Upload the file to your MODx site into the directory (i.e. the Namespace) you've just created: <b>core/components/mycmp/index.php</b>
+Upload the file to your MODx site into the directory (i.e. the Namespace) you've just created: <strong>core/components/mycmp/index.php</strong>
 </p>
 
 <p>
@@ -119,7 +190,7 @@ But for such a check, you will need to temporarily insert some HTML or a print s
 </p>
 
 <div class="note">
-Notice that we did NOT use <b>print</b>, or&nbsp;<b>echo</b>, or raw HTML in our PHP. If you use any of these, you'll find that the text floats to the top of the page; remember that a Custom Manager Page is really acting as a function, so it should&nbsp;<em>return</em> a value.
+Notice that we did NOT use <strong>print</strong>, or <strong>echo</strong>, or raw HTML in our PHP. If you use any of these, you'll find that the text floats to the top of the page; remember that a Custom Manager Page is really acting as a function, so it should <em>return</em> a value.
 </div>
 
 <h2>
@@ -131,7 +202,7 @@ The Action object identifies the location of your index.php file within the name
 </p>
 
 <div class="info">
-<b>About Actions</b>
+<strong>About Actions</strong>
 <br />
 In this case, an Action is an abstraction, or a "wrapper" around that PHP file you created. One of the most important things that distinguishes a MODx Action from a simple link to PHP file is that you can assign different permissions to an Action: you can control who accesses it and how.
 </div>
@@ -140,13 +211,13 @@ In this case, an Action is an abstraction, or a "wrapper" around that PHP file y
 <li>System-&gt;Actions
 </li>
 
-<li>Right-click <b>mycmp</b> from the list of namespaces and select "Create Action Here".
+<li>Right-click <strong>mycmp</strong> from the list of namespaces and select "Create Action Here".
 </li>
 
-<li>Controller: <b>index</b> <em>(this should match the name of your PHP file WITHOUT the .php extension)</em>
+<li>Controller: <strong>index</strong> <em>(this should match the name of your PHP file WITHOUT the .php extension)</em>
 </li>
 
-<li>Namespace: yes, use the same namespace: <b>mycmp</b>
+<li>Namespace: yes, use the same namespace: <strong>mycmp</strong>
 </li>
 
 <li>Parent Controller: Leave it blank or select "No Action".
@@ -163,17 +234,17 @@ In this case, an Action is an abstraction, or a "wrapper" around that PHP file y
 
 <li>Right-Click "Components" and choose "Place Action Here"
 <ol>
-<li>Lexicon Key: <b>mycmp</b> (we'll translate this in a bit)
+<li>Lexicon Key: <strong>mycmp</strong> (we'll translate this in a bit)
 </li>
 
-<li>Description: <b>mycmp.menu_desc&nbsp;</b>(we'll translate this in a bit)
+<li>Description: <strong>mycmp.menu_desc</strong> (we'll translate this in a bit)
 </li>
 
-<li>Action: <b>mynamespace - index</b>
+<li>Action: <strong>mynamespace - index</strong>
 </li>
 
 <li>
-<b>Save</b> (you can ignore the Icon, Parameters, Handler, and Permissions fields for now)
+<strong>Save</strong> (you can ignore the Icon, Parameters, Handler, and Permissions fields for now)
 </li>
 </ol>
 </li>
@@ -187,7 +258,7 @@ After you edit the menu item, be sure to refresh the manager page. The menu item
 </div>
 
 <div class="note">
-If you add any GET Parameters to the menu item under System -&gt; Actions, steer clear of any use of the <b>a</b> variable or any other <a href="display/revolution20/Reserved+Parameters" title="Reserved Parameters">Reserved Parameters</a>. You might be using various GET parameters if your CMP has multiple pages.
+If you add any GET Parameters to the menu item under System -&gt; Actions, steer clear of any use of the <strong>a</strong> variable or any other <a href="display/revolution20/Reserved+Parameters" title="Reserved Parameters">Reserved Parameters</a>. You might be using various GET parameters if your CMP has multiple pages.
 </div>
 
 <p>
@@ -195,7 +266,7 @@ You should now be able to click on the "Components" menu and see your menu item,
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="download/attachments/18678083/CMP.jpg?version=1&amp;modificationDate=1272511083000" style="border: 0px solid black" /></span>
+<span class="image-wrap"><img src="download/attachments/18678083/CMP.jpg?version=1&amp;modificationDate=1272511083000" style="border: 0px solid black" /></span>
 </p>
 
 <h2>
@@ -215,9 +286,7 @@ Go to your Namespace path (usually in your Extra's core/components/mycmp/ direct
 </p>
 
 <blockquote>
-<p>
 core/components/mycmp/lexicon/en/
-</p>
 </blockquote>
 
 <h3>
@@ -250,24 +319,38 @@ We need both a Language Topic and a Lexicon Key in order to define a Lexicon ent
 </h3>
 
 <p>
-Create a file name <b>default.inc.php</b> in your new 'en' lexicon directory (i.e. <em>core/components/mycmp/lexicon/en/default.inc.php</em>), and place your entries in them, in this format:
+Create a file name <strong>default.inc.php</strong> in your new 'en' lexicon directory (i.e. <em>core/components/mycmp/lexicon/en/default.inc.php</em>), and place your entries in them, in this format:
 </p>
 
 <pre class="brush: php">
-    
+$_lang['lexicon_entry_key'] = 'Translation for Entry';
+</pre>
+<h3>
+<a name="CustomManagerPagesTutorial-CreatetheEntries%28ProvidetheTranslations%29"></a>Create the Entries (Provide the Translations)
+</h3>
+
+<p>
+Go ahead and add these entries to <em>core/components/mycmp/lexicon/en/default.inc.php</em>:
+</p>
+
+<pre class="brush: php">
 $_lang['mycmp'] = 'My CMP';
 $_lang['mycmp.menu_desc'] = 'My custom manager page.';
-
-    
 </pre>
 <div class="warning">
-<b>Strict Naming Conventions!</b>
+<strong>Strict Naming Conventions!</strong>
 <br />
 If you use lexicon entries to translate custom System Settings, then be aware MODX will not look for the exact lexicon entry you typed! You must follow a strict naming convention, otherwise your lexicon entry will not be loaded and your System Setting information will not be translated! The name of your System Setting must use a Lexicon entry that is named after the setting's key, prefixed with "setting_":
 
 <pre class="brush: php">
-    setting_ + Key + _desc
-    
+setting_ + Key<br />        
+</pre>
+<p>
+The Description must follow the same format and include a suffix of "desc":
+</p>
+
+<pre class="brush: php">
+setting_ + Key + _desc<br />        
 </pre>
 <p>
 See System Settings for more info.
@@ -286,14 +369,9 @@ Now, clear the site cache to reload the lexicon cache, via Site -&gt; Clear Cach
 The Systems Settings dialogs should pick up your translations as long as you've followed the expected naming conventions, but in order to use translated text inside your CMP, you need to load the lexicon. You do this using the lexicon object and its load method, something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;lexicon-&gt;load('your_namespace:<span class="code-keyword">default</span>');
+<pre class="brush: php">
+$modx-&gt;lexicon-&gt;load('your_namespace:default');
 </pre>
-</div>
-</div>
-
 <p>
 Put that at the top of your CMP code.
 </p>
@@ -311,7 +389,7 @@ The counterpart to this action is to define the permission so MODX knows about i
 </p>
 
 <p>
-Edit the Administrator Template and add a new permission. You can select from existing permissions, or you can type in your own. Enter in the <b>exact</b> text you entered when you edited your Menu item, then save the Policy Template.
+Edit the Administrator Template and add a new permission. You can select from existing permissions, or you can type in your own. Enter in the <strong>exact</strong> text you entered when you edited your Menu item, then save the Policy Template.
 </p>
 
 <p>
@@ -330,10 +408,10 @@ Having problems? Here are a couple things that you may have run into.
 <li>Did you make sure you created a directory on your webserver with the EXACT path as defined by your Namespace?
 </li>
 
-<li>Are you sure your controller file is using the <b>return</b> statement instead of using <b>print</b> or <b>echo</b>?
+<li>Are you sure your controller file is using the <strong>return</strong> statement instead of using <strong>print</strong> or <strong>echo</strong>?
 </li>
 
-<li>Your menu items aren't being translated? Be sure to clear your cache! <b>Site-&gt;Clear Cache</b>
+<li>Your menu items aren't being translated? Be sure to clear your cache! <strong>Site-&gt;Clear Cache</strong>
 </li>
 
 <li>Translations aren't appearing in your CMP? Make sure you specified the "lexicon" in the Action object (ie, "mycmp:default")

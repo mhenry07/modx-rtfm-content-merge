@@ -43,18 +43,22 @@ ConfirmRegister is a simple snippet that confirms a registration by a User from 
 </p>
 
 <p>
+To enable this, you will need to create an Activation page by creating a new Resource, and putting this ConfirmRegister snippet inside of it:
+</p>
+
+<pre class="brush: php">
+[[!ConfirmRegister]]
+</pre>
+<p>
 To enable this, you will need to create an Activation page by creating a new Resource, and putting this <a href="display/ADDON/Login.ConfirmRegister" title="Login.ConfirmRegister">ConfirmRegister</a> snippet inside of it:
 </p>
 
 <pre class="brush: php">
-    
 [[!Register? 
    &amp;activationEmailTpl=`myActivationEmailTpl`
    &amp;activationEmailSubject=`Please activate your account!`
    &amp;activationResourceId=`26`
 ]]
-
-    
 </pre>
 <p>
 This would send the User the email specified in the "myActivationEmailTpl" chunk, with the specified subject line, which will direct the User to the Resource 26 - the Resource you put the ConfirmRegister snippet call in - to activate their account.
@@ -68,74 +72,71 @@ This would send the User the email specified in the "myActivationEmailTpl" chunk
 ConfirmRegister has some default properties packaged into it. They are:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<div class="table-wrap">
+<table class="confluenceTable">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Name
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Description
 </th>
-<th class='confluenceTh'>
+<th class="confluenceTh">
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 redirectTo
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Optional. After a successful confirmation, redirect to this Resource.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 redirectParams
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Optional. A JSON object of parameters to pass when redirecting using redirectTo.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 authenticate
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Authenticate and login the user to the current context after confirming registration.
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 authenticateContexts
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Optional. A comma-separated list of contexts to authenticate to. Defaults to the current context.
 </td>
-<td class='confluenceTd'>
-&nbsp;
+<td class="confluenceTd">
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 errorPage
 </td>
-<td class='confluenceTd'>
+<td class="confluenceTd">
 Optional. If set, will redirect user to a custom error page if they try to access this page after activating their account.
 </td>
 </tr>

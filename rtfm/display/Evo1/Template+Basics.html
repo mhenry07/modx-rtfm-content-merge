@@ -7,33 +7,110 @@ Templates are created in the Resources section of the MODx Manager.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="http://modxcms.com/assets/images/docs_img/modx_1.jpg" style="border: 0px solid black" /></span>
-<br />
-&nbsp;
-<br />
+<img src="http://modxcms.com/assets/images/docs_img/modx_1.jpg" style="border: 1px solid #ccc" />
+</p>
+
+<p>
 Select New template from the Templates tab.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="http://modxcms.com/assets/images/docs_img/site-templates_1.gif" style="border: 0px solid black" /></span>
-<br />
-&nbsp;
-<br />
+<img src="http://modxcms.com/assets/images/docs_img/site-templates_1.gif" style="border: 1px solid #ccc" />
+</p>
+
+<p>
 In the Creat/Edit template form, give the template a name, a description, and if you like, check the Lock template for editing box. Then enter your HTML/XHTML code into the textarea. You can create the template in a different editor and copy/paste the entire template into the textarea.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="http://modxcms.com/assets/images/docs_img/site-templates_2.gif" style="border: 0px solid black" /></span>
+<img src="http://modxcms.com/assets/images/docs_img/site-templates_2.gif" style="border: 1px solid #ccc" />
 </p>
 
 <p>
-&nbsp;
-<br />
 Let's examine a simple, two-column template.
 </p>
 
 <pre class="brush: php">
-    * {
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt; &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
+
+&lt;head&gt;
+
+&lt;title&gt;Simple Template&lt;/title&gt;
+
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+
+&lt;link rel="stylesheet" type="text/css" href="style.css"   /&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;div id="banner"&gt;
+
+&lt;h1&gt;Logo&lt;/h1&gt;
+
+&lt;/div&gt;
+
+&lt;div id="wrapper"&gt;
+
+  &lt;div id="container"&gt;
+
+    &lt;div id="content"&gt;
+
+      &lt;!-- main page content goes here --&gt;
+
+      Content
+
+    &lt;/div&gt; &lt;!-- end of content div --&gt;
+
+  &lt;/div&gt; &lt;!-- end of container div --&gt;
+
+  &lt;div id="sidebar"&gt;
+
+    &lt;!-- menu and other blocks goes here --&gt;
+
+    Sidebar
+
+  &lt;/div&gt;
+
+&lt;!-- end of sidebar div --&gt;
+
+  &lt;div class="clearing"&gt; &lt;/div&gt;
+
+&lt;/div&gt; &lt;!-- end of wrapper div --&gt;
+
+&lt;div id="footer"&gt;Footer&lt;/div&gt;&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+<p>
+Like any HTML code, a MODx template at its most basic is a set of HTML tags to indicate the structure of the page. It begins with the doctype declaration, sets some information in the head, such as where to locate the CSS file for the page, then lays out the structure for the body of the page. This is not intended to be an HTML tutorial; here are some links to helpful sites:
+</p>
+
+<ul>
+<li>
+<a href="http://www.pagetutor.com/pagetutor/makapage/" rel="nofollow">Joe Barta's beginners tutorials (where I started! Thanks, Joe!)</a>
+</li>
+
+<li>
+<a href="http://www.w3schools.com/default.asp" rel="nofollow">W3Schools tutorials</a>
+</li>
+
+<li>
+<a href="http://www.alistapart.com/" rel="nofollow">A List Apart</a>
+</li>
+
+<li>
+<a href="http://www.w3.org/2002/03/tutorials" rel="nofollow">W3C tutorials</a>
+</li>
+</ul>
+
+<p>
+Here is a simple CSS file to control our template's appearance:
+</p>
+
+<pre class="brush: php">
+* {
     padding:0;
     margin:0;
     border:0;
@@ -71,7 +148,6 @@ body {
         margin-right: 200px;
         height:200px;
     border-right:1px dotted #ababab;
-
 }
 
 #sidebar {
@@ -88,49 +164,41 @@ body {
 .clearing {
     clear:both;
     height:0;
-    }
-
-    
+}
 </pre>
 <p>
 This template and CSS file will make a page that looks like this:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="http://modxcms.com/assets/images/docs_img/template_simple.jpg" style="border: 0px solid black" /></span>
-<br />
-&nbsp;
-<br />
+<img src="http://modxcms.com/assets/images/docs_img/template_simple.jpg" style="border: 1px solid #ccc" />
+</p>
+
+<p>
 Doesn't look like much right now, does it? How about this?
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="http://modxcms.com/assets/images/docs_img/template_yellow.jpg" style="border: 0px solid black" /></span>
+<img src="http://modxcms.com/assets/images/docs_img/template_yellow.jpg" style="border: 1px solid #ccc" />
 </p>
 
 <p>
-&nbsp;
-<br />
 Or this...
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="http://modxcms.com/assets/images/docs_img/template_grey.jpg" style="border: 0px solid black" /></span>
+<img src="http://modxcms.com/assets/images/docs_img/template_grey.jpg" style="border: 1px solid #ccc" />
 </p>
 
 <p>
-&nbsp;
-<br />
 Or this?
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="http://modxcms.com/assets/images/docs_img/template_sky.jpg" style="border: 0px solid black" /></span>
+<img src="http://modxcms.com/assets/images/docs_img/template_sky.jpg" style="border: 1px solid #ccc" />
 </p>
 
 <p>
-&nbsp;
-<br />
 It's all in the CSS, with the help of MODx tags to include content and functionality. The next document in this series covers adding MODx tags to your template.
 </p>
 
@@ -140,26 +208,26 @@ While it is beyond the scope of this document to provide a tutorial in CSS, here
 
 <ul>
 <li>
-<a href="http://www.w3schools.com/css/default.asp" class="external-link" rel="nofollow">W3Schools Tutorial</a>
+<a href="http://www.w3schools.com/css/default.asp" rel="nofollow">W3Schools Tutorial</a>
 </li>
 
 <li>
-<a href="http://www.meyerweb.com/eric/css/edge/" class="external-link" rel="nofollow">Eric Meyer's css/edge</a>
+<a href="http://www.meyerweb.com/eric/css/edge/" rel="nofollow">Eric Meyer's css/edge</a>
 </li>
 
 <li>
-<a href="http://www.glish.com/css/" class="external-link" rel="nofollow">glish.com CSS Layout Techniques</a>
+<a href="http://www.glish.com/css/" rel="nofollow">glish.com CSS Layout Techniques</a>
 </li>
 
 <li>
-<a href="http://www.alistapart.com" class="external-link" rel="nofollow">A List Apart</a>
+<a href="http://www.alistapart.com" rel="nofollow">A List Apart</a>
 </li>
 
 <li>
-<a href="http://leftjustified.net" class="external-link" rel="nofollow">Left Justified</a>
+<a href="http://leftjustified.net" rel="nofollow">Left Justified</a>
 </li>
 
 <li>
-<a href="http://www.csszengarden.com" class="external-link" rel="nofollow">CSS Zen Garden</a>
+<a href="http://www.csszengarden.com" rel="nofollow">CSS Zen Garden</a>
 </li>
 </ul>

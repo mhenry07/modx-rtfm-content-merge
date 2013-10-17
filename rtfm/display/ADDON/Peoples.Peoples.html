@@ -10,21 +10,289 @@ This snippet displays all the Users of a site.
 <a name="Peoples.Peoples-Usage" id="Peoples.Peoples-Usage"></a>Usage
 </h2>
 
+<pre class="brush: php">
+<code>[[Peoples]]</code>
+</pre>
+<h2>
+Available Properties
+</h2>
+
+<table>
+<tbody>
+<tr>
+<th>
+Name
+</th>
+<th>
+Description
+</th>
+<th>
+Default
+</th>
+</tr>
+
+<tr>
+<th>
+1
+</th>
+<td>
+tpl
+</td>
+<td>
+The Chunk to use for each User.
+</td>
+<td>
+pplUser
+</td>
+</tr>
+
+<tr>
+<th>
+2
+</th>
+<td>
+active
+</td>
+<td>
+0 to show only inactive Users, 1 to show only active Users, 2 to show all Users.
+</td>
+</tr>
+
+<tr>
+<th>
+3
+</th>
+<td>
+usergroups
+</td>
+<td>
+Optional. A comma-separated list of User Group names to filter by.
+</td>
+</tr>
+
+<tr>
+<th>
+4
+</th>
+<td>
+limit
+</td>
+<td>
+The number of users to limit per call. Defaults to 10. Set to 0 to show all.
+</td>
+</tr>
+
+<tr>
+<th>
+5
+</th>
+<td>
+start
+</td>
+<td>
+The start index to begin with when limiting.
+</td>
+</tr>
+
+<tr>
+<th>
+6
+</th>
+<td>
+sortBy
+</td>
+<td>
+The field name to sort by. (Cannot be an extended field.)
+</td>
+<td>
+username
+</td>
+</tr>
+
+<tr>
+<th>
+7
+</th>
+<td>
+sortByAlias
+</td>
+<td>
+The class to use with the sort field.
+</td>
+<td>
+User
+</td>
+</tr>
+
+<tr>
+<th>
+8
+</th>
+<td>
+sortDir
+</td>
+<td>
+The direction to sort by.
+</td>
+<td>
+ASC
+</td>
+</tr>
+
+<tr>
+<th>
+9
+</th>
+<td>
+cls
+</td>
+<td>
+Will append this CSS class to each item.
+</td>
+<td>
+ppl-user
+</td>
+</tr>
+
+<tr>
+<th>
+10
+</th>
+<td>
+altCls
+</td>
+<td>
+Optional. If set, will append this CSS class to every even item.
+</td>
+</tr>
+
+<tr>
+<th>
+11
+</th>
+<td>
+firstCls
+</td>
+<td>
+Optional. If set, will append this CSS class to the first item.
+</td>
+</tr>
+
+<tr>
+<th>
+12
+</th>
+<td>
+lastCls
+</td>
+<td>
+Optional. If set, will append this CSS class to the last item.
+</td>
+</tr>
+
+<tr>
+<th>
+13
+</th>
+<td>
+placeholderPrefix
+</td>
+<td>
+The prefix to use when setting global placeholders, such as total.
+</td>
+<td>
+peoples.
+</td>
+</tr>
+
+<tr>
+<th>
+14
+</th>
+<td>
+outputSeparator
+</td>
+<td>
+The separator between each user record.
+</td>
+</tr>
+
+<tr>
+<th>
+15
+</th>
+<td>
+toPlaceholder
+</td>
+<td>
+Optional. If set, will set the output to this placeholder and return empty.
+</td>
+</tr>
+
+<tr>
+<th>
+16
+</th>
+<td>
+userClass
+</td>
+<td>
+The class name of the Users object.
+</td>
+<td>
+modUser
+</td>
+</tr>
+
+<tr>
+<th>
+17
+</th>
+<td>
+userAlias
+</td>
+<td>
+The class alias of the Users object.
+</td>
+<td>
+User
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+Peoples Chunks
+</h2>
+
 <p>
-Display the first 10 users, sorted by username:
+The only chunk used in the Peoples snippet is the &amp;tpl property, which uses the default of pplUser.
+</p>
+
+<h2>
+Examples
+</h2>
+
+<p>
+Show all the Users for a site.
 </p>
 
 <pre class="brush: php">
-    [[Peoples? &amp;limit=`0`]]
-    
+ [[Peoples? &amp;limit=`0`]]
 </pre>
 <p>
 Show the first 10 users in the User Group "HR Department":
 </p>
 
 <pre class="brush: php">
-    [[Peoples? &amp;limit=`0` &amp;active=`0`]]
-    
+<code>[[Peoples? &amp;limit=`10` &amp;usergroups=`HR Department`]]</code>
+</pre>
+<p>
+Show all the inactive users in the site:
+</p>
+
+<pre class="brush: php">
+ [[Peoples? &amp;limit=`0` &amp;active=`0`]]
 </pre>
 <h2>
 <a name="Peoples.Peoples-SeeAlso" id="Peoples.Peoples-SeeAlso"></a>See Also
@@ -32,6 +300,9 @@ Show the first 10 users in the User Group "HR Department":
 
 <ol class="ug-toc">
 <li>
-<a href="/extras/revo/peoples/peoples.peoples/peoples.peoples.tpl">Peoples.Peoples.tpl</a>
+<a href="extras/revo/peoples/peoples.peoples/peoples.peoples.tpl">Peoples.Peoples.tpl</a>
 </li>
 </ol>
+
+<br />
+<br />

@@ -61,7 +61,48 @@ Version required: 2.5.2 +
 <li>content:
 
 <pre class="brush: php">
-    
+[[migxLoopCollection? 
+    &amp;classname=`modResource`
+    &amp;selectfields=`id,pagetitle`
+    &amp;where=`{"parent":"3"}`
+    &amp;toJsonPlaceholder=`json` 
+]]
+[[+json]]
+                
+</pre>
+</li>
+</ul>
+</li>
+</ol>
+
+<p>
+Change the parent to the ID where you want to get the resourcelist from
+</p>
+
+<h2>
+<a name="MIGX.sortableresourcelist-CreatetheConfigurationfortheMIGXTV" id="MIGX.sortableresourcelist-CreatetheConfigurationfortheMIGXTV"></a>Create the Configuration for the MIGX-TV
+</h2>
+
+<ol>
+<li>Go to: Components-&gt;MIGX-&gt;Tab: MIGX
+</li>
+
+<li>Create a new Configuration with 'add item'
+<ul>
+<li>name: migx_resourcelist
+</li>
+</ul>
+</li>
+
+<li>Click 'Done' to save the new Configuration
+</li>
+
+<li>right-click on the new configuration and select 'import/export'
+</li>
+
+<li>copy/paste this code into the textarea:
+
+<pre class="brush: php">
 {
   "formtabs":[
     {
@@ -242,11 +283,8 @@ Version required: 2.5.2 +
     }
   ]
 }
-
-    
+        
 </pre>
-</li>
-</ul>
 </li>
 </ol>
 
@@ -303,15 +341,11 @@ Now you should be able to select Resources and sort them by drag/drop them to a 
 Add this snippet-tag to your template/resource-content:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[getImageList? 
   &amp;tvname=`migx_input_options` 
   &amp;outputSeparator=`,` 
   &amp;tpl=`@CODE:[[+id]]`
-  &amp;where=`{<span class="code-quote">"active:="</span>:<span class="code-quote">"1"</span>}`
+  &amp;where=`{"active:=":"1"}`
 ]]
 </pre>
-</div>
-</div>

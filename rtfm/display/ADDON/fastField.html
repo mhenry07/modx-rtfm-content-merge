@@ -67,7 +67,7 @@ For usage with global arrays you must replace resource_id by array name, eg. "po
 </p>
 
 <p>
-In general, this plugin replaces <a href="http://rtfm.modx.com/display/ADDON/getResourceField" class="external-link" rel="nofollow">getResourceField</a> and <a href="http://modx.com/extras/package/getreqparam" class="external-link" rel="nofollow">getReqParam</a> snippets.
+In general, this plugin replaces <a href="display/ADDON/getResourceField" class="external-link" rel="nofollow">getResourceField</a> and <a href="http://modx.com/extras/package/getreqparam" class="external-link" rel="nofollow">getReqParam</a> snippets.
 </p>
 
 <h2>
@@ -78,37 +78,52 @@ In general, this plugin replaces <a href="http://rtfm.modx.com/display/ADDON/get
 Return the pagetitle from the resource with id 123:
 </p>
 
-<pre class="brush: php">
-    
+<pre class="brush: plain">
+[[#123.pagetitle]]
+</pre>
+<p>
+Return the introtext of a parent of a current resource and display description for empty one:
+</p>
+
+<pre class="brush: plain">
  [[#[[*parent]].introtext:default=`[[#[[*parent]].description]]`]]
-
-    
 </pre>
 <p>
-Return the content of the resources in rowTpl chunk while <a href="http://rtfm.modx.com/display/ADDON/Wayfinder" class="external-link" rel="nofollow">Wayfinder</a> usage:
+Return the content of the resources in rowTpl chunk while <a href="display/ADDON/Wayfinder" class="external-link" rel="nofollow">Wayfinder</a> usage:
 </p>
 
-<pre class="brush: php">
-    
+<pre class="brush: plain">
+[[#[[+wf.docid]].content]]
+</pre>
+<p>
+Return TV image from the resource with id 10:
+</p>
+
+<pre class="brush: plain">
  [[#10.tv.image]]
-
-    
 </pre>
 <p>
-Return property articlesPerPage from the resource with id 1 of custom resource type <a href="http://rtfm.modx.com/display/ADDON/Articles" class="external-link" rel="nofollow">Articles</a>
+Return property articlesPerPage from the resource with id 1 of custom resource type <a href="display/ADDON/Articles" class="external-link" rel="nofollow">Articles</a>
 </p>
 
-<pre class="brush: php">
-    
- [[!#post.myVar]]
+<pre class="brush: plain">
+[[#1.properties.articles.articlesPerPage]]
+</pre>
+<p>
+Return the value of $_POST['myVar']:
+</p>
 
-    
+<pre class="brush: plain">
+ [[!#post.myVar]]
 </pre>
 <p>
 Supported global arrays: $_GET, $_POST, $_REQUEST, $_SERVER, $_FILES, $_COOKIE, $_SESSION. The type of array after # is case-insensitive. The name of array element is case-sensitive. You should use uncached tag, eg. [[!#get.name]], for cached resources.
-<br />
-<b>CAUTION</b>: <b>It is dangerous to use raw global variables on the page. For example, use :stripTags output filter to prevent XSS-attacks (eg. [[!#get.name:stripTags]])!</b>
 </p>
+
+<div class="warning">
+<br />
+<strong>CAUTION</strong>: <strong>It is dangerous to use raw global variables on the page. For example, use :stripTags output filter to prevent XSS-attacks (eg. [[!#get.name:stripTags]])!</strong>
+</div>
 
 <h2>
 <a name="fastField-Howitworks" id="fastField-Howitworks"></a>How it works

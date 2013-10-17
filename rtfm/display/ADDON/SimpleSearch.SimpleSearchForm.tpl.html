@@ -3,84 +3,72 @@
 </h2>
 
 <p>
-This is the Chunk displayed with the &amp;tpl property on the <a href="display/ADDON/SimpleSearch.SimpleSearchForm" title="SimpleSearch.SimpleSearchForm">SimpleSearch</a> snippet.
+This is the Chunk displayed with the &amp;tpl property on the <a href="/display/ADDON/SimpleSearch.SimpleSearchForm" title="SimpleSearch.SimpleSearchForm">SimpleSearch</a> snippet.
 </p>
 
 <h2>
 <a name="SimpleSearch.SimpleSearchForm.tpl-DefaultValue" id="SimpleSearch.SimpleSearchForm.tpl-DefaultValue"></a>Default Value
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="brush: html">
-&lt;form class=&lt;span class="code-quote"&gt;"sisea-search-form"&lt;/span&gt; action=&lt;span class="code-quote"&gt;"[[~[[+landing:&lt;span class="code-keyword"&gt;default&lt;/span&gt;=`[[*id]]`]]]]"&lt;/span&gt; method=&lt;span class="code-quote"&gt;"[[+method:&lt;span class="code-keyword"&gt;default&lt;/span&gt;=`get`]]"&lt;/span&gt;&gt;
+<pre class="brush: php">
+&lt;form class="sisea-search-form" action="[[~[[+landing:default=`[[*id]]`]]]]" method="[[+method:default=`get`]]"&gt;
   &lt;fieldset&gt;
-    &lt;label &lt;span class="code-keyword"&gt;for&lt;/span&gt;=&lt;span class="code-quote"&gt;"[[+searchIndex]]"&lt;/span&gt;&gt;[[%sisea.search? &amp;namespace=`sisea` &amp;topic=`&lt;span class="code-keyword"&gt;default&lt;/span&gt;`]]&lt;/label&gt;
-    &lt;input type=&lt;span class="code-quote"&gt;"text"&lt;/span&gt; name=&lt;span class="code-quote"&gt;"[[+searchIndex]]"&lt;/span&gt; id=&lt;span class="code-quote"&gt;"[[+searchIndex]]"&lt;/span&gt; value=&lt;span class="code-quote"&gt;"[[+searchValue]]"&lt;/span&gt; /&gt;
-    &lt;input type=&lt;span class="code-quote"&gt;"hidden"&lt;/span&gt; name=&lt;span class="code-quote"&gt;"id"&lt;/span&gt; value=&lt;span class="code-quote"&gt;"[[+landing:&lt;span class="code-keyword"&gt;default&lt;/span&gt;=[[*id]]]]"&lt;/span&gt; /&gt; 
-    &lt;input type=&lt;span class="code-quote"&gt;"submit"&lt;/span&gt; value=&lt;span class="code-quote"&gt;"[[%sisea.search? &amp;namespace=`sisea` &amp;topic=`&lt;span class="code-keyword"&gt;default&lt;/span&gt;`]]"&lt;/span&gt; /&gt;
+    &lt;label for="[[+searchIndex]]"&gt;[[%sisea.search? &amp;namespace=`sisea` &amp;topic=`default`]]&lt;/label&gt;
+    &lt;input type="text" name="[[+searchIndex]]" id="[[+searchIndex]]" value="[[+searchValue]]" /&gt;
+    &lt;input type="hidden" name="id" value="[[+landing:default=[[*id]]]]" /&gt; 
+    &lt;input type="submit" value="[[%sisea.search? &amp;namespace=`sisea` &amp;topic=`default`]]" /&gt;
   &lt;/fieldset&gt;
 &lt;/form&gt;
-                
 </pre>
-</div>
-</div>
-
 <h2>
 <a name="SimpleSearch.SimpleSearchForm.tpl-AvailablePlaceholders" id="SimpleSearch.SimpleSearchForm.tpl-AvailablePlaceholders"></a>Available Placeholders
 </h2>
 
-<div class="table-wrap">
-<table class="confluenceTable">
+<table>
 <tbody>
 <tr>
-<th class="confluenceTh">
+<th>
 Name
 </th>
-<th class="confluenceTh">
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class="confluenceTd">
+<td>
 landing
 </td>
-<td class="confluenceTd">
+<td>
 The ID of the Resource to show search results on. Defaults to the current Resource.
 </td>
 </tr>
 
 <tr>
-<td class="confluenceTd">
+<td>
 method
 </td>
-<td class="confluenceTd">
+<td>
 Whether to submit over GET or POST. Defaults to GET.
 </td>
 </tr>
 
 <tr>
-<td class="confluenceTd">
+<td>
 searchValue
 </td>
-<td class="confluenceTd">
+<td>
 The current search value. Defaults blank unless a prior search has been performed.
 </td>
 </tr>
 
 <tr>
-<td class="confluenceTd">
+<td>
 searchIndex
 </td>
-<td class="confluenceTd">
+<td>
 The REQUEST var used for the search parameter.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-
-<h2>
-<a name="SimpleSearch.SimpleSearchForm.tpl-SeeAlso" id="SimpleSearch.SimpleSearchForm.tpl-SeeAlso"></a>See Also
-</h2>

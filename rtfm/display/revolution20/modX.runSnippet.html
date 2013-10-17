@@ -10,23 +10,37 @@ Process and return the output from a PHP snippet by name.
 <a name="modX.runSnippet-Syntax" id="modX.runSnippet-Syntax"></a>Syntax
 </h2>
 
+<pre>
+string runSnippet (string $snippetName, [array $params = array ()])
+</pre>
+<ul>
+<li>
+<code>$snippetName</code> <em>(string)</em> The name of the Snippet you wish to call. <strong>required</strong>
+</li>
+
+<li>
+<code>$parameters</code> <em>(array)</em> Key value pairs of parameters to pass to the snippet, equivalent to <code>&amp;key=`value`</code>
+</li>
+</ul>
+
 <p>
 API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::runSnippet()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::runSnippet()</a>
 </p>
 
+<h2>
+Examples
+</h2>
+
 <pre class="brush: php">
-    
 $output = $modx-&gt;runSnippet('Welcome',array(
    'name' =&gt; 'John'
 ));
 echo $output; // prints 'Welcome John!'
-
-    
 </pre>
 <div class="tip">
-<b>Handy Hint</b>
+<strong>Handy Hint</strong>
 <br />
-When you call a Snippet using <b>runSnippet</b>, the Snippet code is <em>always</em> executed: the results are never returned from cache. It's equivalent to running the Snippet using the <tt>[[!uncached]]</tt> syntax.
+When you call a Snippet using <strong>runSnippet</strong>, the Snippet code is <em>always</em> executed: the results are never returned from cache. It's equivalent to running the Snippet using the <tt>[[!uncached]]</tt> syntax.
 </div>
 
 <h2>

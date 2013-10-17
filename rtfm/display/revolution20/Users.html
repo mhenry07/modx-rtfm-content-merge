@@ -1,7 +1,6 @@
-<div>
 <ul>
 <li>
-<a href="revolution/2.x/administering-your-site/security/users#Users-WhatisaUser%3F">What is a User?</a>
+<a href="revolution/2.x/administering-your-site/security/users#Users-WhatisaUser?">What is a User?</a>
 </li>
 
 <li>
@@ -27,15 +26,10 @@
 </li>
 </ul>
 </li>
-
-<li>
-<a href="revolution/2.x/administering-your-site/security/users#Users-SeeAlso">See Also</a>
-</li>
 </ul>
-</div>
 
 <h2>
-<a name="Users-WhatisaUser%3F"></a>What is a User?
+<a name="Users-WhatisaUser?"></a>What is a User?
 </h2>
 
 <p>
@@ -43,7 +37,7 @@ A User is simply a representation of a login in MODx Revolution.
 </p>
 
 <p>
-Users can also be assigned to User Groups, which can have <a href="display/revolution20/ACLs" title="ACLs">ACLs</a> attached to them to provide Access Controls.
+Users can also be assigned to User Groups, which can have <a href="/display/revolution20/ACLs" title="ACLs">ACLs</a> attached to them to provide Access Controls.
 </p>
 
 <h2>
@@ -54,17 +48,15 @@ Users can also be assigned to User Groups, which can have <a href="display/revol
 User Settings in MODx Revolution will automatically override for that user any System or Context settings with the same key. They can also be completely unique settings as well. The order of inheritance for Settings is:
 </p>
 
-<blockquote>
 <p>
-System Settings -&gt; Context Settings -&gt; User Settings
-</p>
-</blockquote>
-
-<p>
-To edit the user settings, navigate to <b>Security -&gt; Manage Users -&gt; Update User (<em>right-click</em>) -&gt; Settings (<em>tab</em>)</b>
+<code>System Settings -&gt; Context Settings -&gt; User Settings</code>
 </p>
 
-<div class="note">
+<p>
+To edit the user settings, navigate to <strong>Security -&gt; Manage Users -&gt; Update User (<em>right-click</em>) -&gt; Settings (<em>tab</em>)</strong>
+</p>
+
+<div class="warning">
 You can change user-specific settings only <em>after</em> you've created the user. The "Settings" tab is not visible when you first create the user.
 </div>
 
@@ -73,35 +65,382 @@ You can change user-specific settings only <em>after</em> you've created the use
 </h2>
 
 <p>
-When a user is logged into the frontend of your site, their username and ID can be accessed by the following <a href="display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">Properties</a>:
+When a user is logged into the frontend of your site, their username and ID can be accessed by the following <a href="/display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">Properties</a>:
 </p>
 
 <pre class="brush: php">
-    return $modx-&gt;user-&gt;get('username');
-    
+[[+modx.user.id]] - Prints the ID 
+[[+modx.user.username]] - Prints the username
+</pre>
+<p>
+If a user is not logged in, ID will be blank, and Username will be "(anonymous)".
+</p>
+
+<div class="warning">
+<strong>Remember</strong>
+<br />
+Keep in mind that confusing caveat: just because you have logged into the <em>manager</em> does not mean that you are logged into the <em>web</em> front-end. The user-specific settings and the <a href="/display/xPDO20/getOption" title="getOption">getOption</a> API method obeys this same rule, so if you're not logged in, then the <strong>System Settings -&gt; Context Settings -&gt; User Settings</strong> cannot fully apply.
+</div>
+
+<h2>
+<a name="Users-UserFields" id="Users-UserFields"></a>User Fields
+</h2>
+
+<p>
+Users contain the following fields:
+</p>
+
+<table>
+<thead>
+<tr>
+<th>
+Name
+</th>
+<th>
+Description
+</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>
+id
+</td>
+<td>
+The ID of the user.
+</td>
+</tr>
+
+<tr>
+<td>
+username
+</td>
+<td>
+The username of the user.
+</td>
+</tr>
+
+<tr>
+<td>
+password
+</td>
+<td>
+The user's encrypted password.
+</td>
+</tr>
+
+<tr>
+<td>
+active
+</td>
+<td>
+Either 1 or 0. If not active, the user will not be able to log in.
+</td>
+</tr>
+
+<tr>
+<td>
+remote_key
+</td>
+<td>
+A remote user Key used by remote authentication apps.
+</td>
+</tr>
+
+<tr>
+<td>
+remote_data
+</td>
+<td>
+A JSON array of data used by remote authentication apps.
+</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Users also have a Profile attached to them. It contains the following fields:
+</p>
+
+<table id="TBL1376497246874">
+<thead>
+<tr>
+<th>
+Name
+</th>
+<th>
+Description
+</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>
+internalKey
+</td>
+<td>
+The ID of the user.
+</td>
+</tr>
+
+<tr>
+<td>
+fullname
+</td>
+<td>
+The full name of the user.
+</td>
+</tr>
+
+<tr>
+<td>
+email
+</td>
+<td>
+The email of the user.
+</td>
+</tr>
+
+<tr>
+<td>
+phone
+</td>
+<td>
+The phone number.
+</td>
+</tr>
+
+<tr>
+<td>
+mobilephone
+</td>
+<td>
+The cellphone number.
+</td>
+</tr>
+
+<tr>
+<td>
+fax
+</td>
+<td>
+The fax number.
+</td>
+</tr>
+
+<tr>
+<td>
+blocked
+</td>
+<td>
+Either 1 or 0. If blocked is set to true, the user will not be able to log in.
+</td>
+</tr>
+
+<tr>
+<td>
+blockeduntil
+</td>
+<td>
+A timestamp that, when set, will prevent the user from logging in until this date.
+</td>
+</tr>
+
+<tr>
+<td>
+blockedafter
+</td>
+<td>
+A timestamp that, when set, will prevent the user from logging in after this date.
+</td>
+</tr>
+
+<tr>
+<td>
+logincount
+</td>
+<td>
+The number of logins for this user.
+</td>
+</tr>
+
+<tr>
+<td>
+lastlogin
+</td>
+<td>
+The last time the user logged in.
+</td>
+</tr>
+
+<tr>
+<td>
+thislogin
+</td>
+<td>
+The time the user logged in in their current session.
+</td>
+</tr>
+
+<tr>
+<td>
+failedlogincount
+</td>
+<td>
+The number of times the user has failed to log in since last logging in.
+</td>
+</tr>
+
+<tr>
+<td>
+sessionid
+</td>
+<td>
+The User's session ID that maps to the session table.
+</td>
+</tr>
+
+<tr>
+<td>
+dob
+</td>
+<td>
+The date of birth.
+</td>
+</tr>
+
+<tr>
+<td>
+gender
+</td>
+<td>
+0 for neither, 1 for male and 2 for female.
+</td>
+</tr>
+
+<tr>
+<td>
+address
+</td>
+<td>
+The physical address.
+</td>
+</tr>
+
+<tr>
+<td>
+country
+</td>
+<td>
+The country of the user.
+</td>
+</tr>
+
+<tr>
+<td>
+city
+</td>
+<td>
+The city of the user.
+</td>
+</tr>
+
+<tr>
+<td>
+zip
+</td>
+<td>
+The zip or postal code for the user.
+</td>
+</tr>
+
+<tr>
+<td>
+state
+</td>
+<td>
+The physical state or province of the user.
+</td>
+</tr>
+
+<tr>
+<td>
+photo
+</td>
+<td>
+An optional field for a photo. Not used in the UI.
+</td>
+</tr>
+
+<tr>
+<td>
+comment
+</td>
+<td>
+An optional comment field for comments on the User.
+</td>
+</tr>
+
+<tr>
+<td>
+website
+</td>
+<td>
+The website of the user.
+</td>
+</tr>
+
+<tr>
+<td>
+extended
+</td>
+<td>
+A JSON array that can be used to store extra fields for the User.
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="Users-GrabbingtheUserviatheAPI" id="Users-GrabbingtheUserviatheAPI"></a>Grabbing the User via the API
+</h2>
+
+<p>
+The current user can be retrieved in the API via the $modx-&gt;user reference. For example, this snippet outputs the username of the user:
+</p>
+
+<pre class="brush: php">
+return $modx-&gt;user-&gt;get('username');
 </pre>
 <p>
 Note that to grab Profile fields, you'll need to first get the modUserProfile object via the Profile alias. For example, this snippet grabs the email of the user and returns it:
 </p>
 
 <pre class="brush: php">
-    
-/* get the extended field named "color": */
+$profile = $modx-&gt;user-&gt;getOne('Profile'); 
+return $profile ? $profile-&gt;get('email') : '';
+</pre>
+<p>
+If the User is not logged in, $modx-&gt;user will still be available as an object, but will return 0 as the ID and (Anonymous) as the username.
+</p>
+
+<h3>
+<a name="Users-UsingExtendedFields" id="Users-UsingExtendedFields"></a>Using Extended Fields
+</h3>
+
+<p>
+Values in the extended field return as an array. They can be manipulated like so:
+</p>
+
+<pre class="brush: php">
+/* get the extended field named &lt;span class="code-quote"&gt;"color"&lt;/span&gt;: */
 $fields = $profile-&gt;get('extended');
 $color = $fields['color'];
-
 /* set the color field to red */
 $fields = $profile-&gt;get('extended');
 $fields['color'] = 'red';
 $profile-&gt;set('extended',$fields);
 $profile-&gt;save();
-
-    
 </pre>
-<h2>
-<a name="Users-SeeAlso" id="Users-SeeAlso"></a>See Also
-</h2>
-
-<p>
-<a href="display/revolution20/Extending+modUser" title="Extending modUser">Extending modUser</a>
-</p>

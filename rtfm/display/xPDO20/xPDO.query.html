@@ -7,7 +7,7 @@ Executes an SQL statement, returning a result set as a PDOStatement object.
 </p>
 
 <div class="tip">
-<b>Tip</b>
+<strong>Tip</strong>
 <br />
 This can be a good way to issue reporting queries without having to worry about the complex syntax normally required by xPDO.
 </div>
@@ -20,8 +20,31 @@ This can be a good way to issue reporting queries without having to worry about 
 API Docs: see <a href="http://us1.php.net/manual/en/pdo.query.php" class="external-link" rel="nofollow">http://us1.php.net/manual/en/pdo.query.php</a>
 </p>
 
+<p>
+<code>xPDOObject|false query (string $statement)</code>
+</p>
+
+<p>
+<strong>$statement</strong>
+</p>
+
+<p>
+The SQL statement to prepare and execute. Data inside the query should be <a href="http://us1.php.net/manual/en/pdo.quote.php" class="external-link" rel="nofollow">properly escaped</a>.
+</p>
+
+<h2>
+<a name="xPDO.query-Examples" id="xPDO.query-Examples"></a>Examples
+</h2>
+
+<h3>
+<a name="xPDO.query-SelectaSingleRecord" id="xPDO.query-SelectaSingleRecord"></a>Select a Single Record
+</h3>
+
+<p>
+Here's a simple query to fetch one row from the database. Note that you would normally use <a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> or <a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getCollection</a> to fetch a data from built-in MODX tables.
+</p>
+
 <pre class="brush: php">
-    
 $result = $modx-&gt;query("SELECT * FROM modx_users WHERE id=1");
 if (!is_object($result)) {
    return 'No result!';
@@ -30,15 +53,25 @@ else {
    $row = $result-&gt;fetch(PDO::FETCH_ASSOC);
    return 'Result:' .print_r($row,true);
 }
-
-    
 </pre>
 <p>
-Use the <b>PDO::FETCH_ASSOC</b> will force the result to be an associative array:
+Use the <strong>PDO::FETCH_ASSOC</strong> will force the result to be an associative array:
 </p>
 
 <pre class="brush: php">
-    
+Array
+(
+    [id] =&gt; 1
+    [username] =&gt; my_user
+    [password] =&gt; xxxxxxxxxxxxxxxxxxx
+    // ...
+)
+</pre>
+<p>
+Without it, the results are a mix of an associative and a regular array:
+</p>
+
+<pre class="brush: php">
 Array
 (
     [id] =&gt; 1
@@ -49,13 +82,11 @@ Array
     [2] =&gt; xxxxxxxxxxxxxxxxxxxxx
     // ...  
 )
-
-    
 </pre>
 <div class="warning">
-<b>No One-Liners!</b>
+<strong>No One-Liners!</strong>
 <br />
-The one-line method-chaining available to PDO is not possible with xPDO. The following <b>will not work</b>:
+The one-line method-chaining available to PDO is not possible with xPDO. The following <strong>will not work</strong>:
 <br />
 <tt>$row = $modx-&gt;query("SELECT * FROM cms_users WHERE id=1")-&gt;fetch();</tt>
 </div>
@@ -69,14 +100,25 @@ PDO uses a lazy-loader, so you can't simply print out all of the results at once
 </p>
 
 <pre class="brush: php">
-    
+$results = $xpdo-&gt;query("SELECT * FROM some_table");
+while ($r = $results-&gt;fetch(PDO::FETCH_ASSOC)) {
+        print_r($r); exit;
+}
+</pre>
+<h3>
+<a name="xPDO.query-QuotingInputs" id="xPDO.query-QuotingInputs"></a>Quoting Inputs
+</h3>
+
+<p>
+For single queries that rely on user input, you should <a href="http://us1.php.net/manual/en/pdo.quote.php" class="external-link" rel="nofollow">manually quote</a> the input strings.
+</p>
+
+<pre class="brush: php">
 $username = $modx-&gt;quote($username);
 $sql = "SELECT * FROM modx_users WHERE username = $username";
 $result = $modx-&gt;query($sql);
 $row = $result-&gt;fetch(PDO::FETCH_ASSOC);
 return print_r($row,true);
-
-    
 </pre>
 <p>
 The <span class="error">[quote]</span> function can take a 2nd argument, which you can use to quote integers specifically
@@ -84,24 +126,36 @@ The <span class="error">[quote]</span> function can take a 2nd argument, which y
 
 <ul>
 <li>
-<b>PDO::PARAM_INT</b> for quoting integers
+<strong>PDO::PARAM_INT</strong> for quoting integers
 </li>
 
 <li>
-<b>PDO::PARAM_STR</b> for quoting strings (default)
+<strong>PDO::PARAM_STR</strong> for quoting strings (default)
 </li>
 </ul>
 
 <pre class="brush: php">
-    
+$id = $modx-&gt;quote(1, PDO::PARAM_INT);
+$sql = "SELECT * FROM cms_users WHERE id = $id";
+$result = $modx-&gt;query($sql);
+$row = $result-&gt;fetch(PDO::FETCH_ASSOC);
+return print_r($row, true);
+</pre>
+<h3>
+<a name="xPDO.query-SelectaCollection" id="xPDO.query-SelectaCollection"></a>Select a Collection
+</h3>
+
+<p>
+Here's a simple query to fetch multiple rows from the database. Note that you would normally use <a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getObject</a> to retrive data from MODX tables.
+</p>
+
+<pre class="brush: php">
 $output = '';
 $sql = "SELECT * FROM modx_users";
 foreach ($modx-&gt;query($sql) as $row) {
     $output .= $row['username'] .'&lt;br/&gt;';
 }
 return $output;
-
-    
 </pre>
 <h3>
 <a name="xPDO.query-FetchStyle" id="xPDO.query-FetchStyle"></a>Fetch Style

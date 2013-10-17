@@ -10,33 +10,249 @@ Log a message with details about where and when an event occurs.
 <a name="xPDO.log-Syntax" id="xPDO.log-Syntax"></a>Syntax
 </h2>
 
+<pre class="brush: php">
+$xpdo-&gt;log($level, $msg, $target= '', $def= '', $file= '', $line= '');
+</pre>
+<ul>
+<li>
+<code>$level</code> (integer) The verbosity level of the logged message. See Verbosity Constants below
+</li>
+
+<li>
+<code>$msg</code> (string) The message to log.
+</li>
+
+<li>
+<code>$target</code> (mixed) The logging target. If a string, this should be FILE, HTML, or ECHO. If an array, see examples below.
+</li>
+
+<li>
+<code>$def</code> (string) The name of a defining structure (such as a class) to help identify the log event source.
+</li>
+
+<li>
+<code>$file</code> (string) A filename in which the log event occurred. Usually you would use the __FILE__ constant.
+</li>
+
+<li>
+<code>$line</code> (string) A line number to help locate the source of the event. Usually you would use the __LINE__ constant
+</li>
+</ul>
+
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#log" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/xPDO.html#log</a>
+What gets printed is controlled by the <strong>log_level</strong> System Setting
+</p>
+
+<h2>
+Examples
+</h2>
+
+<h3>
+Simple
+</h3>
+
+<p>
+Simple log message, will write to the default log file (e.g. <code>core/cache/logs/error.log</code>):
 </p>
 
 <pre class="brush: php">
-    
 $xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'An error occurred.');
-
-    
 </pre>
 <p>
-Log a debug message:
+In the logs, this would appear like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre>
+[2013-09-15 14:21:25] (ERROR @ /index.php) [Mobile Detect] An error occurred.
+</pre>
+<h3>
+Specify the Snippet
+</h3>
+
+<p>
+Because MODX application ultimately runs via the index.php file, it can be helpful to add some extra information:
+</p>
+
+<pre class="brush: php">
+$xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'An error occurred.','','MySnippet');
+</pre>
+
+<pre>
+[2013-09-15 14:22:48] (ERROR in MySnippet @ /index.php) An error occurred
+</pre>
+<h3>
+Specify File and Line
+</h3>
+
+<p>
+Remember that ultimately, all MODX Snippets and Plugins run from cached files, so the source file listed will be the cached file
+</p>
+
+<pre class="brush: php">
+$xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'This is my error message...','','MySnippet',__FILE__,__LINE__);
+</pre>
+
+<pre>
+[2013-09-15 14:48:02] (ERROR in MySnippet @ /path/to/core/cache/includes/elements/modsnippet/28.include.cache.php : 7) This is my error message...
+</pre>
+<h3>
+Custom Log File
+</h3>
+
+<p>
+You may wish to send errors to a destination other than the default MODX error log. To accomplish this, you must pass an array to the <code>$target</code> argument. You must verbosely specify 'FILE' as the target, otherwise, the message will be echoed back to the page.
+</p>
+
+<pre class="brush: php">
+$xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'Error for my custom log file', 
+    array('target'=&gt;'FILE', 'options'=&gt; array('filename'=&gt;'custom.log'))
+);
+</pre>
+<p>
+By default, the path for log files is <code>core/cache/logs/</code> so in this example, we find our log message inside the <code>custom.log</code> file:
+</p>
+
+<pre>
+[2013-09-15 15:01:07] (ERROR @ /index.php) Error for my custom log file
+</pre>
+<p>
+If desired, you may also specify the path via the <code>filepath</code> argument.
+</p>
+
+<p>
+Because this is a bit verbose, you may find it cleaner to define your logging target once then reference the array:
+</p>
+
+<pre class="brush: php">
+$log_target = array(
+    'target'=&gt;'FILE',
+    'options' =&gt; array(
+        'filename'=&gt;'my_custom.log'
+    )
+); 
+$xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'My Error...',$log_target); 
+$xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'Some other error...',$log_target);
+</pre>
+<h3>
+Debugging
+</h3>
+
+<p>
+You can change the level of the logged message by adjusting the first parameter. E.g. to log a debug message:
+</p>
+
+<pre class="brush: php">
 $xpdo-&gt;log(xPDO::LOG_LEVEL_DEBUG,'This is a debugging statement.');
 </pre>
-</div>
-</div>
+<h3>
+Custom Use in Snippets
+</h3>
+
+<p>
+It can be really handy to increase logging verbosity for a single Snippet or plugin. To accomplish this, use the <code>setLogLevel()</code> function. You can use this to override the global value of the <strong>log_level</strong> System Setting:
+</p>
+
+<pre class="brush: php">
+// Call your snippet like this: [[mySnippet? &amp;log_level=`4`]]
+// Override global log_level value
+$log_level = $modx-&gt;getOption('log_level',$scriptProperties, $modx-&gt;getOption('log_level'));
+$modx-&gt;setLogLevel($log_level);
+</pre>
+<h2>
+Verbosity Constants
+</h2>
+
+<table>
+<thead>
+<tr>
+<th>
+xPDO Constant
+</th>
+<th>
+MODX Constant
+</th>
+<th>
+Value
+</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>
+xPDO::LOG_LEVEL_FATAL
+</td>
+<td>
+MODX_LOG_LEVEL_FATAL
+</td>
+<td>
+0
+</td>
+</tr>
+
+<tr>
+<td>
+xPDO::LOG_LEVEL_ERROR
+</td>
+<td>
+MODX_LOG_LEVEL_ERROR
+</td>
+<td>
+1
+</td>
+</tr>
+
+<tr>
+<td>
+xPDO::LOG_LEVEL_WARN
+</td>
+<td>
+MODX_LOG_LEVEL_WARN
+</td>
+<td>
+2
+</td>
+</tr>
+
+<tr>
+<td>
+xPDO::LOG_LEVEL_INFO
+</td>
+<td>
+MODX_LOG_LEVEL_INFO
+</td>
+<td>
+3
+</td>
+</tr>
+
+<tr>
+<td>
+xPDO::LOG_LEVEL_DEBUG
+</td>
+<td>
+MODX_LOG_LEVEL_DEBUG
+</td>
+<td>
+4
+</td>
+</tr>
+</tbody>
+</table>
 
 <h2>
 <a name="xPDO.log-SeeAlso" id="xPDO.log-SeeAlso"></a>See Also
 </h2>
 
 <ul>
+<li>
+<strong>log_level</strong> System Setting
+</li>
+
+<li>
+<strong>log_target</strong> System Setting
+</li>
+
 <li>
 <a href="display/xPDO20/xPDO" title="xPDO">xPDO</a>
 </li>

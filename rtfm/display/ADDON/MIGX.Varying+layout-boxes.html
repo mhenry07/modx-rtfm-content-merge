@@ -177,7 +177,84 @@ For this Tutorial we want to create a new Template. We name it 'MultiColumn'
 </p>
 
 <pre class="brush: php">
-    
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;[[++site_name]] - [[*pagetitle]]&lt;/title&gt;
+        &lt;base href="[[++site_url]]" /&gt;
+        &lt;style&gt;
+            /* reset */
+            html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+            /* text */
+            body{font:13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif}a:focus{outline:1px dotted}hr{border:0 #ccc solid;border-top-width:1px;clear:both;height:0}h1{font-size:25px}h2{font-size:23px}h3{font-size:21px}h4{font-size:19px}h5{font-size:17px}h6{font-size:15px}ol{list-style:decimal}ul{list-style:disc}li{margin-left:30px}p,dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset{margin-bottom:20px}
+            /* fixed: cols 12, rows 4, box_w 80, box_h 80, margin_w 10, margin_h 10, w 960, h 320 */
+            .container,.container_12{margin-left:auto;margin-right:auto;width:960px;}.grid_h_1,.grid_h_2,.grid_h_3,.grid_h_4,.grid_h_5,.grid_h_6,.grid_h_7,.grid_h_8,.grid_h_9,.grid_h_10,.grid_h_11,.grid_h_12{position:relative;display:inline;float:left;margin-left:10px;margin-right:10px;}.grid_v_1,.grid_v_2,.grid_v_3,.grid_v_4{position:relative;display:inline;float:left;margin-top:10px;margin-bottom:10px;}.alpha_h{margin-left:0;}.omega_h{margin-right:0;}.alpha_v{margin-top:0;}.omega_v{margin-bottom:0;}.grid_h_1{width:60px;}.grid_h_2{width:140px;}.grid_h_3{width:220px;}.grid_h_4{width:300px;}.grid_h_5{width:380px;}.grid_h_6{width:460px;}.grid_h_7{width:540px;}.grid_h_8{width:620px;}.grid_h_9{width:700px;}.grid_h_10{width:780px;}.grid_h_11{width:860px;}.grid_h_12{width:940px;}.grid_v_1{min-height:60px;}.grid_v_2{min-height:140px;}.grid_v_3{min-height:220px;}.grid_v_4{min-height:300px;}.clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0;}.clearfix:after{clear:both;content:' ';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0;}* html .clearfix,*:first-child+html .clearfix{zoom:1;}.middle_1{line-height:60px;}.middle_2{line-height:140px;}.middle_3{line-height:220px;}.middle_4{line-height:300px;}
+            /*  */
+            .box {background:#ccc}
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="container clearfix"&gt;
+            [[!getImageList? &amp;tpl=`@FIELD:MIGX_formname`&amp;tvname=`MultiColumn`]]
+            &lt;div class="grid_h_12 grid_v_1"&gt;[[*content]]&lt;/div&gt;
+            &lt;div class="grid_h_12 grid_v_1 middle_1"&gt;[^q^] queries, querytime [^qt^], phptime [^p^], totaltime [^t^], source [^s^]&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h3>
+<a name="MIGX.Varyinglayout-boxes-ThePreviewPage" id="MIGX.Varyinglayout-boxes-ThePreviewPage"></a>The Preview-Page
+</h3>
+
+<p>
+Now we create a Preview-Page. With this page created we can see a Preview of our boxes in the backend without the need to save our Resource.
+</p>
+
+<p>
+Create a new Folder in your Resource-Tree, which is hidden from menue, you can name it: 'MIGX-previews'.
+</p>
+
+<p>
+Create a new Resource under this Folder and choose the MultiColumn-Template. You can name it 'MultiColumn Preview'
+</p>
+
+<h3>
+<a name="MIGX.Varyinglayout-boxes-TheMIGXTv" id="MIGX.Varyinglayout-boxes-TheMIGXTv"></a>The MIGX-Tv
+</h3>
+
+<p>
+Now we are ready to create our MIGX-TV. Create a new TV.
+</p>
+
+<h4>
+<a name="MIGX.Varyinglayout-boxes-GeneralInformation" id="MIGX.Varyinglayout-boxes-GeneralInformation"></a>General Information
+</h4>
+
+<h5>
+<a name="MIGX.Varyinglayout-boxes-Name" id="MIGX.Varyinglayout-boxes-Name"></a>Name
+</h5>
+
+<p>
+MultiColumn
+</p>
+
+<h4>
+<a name="MIGX.Varyinglayout-boxes-InputOptions" id="MIGX.Varyinglayout-boxes-InputOptions"></a>Input Options
+</h4>
+
+<h5>
+<a name="MIGX.Varyinglayout-boxes-Inputtype" id="MIGX.Varyinglayout-boxes-Inputtype"></a>Input-type
+</h5>
+
+<p>
+migx
+</p>
+
+<h5>
+<a name="MIGX.Varyinglayout-boxes-FormTabs" id="MIGX.Varyinglayout-boxes-FormTabs"></a>Form Tabs
+</h5>
+
+<pre class="brush: php">
 [{
     "formname":"OneCell"
     ,"formtabs": [{
@@ -325,21 +402,84 @@ For this Tutorial we want to create a new Template. We name it 'MultiColumn'
         }]
     }]
 }]
-
-    
 </pre>
 <h5>
 <a name="MIGX.Varyinglayout-boxes-GridColumns" id="MIGX.Varyinglayout-boxes-GridColumns"></a>Grid Columns
 </h5>
 
 <pre class="brush: php">
-    &lt;div class="box grid_h_12 grid_v_4"&gt;
+[{
+    "header": "Row Format"
+    ,"width": "30"
+    ,"sortable": "true"
+    ,"dataIndex": "MIGX_formname"
+},{
+    "header": "First"
+    ,"width": "160"
+    ,"sortable": "false"
+    ,"dataIndex": "cell_1_image"
+    ,"renderer": "this.renderImage"
+},{
+    "header": "Second"
+    ,"width": "160"
+    ,"sortable": "false"
+    ,"dataIndex": "cell_2_image"
+    ,"renderer": "this.renderImage"
+},{
+    "header": "Third"
+    ,"width": "160"
+    ,"sortable": "false"
+    ,"dataIndex": "cell_3_image"
+    ,"renderer": "this.renderImage"
+}]
+</pre>
+<h5>
+<a name="MIGX.Varyinglayout-boxes-PreviewUrl" id="MIGX.Varyinglayout-boxes-PreviewUrl"></a>Preview Url
+</h5>
+
+<p>
+Add here the complete Url of your created Preview-Resource.
+</p>
+
+<h4>
+<a name="MIGX.Varyinglayout-boxes-TemplateAccess" id="MIGX.Varyinglayout-boxes-TemplateAccess"></a>Template Access
+</h4>
+
+<p>
+our MultiColumns - Template
+</p>
+
+<h3>
+<a name="MIGX.Varyinglayout-boxes-TheChunks" id="MIGX.Varyinglayout-boxes-TheChunks"></a>The Chunks
+</h3>
+
+<p>
+Our last step is to create three chunks for our layout-boxes.
+</p>
+
+<h4>
+<a name="MIGX.Varyinglayout-boxes-OneCell" id="MIGX.Varyinglayout-boxes-OneCell"></a>OneCell
+</h4>
+
+<h5>
+<a name="MIGX.Varyinglayout-boxes-Name" id="MIGX.Varyinglayout-boxes-Name"></a>Name
+</h5>
+
+<p>
+OneCell
+</p>
+
+<h5>
+<a name="MIGX.Varyinglayout-boxes-ChunkCode" id="MIGX.Varyinglayout-boxes-ChunkCode"></a>Chunk Code
+</h5>
+
+<pre class="brush: php">
+&lt;div class="box grid_h_12 grid_v_4"&gt;
     &lt;div class="grid_h_12 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="[[+cell_1_image:phpthumbof=`w=900&amp;h=250&amp;zc=1`]]"/&gt;&lt;/div&gt;
     &lt;div class="grid_h_12 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;[[+cell_1_headline]]&lt;/h2&gt;&lt;/div&gt;
     &lt;div class="grid_h_12 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_1_content]]&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="clear"&gt;&lt;/div&gt;
-    
 </pre>
 <h4>
 <a name="MIGX.Varyinglayout-boxes-TwoCells" id="MIGX.Varyinglayout-boxes-TwoCells"></a>TwoCells
@@ -358,7 +498,36 @@ TwoCells
 </h5>
 
 <pre class="brush: php">
-    &lt;div class="box grid_h_4 grid_v_4"&gt;
+&lt;div class="box grid_h_6 grid_v_4"&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="[[+cell_1_image:phpthumbof=`w=460&amp;h=320&amp;zc=1`]]"/&gt;&lt;/div&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;[[+cell_1_headline]]&lt;/h2&gt;&lt;/div&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_1_content]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="box grid_h_6 grid_v_4"&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="[[+cell_2_image:phpthumbof=`w=460&amp;h=320&amp;zc=1`]]"/&gt;&lt;/div&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;[[+cell_2_headline]]&lt;/h2&gt;&lt;/div&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_2_content]]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="clear"&gt;&lt;/div&gt;
+</pre>
+<h4>
+<a name="MIGX.Varyinglayout-boxes-ThreeCells" id="MIGX.Varyinglayout-boxes-ThreeCells"></a>ThreeCells
+</h4>
+
+<h5>
+<a name="MIGX.Varyinglayout-boxes-Name" id="MIGX.Varyinglayout-boxes-Name"></a>Name
+</h5>
+
+<p>
+ThreeCells
+</p>
+
+<h5>
+<a name="MIGX.Varyinglayout-boxes-ChunkCode" id="MIGX.Varyinglayout-boxes-ChunkCode"></a>Chunk Code
+</h5>
+
+<pre class="brush: php">
+&lt;div class="box grid_h_4 grid_v_4"&gt;
     &lt;div class="grid_h_4 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="[[+cell_1_image:phpthumbof=`w=300&amp;h=250&amp;zc=1`]]"/&gt;&lt;/div&gt;
     &lt;div class="grid_h_4 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;[[+cell_1_headline]]&lt;/h2&gt;&lt;/div&gt;
     &lt;div class="grid_h_4 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_1_content]]&lt;/div&gt;
@@ -374,7 +543,6 @@ TwoCells
     &lt;div class="grid_h_4 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_3_content]]&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="clear"&gt;&lt;/div&gt;
-    
 </pre>
 <h2>
 <a name="MIGX.Varyinglayout-boxes-CreatePageswithvaryinglayoutboxes" id="MIGX.Varyinglayout-boxes-CreatePageswithvaryinglayoutboxes"></a>Create Pages with varying layout-boxes
@@ -393,7 +561,7 @@ In your MultiColumns-TV, click 'Add Item' and choose one of the layouts. Fill th
 </p>
 
 <p>
-For Preview click the 'Preview' - Button.&nbsp;
+For Preview click the 'Preview' - Button.
 </p>
 
 <div class="info">

@@ -39,7 +39,7 @@
 </h2>
 
 <p>
-The cron manager for MODx makes it possible to execute snippets by the crontab of the server. Via the manager of MODx Revolution you could simple add new snippets to the cron list.
+The cron manager for MODx makes it possible to execute snippets by the crontab of the server. By using the manager of MODx Revolution you can simply add new snippets to the cron list.
 </p>
 
 <p>
@@ -62,12 +62,13 @@ After that, you need to configure the cron script in your servers crontab list. 
 <div class="codeContent panelContent">
 <pre class="code-java">
 cd /path/to/your/modx/installation/assets/components/cronmanager/ &amp;&amp; php cron.php
+                
 </pre>
 </div>
 </div>
 
 <p>
-We advise you to execute it on every minute, every day in every month (* to all: m h&nbsp; dom mon dow). But when you're sure there are no needs for an every minute cronjob, you could change the crontab interval by your own needs.
+We advise you to execute it on every minute, every day in every month (* to all: m h dom mon dow). But when you're sure there are no needs for an every minute cronjob, you could change the crontab interval by your own needs.
 </p>
 
 <h2>
@@ -87,7 +88,7 @@ Here you can create a new cronjob by clicking on the "new" button.
 </p>
 
 <p>
-<span class="image-wrap" style=""><a class="confluence-thumbnail-link 684x403" href='http://rtfm.modx.com/download/attachments/35095318/create-new-cronjob.JPG'><img src="download/thumbnails/35095318/create-new-cronjob.JPG" width="200" style="border: 1px solid black" /></a></span>
+<span class="image-wrap"><a class="confluence-thumbnail-link 684x403" href="download/attachments/35095318/create-new-cronjob.JPG"><img src="download/thumbnails/35095318/create-new-cronjob.JPG" style="border: 1px solid black;" width="200" /></a></span>
 </p>
 
 <p>
@@ -95,11 +96,11 @@ You see the fields "Snippet", "Minutes" and "Snippet properties".
 </p>
 
 <p>
-<b>Snippet:</b> You can start typing the name of the snippet or browse by clicking the down-arrow
+<strong>Snippet:</strong> You can start typing the name of the snippet or browse by clicking the down-arrow
 <br />
-<b>Minutes:</b> Enter the minutes you want to execute the snippet on. For example; if you enter 15, the snippet runs every 15 minutes (when the crontab on the server is configured correctly)
+<strong>Minutes:</strong> Enter the minutes you want to execute the snippet on. For example; if you enter 15, the snippet runs every 15 minutes (when the crontab on the server is configured correctly)
 <br />
-<b>Snippet properties:</b> Here you can enter properties for the snippet. You could enter them in key-value pair (each on a new line) or also as JSON object. Maybe a better way is using propertysets, in this case you can add the name of the <a href="display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">propertyset</a>.
+<strong>Snippet properties:</strong> Here you can enter properties for the snippet. You could enter them in key-value pair (each on a new line) or also as JSON object. Maybe a better way is using propertysets, in this case you can add the name of the <a href="display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">propertyset</a>.
 </p>
 
 <p>
@@ -123,7 +124,7 @@ Each snippet in a cronjob could return some values, for testing purposes or some
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="download/attachments/35095318/viewlog-action.JPG?version=1&amp;modificationDate=1307298900000" style="border: 1px solid black" /></span>
+<span class="image-wrap"><img src="download/attachments/35095318/viewlog-action.JPG?version=1&amp;modificationDate=1307298900000" style="border: 1px solid black;" /></span>
 </p>
 
 <p>
@@ -141,20 +142,13 @@ The Cron Manager is developped in GitHub on: <a href="http://github.com/bertoost
 <p>
 Bugs and new ideas could be entered here: <a href="http://github.com/bertoost/MODx-CronManager/issues/" class="external-link" rel="nofollow">https://github.com/bertoost/MODx-CronManager/issues/</a>
 </p>
-<!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-         <rdf:Description
-    rdf:about="http://rtfm.modx.com/display/ADDON/CronManager"
-    dc:identifier="http://rtfm.modx.com/display/ADDON/CronManager"
-    dc:title="CronManager"
-    trackback:ping="http://rtfm.modx.com/rpc/trackback/35095318"/>
-</rdf:RDF>
--->
+<!-- <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"          xmlns:dc="http://purl.org/dc/elements/1.1/"          xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"><rdf:Description     rdf:about="display/ADDON/CronManager"     dc:identifier="display/ADDON/CronManager"     dc:title="CronManager"     trackback:ping="rpc/trackback/35095318"></rdf:Description> </rdf:RDF> -->
 
 <fieldset class="hidden parameters">
-<legend>Labels parameters</legend> <input type="hidden" id="editLabel" value="Edit" /> <input type="hidden" id="addLabel" value="Add Labels" /> <input type="hidden" id="domainName" value="http://rtfm.modx.com" /> <input type="hidden" id="pageId" value="35095318" /> <input type="hidden" id="spaceKey" value="ADDON" />
+<legend>Labels parameters</legend>
+<p>
+<input id="editLabel" value="Edit" type="hidden" /><input id="addLabel" value="Add Labels" type="hidden" /><input id="domainName" value="http://rtfm.modx.com" type="hidden" /><input id="pageId" value="35095318" type="hidden" /><input id="spaceKey" value="ADDON" type="hidden" />
+</p>
 </fieldset>
 
 <div id="labels-section" class="pageSection">
@@ -179,11 +173,11 @@ Enter labels to add to this page:
 </div>
 
 <div id="label-input-fields">
-<input autocomplete="off" id="labelsString" name="labelsString" value="" size="40" /> <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add" /> <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done" />
+<input autocomplete="off" id="labelsString" name="labelsString" value="" size="40" /><input id="add-labels-editor-button" class="add-labels" value="Add" type="submit" /><input id="close-labels-editor-button" class="hide-labels-editor" value="Done" type="submit" />
 </div>
 
 <div id="waitImageAndStatus">
-<img class="waiting" alt="Please wait" src="s/1911/69/_/images/icons/wait.gif" />&nbsp; <span id="labelOperationStatus" class="smalltext"></span>
+<img class="waiting" alt="Please wait" src="s/1911/69/_/images/icons/wait.gif" /><span id="labelOperationStatus" class="smalltext"></span>
 </div>
 
 <div id="labelsAutocompleteList" class="aui-dd-parent">
@@ -192,7 +186,10 @@ Enter labels to add to this page:
 <div class="labels-tip">
 <div id="suggestedLabelsSpan">
 </div>
+
+<p>
 Looking for a label? Just start typing.
+</p>
 </div>
 </div>
 </form>
@@ -200,7 +197,7 @@ Looking for a label? Just start typing.
 </div>
 
 <fieldset class="parameters hidden">
-<input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?" /> <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment." />
+<input id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?" type="hidden" /><input id="collapseTooltip" value="Click to toggle the display of this comment." type="hidden" />
 </fieldset>
 
 <div id="comments-section" class="pageSection">
@@ -208,14 +205,14 @@ Looking for a label? Just start typing.
 <h2 id="comments-section-title" class="section-title">
 <a name="comments" id="comments">Comments (1)</a>
 </h2>
-&nbsp;
+
 <ul id="comment-top-links" class="global-comment-actions">
 <li id="comment-show-hide">
-<a href="display/ADDON/CronManager?showComments=false#comments" id="comments-hide" name="comments-hide">Hide Comments</a> <a href="display/ADDON/CronManager?showComments=true#comments" id="comments-show" class="hidden" name="comments-show">Show Comments</a>
+<a href="display/ADDON/CronManager?showComments=false#comments" id="comments-hide" name="comments-hide">Hide Comments</a><a href="display/ADDON/CronManager?showComments=true#comments" id="comments-show" class="hidden" name="comments-show">Show Comments</a>
 </li>
 
 <li id="comments-expand-collapse">
-<a href="extras/revo/cronmanager#" id="comments-collapse" name="comments-collapse">Collapse All</a> <span id="collapse-wait" class="hidden">Collapsing…</span> <span id="expand-wait" class="hidden">Expanding…</span> <a href="extras/revo/cronmanager#" class="hidden" id="comments-expand" name="comments-expand">Expand All</a>
+<a href="extras/revo/cronmanager#" id="comments-collapse" name="comments-collapse">Collapse All</a><span id="collapse-wait" class="hidden">Collapsing…</span><span id="expand-wait" class="hidden">Expanding…</span><a href="extras/revo/cronmanager#" class="hidden" id="comments-expand" name="comments-expand">Expand All</a>
 </li>
 </ul>
 </div>
@@ -251,14 +248,14 @@ For my blog site the host is using cPanel, this was the command that was needed 
 <p>
 php -q public_html/assets/components/cronmanager/cron.php
 <br />
-<span class="image-wrap" style=""><img src="download/attachments/35095318/cron-setup.png?version=1&amp;modificationDate=1348836956000" style="border: 1px solid black" /></span>
+<span class="image-wrap"><img src="download/attachments/35095318/cron-setup.png?version=1&amp;modificationDate=1348836956000" style="border: 1px solid black;" /></span>
 </p>
 </div>
 
 <div class="comment-actions">
 <ul id="comment-actions-secondary">
 <li class="first comment-permalink">
-<a title="Permanent link to this comment" href="display/ADDON/CronManager?focusedCommentId=41484502#comment-41484502" id="comment-permalink-41484502" name="comment-permalink-41484502"><span>Permalink</span></a>
+<a title="Permanent link to this comment" href="display/ADDON/CronManager?focusedCommentId=41484502#comment-41484502" id="comment-permalink-41484502" name="comment-permalink-41484502">Permalink</a>
 </li>
 </ul>
 
