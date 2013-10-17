@@ -1,52 +1,38 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDOQuery.leftJoin-xPDOQuery%3A%3AleftJoin"></a>xPDOQuery::leftJoin
+<h2 id="xPDOQuery.leftJoin-xPDOQuery::leftJoin">
+xPDOQuery::leftJoin
 </h2>
 
 <p>
 Adds a LEFT JOIN clause to the query.
 </p>
 
-<h2>
-<a name="xPDOQuery.leftJoin-Syntax" id="xPDOQuery.leftJoin-Syntax"></a>Syntax
+<h2 id="xPDOQuery.leftJoin-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#leftJoin" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOQuery.html#leftJoin</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#leftJoin">http://api.modxcms.com/xpdo/om/xPDOQuery.html#leftJoin</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-void leftJoin ( $class, [ $alias = ''], [ $conditions = array ()], [ $conjunction = XPDO_SQL_AND], [ $binding = <span class="code-keyword">null</span>], [ $condGroup = 0])
+<pre class="brush: php">
+void leftJoin ( $class, [ $alias = ''], [ $conditions = array ()], [ $conjunction = XPDO_SQL_AND], [ $binding = null], [ $condGroup = 0])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.leftJoin-Example" id="xPDOQuery.leftJoin-Example"></a>Example
+<h2 id="xPDOQuery.leftJoin-Example">
+Example
 </h2>
 
 <p>
 Select all Boxes and the Owner name.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;select('Box.*, Owner.name');
 $query-&gt;leftJoin('Owner','Owner');
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.leftJoin-SeeAlso" id="xPDOQuery.leftJoin-SeeAlso"></a>See Also
+<h2 id="xPDOQuery.leftJoin-SeeAlso">
+See Also
 </h2>
 
 <ul>

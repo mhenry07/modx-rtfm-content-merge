@@ -2,91 +2,66 @@
 Snippets are useful for adding logic to websites. They can be used to create menus, determine who is logged in, or any other thing possible with the API.
 </p>
 
-<h3>
-<a name="Snippets-Usage" id="Snippets-Usage"></a>Usage
+<h3 id="Snippets-Usage">
+Usage
 </h3>
 
 <p>
 Cached:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[snippetName]]
 </pre>
-</div>
-</div>
-
 <p>
 Uncached
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [!snippetName!]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Snippets-AccessingSnippetsviatheMODxAPI%26nbsp%3B"></a>Accessing Snippets via the MODx API&nbsp;
+<h2 id="Snippets-AccessingSnippetsviatheMODxAPI&amp;nbsp;">
+Accessing Snippets via the MODx API&nbsp;
 </h2>
 
 <p>
 Snippets can also be run inside of other snippets by using the MODx API:
 </p>
 
-<h3>
-<a name="Snippets-Usage" id="Snippets-Usage"></a>Usage
+<h3 id="Snippets-Usage">
+Usage
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;runSnippet('snippetName' [, $params]);
 </pre>
-</div>
-</div>
-
 <p>
 You can optionally pass parameters to your snippet
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $params =&gt; array('dog' =&gt; 'Max');
 $modx-&gt;runSnippet('mySnippet', $params);
 </pre>
-</div>
-</div>
-
 <p>
-Then inside your Snippet ("mySnippet"), you will have access to the corresponding variables via PHP's <a href="http://co.php.net/extract" class="external-link" rel="nofollow">extract</a> function, or you can access all parameters inside of the $modx object:
+Then inside your Snippet ("mySnippet"), you will have access to the corresponding variables via PHP's <a href="http://co.php.net/extract">extract</a> function, or you can access all parameters inside of the $modx object:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// inside <span class="code-quote">"mySnippet"</span>
-</span>print $dog; <span class="code-comment">// prints 'Max'
-</span>print_r( $modx-&gt;event-&gt;params ); <span class="code-comment">// prints array('dog' =&gt; 'Max');</span>
+<pre class="brush: php">
+// inside "mySnippet"
+print $dog; // prints 'Max'
+print_r( $modx-&gt;event-&gt;params ); // prints array('dog' =&gt; 'Max');
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Snippets-Seealso" id="Snippets-Seealso"></a>See also
+<h2 id="Snippets-Seealso">
+See also
 </h2>
 
 <ul>
 <li>
-<a href="http://wiki.modxcms.com/index.php/API:evalSnippet" class="external-link" rel="nofollow">http://wiki.modxcms.com/index.php/API:evalSnippet</a>
+<a href="http://wiki.modxcms.com/index.php/API:evalSnippet">http://wiki.modxcms.com/index.php/API:evalSnippet</a>
 </li>
 
 <li>
-<a href="http://wiki.modxcms.com/index.php/API:runSnippet" class="external-link" rel="nofollow">http://wiki.modxcms.com/index.php/API:runSnippet</a>
+<a href="http://wiki.modxcms.com/index.php/API:runSnippet">http://wiki.modxcms.com/index.php/API:runSnippet</a>
 </li>
 </ul>

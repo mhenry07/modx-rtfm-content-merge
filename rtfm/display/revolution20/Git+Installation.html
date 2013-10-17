@@ -1,134 +1,112 @@
 <div>
 <ul>
 <li>
-<a href='#GitInstallation-InstallationProcess'>Installation Process</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#GitInstallation-InstallationProcess">Installation Process</a>
 <ul>
 <li>
-<a href='#GitInstallation-GitLocation'>Git Location</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#GitInstallation-GitLocation">Git Location</a>
 <ul>
 <li>
-<a href='#GitInstallation-StableBranch'>Stable Branch</a>
+<a href="#GitInstallation-StableBranch">Stable Branch</a>
 </li>
 
 <li>
-<a href='#GitInstallation-DevelopmentBranch'>Development Branch</a>
+<a href="#GitInstallation-DevelopmentBranch">Development Branch</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#GitInstallation-RuntheBuild'>Run the Build</a>
+<a href="#GitInstallation-RuntheBuild">Run the Build</a>
 </li>
 
 <li>
-<a href='#GitInstallation-RunSetup'>Run Setup</a>
+<a href="#GitInstallation-RunSetup">Run Setup</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#GitInstallation-UpgradingYourLocalGitRepositoryAfterCommits'>Upgrading Your Local Git Repository After Commits</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#GitInstallation-UpgradingYourLocalGitRepositoryAfterCommits">Upgrading Your Local Git Repository After Commits</a>
 <ul>
 <li>
-<a href='#GitInstallation-ContributingBySendingPullRequests'>Contributing By Sending Pull Requests</a>
+<a href="#GitInstallation-ContributingBySendingPullRequests">Contributing By Sending Pull Requests</a>
 </li>
 
 <li>
-<a href='#GitInstallation-SwitchingBranches'>Switching Branches</a>
+<a href="#GitInstallation-SwitchingBranches">Switching Branches</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#GitInstallation-AdditionalInformation'>Additional Information</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#GitInstallation-AdditionalInformation">Additional Information</a>
 <ul>
 <li>
-<a href='#GitInstallation-UsingMAMPonMacOSX'>Using MAMP on Mac OS X</a>
+<a href="#GitInstallation-UsingMAMPonMacOSX">Using MAMP on Mac OS X</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="GitInstallation-InstallationProcess"></a>Installation Process
+<h2 id="GitInstallation-InstallationProcess">
+Installation Process
 </h2>
 
 <p>
 Here are some notes on participating in MODx Revolution testing and/or development. Unlike previous versions of MODx, Revolution will not install directly from Git. Because of the nature of the new packaging and installation system, you must first create the core installation package using a PHP build script before running the setup.
 </p>
 
-<h3>
-<a name="GitInstallation-GitLocation"></a>Git Location
+<h3 id="GitInstallation-GitLocation">
+Git Location
 </h3>
 
 <p>
-Git clone the revolution repository on GitHub at: <a href="http://github.com/modxcms/revolution/" class="external-link" rel="nofollow">http://github.com/modxcms/revolution/</a> using this syntax:
+Git clone the revolution repository on GitHub at: <a href="http://github.com/modxcms/revolution/">http://github.com/modxcms/revolution/</a> using this syntax:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-git clone http:<span class="code-comment">//github.com/modxcms/revolution.git</span>
+<pre class="brush: php">
+git clone http://github.com/modxcms/revolution.git
 </pre>
-</div>
-</div>
-
 <p>
-Or, if you'd like to contribute back, <a href="http://help.github.com/forking/" class="external-link" rel="nofollow">fork it in your GitHub repository</a> and clone that repository with and add the modxcms/revolution repository as a remote called "upstream":
+Or, if you'd like to contribute back, <a href="http://help.github.com/forking/">fork it in your GitHub repository</a> and clone that repository with and add the modxcms/revolution repository as a remote called "upstream":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 git clone git@github.com:yourgitusernamehere/revolution.git
 cd revolution
-git remote add upstream -f http:<span class="code-comment">//github.com/modxcms/revolution.git</span>
+git remote add upstream -f http://github.com/modxcms/revolution.git
 </pre>
-</div>
-</div>
-
 <p>
-Forking it with your GitHub account will allow you to contribute back to MODx by sending pull requests by clicking the "Pull Request" button on your GitHub page. (You'll need to <a href="http://modxcms.com/develop/contribute/cla.html" class="external-link" rel="nofollow">submit a CLA</a> before we can accept your code, though.) If you decide to fork, it'd be helpful for you to read our <a href="/display/community/MODx+GitHub+Contributor%27s+Guide" title="MODx GitHub Contributor's Guide">Git Contributors Guide</a> for detailed information on keeping your fork up-to-date.
+Forking it with your GitHub account will allow you to contribute back to MODx by sending pull requests by clicking the "Pull Request" button on your GitHub page. (You'll need to <a href="http://modxcms.com/develop/contribute/cla.html">submit a CLA</a> before we can accept your code, though.) If you decide to fork, it'd be helpful for you to read our <a href="/display/community/MODx+GitHub+Contributor%27s+Guide" title="MODx GitHub Contributor's Guide">Git Contributors Guide</a> for detailed information on keeping your fork up-to-date.
 </p>
 
 <p>
-If you're not familiar with Git, please read the excellent tutorial from <a href="http://learn.github.com/" class="external-link" rel="nofollow">GitHub</a> and view the <a href="http://help.github.com" class="external-link" rel="nofollow">GitHub help pages</a>.
+If you're not familiar with Git, please read the excellent tutorial from <a href="http://learn.github.com/">GitHub</a> and view the <a href="http://help.github.com">GitHub help pages</a>.
 </p>
 
 <p>
-From there, make sure you are working on the <b>develop</b> branch, if you're wanting the latest bugfixes and features targeted for the next release. There are two permanent branches in the modxcms/revolution GitHub repository:
+From there, make sure you are working on the <strong>develop</strong> branch, if you're wanting the latest bugfixes and features targeted for the next release. There are two permanent branches in the modxcms/revolution GitHub repository:
 </p>
 
-<h4>
-<a name="GitInstallation-StableBranch"></a>Stable Branch
+<h4 id="GitInstallation-StableBranch">
+Stable Branch
 </h4>
 
 <ul>
 <li>
-<b>master</b> - This will always match the latest production release; ie, 2.0.0-pl. It is the stable branch, and is only changed during releases.
+<strong>master</strong> - This will always match the latest production release; ie, 2.0.0-pl. It is the stable branch, and is only changed during releases.
 </li>
 </ul>
 
-<h4>
-<a name="GitInstallation-DevelopmentBranch"></a>Development Branch
+<h4 id="GitInstallation-DevelopmentBranch">
+Development Branch
 </h4>
 
 <ul>
 <li>
-<b>develop</b> - The latest development branch Revolution; all new features and bug fixes targeted for the next release will exist here.
+<strong>develop</strong> - The latest development branch Revolution; all new features and bug fixes targeted for the next release will exist here.
 </li>
 </ul>
 
@@ -136,155 +114,75 @@ From there, make sure you are working on the <b>develop</b> branch, if you're wa
 To create a local tracking branch from one in the origin remote; after cloning, just type:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 git checkout -b develop origin/develop
 </pre>
-</div>
-</div>
-
 <p>
 And git will handle the rest.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 There will be other temporary branches in the repository from time to time, representing features in development, specific releases being prepared, and/or critical bug fixes for production releases.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="GitInstallation-RuntheBuild"></a>Run the Build
+<h3 id="GitInstallation-RuntheBuild">
+Run the Build
 </h3>
 
 <p>
-If this is the first time you are building from Git, copy the file <b>_build/build.config.sample.php</b> to <b>_build/build.config.php</b> and edit the properties to point at a valid database with proper credentials (since Revolution 2.1.x, you either need to copy &amp; edit the same way <b>_build/build.sample.properties</b> to <b>_build/build.properties.php</b>). NOTE that this database does not have to contain anything; the build script just needs to be able to make a connection to a MySQL database.
+If this is the first time you are building from Git, copy the file <strong>_build/build.config.sample.php</strong> to <strong>_build/build.config.php</strong> and edit the properties to point at a valid database with proper credentials (since Revolution 2.1.x, you either need to copy &amp; edit the same way <strong>_build/build.sample.properties</strong> to <strong>_build/build.properties.php</strong>). NOTE that this database does not have to contain anything; the build script just needs to be able to make a connection to a MySQL database.
 </p>
 
 <p>
 From the command line, change your working directory to _build/ and execute the command "php transport.core.php". If the PHP executable is not in your path, you will need to either edit the path or give the full path to the PHP executable in the command line.&nbsp;The build&nbsp;process&nbsp;may take an extended period of time (10 to 30 seconds likely), so be patient. (Note: on Mac Mini (1.66Ghz Intel Core Duo with 2GB RAM) running the Leopard development environment as outlined below, this only takes 5-10 seconds.)
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 Note that you can also do this from the browser by browsing to the _build/transport.core.php directory, if that directory is accessible in your web server setup.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Once that script is finished executing, confirm that you now have a file named core/packages/core.transport.zip and a directory core/packages/core/ containing a manifest.php and many other files/directories.
 </p>
 
-<h3>
-<a name="GitInstallation-RunSetup"></a>Run Setup
+<h3 id="GitInstallation-RunSetup">
+Run Setup
 </h3>
 
 <p>
-Now you are ready to execute the new setup script at the setup/ URL (e.g. <a href="http://localhost/modxrevo/setup/" class="external-link" rel="nofollow">http://localhost/modxrevo/setup/</a> if installed in a subdirectory of the web root named modxrevo/).
+Now you are ready to execute the new setup script at the setup/ URL (e.g. <a href="http://localhost/modxrevo/setup/">http://localhost/modxrevo/setup/</a> if installed in a subdirectory of the web root named modxrevo/).
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Make sure you check both the "Core package has been manually unpacked" and "Files are already in-place" options when installing from Git.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 If you change any paths on the Context Paths setup step, make sure and move the corresponding directories as appropriate; this is intended for installs from the core package with files not already in-place, where the installer will place the files in the specified locations (assuming the locations allow the PHP process to write to them).
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 The actual install process requires more than the default 8M of memory allocated to PHP in many default php.ini files; if you get a blank page when you click "install", try increasing the memory_limit configuration to 32M or more (16M may work, but why not give php a little space, eh?).
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="GitInstallation-UpgradingYourLocalGitRepositoryAfterCommits"></a>Upgrading Your Local Git Repository After Commits
+<h2 id="GitInstallation-UpgradingYourLocalGitRepositoryAfterCommits">
+Upgrading Your Local Git Repository After Commits
 </h2>
 
 <p>
 Simply run these two commands:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 git fetch origin
 git rebase origin/develop
 </pre>
-</div>
-</div>
-
 <p>
 And Git will update your install. (Substitute 'release-2.1' for 'develop' if you're testing/contributing to a specific release branch, or whatever branch you might be working from.)
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 If you're working from a fork, rather than straight from the modxcms/revolution repository, you'll have to fetch from upstream, rather than origin (since origin is your fork). Please read the <span class="error">[MODx GitHub Contributor's Guide]</span> for more information.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -293,7 +191,7 @@ When a commit is made, this message might show up in the commit:
 
 <ul>
 <li>
-<b>[ReUp]</b> - If your updates require a core transport rebuild (such as anything modified in the _build directory, database model changes, or default data changes), then prefix your commit message with this. If you see this message, simply rebuild the core transport and run setup/ again.
+<strong>[ReUp]</strong> - If your updates require a core transport rebuild (such as anything modified in the _build directory, database model changes, or default data changes), then prefix your commit message with this. If you see this message, simply rebuild the core transport and run setup/ again.
 </li>
 </ul>
 
@@ -301,30 +199,16 @@ When a commit is made, this message might show up in the commit:
 If this message does not show up, you're done after you fetch and rebase.
 </p>
 
-<h3>
-<a name="GitInstallation-ContributingBySendingPullRequests"></a>Contributing By Sending Pull Requests
+<h3 id="GitInstallation-ContributingBySendingPullRequests">
+Contributing By Sending Pull Requests
 </h3>
 
 <p>
 If you've fixed a bug or added an improvement, and you're working on a fork of the revolution repository, you can send a pull request to MODx and one of the Integration Managers will review your patch.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-You'll need to <a href="http://modxcms.com/develop/contribute/cla.html" class="external-link" rel="nofollow">submit a CLA</a> before we can accept your code.
-</td>
-</tr>
-</table>
+<div class="note">
+You'll need to <a href="http://modxcms.com/develop/contribute/cla.html">submit a CLA</a> before we can accept your code.
 </div>
 
 <p>
@@ -335,98 +219,55 @@ MODx recommends you to work on features or bugs in their own separate branches. 
 For example, lets say you want to add a feature for workflow for MODx. You'd create a local branch from the 'develop' branch called 'myworkflow' with:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 git checkout -b myworkflow develop
 </pre>
-</div>
-</div>
-
 <p>
 ...and then do your coding there. Once you're done, you'd push that branch to your fork, and then send the Pull Request over. Once MODx has integrated your code (or rejected it and you're finished with it), you can then delete the branch like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 git checkout develop
 git branch -d myworkflow
 </pre>
-</div>
-</div>
-
 <p>
 The first step takes us back to the develop branch, and then deletes the custom branch. This allows you to easily update MODx without having to worry about invalid or no-longer used commits, and keeps your main branch clean.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You can always "git merge -<del>ff-only origin/develop" new commits incoming from develop (or release</del>*, master, etc) into your branch after running "git fetch origin" while having your branch checked out.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-For more information on using GitHub forks, see the <a href="http://help.github.com/forking/" class="external-link" rel="nofollow">GitHub Forking Help Page</a>.
+For more information on using GitHub forks, see the <a href="http://help.github.com/forking/">GitHub Forking Help Page</a>.
 </p>
 
-<h3>
-<a name="GitInstallation-SwitchingBranches"></a>Switching Branches
+<h3 id="GitInstallation-SwitchingBranches">
+Switching Branches
 </h3>
 
 <p>
 If you want to switch to a different branch (that you have already checked out locally), simply type these commands:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 git fetch upstream
 git checkout release-2.1
 </pre>
-</div>
-</div>
-
 <p>
 Of course, replacing release-2.1 with the actual name of the branch you want to switch to. After you've done so, run the build and run setup/ again, since different branches might have different databases.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Switching <em>backwards</em> is not always recommended; ie, switching from develop (the latest) to release-2.0.4, since database changes don't always necessarily 'backport'. While no major issues should occur, be careful when doing this.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="GitInstallation-AdditionalInformation"></a>Additional Information
+<h2 id="GitInstallation-AdditionalInformation">
+Additional Information
 </h2>
 
-<h3>
-<a name="GitInstallation-UsingMAMPonMacOSX"></a>Using MAMP on Mac OS X
+<h3 id="GitInstallation-UsingMAMPonMacOSX">
+Using MAMP on Mac OS X
 </h3>
 
 <p>
@@ -437,22 +278,13 @@ If you use MAMP on Mac OS X, you may get problems (errors about DYLD libraries n
 To adjust the dynamic linker library path to include the MAMP PHP libraries, run the following command via the terminal:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib:$\{DYLD_LIBRARY_PATH\}
 </pre>
-</div>
-</div>
-
 <p>
 You can then execute ''transport.core.php'' by using the absolute path to the MAMP PHP executable:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 /Applications/MAMP/bin/php5/bin/php transport.core.php
 </pre>
-</div>
-</div>

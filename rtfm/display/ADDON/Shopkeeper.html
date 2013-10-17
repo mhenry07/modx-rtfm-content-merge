@@ -5,33 +5,33 @@ Shopping cart and order management for MODX Revolution.
 <div>
 <ul>
 <li>
-<a href='#Shopkeeper-Installation'>Installation</a>
+<a href="#Shopkeeper-Installation">Installation</a>
 </li>
 
 <li>
-<a href='#Shopkeeper-Settings'>Settings</a>
+<a href="#Shopkeeper-Settings">Settings</a>
 </li>
 
 <li>
-<a href='#Shopkeeper-Additionaloptionsproducts'>Additional options products</a>
+<a href="#Shopkeeper-Additionaloptionsproducts">Additional options products</a>
 </li>
 
 <li>
-<a href='#Shopkeeper-Sendingletterstothebuyerwhenyouchangetheorderstatus'>Sending letters to the buyer when you change the order status</a>
+<a href="#Shopkeeper-Sendingletterstothebuyerwhenyouchangetheorderstatus">Sending letters to the buyer when you change the order status</a>
 </li>
 
 <li>
-<a href='#Shopkeeper-Eventsforplugins'>Events for plugins</a>
+<a href="#Shopkeeper-Eventsforplugins">Events for plugins</a>
 </li>
 
 <li>
-<a href='#Shopkeeper-JScallbackfunctions'>JS-callback functions</a>
+<a href="#Shopkeeper-JScallbackfunctions">JS-callback functions</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Shopkeeper-Installation" id="Shopkeeper-Installation"></a>Installation
+<h2 id="Shopkeeper-Installation">
+Installation
 </h2>
 
 <ol>
@@ -40,7 +40,7 @@ Shopping cart and order management for MODX Revolution.
 <li>You can download the extra in manager. To do this, go to "System" -&gt; "Package Management". Press the button "Download extras". Then go "Extras" -&gt; "E-commerce" and the line "Shopkeeper" click "Download", then "Finish" button.
 </li>
 
-<li>If you downloaded the file from modx.com (<a href="http://modx.com/extras/package/shopkeeper2" class="external-link" rel="nofollow">http://modx.com/extras/package/shopkeeper2</a>), load file "shopkeeper-2.0-*.transport.zip" in folder /core/packages/ of your site. In manager go to "System" -&gt; "Package Management" -&gt; "Search Locally for Packages" -&gt; "Download extras" -&gt; "Yes".
+<li>If you downloaded the file from modx.com (<a href="http://modx.com/extras/package/shopkeeper2">http://modx.com/extras/package/shopkeeper2</a>), load file "shopkeeper-2.0-*.transport.zip" in folder /core/packages/ of your site. In manager go to "System" -&gt; "Package Management" -&gt; "Search Locally for Packages" -&gt; "Download extras" -&gt; "Yes".
 </li>
 </ul>
 </li>
@@ -52,8 +52,8 @@ Shopping cart and order management for MODX Revolution.
 </li>
 </ol>
 
-<h2>
-<a name="Shopkeeper-Settings" id="Shopkeeper-Settings"></a>Settings
+<h2 id="Shopkeeper-Settings">
+Settings
 </h2>
 
 <ol>
@@ -72,14 +72,9 @@ Example:
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Shopkeeper@catalog?propertySetName=`catalog`]]
 </pre>
-</div>
-</div>
-
 <p>
 propertySetName - the name of the Property Set. It is also the name you specify after the "@" symbol.
 </p>
@@ -93,11 +88,11 @@ In the admin panel in the configuration of the component (the "System" -&gt; "Sy
 </p>
 
 <p>
-Products are created as resources. For convenience, you can use the component <b>Group Edit</b> (<a href="http://modx.com/extras/package/groupedit" class="external-link" rel="nofollow">http://modx.com/extras/package/groupedit</a>).
+Products are created as resources. For convenience, you can use the component <strong>Group Edit</strong> (<a href="http://modx.com/extras/package/groupedit">http://modx.com/extras/package/groupedit</a>).
 </p>
 
-<h2>
-<a name="Shopkeeper-Additionaloptionsproducts" id="Shopkeeper-Additionaloptionsproducts"></a>Additional options products
+<h2 id="Shopkeeper-Additionaloptionsproducts">
+Additional options products
 </h2>
 
 <p>
@@ -113,11 +108,11 @@ The values ??of the parameters (on the edit page of the resource (product)) are 
 </p>
 
 <p>
-<b>Parameter name 1==Price 1||Parameter name 2==Price 2||...</b>
+<strong>Parameter name 1==Price 1||Parameter name 2==Price 2||...</strong>
 <br />
 &nbsp;
 <br />
-You can enter a parameter value with the sign of multiplication: <b>Weight==*0.5||Weight==*1</b>
+You can enter a parameter value with the sign of multiplication: <strong>Weight==*0.5||Weight==*1</strong>
 <br />
 In this case, the product price will be multiplied by the price parameter.
 <br />
@@ -126,28 +121,18 @@ In this case, the product price will be multiplied by the price parameter.
 In the snippet getResources chunk parameters are displayed as placeholders:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+tv.param1]]
 </pre>
-</div>
-</div>
-
 <p>
 On the product page to change the ID parameter. You can do this by using a filter "replace":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*param1:replace=`[[+id]]==[[*id]]`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Shopkeeper-Sendingletterstothebuyerwhenyouchangetheorderstatus" id="Shopkeeper-Sendingletterstothebuyerwhenyouchangetheorderstatus"></a>Sending letters to the buyer when you change the order status
+<h2 id="Shopkeeper-Sendingletterstothebuyerwhenyouchangetheorderstatus">
+Sending letters to the buyer when you change the order status
 </h2>
 
 <p>
@@ -156,38 +141,38 @@ If you want when to change the order status the buyer sends an e-mail, in the mo
 The value parameter to specify the name of the chunk letter template, example "@FILE mailChangeStatus.tpl". Namespace - "shopkeeper".
 </p>
 
-<h2>
-<a name="Shopkeeper-Eventsforplugins" id="Shopkeeper-Eventsforplugins"></a>Events for plugins
+<h2 id="Shopkeeper-Eventsforplugins">
+Events for plugins
 </h2>
 
 <p>
-<b>OnSHKaddProduct</b> - Adding Item to cart. $purchaseArray
+<strong>OnSHKaddProduct</strong> - Adding Item to cart. $purchaseArray
 <br />
-<b>OnSHKgetProductPrice</b> - Call for Price product when you add to cart. $purchaseArray
+<strong>OnSHKgetProductPrice</strong> - Call for Price product when you add to cart. $purchaseArray
 <br />
-<b>OnSHKcalcTotalPrice</b> - Calculating the total price of the products in your cart. $price_total, $purchases
+<strong>OnSHKcalcTotalPrice</strong> - Calculating the total price of the products in your cart. $price_total, $purchases
 <br />
-<b>OnSHKbeforeCartLoad</b> - Called before the formation of HTML-code cart.
+<strong>OnSHKbeforeCartLoad</strong> - Called before the formation of HTML-code cart.
 <br />
-<b>OnSHKcartLoad</b> - The output cart. $items_total, $price_total
+<strong>OnSHKcartLoad</strong> - The output cart. $items_total, $price_total
 <br />
-<b>OnSHKChangeStatus</b> - Change the order status. Available: $order_id, $status.
+<strong>OnSHKChangeStatus</strong> - Change the order status. Available: $order_id, $status.
 <br />
-<b>OnSHKsaveOrder</b> - Sending an order. $order_id
+<strong>OnSHKsaveOrder</strong> - Sending an order. $order_id
 </p>
 
-<h2>
-<a name="Shopkeeper-JScallbackfunctions" id="Shopkeeper-JScallbackfunctions"></a>JS-callback functions
+<h2 id="Shopkeeper-JScallbackfunctions">
+JS-callback functions
 </h2>
 
 <p>
-<b>SHKfillCartCallback(form)</b> - given command to add product to cart;
+<strong>SHKfillCartCallback(form)</strong> - given command to add product to cart;
 <br />
-<b>SHKemptyCartCallback()</b> - given the command to empty the cart;
+<strong>SHKemptyCartCallback()</strong> - given the command to empty the cart;
 <br />
-<b>SHKloadCartCallback()</b> - Cart is loaded / updated;
+<strong>SHKloadCartCallback()</strong> - Cart is loaded / updated;
 <br />
-<b>SHKtoCartCallback(form)</b> - given the command to send product to cart.
+<strong>SHKtoCartCallback(form)</strong> - given the command to send product to cart.
 <br />
 &nbsp;
 <br />

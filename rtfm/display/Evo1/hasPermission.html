@@ -1,80 +1,59 @@
-<h1>
-<a name="hasPermission-API%3AhasPermission"></a>API:hasPermission
+<h1 id="hasPermission-API:hasPermission">
+API:hasPermission
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Quick reference</b>
+<div class="info">
+<strong>API Quick reference</strong>
 <br />
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable name:
 </td>
-<td class='confluenceTd'>
+<td>
 hasPermission
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Modx versions:
 </td>
-<td class='confluenceTd'>
+<td>
 0.9.x + Evolution
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable type:
 </td>
-<td class='confluenceTd'>
+<td>
 boolean
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Object parent:
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
-<h2>
-<a name="hasPermission-Description"></a>Description
+<h2 id="hasPermission-Description">
+Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> hasPermission(string $pm);
+<pre class="brush: php">
+boolean hasPermission(string $pm);
 </pre>
-</div>
-</div>
-
 <p>
 Returns true if user has the specified permission
 </p>
@@ -84,24 +63,19 @@ Returns true if user has the specified permission
 </li>
 </ul>
 
-<h2>
-<a name="hasPermission-Usage%2FExamples"></a>Usage / Examples
+<h2 id="hasPermission-Usage/Examples">
+Usage / Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $fileAccess = $modx-&gt;hasPermission('file_manager');
 </pre>
-</div>
-</div>
-
 <p>
 Returns true if the user has file_manager access permissions, false if he does not.
 </p>
 
-<h2>
-<a name="hasPermission-Related"></a>Related
+<h2 id="hasPermission-Related">
+Related
 </h2>
 
 <p>
@@ -120,28 +94,24 @@ getUserInfo
 getUserDocGroups
 </p>
 
-<h2>
-<a name="hasPermission-Notes"></a>Notes
+<h2 id="hasPermission-Notes">
+Notes
 </h2>
 
 <p>
 These permissions are set according to the user's role.
 </p>
 
-<h2>
-<a name="hasPermission-FunctionSource"></a>Function Source
+<h2 id="hasPermission-FunctionSource">
+Function Source
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
     function hasPermission($pm) {
-        $state= <span class="code-keyword">false</span>;
+        $state= false;
         $pms= $_SESSION['mgrPermissions'];
-        <span class="code-keyword">if</span> ($pms)
+        if ($pms)
             $state= ($pms[$pm] == 1);
-        <span class="code-keyword">return</span> $state;
+        return $state;
     }
 </pre>
-</div>
-</div>

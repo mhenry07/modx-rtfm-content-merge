@@ -2,71 +2,69 @@
 ContextRouter is a plugin by Mark Hamstra which can be used to route contexts based on domains or subdomains. You can not route subfolders with ContextRouter.
 </p>
 
-<h2>
-<a name="ContextRouter-Installation%26Configuration"></a>Installation &amp; Configuration
+<h2 id="ContextRouter-Installation&amp;Configuration">
+Installation &amp; Configuration
 </h2>
 
 <p>
-Simply install ContextRouter through package management or from the <a href="http://modx.com/extras/package/contextrouter" class="external-link" rel="nofollow">MODX Extras</a> site. There's no manager component or configuration you need to manage, however ContextRouter does depend on your individual contexts being configured properly and it has several system settings you can enable if needed.
+Simply install ContextRouter through package management or from the <a href="http://modx.com/extras/package/contextrouter">MODX Extras</a> site. There's no manager component or configuration you need to manage, however ContextRouter does depend on your individual contexts being configured properly and it has several system settings you can enable if needed.
 </p>
 
-<h3>
-<a name="ContextRouter-ContextConfiguration" id="ContextRouter-ContextConfiguration"></a>Context Configuration
+<h3 id="ContextRouter-ContextConfiguration">
+Context Configuration
 </h3>
 
 <p>
-For ContextRouter you will at the very least need each context you want routed to have a <b>http_host</b>&nbsp;context setting. This should contain the host used to access the context, for example "sub.domain.com" or "otherdomain.tld". If you want multiple hosts to route to the specific context, you can specify them as a comma separated list in a <b>http_host_aliases</b> context setting.&nbsp;
+For ContextRouter you will at the very least need each context you want routed to have a <strong>http_host</strong>&nbsp;context setting. This should contain the host used to access the context, for example "sub.domain.com" or "otherdomain.tld". If you want multiple hosts to route to the specific context, you can specify them as a comma separated list in a <strong>http_host_aliases</strong> context setting.&nbsp;
 </p>
 
 <p>
-For MODX to properly function, you'll also want to define the <b>base_url</b>&nbsp;(eg "/"), <b>site_url</b>&nbsp;(eg <a href="http://sub.domain.com/" class="external-link" rel="nofollow">http://sub.domain.com/</a>) and <b>site_start</b>&nbsp;(eg 15 for resource 15) settings.&nbsp;
+For MODX to properly function, you'll also want to define the <strong>base_url</strong>&nbsp;(eg "/"), <strong>site_url</strong>&nbsp;(eg <a href="http://sub.domain.com/">http://sub.domain.com/</a>) and <strong>site_start</strong>&nbsp;(eg 15 for resource 15) settings.&nbsp;
 </p>
 
 <p>
 If you already had these configured when you installed ContextRouter, it should automatically fetch these the first time you make a front end request. If you are configuring these settings after installing ContextRouter, you may have to hit Site &gt; Clear Cache to ensure it is collecting them.
 </p>
 
-<h3>
-<a name="ContextRouter-SystemSettings" id="ContextRouter-SystemSettings"></a>System Settings
+<h3 id="ContextRouter-SystemSettings">
+System Settings
 </h3>
 
 <p>
 Go to System &gt; System Settings and choose contextrouter in the namespace dropdown (the one that defaults to "core").&nbsp;
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Key
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 contextrouter.includeWww
 </td>
-<td class='confluenceTd'>
+<td>
 When enabled, ContextRouter will automatically alias www and no-www variations of a host to the current context.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 contextrouter.defaultContext
 </td>
-<td class='confluenceTd'>
+<td>
 The key of the context that any hosts that are not specifically routed should be routed to.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="ContextRouter-%26nbsp%3B"></a>&nbsp;
+<h3 id="ContextRouter-&amp;nbsp;">
+&nbsp;
 </h3>

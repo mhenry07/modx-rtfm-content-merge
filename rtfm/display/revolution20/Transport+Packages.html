@@ -1,31 +1,21 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#TransportPackages-WhatisaTransportPackage%3F'>What is a Transport Package?</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#TransportPackages-WhatisaTransportPackage%3F">What is a Transport Package?</a>
 <ul>
 <li>
-<a href='#TransportPackages-TheInternalsofaTransportPackage'>The Internals of a Transport Package</a>
+<a href="#TransportPackages-TheInternalsofaTransportPackage">The Internals of a Transport Package</a>
 </li>
 
 <li>
-<a href='#TransportPackages-Themanifest.phpfile'>The manifest.php file</a>
+<a href="#TransportPackages-Themanifest.phpfile">The manifest.php file</a>
 </li>
 
 <li>
-<a href='#TransportPackages-Okay%2CwhataretheseVehicles%3F'>Okay, what are these Vehicles?</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#TransportPackages-Okay%2CwhataretheseVehicles%3F">Okay, what are these Vehicles?</a>
 <ul>
 <li>
-<a href='#TransportPackages-InsideaVehicle%27sSource'>Inside a Vehicle's Source</a>
+<a href="#TransportPackages-InsideaVehicle%27sSource">Inside a Vehicle's Source</a>
 </li>
 </ul>
 </li>
@@ -33,33 +23,30 @@
 </li>
 
 <li>
-<a href='#TransportPackages-ResolversandValidators'>Resolvers and Validators</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#TransportPackages-ResolversandValidators">Resolvers and Validators</a>
 <ul>
 <li>
-<a href='#TransportPackages-AValidator'>A Validator</a>
+<a href="#TransportPackages-AValidator">A Validator</a>
 </li>
 
 <li>
-<a href='#TransportPackages-AResolver'>A Resolver</a>
+<a href="#TransportPackages-AResolver">A Resolver</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#TransportPackages-Usage'>Usage</a>
+<a href="#TransportPackages-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#TransportPackages-RelatedPages'>Related Pages</a>
+<a href="#TransportPackages-RelatedPages">Related Pages</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="TransportPackages-WhatisaTransportPackage%3F"></a>What is a Transport Package?
+<h2 id="TransportPackages-WhatisaTransportPackage?">
+What is a Transport Package?
 </h2>
 
 <p>
@@ -84,8 +71,8 @@ So, an example Transport Package might be "myextra-1.0-rc1.transport.zip". If yo
 Transport packages are stored in .zip files, ending with ".transport.zip". They can be uploaded and installed anywhere there is a MODx Revolution instance - regardless of the server configuration.
 </p>
 
-<h3>
-<a name="TransportPackages-TheInternalsofaTransportPackage" id="TransportPackages-TheInternalsofaTransportPackage"></a>The Internals of a Transport Package
+<h3 id="TransportPackages-TheInternalsofaTransportPackage">
+The Internals of a Transport Package
 </h3>
 
 <p>
@@ -104,8 +91,8 @@ MODx Revolution automatically "unpacks", or unzips, your transport packages for 
 It may also contain a "preserved.php" file, if the package is an upgrade from a prior package, which contains the metadata for the install to be restored. And finally, there might be a 'setup-options.php' file if the package has packaged one inside.
 </p>
 
-<h3>
-<a name="TransportPackages-Themanifest.phpfile" id="TransportPackages-Themanifest.phpfile"></a>The manifest.php file
+<h3 id="TransportPackages-Themanifest.phpfile">
+The manifest.php file
 </h3>
 
 <p>
@@ -114,24 +101,24 @@ The manifest basically stores all the relevant information for the package, incl
 
 <ul>
 <li>
-<b>manifest-version</b> - This tells us what version the manifest definition is. MODx uses it to determine how to interpret the manifest and make it easier for future MODx versions to be backwards-compatible.
+<strong>manifest-version</strong> - This tells us what version the manifest definition is. MODx uses it to determine how to interpret the manifest and make it easier for future MODx versions to be backwards-compatible.
 </li>
 </ul>
 
 <ul>
 <li>
-<b>manifest-attributes</b> - These are any custom attributes that were set on the package when it was being built. The most common are 'license', 'readme' and 'setup-options', which MODx interprets during install time.
+<strong>manifest-attributes</strong> - These are any custom attributes that were set on the package when it was being built. The most common are 'license', 'readme' and 'setup-options', which MODx interprets during install time.
 </li>
 </ul>
 
 <ul>
 <li>
-<b>manifest-vehicles</b> - These are the Vehicles metadata, in array format.
+<strong>manifest-vehicles</strong> - These are the Vehicles metadata, in array format.
 </li>
 </ul>
 
-<h3>
-<a name="TransportPackages-Okay%2CwhataretheseVehicles%3F"></a>Okay, what are these Vehicles?
+<h3 id="TransportPackages-Okay,whataretheseVehicles?">
+Okay, what are these Vehicles?
 </h3>
 
 <p>
@@ -152,31 +139,31 @@ In the 'manifest-vehicles' array, you'll see these keys for each vehicle:
 
 <ul>
 <li>
-<b>vehicle_package</b> - This tells us what type of package is holding these vehicles. Currently the only type is 'transport'.
+<strong>vehicle_package</strong> - This tells us what type of package is holding these vehicles. Currently the only type is 'transport'.
 </li>
 
 <li>
-<b>vehicle_class</b> - The class name of the type of Vehicle this is.
+<strong>vehicle_class</strong> - The class name of the type of Vehicle this is.
 </li>
 
 <li>
-<b>class</b> - The class name of the DB object being transported, or xPDOFileVehicle if it's a file vehicle.
+<strong>class</strong> - The class name of the DB object being transported, or xPDOFileVehicle if it's a file vehicle.
 </li>
 
 <li>
-<b>guid</b> - A randomly generated GUID for the vehicle.
+<strong>guid</strong> - A randomly generated GUID for the vehicle.
 </li>
 
 <li>
-<b>native_key</b> - If the vehicle is a database object, this will be its primary key by which it is identified.
+<strong>native_key</strong> - If the vehicle is a database object, this will be its primary key by which it is identified.
 </li>
 
 <li>
-<b>filename</b> - Where the vehicle's source file can be found within the transport package's folder.
+<strong>filename</strong> - Where the vehicle's source file can be found within the transport package's folder.
 </li>
 
 <li>
-<b>namespace</b> - Certain packages use the 'namespace' field to group vehicles and other objects to make them uniquely identifiable within a MODx installation.
+<strong>namespace</strong> - Certain packages use the 'namespace' field to group vehicles and other objects to make them uniquely identifiable within a MODx installation.
 </li>
 </ul>
 
@@ -184,8 +171,8 @@ In the 'manifest-vehicles' array, you'll see these keys for each vehicle:
 So now that we've seen what the vehicles represent in the manifest, let's open up a Vehicle by looking a filename and diving in.
 </p>
 
-<h4>
-<a name="TransportPackages-InsideaVehicle%27sSource"></a>Inside a Vehicle's Source
+<h4 id="TransportPackages-InsideaVehicle'sSource">
+Inside a Vehicle's Source
 </h4>
 
 <p>
@@ -198,35 +185,35 @@ Again, it looks like a big PHP array, with similar keys. It has some extra keys 
 
 <ul>
 <li>
-<b>class</b> - Similar to the manifest, the class type of the vehicle.
+<strong>class</strong> - Similar to the manifest, the class type of the vehicle.
 </li>
 
 <li>
-<b>object</b> - An array that contains the object information. For DB objects this will most likely be a JSON array representation of the DB table. For files, it will be a PHP array with the source, target and name of the vehicle.
+<strong>object</strong> - An array that contains the object information. For DB objects this will most likely be a JSON array representation of the DB table. For files, it will be a PHP array with the source, target and name of the vehicle.
 </li>
 
 <li>
-<b>vehicle_class</b> - Similar to the manifest, the class name of the vehicle.
+<strong>vehicle_class</strong> - Similar to the manifest, the class name of the vehicle.
 </li>
 
 <li>
-<b>vehicle_package</b> - Similar to the manifest, the transport type of the vehicle.
+<strong>vehicle_package</strong> - Similar to the manifest, the transport type of the vehicle.
 </li>
 
 <li>
-<b>guid</b> - Similar to the manifest, a unique identifier for the vehicle.
+<strong>guid</strong> - Similar to the manifest, a unique identifier for the vehicle.
 </li>
 
 <li>
-<b>package</b> - Only applicable to xPDOObjectVehicles, this will most likely be 'modx' or blank.
+<strong>package</strong> - Only applicable to xPDOObjectVehicles, this will most likely be 'modx' or blank.
 </li>
 
 <li>
-<b>signature</b> - The filename signature for this vehicle.
+<strong>signature</strong> - The filename signature for this vehicle.
 </li>
 
 <li>
-<b>native_key</b> - Similar to the manifest. If the vehicle is a database object, this will be its primary key by which it is identified.
+<strong>native_key</strong> - Similar to the manifest. If the vehicle is a database object, this will be its primary key by which it is identified.
 </li>
 </ul>
 
@@ -236,27 +223,27 @@ The xPDOObjectVehicle, or database vehicles, often have these extra keys:
 
 <ul>
 <li>
-<b>preserve_keys</b> - If true, the vehicle will try and preserve the primary key of the database record on install.
+<strong>preserve_keys</strong> - If true, the vehicle will try and preserve the primary key of the database record on install.
 </li>
 
 <li>
-<b>update_object</b> - If true, the vehicle will UPDATE the object if it's found already in the database during install. If false, it will be skipped.
+<strong>update_object</strong> - If true, the vehicle will UPDATE the object if it's found already in the database during install. If false, it will be skipped.
 </li>
 
 <li>
-<b>unique_key</b> - The column name by which the database object can be uniquely identified - often this is not the primary key, as auto-incrementing fields often do not match across different databases.
+<strong>unique_key</strong> - The column name by which the database object can be uniquely identified - often this is not the primary key, as auto-incrementing fields often do not match across different databases.
 </li>
 
 <li>
-<b>related_objects</b> - A complex array of any related objects to this vehicle's main database object. Sometimes, it may be necessary to package in "related" objects to achieve the desired end result. A great example is if the packager wants to put all of his Snippets in a Category. He would make the vehicle's object be the Category, and then add related objects - the snippets - to it.
+<strong>related_objects</strong> - A complex array of any related objects to this vehicle's main database object. Sometimes, it may be necessary to package in "related" objects to achieve the desired end result. A great example is if the packager wants to put all of his Snippets in a Category. He would make the vehicle's object be the Category, and then add related objects - the snippets - to it.
 </li>
 
 <li>
-<b>related_object_attributes</b> - The attributes for the above related objects.
+<strong>related_object_attributes</strong> - The attributes for the above related objects.
 </li>
 
 <li>
-<b>namespace</b> - Similar to the manifest; a grouping value for the objects in a transport package.
+<strong>namespace</strong> - Similar to the manifest; a grouping value for the objects in a transport package.
 </li>
 </ul>
 
@@ -266,11 +253,11 @@ There are also some optional ones, which may or may not be set:
 
 <ul>
 <li>
-<b>validate</b> - An array of arrays which contain validators, explained later.
+<strong>validate</strong> - An array of arrays which contain validators, explained later.
 </li>
 
 <li>
-<b>resolve</b> - An array of arrays which contain resolvers, explained later.
+<strong>resolve</strong> - An array of arrays which contain resolvers, explained later.
 </li>
 </ul>
 
@@ -278,16 +265,16 @@ There are also some optional ones, which may or may not be set:
 In xPDOFileVehicles, you will also see a directory with the same filename as the vehicle, minus the ".vehicle". If you open it, there will be the files for the vehicle.
 </p>
 
-<h2>
-<a name="TransportPackages-ResolversandValidators" id="TransportPackages-ResolversandValidators"></a>Resolvers and Validators
+<h2 id="TransportPackages-ResolversandValidators">
+Resolvers and Validators
 </h2>
 
 <p>
 What are resolvers and validators? Well, think of them like pre and post installation scripts. They are, in essence, PHP scripts. (In fact, if you open them up, they look exactly like PHP scripts.) They are named the same filename as the vehicle, but are postfixed with ".resolver" or ".validator".
 </p>
 
-<h3>
-<a name="TransportPackages-AValidator" id="TransportPackages-AValidator"></a>A Validator
+<h3 id="TransportPackages-AValidator">
+A Validator
 </h3>
 
 <p>
@@ -298,8 +285,8 @@ A validator is executed <em>before</em> the Vehicle is installed, upgraded or un
 They are useful for determining whether or not the Vehicle should still be installed, uninstalled or upgraded in the package process. For example - if you want to have dependencies and not have a Vehicle installed unless something else is found, a Validator would be a great place for it.
 </p>
 
-<h3>
-<a name="TransportPackages-AResolver" id="TransportPackages-AResolver"></a>A Resolver
+<h3 id="TransportPackages-AResolver">
+A Resolver
 </h3>
 
 <p>
@@ -310,8 +297,8 @@ Resolvers are executed <em>after</em> the Vehicle is installed, upgraded or unin
 Resolvers are useful for 'cleaning up' after a Vehicle is installed, or setting custom configuration options (such as ones setup in Setup Options during install).
 </p>
 
-<h2>
-<a name="TransportPackages-Usage" id="TransportPackages-Usage"></a>Usage
+<h2 id="TransportPackages-Usage">
+Usage
 </h2>
 
 <p>
@@ -334,8 +321,8 @@ Once downloaded, they can be installed by right-clicking a package in the grid, 
 Once installed, the user can uninstall the package at any time. Also, if the package was downloaded from a <a href="/display/revolution20/Providers" title="Providers">Transport Provider</a>, then the user can check for updates for the package.
 </p>
 
-<h2>
-<a name="TransportPackages-RelatedPages" id="TransportPackages-RelatedPages"></a>Related Pages
+<h2 id="TransportPackages-RelatedPages">
+Related Pages
 </h2>
 
 <ul>

@@ -1,446 +1,421 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Login.Login-WhatisLogin%3F'>What is Login?</a>
+<a href="#Login.Login-WhatisLogin%3F">What is Login?</a>
 </li>
 
 <li>
-<a href='#Login.Login-Usage'>Usage</a>
+<a href="#Login.Login-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#Login.Login-Properties'>Properties</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Login.Login-Properties">Properties</a>
 <ul>
 <li>
-<a href='#Login.Login-'></a>
+<a href="#Login.Login-"></a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Login.Login-OptionalProperties%28nonLogin%29'>Optional Properties (non Login)</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Login.Login-OptionalProperties%28nonLogin%29">Optional Properties (non Login)</a>
 <ul>
 <li>
-<a href='#Login.Login-tplTypeOptions'>tplType Options</a>
+<a href="#Login.Login-tplTypeOptions">tplType Options</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Login.Login-UsingreCaptcha'>Using reCaptcha</a>
+<a href="#Login.Login-UsingreCaptcha">Using reCaptcha</a>
 </li>
 
 <li>
-<a href='#Login.Login-Logout'>Logout</a>
+<a href="#Login.Login-Logout">Logout</a>
 </li>
 
 <li>
-<a href='#Login.Login-SeeAlso'>See Also</a>
+<a href="#Login.Login-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Login.Login-WhatisLogin%3F"></a>What is Login?
+<h2 id="Login.Login-WhatisLogin?">
+What is Login?
 </h2>
 
 <p>
 This component loads a simple login and logout form, and processes User authentication.
 </p>
 
-<h2>
-<a name="Login.Login-Usage" id="Login.Login-Usage"></a>Usage
+<h2 id="Login.Login-Usage">
+Usage
 </h2>
 
 <p>
 Example for Login:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Login]]
 </pre>
-</div>
-</div>
-
 <p>
 You can also specify the template, however make sure to call the &amp;tplType parameter also:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Login? &amp;tplType=`modChunk` &amp;loginTpl=`myLoginChunk`]]
 </pre>
-</div>
-</div>
-
 <p>
 See the snippet properties for more options.
 </p>
 
-<h2>
-<a name="Login.Login-Properties" id="Login.Login-Properties"></a>Properties
+<h2 id="Login.Login-Properties">
+Properties
 </h2>
 
 <p>
 Login comes with some configuration properties you can set to adjust the way Login behaves.
 </p>
 
-<div class='table-wrap'>
-<table id='TBL1376497247101' class='confluenceTable'>
+<table id="TBL1376497247015">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 actionKey
 </td>
-<td class='confluenceTd'>
+<td>
 The REQUEST variable that indicates what action to take. Defaults to 'service'. This is useful to change if you're already using the 'service' REQUEST variable in your website.
 </td>
-<td class='confluenceTd'>
+<td>
 service
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginKey
 </td>
-<td class='confluenceTd'>
+<td>
 The login action key. Defaults to 'login'. This tells Login to fire only if the <em>actionKey</em> property is set to this value. For example, if <em>actionKey</em> is set to 'service', and this is set to 'login', then the login processor will only fire if the request '&amp;service=login' is found.
 </td>
-<td class='confluenceTd'>
+<td>
 login
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutKey
 </td>
-<td class='confluenceTd'>
+<td>
 The logout action key. Defaults to 'logout'. This tells Login to fire only if the <em>actionKey</em> property is set to this value. For example, if <em>actionKey</em> is set to 'service', and this is set to 'logout', then the logout processor will only fire if the request '&amp;service=logout' is found.
 </td>
-<td class='confluenceTd'>
+<td>
 logout
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rememberMeKey
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. The field name of the Remember Me toggle to preserve login state. Defaults to "rememberme".
 </td>
-<td class='confluenceTd'>
+<td>
 rememberme
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplType
 </td>
-<td class='confluenceTd'>
+<td>
 The type of tpls being provided by loginTpl or logoutTpl. See the section below for the possible values.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 inline
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The login form tpl. May be the type specified by the <em>tplType</em> property.
 </td>
-<td class='confluenceTd'>
+<td>
 lgnLoginTpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The logout form tpl. May be the type specified by the <em>tplType</em> property
 </td>
-<td class='confluenceTd'>
+<td>
 lgnLogoutTpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 errTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The error message tpl. May be the type specified by the <em>errTplType</em> property.
 </td>
-<td class='confluenceTd'>
+<td>
 lgnErrTpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 errTplType
 </td>
-<td class='confluenceTd'>
+<td>
 The type of tpls being provided by errTpl.
 </td>
-<td class='confluenceTd'>
+<td>
 modChunk
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginResourceId
 </td>
-<td class='confluenceTd'>
+<td>
 The resource to direct users to on successful login. 0 will redirect to self. Leave out if using the default unauthorized page.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginResourceParams
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON object of parameters to append to the login redirection URL. Ex: {"test":123} translates to url.html?test=123
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutResourceId
 </td>
-<td class='confluenceTd'>
+<td>
 Resource ID to redirect to on successful logout. 0 will redirect to self.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutResourceParams
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON object of parameters to append to the logout redirection URL. Ex: {"test":123} translates to url.html?test=123
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginMsg
 </td>
-<td class='confluenceTd'>
+<td>
 Optional label message for login action. If blank, will default to lexicon string for Login.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutMsg
 </td>
-<td class='confluenceTd'>
+<td>
 Optional label message for logout action. If blank, will default to lexicon string for Logout.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 redirectToPrior
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will redirect to the referring page (HTTP_REFERER) on successful login.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 contexts
 </td>
-<td class='confluenceTd'>
+<td>
 (Experimental) A comma-separated list of contexts to log in to. Defaults to the current context if not explicitly set.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 preHooks
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of 'hooks', or Snippets, that will be executed before the user is registered but after validation. Also can specify 'recaptcha' as a hook.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 postHooks
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of 'hooks', or Snippets, that will be executed after the user is registered.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will set the output of the login snippet to a placeholder of this name rather than directly outputting the return contents.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<font color="#000000">redirectToOnFailedAuth</font>
+<td>
+redirectToOnFailedAuth
 </td>
-<td class='confluenceTd'>
-(<font color="#000000">1.6.4-pl &amp; +) redirects to a separate page on failed logins</font>
+<td>
+(1.6.4-pl &amp; +) redirects to a separate page on failed logins
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="Login.Login-" id="Login.Login-"></a>
+<h3 id="Login.Login-">
 </h3>
 
 <p>
-<a name="Login.Login-optionalProperties" id="Login.Login-optionalProperties"></a>
+<a id="Login.Login-optionalProperties"></a>
 </p>
 
-<h2>
-<a name="Login.Login-OptionalProperties%28nonLogin%29"></a>Optional Properties (non Login)
+<h2 id="Login.Login-OptionalProperties(nonLogin)">
+Optional Properties (non Login)
 </h2>
 
 <p>
 Helpful parameters which can facilitate Login.
 </p>
 
-<div class='table-wrap'>
-<table id='TBL1376497247102' class='confluenceTable'>
+<table id="TBL1376497247016">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 recaptchaHeight
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to modify the ReCaptcha iframe Height attribute size.
 </td>
-<td class='confluenceTd'>
+<td>
 300
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 recaptchaTheme
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to modify the ReCaptcha theme to 'red', 'white', 'blackglass', 'clean', or others as they are introduced by Google.
 </td>
-<td class='confluenceTd'>
+<td>
 clean
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 recaptchaWidth
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to modify the ReCaptcha iframe Width attribute size.
 </td>
-<td class='confluenceTd'>
+<td>
 500
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="Login.Login-tplTypeOptions" id="Login.Login-tplTypeOptions"></a>tplType Options
+<h3 id="Login.Login-tplTypeOptions">
+tplType Options
 </h3>
 
 <p>
@@ -465,22 +440,17 @@ The tplType and errTplType properties have a list of different options to choose
 </li>
 </ul>
 
-<h2>
-<a name="Login.Login-UsingreCaptcha" id="Login.Login-UsingreCaptcha"></a>Using reCaptcha
+<h2 id="Login.Login-UsingreCaptcha">
+Using reCaptcha
 </h2>
 
 <p>
 First off, make sure your `recaptcha.public_key` and `recaptcha.private_key` System Settings are set with your reCaptcha API keys. Then, to add it, all you have to do is add the "recaptcha" preHook to your snippet call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Login? &amp;preHooks=`recaptcha`]]
 </pre>
-</div>
-</div>
-
 <p>
 And make sure that the [[+login.recaptcha_html]] placeholder is in your loginTpl chunk. This will make reCaptcha be required for login.
 </p>
@@ -489,37 +459,110 @@ And make sure that the [[+login.recaptcha_html]] placeholder is in your loginTpl
 See <a href="#Login.Login-optionalProperties">See Optional Properties for ReCaptcha specific settings</a>
 </p>
 
-<h2>
-<a name="Login.Login-Logout" id="Login.Login-Logout"></a>Logout
+<h2 id="Login.Login-Logout">
+Logout
 </h2>
 
 <p>
-How do I log out? You simply call the page containing your <b>Login</b> snippet call and pass specify 'logout' as the service via the URL. In this example, the Login snippet is contained on page 21:
+How do I log out? You simply call the page containing your <strong>Login</strong> snippet call and pass specify 'logout' as the service via the URL. In this example, the Login snippet is contained on page 21:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a href=<span class="code-quote">"[[~21? &amp;service=logout]]"</span> title=<span class="code-quote">"Logout"</span>&gt;Logout&lt;/a&gt;
+<pre class="brush: php">
+&lt;a href="[[~21? &amp;service=logout]]" title="Logout"&gt;Logout&lt;/a&gt;
 (which automatically appends '&amp;service=logout' to your URL)
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Login.Login-SeeAlso" id="Login.Login-SeeAlso"></a>See Also
+<h2 id="Login.Login-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Login.Login">Login.Login</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="11862026" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042888" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FLogin.Login" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11042888" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Login.Profile">Login.Profile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.UpdateProfile">Login.UpdateProfile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Register">Login.Register</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Register.Example+Form+1">Register.Example Form 1</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ConfirmRegister">Login.ConfirmRegister</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ForgotPassword">Login.ForgotPassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ResetPassword">Login.ResetPassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ChangePassword">Login.ChangePassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Tutorials">Login.Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Login.Basic+Setup">Login.Basic Setup</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Extended+User+Profiles">Login.Extended User Profiles</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Request+Membership">Login.Request Membership</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.User+Profiles">Login.User Profiles</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Using+Custom+Fields">Login.Using Custom Fields</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Using+Pre+and+Post+Hooks">Login.Using Pre and Post Hooks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Roadmap">Login.Roadmap</a>
+</li>
+</ol>
+
+<p>
+See also the documentation on <a href="/display/revolution20/Making+Member-Only+Pages" title="Making Member-Only Pages">Making Member-Only Pages</a>
+</p>
+
+<p>
+I have made a second context for a login part.. setupped all necessary things like rights etc.
+</p>
+
+<p>
+I want to have the homepage secured, so bind it to the resource group and in my context I set the "unauthorized_page" to the ID of the resource where the login is located. This doesn't work!! Because the homepage is the "site_start" I think, this one can't be secured (as I think)... What I find out is that I get a 404 header response I added "error_page" setting with the same ID of the unauthorized page and now it works like a charm.
+</p>
+
+<p>
+Besides that, I use a plugin to switch context based on the http_host. Because of this, on the submit Login thinks we're on "web" and don't logs in the user. I need to add &amp;contexts=`web,login` to get that working too..&nbsp;
+</p>
+
+<p>
+At the end it all works, but thought I can share this with others ;-)
+</p>

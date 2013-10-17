@@ -1,57 +1,36 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#TemplateVariables-WhatisaTemplateVariable%3F'>What is a Template Variable?</a>
+<a href="#TemplateVariables-WhatisaTemplateVariable%3F">What is a Template Variable?</a>
 </li>
 
 <li>
-<a href='#TemplateVariables-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#TemplateVariables-Usage">Usage</a>
 <ul>
 <li>
-<a href='#TemplateVariables-AdvancedUsage'>Advanced Usage</a>
+<a href="#TemplateVariables-AdvancedUsage">Advanced Usage</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#TemplateVariables-SeeAlso'>See Also</a>
+<a href="#TemplateVariables-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="TemplateVariables-WhatisaTemplateVariable%3F"></a>What is a Template Variable?
+<h2 id="TemplateVariables-WhatisaTemplateVariable?">
+What is a Template Variable?
 </h2>
 
 <p>
-<b>A Template Variable (TV) is a custom field</b>, or more specifically it is custom field for a MODx Resource. TVs are used to extend the default attributes available for a Resource (e.g. for a Page or WebLink). A normal MODx Resource has a certain number of default fields: pagetitle, content, description, etc. If you need to add some custom fields to your pages, e.g. a second content area or a dropdown list of month names, or any other bit of custom data, you do this by adding a Template Variable to your template. MODx allows you to have a virtually unlimited number of TVs.
+<strong>A Template Variable (TV) is a custom field</strong>, or more specifically it is custom field for a MODx Resource. TVs are used to extend the default attributes available for a Resource (e.g. for a Page or WebLink). A normal MODx Resource has a certain number of default fields: pagetitle, content, description, etc. If you need to add some custom fields to your pages, e.g. a second content area or a dropdown list of month names, or any other bit of custom data, you do this by adding a Template Variable to your template. MODx allows you to have a virtually unlimited number of TVs.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Why is it called a Template Variable</b>
+<div class="note">
+<strong>Why is it called a Template Variable</strong>
 <br />
-Other content management systems call these simply "Custom Fields", so why does MODx call these "Template Variables"? Well, any time you have customized content, you will also have customized templates. Your MODx templates already have placeholders for <b>content</b> or <b>longtitle</b> because those are the built-in fields for a standard MODx "page": the information and the template used to display that information go hand in hand. If you have a manager form with a field for entering a special date, then it stands to reason that your HTML template that you use to display that page would also have a bit dedicated to displaying that date. Likewise, you wouldn't build HTML templates with divs and tables for formatting bits of data unless the manager offered some way to edit that data. So the content is inexorably tied to the template, thus the name <b>Template Variable</b>.
-</td>
-</tr>
-</table>
+Other content management systems call these simply "Custom Fields", so why does MODx call these "Template Variables"? Well, any time you have customized content, you will also have customized templates. Your MODx templates already have placeholders for <strong>content</strong> or <strong>longtitle</strong> because those are the built-in fields for a standard MODx "page": the information and the template used to display that information go hand in hand. If you have a manager form with a field for entering a special date, then it stands to reason that your HTML template that you use to display that page would also have a bit dedicated to displaying that date. Likewise, you wouldn't build HTML templates with divs and tables for formatting bits of data unless the manager offered some way to edit that data. So the content is inexorably tied to the template, thus the name <strong>Template Variable</strong>.
 </div>
 
 <p>
@@ -62,42 +41,23 @@ When a <a href="/display/revolution20/Resources" title="Resources">Resource</a> 
 Template Variable Output Filters make it easier for users to add special visual effects to their web sites. With just a few clicks you can add an Image, URL or custom render to your website.
 </p>
 
-<h2>
-<a name="TemplateVariables-Usage"></a>Usage
+<h2 id="TemplateVariables-Usage">
+Usage
 </h2>
 
 <p>
 Let's say we have a TV named 'bio', that is a textarea TV that we've created. We've assigned it to our 'Biography Pages' Template, and want to show it on our page. To do so, we'd simply place this tag into our templates:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*bio]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 To add a TV to a page, you have to think back to its template (these are <em>Template</em> variables, remember?). Make sure you've defined the TV and attached it to the template that you're using. See the page on <a href="/display/revolution20/Creating+a+Template+Variable" title="Creating a Template Variable">Creating a Template Variable</a>.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="TemplateVariables-AdvancedUsage"></a>Advanced Usage
+<h3 id="TemplateVariables-AdvancedUsage">
+Advanced Usage
 </h3>
 
 <p>
@@ -114,14 +74,9 @@ Hello [[+name]], you have [[+messageCount]] messages.
 You could fill the data with the call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*intromsg?name=`George` &amp;messageCount=`123`]]
 </pre>
-</div>
-</div>
-
 <p>
 Which would output:
 </p>
@@ -136,28 +91,97 @@ Hello George, you have 123 messages.
 <a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">Output Filters</a> are also great tools to be applied to TVs. Say you wanted to limit a TV's output to 100 chars. You'd simply use the 'limit' output filter:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*bioMessage:limit=`100`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="TemplateVariables-SeeAlso"></a>See Also
+<h2 id="TemplateVariables-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Creating+a+Template+Variable">Creating a Template Variable</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678062" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678062" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FTemplate%2BVariables" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678062" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Bindings">Bindings</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/CHUNK+Binding">CHUNK Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/DIRECTORY+Binding">DIRECTORY Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/EVAL+Binding">EVAL Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/FILE+Binding">FILE Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/INHERIT+Binding">INHERIT Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/RESOURCE+Binding">RESOURCE Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/SELECT+Binding">SELECT Binding</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Template+Variable+Input+Types">Template Variable Input Types</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Template+Variable+Output+Types">Template Variable Output Types</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Date+TV+Output+Type">Date TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Delimiter+TV+Output+Type">Delimiter TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/HTML+Tag+TV+Output+Type">HTML Tag TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Image+TV+Output+Type">Image TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/URL+TV+Output+Type">URL TV Output Type</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Adding+a+Custom+TV+Type+-+MODX+2.2">Adding a Custom TV Type - MODX 2.2</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Adding+a+Custom+TV+Input+Type">Adding a Custom TV Input Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Adding+a+Custom+TV+Output+Type">Adding a Custom TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Creating+a+multi-select+box+for+related+pages+in+your+template">Creating a multi-select box for related pages in your template</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Accessing+Template+Variable+Values+via+the+API">Accessing Template Variable Values via the API</a>
+</li>
+</ol>

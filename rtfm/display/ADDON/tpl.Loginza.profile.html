@@ -1,91 +1,86 @@
 <div>
 <ul>
 <li>
-<a href='#tpl.Loginza.profile-Description'>Description</a>
+<a href="#tpl.Loginza.profile-Description">Description</a>
 </li>
 
 <li>
-<a href='#tpl.Loginza.profile-Placeholders'>Placeholders</a>
+<a href="#tpl.Loginza.profile-Placeholders">Placeholders</a>
 </li>
 
 <li>
-<a href='#tpl.Loginza.profile-SeeAlso'>See Also</a>
+<a href="#tpl.Loginza.profile-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="tpl.Loginza.profile-Description" id="tpl.Loginza.profile-Description"></a>Description
+<h2 id="tpl.Loginza.profile-Description">
+Description
 </h2>
 
 <p>
 Chunk for display and edit user profile.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;form action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span> class=<span class="code-quote">"form-horizontal"</span>&gt;
-        &lt;div class=<span class="code-quote">"control-group[[+error.username:notempty=` error`]]"</span>&gt;
-                &lt;label class=<span class="code-quote">"control-label"</span>&gt;???&lt;/label&gt;
-                &lt;div class=<span class="code-quote">"controls"</span>&gt;
-                        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"username"</span> value=<span class="code-quote">"[[+username]]"</span> /&gt;
-                        &lt;span class=<span class="code-quote">"help-inline"</span>&gt;[[+error.username]]&lt;/span&gt;
+<pre class="brush: php">
+&lt;form action="[[~[[*id]]]]" method="post" class="form-horizontal"&gt;
+        &lt;div class="control-group[[+error.username:notempty=` error`]]"&gt;
+                &lt;label class="control-label"&gt;???&lt;/label&gt;
+                &lt;div class="controls"&gt;
+                        &lt;input type="text" name="username" value="[[+username]]" /&gt;
+                        &lt;span class="help-inline"&gt;[[+error.username]]&lt;/span&gt;
                 &lt;/div&gt;
         &lt;/div&gt;
 
-        &lt;div class=<span class="code-quote">"control-group[[+error.fullname:notempty=` error`]]"</span>&gt;
-                &lt;label class=<span class="code-quote">"control-label"</span>&gt;?????? ???&lt;/label&gt;
-                &lt;div class=<span class="code-quote">"controls"</span>&gt;
-                        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"fullname"</span> value=<span class="code-quote">"[[+fullname]]"</span> /&gt;
-                        &lt;span class=<span class="code-quote">"help-inline"</span>&gt;[[+error.fullname]]&lt;/span&gt;
+        &lt;div class="control-group[[+error.fullname:notempty=` error`]]"&gt;
+                &lt;label class="control-label"&gt;?????? ???&lt;/label&gt;
+                &lt;div class="controls"&gt;
+                        &lt;input type="text" name="fullname" value="[[+fullname]]" /&gt;
+                        &lt;span class="help-inline"&gt;[[+error.fullname]]&lt;/span&gt;
                 &lt;/div&gt;
         &lt;/div&gt;
 
-        &lt;div class=<span class="code-quote">"control-group[[+error.email:notempty=` error`]]"</span>&gt;
-                &lt;label class=<span class="code-quote">"control-label"</span>&gt;Email&lt;/label&gt;
-                &lt;div class=<span class="code-quote">"controls"</span>&gt;
-                        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"email"</span> value=<span class="code-quote">"[[+email]]"</span> /&gt;
-                        &lt;span class=<span class="code-quote">"help-inline"</span>&gt;[[+error.email]]&lt;/span&gt;
+        &lt;div class="control-group[[+error.email:notempty=` error`]]"&gt;
+                &lt;label class="control-label"&gt;Email&lt;/label&gt;
+                &lt;div class="controls"&gt;
+                        &lt;input type="text" name="email" value="[[+email]]" /&gt;
+                        &lt;span class="help-inline"&gt;[[+error.email]]&lt;/span&gt;
                 &lt;/div&gt;
         &lt;/div&gt;
-        &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"action"</span> value=<span class="code-quote">"updateProfile"</span> /&gt;
-        &lt;div class=<span class="code-quote">"form-actions"</span>&gt;
-                &lt;button type=<span class="code-quote">"submit"</span> class=<span class="code-quote">"btn btn-primary"</span>&gt;????????&lt;/button&gt;
+        &lt;input type="hidden" name="action" value="updateProfile" /&gt;
+        &lt;div class="form-actions"&gt;
+                &lt;button type="submit" class="btn btn-primary"&gt;????????&lt;/button&gt;
         &lt;/div&gt;
 &lt;/form&gt;
-[[+success:is=`1`:then=`&lt;div class=<span class="code-quote">"alert alert-block"</span>&gt;Profile was successfully updated&lt;/div&gt;`]]
-[[+success:is=`0`:then=`&lt;div class=<span class="code-quote">"alert alert-block alert-error"</span>&gt;Error on profile update&lt;/div&gt;`]]
+[[+success:is=`1`:then=`&lt;div class="alert alert-block"&gt;Profile was successfully updated&lt;/div&gt;`]]
+[[+success:is=`0`:then=`&lt;div class="alert alert-block alert-error"&gt;Error on profile update&lt;/div&gt;`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="tpl.Loginza.profile-Placeholders" id="tpl.Loginza.profile-Placeholders"></a>Placeholders
+<h2 id="tpl.Loginza.profile-Placeholders">
+Placeholders
 </h2>
 
 <p>
-<font color="#222222">Placeholders from modUser and modUserProfile.</font>
+Placeholders from modUser and modUserProfile.
 </p>
 
-<h2>
-<a name="tpl.Loginza.profile-SeeAlso" id="tpl.Loginza.profile-SeeAlso"></a>See Also
+<h2 id="tpl.Loginza.profile-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Loginza.Loginza">Loginza.Loginza</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="42565793" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="39355084" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2Ftpl.Loginza.profile" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="39355084" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/tpl.Loginza.login">tpl.Loginza.login</a>
+</li>
 
-<p>
-<br class="atl-forced-newline" />
-</p>
+<li>
+<a href="/display/ADDON/tpl.Loginza.logout">tpl.Loginza.logout</a>
+</li>
+
+<li>
+<a href="/display/ADDON/tpl.Loginza.profile">tpl.Loginza.profile</a>
+</li>
+</ol>

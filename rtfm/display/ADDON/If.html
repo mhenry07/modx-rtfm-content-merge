@@ -1,419 +1,374 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#If-WhatisIf%3F'>What is If?</a>
+<a href="#If-WhatisIf%3F">What is If?</a>
 </li>
 
 <li>
-<a href='#If-History'>History</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#If-History">History</a>
 <ul>
 <li>
-<a href='#If-Download'>Download</a>
+<a href="#If-Download">Download</a>
 </li>
 
 <li>
-<a href='#If-DevelopmentandBugReporting'>Development and Bug Reporting</a>
+<a href="#If-DevelopmentandBugReporting">Development and Bug Reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#If-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#If-Usage">Usage</a>
 <ul>
 <li>
-<a href='#If-AvailableProperties'>Available Properties</a>
+<a href="#If-AvailableProperties">Available Properties</a>
 </li>
 
 <li>
-<a href='#If-AvailableOperators'>Available Operators</a>
+<a href="#If-AvailableOperators">Available Operators</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#If-Examples'>Examples</a>
+<a href="#If-Examples">Examples</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="If-WhatisIf%3F"></a>What is If?
+<h2 id="If-WhatisIf?">
+What is If?
 </h2>
 
 <p>
 A logical conditional snippet that allows for conditionals in MODx.
 </p>
 
-<h2>
-<a name="If-History" id="If-History"></a>History
+<h2 id="If-History">
+History
 </h2>
 
 <p>
 If was written by Jason Coward (opengeek) and Shaun McCormick (splittingred) and first released on Oct 29th, 2009.
 </p>
 
-<h3>
-<a name="If-Download" id="If-Download"></a>Download
+<h3 id="If-Download">
+Download
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/600" class="external-link" rel="nofollow">http://modxcms.com/extras/package/600</a>
+It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/600">http://modxcms.com/extras/package/600</a>
 </p>
 
-<h3>
-<a name="If-DevelopmentandBugReporting" id="If-DevelopmentandBugReporting"></a>Development and Bug Reporting
+<h3 id="If-DevelopmentandBugReporting">
+Development and Bug Reporting
 </h3>
 
 <p>
-If is stored and developed in GitHub, and can be found here:<a href="http://github.com/splittingred/If" class="external-link" rel="nofollow">http://github.com/splittingred/If</a>
+If is stored and developed in GitHub, and can be found here:<a href="http://github.com/splittingred/If">http://github.com/splittingred/If</a>
 </p>
 
 <p>
-Bugs can be filed here: <a href="http://github.com/splittingred/If/issues" class="external-link" rel="nofollow">http://github.com/splittingred/If/issues</a>
+Bugs can be filed here: <a href="http://github.com/splittingred/If/issues">http://github.com/splittingred/If/issues</a>
 </p>
 
-<h2>
-<a name="If-Usage" id="If-Usage"></a>Usage
+<h2 id="If-Usage">
+Usage
 </h2>
 
 <p>
 The If snippet can be called using the tags:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[If]]
 </pre>
-</div>
-</div>
-
 <p>
 or, in case your subject can be modified before the resource cache get cleared use the uncached syntax:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!If]]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="If-AvailableProperties" id="If-AvailableProperties"></a>Available Properties
+<h3 id="If-AvailableProperties">
+Available Properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 subject
 </td>
-<td class='confluenceTd'>
+<td>
 The value to perform the conditional on.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 operator
 </td>
-<td class='confluenceTd'>
+<td>
 The operator to compare the subject against.
 </td>
-<td class='confluenceTd'>
+<td>
 =
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 operand
 </td>
-<td class='confluenceTd'>
+<td>
 If needed, the value to compare the subject against using the operator.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 then
 </td>
-<td class='confluenceTd'>
+<td>
 If the condition is true, output this.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 else
 </td>
-<td class='confluenceTd'>
+<td>
 If the condition is false, output this.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 debug
 </td>
-<td class='confluenceTd'>
+<td>
 If true, print out all the passed properties.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 die
 </td>
-<td class='confluenceTd'>
+<td>
 If debug and this is true, die() after printing the properties.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="If-AvailableOperators" id="If-AvailableOperators"></a>Available Operators
+<h3 id="If-AvailableOperators">
+Available Operators
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Operator
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 !=,neq,not,isnot,isnt,unequal,notequal
 </td>
-<td class='confluenceTd'>
+<td>
 Passes if the subject is unequal to the operand.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ==,=,eq,is,equal,equals,equalto
 </td>
-<td class='confluenceTd'>
+<td>
 Passes if the subject is equal to the operand.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &lt;,lt,less,lessthan
 </td>
-<td class='confluenceTd'>
+<td>
 Passes if the subject is less than the operand.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &gt;,gt,greater,greaterthan
 </td>
-<td class='confluenceTd'>
+<td>
 Passes if the subject is greater than the operand.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &lt;=,lte,lessthanequals,lessthanorequalto
 </td>
-<td class='confluenceTd'>
+<td>
 Passes if the subject is less than or equal to the operand.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &gt;=,gte,greaterthanequals,greaterthanequalto
 </td>
-<td class='confluenceTd'>
+<td>
 Passes if the subject is greater than or equal to the operand.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isempty,empty
 </td>
-<td class='confluenceTd'>
+<td>
 Passes if the subject is empty.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 !empty,notempty,isnotempty
 </td>
-<td class='confluenceTd'>
+<td>
 Passes if the subject is not empty.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isnull,null
 </td>
-<td class='confluenceTd'>
+<td>
 Passes if the subject is null.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 inarray,in_array,ia
 </td>
-<td class='confluenceTd'>
+<td>
 Passes if the subject is found in the operand list. (comma-delimited string)
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="If-Examples" id="If-Examples"></a>Examples
+<h2 id="If-Examples">
+Examples
 </h2>
 
 <p>
 Numeric comparison:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!If? &amp;subject=`[[+total]]` &amp;<span class="code-keyword">operator</span>=`GT` &amp;operand=`3` &amp;then=`You have more than 3 items!`]]
+<pre class="brush: php">
+[[!If? &amp;subject=`[[+total]]` &amp;operator=`GT` &amp;operand=`3` &amp;then=`You have more than 3 items!`]]
 </pre>
-</div>
-</div>
-
 <p>
 String comparison:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!If?
    &amp;subject=`[[+name]]`
-   &amp;<span class="code-keyword">operator</span>=`EQ`
+   &amp;operator=`EQ`
    &amp;operand=`George`
-   &amp;then=`Hey George! <span class="code-object">Long</span> time no see!`
-   &amp;<span class="code-keyword">else</span>=`You're not George. Go away.`
+   &amp;then=`Hey George! Long time no see!`
+   &amp;else=`You're not George. Go away.`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 Inline snippet calls:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!If?
    &amp;subject=`[[+modx.user.id]]`
-   &amp;<span class="code-keyword">operator</span>=`EQ`
+   &amp;operator=`EQ`
    &amp;operand=`0`
    &amp;then=`[[Login]]`
-   &amp;<span class="code-keyword">else</span>=`[[Logout]]`
+   &amp;else=`[[Logout]]`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
-When using the If snippet for checking a resource field or template variable (or other value that doesn't change before the cache does), be sure to use the <b>cached</b> snippet call to check the condition to make sure it doesn't need to process on every request.
+When using the If snippet for checking a resource field or template variable (or other value that doesn't change before the cache does), be sure to use the <strong>cached</strong> snippet call to check the condition to make sure it doesn't need to process on every request.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[If?
    &amp;subject=`[[*hidemenu]]`
-   &amp;<span class="code-keyword">operator</span>=`EQ`
+   &amp;operator=`EQ`
    &amp;operand=`1`
    &amp;then=`This resource is not visible in the menu.`
-   &amp;<span class="code-keyword">else</span>=`This resource shows up in the menu in spot [[*menuindex]].`
+   &amp;else=`This resource shows up in the menu in spot [[*menuindex]].`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 As requested an example with inarray.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[If?
    &amp;subject=`[[*id]]`
-   &amp;<span class="code-keyword">operator</span>=`inarray`
+   &amp;operator=`inarray`
    &amp;operand=`3,4`
-   &amp;then=`This text will show <span class="code-keyword">if</span> id is 3 or 4.`
-   &amp;<span class="code-keyword">else</span>=`This text is printed <span class="code-keyword">for</span> all other resource id's.`
+   &amp;then=`This text will show if id is 3 or 4.`
+   &amp;else=`This text is printed for all other resource id's.`
 ]]
 </pre>
-</div>
-</div>
+<p>
+<br />
+</p>
 
 <p>
-<br class="atl-forced-newline" />
+It would be great if someone can add example for in_array operator. Thx.
 </p>

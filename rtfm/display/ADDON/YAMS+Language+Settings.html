@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,265 +13,261 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMSLanguageSettings-YAMSLanguageSettings"></a>YAMS Language Settings
+<h1 id="YAMSLanguageSettings-YAMSLanguageSettings">
+YAMS Language Settings
 </h1>
 
 <p>
 The following is a list of the parameters that can be configured for each language. These parameters are used to define the format of the URLs used for each language, to control access to the each language depending on user roles, and to provide language specific information that can be accessed within content using <a href="/display/ADDON/YAMS+Placeholders" title="YAMS Placeholders">YAMS Placeholders</a>.
 </p>
 
-<h2>
-<a name="YAMSLanguageSettings-MonolingualSettings"></a>Monolingual Settings
+<h2 id="YAMSLanguageSettings-MonolingualSettings">
+Monolingual Settings
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Corresponding Placeholders
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-MonoServerName"></a>Server Name
+<th>
+<a id="YAMSLanguageSettings-MonoServerName"></a>Server Name
 </th>
-<td class='confluenceTd'>
+<td>
 The server name to use for non-multilingual pages. Leave the field blank to accept the default server name, in which case the current server name will be shown in brackets.
 </td>
-<td class='confluenceTd'>
-<tt>(yams_server)</tt>
+<td>
+<code>(yams_server)</code>
 </td>
-<td class='confluenceTd'>
+<td>
 www.example.com
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-MonoSiteURL"></a>Site URL
+<th>
+<a id="YAMSLanguageSettings-MonoSiteURL"></a>Site URL
 </th>
-<td class='confluenceTd'>
+<td>
 The site URL for monolingual pages. This is output for your information and cannot be modified directly. It can by the same as one or more of the multilingual site URLs
 </td>
-<td class='confluenceTd'>
-<tt>(yams_site)</tt>
+<td>
+<code>(yams_site)</code>
 </td>
-<td class='confluenceTd'>
-<a href="http://www.example.com/" class="external-link" rel="nofollow">http://www.example.com/</a>
+<td>
+<a href="http://www.example.com/">http://www.example.com/</a>
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="YAMSLanguageSettings-MultilingualSettings"></a>Multilingual Settings
+<h2 id="YAMSLanguageSettings-MultilingualSettings">
+Multilingual Settings
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Corresponding Placeholders
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-LangID"></a>Lang ID
+<th>
+<a id="YAMSLanguageSettings-LangID"></a>Lang ID
 </th>
-<td class='confluenceTd'>
+<td>
 Used by YAMS to identify the language group. Alphanumeric characters, no spaces. The language code is typically used.
 </td>
-<td class='confluenceTd'>
-<tt>(yams_id)</tt>
+<td>
+<code>(yams_id)</code>
 </td>
-<td class='confluenceTd'>
+<td>
 en
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-Tags"></a>Tags
+<th>
+<a id="YAMSLanguageSettings-Tags"></a>Tags
 </th>
-<td class='confluenceTd'>
+<td>
 A comma separated list of language tags, in priority order, to be associated with this language group. eg: en-us,en-gb
 </td>
-<td class='confluenceTd'>
-<tt>(yams_tag)</tt>
+<td>
+<code>(yams_tag)</code>
 </td>
-<td class='confluenceTd'>
+<td>
 en
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-ServerName"></a>Server Name
+<th>
+<a id="YAMSLanguageSettings-ServerName"></a>Server Name
 </th>
-<td class='confluenceTd'>
+<td>
 The server/host name associated with the language group. Leave this field blank to accept the default server name, in which case the current server name will be shown in brackets.
 </td>
-<td class='confluenceTd'>
-<tt>(yams_server)</tt>
+<td>
+<code>(yams_server)</code>
 </td>
-<td class='confluenceTd'>
+<td>
 en.example.com
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-RootName"></a>Root Name
+<th>
+<a id="YAMSLanguageSettings-RootName"></a>Root Name
 </th>
-<td class='confluenceTd'>
+<td>
 A root folder name to be used with the language group. Can be left blank. Leave them all blank if language groups do not need to be distinguished by root folder name.
 </td>
-<td class='confluenceTd'>
-<tt>(yams_root)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_/root)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_root/)</tt>
+<td>
+<code>(yams_root)</code>
+<br />
+<code>(yams_/root)</code>
+<br />
+<code>(yams_root/)</code>
 </td>
-<td class='confluenceTd'>
+<td>
 en
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-SiteURL"></a>Site URL
+<th>
+<a id="YAMSLanguageSettings-SiteURL"></a>Site URL
 </th>
-<td class='confluenceTd'>
+<td>
 The site URL for the language group. This is output for your information and cannot be modified directly. It is formed from the server name and root name. Each language must have a unique site URL.
 </td>
-<td class='confluenceTd'>
-<tt>(yams_site)</tt>
+<td>
+<code>(yams_site)</code>
 </td>
-<td class='confluenceTd'>
-<a href="http://en.mysite.com/en/" class="external-link" rel="nofollow">http://en.mysite.com/en/</a>
+<td>
+<a href="http://en.mysite.com/en/">http://en.mysite.com/en/</a>
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-LanguageDirection"></a>Language Direction
+<th>
+<a id="YAMSLanguageSettings-LanguageDirection"></a>Language Direction
 </th>
-<td class='confluenceTd'>
+<td>
 The language direction.
 </td>
-<td class='confluenceTd'>
-<tt>(yams_dir)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_align)</tt>
+<td>
+<code>(yams_dir)</code>
+<br />
+<code>(yams_align)</code>
 </td>
-<td class='confluenceTd'>
-<tt>ltr</tt> or <tt>rtl</tt>
+<td>
+<code>ltr</code> or <code>rtl</code>
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-Roles"></a>Roles
+<th>
+<a id="YAMSLanguageSettings-Roles"></a>Roles
 </th>
-<td class='confluenceTd'>
+<td>
 A comma separated list of ids of manager roles that have permission to edit the language via the document interface. If a role id is prefixed by an exclamation mark (!) then all roles except the specified role have access. If no roles are specified then all roles have access. The YAMS ManagerManager rules are required for this to function.
 </td>
-<td class='confluenceTd'>
+<td>
 None
 </td>
-<td class='confluenceTd'>
+<td>
 1,2
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-MODxLanguageName"></a>MODx Language Name
+<th>
+<a id="YAMSLanguageSettings-MODxLanguageName"></a>MODx Language Name
 </th>
-<td class='confluenceTd'>
+<td>
 The corresponding MODx manager language. For use with snippets like ditto and eForm which accept a language parameter.
 </td>
-<td class='confluenceTd'>
-<tt>(yams_mname)</tt>
+<td>
+<code>(yams_mname)</code>
 </td>
-<td class='confluenceTd'>
+<td>
 english
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-SelectLanguageText"></a>Select Language Text
+<th>
+<a id="YAMSLanguageSettings-SelectLanguageText"></a>Select Language Text
 </th>
-<td class='confluenceTd'>
+<td>
 Text, written in the current language, to be used when presenting the user with a choice of languages.
 </td>
-<td class='confluenceTd'>
-<tt>(yams_choose)</tt>
+<td>
+<code>(yams_choose)</code>
 </td>
-<td class='confluenceTd'>
+<td>
 Choisir une langue
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-NameforlangId"></a>Name for <tt><em>langId</em></tt>
+<th>
+<a id="YAMSLanguageSettings-NameforlangId"></a>Name for <code><em>langId</em></code>
 </th>
-<td class='confluenceTd'>
-The name to use for the language group <tt><em>langId</em></tt> written in each language.
+<td>
+The name to use for the language group <code><em>langId</em></code> written in each language.
 </td>
-<td class='confluenceTd'>
-<tt>(yams_name)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_name_in_<em>langId</em>)</tt>
+<td>
+<code>(yams_name)</code>
+<br />
+<code>(yams_name_in_<em>langId</em>)</code>
 </td>
-<td class='confluenceTd'>
+<td>
 anglais
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<a name="YAMSLanguageSettings-Namefornew"></a>Name for new
+<th>
+<a id="YAMSLanguageSettings-Namefornew"></a>Name for new
 </th>
-<td class='confluenceTd'>
+<td>
 Used when adding a new language. The name to use for the new language group in its own language
 </td>
-<td class='confluenceTd'>
-<tt>(yams_name)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_name_in_<em>langId</em>)</tt>
+<td>
+<code>(yams_name)</code>
+<br />
+<code>(yams_name_in_<em>langId</em>)</code>
 </td>
-<td class='confluenceTd'>
+<td>
 Deutsch
 </td>
 </tr>
 </tbody>
 </table>
-</div>

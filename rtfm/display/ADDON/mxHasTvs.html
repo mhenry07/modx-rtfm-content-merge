@@ -1,143 +1,141 @@
-<h2>
-<a name="mxHasTvs-AboutmxHasTvs" id="mxHasTvs-AboutmxHasTvs"></a>About mxHasTvs
+<h2 id="mxHasTvs-AboutmxHasTvs">
+About mxHasTvs
 </h2>
 
 <p>
 mxHasTvs is used to return a value based on TV value for the resource (docid). This allows you to perform quick and efficient templates to avoid the pitfalls of conditional modifiers. Useful for complex UI (template, chunk, etc.) rules to switch rendering based on a resources Template Variable(TV) value. Allows a true and false string or empty to be returned based on any matching TV value being found.
 </p>
 
-<h2>
-<a name="mxHasTvs-Properties%3A"></a>Properties:
+<h2 id="mxHasTvs-Properties:">
+Properties:
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Parameter
 </th>
-<th class='confluenceTh'>
+<th>
 Type
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 @docid
 </td>
-<td class='confluenceTd'>
+<td>
 (int)
 </td>
-<td class='confluenceTd'>
+<td>
 The resource id to find TV values of
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 @tvIds
 </td>
-<td class='confluenceTd'>
+<td>
 (mixed)
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of TV Ids to find for the resource
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 @true
 </td>
-<td class='confluenceTd'>
+<td>
 (string)
 </td>
-<td class='confluenceTd'>
+<td>
 Optional; String which can be a chunk, snippet, or about any other value you want displayed if values found in TV-Ids objects, if not set then snippet will return 1 (one) as the response.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 @false
 </td>
-<td class='confluenceTd'>
+<td>
 (string)
 </td>
-<td class='confluenceTd'>
+<td>
 Optional; String you want to display when no matching TV values are found for the resource; can be an empty string. If not set then the snippet will return 0 (zero) as the response. (blank, null, '', default tv value)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 @forceTrueResource
 </td>
-<td class='confluenceTd'>
+<td>
 (mixed)
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of Resource Ids to force a true response on
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 @forceFalseResource
 </td>
-<td class='confluenceTd'>
+<td>
 (mixed)
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of Resource Ids to force a false response on
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 @forceTrueTemplate
 </td>
-<td class='confluenceTd'>
+<td>
 (mixed)
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of Template Ids to force a true response on
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 @forceFalseTemplate
 </td>
-<td class='confluenceTd'>
+<td>
 (mixed)
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of Template Ids to force a false response on
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 @forcePriorityResrouce
 </td>
-<td class='confluenceTd'>
+<td>
 (int)
 </td>
-<td class='confluenceTd'>
+<td>
 Use 1 (one), default, to have resource TV forced check first, or set to 0 (zero) to have the template forced TV check have priority.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="mxHasTvs-Example%3A"></a>Example:
+<h2 id="mxHasTvs-Example:">
+Example:
 </h2>
 
 <p>

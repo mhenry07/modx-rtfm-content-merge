@@ -1,66 +1,57 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Rowboat.Rowboat-TheRowboatSnippet'>The Rowboat Snippet</a>
+<a href="#Rowboat.Rowboat-TheRowboatSnippet">The Rowboat Snippet</a>
 </li>
 
 <li>
-<a href='#Rowboat.Rowboat-Usage'>Usage</a>
+<a href="#Rowboat.Rowboat-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#Rowboat.Rowboat-AvailableProperties'>Available Properties</a>
+<a href="#Rowboat.Rowboat-AvailableProperties">Available Properties</a>
 </li>
 
 <li>
-<a href='#Rowboat.Rowboat-tplChunkProperties'>tpl Chunk Properties</a>
+<a href="#Rowboat.Rowboat-tplChunkProperties">tpl Chunk Properties</a>
 </li>
 
 <li>
-<a href='#Rowboat.Rowboat-Examples'>Examples</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Rowboat.Rowboat-Examples">Examples</a>
 <ul>
 <li>
-<a href='#Rowboat.Rowboat-UsinggetPagewithRowboat'>Using getPage with Rowboat</a>
+<a href="#Rowboat.Rowboat-UsinggetPagewithRowboat">Using getPage with Rowboat</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Rowboat.Rowboat-Gotchas'>Gotchas</a>
+<a href="#Rowboat.Rowboat-Gotchas">Gotchas</a>
 </li>
 
 <li>
-<a href='#Rowboat.Rowboat-SeeAlso'>See Also</a>
+<a href="#Rowboat.Rowboat-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Rowboat.Rowboat-TheRowboatSnippet"></a>The Rowboat Snippet
+<h2 id="Rowboat.Rowboat-TheRowboatSnippet">
+The Rowboat Snippet
 </h2>
 
 <p>
 This snippet iterates across rows for any database table.
 </p>
 
-<h2>
-<a name="Rowboat.Rowboat-Usage"></a>Usage
+<h2 id="Rowboat.Rowboat-Usage">
+Usage
 </h2>
 
 <p>
 Display the first 10 Doodles in the modx_doodles table, sorted by name:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Rowboat?
    &amp;table=`modx_doodles`
    &amp;tpl=`myDoodle`
@@ -68,396 +59,342 @@ Display the first 10 Doodles in the modx_doodles table, sorted by name:
    &amp;sortBy=`name`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 Using the following Chunk, "myDoodle":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li id=<span class="code-quote">"doodle[[+id]]"</span>&gt;&lt;strong&gt;[[+name]]&lt;/strong&gt; - [[+description]]&lt;/li&gt;
+<pre class="brush: php">
+&lt;li id="doodle[[+id]]"&gt;&lt;strong&gt;[[+name]]&lt;/strong&gt; - [[+description]]&lt;/li&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Rowboat.Rowboat-AvailableProperties"></a>Available Properties
+<h2 id="Rowboat.Rowboat-AvailableProperties">
+Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table id='TBL1376497247114' class='confluenceTable'>
+<table id="TBL1376497247028">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 The Chunk to use for each row. If empty, will output an array of placeholders that are available.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 table
 </td>
-<td class='confluenceTd'>
+<td>
 Required. The table to grab records from.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 columns
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON object of columns and aliases for those columns to grab for the row. If not set, will grab all columns in the table.
 </td>
-<td class='confluenceTd'>
+<td>
 *
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 where
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON object for a where statement.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortBy
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will sort by this field.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortDir
 </td>
-<td class='confluenceTd'>
+<td>
 The direction to sort by.
 </td>
-<td class='confluenceTd'>
+<td>
 ASC
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 The number of rows to limit per call. Defaults to 10. Set to 0 to show all.
 </td>
-<td class='confluenceTd'>
+<td>
 10
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 offset
 </td>
-<td class='confluenceTd'>
+<td>
 The start index to begin with when limiting.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cacheResults
 </td>
-<td class='confluenceTd'>
+<td>
 If set to 1, will cache the results of the specific query.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cacheTime
 </td>
-<td class='confluenceTd'>
+<td>
 If cacheResults is set to 1, the number of seconds to cache the query for.
 </td>
-<td class='confluenceTd'>
+<td>
 3600
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 placeholderPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 The prefix to use when setting global placeholders, such as total.
 </td>
-<td class='confluenceTd'>
+<td>
 rowboat.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 outputSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 The separator between each user record.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. If set, will set the output to this placeholder and return empty.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 debug
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. If set to 1, will output a table of information about the generated query and results. Always leave at 0 for production sites.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Rowboat.Rowboat-tplChunkProperties"></a>tpl Chunk Properties
+<h2 id="Rowboat.Rowboat-tplChunkProperties">
+tpl Chunk Properties
 </h2>
 
 <p>
 In your &amp;tpl Chunk, you will have all the columns that you selected as properties, as well as:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 _idx
 </td>
-<td class='confluenceTd'>
+<td>
 The index of this row.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 _alt
 </td>
-<td class='confluenceTd'>
+<td>
 1 if is an even row, 0 if odd.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 _first
 </td>
-<td class='confluenceTd'>
+<td>
 If this row is the first of this paged result set, then this will be 1.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 _last
 </td>
-<td class='confluenceTd'>
+<td>
 If this row is the last of this paged result set, then this will be 1.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Rowboat.Rowboat-Examples"></a>Examples
+<h2 id="Rowboat.Rowboat-Examples">
+Examples
 </h2>
 
 <p>
 Grab top 10 Doodles, sorted by name, from modx_doodles that have "Test" in their name:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Rowboat?
    &amp;table=`modx_doodles`
    &amp;tpl=`myDoodle`
    &amp;limit=`10`
-   &amp;where=`{<span class="code-quote">"name:LIKE"</span>:<span class="code-quote">"%Test%"</span>}`
+   &amp;where=`{"name:LIKE":"%Test%"}`
    &amp;sortBy=`name`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 Grab only the id, name and description (with description aliased as "desc") columns from the above example: (note that non-aliased columns need a blank "" for the alias)
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Rowboat?
    &amp;table=`modx_doodles`
    &amp;tpl=`myDoodle`
-   &amp;columns=`{<span class="code-quote">"id"</span>:<span class="code-quote">"","</span>name<span class="code-quote">":"</span><span class="code-quote">","</span>description<span class="code-quote">":"</span>desc"}`
+   &amp;columns=`{"id":"","name":"","description":"desc"}`
    &amp;limit=`10`
-   &amp;where=`{<span class="code-quote">"name:LIKE"</span>:<span class="code-quote">"%Test%"</span>}`
+   &amp;where=`{"name:LIKE":"%Test%"}`
    &amp;sortBy=`name`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
-Grab 10 Doodles where description isn't empty <b>or</b> the name is "Test":
+Grab 10 Doodles where description isn't empty <strong>or</strong> the name is "Test":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Rowboat?
    &amp;table=`modx_doodles`
    &amp;tpl=`myDoodle`
    &amp;limit=`10`
-   &amp;where=`{<span class="code-quote">"description:!="</span>:<span class="code-quote">"","</span>OR:name<span class="code-quote">":"</span>Test"}`
+   &amp;where=`{"description:!=":"","OR:name":"Test"}`
    &amp;sortBy=`name`
 ]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 More to come shortly.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="Rowboat.Rowboat-UsinggetPagewithRowboat"></a>Using <a href="/display/ADDON/getPage" title="getPage">getPage</a> with Rowboat
+<h3 id="Rowboat.Rowboat-UsinggetPagewithRowboat">
+Using <a href="/display/ADDON/getPage" title="getPage">getPage</a> with Rowboat
 </h3>
 
 <p>
 It's pretty simple - just make sure to set the totalVar property in your getPage call as "rowboat.total", and have cache=`0` in the getPage call. For example, this will grab all doodles where the name contains "Fun", paginate them to 10 per page, and add page navigation:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getPage?
    &amp;element=`Rowboat`
    &amp;table=`modx_doodles`
    &amp;sortBy=`name`
-   &amp;where=`{<span class="code-quote">"name:LIKE"</span>:<span class="code-quote">"%Fun%"</span>}`
+   &amp;where=`{"name:LIKE":"%Fun%"}`
    &amp;totalVar=`rowboat.total`
    &amp;tpl=`myDoodle`
    &amp;cache=`0`
    &amp;limit=`10`
 ]]
-&lt;div class=<span class="code-quote">"paging"</span>&gt;
-&lt;ul class=<span class="code-quote">"pageList"</span>&gt;
+&lt;div class="paging"&gt;
+&lt;ul class="pageList"&gt;
   [[!+page.nav]]
 &lt;/ul&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Rowboat.Rowboat-Gotchas"></a>Gotchas
+<h2 id="Rowboat.Rowboat-Gotchas">
+Gotchas
 </h2>
 
 <p>
 Be careful about the &amp;columns argument: if you list a column that does not exist, the RowBoat Snippet call will return no results.
 </p>
 
-<h2>
-<a name="Rowboat.Rowboat-SeeAlso"></a>See Also
+<h2 id="Rowboat.Rowboat-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33947924" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="33947922" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FRowboat.Rowboat" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="33947922" />
-</fieldset>
-</fieldset>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Rowboat.Rowboat">Rowboat.Rowboat</a>
+</li>
+</ol>

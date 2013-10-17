@@ -1,63 +1,44 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDO.newQuery-xPDO%3A%3AnewQuery"></a>xPDO::newQuery
+<h2 id="xPDO.newQuery-xPDO::newQuery">
+xPDO::newQuery
 </h2>
 
 <p>
 Creates an new xPDOQuery for a specified xPDOObject class.
 </p>
 
-<h2>
-<a name="xPDO.newQuery-Syntax" id="xPDO.newQuery-Syntax"></a>Syntax
+<h2 id="xPDO.newQuery-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#newQuery" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/xPDO.html#newQuery</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#newQuery">http://api.modxcms.com/xpdo/xPDO.html#newQuery</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOQuery newQuery (string $class, [mixed $criteria = <span class="code-keyword">null</span>], [<span class="code-object">boolean</span>|integer $cacheFlag = <span class="code-keyword">true</span>])
+<pre class="brush: php">
+xPDOQuery newQuery (string $class, [mixed $criteria = null], [boolean|integer $cacheFlag = true])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.newQuery-Examples" id="xPDO.newQuery-Examples"></a>Examples
+<h2 id="xPDO.newQuery-Examples">
+Examples
 </h2>
 
 <p>
 Create a new Query for the Box object:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $xpdo-&gt;newQuery('Box');
 </pre>
-</div>
-</div>
-
 <p>
 Create a new Query for the Box object, but already add a WHERE clause limiting to Boxes with width greater than 10:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $xpdo-&gt;newQuery('Box',array(
    'width:&gt;' =&gt; 10,
 ));
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.newQuery-SeeAlso" id="xPDO.newQuery-SeeAlso"></a>See Also
+<h2 id="xPDO.newQuery-SeeAlso">
+See Also
 </h2>
 
 <ul>

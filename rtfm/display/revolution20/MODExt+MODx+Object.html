@@ -1,626 +1,559 @@
 <div>
 <ul>
 <li>
-<a href='#MODExtMODxObject-TheMODxJSObject'>The MODx JS Object</a>
+<a href="#MODExtMODxObject-TheMODxJSObject">The MODx JS Object</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-CustomClassVariables'>Custom Class Variables</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#MODExtMODxObject-CustomClassVariables">Custom Class Variables</a>
 <ul>
 <li>
-<a href='#MODExtMODxObject-MODx.request'>MODx.request</a>
+<a href="#MODExtMODxObject-MODx.request">MODx.request</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.config'>MODx.config</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#MODExtMODxObject-MODx.config">MODx.config</a>
 <ul>
 <li>
-<a href='#MODExtMODxObject-OtherVariables'>Other Variables</a>
+<a href="#MODExtMODxObject-OtherVariables">Other Variables</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.action'>MODx.action</a>
+<a href="#MODExtMODxObject-MODx.action">MODx.action</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.version'>MODx.version</a>
+<a href="#MODExtMODxObject-MODx.version">MODx.version</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.user'>MODx.user</a>
+<a href="#MODExtMODxObject-MODx.user">MODx.user</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.perm'>MODx.perm</a>
+<a href="#MODExtMODxObject-MODx.perm">MODx.perm</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-CustomMethods'>Custom Methods</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#MODExtMODxObject-CustomMethods">Custom Methods</a>
 <ul>
 <li>
-<a href='#MODExtMODxObject-MODx.load'>MODx.load</a>
+<a href="#MODExtMODxObject-MODx.load">MODx.load</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.clearCache'>MODx.clearCache</a>
+<a href="#MODExtMODxObject-MODx.clearCache">MODx.clearCache</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.releaseLock'>MODx.releaseLock</a>
+<a href="#MODExtMODxObject-MODx.releaseLock">MODx.releaseLock</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.sleep'>MODx.sleep</a>
+<a href="#MODExtMODxObject-MODx.sleep">MODx.sleep</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.logout'>MODx.logout</a>
+<a href="#MODExtMODxObject-MODx.logout">MODx.logout</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.loadHelpPane'>MODx.loadHelpPane</a>
+<a href="#MODExtMODxObject-MODx.loadHelpPane">MODx.loadHelpPane</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.preview'>MODx.preview</a>
+<a href="#MODExtMODxObject-MODx.preview">MODx.preview</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.isEmpty'>MODx.isEmpty</a>
+<a href="#MODExtMODxObject-MODx.isEmpty">MODx.isEmpty</a>
 </li>
 
 <li>
-<a href='#MODExtMODxObject-MODx.debug'>MODx.debug</a>
+<a href="#MODExtMODxObject-MODx.debug">MODx.debug</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="MODExtMODxObject-TheMODxJSObject" id="MODExtMODxObject-TheMODxJSObject"></a>The MODx JS Object
+<h2 id="MODExtMODxObject-TheMODxJSObject">
+The MODx JS Object
 </h2>
 
 <p>
 MODExt comes with a global MODx JS object on each manager page. This object has a few custom methods that can be executed from any custom manager page using MODExt, and also sets up some default settings and customizations.
 </p>
 
-<h2>
-<a name="MODExtMODxObject-CustomClassVariables" id="MODExtMODxObject-CustomClassVariables"></a>Custom Class Variables
+<h2 id="MODExtMODxObject-CustomClassVariables">
+Custom Class Variables
 </h2>
 
 <p>
 The following variables are accessible from the MODx JS object:
 </p>
 
-<h3>
-<a name="MODExtMODxObject-MODx.request" id="MODExtMODxObject-MODx.request"></a>MODx.request
+<h3 id="MODExtMODxObject-MODx.request">
+MODx.request
 </h3>
 
 <p>
 This is a JS object that contains all the current GET parameters for the page. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> id = MODx.request.id;
+<pre class="brush: php">
+var id = MODx.request.id;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="MODExtMODxObject-MODx.config" id="MODExtMODxObject-MODx.config"></a>MODx.config
+<h3 id="MODExtMODxObject-MODx.config">
+MODx.config
 </h3>
 
 <p>
 This object contains all the active System Settings in MODX by key:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> tpl = MODx.config.default_template;
+<pre class="brush: php">
+var tpl = MODx.config.default_template;
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="MODExtMODxObject-OtherVariables" id="MODExtMODxObject-OtherVariables"></a>Other Variables
+<h4 id="MODExtMODxObject-OtherVariables">
+Other Variables
 </h4>
 
 <p>
 There are a few other variables available on the MODx.config object that are not <a href="/display/revolution20/System+Settings" title="System Settings">System Settings</a>:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Key
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 base_url
 </td>
-<td class='confluenceTd'>
+<td>
 The base URL for the MODX site and/or active context.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 connectors_url
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to the connectors directory.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 manager_url
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to the manager.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 http_host
 </td>
-<td class='confluenceTd'>
+<td>
 The HTTP host variable for the active context.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 site_url
 </td>
-<td class='confluenceTd'>
+<td>
 The full Site URL for the active context.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 custom_resource_classes
 </td>
-<td class='confluenceTd'>
+<td>
 An array of custom Resource classes pulled from the System Setting custom_resource_classes
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="MODExtMODxObject-MODx.action" id="MODExtMODxObject-MODx.action"></a>MODx.action
+<h3 id="MODExtMODxObject-MODx.action">
+MODx.action
 </h3>
 
 <p>
 This object contains a map of all the modAction objects (or MODX manager controllers), mapped by their controller to their ID:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> actionId = MODx.action['resource/create'];
+<pre class="brush: php">
+var actionId = MODx.action['resource/create'];
 </pre>
-</div>
-</div>
-
 <p>
 As of MODX 2.2, the non-core Actions are prefixed with their namespace. Prior to 2.2 it would just be the action controller. For example a "controllers/index" action in a "mycomponent" namespace would be retrievable using the following in 2.2 and up:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> actionId = MODx.action['mycomponent:controllers/index'];
+<pre class="brush: php">
+var actionId = MODx.action['mycomponent:controllers/index'];
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="MODExtMODxObject-MODx.version" id="MODExtMODxObject-MODx.version"></a>MODx.version
+<h3 id="MODExtMODxObject-MODx.version">
+MODx.version
 </h3>
 
 <p>
 Contains MODX version information, with the following attributes:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Key
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 version
 </td>
-<td class='confluenceTd'>
+<td>
 2
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 major_version
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 minor_version
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 patch_level
 </td>
-<td class='confluenceTd'>
+<td>
 pl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 code_name
 </td>
-<td class='confluenceTd'>
+<td>
 Revolution
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 distro
 </td>
-<td class='confluenceTd'>
+<td>
 <input type="text" name="variableValues.traditional" size="12" onkeyup="updateOthers(this)" />&nbsp;<span class="templateparameter">(traditional)</span>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 full_version
 </td>
-<td class='confluenceTd'>
+<td>
 2.1.0-pl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 full_appname
 </td>
-<td class='confluenceTd'>
+<td>
 MODX Revolution 2.1.0-pl (traditional)
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> fv = MODx.version.full_version;
+<pre class="brush: php">
+var fv = MODx.version.full_version;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="MODExtMODxObject-MODx.user" id="MODExtMODxObject-MODx.user"></a>MODx.user
+<h3 id="MODExtMODxObject-MODx.user">
+MODx.user
 </h3>
 
 <p>
 This object will contain the two following properties for the currently logged-in manager user:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.user.id
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.user.username
 </td>
-<td class='confluenceTd'>
+<td>
 The username of the user.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> userId = MODx.user.id;
+<pre class="brush: php">
+var userId = MODx.user.id;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="MODExtMODxObject-MODx.perm" id="MODExtMODxObject-MODx.perm"></a>MODx.perm
+<h3 id="MODExtMODxObject-MODx.perm">
+MODx.perm
 </h3>
 
 <p>
 This will contain the following permissions should they be granted to the user (they will not exist if the user does not have the permission):
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.resource_tree
 </td>
-<td class='confluenceTd'>
+<td>
 To view the Resources tree.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.element_tree
 </td>
-<td class='confluenceTd'>
+<td>
 To view the Elements tree.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.file_tree
 </td>
-<td class='confluenceTd'>
+<td>
 To view the Files tree.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.file_upload
 </td>
-<td class='confluenceTd'>
+<td>
 To be able to upload files.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.file_manager
 </td>
-<td class='confluenceTd'>
+<td>
 To use the MODX file browser.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.new_chunk
 </td>
-<td class='confluenceTd'>
+<td>
 To create a new Chunk.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.new_plugin
 </td>
-<td class='confluenceTd'>
+<td>
 To create a new Plugin.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.new_snippet
 </td>
-<td class='confluenceTd'>
+<td>
 To create a new Snippet.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.new_template
 </td>
-<td class='confluenceTd'>
+<td>
 To create a new Template.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.new_tv
 </td>
-<td class='confluenceTd'>
+<td>
 To create a new Template Variable.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 MODx.perm.directory_create
 </td>
-<td class='confluenceTd'>
+<td>
 To be able to create a directory on the filesystem.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> (MODx.perm.file_upload) { /* ...code... */ }
+<pre class="brush: php">
+if (MODx.perm.file_upload) { /* ...code... */ }
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="MODExtMODxObject-CustomMethods" id="MODExtMODxObject-CustomMethods"></a>Custom Methods
+<h2 id="MODExtMODxObject-CustomMethods">
+Custom Methods
 </h2>
 
 <p>
 The MODx object also has quite a few custom methods available to it:
 </p>
 
-<h3>
-<a name="MODExtMODxObject-MODx.load" id="MODExtMODxObject-MODx.load"></a>MODx.load
+<h3 id="MODExtMODxObject-MODx.load">
+MODx.load
 </h3>
 
 <p>
 This method will create a new object of any specified xtype and passed in configuration parameters. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">var</span> w = MODx.load({
+<pre class="brush: php">
+var w = MODx.load({
   xtype: 'modx-window-namespace-create'
-  ,blankValues: <span class="code-keyword">true</span>
+  ,blankValues: true
 });
 w.setValues({ name: 'My Namespace' });
 w.show();
 </pre>
-</div>
-</div>
-
 <p>
 Any defined class that has a registered xtype can be loaded from this method.
 </p>
 
-<h3>
-<a name="MODExtMODxObject-MODx.clearCache" id="MODExtMODxObject-MODx.clearCache"></a>MODx.clearCache
+<h3 id="MODExtMODxObject-MODx.clearCache">
+MODx.clearCache
 </h3>
 
 <p>
 This fires up the console that clears the MODX cache. It will also fire the 'beforeClearCache' and 'afterClearCache' events on the MODx object. If the System Setting <a href="/display/revolution20/clear_cache_refresh_trees" title="clear_cache_refresh_trees">clear_cache_refresh_trees</a> is set to 1, it will also refresh all the active left-hand trees.
 </p>
 
-<h3>
-<a name="MODExtMODxObject-MODx.releaseLock" id="MODExtMODxObject-MODx.releaseLock"></a>MODx.releaseLock
+<h3 id="MODExtMODxObject-MODx.releaseLock">
+MODx.releaseLock
 </h3>
 
 <p>
 This will release the lock on the current active Resource. This method should not be fired on non-Resource editing pages. It will fire the 'beforeReleaseLocks' and 'afterReleaseLocks' events on the MODx object.
 </p>
 
-<h3>
-<a name="MODExtMODxObject-MODx.sleep" id="MODExtMODxObject-MODx.sleep"></a>MODx.sleep
+<h3 id="MODExtMODxObject-MODx.sleep">
+MODx.sleep
 </h3>
 
 <p>
 This method will cause JavaScript to sleep (or halt) for a specified number of seconds:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-MODx.sleep(3); /* sleep <span class="code-keyword">for</span> 3 seconds */
+<pre class="brush: php">
+MODx.sleep(3); /* sleep for 3 seconds */
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="MODExtMODxObject-MODx.logout" id="MODExtMODxObject-MODx.logout"></a>MODx.logout
+<h3 id="MODExtMODxObject-MODx.logout">
+MODx.logout
 </h3>
 
 <p>
 This method will automatically logout the active manager user. It fires the 'beforeLogout' and 'afterLogout' events on the MODx object. If both events are successful, it will then redirect the user to the login screen.
 </p>
 
-<h3>
-<a name="MODExtMODxObject-MODx.loadHelpPane" id="MODExtMODxObject-MODx.loadHelpPane"></a>MODx.loadHelpPane
+<h3 id="MODExtMODxObject-MODx.loadHelpPane">
+MODx.loadHelpPane
 </h3>
 
 <p>
 This will load the current Help screen for the active page. Normally this is set by default on the modAction record for the page, and its URL can be found by the MODx.config.help_url property. You can, however, override this to fire up any URL into the panel:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 /* show the modx.com site in the Help modal */
-MODx.config.help_url = 'http:<span class="code-comment">//modx.com/';
-</span>MODx.loadHelpPane();
+MODx.config.help_url = 'http://modx.com/';
+MODx.loadHelpPane();
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="MODExtMODxObject-MODx.preview" id="MODExtMODxObject-MODx.preview"></a>MODx.preview
+<h3 id="MODExtMODxObject-MODx.preview">
+MODx.preview
 </h3>
 
 <p>
 Loads the current MODX site for the active Context.
 </p>
 
-<h3>
-<a name="MODExtMODxObject-MODx.isEmpty" id="MODExtMODxObject-MODx.isEmpty"></a>MODx.isEmpty
+<h3 id="MODExtMODxObject-MODx.isEmpty">
+MODx.isEmpty
 </h3>
 
 <p>
@@ -644,8 +577,8 @@ Checks to see if the specified variable is "empty" (in the PHP sense). This mean
 </li>
 </ul>
 
-<h3>
-<a name="MODExtMODxObject-MODx.debug" id="MODExtMODxObject-MODx.debug"></a>MODx.debug
+<h3 id="MODExtMODxObject-MODx.debug">
+MODx.debug
 </h3>
 
 <p>

@@ -1,33 +1,24 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modX.sendRedirect-modX%3A%3AsendRedirect"></a>modX::sendRedirect
+<h2 id="modX.sendRedirect-modX::sendRedirect">
+modX::sendRedirect
 </h2>
 
 <p>
 Sends a redirect to the specified URL using the specified method.
 </p>
 
-<h2>
-<a name="modX.sendRedirect-" id="modX.sendRedirect-"></a><font color="#000000"><b>Syntax</b></font>
+<h2 id="modX.sendRedirect-">
+<strong>Syntax</strong>
 </h2>
 
 <p>
-API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::sendRedirect()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::sendRedirect()</a>
+API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::sendRedirect()">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::sendRedirect()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-void sendRedirect (string $url, [array $options = <span class="code-keyword">false</span>], [string $type = ''], [string $responseCode])
+<pre class="brush: php">
+void sendRedirect (string $url, [array $options = false], [string $type = ''], [string $responseCode])
 </pre>
-</div>
-</div>
-
 <p>
-Please note that the $type and $responseCode have been deprecated and will likely be removed in an upcoming release. <b>Do not rely on those</b>.
+Please note that the $type and $responseCode have been deprecated and will likely be removed in an upcoming release. <strong>Do not rely on those</strong>.
 </p>
 
 <p>
@@ -42,15 +33,15 @@ $options accepts an array with one or more of the following key/value pairs:
 <li>type, one of the following (REDIRECT_HEADER is the default):
 <ul>
 <li>
-<b>REDIRECT_REFRESH</b>&nbsp;- Uses the header refresh method
+<strong>REDIRECT_REFRESH</strong>&nbsp;- Uses the header refresh method
 </li>
 
 <li>
-<b>REDIRECT_META</b>&nbsp;- Sends a a META HTTP-EQUIV="Refresh" tag to the output
+<strong>REDIRECT_META</strong>&nbsp;- Sends a a META HTTP-EQUIV="Refresh" tag to the output
 </li>
 
 <li>
-<b>REDIRECT_HEADER</b>&nbsp;- Uses the header location method
+<strong>REDIRECT_HEADER</strong>&nbsp;- Uses the header location method
 </li>
 </ul>
 </li>
@@ -68,49 +59,34 @@ $type, which is deprecated and should not be used, is the same as the type $opti
 $responseCode, which is deprecated and should not be used, is the same as the responseCode $options array key.
 </p>
 
-<h2>
-<a name="modX.sendRedirect-Examples" id="modX.sendRedirect-Examples"></a>Examples
+<h2 id="modX.sendRedirect-Examples">
+Examples
 </h2>
 
 <p>
 Send a redirection request to the Resource with ID 54.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $url = $modx-&gt;makeUrl(54);
 $modx-&gt;sendRedirect($url);
 </pre>
-</div>
-</div>
-
 <p>
 Send a redirect to modx.com. Do so via the META HTTP-EQUIV refresh tag.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;sendRedirect('http:<span class="code-comment">//modx.com',array('type' =&gt; 'REDIRECT_META'));</span>
+<pre class="brush: php">
+$modx-&gt;sendRedirect('http://modx.com',array('type' =&gt; 'REDIRECT_META'));
 </pre>
-</div>
-</div>
-
 <p>
 Send a 301 Moved Permanently response code instead of the default 302 Moved Temporarily response code.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;sendRedirect('http:<span class="code-comment">//modx.com',array('responseCode' =&gt; 'HTTP/1.1 301 Moved Permanently'));</span>
+<pre class="brush: php">
+$modx-&gt;sendRedirect('http://modx.com',array('responseCode' =&gt; 'HTTP/1.1 301 Moved Permanently'));
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.sendRedirect-SeeAlso" id="modX.sendRedirect-SeeAlso"></a>See Also
+<h2 id="modX.sendRedirect-SeeAlso">
+See Also
 </h2>
 
 <ul>

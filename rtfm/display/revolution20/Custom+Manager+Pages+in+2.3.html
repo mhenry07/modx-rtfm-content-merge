@@ -1,41 +1,41 @@
 <div>
 <ul>
 <li>
-<a href='#CustomManagerPagesin2.3-SettingtheNamespacePath'>Setting the Namespace Path</a>
+<a href="#CustomManagerPagesin2.3-SettingtheNamespacePath">Setting the Namespace Path</a>
 </li>
 
 <li>
-<a href='#CustomManagerPagesin2.3-CreatingtheMenu'>Creating the Menu</a>
+<a href="#CustomManagerPagesin2.3-CreatingtheMenu">Creating the Menu</a>
 </li>
 
 <li>
-<a href='#CustomManagerPagesin2.3-CreatingtheControllerFile'>Creating the Controller File</a>
+<a href="#CustomManagerPagesin2.3-CreatingtheControllerFile">Creating the Controller File</a>
 </li>
 
 <li>
-<a href='#CustomManagerPagesin2.3-CreatingtheTemplateFile'>Creating the Template File</a>
+<a href="#CustomManagerPagesin2.3-CreatingtheTemplateFile">Creating the Template File</a>
 </li>
 
 <li>
-<a href='#CustomManagerPagesin2.3-We%27reFinished%5C%21'>We're Finished!</a>
+<a href="#CustomManagerPagesin2.3-We%27reFinished%5C%21">We're Finished!</a>
 </li>
 </ul>
 </div>
 
 <p>
-Creating MODX custom manager pages (CMPs) is <b>far</b> simpler in MODX Revolution 2.3 - you simply have to set a Namespace path, and then create PHP files. That's it.
+Creating MODX custom manager pages (CMPs) is <strong>far</strong> simpler in MODX Revolution 2.3 - you simply have to set a Namespace path, and then create PHP files. That's it.
 </p>
 
-<h2>
-<a name="CustomManagerPagesin2.3-SettingtheNamespacePath" id="CustomManagerPagesin2.3-SettingtheNamespacePath"></a>Setting the Namespace Path
+<h2 id="CustomManagerPagesin2.3-SettingtheNamespacePath">
+Setting the Namespace Path
 </h2>
 
 <p>
 First off, we'll create a Namespace called "mycmp", and set its path to "{core_path}components/mycmp/". Set its Assets Path to "{assets_path}components/mycmp/" as well.
 </p>
 
-<h2>
-<a name="CustomManagerPagesin2.3-CreatingtheMenu" id="CustomManagerPagesin2.3-CreatingtheMenu"></a>Creating the Menu
+<h2 id="CustomManagerPagesin2.3-CreatingtheMenu">
+Creating the Menu
 </h2>
 
 <p>
@@ -43,15 +43,15 @@ Now we'll need a Menu item to link to for our CMP. Go to System -&gt; Top Menu, 
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/39354402/mycmp1.png?version=1&amp;modificationDate=1334858685000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/39354402/mycmp1.png?version=1&amp;modificationDate=1334858685000" />
 </p>
 
 <p>
 As you can see, we're specifying the Namespace as "mycmp", and then the Action as "welcome". This means our default controller will be the "welcome" controller.
 </p>
 
-<h2>
-<a name="CustomManagerPagesin2.3-CreatingtheControllerFile" id="CustomManagerPagesin2.3-CreatingtheControllerFile"></a>Creating the Controller File
+<h2 id="CustomManagerPagesin2.3-CreatingtheControllerFile">
+Creating the Controller File
 </h2>
 
 <p>
@@ -62,29 +62,24 @@ Next, we'll go create the Controller file at {core_path}components/mycmp/control
 Now, on to the file contents:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-class MycmpWelcomeManagerController <span class="code-keyword">extends</span> modExtraManagerController {
-    <span class="code-keyword">public</span> function process(array $scriptProperties = array()) {}
-    <span class="code-keyword">public</span> function getPageTitle() {
-        <span class="code-keyword">return</span> 'My Test CMP';
+class MycmpWelcomeManagerController extends modExtraManagerController {
+    public function process(array $scriptProperties = array()) {}
+    public function getPageTitle() {
+        return 'My Test CMP';
     }
-    <span class="code-keyword">public</span> function getTemplateFile() {
-        <span class="code-keyword">return</span> 'welcome.tpl';
+    public function getTemplateFile() {
+        return 'welcome.tpl';
     }
 }
 </pre>
-</div>
-</div>
-
 <p>
 As you can see here, we're not doing any business logic, so we don't need to do anything in the process() method. We go ahead and set a page title for this CMP, and then tell MODX where to find our corresponding template file for this CMP. Note that your class name should begin with the name of your CMP followed by the corresponding action.
 </p>
 
-<h2>
-<a name="CustomManagerPagesin2.3-CreatingtheTemplateFile" id="CustomManagerPagesin2.3-CreatingtheTemplateFile"></a>Creating the Template File
+<h2 id="CustomManagerPagesin2.3-CreatingtheTemplateFile">
+Creating the Template File
 </h2>
 
 <p>
@@ -95,26 +90,21 @@ MODX uses Smarty templates for CMP pages. It will automatically look for them in
 Let's make the content simple:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"container"</span>&gt;
+<pre class="brush: php">
+&lt;div class="container"&gt;
 &lt;h2&gt;Welcome!&lt;/h2&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 A simple h2, with a wrapping div that adds some padding. And that will display this on our CMP:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/39354402/mycmp-final.png?version=1&amp;modificationDate=1334858848000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/39354402/mycmp-final.png?version=1&amp;modificationDate=1334858848000" />
 </p>
 
-<h2>
-<a name="CustomManagerPagesin2.3-We%27reFinished%5C%21"></a>We're Finished!
+<h2 id="CustomManagerPagesin2.3-We'reFinished\!">
+We're Finished!
 </h2>
 
 <p>

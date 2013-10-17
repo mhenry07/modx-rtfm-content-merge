@@ -1,62 +1,47 @@
 <p>
-<br class="atl-forced-newline" />
+<br />
 You have a choice when sharing a single database and manager across multiple domains. You can choose to use the primary front-end context (known as 'web') to handle all domains or you can create a unique gateway file for each domain to directly initialize a specific context. If you use a single gateway, you would use a plugin to switch contexts registered to the OnHandleRequest event, something like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-/* don't execute <span class="code-keyword">if</span> in the Manager */
-<span class="code-keyword">if</span> ($modx-&gt;context-&gt;get('key') == 'mgr') {
-        <span class="code-keyword">return</span>;
+/* don't execute if in the Manager */
+if ($modx-&gt;context-&gt;get('key') == 'mgr') {
+        return;
 }
 
-<span class="code-keyword">switch</span> ($_SERVER['HTTP_HOST']) {
-        <span class="code-keyword">case</span> 'domain2.tld':
-                <span class="code-comment">// <span class="code-keyword">if</span> the http_host is of a specific domain, <span class="code-keyword">switch</span> the context
-</span>         $modx-&gt;switchContext('domain2.tld');
-                <span class="code-keyword">break</span>;
-        <span class="code-keyword">case</span> 'domain3.tld':
-                <span class="code-comment">// <span class="code-keyword">if</span> the http_host is of a specific domain, <span class="code-keyword">switch</span> the context
-</span>         $modx-&gt;switchContext('domain3.tld');
-                <span class="code-keyword">break</span>;
-        <span class="code-keyword">default</span>:
-                <span class="code-comment">// by <span class="code-keyword">default</span>, don't <span class="code-keyword">do</span> anything
-</span>         <span class="code-keyword">break</span>;
+switch ($_SERVER['HTTP_HOST']) {
+        case 'domain2.tld':
+                // if the http_host is of a specific domain, switch the context
+                $modx-&gt;switchContext('domain2.tld');
+                break;
+        case 'domain3.tld':
+                // if the http_host is of a specific domain, switch the context
+                $modx-&gt;switchContext('domain3.tld');
+                break;
+        default:
+                // by default, don't do anything
+                break;
 }
 ?&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Alternatively, you would simply copy the index.php file from the default web context (along with the core.config.php and .htaccess for rewrite rules altered appropriately) to another directory and change the line
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;initialize('web');
 </pre>
-</div>
-</div>
-
 <p>
 to
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;initialize('aContextNameOfYourChoice');
 </pre>
-</div>
-</div>
-
 <p>
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 </p>
 
 <p>
@@ -65,4 +50,10 @@ Note that you could also just copy the index.php in the same directory and renam
 
 <p>
 You can also still use a custom core location in either of these scenarios; this is independent of the context-driven multi-site capabilities.
+</p>
+
+<p>
+Checkout the GatewayManager component
+<br />
+<a href="http://rtfm.modx.com/display/ADDON/GatewayManager">http://rtfm.modx.com/display/ADDON/GatewayManager</a>
 </p>

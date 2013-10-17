@@ -1,31 +1,22 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDO.loadClass-xPDO%3A%3AloadClass"></a>xPDO::loadClass
+<h2 id="xPDO.loadClass-xPDO::loadClass">
+xPDO::loadClass
 </h2>
 
 <p>
-Include a class by fully qualified name. This is a handy way to perform an <tt>include_once</tt> operation to include a <tt>.class.php</tt> file. If the file is not found, <tt>false</tt> is returned and a warning is logged. This only includes the class: it does not instantiate an instance of it.
+Include a class by fully qualified name. This is a handy way to perform an <code>include_once</code> operation to include a <code>.class.php</code> file. If the file is not found, <code>false</code> is returned and a warning is logged. This only includes the class: it does not instantiate an instance of it.
 </p>
 
-<h2>
-<a name="xPDO.loadClass-Syntax"></a>Syntax
+<h2 id="xPDO.loadClass-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modx.com/xpdo/xPDO.html#loadClass" class="external-link" rel="nofollow">http://api.modx.com/xpdo/xPDO.html#loadClass</a>
+API Docs: <a href="http://api.modx.com/xpdo/xPDO.html#loadClass">http://api.modx.com/xpdo/xPDO.html#loadClass</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-string|<span class="code-object">boolean</span> loadClass (string $fqn, [ $path = ''], [ $ignorePkg = <span class="code-keyword">false</span>], [ $<span class="code-keyword">transient</span> = <span class="code-keyword">false</span>])
+<pre class="brush: php">
+string|boolean loadClass (string $fqn, [ $path = ''], [ $ignorePkg = false], [ $transient = false])
 </pre>
-</div>
-</div>
-
 <p>
 The $fqn (fully qualified name) should in the format:
 </p>
@@ -46,66 +37,42 @@ XPDO_CORE_PATH/om/dir_a/dir_b/dir_c/dbtype/classname.class.php
 </p>
 </blockquote>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Hint</b>
+<div class="tip">
+<strong>Hint</strong>
 <br />
 
 <ul>
-<li>The file name you are including must include <b>.class.php</b> as its extension.
+<li>The file name you are including must include <strong>.class.php</strong> as its extension.
 </li>
 
 <li>The path to your model must end in a trailing slash!
 </li>
 </ul>
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="xPDO.loadClass-Example"></a>Example
+<h2 id="xPDO.loadClass-Example">
+Example
 </h2>
 
 <p>
 Load a class from the path '/my/path/to/model/'.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $xpdo-&gt;loadClass('myBox','/my/path/to/model/');
 </pre>
-</div>
-</div>
-
 <p>
 Another example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> (!$xpdo-&gt;loadClass('myBox','/my/path/to/model/',<span class="code-keyword">true</span>,<span class="code-keyword">true</span>)) {
+<pre class="brush: php">
+if (!$xpdo-&gt;loadClass('myBox','/my/path/to/model/',true,true)) {
     die('Could not load class myBox!');
 }
-$Box = <span class="code-keyword">new</span> myBox();
+$Box = new myBox();
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.loadClass-SeeAlso"></a>See Also
+<h2 id="xPDO.loadClass-SeeAlso">
+See Also
 </h2>
 
 <ul>

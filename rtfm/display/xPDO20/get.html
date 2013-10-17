@@ -1,83 +1,51 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="get-xPDOObject%3A%3Aget%28%29"></a>xPDOObject::get()
+<h2 id="get-xPDOObject::get()">
+xPDOObject::get()
 </h2>
 
 <p>
 Get a field value (or a set of values) by the field key(s) or name(s).
 </p>
 
-<h2>
-<a name="get-Syntax"></a>Syntax
+<h2 id="get-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#get" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#get</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#get">http://api.modxcms.com/xpdo/om/xPDOObject.html#get</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 mixed get(
    string|array $k,
-   [string|array $format = <span class="code-keyword">null</span>],
-   [mixed $formatTemplate = <span class="code-keyword">null</span>]
+   [string|array $format = null],
+   [mixed $formatTemplate = null]
 )
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 Do not use the $format parameter if retrieving multiple values of different types, as the format string will be applied to all types, most likely with unpredicatable results. Optionally, you can supply an associate array of format strings with the field key as the key for the format array.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="get-Examples"></a>Examples
+<h2 id="get-Examples">
+Examples
 </h2>
 
 <p>
 Get the name field value of the object.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;set('name','Charles');
 $name = $object-&gt;get('name');
-echo $name; <span class="code-comment">// produces <span class="code-quote">"Charles"</span></span>
+echo $name; // produces "Charles"
 </pre>
-</div>
-</div>
-
 <p>
 Get an array of values for multiple fields:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;set('name_first','Charles');
 $object-&gt;set('name_last','Longbottom');
 $names = $object-&gt;get(array('name_first','name_last'));
 echo $names['name_first'].' '.$names['name_last'];
-<span class="code-comment">// produces <span class="code-quote">"Charles Longbottom"</span></span>
+// produces "Charles Longbottom"
 </pre>
-</div>
-</div>

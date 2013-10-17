@@ -1,11 +1,11 @@
 <div>
 <ul>
 <li>
-<a href='#CamperManagement.cmCamperDetailsSnippet-Snippetproperties'>Snippet properties</a>
+<a href="#CamperManagement.cmCamperDetailsSnippet-Snippetproperties">Snippet properties</a>
 </li>
 
 <li>
-<a href='#CamperManagement.cmCamperDetailsSnippet-HowtousethisSnippet'>How to use this Snippet</a>
+<a href="#CamperManagement.cmCamperDetailsSnippet-HowtousethisSnippet">How to use this Snippet</a>
 </li>
 </ul>
 </div>
@@ -14,256 +14,252 @@
 The cmCamperDetails snippet can be used to provide a "Vehicle Details" page. The snippet itself will not actually return any information, but instead it will set a bunch of placeholders to use in your template. See the [Placeholders page for information on placeholders.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 display/ADDON/CamperManagement.Placeholders+you+can+use]
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 The cmCamperDetails snippet requires a "cid" url or post parameter being available, which is used to identify the vehicle to display. If it is not present it can either send the user to a certain resource, or the snippet will return an error message. As your template will look very empty without, I suggest setting up a "Camper does not exist"-kind of page. Also see the cid*Action properties.
 </p>
 
-<h2>
-<a name="CamperManagement.cmCamperDetailsSnippet-Snippetproperties" id="CamperManagement.cmCamperDetailsSnippet-Snippetproperties"></a>Snippet properties
+<h2 id="CamperManagement.cmCamperDetailsSnippet-Snippetproperties">
+Snippet properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 &amp;property
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cidEmptyAction
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 | a valid resource ID. When not 0, this will 301 redirect the user to the resource ID you specified. This is triggered when there was no "cid" url/post parameter found.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cidInvalidAction
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 | a valid resource ID. When not 0, this will 301 redirect the user to the resource ID you specified. This is triggered when the "cid" parameter found was not a valid camper object (not found).
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 hideInactive
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 | 1. When set to 1, this will look at the cidInactiveAction and either display an error message or redirect the user if the vehicle is in status 0 (unconfirmed) or 5 (inactive).
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cidInactiveAction
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 | a valid resource ID. When not 0, this will 301 redirect the user to the resource ID you specified. This is triggered when the camper was found, but it is not
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeBrand
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1 | 0. Determines if the related brand object should be retrieved. Can save some processing time when not needed.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeOwner
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1 | 0. Determines if the related owner object should be retrieved. Can save some processing time when not needed.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeImages
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1 | 0. Determines if the related images should be retrieved. Can save some processing time when not needed.
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeOptions
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1 | 0. Determines if the related options should be retrieved. Can save some processing time when not needed.
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplImageOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Outer template to wrap the entire image result set, called for every vehicle item.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplImageOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplImageItem
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Template for one image item.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplImageItem
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOptionsOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Outer template to wrap the entire options result set, called for every vehicle item.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplOptionsOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOptionsItem
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Template for one option item.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplOptionsItem
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOwner
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Template to use for displaying owner information.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplOwner
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 locale
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Locale used for the money_format function which formats the price.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 it_IT
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="CamperManagement.cmCamperDetailsSnippet-HowtousethisSnippet" id="CamperManagement.cmCamperDetailsSnippet-HowtousethisSnippet"></a>How to use this Snippet
+<h2 id="CamperManagement.cmCamperDetailsSnippet-HowtousethisSnippet">
+How to use this Snippet
 </h2>
 
 <p>
@@ -278,48 +274,33 @@ Make sure the snippet is before using the actual placeholders, as they will not 
 Here is an example of calling the snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!cmCamperDetails? &amp;tplImageItem=`cmDetailImage` &amp;includeImages=`1` &amp;includeOwner=`0`]]
 </pre>
-</div>
-</div>
-
 <p>
 where cmDetailImage has the following content, which is used for a slideshow script and uses the phpthumbof snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;li&gt;
   &lt;h3&gt;[[+brand]] [[+type]] &lt;/h3&gt;
   &lt;span&gt;[[+image:phpthumbof=`w=620&amp;h=360&amp;far=c`]]&lt;/span&gt;
-  &lt;img src=<span class="code-quote">"[[+image:phpthumbof=`w=45&amp;h=33&amp;zc=1`]]"</span> alt=<span class="code-quote">"thumb"</span> /&gt;
+  &lt;img src="[[+image:phpthumbof=`w=45&amp;h=33&amp;zc=1`]]" alt="thumb" /&gt;
 &lt;/li&gt;
 </pre>
-</div>
-</div>
-
 <p>
 And in the template itself you simply use the placeholders like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;ul&gt;
-  &lt;li&gt;&lt;span&gt;Brand&lt;/span&gt;[[!+cm.brand:<span class="code-keyword">default</span>=`&amp;nbsp;`]]&lt;/li&gt;
-  &lt;li&gt;&lt;span&gt;Type&lt;/span&gt;[[!+cm.type:<span class="code-keyword">default</span>=`&amp;nbsp;`]]&lt;/li&gt;
-  &lt;li&gt;&lt;span&gt;Price&lt;/span&gt;&amp;euro; [[!+cm.price:<span class="code-keyword">default</span>=`&amp;nbsp;`]]&lt;/li&gt;
-  &lt;li&gt;&lt;span&gt;Car&lt;/span&gt;[[!+cm.car:<span class="code-keyword">default</span>=`&amp;nbsp;`]]&lt;/li&gt;
-  &lt;li&gt;&lt;span&gt;Engine&lt;/span&gt;[[!+cm.engine:<span class="code-keyword">default</span>=`&amp;nbsp;`]]&lt;/li&gt;
+  &lt;li&gt;&lt;span&gt;Brand&lt;/span&gt;[[!+cm.brand:default=`&amp;nbsp;`]]&lt;/li&gt;
+  &lt;li&gt;&lt;span&gt;Type&lt;/span&gt;[[!+cm.type:default=`&amp;nbsp;`]]&lt;/li&gt;
+  &lt;li&gt;&lt;span&gt;Price&lt;/span&gt;&amp;euro; [[!+cm.price:default=`&amp;nbsp;`]]&lt;/li&gt;
+  &lt;li&gt;&lt;span&gt;Car&lt;/span&gt;[[!+cm.car:default=`&amp;nbsp;`]]&lt;/li&gt;
+  &lt;li&gt;&lt;span&gt;Engine&lt;/span&gt;[[!+cm.engine:default=`&amp;nbsp;`]]&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-</div>
-</div>
-
 <p>
 The default output modifier can be used for default values (in this case a non breaking space as the template required that when there is no value).
 </p>

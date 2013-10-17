@@ -1,13 +1,9 @@
 <p>
-<br class="atl-forced-newline" />
+We're going to need to define some relationships between our tables so xPDO can communicate properly between them. xPDO deals with two types of relationships, <strong>aggregate</strong> and <strong>composite</strong>.
 </p>
 
-<p>
-We're going to need to define some relationships between our tables so xPDO can communicate properly between them. xPDO deals with two types of relationships, <b>aggregate</b> and <b>composite</b>.
-</p>
-
-<h2>
-<a name="DefiningRelationships-AggregateRelationships" id="DefiningRelationships-AggregateRelationships"></a>Aggregate Relationships
+<h2 id="DefiningRelationships-AggregateRelationships">
+Aggregate Relationships
 </h2>
 
 <p>
@@ -15,47 +11,42 @@ An aggregate relationship in xPDO is relationship between two tables where the s
 </p>
 
 <p>
-A great example of this is a collection of Crayons in a Box. The relationship from the Crayons to the Box is an <b>aggregate</b> relationship, and would be defined in our XML schema like such:
+A great example of this is a collection of Crayons in a Box. The relationship from the Crayons to the Box is an <strong>aggregate</strong> relationship, and would be defined in our XML schema like such:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-<span class="code-tag">&lt;object class=<span class="code-quote">"myCrayon"</span> table=<span class="code-quote">"crayons"</span> extends=<span class="code-quote">"xPDOSimpleObject"</span>&gt;</span>
-   &lt;aggregate alias=<span class="code-quote">"Box"</span> class=<span class="code-quote">"myBox"</span> local=<span class="code-quote">"box"</span> foreign=<span class="code-quote">"id"</span> 
-cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
-<span class="code-tag">&lt;/object&gt;</span>
+<pre class="brush: xml">
+&lt;object class="myCrayon" table="crayons" extends="xPDOSimpleObject"&gt;
+   &lt;aggregate alias="Box" class="myBox" local="box" foreign="id" 
+cardinality="one" owner="foreign" /&gt;
+&lt;/object&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Note the attributes:
 </p>
 
 <ul>
 <li>
-<b>alias</b> - Relationships in xPDO allow for 'aliases', which can differentiate between two different relationships that refer to the same foreign key.
+<strong>alias</strong> - Relationships in xPDO allow for 'aliases', which can differentiate between two different relationships that refer to the same foreign key.
 </li>
 
 <li>
-<b>class</b> - The class name of the relating object.
+<strong>class</strong> - The class name of the relating object.
 </li>
 
 <li>
-<b>local</b> - The local key by which we get the ID of the foreign, related object. In our example, this tells us the ID of the Box.
+<strong>local</strong> - The local key by which we get the ID of the foreign, related object. In our example, this tells us the ID of the Box.
 </li>
 
 <li>
-<b>foreign</b> - The foreign key by which this object relates. In our example, it is the ID field of the Box object.
+<strong>foreign</strong> - The foreign key by which this object relates. In our example, it is the ID field of the Box object.
 </li>
 
 <li>
-<b>cardinality</b> - The cardinality of the relationship. Usually, in aggregates, this is "one", since there is only one Box by which this Crayon could be referring to. In the opposite relationship between the Box to the Crayon (a Composite relationship), the Box could be pointing to many Crayons - so then the value would be "many", not "one".
+<strong>cardinality</strong> - The cardinality of the relationship. Usually, in aggregates, this is "one", since there is only one Box by which this Crayon could be referring to. In the opposite relationship between the Box to the Crayon (a Composite relationship), the Box could be pointing to many Crayons - so then the value would be "many", not "one".
 </li>
 
 <li>
-<b>owner</b> - The owner of the foreign key that relates the objects.
+<strong>owner</strong> - The owner of the foreign key that relates the objects.
 </li>
 </ul>
 
@@ -63,18 +54,13 @@ Note the attributes:
 So our XML here would allow us to use the following code to grab the Box for a Crayon:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $crayon = $xpdo-&gt;getObject('Crayon',1);
 $box = $crayon-&gt;getOne('Box');
 echo $box-&gt;get('name');
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="DefiningRelationships-CompositeRelationships" id="DefiningRelationships-CompositeRelationships"></a>Composite Relationships
+<h2 id="DefiningRelationships-CompositeRelationships">
+Composite Relationships
 </h2>
 
 <p>
@@ -85,17 +71,12 @@ A composite relationship in xPDO is relationship between two tables where the se
 Back to our Crayon-Box example: The Crayons are Composites of the Box object. We'd define that in our XML schema as:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-<span class="code-tag">&lt;object class=<span class="code-quote">"myBox"</span> table=<span class="code-quote">"boxes"</span> extends=<span class="code-quote">"xPDOSimpleObject"</span>&gt;</span>
-   &lt;composite alias=<span class="code-quote">"Crayons"</span> class=<span class="code-quote">"myCrayon"</span> local=<span class="code-quote">"id"</span> foreign=<span class="code-quote">"box"</span> 
-cardinality=<span class="code-quote">"many"</span> owner=<span class="code-quote">"local"</span> /&gt;
-<span class="code-tag">&lt;/object&gt;</span>
+<pre class="brush: xml">
+&lt;object class="myBox" table="boxes" extends="xPDOSimpleObject"&gt;
+   &lt;composite alias="Crayons" class="myCrayon" local="id" foreign="box" 
+cardinality="many" owner="local" /&gt;
+&lt;/object&gt;
 </pre>
-</div>
-</div>
-
 <p>
 As you can see, a few attributes have changed. The alias now is plural, since we could have any number of Crayons related to this Box. Also, the local attribute now points to the ID of this Box; the foreign attribute points to the foreign key 'box' in the Crayon object; the cardinality is now "many"; and finally, the owner of the key is now "local", since it is owned by the Box.
 </p>
@@ -104,72 +85,57 @@ As you can see, a few attributes have changed. The alias now is plural, since we
 We can grab all the Crayons in the Box with this xPDO code:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $box = $xpdo-&gt;getObject('Box',23);
 $crayons = $box-&gt;getMany('Crayons');
 foreach ($crayons as $crayon) {
    echo $crayon-&gt;get('color').'&lt;br /&gt;';
 }
 </pre>
-</div>
-</div>
-
 <p>
 Remember that in a Composite relationship, should the owner of the relationship be removed, all the Composites will be removed. So, if we remove the Box object:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $box-&gt;remove();
 </pre>
-</div>
-</div>
-
 <p>
 ...this would remove all of the related Crayons for that Box. This can be useful to cascade removal of objects, making code simpler and easier to manage.
 </p>
 
-<h2>
-<a name="DefiningRelationships-RelatingManytoMany" id="DefiningRelationships-RelatingManytoMany"></a>Relating Many-to-Many
+<h2 id="DefiningRelationships-RelatingManytoMany">
+Relating Many-to-Many
 </h2>
 
 <p>
 Let's go back to our StoreFinder model. First off, let's review our schema so far:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-<span class="code-tag">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;</span>
-<span class="code-tag">&lt;model package=<span class="code-quote">"storefinder"</span> baseClass=<span class="code-quote">"xPDOObject"</span> platform=<span class="code-quote">"mysql"</span> defaultEngine=<span class="code-quote">"MyISAM"</span> phpdoc-package=<span class="code-quote">"storefinder"</span> phpdoc-subpackage=<span class="code-quote">"model"</span>&gt;</span>
-  <span class="code-tag">&lt;object class=<span class="code-quote">"sfStore"</span> table=<span class="code-quote">"sfinder_stores"</span> extends=<span class="code-quote">"xPDOSimpleObject"</span>&gt;</span>
-        <span class="code-tag">&lt;field key=<span class="code-quote">"name"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"100"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"" index="</span>index" /&gt;</span>
-        <span class="code-tag">&lt;field key=<span class="code-quote">"address"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-        <span class="code-tag">&lt;field key=<span class="code-quote">"city"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-        <span class="code-tag">&lt;field key=<span class="code-quote">"state"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-        <span class="code-tag">&lt;field key=<span class="code-quote">"zip"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"10"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"0"</span> index=<span class="code-quote">"index"</span> /&gt;</span>
-        <span class="code-tag">&lt;field key=<span class="code-quote">"country"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"20"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-        <span class="code-tag">&lt;field key=<span class="code-quote">"phone"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"20"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-        <span class="code-tag">&lt;field key=<span class="code-quote">"fax"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"20"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-        <span class="code-tag">&lt;field key=<span class="code-quote">"active"</span> dbtype=<span class="code-quote">"int"</span> precision=<span class="code-quote">"1"</span> attributes=<span class="code-quote">"unsigned"</span> phptype=<span class="code-quote">"integer"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"0"</span> /&gt;</span>
-  <span class="code-tag">&lt;/object&gt;</span>
-  <span class="code-tag">&lt;object class=<span class="code-quote">"sfOwner"</span> table=<span class="code-quote">"sfinder_owners"</span> extends=<span class="code-quote">"xPDOSimpleObject"</span>&gt;</span>
-    <span class="code-tag">&lt;field key=<span class="code-quote">"name"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"100"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"" index="</span>index" /&gt;</span>
-    <span class="code-tag">&lt;field key=<span class="code-quote">"email"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> null=<span class="code-quote">"false"</span> default="" /&gt;</span>
-  <span class="code-tag">&lt;/object&gt;</span>
+<pre class="brush: xml">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;model package="storefinder" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="storefinder" phpdoc-subpackage="model"&gt;
+  &lt;object class="sfStore" table="sfinder_stores" extends="xPDOSimpleObject"&gt;
+        &lt;field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default="" index="index" /&gt;
+        &lt;field key="address" dbtype="varchar" precision="255" phptype="string" null="false" default="" /&gt;
+        &lt;field key="city" dbtype="varchar" precision="255" phptype="string" null="false" default="" /&gt;
+        &lt;field key="state" dbtype="varchar" precision="255" phptype="string" null="false" default="" /&gt;
+        &lt;field key="zip" dbtype="varchar" precision="10" phptype="string" null="false" default="0" index="index" /&gt;
+        &lt;field key="country" dbtype="varchar" precision="20" phptype="string" null="false" default="" /&gt;
+        &lt;field key="phone" dbtype="varchar" precision="20" phptype="string" null="false" default="" /&gt;
+        &lt;field key="fax" dbtype="varchar" precision="20" phptype="string" null="false" default="" /&gt;
+        &lt;field key="active" dbtype="int" precision="1" attributes="unsigned" phptype="integer" null="false" default="0" /&gt;
+  &lt;/object&gt;
+  &lt;object class="sfOwner" table="sfinder_owners" extends="xPDOSimpleObject"&gt;
+    &lt;field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default="" index="index" /&gt;
+    &lt;field key="email" dbtype="varchar" precision="255" phptype="string" null="false" default="" /&gt;
+  &lt;/object&gt;
   
-  <span class="code-tag">&lt;object class=<span class="code-quote">"sfStoreOwner"</span> table=<span class="code-quote">"sfinder_store_owners"</span> extends=<span class="code-quote">"xPDOSimpleObject"</span>&gt;</span>
-    <span class="code-tag">&lt;field key=<span class="code-quote">"store"</span> dbtype=<span class="code-quote">"int"</span> precision=<span class="code-quote">"10"</span> attributes=<span class="code-quote">"unsigned"</span> phptype=<span class="code-quote">"integer"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"0"</span> index=<span class="code-quote">"index"</span> /&gt;</span>
-    <span class="code-tag">&lt;field key=<span class="code-quote">"owner"</span> dbtype=<span class="code-quote">"int"</span> precision=<span class="code-quote">"10"</span> attributes=<span class="code-quote">"unsigned"</span> phptype=<span class="code-quote">"integer"</span> null=<span class="code-quote">"false"</span> default=<span class="code-quote">"0"</span> index=<span class="code-quote">"index"</span> /&gt;</span>
-  <span class="code-tag">&lt;/object&gt;</span>
-<span class="code-tag">&lt;/model&gt;</span>
+  &lt;object class="sfStoreOwner" table="sfinder_store_owners" extends="xPDOSimpleObject"&gt;
+    &lt;field key="store" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="index" /&gt;
+    &lt;field key="owner" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="index" /&gt;
+  &lt;/object&gt;
+&lt;/model&gt;
 </pre>
-</div>
-</div>
-
 <p>
 We're going to want to relate Stores to Owners, but as you can see here, the relationship is "many-to-many" - an Owner can have multiple Stores, and a Store can have multiple Owners. So how do we handle this? Well, the best way is to create an intermediary table, which we'll call 'sfStoreOwner'. This table has only 3 fields - it's ID, and 2 indexed fields that are 'store' and 'owner'.
 </p>
@@ -178,28 +144,18 @@ We're going to want to relate Stores to Owners, but as you can see here, the rel
 Those two fields contain the PK values of the Store and Owner it is relating. So let's add the relationships. In our sfStore definition, we want to add this line:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-&lt;composite alias=<span class="code-quote">"StoreOwners"</span> class=<span class="code-quote">"sfStoreOwner"</span> local=<span class="code-quote">"id"</span> foreign=<span class="code-quote">"store"</span> 
-cardinality=<span class="code-quote">"many"</span> owner=<span class="code-quote">"local"</span> /&gt;
+<pre class="brush: xml">
+&lt;composite alias="StoreOwners" class="sfStoreOwner" local="id" foreign="store" 
+cardinality="many" owner="local" /&gt;
 </pre>
-</div>
-</div>
-
 <p>
 And in our sfOwner definition, let's add this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-&lt;composite alias=<span class="code-quote">"StoreOwners"</span> class=<span class="code-quote">"sfStoreOwner"</span> local=<span class="code-quote">"id"</span> foreign=<span class="code-quote">"owner"</span> 
-cardinality=<span class="code-quote">"many"</span> owner=<span class="code-quote">"local"</span> /&gt;
+<pre class="brush: xml">
+&lt;composite alias="StoreOwners" class="sfStoreOwner" local="id" foreign="owner" 
+cardinality="many" owner="local" /&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Note that both of our primary classes use a Composite relationship. This is because if any of our Stores or Owners get deleted, we want to delete any connecting relationships between them.
 </p>
@@ -208,24 +164,17 @@ Note that both of our primary classes use a Composite relationship. This is beca
 So go to our sfStoreOwner definition, and add these two lines:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-xml">
-&lt;aggregate alias=<span class="code-quote">"Store"</span> class=<span class="code-quote">"sfStore"</span> local=<span class="code-quote">"store"</span> foreign=<span class="code-quote">"id"</span> 
-cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
-&lt;aggregate alias=<span class="code-quote">"Owner"</span> class=<span class="code-quote">"sfOwner"</span> local=<span class="code-quote">"owner"</span> foreign=<span class="code-quote">"id"</span> 
-cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
+<pre class="brush: xml">
+&lt;aggregate alias="Store" class="sfStore" local="store" foreign="id" 
+cardinality="one" owner="foreign" /&gt;
+&lt;aggregate alias="Owner" class="sfOwner" local="owner" foreign="id" 
+cardinality="one" owner="foreign" /&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Now that we've got our model defined, in our xPDO code we'll be able to do something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $store = $xpdo-&gt;getObject('sfStore',43);
 $storeOwners = $store-&gt;getMany('StoreOwners');
 $owners = array();
@@ -236,9 +185,6 @@ foreach ($owners as $owner) {
    echo $owner-&gt;get('name').'&lt;br /&gt;';
 }
 </pre>
-</div>
-</div>
-
 <p>
 And that will output a list of owners for that store.
 </p>
@@ -247,29 +193,24 @@ And that will output a list of owners for that store.
 However, as you can see, that code isn't very optimized. So we're going to optimize it a bit using $xpdo-&gt;newQuery:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $c = $xpdo-&gt;newQuery('sfOwner');
 $c-&gt;innerJoin('sfStoreOwner','StoreOwners');
 $c-&gt;where(array(
-   'StoreOwners.store' =&gt; 43, <span class="code-comment">// the ID of our Store
-</span>));
+   'StoreOwners.store' =&gt; 43, // the ID of our Store
+));
 $owners = $xpdo-&gt;getCollection('sfOwner',$c);
 
 foreach ($owners as $owner) {
    echo $owner-&gt;get('name').'&lt;br /&gt;';
 }
 </pre>
-</div>
-</div>
-
 <p>
 This block of code lets us grab all the owners of a store with only one query.
 </p>
 
-<h2>
-<a name="DefiningRelationships-SeeAlso" id="DefiningRelationships-SeeAlso"></a>See Also
+<h2 id="DefiningRelationships-SeeAlso">
+See Also
 </h2>
 
 <ul>

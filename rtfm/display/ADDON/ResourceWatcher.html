@@ -1,57 +1,54 @@
 <div>
 <ul>
 <li>
-<a href='#ResourceWatcher-WhatisResourceWatcher%3F'>What is ResourceWatcher?</a>
+<a href="#ResourceWatcher-WhatisResourceWatcher%3F">What is ResourceWatcher?</a>
 </li>
 
 <li>
-<a href='#ResourceWatcher-Installation'>Installation</a>
+<a href="#ResourceWatcher-Installation">Installation</a>
 </li>
 
 <li>
-<a href='#ResourceWatcher-ConfigurationSystemSettings'>Configuration - System Settings</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#ResourceWatcher-ConfigurationSystemSettings">Configuration - System Settings</a>
 <ul>
 <li>
-<a href='#ResourceWatcher-General'>General</a>
+<a href="#ResourceWatcher-General">General</a>
 </li>
 
 <li>
-<a href='#ResourceWatcher-Createdresource'>Created resource</a>
+<a href="#ResourceWatcher-Createdresource">Created resource</a>
 </li>
 
 <li>
-<a href='#ResourceWatcher-Updatedresource'>Updated resource</a>
+<a href="#ResourceWatcher-Updatedresource">Updated resource</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#ResourceWatcher-Placeholders%28messagechunks%29'>Placeholders (message chunks)</a>
+<a href="#ResourceWatcher-Placeholders%28messagechunks%29">Placeholders (message chunks)</a>
 </li>
 
 <li>
-<a href='#ResourceWatcher-Hooks'>Hooks</a>
+<a href="#ResourceWatcher-Hooks">Hooks</a>
 </li>
 
 <li>
-<a href='#ResourceWatcher-Resources'>Resources</a>
+<a href="#ResourceWatcher-Resources">Resources</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="ResourceWatcher-WhatisResourceWatcher%3F"></a>What is ResourceWatcher?
+<h2 id="ResourceWatcher-WhatisResourceWatcher?">
+What is ResourceWatcher?
 </h2>
 
 <p>
 Resource Watcher is a plugin for MODx Revolution allowing you to send notification emails when a resource is created and/or updated.
 </p>
 
-<h2>
-<a name="ResourceWatcher-Installation" id="ResourceWatcher-Installation"></a>Installation
+<h2 id="ResourceWatcher-Installation">
+Installation
 </h2>
 
 <ol>
@@ -66,269 +63,261 @@ Resource Watcher is a plugin for MODx Revolution allowing you to send notificati
 Note:&nbsp;By default, the email address used to send the notifications is defined in the system settings (emailsender key). The name of the sender is the site name, defined in the system settings (site_name key).
 </p>
 
-<h2>
-<a name="ResourceWatcher-ConfigurationSystemSettings" id="ResourceWatcher-ConfigurationSystemSettings"></a>Configuration - System Settings
+<h2 id="ResourceWatcher-ConfigurationSystemSettings">
+Configuration - System Settings
 </h2>
 
-<h3>
-<a name="ResourceWatcher-General" id="ResourceWatcher-General"></a>General
+<h3 id="ResourceWatcher-General">
+General
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.prefix
 </td>
-<td class='confluenceTd'>
+<td>
 (string) - Prefix for placeholders used in the message chunk
 </td>
-<td class='confluenceTd'>
+<td>
 rw.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="ResourceWatcher-Createdresource" id="ResourceWatcher-Createdresource"></a>Created resource
+<h3 id="ResourceWatcher-Createdresource">
+Created resource
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.new_active
 </td>
-<td class='confluenceTd'>
+<td>
 (boolean) - Sets whether the plugin is active upon resource creation
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.new_email
 </td>
-<td class='confluenceTd'>
+<td>
 (string) - Email address(es) to send the notifications to
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.new_hooks
 </td>
-<td class='confluenceTd'>
+<td>
 (string) - List of hooks (snippets) to execute when a resource is created
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.new_subject
 </td>
-<td class='confluenceTd'>
+<td>
 (string) - Subject of the notification emails
 </td>
-<td class='confluenceTd'>
+<td>
 A new resource has been created
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.new_tpl
 </td>
-<td class='confluenceTd'>
+<td>
 (string) - Chunk to use as the message of the e-mail when creating new resources
 </td>
-<td class='confluenceTd'>
+<td>
 message-create
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="ResourceWatcher-Updatedresource" id="ResourceWatcher-Updatedresource"></a>Updated resource
+<h3 id="ResourceWatcher-Updatedresource">
+Updated resource
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.upd_active
 </td>
-<td class='confluenceTd'>
+<td>
 (boolean) - Sets whether the plugin is active upon resource edition/update
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.upd_email
 </td>
-<td class='confluenceTd'>
+<td>
 (string) - Email address(es) to send the notifications to
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.upd_hooks
 </td>
-<td class='confluenceTd'>
+<td>
 (string) - List of hooks (snippets) to execute when a resource is updated
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.upd_subject
 </td>
-<td class='confluenceTd'>
+<td>
 (string) - Subject of the notification emails
 </td>
-<td class='confluenceTd'>
+<td>
 A resource has been updated
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourcewatcher.upd_tpl
 </td>
-<td class='confluenceTd'>
+<td>
 (string) - Chunk to use as the message of the e-mail when updating a resource
 </td>
-<td class='confluenceTd'>
+<td>
 message-update
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="ResourceWatcher-Placeholders%28messagechunks%29"></a>Placeholders (message chunks)
+<h2 id="ResourceWatcher-Placeholders(messagechunks)">
+Placeholders (message chunks)
 </h2>
 
 <p>
 Placeholders (prefixed by default with "rw.") can be used in chunks used as a message. The available information/placeholders are the modUser, modUserProfile and modResource fields. Here is a small list (not exhaustive)
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 prefix.id
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the resource
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 prefix.pagetitle
 </td>
-<td class='confluenceTd'>
+<td>
 pagetitle field of the resource
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 prefix.username
 </td>
-<td class='confluenceTd'>
+<td>
 name of the user who did the action
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 prefix.fullname
 </td>
-<td class='confluenceTd'>
+<td>
 full name of the user who performed the action
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="ResourceWatcher-Hooks" id="ResourceWatcher-Hooks"></a>Hooks
+<h2 id="ResourceWatcher-Hooks">
+Hooks
 </h2>
 
 <p>
@@ -343,12 +332,12 @@ The hooks are cumulative (and executed in the order in which you have filled in 
 Your hook should contain your constraints and return true if they are satisfied (otherwise false).
 </p>
 
-<h2>
-<a name="ResourceWatcher-Resources" id="ResourceWatcher-Resources"></a>Resources
+<h2 id="ResourceWatcher-Resources">
+Resources
 </h2>
 
 <p>
-Github: <a href="https://github.com/meltingmedia/ResourceWatcher" class="external-link" rel="nofollow">https://github.com/meltingmedia/ResourceWatcher</a>
+Github: <a href="https://github.com/meltingmedia/ResourceWatcher">https://github.com/meltingmedia/ResourceWatcher</a>
 <br />
-Bug reports/feature requests: <a href="https://github.com/meltingmedia/ResourceWatcher/issues" class="external-link" rel="nofollow">https://github.com/meltingmedia/ResourceWatcher/issues</a>
+Bug reports/feature requests: <a href="https://github.com/meltingmedia/ResourceWatcher/issues">https://github.com/meltingmedia/ResourceWatcher/issues</a>
 </p>

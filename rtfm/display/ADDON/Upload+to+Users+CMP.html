@@ -1,37 +1,31 @@
 <div>
 <ul>
 <li>
-<a href='#UploadtoUsersCMP-UploadtoUsersCMP'>Upload to Users CMP</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#UploadtoUsersCMP-UploadtoUsersCMP">Upload to Users CMP</a>
 <ul>
 <li>
-<a href='#UploadtoUsersCMP-Examples'>Examples</a>
+<a href="#UploadtoUsersCMP-Examples">Examples</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#UploadtoUsersCMP-UploadtoUsersSnippet'>Upload to Users Snippet</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#UploadtoUsersCMP-UploadtoUsersSnippet">Upload to Users Snippet</a>
 <ul>
 <li>
-<a href='#UploadtoUsersCMP-Examples'>Examples</a>
+<a href="#UploadtoUsersCMP-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#UploadtoUsersCMP-Properties'>Properties</a>
+<a href="#UploadtoUsersCMP-Properties">Properties</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<h1>
-<a name="UploadtoUsersCMP-UploadtoUsersCMP" id="UploadtoUsersCMP-UploadtoUsersCMP"></a>Upload to Users CMP
+<h1 id="UploadtoUsersCMP-UploadtoUsersCMP">
+Upload to Users CMP
 </h1>
 
 <p>
@@ -39,174 +33,157 @@ A Custom Manager Page (CMP) to upload file to registered members to a specified 
 </p>
 
 <p>
-The extra link is <a href="http://modx.com/extras/package/uploadtouserscmp" class="external-link" rel="nofollow">http://modx.com/extras/package/uploadtouserscmp</a> .
+The extra link is <a href="http://modx.com/extras/package/uploadtouserscmp">http://modx.com/extras/package/uploadtouserscmp</a> .
 <br />
-The GitHub link is <a href="https://github.com/goldsky/UploadToUsers" class="external-link" rel="nofollow">https://github.com/goldsky/UploadToUsers</a> .
+The GitHub link is <a href="https://github.com/goldsky/UploadToUsers">https://github.com/goldsky/UploadToUsers</a> .
 </p>
 
 <p>
 It would be useful for setting up specific folers to each of logged in users, and use FileLister or FileDownload R (&gt;=1.0.0-rc.4) snippet to get the folder using user's ID or username to their own folders.
 </p>
 
-<h2>
-<a name="UploadtoUsersCMP-Examples" id="UploadtoUsersCMP-Examples"></a>Examples
+<h2 id="UploadtoUsersCMP-Examples">
+Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
+<pre class="brush: html">
 [[FileLister? &amp;path=`assets/userfile/[[+modx.user.id]]/`]]
 [[FileDownload? &amp;getDir=`assets/userfile/[[+modx.user.username]]/`]]
 </pre>
-</div>
-</div>
-
 <p>
 Since version 1.0-pl, this package added database table to store additional information about the files, so it can be used later on to replace the filename on the list, and even better, add description into the list.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/41058348/uploadtousers-1.0-pl.jpg?version=1&amp;modificationDate=1345753736000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/41058348/uploadtousers-1.0-pl.jpg?version=1&amp;modificationDate=1345753736000" />
 </p>
 
-<h1>
-<a name="UploadtoUsersCMP-UploadtoUsersSnippet" id="UploadtoUsersCMP-UploadtoUsersSnippet"></a>Upload to Users Snippet
+<h1 id="UploadtoUsersCMP-UploadtoUsersSnippet">
+Upload to Users Snippet
 </h1>
 
 <p>
 Currently, it can only be used by <a href="/display/ADDON/FileDownload+R" title="FileDownload R">FileDownload R</a> because the link has its own placeholder.
 </p>
 
-<h2>
-<a name="UploadtoUsersCMP-Examples" id="UploadtoUsersCMP-Examples"></a>Examples
+<h2 id="UploadtoUsersCMP-Examples">
+Examples
 </h2>
 
 <p>
 To use the snippet, user need to change the FileDownload's template from the original:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-    <span class="code-tag">&lt;tr[[+fd.class]]&gt;</span>
-        <span class="code-tag">&lt;td style=<span class="code-quote">"width:16px;"</span>&gt;</span><span class="code-tag">&lt;img src=<span class="code-quote">"[[+fd.image]]"</span> alt=<span class="code-quote">"[[+fd.image]]"</span> /&gt;</span><span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span><span class="code-tag">&lt;a href=<span class="code-quote">"[[+fd.link]]"</span>[[+fd.linkAttribute]]&gt;</span>[[+fd.filename]]<span class="code-tag">&lt;/a&gt;</span>
-            <span class="code-tag">&lt;span style=<span class="code-quote">"font-size:80%"</span>&gt;</span>([[+fd.count]] downloads)<span class="code-tag">&lt;/span&gt;</span>
-        <span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>[[+fd.sizeText]]<span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>[[+fd.date]]<span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>
+<pre class="brush: html">
+    &lt;tr[[+fd.class]]&gt;
+        &lt;td style="width:16px;"&gt;&lt;img src="[[+fd.image]]" alt="[[+fd.image]]" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;a href="[[+fd.link]]"[[+fd.linkAttribute]]&gt;[[+fd.filename]]&lt;/a&gt;
+            &lt;span style="font-size:80%"&gt;([[+fd.count]] downloads)&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td&gt;[[+fd.sizeText]]&lt;/td&gt;
+        &lt;td&gt;[[+fd.date]]&lt;/td&gt;
+    &lt;/tr&gt;
     [[-- This is the description row if the &amp;chkDesc=`chunkName` is provided --]]
-    [[+fd.description:notempty=`<span class="code-tag">&lt;tr&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span><span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td colspan=<span class="code-quote">"3"</span>&gt;</span>[[+fd.description]]<span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>`:default=``]]
+    [[+fd.description:notempty=`&lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td colspan="3"&gt;[[+fd.description]]&lt;/td&gt;
+    &lt;/tr&gt;`:default=``]]
 </pre>
-</div>
-</div>
-
 <p>
 to, for instance:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-    <span class="code-tag">&lt;tr[[+fd.class]]&gt;</span>
-        <span class="code-tag">&lt;td style=<span class="code-quote">"width:16px;"</span>&gt;</span><span class="code-tag">&lt;img src=<span class="code-quote">"[[+fd.image]]"</span> alt=<span class="code-quote">"[[+fd.image]]"</span> /&gt;</span><span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span><span class="code-tag">&lt;a href=<span class="code-quote">"[[+fd.link]]"</span>[[+fd.linkAttribute]]&gt;</span>
+<pre class="brush: html">
+    &lt;tr[[+fd.class]]&gt;
+        &lt;td style="width:16px;"&gt;&lt;img src="[[+fd.image]]" alt="[[+fd.image]]" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;a href="[[+fd.link]]"[[+fd.linkAttribute]]&gt;
                 [[!uploadtousers:default=`[[+fd.filename]]`? &amp;path=`[[+fd.fullPath]]` &amp;field=`title`]]
-            <span class="code-tag">&lt;/a&gt;</span>
-            <span class="code-tag">&lt;span style=<span class="code-quote">"font-size:80%"</span>&gt;</span>([[+fd.count]] downloads)<span class="code-tag">&lt;/span&gt;</span>
-        <span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>[[+fd.sizeText]]<span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>[[+fd.date]]<span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>
-    <span class="code-tag">&lt;tr&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span><span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td colspan=<span class="code-quote">"3"</span>&gt;</span>[[!uploadtousers? &amp;path=`[[+fd.fullPath]]` &amp;field=`description`]]<span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>
+            &lt;/a&gt;
+            &lt;span style="font-size:80%"&gt;([[+fd.count]] downloads)&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td&gt;[[+fd.sizeText]]&lt;/td&gt;
+        &lt;td&gt;[[+fd.date]]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td colspan="3"&gt;[[!uploadtousers? &amp;path=`[[+fd.fullPath]]` &amp;field=`description`]]&lt;/td&gt;
+    &lt;/tr&gt;
 </pre>
-</div>
-</div>
-
 <p>
 The result of the FileDownload output will be changed like this:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/41058348/FDL-U2U.jpg?version=1&amp;modificationDate=1345754441000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/41058348/FDL-U2U.jpg?version=1&amp;modificationDate=1345754441000" />
 </p>
 
-<h2>
-<a name="UploadtoUsersCMP-Properties" id="UploadtoUsersCMP-Properties"></a>Properties
+<h2 id="UploadtoUsersCMP-Properties">
+Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 path
 </td>
-<td class='confluenceTd'>
-the full path to the particular file/folder <b>(mandatory)</b>
+<td>
+the full path to the particular file/folder <strong>(mandatory)</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 field
 </td>
-<td class='confluenceTd'>
+<td>
 the table's field to be retrieved
 </td>
-<td class='confluenceTd'>
+<td>
 title
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toArray
 </td>
-<td class='confluenceTd'>
+<td>
 dump the output as an array instead
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 return the output into a placeholder instead
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 The available fields are id, dir_path, name, title, description.

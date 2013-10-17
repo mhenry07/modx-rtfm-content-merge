@@ -1,45 +1,34 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="addOne-xPDOObject%3A%3AaddOne%28%29"></a>xPDOObject::addOne()
+<h2 id="addOne-xPDOObject::addOne()">
+xPDOObject::addOne()
 </h2>
 
 <p>
 Adds an object related to this instance by a foreign key relationship.
 </p>
 
-<h2>
-<a name="addOne-Syntax" id="addOne-Syntax"></a>Syntax
+<h2 id="addOne-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#addOne" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#addOne</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#addOne">http://api.modxcms.com/xpdo/om/xPDOObject.html#addOne</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> addOne (
+<pre class="brush: php">
+boolean addOne (
    mixed &amp;$obj,
    [string $alias = '']
 )
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="addOne-Example" id="addOne-Example"></a>Example
+<h2 id="addOne-Example">
+Example
 </h2>
 
 <p>
 Add a Rank to a newly-created Person, then save both through cascading.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $person = $xpdo-&gt;newObject('Person',1);
 $person-&gt;set('fname','Johnny');
 $person-&gt;set('lname','Benjamins');
@@ -49,13 +38,10 @@ $rank-&gt;set('title','CEO');
 $rank-&gt;set('level',1);
 $person-&gt;addOne($rank);
 
-$person-&gt;save(); <span class="code-comment">// will save both person and rank</span>
+$person-&gt;save(); // will save both person and rank
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="addOne-SeeAlso" id="addOne-SeeAlso"></a>See Also
+<h2 id="addOne-SeeAlso">
+See Also
 </h2>
 
 <ul>

@@ -1,23 +1,19 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.II-CreatingObjects'>Creating Objects</a>
+<a href="#PHPCodinginMODxRevolution%2CPt.II-CreatingObjects">Creating Objects</a>
 </li>
 
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.II-RemovinganObject'>Removing an Object</a>
+<a href="#PHPCodinginMODxRevolution%2CPt.II-RemovinganObject">Removing an Object</a>
 </li>
 
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.II-MoreComplexQueries'>More Complex Queries</a>
+<a href="#PHPCodinginMODxRevolution%2CPt.II-MoreComplexQueries">More Complex Queries</a>
 </li>
 
 <li>
-<a href='#PHPCodinginMODxRevolution%2CPt.II-SeeAlso'>See Also</a>
+<a href="#PHPCodinginMODxRevolution%2CPt.II-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -26,88 +22,62 @@
 In this article, we'll talk about creating and removing objects (and their respective rows in the database), as well as more complex queries.
 </p>
 
-<h2>
-<a name="PHPCodinginMODxRevolution%2CPt.II-CreatingObjects"></a>Creating Objects
+<h2 id="PHPCodinginMODxRevolution,Pt.II-CreatingObjects">
+Creating Objects
 </h2>
 
 <p>
-Object creation is handled by the <b>newObject</b> method. It assumes that the object you are trying to create has been properly defined inside your XML schema and that schema has generated the proper class files. For a simple example, we can look at the built-in MODX objects.
+Object creation is handled by the <strong>newObject</strong> method. It assumes that the object you are trying to create has been properly defined inside your XML schema and that schema has generated the proper class files. For a simple example, we can look at the built-in MODX objects.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// let's create a Template
-</span>$template = $modx-&gt;newObject('modTemplate');
+<pre class="brush: php">
+// let's create a Template
+$template = $modx-&gt;newObject('modTemplate');
 
-<span class="code-comment">// now, lets save some data into the fields
-</span>$template-&gt;set('templatename','TestTemplate');
+// now, lets save some data into the fields
+$template-&gt;set('templatename','TestTemplate');
 $template-&gt;set('description','A test template.');
 
-<span class="code-comment">// we could have also done it like <span class="code-keyword">this</span>:
-</span>$data = array(
+// we could have also done it like this:
+$data = array(
         'templatename' =&gt; 'TestTemplate',
         'description' =&gt; 'A test template.',
 );
 $template-&gt;fromArray($data);
 
-<span class="code-comment">// okay, now we're ready. let's save.
-</span><span class="code-keyword">if</span> ($template-&gt;save() === <span class="code-keyword">false</span>) {
-        die('An error occurred <span class="code-keyword">while</span> saving!');
+// okay, now we're ready. let's save.
+if ($template-&gt;save() === false) {
+        die('An error occurred while saving!');
 }
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 A row is never actually added to the database until the object's save() command is run.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="PHPCodinginMODxRevolution%2CPt.II-RemovinganObject"></a>Removing an Object
+<h2 id="PHPCodinginMODxRevolution,Pt.II-RemovinganObject">
+Removing an Object
 </h2>
 
 <p>
-To remove an object from the database, we use the <b>remove</b> command:
+To remove an object from the database, we use the <strong>remove</strong> command:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $template-&gt;remove();
 </pre>
-</div>
-</div>
-
 <p>
 This will also remove any composite relationships defined in the object's schema. In the previous example with modTemplates, these are the modTemplateVarTemplate objects, which map Templates to TVs. Those will cascade and be removed.
 </p>
 
-<h2>
-<a name="PHPCodinginMODxRevolution%2CPt.II-MoreComplexQueries"></a>More Complex Queries
+<h2 id="PHPCodinginMODxRevolution,Pt.II-MoreComplexQueries">
+More Complex Queries
 </h2>
 
 <p>
 Okay, so pretty soon you are going to need to do some more complex queries than we've dealt with. That's where the xPDOQuery object comes in. This allows you to build abstract query objects that emulate more advanced SQL commands. So, lets try to grab the third 10 resources (so 21-30), ordered by menuindex, that are either 1) published and searchable, or 2) created by the user with username 'george123'.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $c = $modx-&gt;newQuery('modResource');
 $c-&gt;leftJoin('modUser','PublishedBy');
 $c-&gt;where(array(
@@ -116,15 +86,12 @@ $c-&gt;where(array(
 ));
 $c-&gt;orCondition(array(
         'PublishedBy.username' =&gt; 'george123',
-),<span class="code-keyword">null</span>,1);
+),null,1);
 $c-&gt;sortby('menuindex','ASC');
 $c-&gt;limit(10,20);
 
 $resources = $modx-&gt;getCollection('modResource',$c);
 </pre>
-</div>
-</div>
-
 <p>
 A couple of things to note. One, note that innerJoin first passes the class name, then the alias. And in orCondition, the 3rd parameter is the group number, which effectively groups the conditions into proper parenthesis (the first 2 in the first parenthetical group, the 3rd in another).
 </p>
@@ -141,8 +108,8 @@ Obviously, you can go pretty wild here with complex queries. The nice thing abou
 In the <a href="/display/revolution20/PHP+Coding+in+MODx+Revolution%2C+Pt.+III" title="PHP Coding in MODx Revolution, Pt. III">next article</a>, we'll talk about how this is used in the context of MODx processors with JSON.
 </p>
 
-<h2>
-<a name="PHPCodinginMODxRevolution%2CPt.II-SeeAlso"></a>See Also
+<h2 id="PHPCodinginMODxRevolution,Pt.II-SeeAlso">
+See Also
 </h2>
 
 <ul>

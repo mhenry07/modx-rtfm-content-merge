@@ -1,114 +1,93 @@
-<h1>
-<a name="getLoginUserID-API%3AgetLoginUserID"></a>API:getLoginUserID
+<h1 id="getLoginUserID-API:getLoginUserID">
+API:getLoginUserID
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Quick reference</b>
+<div class="info">
+<strong>API Quick reference</strong>
 <br />
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable name:
 </td>
-<td class='confluenceTd'>
+<td>
 getLoginUserID
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Modx versions:
 </td>
-<td class='confluenceTd'>
+<td>
 0.9.x + Evolution
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Input parameters:
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return if successful:
 </td>
-<td class='confluenceTd'>
+<td>
 Logged in user ID
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return type:
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return on failure:
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Object parent:
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
-<h2>
-<a name="getLoginUserID-Description%2FUsage"></a>Description / Usage
+<h2 id="getLoginUserID-Description/Usage">
+Description / Usage
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 integer getLoginUserID( );  
 </pre>
-</div>
-</div>
-
 <p>
 Determines if user is logged in, be it via Manager Interface, or Web Interface, and returns the ID (int) of the current user. If no user is logged in, null is returned.
 </p>
 
 <ul>
 <li>
-<b>$context</b> can be either 'web' or 'mgr'. Returns nothing if the user is not logged in.
+<strong>$context</strong> can be either 'web' or 'mgr'. Returns nothing if the user is not logged in.
 </li>
 </ul>
 
@@ -116,39 +95,34 @@ Determines if user is logged in, be it via Manager Interface, or Web Interface, 
 Returns current user id.
 </p>
 
-<h2>
-<a name="getLoginUserID-Examples"></a>Examples
+<h2 id="getLoginUserID-Examples">
+Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// In the front end, returns an array of the logged in user's attributes.
-</span>    $userInfo = $modx-&gt;db-&gt;getRow(
+<pre class="brush: php">
+// In the front end, returns an array of the logged in user's attributes.
+    $userInfo = $modx-&gt;db-&gt;getRow(
         $modx-&gt;db-&gt;select(
-            <span class="code-quote">"*"</span>, 
+            "*", 
             $modx-&gt;db-&gt;getFullTableName('web_user_attributes'), 
-            <span class="code-quote">"`internalKey`="</span>.$modx-&gt;getLoginUserID()
+            "`internalKey`=".$modx-&gt;getLoginUserID()
         )
     );
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="getLoginUserID-Related"></a>Related
+<h2 id="getLoginUserID-Related">
+Related
 </h2>
 
-<h2>
-<a name="getLoginUserID-Notes"></a>Notes
+<h2 id="getLoginUserID-Notes">
+Notes
 </h2>
 
 <p>
 In the manager, the value returned will be the manager user's ID.
 </p>
 
-<h2>
-<a name="getLoginUserID-FunctionSource"></a>Function Source
+<h2 id="getLoginUserID-FunctionSource">
+Function Source
 </h2>
 
 <p>
@@ -157,20 +131,16 @@ File: manager/includes/document.parser.class.inc.php
 Line: 2015
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 function getLoginUserID($context= '') {
-        <span class="code-keyword">if</span> ($context &amp;&amp; isset ($_SESSION[$context . 'Validated'])) {
-            <span class="code-keyword">return</span> $_SESSION[$context . 'InternalKey'];
+        if ($context &amp;&amp; isset ($_SESSION[$context . 'Validated'])) {
+            return $_SESSION[$context . 'InternalKey'];
         }
-        elseif ($<span class="code-keyword">this</span>-&gt;isFrontend() &amp;&amp; isset ($_SESSION['webValidated'])) {
-            <span class="code-keyword">return</span> $_SESSION['webInternalKey'];
+        elseif ($this-&gt;isFrontend() &amp;&amp; isset ($_SESSION['webValidated'])) {
+            return $_SESSION['webInternalKey'];
         }
-        elseif ($<span class="code-keyword">this</span>-&gt;isBackend() &amp;&amp; isset ($_SESSION['mgrValidated'])) {
-            <span class="code-keyword">return</span> $_SESSION['mgrInternalKey'];
+        elseif ($this-&gt;isBackend() &amp;&amp; isset ($_SESSION['mgrValidated'])) {
+            return $_SESSION['mgrInternalKey'];
         }
     }
 </pre>
-</div>
-</div>

@@ -1,383 +1,423 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Quip.Quip.tplComment-Quip%27stplCommentChunk"></a>Quip's tplComment Chunk
+<h2 id="Quip.Quip.tplComment-Quip'stplCommentChunk">
+Quip's tplComment Chunk
 </h2>
 
 <p>
 This is the Chunk displayed with the &amp;tplComment property on the <a href="/display/ADDON/Quip.Quip" title="Quip.Quip">Quip.Quip</a> snippet.
 </p>
 
-<h2>
-<a name="Quip.Quip.tplComment-DefaultValue" id="Quip.Quip.tplComment-DefaultValue"></a>Default Value
+<h2 id="Quip.Quip.tplComment-DefaultValue">
+Default Value
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li class=<span class="code-quote">"[[+cls]]"</span> id=<span class="code-quote">"[[+idprefix]][[+id]]"</span> [[+depth_margin:notempty=`style=<span class="code-quote">"padding-left: [[+depth_margin]]px"</span>`]]&gt;
-&lt;div id=<span class="code-quote">"[[+idprefix]][[+id]]-div"</span> class=<span class="code-quote">"quip-comment-body [[+alt]]"</span>&gt;
-    &lt;div class=<span class="code-quote">"quip-comment-right"</span>&gt;
-        [[+gravatarUrl:notempty=`&lt;img src=<span class="code-quote">"[[+gravatarUrl]]"</span> class=<span class="code-quote">"quip-avatar"</span> alt="" /&gt;`]]
+<pre class="brush: php">
+&lt;li class="[[+cls]]" id="[[+idprefix]][[+id]]" [[+depth_margin:notempty=`style="padding-left: [[+depth_margin]]px"`]]&gt;
+&lt;div id="[[+idprefix]][[+id]]-div" class="quip-comment-body [[+alt]]"&gt;
+    &lt;div class="quip-comment-right"&gt;
+        [[+gravatarUrl:notempty=`&lt;img src="[[+gravatarUrl]]" class="quip-avatar" alt="" /&gt;`]]
     &lt;/div&gt;
 
-    &lt;p class=<span class="code-quote">"quip-comment-meta"</span>&gt;
-        &lt;span class=<span class="code-quote">"quip-comment-author"</span>&gt;[[+authorName]]:&lt;/span&gt;&lt;br /&gt;
-        &lt;span class=<span class="code-quote">"quip-comment-createdon"</span>&gt;&lt;a href=<span class="code-quote">"[[+url]]"</span>&gt;[[+createdon]]&lt;/a&gt;
-        [[+approved:<span class="code-keyword">if</span>=`[[+approved]]`:is=`1`:then=``:<span class="code-keyword">else</span>=`- &lt;em&gt;[[%quip.unapproved? &amp;namespace=`quip` &amp;topic=`<span class="code-keyword">default</span>`]]&lt;/em&gt;`]]
+    &lt;p class="quip-comment-meta"&gt;
+        &lt;span class="quip-comment-author"&gt;[[+authorName]]:&lt;/span&gt;&lt;br /&gt;
+        &lt;span class="quip-comment-createdon"&gt;&lt;a href="[[+url]]"&gt;[[+createdon]]&lt;/a&gt;
+        [[+approved:if=`[[+approved]]`:is=`1`:then=``:else=`- &lt;em&gt;[[%quip.unapproved? &amp;namespace=`quip` &amp;topic=`default`]]&lt;/em&gt;`]]
         &lt;/span&gt;
     &lt;/p&gt;
 
-    &lt;div class=<span class="code-quote">"quip-comment-text"</span>&gt;
+    &lt;div class="quip-comment-text"&gt;
         &lt;p&gt;[[+body]]&lt;/p&gt;
 
-        [[+replyUrl:notempty=`&lt;p&gt;&lt;span class=<span class="code-quote">"quip-reply-link"</span>&gt;&lt;a href=<span class="code-quote">"[[+replyUrl]]"</span>&gt;[[%quip.reply? &amp;namespace=`quip` &amp;topic=`<span class="code-keyword">default</span>`]]&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;`]]
+        [[+replyUrl:notempty=`&lt;p&gt;&lt;span class="quip-reply-link"&gt;&lt;a href="[[+replyUrl]]"&gt;[[%quip.reply? &amp;namespace=`quip` &amp;topic=`default`]]&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;`]]
     &lt;/div&gt;
 
-    &lt;div class=<span class="code-quote">"quip-comment-options"</span>&gt;
+    &lt;div class="quip-comment-options"&gt;
         [[+report]]
         [[+options]]
     &lt;/div&gt;
-    &lt;div class=<span class="code-quote">"quip-<span class="code-keyword">break</span>"</span>&gt;&lt;/div&gt;
+    &lt;div class="quip-break"&gt;&lt;/div&gt;
 &lt;/div&gt;
-    [[+children:notempty=`&lt;ol class=<span class="code-quote">"quip-comment-list"</span>&gt;[[+children]]&lt;/ol&gt;`]]
+    [[+children:notempty=`&lt;ol class="quip-comment-list"&gt;[[+children]]&lt;/ol&gt;`]]
 &lt;/li&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Quip.Quip.tplComment-AvailablePlaceholders" id="Quip.Quip.tplComment-AvailablePlaceholders"></a>Available Placeholders
+<h2 id="Quip.Quip.tplComment-AvailablePlaceholders">
+Available Placeholders
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thread
 </td>
-<td class='confluenceTd'>
+<td>
 The thread of the comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parent
 </td>
-<td class='confluenceTd'>
+<td>
 The comment's parent. Defaults to 0.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rank
 </td>
-<td class='confluenceTd'>
+<td>
 The comment's rank.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 author
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the User who posted this comment. Only applies if the user was logged-in; otherwise it will be 0.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 body
 </td>
-<td class='confluenceTd'>
+<td>
 The text of the comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 createdon
 </td>
-<td class='confluenceTd'>
+<td>
 The timestamp of when this comment was created.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 editedon
 </td>
-<td class='confluenceTd'>
+<td>
 The timestamp of when this comment was last edited.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 approved
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not this comment has been approved.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 approvedby
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the User who approved this comment. 0 if moderation is disabled.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 approvedon
 </td>
-<td class='confluenceTd'>
+<td>
 A timestamp of when this comment was approved.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the author of the comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 email
 </td>
-<td class='confluenceTd'>
+<td>
 The email of the author of the comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 website
 </td>
-<td class='confluenceTd'>
+<td>
 The website of the author of the comment, if provided.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ip
 </td>
-<td class='confluenceTd'>
+<td>
 The IP that this comment was posted from.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 deleted
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not this comment has been deleted.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 deletedon
 </td>
-<td class='confluenceTd'>
+<td>
 The timestamp when this comment was deleted. Empty if not deleted.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 deletedby
 </td>
-<td class='confluenceTd'>
+<td>
 The User ID of the user who deleted this comment. 0 if not deleted.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 idx
 </td>
-<td class='confluenceTd'>
+<td>
 The index of the current row iteration.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 alt
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not this is an alternate row.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 url
 </td>
-<td class='confluenceTd'>
+<td>
 The direct URL of the comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 threaded
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not the comment is in a thread with threading support.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 depth
 </td>
-<td class='confluenceTd'>
+<td>
 The depth of the comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 depth_margin
 </td>
-<td class='confluenceTd'>
+<td>
 The margin in pixels of the comment, due to the depth.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cls
 </td>
-<td class='confluenceTd'>
+<td>
 The CSS class applied to the comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 md5email
 </td>
-<td class='confluenceTd'>
+<td>
 The email of the author of the comment, md5'ed.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 gravatarIcon
 </td>
-<td class='confluenceTd'>
+<td>
 The Gravatar icon type.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 gravatarSize
 </td>
-<td class='confluenceTd'>
+<td>
 The Gravatar icon size.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 allowRemove
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not the current user can remove this comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 reported
 </td>
-<td class='confluenceTd'>
+<td>
 If this comment has been reported as spam.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 options
 </td>
-<td class='confluenceTd'>
+<td>
 Any moderation options for the comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 report
 </td>
-<td class='confluenceTd'>
+<td>
 The link to report this comment as spam.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 authorName
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the author of the comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 replyUrl
 </td>
-<td class='confluenceTd'>
+<td>
 The URL for threaded comments where the reply form is located.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Quip.Quip.tplComment-SeeAlso" id="Quip.Quip.tplComment-SeeAlso"></a>See Also
+<h2 id="Quip.Quip.tplComment-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Quip.Quip">Quip.Quip</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComment">Quip.Quip.tplComment</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="16646314" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042879" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FQuip.Quip.tplComment" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="16646297" /> <input type="hidden" name="ancestorId" value="11042879" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Quip.Quip.tplCommentOptions">Quip.Quip.tplCommentOptions</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComments">Quip.Quip.tplComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplReport">Quip.Quip.tplReport</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipCount">Quip.QuipCount</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipLatestComments">Quip.QuipLatestComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply">Quip.QuipReply</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplAddComment">Quip.QuipReply.tplAddComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplLoginToComment">Quip.QuipReply.tplLoginToComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplPreview">Quip.QuipReply.tplPreview</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipRss">Quip.QuipRss</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Roadmap">Quip.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Upgrading">Quip.Upgrading</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Upgrading+to+1.0.1">Quip.Upgrading to 1.0.1</a>
+</li>
+</ol>
+</li>
+</ol>

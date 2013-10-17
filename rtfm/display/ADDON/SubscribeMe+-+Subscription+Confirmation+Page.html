@@ -2,13 +2,11 @@
 Once the user is finished with PayPal they will be returned the confirmation page setup in the <a href="/display/ADDON/SubscribeMe+-+Setting+up+the+Payment+Methods" title="SubscribeMe - Setting up the Payment Methods">previous step</a>.&nbsp; You should make sure the return_id property points to this page.
 </p>
 
-<h2>
-<a name="SubscribeMe-SubscriptionConfirmationPage-ConfirmationPageCode" id="SubscribeMe-SubscriptionConfirmationPage-ConfirmationPageCode"></a>Confirmation Page Code
+<h2 id="SubscribeMe-SubscriptionConfirmationPage-ConfirmationPageCode">
+Confirmation Page Code
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h3&gt;Confirm Shipping Address&lt;/h3&gt;
 &lt;p&gt;The following data was retrieved from user profile, and updated based on your PayPal account. If your subscription includes shipping, &lt;strong&gt;make sure all details below are correct&lt;/strong&gt;. Your details will then be updated on your user profile (PayPal will not be changed). &lt;/p&gt;
 
@@ -18,77 +16,72 @@ Once the user is finished with PayPal they will be returned the confirmation pag
   &amp;completedResource=`8`
   &amp;errorResource=`7`
 ]]
-&lt;form action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span>&gt;
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"fullname"</span> value=<span class="code-quote">"[[!+fi.fullname]]"</span> /&gt; Name&lt;br /&gt;
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"address"</span> value=<span class="code-quote">"[[!+fi.address]]"</span> /&gt; Address&lt;br /&gt;
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"zip"</span> value=<span class="code-quote">"[[!+fi.zip]]"</span> /&gt; Zip (Postcode)&lt;br /&gt;
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"city"</span> value=<span class="code-quote">"[[!+fi.city]]"</span> /&gt; City&lt;br /&gt;
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"state"</span> value=<span class="code-quote">"[[!+fi.state]]"</span> /&gt; State&lt;br /&gt;
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"country"</span> value=<span class="code-quote">"[[!+fi.country]]"</span> /&gt; Country&lt;br /&gt;
+&lt;form action="[[~[[*id]]]]" method="post"&gt;
+&lt;input type="text" name="fullname" value="[[!+fi.fullname]]" /&gt; Name&lt;br /&gt;
+&lt;input type="text" name="address" value="[[!+fi.address]]" /&gt; Address&lt;br /&gt;
+&lt;input type="text" name="zip" value="[[!+fi.zip]]" /&gt; Zip (Postcode)&lt;br /&gt;
+&lt;input type="text" name="city" value="[[!+fi.city]]" /&gt; City&lt;br /&gt;
+&lt;input type="text" name="state" value="[[!+fi.state]]" /&gt; State&lt;br /&gt;
+&lt;input type="text" name="country" value="[[!+fi.country]]" /&gt; Country&lt;br /&gt;
 
-&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"token"</span> value=<span class="code-quote">"[[!+fi.pp_token]]"</span> /&gt;
-&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"PayerID"</span> value=<span class="code-quote">"[[!+fi.pp_payerid]]"</span> /&gt;
+&lt;input type="hidden" name="token" value="[[!+fi.pp_token]]" /&gt;
+&lt;input type="hidden" name="PayerID" value="[[!+fi.pp_payerid]]" /&gt;
 
-&lt;p&gt;By clicking the button below I confirm that my shipping details as stated above are correct. Furthermore I grant [[++site_name]] permission to create a recurring payments profile on PayPal which will automatically pay <span class="code-keyword">for</span> the requested subscription. Bla, bla, bla, bla.&lt;/p&gt;
+&lt;p&gt;By clicking the button below I confirm that my shipping details as stated above are correct. Furthermore I grant [[++site_name]] permission to create a recurring payments profile on PayPal which will automatically pay for the requested subscription. Bla, bla, bla, bla.&lt;/p&gt;
 
-&lt;input type=<span class="code-quote">"submit"</span> value=<span class="code-quote">"Subscribe!"</span> /&gt;
+&lt;input type="submit" value="Subscribe!" /&gt;
 &lt;/form&gt;
 </pre>
-</div>
-</div>
-
 <p>
 The users address and other information will be retrieved from PayPal using the preHook smGetUserDataFromPayPal, and saved to their user account.&nbsp; You should at the very least remove the "Bla, bla, bla, bla.", but if you get carried away, setting the completedResource and errorResource values in the formIt call would be a good idea.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Property
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 completedResource
 </td>
-<td class='confluenceTd'>
+<td>
 Redirects the user to a thank you page
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 errorResource
 </td>
-<td class='confluenceTd'>
+<td>
 Redirects the user to an error page
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="SubscribeMe-SubscriptionConfirmationPage-GoingLive" id="SubscribeMe-SubscriptionConfirmationPage-GoingLive"></a>Going Live
+<h2 id="SubscribeMe-SubscriptionConfirmationPage-GoingLive">
+Going Live
 </h2>
 
 <p>

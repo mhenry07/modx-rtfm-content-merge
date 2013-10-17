@@ -1,31 +1,24 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Chunks-Create'>Create</a>
+<a href="#Chunks-Create">Create</a>
 </li>
 
 <li>
-<a href='#Chunks-Usage'>Usage</a>
+<a href="#Chunks-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#Chunks-ProcessingChunkviatheAPI'>Processing Chunk via the API</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Chunks-ProcessingChunkviatheAPI">Processing Chunk via the API</a>
 <ul>
 <li>
-<a href='#Chunks-ModifyingaChunkViatheAPI'>Modifying a Chunk Via the API</a>
+<a href="#Chunks-ModifyingaChunkViatheAPI">Modifying a Chunk Via the API</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Chunks-SeeAlso'>See Also</a>
+<a href="#Chunks-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -34,32 +27,27 @@
 Chunks are bits of static text which you can reuse across your site, similar in function to include files or "blocks" in other content management systems. Common examples of Chunks might be your contact information or a copyright notice. Although Chunks cannot contain any logic directly, they can however contain calls to <a href="/display/revolution20/Snippets" title="Snippets">Snippets</a>, which are executable bits of PHP code which produce dynamic output.
 </p>
 
-<h2>
-<a name="Chunks-Create" id="Chunks-Create"></a>Create
+<h2 id="Chunks-Create">
+Create
 </h2>
 
 <p>
 Before you can use a Chunk, you must first create and name one by pasting text into the MODx manager (Elements --&gt; Chunks --&gt; New Chunk):
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/18678058/revo+chunk.jpg?version=1&amp;modificationDate=1264969799000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678058/revo+chunk.jpg?version=1&amp;modificationDate=1264969799000" />
 </p>
 
-<h2>
-<a name="Chunks-Usage" id="Chunks-Usage"></a>Usage
+<h2 id="Chunks-Usage">
+Usage
 </h2>
 
 <p>
 To use the Chunk, you reference it by name in your templates or in your page content.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[$chunkName]]
 </pre>
-</div>
-</div>
-
 <p>
 That reference is then replaced with the contents of the Chunk.
 </p>
@@ -78,14 +66,9 @@ Hello, [[+name]]. You have [[+messageCount]] messages.
 You could fill those values with:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[$intro? &amp;name=`George` &amp;messageCount=`12`]]
 </pre>
-</div>
-</div>
-
 <p>
 Which would output:
 </p>
@@ -100,53 +83,36 @@ Hello, George. You have 12 messages.
 You could even take it one step further, by adding a <a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variable</a> that allows the user to specify their name per Resource:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!$intro? &amp;name=`[[*usersName]]` &amp;messageCount=`[[*messageCount]]`]]
 </pre>
-</div>
-</div>
-
 <p>
 or in the Chunk itself:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Hello, [[*usersName]]. You have [[*messageCount]] messages.
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Chunks-ProcessingChunkviatheAPI" id="Chunks-ProcessingChunkviatheAPI"></a>Processing Chunk via the API
+<h2 id="Chunks-ProcessingChunkviatheAPI">
+Processing Chunk via the API
 </h2>
 
 <p>
 Chunks are also frequently used to format the output of Snippets. A Chunk can be processed from a Snippet using the process() function; for example, given the following Chunk named 'rowTpl':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;tr class=<span class="code-quote">"[[+rowCls]]"</span> id=<span class="code-quote">"row[[+id]]"</span>&gt;
+<pre class="brush: php">
+&lt;tr class="[[+rowCls]]" id="row[[+id]]"&gt;
 &lt;td&gt;[[+pagetitle]]&lt;/td&gt;
 &lt;td&gt;[[+introtext]]&lt;/td&gt;
 &lt;/tr&gt;
 </pre>
-</div>
-</div>
-
 <p>
 the following Snippet code retrieves it and processes it with an array of properties for all published Resources, and returns formatted results as a table, setting the class to "alt" if for even rows:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$resources = $modx-&gt;getCollection('modResource',array('published' =&gt; <span class="code-keyword">true</span>));
+<pre class="brush: php">
+$resources = $modx-&gt;getCollection('modResource',array('published' =&gt; true));
 $i = 0;
 $output = '';
 foreach ($resources as $resource) {
@@ -156,46 +122,38 @@ foreach ($resources as $resource) {
   $output .= $modx-&gt;getChunk('rowTpl',$properties);
   $i++;
 }
-<span class="code-keyword">return</span> '&lt;table&gt;&lt;tbody&gt;'.$output.'&lt;/tbody&gt;&lt;/table&gt;';
+return '&lt;table&gt;&lt;tbody&gt;'.$output.'&lt;/tbody&gt;&lt;/table&gt;';
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="Chunks-ModifyingaChunkViatheAPI" id="Chunks-ModifyingaChunkViatheAPI"></a>Modifying a Chunk Via the API
+<h3 id="Chunks-ModifyingaChunkViatheAPI">
+Modifying a Chunk Via the API
 </h3>
 
 <p>
 Chunks can also be manipulated by the MODx API:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-/* create a <span class="code-keyword">new</span> chunk, give it some content and save it to the database */
+/* create a new chunk, give it some content and save it to the database */
 $chunk = $modx-&gt;newObject('modChunk');
 $chunk-&gt;set('name','NewChunkName');
-$chunk-&gt;setContent('&lt;p&gt;This is my <span class="code-keyword">new</span> chunk!&lt;/p&gt;');
+$chunk-&gt;setContent('&lt;p&gt;This is my new chunk!&lt;/p&gt;');
 $chunk-&gt;save();
 
 /* get an existing chunk, modify the content and save changes to the database */
 $chunk = $modx-&gt;getObject('modChunk', array('name' =&gt; 'MyExistingChunk'));
-<span class="code-keyword">if</span> ($chunk) {
-    $chunk-&gt;setContent('&lt;p&gt;This is my existing chunks <span class="code-keyword">new</span> content!&lt;/p&gt;');
+if ($chunk) {
+    $chunk-&gt;setContent('&lt;p&gt;This is my existing chunks new content!&lt;/p&gt;');
     $chunk-&gt;save();
 }
 
 /* get an existing chunk and delete it from the database */
 $chunk = $modx-&gt;getObject('modChunk', array('name' =&gt; 'MyObsoleteChunk'));
-<span class="code-keyword">if</span> ($chunk) $chunk-&gt;remove();
+if ($chunk) $chunk-&gt;remove();
 ?&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Chunks-SeeAlso" id="Chunks-SeeAlso"></a>See Also
+<h2 id="Chunks-SeeAlso">
+See Also
 </h2>
 
 <ul>

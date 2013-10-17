@@ -1,49 +1,43 @@
 <div>
 <ul>
 <li>
-<a href='#MIGX.Frontend-Usage-DisplayingMIGXItems'>Displaying MIGX Items</a>
+<a href="#MIGX.Frontend-Usage-DisplayingMIGXItems">Displaying MIGX Items</a>
 </li>
 
 <li>
-<a href='#MIGX.Frontend-Usage-SampleUsage'>Sample Usage</a>
+<a href="#MIGX.Frontend-Usage-SampleUsage">Sample Usage</a>
 </li>
 
 <li>
-<a href='#MIGX.Frontend-Usage-UsingMIGXwithgetResources'>Using MIGX with getResources</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#MIGX.Frontend-Usage-UsingMIGXwithgetResources">Using MIGX with getResources</a>
 <ul>
 <li>
-<a href='#MIGX.Frontend-Usage-UsinggetResourcesvaluesinaMIGXcall'>Using getResources values in a MIGX call</a>
+<a href="#MIGX.Frontend-Usage-UsinggetResourcesvaluesinaMIGXcall">Using getResources values in a MIGX call</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#MIGX.Frontend-Usage-Properties'>Properties</a>
+<a href="#MIGX.Frontend-Usage-Properties">Properties</a>
 </li>
 
 <li>
-<a href='#MIGX.Frontend-Usage-Placeholders'>Placeholders</a>
+<a href="#MIGX.Frontend-Usage-Placeholders">Placeholders</a>
 </li>
 
 <li>
-<a href='#MIGX.Frontend-Usage-AdvancedUsage'>Advanced Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#MIGX.Frontend-Usage-AdvancedUsage">Advanced Usage</a>
 <ul>
 <li>
-<a href='#MIGX.Frontend-Usage-SwitchingTemplate'>Switching Template</a>
+<a href="#MIGX.Frontend-Usage-SwitchingTemplate">Switching Template</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="MIGX.Frontend-Usage-DisplayingMIGXItems" id="MIGX.Frontend-Usage-DisplayingMIGXItems"></a>Displaying MIGX Items
+<h2 id="MIGX.Frontend-Usage-DisplayingMIGXItems">
+Displaying MIGX Items
 </h2>
 
 <p>
@@ -72,27 +66,22 @@ Here are some sample uses of getImageList:
 Let's get to it!
 </p>
 
-<h2>
-<a name="MIGX.Frontend-Usage-SampleUsage" id="MIGX.Frontend-Usage-SampleUsage"></a>Sample Usage
+<h2 id="MIGX.Frontend-Usage-SampleUsage">
+Sample Usage
 </h2>
 
 <p>
 Let's display some images that we input in Step 3. Paste this code wherever you would like to display the images:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;ul&gt;</span>
+<pre class="brush: html">
+&lt;ul&gt;
   [[!getImageList? 
     &amp;tvname=`myMIGXtv`
-    &amp;tpl=`@CODE:<span class="code-tag">&lt;li&gt;</span>[[+idx]]<span class="code-tag">&lt;img src=<span class="code-quote">"[[+image]]"</span>/&gt;</span><span class="code-tag">&lt;p&gt;</span>[[+title]]<span class="code-tag">&lt;/p&gt;</span><span class="code-tag">&lt;/li&gt;</span>
+    &amp;tpl=`@CODE:&lt;li&gt;[[+idx]]&lt;img src="[[+image]]"/&gt;&lt;p&gt;[[+title]]&lt;/p&gt;&lt;/li&gt;
   `]]
-<span class="code-tag">&lt;/ul&gt;</span>
+&lt;/ul&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Let's break this down. The first parameter, &amp;tvname, refers to the name of the MIGX TV that we created in Backend Usage, Step 2. &amp;tpl refers to either a code string for which to use with the MIGX items or the name of a chunk. If you're using a code string, make sure to prepend the code as above with @CODE:.
 </p>
@@ -101,60 +90,45 @@ Let's break this down. The first parameter, &amp;tvname, refers to the name of t
 If you're using <a href="/display/ADDON/phpThumbOf" title="phpThumbOf">phpthumbof</a>, you will need to use a chunk and not a code string.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;ul&gt;</span>
+<pre class="brush: html">
+&lt;ul&gt;
   [[!getImageList?
     &amp;tvname=`myMIGXtv`
     &amp;tpl=`thumbTpl`]]
-<span class="code-tag">&lt;/ul&gt;</span>
+&lt;/ul&gt;
 </pre>
-</div>
-</div>
-
 <p>
-<b>thumbTpl</b>
+<strong>thumbTpl</strong>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;li&gt;</span><span class="code-tag">&lt;img src=<span class="code-quote">"[[+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`]]"</span> alt=<span class="code-quote">"[[+title]]"</span>/&gt;</span><span class="code-tag">&lt;/li&gt;</span>
+<pre class="brush: html">
+&lt;li&gt;&lt;img src="[[+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`]]" alt="[[+title]]"/&gt;&lt;/li&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="MIGX.Frontend-Usage-UsingMIGXwithgetResources" id="MIGX.Frontend-Usage-UsingMIGXwithgetResources"></a>Using MIGX with getResources
+<h2 id="MIGX.Frontend-Usage-UsingMIGXwithgetResources">
+Using MIGX with getResources
 </h2>
 
 <p>
 You can call getImageList from <a href="/display/ADDON/getResources" title="getResources">getResources</a> to build a gallery of galleries.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;li&gt;</span>
-  <span class="code-tag">&lt;a href=<span class="code-quote">"[[~[[+id]]]]"</span>&gt;</span>[[+pagetitle]]<span class="code-tag">&lt;/a&gt;</span>  
+<pre class="brush: html">
+&lt;li&gt;
+  &lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle]]&lt;/a&gt;  
   [[!getImageList?
     &amp;tvname=`myMIGXtv`
     &amp;tpl=`thumbTpl`
     &amp;limit=`1`
     &amp;docid=`[[+id]]`
   ]]
-<span class="code-tag">&lt;/li&gt;</span>
+&lt;/li&gt;
 </pre>
-</div>
-</div>
-
 <p>
 … and that's that! You now have your very own MIGX image gallery.
 </p>
 
-<h3>
-<a name="MIGX.Frontend-Usage-UsinggetResourcesvaluesinaMIGXcall" id="MIGX.Frontend-Usage-UsinggetResourcesvaluesinaMIGXcall"></a>Using getResources values in a MIGX call
+<h3 id="MIGX.Frontend-Usage-UsinggetResourcesvaluesinaMIGXcall">
+Using getResources values in a MIGX call
 </h3>
 
 <p>
@@ -165,9 +139,7 @@ If you would like to use getResources values in your chunk called by getImageLis
 Include them in the snippet call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
+<pre class="brush: html">
   [[!getImageList?
     &amp;tvname=`myMIGXtv`
     &amp;tpl=`thumbTpl2`
@@ -177,395 +149,372 @@ Include them in the snippet call:
     &amp;originalResourceId=`[[+id]]`
   ]]
 </pre>
-</div>
-</div>
-
 <p>
 and then refer to them in the chunk, prepended with "+property.":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-  <span class="code-tag">&lt;li&gt;</span>
-    <span class="code-tag">&lt;img src=<span class="code-quote">"[[+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`]]"</span> alt=<span class="code-quote">"[[+title]]"</span> /&gt;</span>
-    <span class="code-tag">&lt;a href=<span class="code-quote">"[[~[[+property.originalResourceId]]]]"</span>&gt;</span>See more images from [[+property.pagetitle]]<span class="code-tag">&lt;/a&gt;</span>
-  <span class="code-tag">&lt;/li&gt;</span>
+<pre class="brush: html">
+  &lt;li&gt;
+    &lt;img src="[[+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`]]" alt="[[+title]]" /&gt;
+    &lt;a href="[[~[[+property.originalResourceId]]]]"&gt;See more images from [[+property.pagetitle]]&lt;/a&gt;
+  &lt;/li&gt;
 </pre>
-</div>
-</div>
-
 <p>
-Here's another <a href="http://forums.modx.com/thread/78950/odd-issue-with-migx#dis-post-435072" class="external-link" rel="nofollow">example from the forum post</a> that lead to the above example.
+Here's another <a href="http://forums.modx.com/thread/78950/odd-issue-with-migx#dis-post-435072">example from the forum post</a> that lead to the above example.
 </p>
 
-<h2>
-<a name="MIGX.Frontend-Usage-Properties" id="MIGX.Frontend-Usage-Properties"></a>Properties
+<h2 id="MIGX.Frontend-Usage-Properties">
+Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tvname
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 the Name of your MIGX-TV
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 chunkname to render each record. You can also use @CODE: or @FILE: if empty, getImageList will output an array-string of the records
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 docid
 </td>
-<td class='confluenceTd'>
+<td>
 if you want to show MIGX-records from other resources. Usefull in <a href="/display/ADDON/getResources" title="getResources">getResources</a>-tpls with &amp;docid=`[[+id]]`
 </td>
-<td class='confluenceTd'>
+<td>
 [[*id]]
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 value
 </td>
-<td class='confluenceTd'>
+<td>
 if you want to send your own JSON-string to getImageList instaed of using the TV-output. tvname and docid are ignored then.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 If set to non-zero, will only show X number of items.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 offset
 </td>
-<td class='confluenceTd'>
+<td>
 The index to start grabbing from when limiting the number of items.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 totalVar
 </td>
-<td class='confluenceTd'>
+<td>
 the key for the total-placeholder, usefull together with <a href="/display/ADDON/getPage" title="getPage">getPage</a>&nbsp;for pagination.
 </td>
-<td class='confluenceTd'>
+<td>
 total
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 randomize
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 set &amp;randomize=`1` if you want randomized output
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 preselectLimit
 </td>
-<td class='confluenceTd'>
+<td>
 together with &amp;randomize, this will preselect items from top to limit, for images you want to see in any case in ranomized output
 </td>
-<td class='confluenceTd'>
+<td>
 5
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 where
 </td>
-<td class='confluenceTd'>
+<td>
 filter items. example:&nbsp;
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-javascript">
+
+<pre class="brush: javascript">
 {"active:=":"1","rating:&gt;":"5"}
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sort
 </td>
-<td class='confluenceTd'>
+<td>
 sort items by multiple fields. example:&nbsp;
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-javascript">
+
+<pre class="brush: javascript">
 [{"sortby":"age","sortdir":"DESC","sortmode":"numeric"},{"sortby":"name","sortdir":"ASC"}]
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 outputs to placeholder. example: &amp;toPlaceholder=`MIGX` - get the output by&nbsp;[[+MIGX]]
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toSeparatePlaceholders
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 outputs items to seperate placeholders. example: &amp;toSeparatePlaceholders=`MIGX` - get the items by&nbsp;[[+MIGX.1]] [[+MIGX.2]] ......&nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 placeholdersKeyField
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 together with &amp;toSeparatePlaceholders. example: &amp;placeholdersKeyField=`title` -&nbsp;get the items by&nbsp;[[+MIGX.firsttitle]]&nbsp;[[+MIGX.thirdtitle]] ......
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 outputSeparator
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 a seperator between items
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toJsonPlaceholder
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 output items as json into a placeholder, usefull when you want for example show randomized items on different places.
-<br class="atl-forced-newline" />
+<br />
 example: &amp;toJsonPlaceholder=`jsonoutput` -&gt;&nbsp;[[getImagelist? &amp;value=`[[+jsonoutput]]`................]]
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 jsonVarKey
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 example: &amp;jsonVarKey=`migx_json` - this will use the value from $_REQUEST['migx_json'] as value, if any
-<br class="atl-forced-newline" />
+<br />
 useful together with the backend-preview-feature
 </td>
-<td class='confluenceTd'>
+<td>
 migx_outputvalue
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="MIGX.Frontend-Usage-Placeholders" id="MIGX.Frontend-Usage-Placeholders"></a>Placeholders
+<h2 id="MIGX.Frontend-Usage-Placeholders">
+Placeholders
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+fieldname]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 replace 'fieldname' with your fieldnames
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+idx]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 the index of each item, begins allways with 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+_first]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 returns 1, if in first row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+_last]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 returns 1, if in last row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+_alt]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 returns 1 every second row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+total]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 count of all rows, replace 'total' with your totalVar
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+property.name]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 you can use every script property/param that's set in the actual snippet call, for example if you have &amp;docid=`20` the placeholder&nbsp;[[+property.docid]] will return 20
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="MIGX.Frontend-Usage-AdvancedUsage" id="MIGX.Frontend-Usage-AdvancedUsage"></a>Advanced Usage
+<h2 id="MIGX.Frontend-Usage-AdvancedUsage">
+Advanced Usage
 </h2>
 
-<h3>
-<a name="MIGX.Frontend-Usage-SwitchingTemplate" id="MIGX.Frontend-Usage-SwitchingTemplate"></a>Switching Template
+<h3 id="MIGX.Frontend-Usage-SwitchingTemplate">
+Switching Template
 </h3>
 
 <p>
 Using &amp;tpl=`@FIELD:` you can use any field as the template name to switch template from item to item
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
+<pre class="brush: html">
   [[!getImageList?
     &amp;tvname=`myMIGXtv`
     &amp;tpl=`@FIELD:tpl`
   ]]
 </pre>
-</div>
-</div>
-
 <p>
 If you have specified a field name "tpl" from the MIGX TV setup, getImageList will use the value of this field for the items's tpl. The value must be exactly what you would put in the &amp;tpl property - a chunk name, @CODE:... @FILE...
 </p>

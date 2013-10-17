@@ -1,29 +1,26 @@
 <div>
 <ul>
 <li>
-<a href='#Ditto-WhatisDitto%3F'>What is Ditto?</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Ditto-WhatisDitto%3F">What is Ditto?</a>
 <ul>
 <li>
-<a href='#Ditto-UsefulLinks'>Useful Links</a>
+<a href="#Ditto-UsefulLinks">Useful Links</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Ditto-GettingStartedWithDitto'>Getting Started With Ditto</a>
+<a href="#Ditto-GettingStartedWithDitto">Getting Started With Ditto</a>
 </li>
 
 <li>
-<a href='#Ditto-SeeAlso'>See Also</a>
+<a href="#Ditto-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Ditto-WhatisDitto%3F"></a>What is Ditto?
+<h2 id="Ditto-WhatisDitto?">
+What is Ditto?
 </h2>
 
 <p>
@@ -35,47 +32,33 @@ Ditto lists data from documents to create output in many formats. You can specif
 </p>
 
 <p>
-MODx Evolution comes shipped with Ditto (currently Ditto version 2.1.0) and works straight out of the box; but if needed you can download Ditto from <a href="http://modxcms.com/extras/package/96" title="Download Ditto" class="external-link" rel="nofollow">the MODx Extras section</a>. When downloading from the Extras section make sure you get the Evolution compatible version, some of the latest releases are for Revolution only.
+MODx Evolution comes shipped with Ditto (currently Ditto version 2.1.0) and works straight out of the box; but if needed you can download Ditto from <a href="http://modxcms.com/extras/package/96" title="Download Ditto">the MODx Extras section</a>. When downloading from the Extras section make sure you get the Evolution compatible version, some of the latest releases are for Revolution only.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 Ditto development for MODx Revolution ceased some time ago and is not expected to continue in the future. &nbsp;<a href="/display/ADDON/getResources" title="getResources">getResources</a>&nbsp;and <a href="/display/ADDON/getPage" title="getPage">getPage</a>&nbsp;replaces most of the functionality.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="Ditto-UsefulLinks"></a>Useful Links
+<h3 id="Ditto-UsefulLinks">
+Useful Links
 </h3>
 
 <ul>
 <li>
-<a href="http://modxcms.com/forums/index.php/board,180.0.html" title="Ditto Forums" class="external-link" rel="nofollow">Official Ditto Forums</a>
+<a href="http://modxcms.com/forums/index.php/board,180.0.html" title="Ditto Forums">Official Ditto Forums</a>
 </li>
 
 <li>
-<a href="http://modxcms.com/extras/package/96" title="Download Ditto" class="external-link" rel="nofollow">Download Ditto</a>
+<a href="http://modxcms.com/extras/package/96" title="Download Ditto">Download Ditto</a>
 </li>
 
 <li>
-<a href="http://rtfm.modx.com/pages/viewpageattachments.action?pageId=11042873&amp;metadataLink=true" title="Cheatsheet" class="external-link" rel="nofollow">Cheatsheet</a>
+<a href="http://rtfm.modx.com/pages/viewpageattachments.action?pageId=11042873&amp;metadataLink=true" title="Cheatsheet">Cheatsheet</a>
 </li>
 </ul>
 
-<h2>
-<a name="Ditto-GettingStartedWithDitto"></a>Getting Started With Ditto
+<h2 id="Ditto-GettingStartedWithDitto">
+Getting Started With Ditto
 </h2>
 
 <p>
@@ -86,42 +69,28 @@ I'll try and cover as many of the basics as I can so you can get started with Di
 Call Ditto as you would with any snippet, for example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [!Ditto? &amp;parents=`5` &amp;extenders=`summary` &amp;tpl=`tplBlog` &amp;orderBy=`createdon ASC` &amp;display=`6` &amp;truncText=`Continue Reading This Article` &amp;dateFormat=`%e %B %Y`!]
 </pre>
-</div>
-</div>
-
 <p>
 In this example, there's I've called a Chunk named "tplBlog" which will determine how each blog summary is displayed, that looks like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h1&gt;[+pagetitle+]&lt;/h1&gt;
 &lt;p&gt;[+summary+]&lt;/p&gt;
 &lt;p&gt;[+link+]&lt;/p&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Ditto-SeeAlso"></a>See Also
+<h2 id="Ditto-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Ditto+Extenders">Ditto Extenders</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="11042873" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042873" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FDitto" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11042873" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Ditto+Parameters">Ditto Parameters</a>
+</li>
+</ol>

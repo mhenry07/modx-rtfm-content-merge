@@ -2,58 +2,48 @@
 A common need is the ability to control how long a piece of data should live – how long before it expires and is no longer good?. Just like with bottles of milk, knowing the expiration date can tell us whether our data is still good or if we need to recalculate it.
 </p>
 
-<h2>
-<a name="CachingTutorial-Lifetimes-CreateaSnippet" id="CachingTutorial-Lifetimes-CreateaSnippet"></a>Create a Snippet
+<h2 id="CachingTutorial-Lifetimes-CreateaSnippet">
+Create a Snippet
 </h2>
 
 <p>
 In this example, we are going to create a snippet that stores a bit of data for a short period of time. Paste the following bit of code into a new Snippet named "testCache" and then save it.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $cacheManager = $modx-&gt;getCacheManager();
 
-$lifetime = 10; <span class="code-comment">// in seconds
-</span>
-<span class="code-keyword">if</span> (!$payload = $cacheManager-&gt;get('my_cache_key')) {
+$lifetime = 10; // in seconds
+
+if (!$payload = $cacheManager-&gt;get('my_cache_key')) {
     $payload = date('H:i:s');
     $cacheManager-&gt;set('my_cache_key',$payload, $lifetime);
 }
 
-<span class="code-keyword">return</span> $payload;
+return $payload;
 </pre>
-</div>
-</div>
-
 <p>
 The trick here is that the output from the cacheManager will be null if the data either does not exist or has expired.
 </p>
 
-<h2>
-<a name="CachingTutorial-Lifetimes-ReferencetheSnippet" id="CachingTutorial-Lifetimes-ReferencetheSnippet"></a>Reference the Snippet
+<h2 id="CachingTutorial-Lifetimes-ReferencetheSnippet">
+Reference the Snippet
 </h2>
 
 <p>
 When you reference a snippet that is using custom caching like this, you <em>must</em> call it uncached. That bypasses the standard caching mechanisms and it allows your code to take caching into its own hands.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!testCache]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="CachingTutorial-Lifetimes-Observations" id="CachingTutorial-Lifetimes-Observations"></a>Observations
+<h2 id="CachingTutorial-Lifetimes-Observations">
+Observations
 </h2>
 
 <p>
-When you view your page containing the <tt>testCache</tt>. Refresh the page frequently. You should notice that the datestamp only refreshes every 10 seconds!
+When you view your page containing the <code>testCache</code>. Refresh the page frequently. You should notice that the datestamp only refreshes every 10 seconds!
 </p>
 
 <p>
@@ -64,8 +54,8 @@ When you clear the Site's cache, your cached data will get cleared out, so you c
 If you want your data to stick around even after a user has cleared the site cache, you need to set up your own caching partition – that's in a different tutorial. The example here is ideal for caching data that has something to do with pages because the cache will get cleared when a page is updated.
 </p>
 
-<h2>
-<a name="CachingTutorial-Lifetimes-Summary" id="CachingTutorial-Lifetimes-Summary"></a>Summary
+<h2 id="CachingTutorial-Lifetimes-Summary">
+Summary
 </h2>
 
 <p>

@@ -1,37 +1,23 @@
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Only use this documentation for pre-2.2 or core submissions.</b>
+<div class="warning">
+<strong>Only use this documentation for pre-2.2 or core submissions.</strong>
 <br />
 Refer to the <a href="/display/revolution20/Adding+a+Custom+TV+Type+-+MODX+2.2" title="Adding a Custom TV Type - MODX 2.2">Adding a Custom TV Type</a> doc for the proper way to build custom TVs in 2.2 which allows easy packaging.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<h2>
-<a name="AddingaCustomTVInputType-WhatareCustomTVInputTypes%3F"></a>What are Custom TV Input Types?
+<h2 id="AddingaCustomTVInputType-WhatareCustomTVInputTypes?">
+What are Custom TV Input Types?
 </h2>
 
 <p>
 MODx Revolution allows you to create your own custom TV input types (similar to the textbox, radio, textarea, richtext, etc types already available) for your <a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>.
 </p>
 
-<h2>
-<a name="AddingaCustomTVInputType-CreatingtheFiles"></a>Creating the Files
+<h2 id="AddingaCustomTVInputType-CreatingtheFiles">
+Creating the Files
 </h2>
 
 <p>
@@ -44,11 +30,11 @@ I'd first need 2 files:
 
 <ul>
 <li>
-<b>An input controller</b> - put here: core/model/modx/processors/element/tv/renders/mgr/input/test.php
+<strong>An input controller</strong> - put here: core/model/modx/processors/element/tv/renders/mgr/input/test.php
 </li>
 
 <li>
-<b>An input template</b> - put here: manager/templates/default/element/tv/renders/input/test.tpl
+<strong>An input template</strong> - put here: manager/templates/default/element/tv/renders/input/test.tpl
 </li>
 </ul>
 
@@ -56,27 +42,20 @@ I'd first need 2 files:
 The input controller, test.php, would have:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$<span class="code-keyword">this</span>-&gt;xpdo-&gt;lexicon-&gt;load('tv_widget');
-<span class="code-comment">// any other PHP i want here
-</span><span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;xpdo-&gt;smarty-&gt;fetch('element/tv/renders/input/test.tpl');
+<pre class="brush: php">
+$this-&gt;xpdo-&gt;lexicon-&gt;load('tv_widget');
+// any other PHP i want here
+return $this-&gt;xpdo-&gt;smarty-&gt;fetch('element/tv/renders/input/test.tpl');
 </pre>
-</div>
-</div>
-
 <p>
-And the input template, test.tpl, for the default mgr theme would have (note that it is using <a href="http://smarty.net/" class="external-link" rel="nofollow">Smarty</a> syntax):
+And the input template, test.tpl, for the default mgr theme would have (note that it is using <a href="http://smarty.net/">Smarty</a> syntax):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;select id=<span class="code-quote">"tv{$tv-&gt;id}"</span> name=<span class="code-quote">"tv{$tv-&gt;id}"</span> class=<span class="code-quote">"combobox"</span>&gt;&lt;/select&gt;
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
-<span class="code-comment">// &lt;![CDATA[
-</span>{literal}
+<pre class="brush: php">
+&lt;select id="tv{$tv-&gt;id}" name="tv{$tv-&gt;id}" class="combobox"&gt;&lt;/select&gt;
+&lt;script type="text/javascript"&gt;
+// &lt;![CDATA[
+{literal}
 MODx.load({
 {/literal}
     xtype: 'modx-combo-template'
@@ -84,55 +63,112 @@ MODx.load({
     ,id: 'tv{$tv-&gt;id}'
     ,width: 300
 {literal}
-    ,listeners: { 'select': { fn:MODx.fireResourceFormChange, scope:<span class="code-keyword">this</span>}}
+    ,listeners: { 'select': { fn:MODx.fireResourceFormChange, scope:this}}
 });
 {/literal}
-<span class="code-comment">// ]]&gt;
-</span>&lt;/script&gt;
+// ]]&gt;
+&lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
 And there you go! A custom TV input type.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678063/customtv1.png?version=1&amp;modificationDate=1269467124000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678063/customtv1.png?version=1&amp;modificationDate=1269467124000" />
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You don't have to use the ExtJS code as shown here to have a custom input type. It could even just be a straight HTML input. It's really up to you.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="AddingaCustomTVInputType-SeeAlso"></a>See Also
+<h2 id="AddingaCustomTVInputType-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Creating+a+Template+Variable">Creating a Template Variable</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678063" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678062" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FAdding%2Ba%2BCustom%2BTV%2BInput%2BType" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678062" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Bindings">Bindings</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/CHUNK+Binding">CHUNK Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/DIRECTORY+Binding">DIRECTORY Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/EVAL+Binding">EVAL Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/FILE+Binding">FILE Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/INHERIT+Binding">INHERIT Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/RESOURCE+Binding">RESOURCE Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/SELECT+Binding">SELECT Binding</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Template+Variable+Input+Types">Template Variable Input Types</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Template+Variable+Output+Types">Template Variable Output Types</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Date+TV+Output+Type">Date TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Delimiter+TV+Output+Type">Delimiter TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/HTML+Tag+TV+Output+Type">HTML Tag TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Image+TV+Output+Type">Image TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/URL+TV+Output+Type">URL TV Output Type</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Adding+a+Custom+TV+Type+-+MODX+2.2">Adding a Custom TV Type - MODX 2.2</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Adding+a+Custom+TV+Input+Type">Adding a Custom TV Input Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Adding+a+Custom+TV+Output+Type">Adding a Custom TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Creating+a+multi-select+box+for+related+pages+in+your+template">Creating a multi-select box for related pages in your template</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Accessing+Template+Variable+Values+via+the+API">Accessing Template Variable Values via the API</a>
+</li>
+</ol>

@@ -3,46 +3,27 @@ This method is used to delete multiple objects.
 </p>
 
 <p>
-<a href="http://api.modxcms.com/xpdo/xPDO.html#removeCollection" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/xPDO.html#removeCollection</a>
+<a href="http://api.modxcms.com/xpdo/xPDO.html#removeCollection">http://api.modxcms.com/xpdo/xPDO.html#removeCollection</a>
 </p>
 
-<h2>
-<a name="removeCollection-Examples"></a>Examples
+<h2 id="removeCollection-Examples">
+Examples
 </h2>
 
 <p>
 From modSessionHandler:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">public</span> function gc($max) {
-    $max = (integer) $<span class="code-keyword">this</span>-&gt;modx-&gt;getOption('session_gc_maxlifetime',<span class="code-keyword">null</span>,$max);
+<pre class="brush: php">
+public function gc($max) {
+    $max = (integer) $this-&gt;modx-&gt;getOption('session_gc_maxlifetime',null,$max);
     $maxtime= time() - $max;
-    $result = $<span class="code-keyword">this</span>-&gt;modx-&gt;removeCollection('modSession', array(<span class="code-quote">"`access` &lt; {$maxtime}"</span>));
-    <span class="code-keyword">return</span> $result;
+    $result = $this-&gt;modx-&gt;removeCollection('modSession', array("`access` &lt; {$maxtime}"));
+    return $result;
 }
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Warning</b>
+<div class="warning">
+<strong>Warning</strong>
 <br />
 Careful! If you do not specify your criteria correctly, you can wipe out an entire database table!
-</td>
-</tr>
-</table>
 </div>

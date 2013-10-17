@@ -5,184 +5,178 @@ The board controller builds an overview of threads in a board.
 <div>
 <ul>
 <li>
-<a href='#Discuss.Controllers.board-BasicInformation'>Basic Information</a>
+<a href="#Discuss.Controllers.board-BasicInformation">Basic Information</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.board-Options'>Options</a>
+<a href="#Discuss.Controllers.board-Options">Options</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.board-ControllerTemplate'>Controller Template</a>
+<a href="#Discuss.Controllers.board-ControllerTemplate">Controller Template</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.board-SystemEvents'>System Events</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Discuss.Controllers.board-SystemEvents">System Events</a>
 <ul>
 <li>
-<a href='#Discuss.Controllers.board-OnDiscussRenderBoard'>OnDiscussRenderBoard</a>
+<a href="#Discuss.Controllers.board-OnDiscussRenderBoard">OnDiscussRenderBoard</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Discuss.Controllers.board-BasicInformation" id="Discuss.Controllers.board-BasicInformation"></a>Basic Information
+<h2 id="Discuss.Controllers.board-BasicInformation">
+Basic Information
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Since Version
 </td>
-<td class='confluenceTd'>
+<td>
 1.0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller File
 </td>
-<td class='confluenceTd'>
+<td>
 controllers/web/board.class.php
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller Class Name
 </td>
-<td class='confluenceTd'>
+<td>
 DiscussBoardController
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller Template
 </td>
-<td class='confluenceTd'>
+<td>
 pages/board.tpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Manifest Name
 </td>
-<td class='confluenceTd'>
+<td>
 board
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
-<span class="image-wrap" style=""><img src="https://img.skitch.com/20120916-fqd33t11u3en2xrscqe4kyu8j4.jpg" width="600" style="border: 1px solid black" /></span>
+<img src="https://img.skitch.com/20120916-fqd33t11u3en2xrscqe4kyu8j4.jpg" width="600" style="border: 1px solid black" />
 </p>
 
-<h2>
-<a name="Discuss.Controllers.board-Options" id="Discuss.Controllers.board-Options"></a>Options
+<h2 id="Discuss.Controllers.board-Options">
+Options
 </h2>
 
 <p>
 If you don't know what the manifest is, please go back to the <a href="/display/ADDON/Discuss.Getting+Started" title="Discuss.Getting Started">Getting Started</a> document. The options below need to go into the "board" options array of the manifest.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Key
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showSubBoards
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 When set to true, subboards will be available in the "boards" placeholder. When no boards are available, the "boards" placeholder will be empty and "boards_toggle" will have a value of "display: none;", which can be used to hide outer wrappers for subboards.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showReaders
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 When set to true, users viewing the board will be available in the "readers" placeholder. User needs discuss.view_online permission. Setting discuss.show_whos_online needs to be enabled. Text is built up from the users' username, wrapped in an &lt;a&gt; tag if the user has access to view profiles, with multiple people viewing joined together with a comma.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showModerators
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 When set to true, the moderators for the current board will be available in the "moderators" placeholder. The text in here will be built up from the users display or username, wrapped in an &lt;a&gt; tag if the viewer has access to view profiles, with multiple moderators joined together with a comma.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showPaginationIfOnePage
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 If there is only one page of threads, this switch decides if there should be a pagination available in the "pagination" placeholder or not.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>board/getlist common options</b>
+<td>
+<strong>board/getlist common options</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 lastPostTpl
 </td>
-<td class='confluenceTd'>
+<td>
 board/disLastPostBy
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk used to create the "lastpost" placeholder. This chunk gets fed the following placeholders:
-<br class="atl-forced-newline" />
+<br />
 
 <ul>
 <li>createdon: timestamp of post formatted to discuss.date_format system setting.
@@ -204,82 +198,82 @@ Chunk used to create the "lastpost" placeholder. This chunk gets fed the followi
 </li>
 
 <li>author_link: &lt;a&gt; tag to author if user has access to view profiles, otherwise just the username.
-<br class="atl-forced-newline" />
+<br />
 </li>
 </ul>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 subBoardTpl
 </td>
-<td class='confluenceTd'>
+<td>
 board/disSubForumLink
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk used to loop over subforums to eventually fill the "subforums" placeholder after joined together with the value of the subBoardSeparator option. This chunk gets the following placeholders:
-<br class="atl-forced-newline" />
+<br />
 
 <ul>
 <li>id: the ID of the subboard
 </li>
 
 <li>title: the title of the subboard
-<br class="atl-forced-newline" />
+<br />
 </li>
 </ul>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 subBoardSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 comma and line break (\n)
 </td>
-<td class='confluenceTd'>
+<td>
 Used to join together the subBoardTpl chunks to one string.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 categoryRowTpl
 </td>
-<td class='confluenceTd'>
+<td>
 category/disCategoryLi
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk used to loop over categories. Gets the following placeholders:
-<br class="atl-forced-newline" />
+<br />
 
 <ul>
 <li>list: boards belonging to the current category, formatted with the boardRowTpl option's chunk, &nbsp;joined with a newline (\n)
 </li>
 
 <li>rowClass: classes to apply to the category, either "alt" or "even".
-<br class="atl-forced-newline" />
+<br />
 </li>
 </ul>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 boardRowTpl
 </td>
-<td class='confluenceTd'>
+<td>
 board/disBoardLi
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk used to loop over boards. Gets the following placeholders:
-<br class="atl-forced-newline" />
+<br />
 
 <ul>
 <li>
-<a href="http://rtfm.modx.com/display/ADDON/Discuss.Database+Model#Discuss.DatabaseModel-disBoardBoards" class="external-link" rel="nofollow">All board fields</a> and the following:
+<a href="http://rtfm.modx.com/display/ADDON/Discuss.Database+Model#Discuss.DatabaseModel-disBoardBoards">All board fields</a> and the following:
 </li>
 
 <li>unread (1|0): if the board has been read by the user or not
@@ -307,194 +301,189 @@ Chunk used to loop over boards. Gets the following placeholders:
 </li>
 
 <li>is_locked: when the board is set to locked this returns an empty div with class dis-board-locked, otherwise it is empty.
-<br class="atl-forced-newline" />
+<br />
 </li>
 </ul>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 checkUnread
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
-<td class='confluenceTd'>
+<td>
 When set to false, this board will not check if the user has read the posts in this forum and will simply mark them as read when not logged in, and unread when logged in. Note that this affects the unread and unread-cls placeholders for the boardRowTpl.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Discuss.Controllers.board-ControllerTemplate" id="Discuss.Controllers.board-ControllerTemplate"></a>Controller Template
+<h2 id="Discuss.Controllers.board-ControllerTemplate">
+Controller Template
 </h2>
 
 <p>
 This controller template has the following placeholders you can use, on top of the placeholders mentioned in the options above:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
-<a href="http://rtfm.modx.com/display/ADDON/Discuss.Database+Model#Discuss.DatabaseModel-disBoardBoards" class="external-link" rel="nofollow">All fields of the disBoard object.</a>
+<td>
+<a href="http://rtfm.modx.com/display/ADDON/Discuss.Database+Model#Discuss.DatabaseModel-disBoardBoards">All fields of the disBoard object.</a>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 posts
 </td>
-<td class='confluenceTd'>
+<td>
 The posts in this board.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 boards
 </td>
-<td class='confluenceTd'>
+<td>
 Sub boards of this forum, if available and enabled (see options above).
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 boards_toggle
 </td>
-<td class='confluenceTd'>
+<td>
 Either "display:none;" or empty depending on the value in boards.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 top
 </td>
-<td class='confluenceTd'>
+<td>
 Empty unless set by plugin on&nbsp;OnDiscussRenderBoard event by using $modx-&gt;event-&gt;output(array('name-of-placeholder' =&gt; 'stuff'));
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 bottom
 </td>
-<td class='confluenceTd'>
+<td>
 See "top" placeholder.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 aboveThreads
 </td>
-<td class='confluenceTd'>
+<td>
 See "top" placeholder.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 belowBoards
 </td>
-<td class='confluenceTd'>
+<td>
 See "top" placeholder.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 belowThreads
 </td>
-<td class='confluenceTd'>
+<td>
 See "top" placeholder.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pagination
 </td>
-<td class='confluenceTd'>
+<td>
 Pagination for this board.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 readers
 </td>
-<td class='confluenceTd'>
+<td>
 Users viewing this board
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 moderators
 </td>
-<td class='confluenceTd'>
+<td>
 Moderators for this board
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 trail
 </td>
-<td class='confluenceTd'>
+<td>
 Breadcrumbs for this board
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 actionbuttons
 </td>
-<td class='confluenceTd'>
+<td>
 Actions avialable for the user. See note on actionbuttons on the <a href="/display/ADDON/Discuss.Controllers" title="Discuss.Controllers">Controllers</a> page.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+top]]
 &lt;div&gt;
-    &lt;form action=<span class="code-quote">"[[~[[*id]]]]search"</span> method=<span class="code-quote">"GET"</span>&gt;
-        &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"board"</span> value=<span class="code-quote">"[[+id]]"</span> /&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"s"</span> value=<span class="code-quote">"" style="</span>width: 200px; margin-right: 5px;<span class="code-quote">" placeholder="</span>[[%discuss.search_this_board]]" /&gt;
+    &lt;form action="[[~[[*id]]]]search" method="GET"&gt;
+        &lt;input type="hidden" name="board" value="[[+id]]" /&gt;
+        &lt;input type="text" name="s" value="" style="width: 200px; margin-right: 5px;" placeholder="[[%discuss.search_this_board]]" /&gt;
 
-        &lt;input type=<span class="code-quote">"submit"</span>  value=<span class="code-quote">"[[%discuss.search]]"</span> /&gt;
+        &lt;input type="submit"  value="[[%discuss.search]]" /&gt;
     &lt;/form&gt;
 &lt;/div&gt;
 [[+trail]]
 
 [[+aboveBoards]]
-&lt;ol style=<span class="code-quote">"[[+boards_toggle]]"</span>&gt;
+&lt;ol style="[[+boards_toggle]]"&gt;
 [[+boards]]
 &lt;/ol&gt;
 
@@ -511,10 +500,10 @@ Actions avialable for the user. See note on actionbuttons on the <a href="/displ
 &lt;div&gt;
 &lt;div&gt;
     &lt;div&gt;
-        &lt;div style=<span class="code-quote">"width: 25%"</span>&gt;[[%discuss.last_post]]&lt;/div&gt;
-        &lt;div style=<span class="code-quote">"width: 10%"</span>&gt;[[%discuss.replies]]&lt;/div&gt;
-        &lt;div style=<span class="code-quote">"width: 10%"</span>&gt;[[%discuss.views]]&lt;/div&gt;
-        &lt;div style=<span class="code-quote">"width: 55%;"</span>&gt;[[%discuss.message]]&lt;/div&gt;
+        &lt;div style="width: 25%"&gt;[[%discuss.last_post]]&lt;/div&gt;
+        &lt;div style="width: 10%"&gt;[[%discuss.replies]]&lt;/div&gt;
+        &lt;div style="width: 10%"&gt;[[%discuss.views]]&lt;/div&gt;
+        &lt;div style="width: 55%;"&gt;[[%discuss.message]]&lt;/div&gt;
     &lt;/div&gt;
     &lt;br /&gt;
 &lt;/div&gt;
@@ -537,15 +526,12 @@ Actions avialable for the user. See note on actionbuttons on the <a href="/displ
 
 [[+bottom]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Discuss.Controllers.board-SystemEvents" id="Discuss.Controllers.board-SystemEvents"></a>System Events
+<h2 id="Discuss.Controllers.board-SystemEvents">
+System Events
 </h2>
 
-<h3>
-<a name="Discuss.Controllers.board-OnDiscussRenderBoard" id="Discuss.Controllers.board-OnDiscussRenderBoard"></a>OnDiscussRenderBoard
+<h3 id="Discuss.Controllers.board-OnDiscussRenderBoard">
+OnDiscussRenderBoard
 </h3>
 
 <p>

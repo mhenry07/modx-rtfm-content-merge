@@ -1,323 +1,305 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#AdvSearch.AdvSearchForm-AdvSearchFormSnippet'>AdvSearchForm Snippet</a>
+<a href="#AdvSearch.AdvSearchForm-AdvSearchFormSnippet">AdvSearchForm Snippet</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearchForm-Usage'>Usage</a>
+<a href="#AdvSearch.AdvSearchForm-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearchForm-AvailableProperties'>Available Properties</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#AdvSearch.AdvSearchForm-AvailableProperties">Available Properties</a>
 <ul>
 <li>
-<a href='#AdvSearch.AdvSearchForm-AdvSearchFeatures'>AdvSearch Features</a>
+<a href="#AdvSearch.AdvSearchForm-AdvSearchFeatures">AdvSearch Features</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearchForm-OverallAdvSearchdesign'>Overall AdvSearch design</a>
+<a href="#AdvSearch.AdvSearchForm-OverallAdvSearchdesign">Overall AdvSearch design</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearchForm-Custominstallation'>Custom installation</a>
+<a href="#AdvSearch.AdvSearchForm-Custominstallation">Custom installation</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearchForm-AdvSearchFormChunks'>AdvSearchForm Chunks</a>
+<a href="#AdvSearch.AdvSearchForm-AdvSearchFormChunks">AdvSearchForm Chunks</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearchForm-Examples'>Examples</a>
+<a href="#AdvSearch.AdvSearchForm-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearchForm-Errors'>Errors</a>
+<a href="#AdvSearch.AdvSearchForm-Errors">Errors</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearchForm-SeeAlso'>See Also</a>
+<a href="#AdvSearch.AdvSearchForm-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="AdvSearch.AdvSearchForm-AdvSearchFormSnippet" id="AdvSearch.AdvSearchForm-AdvSearchFormSnippet"></a>AdvSearchForm Snippet
+<h2 id="AdvSearch.AdvSearchForm-AdvSearchFormSnippet">
+AdvSearchForm Snippet
 </h2>
 
 <p>
 This snippet displays a search form for AdvSearch.
 </p>
 
-<h2>
-<a name="AdvSearch.AdvSearchForm-Usage" id="AdvSearch.AdvSearchForm-Usage"></a>Usage
+<h2 id="AdvSearch.AdvSearchForm-Usage">
+Usage
 </h2>
 
 <p>
 Simply place wherever you want a SearchForm to render, and add the 'landing' property to the call to specify the Resource where the <a href="/display/ADDON/AdvSearch.AdvSearch" title="AdvSearch.AdvSearch">AdvSearch</a> snippet call is located (which is where the results will display).
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!AdvSearchForm? &amp;landing=`82`]]
 </pre>
-</div>
-</div>
-
 <p>
 If you'd like the results to show on the same page, simply place the <a href="/display/ADDON/AdvSearch.AdvSearch" title="AdvSearch.AdvSearch">AdvSearch</a> snippet call below the AdvSearchForm call, and don't specify a 'landing' parameter.
 </p>
 
-<h2>
-<a name="AdvSearch.AdvSearchForm-AvailableProperties" id="AdvSearch.AdvSearchForm-AvailableProperties"></a>Available Properties
+<h2 id="AdvSearch.AdvSearchForm-AvailableProperties">
+Available Properties
 </h2>
 
-<h3>
-<a name="AdvSearch.AdvSearchForm-AdvSearchFeatures" id="AdvSearch.AdvSearchForm-AdvSearchFeatures"></a>AdvSearch Features
+<h3 id="AdvSearch.AdvSearchForm-AdvSearchFeatures">
+AdvSearch Features
 </h3>
 
 <p>
 To set or unset features.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 clearDefault
 </td>
-<td class='confluenceTd'>
+<td>
 Clearing default text. Set this to 0 if you wouldn't like the clear default text feature.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 help
 </td>
-<td class='confluenceTd'>
+<td>
 To add a help link near the search form. Set 1 (displayed) or 0 (hidden).
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="AdvSearch.AdvSearchForm-OverallAdvSearchdesign" id="AdvSearch.AdvSearchForm-OverallAdvSearchdesign"></a>Overall AdvSearch design
+<h3 id="AdvSearch.AdvSearchForm-OverallAdvSearchdesign">
+Overall AdvSearch design
 </h3>
 
 <p>
 To design your own search.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 asId
 </td>
-<td class='confluenceTd'>
+<td>
 Unique id for AdvSearch instance. Any combination of characters a-z, underscores, and numbers 0-9. Case sensitive.
 </td>
-<td class='confluenceTd'>
+<td>
 as0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 landing
 </td>
-<td class='confluenceTd'>
+<td>
 The Resource that the AdvSearch snippet is called on, that will display the results of the search.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 method
 </td>
-<td class='confluenceTd'>
+<td>
 Whether to send the search over POST or GET.
 </td>
-<td class='confluenceTd'>
+<td>
 GET
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 searchIndex
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the REQUEST parameter that the search will use.
 </td>
-<td class='confluenceTd'>
+<td>
 search
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 Whether to set the output to directly return, or set to a placeholder with this propertys name.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk that will be used to display the search form.
 </td>
-<td class='confluenceTd'>
+<td>
 SearchForm
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="AdvSearch.AdvSearchForm-Custominstallation" id="AdvSearch.AdvSearchForm-Custominstallation"></a>Custom installation
+<h3 id="AdvSearch.AdvSearchForm-Custominstallation">
+Custom installation
 </h3>
 
 <p>
 The parameters that could help you for a custom installation.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 addJs
 </td>
-<td class='confluenceTd'>
+<td>
 Set this to 1 if you would like to include the advsearchform.min.js file, 0 if not
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 addCss
 </td>
-<td class='confluenceTd'>
+<td>
 Set this to 1 if you would like to include the advsearch.css file, 0 if not
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 addJQuery
 </td>
-<td class='confluenceTd'>
+<td>
 Set this to 1 if you would like to include or not the jQuery library in the header of your pages automatically
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 jsJQuery
 </td>
-<td class='confluenceTd'>
+<td>
 Url where is located the jquery javascript library
 </td>
-<td class='confluenceTd'>
+<td>
 assets/components/advsearch/js/jquery-1.5.1.min.js
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 jsSearchForm
 </td>
-<td class='confluenceTd'>
+<td>
 Url (under assets/) where is located the js library used with the form (help, clearDefault, ...)
 </td>
-<td class='confluenceTd'>
+<td>
 assets/components/advsearch/js/advsearchform.min.js
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="AdvSearch.AdvSearchForm-AdvSearchFormChunks" id="AdvSearch.AdvSearchForm-AdvSearchFormChunks"></a>AdvSearchForm Chunks
+<h2 id="AdvSearch.AdvSearchForm-AdvSearchFormChunks">
+AdvSearchForm Chunks
 </h2>
 
 <p>
@@ -330,59 +312,40 @@ There is 1 chunk that is processed in AdvSearchForm. Its corresponding AdvSearch
 </li>
 </ul>
 
-<h2>
-<a name="AdvSearch.AdvSearchForm-Examples" id="AdvSearch.AdvSearchForm-Examples"></a>Examples
+<h2 id="AdvSearch.AdvSearchForm-Examples">
+Examples
 </h2>
 
 <p>
 Display the search form, without but search with POST instead of GET:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[AdvSearchForm? &amp;method=`POST`]]
 </pre>
-</div>
-</div>
-
 <p>
 Set the search form to a 'search.form' placeholder, specify a landing page on Resource 82, and use a custom Chunk called 'MySearchForm' for the form template:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[AdvSearchForm? &amp;tpl=`MySearchForm` &amp;landing=`82` &amp;toPlaceholder=`search.form`]]
 
 &lt;h2&gt;Search&lt;/h2&gt;
 [[+search.form]]
 </pre>
-</div>
-</div>
-
 <p>
 Display two search forms, the first one (as0) without the help link and the second one (as1) without the clearDefault feature:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[AdvSearchForm? &amp;help=`0`]]
 </pre>
-</div>
-</div>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[AdvSearchForm? &amp;asId=`as1` &amp;clearDefault=`0`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="AdvSearch.AdvSearchForm-Errors" id="AdvSearch.AdvSearchForm-Errors"></a>Errors
+<h2 id="AdvSearch.AdvSearchForm-Errors">
+Errors
 </h2>
 
 <p>
@@ -397,20 +360,51 @@ The following erro message are possible:
 </li>
 </ul>
 
-<h2>
-<a name="AdvSearch.AdvSearchForm-SeeAlso" id="AdvSearch.AdvSearchForm-SeeAlso"></a>See Also
+<h2 id="AdvSearch.AdvSearchForm-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearch">AdvSearch.AdvSearch</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearch.containerTpl">AdvSearch.AdvSearch.containerTpl</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="35586363" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="35586336" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FAdvSearch.AdvSearchForm" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="35586336" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Advsearch.AdvSearch.extractTpl">Advsearch.AdvSearch.extractTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/AdvSearch.Advsearch.paging1Tpl">AdvSearch.Advsearch.paging1Tpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearch.paging0Tpl">AdvSearch.AdvSearch.paging0Tpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearch.tpl">AdvSearch.AdvSearch.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearchForm">AdvSearch.AdvSearchForm</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Advsearch.AdvSearchForm.tpl">Advsearch.AdvSearchForm.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearchHelp">AdvSearch.AdvSearchHelp</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearchHelp.helplinkTpl">AdvSearch.AdvSearchHelp.helplinkTpl</a>
+</li>
+</ol>
+</li>
+</ol>

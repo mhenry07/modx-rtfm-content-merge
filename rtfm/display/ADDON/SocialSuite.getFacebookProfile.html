@@ -3,176 +3,155 @@
 </p>
 
 <p>
-getFacebookProfile is a&nbsp;<a href="/display/revolution20/Snippets" title="Snippets">snippet</a>, part of SocialSuite, which returns all sorts of information about a <b>user or page</b> on Facebook.
+getFacebookProfile is a&nbsp;<a href="/display/revolution20/Snippets" title="Snippets">snippet</a>, part of SocialSuite, which returns all sorts of information about a <strong>user or page</strong> on Facebook.
 </p>
 
-<h2>
-<a name="SocialSuite.getFacebookProfile-SnippetProperties" id="SocialSuite.getFacebookProfile-SnippetProperties"></a>Snippet Properties
+<h2 id="SocialSuite.getFacebookProfile-SnippetProperties">
+Snippet Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Property
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 user
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 The username, ID or shortname of a user or page to look up information for.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cache
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
-<td class='confluenceTd'>
+<td>
 To cache or not to cache, that's the question. (set to 0 to disable caching)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cacheExpires
 </td>
-<td class='confluenceTd'>
+<td>
 3600
 </td>
-<td class='confluenceTd'>
+<td>
 Time in seconds for the cache to be valid.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showAvailableData
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 Enable this (by setting it to 1) to see a dump of all data available for the selected user. Helpful in choosing your placeholders.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholders
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 Enable this (by setting it to 1) to set all data to placeholders so you can use them in existing markup. This will DISABLE parsing the chunk specified with &amp;tpl.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholdersPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 fb
 </td>
-<td class='confluenceTd'>
+<td>
 A prefix to apply to placeholders when using toPlaceholders.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk to parse with the placeholders (when toPlaceholders=0).
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="SocialSuite.getFacebookProfile-ExampleUsage" id="SocialSuite.getFacebookProfile-ExampleUsage"></a>Example Usage
+<h2 id="SocialSuite.getFacebookProfile-ExampleUsage">
+Example Usage
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getFacebookProfile? &amp;user=`modxcms` &amp;showAvailableData=`1` &amp;toPlaceholders=`1`]]
 </pre>
-</div>
-</div>
-
 <p>
 returns the following:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 name = MODX
 is_published = 1
-website = http:<span class="code-comment">//modx.com/
-</span>username = modxcms
+website = http://modx.com/
+username = modxcms
 founded = November 2004
-company_overview = MODX is the Content Management <span class="code-object">System</span> that gives developers, designers and end-users the creative freedom and power to build and maintain websites and online applications with ease. Lose the limitations. There’s no steep learning curve, no cumbersome template language, and no awkward or restrictive structures forced on your site. MODX gives you the freedom to work your way and get things done.
+company_overview = MODX is the Content Management System that gives developers, designers and end-users the creative freedom and power to build and maintain websites and online applications with ease. Lose the limitations. There’s no steep learning curve, no cumbersome template language, and no awkward or restrictive structures forced on your site. MODX gives you the freedom to work your way and get things done.
 products = MODX Evolution, MODX Revolution
-about = MODX CMS is the Content Management <span class="code-object">System</span>, framework and platform. http:<span class="code-comment">//modx.com/ MODX Revolution http://modx.com/download/
-</span>talking_about_count = 45
+about = MODX CMS is the Content Management System, framework and platform. http://modx.com/ MODX Revolution http://modx.com/download/
+talking_about_count = 45
 category = Software
 id = 19110642979
-link = http:<span class="code-comment">//www.facebook.com/modxcms
-</span>likes = 2348
+link = http://www.facebook.com/modxcms
+likes = 2348
 cover.cover_id = 10150742956652980
-cover.source = http:<span class="code-comment">//sphotos-d.ak.fbcdn.net/hphotos-ak-prn1/s720x720/559491_10150742956652980_2095164733_n.jpg
-</span>cover.offset_y = 0
+cover.source = http://sphotos-d.ak.fbcdn.net/hphotos-ak-prn1/s720x720/559491_10150742956652980_2095164733_n.jpg
+cover.offset_y = 0
 </pre>
-</div>
-</div>
-
 <p>
 And allows you to do something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Facebook Name: [[!+fb.name]]&lt;br /&gt;
 Likes: [[!+fb.likes]]
 </pre>
-</div>
-</div>
-
 <p>
 which outputs something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Facebook Name: MODX
 Likes: 2348
 </pre>
-</div>
-</div>

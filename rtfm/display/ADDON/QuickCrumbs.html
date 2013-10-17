@@ -1,73 +1,67 @@
 <div>
 <ul>
 <li>
-<a href='#QuickCrumbs-WhatisQuickCrumbs'>What is QuickCrumbs</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#QuickCrumbs-WhatisQuickCrumbs">What is QuickCrumbs</a>
 <ul>
 <li>
-<a href='#QuickCrumbs-History'>History</a>
+<a href="#QuickCrumbs-History">History</a>
 </li>
 
 <li>
-<a href='#QuickCrumbs-Requirements'>Requirements</a>
+<a href="#QuickCrumbs-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#QuickCrumbs-Development%26Bugreporting'>Development &amp; Bug reporting</a>
+<a href="#QuickCrumbs-Development%26Bugreporting">Development &amp; Bug reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#QuickCrumbs-Usage'>Usage</a>
+<a href="#QuickCrumbs-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#QuickCrumbs-AvailableProperties'>Available Properties</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#QuickCrumbs-AvailableProperties">Available Properties</a>
 <ul>
 <li>
-<a href='#QuickCrumbs-Templateproperties'>Template properties</a>
+<a href="#QuickCrumbs-Templateproperties">Template properties</a>
 </li>
 
 <li>
-<a href='#QuickCrumbs-CrumbSelectionproperties'>Crumb Selection properties</a>
+<a href="#QuickCrumbs-CrumbSelectionproperties">Crumb Selection properties</a>
 </li>
 
 <li>
-<a href='#QuickCrumbs-Otherproperties'>Other properties</a>
+<a href="#QuickCrumbs-Otherproperties">Other properties</a>
 </li>
 
 <li>
-<a href='#QuickCrumbs-ParentTitlesproperties'>Parent-Titles properties</a>
+<a href="#QuickCrumbs-ParentTitlesproperties">Parent-Titles properties</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="QuickCrumbs-WhatisQuickCrumbs" id="QuickCrumbs-WhatisQuickCrumbs"></a>What is QuickCrumbs
+<h2 id="QuickCrumbs-WhatisQuickCrumbs">
+What is QuickCrumbs
 </h2>
 
 <p>
 QuickCrumbs is a quick and efficient breadcrumb-generation <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> for MODx Revolution. It supports <a href="/display/revolution20/Chunks" title="Chunks">Chunks</a> tpl's for the crumbs, has a configurable separator and much more.
 </p>
 
-<h3>
-<a name="QuickCrumbs-History" id="QuickCrumbs-History"></a>History
+<h3 id="QuickCrumbs-History">
+History
 </h3>
 
 <p>
-Being developed since October 11, 2010 by <a href="http://modx.com/extras/author/opengeek" class="external-link" rel="nofollow">Jason Coward</a>.
+Being developed since October 11, 2010 by <a href="http://modx.com/extras/author/opengeek">Jason Coward</a>.
 </p>
 
-<h3>
-<a name="QuickCrumbs-Requirements" id="QuickCrumbs-Requirements"></a>Requirements
+<h3 id="QuickCrumbs-Requirements">
+Requirements
 </h3>
 
 <ul>
@@ -75,311 +69,298 @@ Being developed since October 11, 2010 by <a href="http://modx.com/extras/author
 </li>
 </ul>
 
-<h3>
-<a name="QuickCrumbs-Development%26Bugreporting"></a>Development &amp; Bug reporting
+<h3 id="QuickCrumbs-Development&amp;Bugreporting">
+Development &amp; Bug reporting
 </h3>
 
 <p>
-ModDef is currently being developed on Github. That is also the place to <b><a href="https://github.com/opengeek/quickcrumbs/issues" class="external-link" rel="nofollow">report bugs</a></b>, file <b>feature requests</b> and <b>improvements</b>. You may also fetch the latest commits from the Develop branch.
+ModDef is currently being developed on Github. That is also the place to <strong><a href="https://github.com/opengeek/quickcrumbs/issues">report bugs</a></strong>, file <strong>feature requests</strong> and <strong>improvements</strong>. You may also fetch the latest commits from the Develop branch.
 </p>
 
 <p>
-Github: <a href="https://github.com/opengeek/quickcrumbs" class="external-link" rel="nofollow">https://github.com/opengeek/quickcrumbs</a>
+Github: <a href="https://github.com/opengeek/quickcrumbs">https://github.com/opengeek/quickcrumbs</a>
 </p>
 
-<h2>
-<a name="QuickCrumbs-Usage" id="QuickCrumbs-Usage"></a>Usage
+<h2 id="QuickCrumbs-Usage">
+Usage
 </h2>
 
 <p>
 The QuickCrumbs snippet can be called using the tag:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[QuickCrumbs]]
 </pre>
-</div>
-</div>
-
 <p>
 Calls without a &amp;tpl property specified will just output an array listing of each resulting Resource and their fields.
 </p>
 
-<h2>
-<a name="QuickCrumbs-AvailableProperties" id="QuickCrumbs-AvailableProperties"></a>Available Properties
+<h2 id="QuickCrumbs-AvailableProperties">
+Available Properties
 </h2>
 
 <p>
 The following properties are available for the QuickCrumbs&nbsp;Snippet.
 </p>
 
-<h3>
-<a name="QuickCrumbs-Templateproperties" id="QuickCrumbs-Templateproperties"></a>Template properties
+<h3 id="QuickCrumbs-Templateproperties">
+Template properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
-Name of a Chunk serving as a template for a Resource crumb.&nbsp;<b>NOTE: If not provided, properties are dumped to output in a pre element for each crumb</b>
+<td>
+Name of a Chunk serving as a template for a Resource crumb.&nbsp;<strong>NOTE: If not provided, properties are dumped to output in a pre element for each crumb</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 siteStartTpl
 </td>
-<td class='confluenceTd'>
+<td>
 An optional Chunk serving as a template for the site_start.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-Defaults to the *<b>tpl</b>* if not provided.
-<br class="atl-forced-newline" />
+<td>
+Defaults to the *<strong>tpl</strong>* if not provided.
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 selfTpl
 </td>
-<td class='confluenceTd'>
+<td>
 An optional Chunk serving as a template for the current Resource crumb.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-Defaults to the *<b>tpl</b>* if not provided.
-<br class="atl-forced-newline" />
+<td>
+Defaults to the *<strong>tpl</strong>* if not provided.
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 outerTpl
 </td>
-<td class='confluenceTd'>
+<td>
 An optional Chunk serving as a wrapper template for the complete crumbs output.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Defaults to empty, returning the output as is.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="QuickCrumbs-CrumbSelectionproperties" id="QuickCrumbs-CrumbSelectionproperties"></a>Crumb Selection properties
+<h3 id="QuickCrumbs-CrumbSelectionproperties">
+Crumb Selection properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fields
 </td>
-<td class='confluenceTd'>
-A comma-separate list of fields to select from the resource as placeholders.&nbsp;<b>NOTE that id, class_key, and context_key are always selected.</b>
+<td>
+A comma-separate list of fields to select from the resource as placeholders.&nbsp;<strong>NOTE that id, class_key, and context_key are always selected.</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Defaults to 'pagetitle,menutitle,description'
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showSiteStart
 </td>
-<td class='confluenceTd'>
+<td>
 Indicates if a crumb representing the site_start Resource should be generated.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Defaults to 1 (or true).
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showSelf
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Indicates if a crumb representing the current Resource should be generated.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Defaults to 1 (or true).
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="QuickCrumbs-Otherproperties" id="QuickCrumbs-Otherproperties"></a>Other properties
+<h3 id="QuickCrumbs-Otherproperties">
+Other properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 separator
 </td>
-<td class='confluenceTd'>
+<td>
 A string to use as a separator between crumbs.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Defaults to `»`
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 If not empty, the output is saved to a placeholder with the specified name instead of returned directly from the Snippet.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Default is empty.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 debug
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 If true, debugging information will be sent to the MODx log.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Defaults to 0 (or false).
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="QuickCrumbs-ParentTitlesproperties" id="QuickCrumbs-ParentTitlesproperties"></a>Parent-Titles properties
+<h3 id="QuickCrumbs-ParentTitlesproperties">
+Parent-Titles properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parentTitlesPlaceholder
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 If not empty, pagetitles of all the parent crumbs are compiled and set as a placeholder with the specified name, for use in the content of your Resource.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Default is empty.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parentTitlesReversed
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Indicates if the parent pagetitles should be output in reverse order.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Default is 0 (or false).
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 titleSeparator
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 A separator to use in between pagetitles used in the parentTitlesPlaceholder.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>

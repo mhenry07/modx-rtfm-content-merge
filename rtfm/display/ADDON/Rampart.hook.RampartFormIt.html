@@ -1,14 +1,12 @@
-<h2>
-<a name="Rampart.hook.RampartFormIt-hook.RampartFormIt" id="Rampart.hook.RampartFormIt-hook.RampartFormIt"></a>hook.RampartFormIt
+<h2 id="Rampart.hook.RampartFormIt-hook.RampartFormIt">
+hook.RampartFormIt
 </h2>
 
 <p>
 To enable Rampart spam prevention on your FormIt forms, simply add hook.RampartFormIt as a hook in your FormIt call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
   &amp;hook=`hook.RampartFormIt`
   &amp;rptErrorField=`rampart`
@@ -18,97 +16,92 @@ To enable Rampart spam prevention on your FormIt forms, simply add hook.RampartF
 /* somewhere in my form */
 [[!+fi.error.rampart]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Rampart.hook.RampartFormIt-AvailableProperties" id="Rampart.hook.RampartFormIt-AvailableProperties"></a>Available Properties
+<h2 id="Rampart.hook.RampartFormIt-AvailableProperties">
+Available Properties
 </h2>
 
 <p>
 It has the following properties to be passed into the FormIt snippet call:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 name
 </th>
-<th class='confluenceTh'>
+<th>
 description
 </th>
-<th class='confluenceTh'>
+<th>
 default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rptErrorField
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the field that Rampart should set an error message for should it flag a spam attempt.
 </td>
-<td class='confluenceTd'>
+<td>
 email
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rptUsernameField
 </td>
-<td class='confluenceTd'>
+<td>
 If you have a field not named "username", but want to use it to spam-check as a username on, set the name of the field here. If Rampart doesn't find the field, it will ignore it.
 </td>
-<td class='confluenceTd'>
+<td>
 username
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rptEmailField
 </td>
-<td class='confluenceTd'>
+<td>
 If you have a field not named "email", but want to use it to spam-check as an email on, set the name of the field here. If Rampart doesn't find the field, it will ignore it.
 </td>
-<td class='confluenceTd'>
+<td>
 email
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rptSpammerErrorMessage
 </td>
-<td class='confluenceTd'>
+<td>
 The field-specific message that will show when a spammer tries to submit the form.
 </td>
-<td class='confluenceTd'>
+<td>
 Your account has been banned as a spammer. Sorry.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Rampart.hook.RampartFormIt-SeeAlso" id="Rampart.hook.RampartFormIt-SeeAlso"></a>See Also
+<h2 id="Rampart.hook.RampartFormIt-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Rampart.hook.RampartFormIt">Rampart.hook.RampartFormIt</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33947792" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="33947777" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FRampart.hook.RampartFormIt" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="33947777" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Rampart.hook.RampartQuip">Rampart.hook.RampartQuip</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Rampart.preHook.RampartRegister">Rampart.preHook.RampartRegister</a>
+</li>
+</ol>

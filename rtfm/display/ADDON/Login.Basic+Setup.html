@@ -1,73 +1,64 @@
 <div>
 <ul>
 <li>
-<a href='#Login.BasicSetup-CreatetheRequiredPages'>Create the Required Pages</a>
+<a href="#Login.BasicSetup-CreatetheRequiredPages">Create the Required Pages</a>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-CreatetheNecessaryUserGroupsandResourceGroups'>Create the Necessary User Groups and Resource Groups</a>
+<a href="#Login.BasicSetup-CreatetheNecessaryUserGroupsandResourceGroups">Create the Necessary User Groups and Resource Groups</a>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-AddSnippetstothePages'>Add Snippets to the Pages</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Login.BasicSetup-AddSnippetstothePages">Add Snippets to the Pages</a>
 <ul>
 <li>
-<a href='#Login.BasicSetup-LoginPage%281%29'>Login Page (1)</a>
+<a href="#Login.BasicSetup-LoginPage%281%29">Login Page (1)</a>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-ForgotPassword%282%29'>Forgot Password (2)</a>
+<a href="#Login.BasicSetup-ForgotPassword%282%29">Forgot Password (2)</a>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-ResetPasswordHandler%283%29'>Reset Password Handler (3)</a>
+<a href="#Login.BasicSetup-ResetPasswordHandler%283%29">Reset Password Handler (3)</a>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-MembersHomePage%284%29'>Members Home Page (4)</a>
+<a href="#Login.BasicSetup-MembersHomePage%284%29">Members Home Page (4)</a>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-ComeAgainSoon%285%29'>Come Again Soon (5)</a>
+<a href="#Login.BasicSetup-ComeAgainSoon%285%29">Come Again Soon (5)</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-Optional'>Optional</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Login.BasicSetup-Optional">Optional</a>
 <ul>
 <li>
-<a href='#Login.BasicSetup-LogoutPage'>Logout Page</a>
+<a href="#Login.BasicSetup-LogoutPage">Logout Page</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-PossibleErrors'>Possible Errors</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Login.BasicSetup-PossibleErrors">Possible Errors</a>
 <ul>
 <li>
-<a href='#Login.BasicSetup-Ican%27tlogin%5C%21'>I can't log in!</a>
+<a href="#Login.BasicSetup-Ican%27tlogin%5C%21">I can't log in!</a>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-Ican%27tlogout%5C%21'>I can't log out!</a>
+<a href="#Login.BasicSetup-Ican%27tlogout%5C%21">I can't log out!</a>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-Loginerrorsarenotdisplayed'>Login errors are not displayed</a>
+<a href="#Login.BasicSetup-Loginerrorsarenotdisplayed">Login errors are not displayed</a>
 </li>
 
 <li>
-<a href='#Login.BasicSetup-ErrorHTTP500%28InternalServerError%29'>Error HTTP 500 (Internal Server Error)</a>
+<a href="#Login.BasicSetup-ErrorHTTP500%28InternalServerError%29">Error HTTP 500 (Internal Server Error)</a>
 </li>
 </ul>
 </li>
@@ -75,60 +66,46 @@
 </div>
 
 <p>
-This tutorial catalogs which pages you need to set up and the Snippets that belong on each page. At the end of this tutorial, you will have a setup which will allow users to log in via the front-end of your website, but the <font color="red">users must be manually created by an admin in the manager</font>. There is a <a href="/display/ADDON/Login.Request+Membership" title="Login.Request Membership">separate turorial</a> for establishing a process where users can request membership themselves.
+This tutorial catalogs which pages you need to set up and the Snippets that belong on each page. At the end of this tutorial, you will have a setup which will allow users to log in via the front-end of your website, but the users must be manually created by an admin in the manager. There is a <a href="/display/ADDON/Login.Request+Membership" title="Login.Request Membership">separate turorial</a> for establishing a process where users can request membership themselves.
 </p>
 
 <p>
 Even a basic setup of a login portal involves a lot of inter-related parts, and the setup demonstrated here puts pretty much everything on its own page. A cleaner implementation might involve putting some of the functions listed below inside chunks or templates instead of on their own dedicated pages, but this page should give enough information to get a login portal established.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-All the pages here use a sample <b>page_id</b> for reference.
-</td>
-</tr>
-</table>
+<div class="tip">
+All the pages here use a sample <strong>page_id</strong> for reference.
 </div>
 
 <hr />
 
-<h2>
-<a name="Login.BasicSetup-CreatetheRequiredPages"></a>Create the Required Pages
+<h2 id="Login.BasicSetup-CreatetheRequiredPages">
+Create the Required Pages
 </h2>
 
 <p>
-Before we add all the Snippets that do all the dirty work, let's first add the following <b>5</b> pages to your MODx Revo site:
+Before we add all the Snippets that do all the dirty work, let's first add the following <strong>5</strong> pages to your MODx Revo site:
 </p>
 
 <ul>
 <li>
-<b>Login Page (1)</b> : the page containing your login form
+<strong>Login Page (1)</strong> : the page containing your login form
 </li>
 
 <li>
-<b>Forgot Password (2)</b> : the page where users can go when they forgot their password
+<strong>Forgot Password (2)</strong> : the page where users can go when they forgot their password
 </li>
 
 <li>
-<b>Reset Password Handler (3)</b> : the hidden page that will actually do the resetting of the password
+<strong>Reset Password Handler (3)</strong> : the hidden page that will actually do the resetting of the password
 </li>
 
 <li>
-<b>Members Home Page (4)</b> : the secret clubhouse, available only to valid members
+<strong>Members Home Page (4)</strong> : the secret clubhouse, available only to valid members
 </li>
 
 <li>
-<b>Come Again Soon (5)</b> : the page displayed upon successful logout
+<strong>Come Again Soon (5)</strong> : the page displayed upon successful logout
 </li>
 </ul>
 
@@ -138,27 +115,16 @@ Next, you'll want to prepare the necessary rights and permissions for users and 
 
 <hr />
 
-<h2>
-<a name="Login.BasicSetup-CreatetheNecessaryUserGroupsandResourceGroups"></a>Create the Necessary User Groups and Resource Groups
+<h2 id="Login.BasicSetup-CreatetheNecessaryUserGroupsandResourceGroups">
+Create the Necessary User Groups and Resource Groups
 </h2>
 
 <p>
 MODx Revolution includes some pretty head-splitting granularity when it comes to <a href="/display/revolution20/Permissions" title="Permissions">Permissions</a>, but here is a basic schema to get you started. (Have a look at <a href="/display/revolution20/Making+Member-Only+Pages" title="Making Member-Only Pages">Making Member-Only Pages</a> for more detailed explanation.)
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-As of MODX 2.2.3, you can skip most of this step by using the <b>Access Wizard</b>, which appears when you create a new Resource Group under <b>Security -&gt; Resource Groups</b>. Just use the following settings:
+<div class="note">
+As of MODX 2.2.3, you can skip most of this step by using the <strong>Access Wizard</strong>, which appears when you create a new Resource Group under <strong>Security -&gt; Resource Groups</strong>. Just use the following settings:
 <ul>
 <li>Name: Members
 </li>
@@ -166,10 +132,10 @@ As of MODX 2.2.3, you can skip most of this step by using the <b>Access Wizard</
 <li>Context: web
 </li>
 
-<li>Automatically Give Adminstrator Group Access: <b>checked</b>
+<li>Automatically Give Adminstrator Group Access: <strong>checked</strong>
 </li>
 
-<li>Create Parallel User Group: <b>checked</b>
+<li>Create Parallel User Group: <strong>checked</strong>
 </li>
 
 <li>Automatically Give Anonymous Access: <em>UNCHECKED</em>
@@ -178,9 +144,6 @@ As of MODX 2.2.3, you can skip most of this step by using the <b>Access Wizard</
 <li>Automatically Give Other User Groups Access: <em>blank</em>
 </li>
 </ul>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -188,31 +151,31 @@ If you are using an older version of MODX or you just want to enhance your under
 </p>
 
 <p>
-1. <b>Security -&gt; Resource Groups</b> : Create a new Resource Group for all the pages that will be available only to members.
+1. <strong>Security -&gt; Resource Groups</strong> : Create a new Resource Group for all the pages that will be available only to members.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35094632/Create+Resource+Group.jpg?version=1&amp;modificationDate=1303583586000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/35094632/Create+Resource+Group.jpg?version=1&amp;modificationDate=1303583586000" />
 </p>
 
 <p>
-2. <b>Security -&gt; Access Controls</b> : Create User Group named "Members". Users in the "Members" group will have access to the "Members Only" resources. Make sense?
+2. <strong>Security -&gt; Access Controls</strong> : Create User Group named "Members". Users in the "Members" group will have access to the "Members Only" resources. Make sense?
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35094632/Create+User+Group.jpg?version=1&amp;modificationDate=1303583171000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/35094632/Create+User+Group.jpg?version=1&amp;modificationDate=1303583171000" />
 </p>
 
 <p>
-3. On that same page (<b>Security -&gt; Access Controls</b>), <b>Right Click</b> the newly created "Members" User Group and select "Update User Group".
+3. On that same page (<strong>Security -&gt; Access Controls</strong>), <strong>Right Click</strong> the newly created "Members" User Group and select "Update User Group".
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35094632/Update+User+Group.jpg?version=1&amp;modificationDate=1303583952000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/35094632/Update+User+Group.jpg?version=1&amp;modificationDate=1303583952000" />
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35094632/Update+User+Group+-+Detail.jpg?version=1&amp;modificationDate=1303584122000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/35094632/Update+User+Group+-+Detail.jpg?version=1&amp;modificationDate=1303584122000" />
 </p>
 
 <p>
@@ -221,19 +184,19 @@ Then Add a Resource Group to this User Group. At a minimum, the Resource Group s
 
 <ul>
 <li>
-<b>Resource Group:</b> Members Only (the one we just created)
+<strong>Resource Group:</strong> Members Only (the one we just created)
 </li>
 
 <li>
-<b>Mimimum Role:</b> Member-9999
+<strong>Mimimum Role:</strong> Member-9999
 </li>
 
 <li>
-<b>Access Policy:</b> Load, List and View
+<strong>Access Policy:</strong> Load, List and View
 </li>
 
 <li>
-<b>Context:</b> web
+<strong>Context:</strong> web
 </li>
 </ul>
 
@@ -242,7 +205,7 @@ Then save.
 </p>
 
 <p>
-4. <b>Security -&gt; Manage Users</b> : Create a new "member" user so we can test whether or not our login portal works.
+4. <strong>Security -&gt; Manage Users</strong> : Create a new "member" user so we can test whether or not our login portal works.
 </p>
 
 <p>
@@ -250,16 +213,16 @@ Use a simple Username and password that you can remember; the important thing he
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35094632/New+User+as+Group+Member.jpg?version=1&amp;modificationDate=1303584433000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/35094632/New+User+as+Group+Member.jpg?version=1&amp;modificationDate=1303584433000" />
 </p>
 
 <ul>
 <li>
-<b>User Group:</b> Members
+<strong>User Group:</strong> Members
 </li>
 
 <li>
-<b>Role:</b> Member
+<strong>Role:</strong> Member
 </li>
 </ul>
 
@@ -273,72 +236,62 @@ Now circle back to add the various Snippet (adjust the Snippet calls so they poi
 
 <hr />
 
-<h2>
-<a name="Login.BasicSetup-AddSnippetstothePages"></a>Add Snippets to the Pages
+<h2 id="Login.BasicSetup-AddSnippetstothePages">
+Add Snippets to the Pages
 </h2>
 
-<h3>
-<a name="Login.BasicSetup-LoginPage%281%29"></a>Login Page (1)
+<h3 id="Login.BasicSetup-LoginPage(1)">
+Login Page (1)
 </h3>
 
 <p>
 Put the following Snippet call on your login page:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Login? &amp;loginTpl=`lgnLoginTpl` &amp;logoutTpl=`lgnLogoutTpl` &amp;errTpl=`lgnErrTpl` &amp;loginResourceId=`4` &amp;logoutResourceId=`5`]]
 </pre>
-</div>
-</div>
-
 <p>
-Then save the page. You'll notice that the Snippet call has a lot of arguments – many of those arguments reference the names of Chunks. When you installed the Login Add-on, many of these Chunks were already created for you (look under the Elements tab), but sometimes you may want to create your own Chunks and update the Snippet parameters to reference their names. In this example, we are customizing the <b>lgnLoginTpl</b> Chunk.
+Then save the page. You'll notice that the Snippet call has a lot of arguments – many of those arguments reference the names of Chunks. When you installed the Login Add-on, many of these Chunks were already created for you (look under the Elements tab), but sometimes you may want to create your own Chunks and update the Snippet parameters to reference their names. In this example, we are customizing the <strong>lgnLoginTpl</strong> Chunk.
 </p>
 
 <p>
-The Chunk that displays the login form should also include a link to the "Forgot Password" page; this is so we only display that link to users who have not logged in yet. Here is an example of the <b>lgnLoginTpl</b> Chunk, so either create a Chunk of that name or edit the existing Chunk so it matches the following:
+The Chunk that displays the login form should also include a link to the "Forgot Password" page; this is so we only display that link to users who have not logged in yet. Here is an example of the <strong>lgnLoginTpl</strong> Chunk, so either create a Chunk of that name or edit the existing Chunk so it matches the following:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"loginForm"</span>&gt;
-    &lt;div class=<span class="code-quote">"loginMessage"</span>&gt;[[+errors]]&lt;/div&gt;
-    &lt;div class=<span class="code-quote">"loginLogin"</span>&gt;
-        &lt;form class=<span class="code-quote">"loginLoginForm"</span> action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span>&gt;
-            &lt;fieldset class=<span class="code-quote">"loginLoginFieldset"</span>&gt;
-                &lt;legend class=<span class="code-quote">"loginLegend"</span>&gt;[[+actionMsg]]&lt;/legend&gt;
-                &lt;label class=<span class="code-quote">"loginUsernameLabel"</span>&gt;[[%login.username]]
-                    &lt;input class=<span class="code-quote">"loginUsername"</span> type=<span class="code-quote">"text"</span> name=<span class="code-quote">"username"</span> /&gt;
+<pre class="brush: php">
+&lt;div class="loginForm"&gt;
+    &lt;div class="loginMessage"&gt;[[+errors]]&lt;/div&gt;
+    &lt;div class="loginLogin"&gt;
+        &lt;form class="loginLoginForm" action="[[~[[*id]]]]" method="post"&gt;
+            &lt;fieldset class="loginLoginFieldset"&gt;
+                &lt;legend class="loginLegend"&gt;[[+actionMsg]]&lt;/legend&gt;
+                &lt;label class="loginUsernameLabel"&gt;[[%login.username]]
+                    &lt;input class="loginUsername" type="text" name="username" /&gt;
                 &lt;/label&gt;
 
-                &lt;label class=<span class="code-quote">"loginPasswordLabel"</span>&gt;[[%login.password]]
-                    &lt;input class=<span class="code-quote">"loginPassword"</span> type=<span class="code-quote">"password"</span> name=<span class="code-quote">"password"</span> /&gt;
+                &lt;label class="loginPasswordLabel"&gt;[[%login.password]]
+                    &lt;input class="loginPassword" type="password" name="password" /&gt;
                 &lt;/label&gt;
-                &lt;input class=<span class="code-quote">"returnUrl"</span> type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"returnUrl"</span> value=<span class="code-quote">"[[+request_uri]]"</span> /&gt;
+                &lt;input class="returnUrl" type="hidden" name="returnUrl" value="[[+request_uri]]" /&gt;
 
                 [[+login.recaptcha_html]]
 
-                &lt;input class=<span class="code-quote">"loginLoginValue"</span> type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"service"</span> value=<span class="code-quote">"login"</span> /&gt;
-                &lt;span class=<span class="code-quote">"loginLoginButton"</span>&gt;&lt;input type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"Login"</span> value=<span class="code-quote">"[[+actionMsg]]"</span> /&gt;&lt;/span&gt;
+                &lt;input class="loginLoginValue" type="hidden" name="service" value="login" /&gt;
+                &lt;span class="loginLoginButton"&gt;&lt;input type="submit" name="Login" value="[[+actionMsg]]" /&gt;&lt;/span&gt;
             &lt;/fieldset&gt;
         &lt;/form&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;a href=<span class="code-quote">"[[~2]]"</span>&gt;Forgot your Password?&lt;/a&gt;
+&lt;a href="[[~2]]"&gt;Forgot your Password?&lt;/a&gt;
 </pre>
-</div>
-</div>
-
 <p>
 You may choose to put the link to "Forgot your Password" inside your template and keep it out of the Chunk, it's really up to you. As long as your site is clean and organized and you're not putting chunks within chunks within chunks, then you should be Ok.
 </p>
 
-<h3>
-<a name="Login.BasicSetup-ForgotPassword%282%29"></a>Forgot Password (2)
+<h3 id="Login.BasicSetup-ForgotPassword(2)">
+Forgot Password (2)
 </h3>
 
 <ul>
@@ -351,24 +304,19 @@ You may choose to put the link to "Forgot your Password" inside your template an
 This page houses the form where users can request that their password be reset. Remember: it displays the form that allows users to say that they've forgotten their password, and the "ResetPassword" Snippet is what actually resets the password.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!ForgotPassword? &amp;resetResourceId=`3` &amp;tpl=`lgnForgotPassTpl`]]
 </pre>
-</div>
-</div>
-
 <p>
 Here's what the flow looks like, just so you can follow what we're doing here:
 </p>
 
 <p>
-<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/35094632/Password+Reset+Flow.jpg?version=1&amp;modificationDate=1303582738000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/35094632/Password+Reset+Flow.jpg?version=1&amp;modificationDate=1303582738000" /></span>
 </p>
 
-<h3>
-<a name="Login.BasicSetup-ResetPasswordHandler%283%29"></a>Reset Password Handler (3)
+<h3 id="Login.BasicSetup-ResetPasswordHandler(3)">
+Reset Password Handler (3)
 </h3>
 
 <ul>
@@ -381,16 +329,11 @@ Here's what the flow looks like, just so you can follow what we're doing here:
 When a user requests that his/her password be reset, they are emailed a link to this page. When a valid incoming link to this page is detected, the password is reset and the user is redirected to the login page.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!ResetPassword? &amp;loginResourceId=`1`]]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="Login.BasicSetup-MembersHomePage%284%29"></a>Members Home Page (4)
+<h3 id="Login.BasicSetup-MembersHomePage(4)">
+Members Home Page (4)
 </h3>
 
 <p>
@@ -398,35 +341,30 @@ This is the page that displays to users who have successfully logged in. This pa
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35094632/Setting+Access+Permissions.jpg?version=1&amp;modificationDate=1303598934000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/35094632/Setting+Access+Permissions.jpg?version=1&amp;modificationDate=1303598934000" />
 </p>
 
 <p>
 and check the box for "Members Only".
 </p>
 
-<h3>
-<a name="Login.BasicSetup-ComeAgainSoon%285%29"></a>Come Again Soon (5)
+<h3 id="Login.BasicSetup-ComeAgainSoon(5)">
+Come Again Soon (5)
 </h3>
 
 <p>
 This is the page that people see after a successful logout. It needs only to contain a basic message, or perhaps a link back to the Login page:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;p&gt;Thank you <span class="code-keyword">for</span> visiting! Come again soon!&lt;/p&gt;
+<pre class="brush: php">
+&lt;p&gt;Thank you for visiting! Come again soon!&lt;/p&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Login.BasicSetup-Optional"></a>Optional
+<h2 id="Login.BasicSetup-Optional">
+Optional
 </h2>
 
-<h3>
-<a name="Login.BasicSetup-LogoutPage"></a>Logout Page
+<h3 id="Login.BasicSetup-LogoutPage">
+Logout Page
 </h3>
 
 <ul>
@@ -443,36 +381,26 @@ This isn't strictly necessary per-se, but for testing it can be helpful to have 
 Weblink:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[~1? &amp;service=`logout`]]
 </pre>
-</div>
-</div>
-
 <p>
 This is effectively the same as adding a Logout link like this to your pages:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a href=<span class="code-quote">"[[~1? &amp;service=`logout`]]"</span> title=<span class="code-quote">"Logout"</span>&gt;Logout&lt;/a&gt;
+<pre class="brush: php">
+&lt;a href="[[~1? &amp;service=`logout`]]" title="Logout"&gt;Logout&lt;/a&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Login.BasicSetup-PossibleErrors"></a>Possible Errors
+<h2 id="Login.BasicSetup-PossibleErrors">
+Possible Errors
 </h2>
 
 <p>
 Now that you've put together all these parts, it's time to test them. If everything works perfectly, then you can login on the Login page and be redirected to the "Members Home Page". Logging out can be accomplished by visiting the Login page and clicking the "Logout" link (or optionally if you created it, by clicking the "Logout Page" WebLink). Upon successful logout, you should be redirected to the "Come Again Soon" page.
 </p>
 
-<h3>
-<a name="Login.BasicSetup-Ican%27tlogin%5C%21"></a>I can't log in!
+<h3 id="Login.BasicSetup-Ican'tlogin\!">
+I can't log in!
 </h3>
 
 <p>
@@ -483,50 +411,40 @@ Usually the errors here revolve around incorrect page IDs, misspellings of Chunk
 Also make sure that your Snippets are called uncached! Some of them will function cached, but some will not. They should use the exclamation point in front of them:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Login]]
 </pre>
-</div>
-</div>
-
 <p>
-and <b>not</b>
+and <strong>not</strong>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[Login]]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="Login.BasicSetup-Ican%27tlogout%5C%21"></a>I can't log out!
+<h3 id="Login.BasicSetup-Ican'tlogout\!">
+I can't log out!
 </h3>
 
 <p>
-Another subtle error that you might encounter is an inability to log out. One cause of that is pointing your logout link to a page other than your <em>Login</em> page. Remember, your logout link must point to the same page containing the <b>Login</b> snippet!
+Another subtle error that you might encounter is an inability to log out. One cause of that is pointing your logout link to a page other than your <em>Login</em> page. Remember, your logout link must point to the same page containing the <strong>Login</strong> snippet!
 </p>
 
 <p>
 It's also possible that your server does not send out the Password Reset emails correctly; in that case you need to debug your email setup on your server.
 </p>
 
-<h3>
-<a name="Login.BasicSetup-Loginerrorsarenotdisplayed"></a>Login errors are not displayed
+<h3 id="Login.BasicSetup-Loginerrorsarenotdisplayed">
+Login errors are not displayed
 </h3>
 
 <p>
 If you fingermash the keyboard with a non-existent username and try to login, sometimes you don't see any errors displayed.
 </p>
 
-<h3>
-<a name="Login.BasicSetup-ErrorHTTP500%28InternalServerError%29"></a>Error HTTP 500 (Internal Server Error)
+<h3 id="Login.BasicSetup-ErrorHTTP500(InternalServerError)">
+Error HTTP 500 (Internal Server Error)
 </h3>
 
 <p>
-If you see this error when you try to view some of your "Members Only" pages and you see something like <tt>does not have permission to load object of class modContext with primary key</tt> in the MODX error log, then the problem might be with your Context Access: especially when dealing with multiple contexts, make sure you grant Contexts Access access to all contexts.
+If you see this error when you try to view some of your "Members Only" pages and you see something like <code>does not have permission to load object of class modContext with primary key</code> in the MODX error log, then the problem might be with your Context Access: especially when dealing with multiple contexts, make sure you grant Contexts Access access to all contexts.
 </p>

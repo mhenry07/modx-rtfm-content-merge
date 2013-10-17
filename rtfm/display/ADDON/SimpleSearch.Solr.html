@@ -1,37 +1,34 @@
 <div>
 <ul>
 <li>
-<a href='#SimpleSearch.Solr-RequirementsforSolrSearch'>Requirements for Solr Search</a>
+<a href="#SimpleSearch.Solr-RequirementsforSolrSearch">Requirements for Solr Search</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.Solr-ConfiguringSimpleSearchtouseSolr'>Configuring SimpleSearch to use Solr</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#SimpleSearch.Solr-ConfiguringSimpleSearchtouseSolr">Configuring SimpleSearch to use Solr</a>
 <ul>
 <li>
-<a href='#SimpleSearch.Solr-IndexYourExistingResources'>Index Your Existing Resources</a>
+<a href="#SimpleSearch.Solr-IndexYourExistingResources">Index Your Existing Resources</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SimpleSearch.Solr-OtherNotes'>Other Notes</a>
+<a href="#SimpleSearch.Solr-OtherNotes">Other Notes</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.Solr-Notefor2.1.0rc4andEarlierUsers'>Note for 2.1.0-rc4 and Earlier Users</a>
+<a href="#SimpleSearch.Solr-Notefor2.1.0rc4andEarlierUsers">Note for 2.1.0-rc4 and Earlier Users</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.Solr-SeeAlso'>See Also</a>
+<a href="#SimpleSearch.Solr-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="SimpleSearch.Solr-RequirementsforSolrSearch"></a>Requirements for Solr Search
+<h2 id="SimpleSearch.Solr-RequirementsforSolrSearch">
+Requirements for Solr Search
 </h2>
 
 <p>
@@ -42,7 +39,7 @@ Solr searching in SimpleSearch has a few requirements:
 <li>You are running SimpleSearch version 1.4 or later
 </li>
 
-<li>You have installed the PECL Solr package, which <a href="http://pecl.php.net/package/solr" class="external-link" rel="nofollow">can be found here</a>.
+<li>You have installed the PECL Solr package, which <a href="http://pecl.php.net/package/solr">can be found here</a>.
 </li>
 
 <li>You have a running Solr server with an index that can be used for the MODX installation.
@@ -50,7 +47,7 @@ Solr searching in SimpleSearch has a few requirements:
 </ul>
 
 <p>
-If you need more help getting a Solr server installed, the <a href="http://wiki.apache.org/solr/" class="external-link" rel="nofollow">official Solr documentation</a> is quite helpful.
+If you need more help getting a Solr server installed, the <a href="http://wiki.apache.org/solr/">official Solr documentation</a> is quite helpful.
 </p>
 
 <p>
@@ -66,26 +63,12 @@ SimpleSearch also provides you with a sample schema.xml for your Solr configurat
 Rename the file to 'schema.xml' and place in your appropriate Solr core's conf/ directory, and then restart Solr.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Those who installed SimpleSearch prior to 1.4.0-pl will need to update their schema.xml file to the latest version (referenced above in the docs/ directory) and reindex all their Resources to take advantage of TV-based searching.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="SimpleSearch.Solr-ConfiguringSimpleSearchtouseSolr"></a>Configuring SimpleSearch to use Solr
+<h2 id="SimpleSearch.Solr-ConfiguringSimpleSearchtouseSolr">
+Configuring SimpleSearch to use Solr
 </h2>
 
 <p>
@@ -94,11 +77,11 @@ Go to <a href="/display/revolution20/System+Settings" title="System Settings">Sy
 
 <ul>
 <li>
-<b>sisea.driver_class</b> -&gt; Change to "SimpleSearchDriverSolr"
+<strong>sisea.driver_class</strong> -&gt; Change to "SimpleSearchDriverSolr"
 </li>
 
 <li>
-<b>sisea.driver_db_specific</b> -&gt; Change to "No", since Solr does not depend on SQL databases
+<strong>sisea.driver_db_specific</strong> -&gt; Change to "No", since Solr does not depend on SQL databases
 </li>
 </ul>
 
@@ -106,26 +89,12 @@ Go to <a href="/display/revolution20/System+Settings" title="System Settings">Sy
 From there, also check to make sure any other Solr-specific configuration options are correct.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 If you are running multiple cores in Solr, often your "sisea.solr.path" setting will be something like "solr/corename".
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="SimpleSearch.Solr-IndexYourExistingResources"></a>Index Your Existing Resources
+<h3 id="SimpleSearch.Solr-IndexYourExistingResources">
+Index Your Existing Resources
 </h3>
 
 <p>
@@ -140,8 +109,8 @@ As you continue to develop your site, SimpleSearch will automatically index Reso
 That's it! You now have Solr-powered search on your site.
 </p>
 
-<h2>
-<a name="SimpleSearch.Solr-OtherNotes"></a>Other Notes
+<h2 id="SimpleSearch.Solr-OtherNotes">
+Other Notes
 </h2>
 
 <p>
@@ -157,8 +126,8 @@ A few SimpleSearch properties do not apply to Solr-based searches. These are:
 These properties on the SimpleSearch snippet will be ignored if you are using Solr search.
 </p>
 
-<h2>
-<a name="SimpleSearch.Solr-Notefor2.1.0rc4andEarlierUsers"></a>Note for 2.1.0-rc4 and Earlier Users
+<h2 id="SimpleSearch.Solr-Notefor2.1.0rc4andEarlierUsers">
+Note for 2.1.0-rc4 and Earlier Users
 </h2>
 
 <p>
@@ -177,20 +146,50 @@ Find the string "OnDocUnpublished" in the invokeEvent call. Replace it with: "On
 This issue has been fixed in MODX Revolution 2.1.0-pl and later.
 </p>
 
-<h2>
-<a name="SimpleSearch.Solr-SeeAlso"></a>See Also
+<h2 id="SimpleSearch.Solr-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/SimpleSearch.Roadmap">SimpleSearch.Roadmap</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="35095173" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="16646153" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FSimpleSearch.Solr" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="16646153" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearch">SimpleSearch.SimpleSearch</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearch.containerTpl">SimpleSearch.SimpleSearch.containerTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearch.currentPageTpl">SimpleSearch.SimpleSearch.currentPageTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearch.pageTpl">SimpleSearch.SimpleSearch.pageTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearch.tpl">SimpleSearch.SimpleSearch.tpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.Faceted+Search+Through+PostHooks">SimpleSearch.Faceted Search Through PostHooks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearchForm">SimpleSearch.SimpleSearchForm</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearchForm.tpl">SimpleSearch.SimpleSearchForm.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.Solr">SimpleSearch.Solr</a>
+</li>
+</ol>

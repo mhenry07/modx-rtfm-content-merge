@@ -1,31 +1,21 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#UpgradingModelstoSchemaVersion1.1-UpgradingModelsfromSchemaVersion1.0to1.1'>Upgrading Models from Schema Version 1.0 to 1.1</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#UpgradingModelstoSchemaVersion1.1-UpgradingModelsfromSchemaVersion1.0to1.1">Upgrading Models from Schema Version 1.0 to 1.1</a>
 <ul>
 <li>
-<a href='#UpgradingModelstoSchemaVersion1.1-xpdo%2Ftools%2Fschema%2Fupgrademysql1.1.php'>xpdo/tools/schema/upgrade-mysql-1.1.php</a>
+<a href="#UpgradingModelstoSchemaVersion1.1-xpdo%2Ftools%2Fschema%2Fupgrademysql1.1.php">xpdo/tools/schema/upgrade-mysql-1.1.php</a>
 </li>
 
 <li>
-<a href='#UpgradingModelstoSchemaVersion1.1-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#UpgradingModelstoSchemaVersion1.1-Usage">Usage</a>
 <ul>
 <li>
-<a href='#UpgradingModelstoSchemaVersion1.1-RunningasCLIscript'>Running as CLI script</a>
+<a href="#UpgradingModelstoSchemaVersion1.1-RunningasCLIscript">Running as CLI script</a>
 </li>
 
 <li>
-<a href='#UpgradingModelstoSchemaVersion1.1-Runningaswebrequest'>Running as web request</a>
+<a href="#UpgradingModelstoSchemaVersion1.1-Runningaswebrequest">Running as web request</a>
 </li>
 </ul>
 </li>
@@ -34,43 +24,43 @@
 </ul>
 </div>
 
-<h2>
-<a name="UpgradingModelstoSchemaVersion1.1-UpgradingModelsfromSchemaVersion1.0to1.1"></a>Upgrading Models from Schema Version 1.0 to 1.1
+<h2 id="UpgradingModelstoSchemaVersion1.1-UpgradingModelsfromSchemaVersion1.0to1.1">
+Upgrading Models from Schema Version 1.0 to 1.1
 </h2>
 
 <p>
-In xPDO 2.0.0-rc3, a new schema element for describing table indexes was added to the <tt>object</tt> element of the xPDO schema. To maintain backwards compatibility in the runtime code with older schemas, where the indexes were described using the <em>index</em> and <em>index_group</em> attributes of the <tt>field</tt> elements, schemas created with this new element must be differentiated from the older schemas. As a result, the <em>version</em> attribute was added to the <tt>model</tt> element with a value of 1.1. All legacy models without the version element are assumed to be version 1.0.
+In xPDO 2.0.0-rc3, a new schema element for describing table indexes was added to the <code>object</code> element of the xPDO schema. To maintain backwards compatibility in the runtime code with older schemas, where the indexes were described using the <em>index</em> and <em>index_group</em> attributes of the <code>field</code> elements, schemas created with this new element must be differentiated from the older schemas. As a result, the <em>version</em> attribute was added to the <code>model</code> element with a value of 1.1. All legacy models without the version element are assumed to be version 1.0.
 </p>
 
 <p>
 To make conversion of existing mysql models easier, a tool is provided in xPDO that can be executed from the command line or a browser.
 </p>
 
-<h3>
-<a name="UpgradingModelstoSchemaVersion1.1-xpdo%2Ftools%2Fschema%2Fupgrademysql1.1.php"></a>xpdo/tools/schema/upgrade-mysql-1.1.php
+<h3 id="UpgradingModelstoSchemaVersion1.1-xpdo/tools/schema/upgrademysql1.1.php">
+xpdo/tools/schema/upgrade-mysql-1.1.php
 </h3>
 
 <p>
-This simple tool takes a few arguments and automatically converts your 1.0 model's index definitions to the 1.1 format and adds version="1.1" to the <tt>model</tt> element.
+This simple tool takes a few arguments and automatically converts your 1.0 model's index definitions to the 1.1 format and adds version="1.1" to the <code>model</code> element.
 </p>
 
 <ul>
 <li>Required Arguments
 <ul>
 <li>
-<b>pkg</b> — The name of the model package being converted.
+<strong>pkg</strong> — The name of the model package being converted.
 </li>
 
 <li>
-<b>pkg_path</b> — The root path of the model package.
+<strong>pkg_path</strong> — The root path of the model package.
 </li>
 
 <li>
-<b>schema_name</b> — The xPDO schema filename to convert.
+<strong>schema_name</strong> — The xPDO schema filename to convert.
 </li>
 
 <li>
-<b>schema_path</b> — The path to the schema file.
+<strong>schema_path</strong> — The path to the schema file.
 </li>
 </ul>
 </li>
@@ -80,246 +70,151 @@ This simple tool takes a few arguments and automatically converts your 1.0 model
 <li>Optional Arguments
 <ul>
 <li>
-<b>backup_path</b> — The path to write the backup schema file. If not specified, the backup is written to the same directory (schema_path).
+<strong>backup_path</strong> — The path to write the backup schema file. If not specified, the backup is written to the same directory (schema_path).
 </li>
 
 <li>
-<b>backup_prefix</b> — A string to prepend to the backup schema file. Default is '~'.
+<strong>backup_prefix</strong> — A string to prepend to the backup schema file. Default is '~'.
 </li>
 
 <li>
-<b>dsn</b> — A valid PDO DSN connection string.
+<strong>dsn</strong> — A valid PDO DSN connection string.
 </li>
 
 <li>
-<b>dbuser</b> — A valid database user with access to the specified DSN.
+<strong>dbuser</strong> — A valid database user with access to the specified DSN.
 </li>
 
 <li>
-<b>dbpass</b> — The password for the specified dbuser.
+<strong>dbpass</strong> — The password for the specified dbuser.
 </li>
 
 <li>
-<b>regen</b> — If true, will regenerate the model after the schema is updated.
+<strong>regen</strong> — If true, will regenerate the model after the schema is updated.
 </li>
 
 <li>
-<b>write</b> — If true, will write the updated schema to file and backup the original.
+<strong>write</strong> — If true, will write the updated schema to file and backup the original.
 </li>
 
 <li>
-<b>echo</b> — If true, will echo the updated schema to STDOUT.
+<strong>echo</strong> — If true, will echo the updated schema to STDOUT.
 </li>
 
 <li>
-<b>debug</b> — Sets the debug level of xPDO; if true, <b>echo</b> is automatically set true.
+<strong>debug</strong> — Sets the debug level of xPDO; if true, <strong>echo</strong> is automatically set true.
 </li>
 
 <li>
-<b>include</b> — An external properties file to include arguments from.
+<strong>include</strong> — An external properties file to include arguments from.
 </li>
 
 <li>
-<b>error_reporting</b> — Set the PHP error_reporting level for the script. Default is -1 (does not report errors).
+<strong>error_reporting</strong> — Set the PHP error_reporting level for the script. Default is -1 (does not report errors).
 </li>
 
 <li>
-<b>display_errors</b> — Set the PHP display_errors setting. Default is true.
+<strong>display_errors</strong> — Set the PHP display_errors setting. Default is true.
 </li>
 </ul>
 </li>
 </ul>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Argument Rules</b>
+<div class="note">
+<strong>Argument Rules</strong>
 <br />
 
 <ul>
-<li>At least one of the four arguments, <b>echo</b>, <b>write</b>, <b>regen</b>, or <b>debug</b>, must be set.
+<li>At least one of the four arguments, <strong>echo</strong>, <strong>write</strong>, <strong>regen</strong>, or <strong>debug</strong>, must be set.
 </li>
 
-<li>The <b>write</b> argument cannot be used when the <b>debug</b> argument is true.
+<li>The <strong>write</strong> argument cannot be used when the <strong>debug</strong> argument is true.
 </li>
 
 <li>
-<b>regen</b> can only be used when <b>write</b> is set or the schema is already at version 1.1.
+<strong>regen</strong> can only be used when <strong>write</strong> is set or the schema is already at version 1.1.
 </li>
 </ul>
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="UpgradingModelstoSchemaVersion1.1-Usage"></a>Usage
+<h3 id="UpgradingModelstoSchemaVersion1.1-Usage">
+Usage
 </h3>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>realpath() used on path arguments</b>
+<div class="tip">
+<strong>realpath() used on path arguments</strong>
 <br />
 All values for _path arguments (and the include argument) are passed through realpath().
-</td>
-</tr>
-</table>
 </div>
 
-<h4>
-<a name="UpgradingModelstoSchemaVersion1.1-RunningasCLIscript"></a>Running as CLI script
+<h4 id="UpgradingModelstoSchemaVersion1.1-RunningasCLIscript">
+Running as CLI script
 </h4>
 
 <p>
 CLI arguments for the script are specified in the format:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 --argument[=value]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>boolean arguments</b>
+<div class="tip">
+<strong>boolean arguments</strong>
 <br />
 If the equal sign and value are not provided, the argument value is set to boolean true.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Here is an example CLI usage:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 user@hostname:/home/user/xpdo$ php xpdo/tools/schema/upgrade-mysql-1.1.php --pkg=sample --pkg_path=models/ --schema_name=sample.mysql.schema.xml --schema_path=schemas/ --echo --write --regen
 </pre>
-</div>
-</div>
-
 <p>
 Alternatively, you can use the include argument to set properties from an external file.
 </p>
 
 <p>
-An example properties file, <tt>sample.schema.properties.php</tt>:
+An example properties file, <code>sample.schema.properties.php</code>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $pkg='sample';
 $pkg_path='models/';
 $schema_name='sample.mysql.schema.xml';
 $schema_path='schemas/';
-$echo=<span class="code-keyword">true</span>;
-$write=<span class="code-keyword">true</span>;
-$regen=<span class="code-keyword">true</span>;
+$echo=true;
+$write=true;
+$regen=true;
 </pre>
-</div>
-</div>
-
 <p>
 And the example CLI call to use the properties file:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 user@hostname:/home/user/xpdo$ php xpdo/tools/schema/upgrade-mysql-1.1.php --include=sample.schema.properties.php
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>CLI arguments override properties file</b>
+<div class="note">
+<strong>CLI arguments override properties file</strong>
 <br />
 Please note that any arguments provided in the CLI call will override values set in and included from the properties file.
-</td>
-</tr>
-</table>
 </div>
 
-<h4>
-<a name="UpgradingModelstoSchemaVersion1.1-Runningaswebrequest"></a>Running as web request
+<h4 id="UpgradingModelstoSchemaVersion1.1-Runningaswebrequest">
+Running as web request
 </h4>
 
 <p>
 You can also execute the script as a web request, passing the arguments as $_REQUEST variables, $_GET, $_POST, or $_COOKIE. An example URL for such a call might look like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-http:<span class="code-comment">//localhost/food/xpdo/tools/schema/upgrade-mysql-1.1.php?pkg=sample&amp;pkg_path=models/&amp;schema_name=sample.mysql.schema.xml&amp;schema_path=schemas/&amp;echo=<span class="code-keyword">true</span>&amp;write=<span class="code-keyword">true</span>&amp;regen=<span class="code-keyword">true</span></span>
+<pre class="brush: php">
+http://localhost/food/xpdo/tools/schema/upgrade-mysql-1.1.php?pkg=sample&amp;pkg_path=models/&amp;schema_name=sample.mysql.schema.xml&amp;schema_path=schemas/&amp;echo=true&amp;write=true&amp;regen=true
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>boolean arguments</b>
+<div class="tip">
+<strong>boolean arguments</strong>
 <br />
 To set a boolean value of true, make sure you pass the string 'true', otherwise the value is assumed to be boolean false.
-</td>
-</tr>
-</table>
 </div>

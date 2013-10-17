@@ -1,27 +1,55 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 The xPDOQuery extends the xPDOCriteria class and allows you to abstract out complex SQL queries into an OOP format. This allows encapsulation of SQL calls so that they can work in multiple database types, and be easy to read and dynamically build.
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/XPDO10/xPDOQuery.andCondition">xPDOQuery.andCondition</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="9797710" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="9797710" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="4" /> <input type="hidden" name="spaceKey" value="XPDO10" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FXPDO10%2FxPDOQuery" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="9797710" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/XPDO10/xPDOQuery.groupby">xPDOQuery.groupby</a>
+</li>
 
-<h2>
-<a name="xPDOQuery-Examples" id="xPDOQuery-Examples"></a>Examples
+<li>
+<a href="/display/XPDO10/xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>
+</li>
+
+<li>
+<a href="/display/XPDO10/xPDOQuery.leftJoin">xPDOQuery.leftJoin</a>
+</li>
+
+<li>
+<a href="/display/XPDO10/xPDOQuery.limit">xPDOQuery.limit</a>
+</li>
+
+<li>
+<a href="/display/XPDO10/xPDOQuery.orCondition">xPDOQuery.orCondition</a>
+</li>
+
+<li>
+<a href="/display/XPDO10/xPDOQuery.rightJoin">xPDOQuery.rightJoin</a>
+</li>
+
+<li>
+<a href="/display/XPDO10/xPDOQuery.select">xPDOQuery.select</a>
+</li>
+
+<li>
+<a href="/display/XPDO10/xPDOQuery.setClassAlias">xPDOQuery.setClassAlias</a>
+</li>
+
+<li>
+<a href="/display/XPDO10/xPDOQuery.sortby">xPDOQuery.sortby</a>
+</li>
+
+<li>
+<a href="/display/XPDO10/xPDOQuery.where">xPDOQuery.where</a>
+</li>
+</ol>
+
+<h2 id="xPDOQuery-Examples">
+Examples
 </h2>
 
 <p>
@@ -42,13 +70,11 @@ Grab the first 4 Boxes with:
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;innerJoin('Owner','User'); 
-<span class="code-comment">// the Owner is actually a User object, defined as Owner in the relationship alias
-</span>$query-&gt;where(array(
+// the Owner is actually a User object, defined as Owner in the relationship alias
+$query-&gt;where(array(
     'Owner.name:LIKE' =&gt; '%a%',
     'Box.width:&gt;=' =&gt; 10,
     'Box.height:!=' =&gt; 2,
@@ -58,11 +84,8 @@ $query-&gt;sortby('Box.height','DESC');
 $query-&gt;limit(4);
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery-SeeAlso" id="xPDOQuery-SeeAlso"></a>See Also
+<h2 id="xPDOQuery-SeeAlso">
+See Also
 </h2>
 
 <ul>

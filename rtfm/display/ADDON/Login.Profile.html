@@ -1,215 +1,225 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Login.Profile-WhatisProfile%3F'>What is Profile?</a>
+<a href="#Login.Profile-WhatisProfile%3F">What is Profile?</a>
 </li>
 
 <li>
-<a href='#Login.Profile-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Login.Profile-Usage">Usage</a>
 <ul>
 <li>
-<a href='#Login.Profile-ProfileProperties'>Profile Properties</a>
+<a href="#Login.Profile-ProfileProperties">Profile Properties</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Login.Profile-Example'>Example</a>
+<a href="#Login.Profile-Example">Example</a>
 </li>
 
 <li>
-<a href='#Login.Profile-SeeAlso'>See Also</a>
+<a href="#Login.Profile-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Login.Profile-WhatisProfile%3F"></a>What is Profile?
+<h2 id="Login.Profile-WhatisProfile?">
+What is Profile?
 </h2>
 
 <p>
 Profile sets all the current User's (or a specified User's) Profile fields as placeholders, allowing you to display User Profile information on a page.
 </p>
 
-<h2>
-<a name="Login.Profile-Usage"></a>Usage
+<h2 id="Login.Profile-Usage">
+Usage
 </h2>
 
 <p>
 Simply add this Snippet to whatever page you want to set the User's Profile fields as placeholders on:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Profile]]
 </pre>
-</div>
-</div>
-
 <p>
 And then display them with placeholders like such:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;p&gt;Username: [[+username]]&lt;/p&gt;
 &lt;p&gt;Email: [[+email]]&lt;/p&gt;
 &lt;p&gt;State: [[+state]]&lt;/p&gt;
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 The password fields are never set as placeholders, and are never accessible, for security reasons.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="Login.Profile-ProfileProperties"></a>Profile Properties
+<h3 id="Login.Profile-ProfileProperties">
+Profile Properties
 </h3>
 
 <p>
 Profile comes with some default properties you can override. They are:
 </p>
 
-<div class='table-wrap'>
-<table id='TBL1376497247103' class='confluenceTable'>
+<table id="TBL1376497247017">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 prefix
 </td>
-<td class='confluenceTd'>
+<td>
 A string to prefix all placeholders for fields that will be set by this Snippet.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 user
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. Either a user ID or username. If set, will use this user rather than the currently logged in one.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useExtended
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will set as placeholders all extended fields as well.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Login.Profile-Example"></a>Example
+<h2 id="Login.Profile-Example">
+Example
 </h2>
 
 <p>
 Display the currently logged in user's email and username.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Profile]]
 
 &lt;p&gt;Username: [[+username]]&lt;/p&gt;
 &lt;p&gt;Email: [[+email]]&lt;/p&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Grab the profile for the user 'marksmith', and add a prefix to the placeholders of 'user.':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Profile? &amp;user=`marksmith` &amp;prefix=`user.`]]
 
 &lt;p&gt;Username: [[+user.username]]&lt;/p&gt;
 &lt;p&gt;Email: [[+user.email]]&lt;/p&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Display the currently logged in username's favorite color (an extended field), with the prefix of 'usr.':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Profile? &amp;prefix=`usr.`]]
 
 &lt;p&gt;[[+usr.username]]'s favorite color is [[+usr.color]]&lt;/p&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Login.Profile-SeeAlso"></a>See Also
+<h2 id="Login.Profile-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Login.Login">Login.Login</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="21135366" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042888" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FLogin.Profile" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11042888" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Login.Profile">Login.Profile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.UpdateProfile">Login.UpdateProfile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Register">Login.Register</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Register.Example+Form+1">Register.Example Form 1</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ConfirmRegister">Login.ConfirmRegister</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ForgotPassword">Login.ForgotPassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ResetPassword">Login.ResetPassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ChangePassword">Login.ChangePassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Tutorials">Login.Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Login.Basic+Setup">Login.Basic Setup</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Extended+User+Profiles">Login.Extended User Profiles</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Request+Membership">Login.Request Membership</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.User+Profiles">Login.User Profiles</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Using+Custom+Fields">Login.Using Custom Fields</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Using+Pre+and+Post+Hooks">Login.Using Pre and Post Hooks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Roadmap">Login.Roadmap</a>
+</li>
+</ol>

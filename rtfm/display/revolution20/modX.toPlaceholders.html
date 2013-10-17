@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modX.toPlaceholders-modX%3A%3AtoPlaceholders"></a>modX::toPlaceholders
+<h2 id="modX.toPlaceholders-modX::toPlaceholders">
+modX::toPlaceholders
 </h2>
 
 <p>
@@ -11,68 +7,53 @@ Sets placeholders from values stored in arrays and objects.
 </p>
 
 <p>
-Each recursive level in the <b>$placeholders</b> array adds to the prefix, building an access path using an optional separator.
+Each recursive level in the <strong>$placeholders</strong> array adds to the prefix, building an access path using an optional separator.
 </p>
 
-<h2>
-<a name="modX.toPlaceholders-Syntax" id="modX.toPlaceholders-Syntax"></a>Syntax
+<h2 id="modX.toPlaceholders-Syntax">
+Syntax
 </h2>
 
 <p>
-API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::toPlaceholders()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::toPlaceholders()</a>
+API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::toPlaceholders()">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::toPlaceholders()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-array toPlaceholders (array|object  $subject, [string $prefix = ''], [string $separator = '.'], [<span class="code-object">boolean</span> $restore = <span class="code-keyword">false</span>])
+<pre class="brush: php">
+array toPlaceholders (array|object  $subject, [string $prefix = ''], [string $separator = '.'], [boolean $restore = false])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.toPlaceholders-Example" id="modX.toPlaceholders-Example"></a>Example
+<h2 id="modX.toPlaceholders-Example">
+Example
 </h2>
 
 <p>
 Set an array of placeholders and prefix with 'my.' Returns&nbsp;a multi-dimensional array containing up to two elements: 'keys' which always contains an array of placeholder keys that were set, and optionally, if the restore parameter is true, 'restore' containing an array of placeholder values that were overwritten by the method.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;toPlaceholders(array(
   'name' =&gt; 'John',
   'email' =&gt; 'jdoe@gmail.com',
 ),'my');
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.toPlaceholders-ExamplewithNestedPlaceholders" id="modX.toPlaceholders-ExamplewithNestedPlaceholders"></a>Example with Nested Placeholders
+<h2 id="modX.toPlaceholders-ExamplewithNestedPlaceholders">
+Example with Nested Placeholders
 </h2>
 
 <p>
-Using nested data as the <b>$placeholders</b>:
+Using nested data as the <strong>$placeholders</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;toPlaceholders(array(
   'document' =&gt; , array('pagetitle' =&gt; 'My Page')
 ));
 </pre>
-</div>
-</div>
-
 <p>
 Corresponds to placeholders such as [[+document.pagetitle]]
 </p>
 
-<h2>
-<a name="modX.toPlaceholders-SeeAlso" id="modX.toPlaceholders-SeeAlso"></a>See Also
+<h2 id="modX.toPlaceholders-SeeAlso">
+See Also
 </h2>
 
 <ul>

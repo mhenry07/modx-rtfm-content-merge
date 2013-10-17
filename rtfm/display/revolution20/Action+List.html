@@ -1,488 +1,469 @@
 <p>
-MODX Revolution uses the <b>a</b> parameter in the $_GET array to define actions in the manager. Each action has its own integer number, defined in the file:
+MODX Revolution uses the <strong>a</strong> parameter in the $_GET array to define actions in the manager. Each action has its own integer number, defined in the file:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 core/model/modx/processors/system/actionlist.inc.php
 </pre>
-</div>
-</div>
-
 <p>
 When you need to reference or direct a user to a specific Action from a custom manager page (in JavaScript), you should use the <a href="/display/revolution20/MODExt+MODx+Object" title="MODExt MODx Object">MODx.action variable</a> which holds a list of all the actions and their IDs, just in case they have changed in a specific installation. You can also access your custom Actions using that variable (note that as of 2.2, they are prefixed with "namespace:" to avoid collision).
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 This list is deprecated and a remnant of MODX Evolution, and is not used in MODX Revolution.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="ActionList-MODXManagerActionsbyNumber"></a>MODX Manager Actions by Number
+<h2 id="ActionList-MODXManagerActionsbyNumber">
+MODX Manager Actions by Number
 </h2>
 
 <ul>
 <li>
-<b>1</b> – Loading a frame(set)
+<strong>1</strong> – Loading a frame(set)
 </li>
 
 <li>
-<b>2</b> – Viewing home page/ online users
+<strong>2</strong> – Viewing home page/ online users
 </li>
 
 <li>
-<b>3</b> – Viewing data for document $itemid
+<strong>3</strong> – Viewing data for document $itemid
 </li>
 
 <li>
-<b>4</b> – Creating a document
+<strong>4</strong> – Creating a document
 </li>
 
 <li>
-<b>5</b> – Saving document $itemid
+<strong>5</strong> – Saving document $itemid
 </li>
 
 <li>
-<b>6</b> – Deleting document $itemid
+<strong>6</strong> – Deleting document $itemid
 </li>
 
 <li>
-<b>7</b> – Waiting while MODX cleans up
+<strong>7</strong> – Waiting while MODX cleans up
 </li>
 
 <li>
-<b>8</b> – Logged out
+<strong>8</strong> – Logged out
 </li>
 
 <li>
-<b>9</b> – Viewing help
+<strong>9</strong> – Viewing help
 </li>
 
 <li>
-<b>10</b> – Viewing/ composing messages
+<strong>10</strong> – Viewing/ composing messages
 </li>
 
 <li>
-<b>11</b> – Creating a user
+<strong>11</strong> – Creating a user
 </li>
 
 <li>
-<b>12</b> – Editing user $itemid
+<strong>12</strong> – Editing user $itemid
 </li>
 
 <li>
-<b>13</b> – Viewing logging
+<strong>13</strong> – Viewing logging
 </li>
 
 <li>
-<b>14</b> – Editing a parser
+<strong>14</strong> – Editing a parser
 </li>
 
 <li>
-<b>15</b> – Saving a parser
+<strong>15</strong> – Saving a parser
 </li>
 
 <li>
-<b>16</b> – Editing template $itemid
+<strong>16</strong> – Editing template $itemid
 </li>
 
 <li>
-<b>17</b> – Editing settings
+<strong>17</strong> – Editing settings
 </li>
 
 <li>
-<b>18</b> – Viewing Credits <img class="emoticon" src="/images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0" />
+<strong>18</strong> – Viewing Credits :)
 </li>
 
 <li>
-<b>19</b> – Creating a new template
+<strong>19</strong> – Creating a new template
 </li>
 
 <li>
-<b>20</b> – Saving template $itemid
+<strong>20</strong> – Saving template $itemid
 </li>
 
 <li>
-<b>21</b> – Deleting template $itemid
+<strong>21</strong> – Deleting template $itemid
 </li>
 
 <li>
-<b>22</b> – Editing Snippet $itemid
+<strong>22</strong> – Editing Snippet $itemid
 </li>
 
 <li>
-<b>23</b> – Creating a new Snippet
+<strong>23</strong> – Creating a new Snippet
 </li>
 
 <li>
-<b>24</b> – Saving Snippet $itemid
+<strong>24</strong> – Saving Snippet $itemid
 </li>
 
 <li>
-<b>25</b> – Deleting Snippet $itemid
+<strong>25</strong> – Deleting Snippet $itemid
 </li>
 
 <li>
-<b>26</b> – Refreshing site
+<strong>26</strong> – Refreshing site
 </li>
 
 <li>
-<b>27</b> – Editing document $itemid
+<strong>27</strong> – Editing document $itemid
 </li>
 
 <li>
-<b>28</b> – Changing password
+<strong>28</strong> – Changing password
 </li>
 
 <li>
-<b>29</b> – Error
+<strong>29</strong> – Error
 </li>
 
 <li>
-<b>30</b> – Saving settings
+<strong>30</strong> – Saving settings
 </li>
 
 <li>
-<b>31</b> – Using file manager
+<strong>31</strong> – Using file manager
 </li>
 
 <li>
-<b>32</b> – Saving user $itemid
+<strong>32</strong> – Saving user $itemid
 </li>
 
 <li>
-<b>33</b> – Deleting user $itemid
+<strong>33</strong> – Deleting user $itemid
 </li>
 
 <li>
-<b>34</b> – Saving new password
+<strong>34</strong> – Saving new password
 </li>
 
 <li>
-<b>35</b> – Editing role $itemid
+<strong>35</strong> – Editing role $itemid
 </li>
 
 <li>
-<b>36</b> – Saving role $itemid
+<strong>36</strong> – Saving role $itemid
 </li>
 
 <li>
-<b>37</b> – Deleting role $itemid
+<strong>37</strong> – Deleting role $itemid
 </li>
 
 <li>
-<b>38</b> – Creating new role
+<strong>38</strong> – Creating new role
 </li>
 
 <li>
-<b>40</b> – Editing Access Permissions
+<strong>40</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>41</b> – Editing Access Permissions
+<strong>41</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>42</b> – Editing Access Permissions
+<strong>42</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>43</b> – Editing Access Permissions
+<strong>43</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>44</b> – Editing Access Permissions
+<strong>44</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>45</b> – Idle
+<strong>45</strong> – Idle
 </li>
 
 <li>
-<b>46</b> – Editing Access Permissions
+<strong>46</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>47</b> – Editing Access Permissions
+<strong>47</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>48</b> – Editing Access Permissions
+<strong>48</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>49</b> – Editing Access Permissions
+<strong>49</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>50</b> – Editing Access Permissions
+<strong>50</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>51</b> – Moving document $itemid
+<strong>51</strong> – Moving document $itemid
 </li>
 
 <li>
-<b>52</b> – Moved document $itemid
+<strong>52</strong> – Moved document $itemid
 </li>
 
 <li>
-<b>53</b> – Viewing system info
+<strong>53</strong> – Viewing system info
 </li>
 
 <li>
-<b>54</b> – Optimizing a table
+<strong>54</strong> – Optimizing a table
 </li>
 
 <li>
-<b>55</b> – Empty logs
+<strong>55</strong> – Empty logs
 </li>
 
 <li>
-<b>56</b> – Refresh document tree
+<strong>56</strong> – Refresh document tree
 </li>
 
 <li>
-<b>57</b> – Refresh menu
+<strong>57</strong> – Refresh menu
 </li>
 
 <li>
-<b>58</b> – Logged in
+<strong>58</strong> – Logged in
 </li>
 
 <li>
-<b>59</b> – About MODX
+<strong>59</strong> – About MODX
 </li>
 
 <li>
-<b>60</b> – Emptying Recycle Bin
+<strong>60</strong> – Emptying Recycle Bin
 </li>
 
 <li>
-<b>61</b> – Publishing a document
+<strong>61</strong> – Publishing a document
 </li>
 
 <li>
-<b>62</b> – Un-publishing a document
+<strong>62</strong> – Un-publishing a document
 </li>
 
 <li>
-<b>63</b> – Un-deleting a document
+<strong>63</strong> – Un-deleting a document
 </li>
 
 <li>
-<b>64</b> – Removing deleted content
+<strong>64</strong> – Removing deleted content
 </li>
 
 <li>
-<b>65</b> – Deleting a message
+<strong>65</strong> – Deleting a message
 </li>
 
 <li>
-<b>66</b> – Sending a message
+<strong>66</strong> – Sending a message
 </li>
 
 <li>
-<b>67</b> – Removing locks
+<strong>67</strong> – Removing locks
 </li>
 
 <li>
-<b>68</b> – Viewing site logging
+<strong>68</strong> – Viewing site logging
 </li>
 
 <li>
-<b>69</b> – Viewing online visitors
+<strong>69</strong> – Viewing online visitors
 </li>
 
 <li>
-<b>70</b> – Viewing site schedule
+<strong>70</strong> – Viewing site schedule
 </li>
 
 <li>
-<b>71</b> – Searching
+<strong>71</strong> – Searching
 </li>
 
 <li>
-<b>72</b> – Adding a weblink
+<strong>72</strong> – Adding a weblink
 </li>
 
 <li>
-<b>73</b> – Editing a weblink
+<strong>73</strong> – Editing a weblink
 </li>
 
 <li>
-<b>75</b> – User/ role management
+<strong>75</strong> – User/ role management
 </li>
 
 <li>
-<b>76</b> – Resource management
+<strong>76</strong> – Resource management
 </li>
 
 <li>
-<b>77</b> – Creating a new Chunk (HTML Snippet)
+<strong>77</strong> – Creating a new Chunk (HTML Snippet)
 </li>
 
 <li>
-<b>78</b> – Editing Chunk (HTML Snippet) $itemid
+<strong>78</strong> – Editing Chunk (HTML Snippet) $itemid
 </li>
 
 <li>
-<b>79</b> – Saving Chunk (HTML Snippet) $itemid
+<strong>79</strong> – Saving Chunk (HTML Snippet) $itemid
 </li>
 
 <li>
-<b>80</b> – Deleting Chunk (HTML Snippet) $itemid
+<strong>80</strong> – Deleting Chunk (HTML Snippet) $itemid
 </li>
 
 <li>
-<b>83</b> – Exporting a document to HTML
+<strong>83</strong> – Exporting a document to HTML
 </li>
 
 <li>
-<b>84</b> – Load Resource Selector
+<strong>84</strong> – Load Resource Selector
 </li>
 
 <li>
-<b>85</b> – Create Folder
+<strong>85</strong> – Create Folder
 </li>
 
 <li>
-<b>86</b> – Role management
+<strong>86</strong> – Role management
 </li>
 
 <li>
-<b>87</b> – Create new web user
+<strong>87</strong> – Create new web user
 </li>
 
 <li>
-<b>88</b> – Editing web user $itemid
+<strong>88</strong> – Editing web user $itemid
 </li>
 
 <li>
-<b>89</b> – Saving web user $itemid
+<strong>89</strong> – Saving web user $itemid
 </li>
 
 <li>
-<b>90</b> – Deleting web user $itemid
+<strong>90</strong> – Deleting web user $itemid
 </li>
 
 <li>
-<b>91</b> – Editing Web Access Permissions
+<strong>91</strong> – Editing Web Access Permissions
 </li>
 
 <li>
-<b>92</b> – Editing Access Permissions
+<strong>92</strong> – Editing Access Permissions
 </li>
 
 <li>
-<b>93</b> – Backup Manager
+<strong>93</strong> – Backup Manager
 </li>
 
 <li>
-<b>94</b> – Duplicate Document $itemid
+<strong>94</strong> – Duplicate Document $itemid
 </li>
 
 <li>
-<b>95</b> – Importing documents from HTML
+<strong>95</strong> – Importing documents from HTML
 </li>
 
 <li>
-<b>96</b> – Duplicate Template $itemid
+<strong>96</strong> – Duplicate Template $itemid
 </li>
 
 <li>
-<b>97</b> – Duplicate Chunk (HTML Snippet) $itemid
+<strong>97</strong> – Duplicate Chunk (HTML Snippet) $itemid
 </li>
 
 <li>
-<b>98</b> – Duplicate Snippet $itemid
+<strong>98</strong> – Duplicate Snippet $itemid
 </li>
 
 <li>
-<b>99</b> – Manage Web Users
+<strong>99</strong> – Manage Web Users
 </li>
 
 <li>
-<b>100</b> – Previewing document $itemid
+<strong>100</strong> – Previewing document $itemid
 </li>
 
 <li>
-<b>101</b> – Create new plugin $itemid
+<strong>101</strong> – Create new plugin $itemid
 </li>
 
 <li>
-<b>102</b> – Edit plugin $itemid
+<strong>102</strong> – Edit plugin $itemid
 </li>
 
 <li>
-<b>103</b> – Saving plugin $itemid
+<strong>103</strong> – Saving plugin $itemid
 </li>
 
 <li>
-<b>104</b> – Delete plugin $itemid
+<strong>104</strong> – Delete plugin $itemid
 </li>
 
 <li>
-<b>105</b> – Duplicate plugin $itemid
+<strong>105</strong> – Duplicate plugin $itemid
 </li>
 
 <li>
-<b>114</b> – View event log
+<strong>114</strong> – View event log
 </li>
 
 <li>
-<b>115</b> – View event log details $itemid
+<strong>115</strong> – View event log details $itemid
 </li>
 
 <li>
-<b>116</b> – Delete event log $itemid
+<strong>116</strong> – Delete event log $itemid
 </li>
 
 <li>
-<b>300</b> – Create Template Variable
+<strong>300</strong> – Create Template Variable
 </li>
 
 <li>
-<b>301</b> – Edit Template Variable
+<strong>301</strong> – Edit Template Variable
 </li>
 
 <li>
-<b>302</b> – Save Template Variable
+<strong>302</strong> – Save Template Variable
 </li>
 
 <li>
-<b>303</b> – Delete Template Variable
+<strong>303</strong> – Delete Template Variable
 </li>
 
 <li>
-<b>304</b> – Duplicate Template Variable $itemid
+<strong>304</strong> – Duplicate Template Variable $itemid
 </li>
 
 <li>
-<b>200</b> – Viewing phpInfo()
+<strong>200</strong> – Viewing phpInfo()
 </li>
 
 <li>
-<b>998</b> – Viewing web page $itemid
+<strong>998</strong> – Viewing web page $itemid
 </li>
 
 <li>
-<b>999</b> – Viewing test page
+<strong>999</strong> – Viewing test page
 </li>
 </ul>
 

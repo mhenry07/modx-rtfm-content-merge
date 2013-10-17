@@ -1,711 +1,689 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#AdvSearch.AdvSearch-AdvSearchSnippet'>AdvSearch Snippet</a>
+<a href="#AdvSearch.AdvSearch-AdvSearchSnippet">AdvSearch Snippet</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearch-Usage'>Usage</a>
+<a href="#AdvSearch.AdvSearch-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearch-AvailableProperties'>Available Properties</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#AdvSearch.AdvSearch-AvailableProperties">Available Properties</a>
 <ul>
 <li>
-<a href='#AdvSearch.AdvSearch-Designthequery'>Design the query</a>
+<a href="#AdvSearch.AdvSearch-Designthequery">Design the query</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearch-Organizethesearchresults'>Organize the search results</a>
+<a href="#AdvSearch.AdvSearch-Organizethesearchresults">Organize the search results</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearch-Designthepageresults'>Design the page results</a>
+<a href="#AdvSearch.AdvSearch-Designthepageresults">Design the page results</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearch-OverallAdvSearchdesign'>Overall AdvSearch design</a>
+<a href="#AdvSearch.AdvSearch-OverallAdvSearchdesign">Overall AdvSearch design</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearch-Custominstallation'>Custom installation</a>
+<a href="#AdvSearch.AdvSearch-Custominstallation">Custom installation</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearch-AdvSearchChunks'>AdvSearch Chunks</a>
+<a href="#AdvSearch.AdvSearch-AdvSearchChunks">AdvSearch Chunks</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearch-Examples'>Examples</a>
+<a href="#AdvSearch.AdvSearch-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#AdvSearch.AdvSearch-SeeAlso'>See Also</a>
+<a href="#AdvSearch.AdvSearch-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="AdvSearch.AdvSearch-AdvSearchSnippet"></a>AdvSearch Snippet
+<h2 id="AdvSearch.AdvSearch-AdvSearchSnippet">
+AdvSearch Snippet
 </h2>
 
 <p>
 This snippet displays search results based on the search criteria sent.
 </p>
 
-<h2>
-<a name="AdvSearch.AdvSearch-Usage"></a>Usage
+<h2 id="AdvSearch.AdvSearch-Usage">
+Usage
 </h2>
 
 <p>
 Simply place the snippet in the Resource you would like to display search results in.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!AdvSearch]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="AdvSearch.AdvSearch-AvailableProperties"></a>Available Properties
+<h2 id="AdvSearch.AdvSearch-AvailableProperties">
+Available Properties
 </h2>
 
-<h3>
-<a name="AdvSearch.AdvSearch-Designthequery"></a>Design the query
+<h3 id="AdvSearch.AdvSearch-Designthequery">
+Design the query
 </h3>
 
 <p>
 To specify where to do the search and which results you want.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 contexts
 </td>
-<td class='confluenceTd'>
+<td>
 The contexts to search.
 </td>
-<td class='confluenceTd'>
+<td>
 web
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fields
 </td>
-<td class='confluenceTd'>
+<td>
 A comma separated list of fields available with search results.
 </td>
-<td class='confluenceTd'>
+<td>
 pagetitle,longtitle,alias,description,introtext,content
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 hideContainers
 </td>
-<td class='confluenceTd'>
+<td>
 Search in container resources. 0 : search in all resources. 1 : will not search in any resources marked as a container.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 hideMenu
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not to return Resources that have hidemenu on. 0 : shows only visible Resources, 1 : shows only hidden Resources, 2 : shows both.
 </td>
-<td class='confluenceTd'>
+<td>
 2
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ids
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of IDs to restrict the search to. Use GetIds addon to specify complex id list.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeTVs
 </td>
-<td class='confluenceTd'>
+<td>
 A comma separated list of TV names to include TV values as results.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 queryHook
 </td>
-<td class='confluenceTd'>
+<td>
 A queryHook snippet name to change the default query.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 withFields
 </td>
-<td class='confluenceTd'>
+<td>
 A comma separated list of fields where to do the search.
 </td>
-<td class='confluenceTd'>
+<td>
 pagetitle,longtitle,alias,description,introtext,content
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 withTVs
 </td>
-<td class='confluenceTd'>
+<td>
 A comma separated list of TV names where to do the search. TV values are added as results.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="AdvSearch.AdvSearch-Organizethesearchresults"></a>Organize the search results
+<h3 id="AdvSearch.AdvSearch-Organizethesearchresults">
+Organize the search results
 </h3>
 
 <p>
 To sort and limit the search results.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fieldPotency
 </td>
-<td class='confluenceTd'>
+<td>
 Score and sort the results. Comma separated list of couples "field : potency".
 </td>
-<td class='confluenceTd'>
+<td>
 createdon
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 perPage
 </td>
-<td class='confluenceTd'>
+<td>
 The number of search results to show per page.
 </td>
-<td class='confluenceTd'>
+<td>
 10
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortby
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of couple "field <span class="error">[ASC]</span>" to sort by.
 </td>
-<td class='confluenceTd'>
+<td>
 createdon DESC
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showExtract
 </td>
-<td class='confluenceTd'>
+<td>
 Show the search terms highlighted in one or several extracts. String as "n : comma separated list of fields". n : maximum number of extracts by result. The search term is searched in the concatenated fields.
 </td>
-<td class='confluenceTd'>
+<td>
 1:content
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="AdvSearch.AdvSearch-Designthepageresults"></a>Design the page results
+<h3 id="AdvSearch.AdvSearch-Designthepageresults">
+Design the page results
 </h3>
 
 <p>
 To style the look and feel of your page results.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 containerTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk that will be used to wrap all the search results, pagination and message.
 </td>
-<td class='confluenceTd'>
+<td>
 SearchResults
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk that will be used to display the contents of each search result.
 </td>
-<td class='confluenceTd'>
+<td>
 AdvSearchResult
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pagingType
 </td>
-<td class='confluenceTd'>
+<td>
 Type of pagination. type 0 or 1
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pageTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk to use for a pagination link.
 </td>
-<td class='confluenceTd'>
+<td>
 PageLink
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 paging1Tpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk to use for the paging type 1
 </td>
-<td class='confluenceTd'>
+<td>
 Paging1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 paging0Tpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk to use for the paging type 0
 </td>
-<td class='confluenceTd'>
+<td>
 Paging0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 currentPageTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk to use for the current pagination link. (Paging type 0)
 </td>
-<td class='confluenceTd'>
+<td>
 CurrentPageLink
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pagingSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 The separator to use between pagination links. (Paging type 0)
 </td>
-<td class='confluenceTd'>
+<td>
 |
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 extractEllipsis
 </td>
-<td class='confluenceTd'>
+<td>
 The string used to wrap extract results with. Defaults to an ellipsis.
 </td>
-<td class='confluenceTd'>
+<td>
 ...
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 extractLength
 </td>
-<td class='confluenceTd'>
+<td>
 The number of characters for the content extraction of each search result.
 </td>
-<td class='confluenceTd'>
+<td>
 200
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 extractTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk that will be used to wrap each extract.
 </td>
-<td class='confluenceTd'>
+<td>
 Extract
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 highlightClass
 </td>
-<td class='confluenceTd'>
+<td>
 The CSS class name to add to highlighted terms in results.
 </td>
-<td class='confluenceTd'>
+<td>
 advsea-highlight
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 highlightResults
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not to highlight the search term in results.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 highlightTag
 </td>
-<td class='confluenceTd'>
+<td>
 The html tag to wrap the highlighted term with in search results.
 </td>
-<td class='confluenceTd'>
+<td>
 span
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 placeholderPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 prefix of global placeholders.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 Whether to set the output to directly return, or set to a placeholder with this propertys name.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="AdvSearch.AdvSearch-OverallAdvSearchdesign"></a>Overall AdvSearch design
+<h3 id="AdvSearch.AdvSearch-OverallAdvSearchdesign">
+Overall AdvSearch design
 </h3>
 
 <p>
 To design your own search
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 asId
 </td>
-<td class='confluenceTd'>
+<td>
 Unique id for AdvSearch instance. Any combination of characters a-z, underscores, and numbers 0-9. Case sensitive.
 </td>
-<td class='confluenceTd'>
+<td>
 as0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 engine
 </td>
-<td class='confluenceTd'>
+<td>
 Search engine selected among 'mysql' , 'zend' or 'all'. 'Zend' or 'all' mode request a repository with indexed resources.
 </td>
-<td class='confluenceTd'>
+<td>
 mysql
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 init
 </td>
-<td class='confluenceTd'>
+<td>
 defines if the search display all the results or none when the page is loaded at the first time. 'all' or 'none'
 </td>
-<td class='confluenceTd'>
+<td>
 none
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 maxWords
 </td>
-<td class='confluenceTd'>
+<td>
 The maximum number of words to include in the search.
 </td>
-<td class='confluenceTd'>
+<td>
 20
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 method
 </td>
-<td class='confluenceTd'>
+<td>
 Whether to send the search over POST or GET.
 </td>
-<td class='confluenceTd'>
+<td>
 GET
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 minChars
 </td>
-<td class='confluenceTd'>
+<td>
 Minimum number of characters to require for a word to be valid for searching.
 </td>
-<td class='confluenceTd'>
+<td>
 3
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 offsetIndex
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the REQUEST parameter to use for the pagination offset.
 </td>
-<td class='confluenceTd'>
+<td>
 offset
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 output
 </td>
-<td class='confluenceTd'>
+<td>
 output type. 'json' or 'html' Json output provides results as a json object.
 </td>
-<td class='confluenceTd'>
+<td>
 html
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 searchIndex
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the REQUEST parameter that the search will use.
 </td>
-<td class='confluenceTd'>
+<td>
 search
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 urlScheme
 </td>
-<td class='confluenceTd'>
+<td>
 Indicates in what format the URL is generated. -1, 0, 1, full, abs, http, https
 </td>
-<td class='confluenceTd'>
+<td>
 -1
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="AdvSearch.AdvSearch-Custominstallation"></a>Custom installation
+<h3 id="AdvSearch.AdvSearch-Custominstallation">
+Custom installation
 </h3>
 
 <p>
 The parameters that could help you for a custom installation.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 docindexPath
 </td>
-<td class='confluenceTd'>
+<td>
 the path under assets/files/ where are located Lucene document indexes
 </td>
-<td class='confluenceTd'>
+<td>
 docindex/
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 libraryPath
 </td>
-<td class='confluenceTd'>
+<td>
 The path under assets/ where are located the Zend library
 </td>
-<td class='confluenceTd'>
+<td>
 libraries/
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="AdvSearch.AdvSearch-AdvSearchChunks"></a>AdvSearch Chunks
+<h2 id="AdvSearch.AdvSearch-AdvSearchChunks">
+AdvSearch Chunks
 </h2>
 
 <p>
@@ -714,11 +692,11 @@ There are several chunks that are processed in AdvSearch. Their corresponding Ad
 
 <ul class="alternate" type="square">
 <li>
-<a href="/display/ADDON/AdvSearch.AdvSearch.tpl" title="AdvSearch.AdvSearch.tpl">tpl</a> - <b>AdvSearchResult</b> : The Chunk to use for each result displayed.
+<a href="/display/ADDON/AdvSearch.AdvSearch.tpl" title="AdvSearch.AdvSearch.tpl">tpl</a> - <strong>AdvSearchResult</strong> : The Chunk to use for each result displayed.
 </li>
 
 <li>
-<a href="/display/ADDON/AdvSearch.AdvSearch.containerTpl" title="AdvSearch.AdvSearch.containerTpl">containerTpl</a> - <b>AdvSearchResults</b> : The Chunk that will be used to wrap all the search results, pagination and message.
+<a href="/display/ADDON/AdvSearch.AdvSearch.containerTpl" title="AdvSearch.AdvSearch.containerTpl">containerTpl</a> - <strong>AdvSearchResults</strong> : The Chunk that will be used to wrap all the search results, pagination and message.
 </li>
 </ul>
 
@@ -730,7 +708,7 @@ Paging type 1:
 
 <ul class="alternate" type="square">
 <li>
-<a href="/display/ADDON/AdvSearch.Advsearch.paging1Tpl" title="AdvSearch.Advsearch.paging1Tpl">paging1Tpl</a> - <b>Paging1</b> : The Chunk to use for the pagination type 1.
+<a href="/display/ADDON/AdvSearch.Advsearch.paging1Tpl" title="AdvSearch.Advsearch.paging1Tpl">paging1Tpl</a> - <strong>Paging1</strong> : The Chunk to use for the pagination type 1.
 </li>
 </ul>
 
@@ -740,90 +718,92 @@ Paging type 0:
 
 <ul class="alternate" type="square">
 <li>
-<a href="/display/ADDON/AdvSearch.AdvSearch.paging0Tpl" title="AdvSearch.AdvSearch.paging0Tpl">paging0Tpl</a> - <b>Paging0</b> : The Chunk that will be used to wrap all paging type 0 elements.
+<a href="/display/ADDON/AdvSearch.AdvSearch.paging0Tpl" title="AdvSearch.AdvSearch.paging0Tpl">paging0Tpl</a> - <strong>Paging0</strong> : The Chunk that will be used to wrap all paging type 0 elements.
 </li>
 
 <li>
-<a href="/display/ADDON/AdvSearch.AdvSearch.paging0Tpl" title="AdvSearch.AdvSearch.paging0Tpl">pageTpl</a> - <b>PageLink</b> : The Chunk to use for a pagination link.
+<a href="/display/ADDON/AdvSearch.AdvSearch.paging0Tpl" title="AdvSearch.AdvSearch.paging0Tpl">pageTpl</a> - <strong>PageLink</strong> : The Chunk to use for a pagination link.
 </li>
 
 <li>
-<a href="/display/ADDON/AdvSearch.AdvSearch.paging0Tpl" title="AdvSearch.AdvSearch.paging0Tpl">currentPageTpl</a> - <b>CurrentPageLink</b> : The Chunk to use for the current pagination link.
+<a href="/display/ADDON/AdvSearch.AdvSearch.paging0Tpl" title="AdvSearch.AdvSearch.paging0Tpl">currentPageTpl</a> - <strong>CurrentPageLink</strong> : The Chunk to use for the current pagination link.
 </li>
 </ul>
 
-<h2>
-<a name="AdvSearch.AdvSearch-Examples"></a>Examples
+<h2 id="AdvSearch.AdvSearch-Examples">
+Examples
 </h2>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 These examples assume you've already sent the search query with the <a href="/display/ADDON/AdvSearch.AdvSearchForm" title="AdvSearch.AdvSearchForm">AdvSearchForm</a> snippet.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Display results, but just show their titles:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!AdvSearch? &amp;showExtract=`0`]]
 </pre>
-</div>
-</div>
-
 <p>
 Display all results but only in children Resources of 15 and hide possible container Resources - and highlight tags with a 'strong' tag:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!AdvSearch? &amp;ids=`[[!GetIds? &amp;ids=`c15`]]` &amp;hideContainers=`1` &amp;highlightTag=`strong`]]
 </pre>
-</div>
-</div>
-
 <p>
 Do a search in the field 'introtext' and in the tv named 'mytv'. Display as results the fields 'pagetitle', 'longtitle' and 'introtext'. Setup an extract with the 'introtext' field. Show a maximum of 2 extracts by result. And finally set the results to the placeholder 'results':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!AdvSearch? &amp;withFields=`introtext` &amp;withTVs=`mytv` &amp;fields=`pagetitle,introtext` &amp;showExtract=`2:introtext` &amp;toPlaceholder=`results`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="AdvSearch.AdvSearch-SeeAlso"></a>See Also
+<h2 id="AdvSearch.AdvSearch-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearch">AdvSearch.AdvSearch</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearch.containerTpl">AdvSearch.AdvSearch.containerTpl</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="35586375" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="35586336" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="2" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FAdvSearch.AdvSearch" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="35586336" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Advsearch.AdvSearch.extractTpl">Advsearch.AdvSearch.extractTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/AdvSearch.Advsearch.paging1Tpl">AdvSearch.Advsearch.paging1Tpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearch.paging0Tpl">AdvSearch.AdvSearch.paging0Tpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearch.tpl">AdvSearch.AdvSearch.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearchForm">AdvSearch.AdvSearchForm</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Advsearch.AdvSearchForm.tpl">Advsearch.AdvSearchForm.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearchHelp">AdvSearch.AdvSearchHelp</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/AdvSearch.AdvSearchHelp.helplinkTpl">AdvSearch.AdvSearchHelp.helplinkTpl</a>
+</li>
+</ol>
+</li>
+</ol>

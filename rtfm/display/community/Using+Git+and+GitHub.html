@@ -1,90 +1,61 @@
 <p>
-<b>Git</b> is the distributed version control system used by MODX for source code collaboration and version control. Like MODX, it's free and open source.
+<strong>Git</strong> is the distributed version control system used by MODX for source code collaboration and version control. Like MODX, it's free and open source.
 </p>
 
 <ul>
 <li>
-<a href="http://git-scm.com/" class="external-link" rel="nofollow">Git's official website</a> is an excellent place to get started if you're new to Git or to <a href="http://en.wikipedia.org/wiki/Revision_control" class="external-link" rel="nofollow">version control and software configuration management</a>&nbsp;in general. You'll want to install Git and get familiar with basic configuration parameters and commands.
+<a href="http://git-scm.com/">Git's official website</a> is an excellent place to get started if you're new to Git or to <a href="http://en.wikipedia.org/wiki/Revision_control">version control and software configuration management</a>&nbsp;in general. You'll want to install Git and get familiar with basic configuration parameters and commands.
 </li>
 
-<li>If you have a background in SVN, then <a href="http://git.or.cz/course/svn.html" class="external-link" rel="nofollow">this crash course</a> may be what you need.
+<li>If you have a background in SVN, then <a href="http://git.or.cz/course/svn.html">this crash course</a> may be what you need.
 </li>
 
-<li>If that isn't enough, there's a <a href="http://www.ndpsoftware.com/git-cheatsheet.html" class="external-link" rel="nofollow">great interactive cheat sheet by Andrew Peterson</a>, or ..&nbsp;<a href="http://lmgtfy.com/?q=git+svn" class="external-link" rel="nofollow">let us Google that for you</a> ;-)
+<li>If that isn't enough, there's a <a href="http://www.ndpsoftware.com/git-cheatsheet.html">great interactive cheat sheet by Andrew Peterson</a>, or ..&nbsp;<a href="http://lmgtfy.com/?q=git+svn">let us Google that for you</a> ;-)
 </li>
 </ul>
 
 <p>
-<b>GitHub</b> is where MODX Git repositories are hosted. GitHub is a service for "secure source code hosting and collaborative development" but also forms a social network for coders.
+<strong>GitHub</strong> is where MODX Git repositories are hosted. GitHub is a service for "secure source code hosting and collaborative development" but also forms a social network for coders.
 </p>
 
 <p>
-Read more about <a href="https://github.com/features/hosting" class="external-link" rel="nofollow">GitHub's repository hosting</a> but also be sure to bookmark their excellent <a href="http://gitref.org/" class="external-link" rel="nofollow">Git Reference</a> site.
+Read more about <a href="https://github.com/features/hosting">GitHub's repository hosting</a> but also be sure to bookmark their excellent <a href="http://gitref.org/">Git Reference</a> site.
 </p>
 
-<h2>
-<a name="UsingGitandGitHub-Overview%5C%5C"></a>Overview
-<br class="atl-forced-newline" />
+<h2 id="UsingGitandGitHub-Overview\\">
+Overview
+<br />
 </h2>
 
 <p>
 Here's an overview of the workflow you'll be using to contribute changes to any MODX repository. It will help to understand this first before diving in to more detail.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Fork</b>
+<div class="tip">
+<strong>Fork</strong>
 <br />
 First, you will fork a MODX code repository to your own GitHub account. This is "your fork". You will be publishing your code contributions (commits) to your fork, not directly to the modxcms repository. (This is what makes Git <em>distributed</em>, whereas SVN is centralized around one repository.)
 <p>
-Then, in order to work with your fork, you will need a local copy, or <tt>clone</tt> of it.
+Then, in order to work with your fork, you will need a local copy, or <code>clone</code> of it.
 </p>
 
 <p>
-Here's <a href="http://help.github.com/fork-a-repo/" class="external-link" rel="nofollow">GitHub's tutorial on forking a repo and making a local clone of it</a>.
+Here's <a href="http://help.github.com/fork-a-repo/">GitHub's tutorial on forking a repo and making a local clone of it</a>.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Branch and code</b>
+<div class="tip">
+<strong>Branch and code</strong>
 <br />
 All work on a single issue (bug or feature) is to be done on a <em>feature branch</em>.
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 git checkout -b bug-1111
 </pre>
-</div>
-</div>
-
 <p>
 You will make changes to a file or files. Coding.. yay! You make one or several commits on that branch. (Multiple commits can really help keep things organized in certain circumstances.)
 </p>
@@ -93,91 +64,55 @@ You will make changes to a file or files. Coding.. yay! You make one or several 
 Along the way, or when the work is done, you <em>push</em> the branch to your fork. You'll be able to see your feature branch and your commits on the GitHub site.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 git push myRepo bug-1111
 </pre>
-</div>
-</div>
-
 <p>
 <em>Note: Making sure your work and your commits are based on "fresh" code will help you avoid problems and help integrators understand, review and integrate (or feed back on) your work.</em>
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Pull Request</b>
+<div class="tip">
+<strong>Pull Request</strong>
 <br />
-When you're ready to contribute the commit or commits from your branch, you'll issue a <a href="http://help.github.com/pull-requests/" class="external-link" rel="nofollow">Pull Request</a> from your GitHub account.
+When you're ready to contribute the commit or commits from your branch, you'll issue a <a href="http://help.github.com/pull-requests/">Pull Request</a> from your GitHub account.
 <p>
 Your Pull Request may be accepted as-is by an integrator or they may make changes or comment, ask questions etc. GitHub facilitates communication with in-line code comments as well as a simple discussion thread on Pull Requests.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="UsingGitandGitHub-CommunityContributor%27sGuide%26nbsp%3B"></a>Community Contributor's Guide&nbsp;
+<h2 id="UsingGitandGitHub-CommunityContributor'sGuide&amp;nbsp;">
+Community Contributor's Guide&nbsp;
 </h2>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 With that basis in the workflow, your next step is to read the <a href="/display/community/Community+Contributor%27s+Guide" title="Community Contributor's Guide">Community Contributor's Guide</a> to understand the branching model MODX is using and for more detail on putting it into practice.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="UsingGitandGitHub-More%26nbsp%3B"></a>More&nbsp;
+<h2 id="UsingGitandGitHub-More&amp;nbsp;">
+More&nbsp;
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/community/Community+Contributor%27s+Guide">Community Contributor's Guide</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678504" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678504" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="community" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Fcommunity%2FUsing%2BGit%2Band%2BGitHub" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678504" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/community/Git+FAC+%28Frequently+Accessed+Commands%29">Git FAC (Frequently Accessed Commands)</a>
+</li>
 
-<h2>
-<a name="UsingGitandGitHub-"></a><font color="#000000"><b>Related</b></font>
+<li>
+<a href="/display/community/xPDO+GitHub+Contributor%27s+Guide">xPDO GitHub Contributor's Guide</a>
+</li>
+</ol>
+
+<h2 id="UsingGitandGitHub-">
+<strong>Related</strong>
 </h2>
 
 <ul>

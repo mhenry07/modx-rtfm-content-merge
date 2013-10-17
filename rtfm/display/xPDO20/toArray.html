@@ -1,50 +1,41 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="toArray-xPDOObject%3A%3AtoArray%28%29"></a>xPDOObject::toArray()
+<h2 id="toArray-xPDOObject::toArray()">
+xPDOObject::toArray()
 </h2>
 
 <p>
 Copies the object fields and corresponding values to an associative array.
 </p>
 
-<h2>
-<a name="toArray-Syntax" id="toArray-Syntax"></a>Syntax
+<h2 id="toArray-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#toArray" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#toArray</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#toArray">http://api.modxcms.com/xpdo/om/xPDOObject.html#toArray</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 array toArray(
    [string $keyPrefix = ''],
-   [<span class="code-object">boolean</span> $rawValues = <span class="code-keyword">false</span>],
-   [<span class="code-object">boolean</span> $excludeLazy = <span class="code-keyword">false</span>],
-   [<span class="code-object">boolean</span>|integer|string|array $inludeRelated = <span class="code-keyword">false</span>])
+   [boolean $rawValues = false],
+   [boolean $excludeLazy = false],
+   [boolean|integer|string|array $inludeRelated = false])
 )
 </pre>
-</div>
-</div>
-
 <p>
-<b>keyPrefix:</b> an optional prefix to prepend to each fields' keys.
+<strong>keyPrefix:</strong> an optional prefix to prepend to each fields' keys.
 </p>
 
 <p>
-<b>rawValues</b>: optional flag to get the raw value (true) or to use xPDOObject-&gt;get(). Typically will want to use -&gt;get().
+<strong>rawValues</strong>: optional flag to get the raw value (true) or to use xPDOObject-&gt;get(). Typically will want to use -&gt;get().
 </p>
 
 <p>
-<b>excludeLazy</b>: An option flag indicating if you want to exclude lazy fields from the resulting array; the default behavior is to include them which means the object will query the database for the lazy fields before providing the value.
+<strong>excludeLazy</strong>: An option flag indicating if you want to exclude lazy fields from the resulting array; the default behavior is to include them which means the object will query the database for the lazy fields before providing the value.
 </p>
 
 <p>
-<b>includeRelated</b>: Describes if and how to include loaded related object fields.
+<strong>includeRelated</strong>: Describes if and how to include loaded related object fields.
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp; * As an integer all loaded related objects in the graph up to that level of depth will be included.
 <br />
@@ -55,44 +46,34 @@ array toArray(
 &nbsp;&nbsp;&nbsp;&nbsp; * As boolean true, all currently loaded related objects will be included.
 </p>
 
-<h2>
-<a name="toArray-Examples" id="toArray-Examples"></a>Examples
+<h2 id="toArray-Examples">
+Examples
 </h2>
 
 <p>
 Get the values of the object in array format:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;set('name','John Lo');
 $object-&gt;set('email','jlo@gmail.com');
 $a = $object-&gt;toArray();
 print_r($a);
-<span class="code-comment">// prints <span class="code-quote">"Array ( [name] =&gt; John Lo [email] =&gt; jlo@gmail.com )"</span></span>
+// prints "Array ( [name] =&gt; John Lo [email] =&gt; jlo@gmail.com )"
 </pre>
-</div>
-</div>
-
 <p>
 Get the values of the object, but with their keys prefixed with 'dev_'
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;set('name','Mark');
 $object-&gt;set('version','1.0');
 $a = $object-&gt;toArray('dev_');
 print_r($a);
-<span class="code-comment">// prints <span class="code-quote">"Array ( [dev_name] =&gt; Mark [dev_version] =&gt; 1.0 )"</span></span>
+// prints "Array ( [dev_name] =&gt; Mark [dev_version] =&gt; 1.0 )"
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="toArray-SeeAlso" id="toArray-SeeAlso"></a>See Also
+<h2 id="toArray-SeeAlso">
+See Also
 </h2>
 
 <ul>

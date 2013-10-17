@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,12 +13,12 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMSPlaceholders-YAMSPlaceholders"></a>YAMS Placeholders
+<h1 id="YAMSPlaceholders-YAMSPlaceholders">
+YAMS Placeholders
 </h1>
 
 <p>
-Two forms of each placeholder are available. In the first form, <tt>(yams_???)</tt>, the placeholders provide information about the current document. In the second form, <tt>(yams_???:<em>docId</em>)</tt>, they provide information about the document with the given document identifier, <tt><em>docId</em></tt>. It should be possible to use snippet calls and chunks to specify the document identifier. <tt>(yams_doc:[+id+])</tt> can be used within templates.
+Two forms of each placeholder are available. In the first form, <code>(yams_???)</code>, the placeholders provide information about the current document. In the second form, <code>(yams_???:<em>docId</em>)</code>, they provide information about the document with the given document identifier, <code><em>docId</em></code>. It should be possible to use snippet calls and chunks to specify the document identifier. <code>(yams_doc:[+id+])</code> can be used within templates.
 </p>
 
 <p>
@@ -26,353 +26,346 @@ It should be possible to use YAMS placeholders almost anywhere, including in chu
 </p>
 
 <p>
-When the output of a YAMS placeholder is language dependent it needs to know what the current language is. The current language is dependent upon the context. The <tt>(yams-in)</tt> or <tt>(yams-repeat)</tt> blocks allow the inclusion of alternate language content on a page. (See the Constructs tab). If a placeholder falls within either of these blocks, then the current language is that specified by those blocks. Otherwise the current language is taken to be the language in which the current page is being displayed. There may be occasions when it is necessary to override this behaviour and force the placeholder to treat the current document language as the current language. This can be achieved by appending a + symbol to the end of the name of the placeholder. For example, the following will generate a <tt>(yams-repeat)</tt> block that will display a list of the names of the available languages, all written in the current document language:
+When the output of a YAMS placeholder is language dependent it needs to know what the current language is. The current language is dependent upon the context. The <code>(yams-in)</code> or <code>(yams-repeat)</code> blocks allow the inclusion of alternate language content on a page. (See the Constructs tab). If a placeholder falls within either of these blocks, then the current language is that specified by those blocks. Otherwise the current language is taken to be the language in which the current page is being displayed. There may be occasions when it is necessary to override this behaviour and force the placeholder to treat the current document language as the current language. This can be achieved by appending a + symbol to the end of the name of the placeholder. For example, the following will generate a <code>(yams-repeat)</code> block that will display a list of the names of the available languages, all written in the current document language:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;ul&gt;[[YAMS? &amp;get=`repeat` &amp;repeattpl=`@CODE:&lt;li&gt;(yams_name_in_(yams_id+))&lt;/li&gt;`]]&lt;/ul&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="YAMSPlaceholders-YAMSplaceholders"></a>YAMS placeholders
+<h2 id="YAMSPlaceholders-YAMSplaceholders">
+YAMS placeholders
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
 </th>
-<th class='confluenceTh'>
+<th>
 Monolingual Document
 </th>
-<th class='confluenceTh'>
+<th>
 Multilingual Document
 </th>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_id)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_id:<em>docId</em>)</tt>
+<th>
+<code>(yams_id)</code>
+<br />
+<code>(yams_id:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 The default language id
 </td>
-<td class='confluenceTd'>
+<td>
 The current language id
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_defaultid)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_defaultid:<em>docId</em>)</tt>
+<th>
+<code>(yams_defaultid)</code>
+<br />
+<code>(yams_defaultid:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 The default language id
-<br class="atl-forced-newline" />
+<br />
 <em>This is planned for inclusion in YAMS 1.2</em>
 </td>
-<td class='confluenceTd'>
+<td>
 The default language id
-<br class="atl-forced-newline" />
+<br />
 <em>This is planned for inclusion in YAMS 1.2</em>
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_tag)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_tag:<em>docId</em>)</tt>
+<th>
+<code>(yams_tag)</code>
+<br />
+<code>(yams_tag:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 The primary language tag for the default language
 </td>
-<td class='confluenceTd'>
+<td>
 The primary language tag for the current language
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_root)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_root:<em>docId</em>)</tt>
+<th>
+<code>(yams_root)</code>
+<br />
+<code>(yams_root:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 Nothing
 </td>
-<td class='confluenceTd'>
+<td>
 If specified and non-empty, the server root name for the current language, else nothing
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_/root)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_/root:<em>docId</em>)</tt>
+<th>
+<code>(yams_/root)</code>
+<br />
+<code>(yams_/root:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 Nothing
 </td>
-<td class='confluenceTd'>
+<td>
 If specified and non-empty, the server root name for the current language preceded by a /, else nothing
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_root/)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_root/:<em>docId</em>)</tt>
+<th>
+<code>(yams_root/)</code>
+<br />
+<code>(yams_root/:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 Nothing
 </td>
-<td class='confluenceTd'>
+<td>
 If specified and non-empty, the server root name for the current language followed by a /, else nothing
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_site)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_site:<em>docId</em>)</tt>
+<th>
+<code>(yams_site)</code>
+<br />
+<code>(yams_site:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 If server name mode is ON, an URL created using the specified monolingual server name. If server name mode is OFF, the same output as [(site_url)].
 </td>
-<td class='confluenceTd'>
+<td>
 The full multilingual site url including server name and server root as required for the current page.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_server)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_server:<em>docId</em>)</tt>
+<th>
+<code>(yams_server)</code>
+<br />
+<code>(yams_server:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 Same as for yams_site.
 </td>
-<td class='confluenceTd'>
+<td>
 Same as for yams_site, but with no root name.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_doc)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_doc:<em>docId</em>)</tt>
+<th>
+<code>(yams_doc)</code>
+<br />
+<code>(yams_doc:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 A complete URL for the document or weblink. There is an option on the 'Other Params' tab that will suppress the filename for the site start document.
 </td>
-<td class='confluenceTd'>
+<td>
 A complete URL for the current language version of the document or weblink. There is an option on the 'Other Params' tab that will suppress the filename for the site start document.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_docr)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_docr:<em>docId</em>)</tt>
+<th>
+<code>(yams_docr)</code>
+<br />
+<code>(yams_docr:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 Same as for yams_doc, but weblinks are resolved.
 </td>
-<td class='confluenceTd'>
+<td>
 Same as for yams_doc, but weblinks are resolved.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_dir)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_dir:<em>docId</em>)</tt>
+<th>
+<code>(yams_dir)</code>
+<br />
+<code>(yams_dir:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 The language direction ('ltr' or 'rtl') for the default language
 </td>
-<td class='confluenceTd'>
+<td>
 The language direction ('ltr' or 'rtl') for the current language
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_align)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_align:<em>docId</em>)</tt>
+<th>
+<code>(yams_align)</code>
+<br />
+<code>(yams_align:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 The text alignment ('left' or 'right') for the default language
 </td>
-<td class='confluenceTd'>
+<td>
 The text alignment ('left' or 'right') for the current language
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_mname)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_mname:<em>docId</em>)</tt>
+<th>
+<code>(yams_mname)</code>
+<br />
+<code>(yams_mname:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 The MODx language name for the default language
 </td>
-<td class='confluenceTd'>
+<td>
 The MODx language name for the current language
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_confirm)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_confirm:<em>docId</em>)</tt>
+<th>
+<code>(yams_confirm)</code>
+<br />
+<code>(yams_confirm:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 The name of the Confirm Language param. (See the Other Params tab.)
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the Confirm Language param. (See the Other Params tab.)
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_change)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_change:<em>docId</em>)</tt>
+<th>
+<code>(yams_change)</code>
+<br />
+<code>(yams_change:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 The name of the Change Language param. (See the Other Params tab.)
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the Change Language param. (See the Other Params tab.)
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_name)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_name:<em>docId</em>)</tt>
+<th>
+<code>(yams_name)</code>
+<br />
+<code>(yams_name:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 The name of the default language in the default language
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the current language in the current language
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_name_in_<em>langId</em>)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_name_in_<em>langId</em>:<em>docId</em>)</tt>
+<th>
+<code>(yams_name_in_<em>langId</em>)</code>
+<br />
+<code>(yams_name_in_<em>langId</em>:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
-The name of the default language, written in the language specified by the <tt><em>langId</em></tt> language group id.
+<td>
+The name of the default language, written in the language specified by the <code><em>langId</em></code> language group id.
 </td>
-<td class='confluenceTd'>
-The name of the current language, written in the language specified by the <tt><em>langId</em></tt> language group id.
+<td>
+The name of the current language, written in the language specified by the <code><em>langId</em></code> language group id.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_choose)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_choose:<em>docId</em>)</tt>
+<th>
+<code>(yams_choose)</code>
+<br />
+<code>(yams_choose:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
+<td>
 The Select Language Text, written in the default language. (See the Language Settings tab.)
 </td>
-<td class='confluenceTd'>
+<td>
 The Select Language Text, written in the current language. (See the Language Settings tab.)
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>((yams_data:<em>docId</em>:<em>fieldname</em>))</tt>
-<br class="atl-forced-newline" />
-<tt>((yams_data:<em>docId</em>:<em>fieldname</em>:<em>phx</em>))</tt>
+<th>
+<code>((yams_data:<em>docId</em>:<em>fieldname</em>))</code>
+<br />
+<code>((yams_data:<em>docId</em>:<em>fieldname</em>:<em>phx</em>))</code>
 </th>
-<td class='confluenceTd'>
-This special inline placeholder is different from all the others. It is used by YAMS for efficiently grabbing template variables from documents. Here, <tt><em>docId</em></tt> is the id of the document to grab the template variable from and <tt><em>fieldname</em></tt> is the name of the template variable from which to get the data. <em>In future, this syntax will allow phx to be used, but this is not currently supported.</em>
-<br class="atl-forced-newline" />
+<td>
+This special inline placeholder is different from all the others. It is used by YAMS for efficiently grabbing template variables from documents. Here, <code><em>docId</em></code> is the id of the document to grab the template variable from and <code><em>fieldname</em></code> is the name of the template variable from which to get the data. <em>In future, this syntax will allow phx to be used, but this is not currently supported.</em>
+<br />
 YAMS will search out all these placeholders in the document, work out what information needs to be grabbed from the database and grab in large chunks so as to minimise the number of database queries required.
-<br class="atl-forced-newline" />
-The <tt>[[YAMS? &amp;get=`data`</tt> snippet call (same as the legacy <tt>[[YAMS? &amp;get=`content`</tt> snippet call) which is used in the Wayfinder templates and internally by the YAMS Ditto extension will now output such placeholders meaning improved performance for large Ditto and Wayfinder calls.
-<br class="atl-forced-newline" />
+<br />
+The <code>[[YAMS? &amp;get=`data`</code> snippet call (same as the legacy <code>[[YAMS? &amp;get=`content`</code> snippet call) which is used in the Wayfinder templates and internally by the YAMS Ditto extension will now output such placeholders meaning improved performance for large Ditto and Wayfinder calls.
+<br />
 <em>As of YAMS 1.2 this will work with document variables as well as template variables.</em>
 </td>
-<td class='confluenceTd'>
+<td>
 Same as for monolingual documents
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_multi)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_multi:<em>docId</em>)</tt>
+<th>
+<code>(yams_multi)</code>
+<br />
+<code>(yams_multi:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
-Outputs <tt>0</tt>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
+<td>
+Outputs <code>0</code>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
 </td>
-<td class='confluenceTd'>
-Outputs <tt>1</tt>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
+<td>
+Outputs <code>1</code>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_mono)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_mono:<em>docId</em>)</tt>
+<th>
+<code>(yams_mono)</code>
+<br />
+<code>(yams_mono:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
-Outputs <tt>1</tt>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
+<td>
+Outputs <code>1</code>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
 </td>
-<td class='confluenceTd'>
-Outputs <tt>0</tt>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
+<td>
+Outputs <code>0</code>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
-<tt>(yams_type)</tt>
-<br class="atl-forced-newline" />
-<tt>(yams_type:<em>docId</em>)</tt>
+<th>
+<code>(yams_type)</code>
+<br />
+<code>(yams_type:<em>docId</em>)</code>
 </th>
-<td class='confluenceTd'>
-Outputs <tt>mono</tt>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
+<td>
+Outputs <code>mono</code>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
 </td>
-<td class='confluenceTd'>
-Outputs <tt>multi</tt>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
+<td>
+Outputs <code>multi</code>. <em>This parameter is due to appear in YAMS 1.2</em>, and can be used in combination with PHx, for example, to exclude or include content based on type.
 </td>
 </tr>
 </tbody>
 </table>
-</div>

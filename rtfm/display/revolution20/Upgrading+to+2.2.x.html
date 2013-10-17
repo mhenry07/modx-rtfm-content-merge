@@ -1,77 +1,74 @@
 <div>
 <ul>
 <li>
-<a href='#Upgradingto2.2.x-Introduction'>Introduction</a>
+<a href="#Upgradingto2.2.x-Introduction">Introduction</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-MediaSources'>Media Sources</a>
+<a href="#Upgradingto2.2.x-MediaSources">Media Sources</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-StaticElements'>Static Elements</a>
+<a href="#Upgradingto2.2.x-StaticElements">Static Elements</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-Dashboards'>Dashboards</a>
+<a href="#Upgradingto2.2.x-Dashboards">Dashboards</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-OtherNotables'>Other Notables</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Upgradingto2.2.x-OtherNotables">Other Notables</a>
 <ul>
 <li>
-<a href='#Upgradingto2.2.x-SortingContextsintheTree'>Sorting Contexts in the Tree</a>
+<a href="#Upgradingto2.2.x-SortingContextsintheTree">Sorting Contexts in the Tree</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-PrimaryUserGroup'>Primary User Group</a>
+<a href="#Upgradingto2.2.x-PrimaryUserGroup">Primary User Group</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-MinifyintheManager'>Minify in the Manager</a>
+<a href="#Upgradingto2.2.x-MinifyintheManager">Minify in the Manager</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-FormCustomizationTweaks'>Form Customization Tweaks</a>
+<a href="#Upgradingto2.2.x-FormCustomizationTweaks">Form Customization Tweaks</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-CommentTags'>Comment Tags</a>
+<a href="#Upgradingto2.2.x-CommentTags">Comment Tags</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-MovingTVsBelowtheContentPanel'>Moving TVs Below the Content Panel</a>
+<a href="#Upgradingto2.2.x-MovingTVsBelowtheContentPanel">Moving TVs Below the Content Panel</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-Upgrading%2FInstallingviaCommandLine'>Upgrading/Installing via Command Line</a>
+<a href="#Upgradingto2.2.x-Upgrading%2FInstallingviaCommandLine">Upgrading/Installing via Command Line</a>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-PreprocessingElementDefaultPropertiesandPropertySets'>Pre-processing Element Default Properties and Property Sets</a>
+<a href="#Upgradingto2.2.x-PreprocessingElementDefaultPropertiesandPropertySets">Pre-processing Element Default Properties and Property Sets</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Upgradingto2.2.x-SeeAlso'>See Also</a>
+<a href="#Upgradingto2.2.x-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Upgradingto2.2.x-Introduction" id="Upgradingto2.2.x-Introduction"></a>Introduction
+<h2 id="Upgradingto2.2.x-Introduction">
+Introduction
 </h2>
 
 <p>
 This article describes the major changes to MODX Revolution in the 2.2 release. Please review these changes when upgrading your sites to 2.2 from a prior MODX Revolution install.
 </p>
 
-<h2>
-<a name="Upgradingto2.2.x-MediaSources" id="Upgradingto2.2.x-MediaSources"></a>Media Sources
+<h2 id="Upgradingto2.2.x-MediaSources">
+Media Sources
 </h2>
 
 <p>
@@ -79,7 +76,7 @@ A large change in 2.2 is the introduction of <a href="/display/revolution20/Medi
 </p>
 
 <p>
-It means that <b>all filemanager_* Settings</b> <b><em>and</em></b> <b>basePath/baseUrl TV input options are deprecated</b>. None of them are in active use by the MODX manager anymore. Sources now determine the basePath and baseUrl of the tree, rather than the Settings or TV input options. This "source-centric" approach allows much more stable scalability and usage.
+It means that <strong>all filemanager_* Settings</strong> <strong><em>and</em></strong> <strong>basePath/baseUrl TV input options are deprecated</strong>. None of them are in active use by the MODX manager anymore. Sources now determine the basePath and baseUrl of the tree, rather than the Settings or TV input options. This "source-centric" approach allows much more stable scalability and usage.
 </p>
 
 <p>
@@ -90,8 +87,8 @@ MODX will attempt to create new Media Sources for any filemanager_* settings and
 Any filemanager_* User Settings will need to be manually migrated, as the idea of User-specific source basePaths no longer exist. Please use ACLs on the Media Source with a User Group, which you can <a href="/display/revolution20/Securing+a+Media+Source" title="Securing a Media Source">learn how to do so here</a>.
 </p>
 
-<h2>
-<a name="Upgradingto2.2.x-StaticElements" id="Upgradingto2.2.x-StaticElements"></a>Static Elements
+<h2 id="Upgradingto2.2.x-StaticElements">
+Static Elements
 </h2>
 
 <p>
@@ -100,11 +97,11 @@ MODX 2.2 introduces "Static" Elements, which are Elements that are located on th
 
 <ul>
 <li>
-<b>Static Source</b> - This field specifies the Media Source to use when looking up the Static File. Select None to specify an absolute path to the file.
+<strong>Static Source</strong> - This field specifies the Media Source to use when looking up the Static File. Select None to specify an absolute path to the file.
 </li>
 
 <li>
-<b>Static File</b> - This field is the path to the file, relative to the media source you selected (or None for absolute paths). You can use tags in this field, such as System Settings, as well.
+<strong>Static File</strong> - This field is the path to the file, relative to the media source you selected (or None for absolute paths). You can use tags in this field, such as System Settings, as well.
 </li>
 </ul>
 
@@ -112,108 +109,120 @@ MODX 2.2 introduces "Static" Elements, which are Elements that are located on th
 For example, if you selected a File System Media Source with a relative base path of 'assets/', and then specify the Source File as "templates/test.tpl", it will look for the Template file in "/path/to/my/modx/assets/templates/test.tpl".
 </p>
 
-<h2>
-<a name="Upgradingto2.2.x-Dashboards" id="Upgradingto2.2.x-Dashboards"></a>Dashboards
+<h2 id="Upgradingto2.2.x-Dashboards">
+Dashboards
 </h2>
 
 <p>
 You will note that your main Dashboard will look slightly different. The basic widgets and functionality will be the same; however, you will now be able to create Custom Dashboards for different User Groups, and rearrange and assign Widgets to them. Please refer to the <a href="/display/revolution20/Dashboards" title="Dashboards">Dashboards</a> documentation.
 </p>
 
-<h2>
-<a name="Upgradingto2.2.x-OtherNotables" id="Upgradingto2.2.x-OtherNotables"></a>Other Notables
+<h2 id="Upgradingto2.2.x-OtherNotables">
+Other Notables
 </h2>
 
-<h3>
-<a name="Upgradingto2.2.x-SortingContextsintheTree" id="Upgradingto2.2.x-SortingContextsintheTree"></a>Sorting Contexts in the Tree
+<h3 id="Upgradingto2.2.x-SortingContextsintheTree">
+Sorting Contexts in the Tree
 </h3>
 
 <p>
 Sorting of Contexts is now available in the Resources tree; however, this is off by default. To turn it on, set the "context_tree_sort" System Setting to Yes, and then change the "context_tree_sortby" field to "rank". This will allow you to drag/drop sort the Contexts in the tree.
 </p>
 
-<h3>
-<a name="Upgradingto2.2.x-PrimaryUserGroup" id="Upgradingto2.2.x-PrimaryUserGroup"></a>Primary User Group
+<h3 id="Upgradingto2.2.x-PrimaryUserGroup">
+Primary User Group
 </h3>
 
 <p>
 Users can now have a "Primary" User Group that they belong to. This is the User Group that they are assigned to with rank of 0. If they are only in one User Group, that group will be their Primary Group.
 </p>
 
-<h3>
-<a name="Upgradingto2.2.x-MinifyintheManager" id="Upgradingto2.2.x-MinifyintheManager"></a>Minify in the Manager
+<h3 id="Upgradingto2.2.x-MinifyintheManager">
+Minify in the Manager
 </h3>
 
 <p>
-The MODX manager now uses <a href="http://code.google.com/p/minify/" class="external-link" rel="nofollow">Google Minify</a> to automatically compress the CSS and JS in the manager. By default this is on; if, however, you would like to turn it off, you can do so by setting the "compress_js" and "compress_css" System Settings to 0.
+The MODX manager now uses <a href="http://code.google.com/p/minify/">Google Minify</a> to automatically compress the CSS and JS in the manager. By default this is on; if, however, you would like to turn it off, you can do so by setting the "compress_js" and "compress_css" System Settings to 0.
 </p>
 
-<h3>
-<a name="Upgradingto2.2.x-FormCustomizationTweaks" id="Upgradingto2.2.x-FormCustomizationTweaks"></a>Form Customization Tweaks
+<h3 id="Upgradingto2.2.x-FormCustomizationTweaks">
+Form Customization Tweaks
 </h3>
 
 <p>
 Due to the new user interface improvements on the Resource Editing screen, Form Customization can now target specific columns in tabs to move TVs to. Their IDs are now listed under the "Tabs" tab when editing a Form Customization Set.
 </p>
 
-<h3>
-<a name="Upgradingto2.2.x-CommentTags" id="Upgradingto2.2.x-CommentTags"></a>Comment Tags
+<h3 id="Upgradingto2.2.x-CommentTags">
+Comment Tags
 </h3>
 
 <p>
 MODX users can now use comment tags in their content:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[- comment goes here]]
 </pre>
-</div>
-</div>
-
 <p>
 Anything within one of these tags will be removed prior to the page rendering.
 </p>
 
-<h3>
-<a name="Upgradingto2.2.x-MovingTVsBelowtheContentPanel" id="Upgradingto2.2.x-MovingTVsBelowtheContentPanel"></a>Moving TVs Below the Content Panel
+<h3 id="Upgradingto2.2.x-MovingTVsBelowtheContentPanel">
+Moving TVs Below the Content Panel
 </h3>
 
 <p>
 In 2.2, you can also move Template Variables below the Content panel when editing them in a Resource. This is done by simply changing the <em>tvs_below_content</em> setting to "Yes".
 </p>
 
-<h3>
-<a name="Upgradingto2.2.x-Upgrading%2FInstallingviaCommandLine"></a>Upgrading/Installing via Command Line
+<h3 id="Upgradingto2.2.x-Upgrading/InstallingviaCommandLine">
+Upgrading/Installing via Command Line
 </h3>
 
 <p>
 In 2.2, MODX is installable and upgradable from the command line. See <a href="/display/revolution20/Command+Line+Installation" title="Command Line Installation">Command Line Installation</a> for more information.
 </p>
 
-<h3>
-<a name="Upgradingto2.2.x-PreprocessingElementDefaultPropertiesandPropertySets" id="Upgradingto2.2.x-PreprocessingElementDefaultPropertiesandPropertySets"></a>Pre-processing Element Default Properties and Property Sets
+<h3 id="Upgradingto2.2.x-PreprocessingElementDefaultPropertiesandPropertySets">
+Pre-processing Element Default Properties and Property Sets
 </h3>
 
 <p>
 MODX developers and users can now tell specific Elements to pre-process any MODX tags in default property and property set values. When checked on the Properties tab of an Element, the Element will attempt to parse all tags that appear in default property values or values assigned by property sets so that the behavior is the same as if the property was set in the tag string itself. Otherwise, the behavior is the same: tags in default property values or property set values are passed directly to the Element without being processed.
 </p>
 
-<h2>
-<a name="Upgradingto2.2.x-SeeAlso" id="Upgradingto2.2.x-SeeAlso"></a>See Also
+<h2 id="Upgradingto2.2.x-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Troubleshooting+Upgrades">Troubleshooting Upgrades</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="35586761" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678122" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FUpgrading%2Bto%2B2.2.x" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678122" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Upgrading+to+2.2.x">Upgrading to 2.2.x</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+from+2.0.x+to+2.1.x">Upgrading from 2.0.x to 2.1.x</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+from+Versions+Earlier+than+2.0.5">Upgrading from Versions Earlier than 2.0.5</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+to+Revolution+2.0.0-rc-2">Upgrading to Revolution 2.0.0-rc-2</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+from+MODx+Evolution">Upgrading from MODx Evolution</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Functional+Changes+from+Evolution">Functional Changes from Evolution</a>
+</li>
+</ol>
+</li>
+</ol>

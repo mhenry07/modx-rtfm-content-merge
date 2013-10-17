@@ -1,161 +1,205 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#FormIt.FormItStateOptions-WhatisFormItStateOptions%3F'>What is FormItStateOptions?</a>
+<a href="#FormIt.FormItStateOptions-WhatisFormItStateOptions%3F">What is FormItStateOptions?</a>
 </li>
 
 <li>
-<a href='#FormIt.FormItStateOptions-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FormIt.FormItStateOptions-Usage">Usage</a>
 <ul>
 <li>
-<a href='#FormIt.FormItStateOptions-FormItStateOptionsProperties'>FormItStateOptions Properties</a>
+<a href="#FormIt.FormItStateOptions-FormItStateOptionsProperties">FormItStateOptions Properties</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormIt.FormItStateOptions-SeeAlso'>See Also</a>
+<a href="#FormIt.FormItStateOptions-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="FormIt.FormItStateOptions-WhatisFormItStateOptions%3F"></a>What is FormItStateOptions?
+<h2 id="FormIt.FormItStateOptions-WhatisFormItStateOptions?">
+What is FormItStateOptions?
 </h2>
 
 <p>
 FormItStateOptions is an assistance snippet for <a href="/display/ADDON/FormIt" title="FormIt">FormIt</a> 1.7.0+ that will output an option list of U.S. states. It is useful for forms that need a dropdown list of U.S. states.
 </p>
 
-<h2>
-<a name="FormIt.FormItStateOptions-Usage" id="FormIt.FormItStateOptions-Usage"></a>Usage
+<h2 id="FormIt.FormItStateOptions-Usage">
+Usage
 </h2>
 
 <p>
 Simply add the Snippet to your form, in a &lt;select&gt; call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;select name=<span class="code-quote">"state"</span>&gt;
+<pre class="brush: php">
+&lt;select name="state"&gt;
 [[!FormItStateOptions? &amp;selected=`[[!+fi.state]]`]]
 &lt;/select&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Note how we are passing the value of the "fi.state" placeholder (which stores the value of the state field) into the selected parameter. This tells FormItStateOptions to select the last-selected option in the form.
 </p>
 
-<h3>
-<a name="FormIt.FormItStateOptions-FormItStateOptionsProperties" id="FormIt.FormItStateOptions-FormItStateOptionsProperties"></a>FormItStateOptions Properties
+<h3 id="FormIt.FormItStateOptions-FormItStateOptionsProperties">
+FormItStateOptions Properties
 </h3>
 
 <p>
 FormItStateOptions comes with some default properties you can override. They are:
 </p>
 
-<div class='table-wrap'>
-<table id='TBL1376497247100' class='confluenceTable'>
+<table id="TBL1376497247014">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 selected
 </td>
-<td class='confluenceTd'>
+<td>
 The country value to select.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 selectedAttribute
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. The HTML attribute to add to a selected country.
 </td>
-<td class='confluenceTd'>
+<td>
 selected="selected"
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. The chunk to use for each country dropdown option.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useAbbr
 </td>
-<td class='confluenceTd'>
+<td>
 If 1, will use the state abbreviation for the value. If 0, will use the full state name.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. Use this to set the output to a placeholder instead of outputting directly.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="FormIt.FormItStateOptions-SeeAlso" id="FormIt.FormItStateOptions-SeeAlso"></a>See Also
+<h2 id="FormIt.FormItStateOptions-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/FormIt.Hooks">FormIt.Hooks</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/FormIt.Hooks.email">FormIt.Hooks.email</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="35586163" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11698177" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FFormIt.FormItStateOptions" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11698177" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/FormIt.Hooks.FormItAutoResponder">FormIt.Hooks.FormItAutoResponder</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.math">FormIt.Hooks.math</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.recaptcha">FormIt.Hooks.recaptcha</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.redirect">FormIt.Hooks.redirect</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.spam">FormIt.Hooks.spam</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Validators">FormIt.Validators</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.FormItRetriever">FormIt.FormItRetriever</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Tutorials+and+Examples">FormIt.Tutorials and Examples</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/FormIt.Examples.Custom+Hook">FormIt.Examples.Custom Hook</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Examples.Simple+Contact+Page">FormIt.Examples.Simple Contact Page</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Handling+Selects%2C+Checkboxes+and+Radios">FormIt.Handling Selects, Checkboxes and Radios</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Using+a+Blank+NoSpam+Field">FormIt.Using a Blank NoSpam Field</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Roadmap">FormIt.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.FormItCountryOptions">FormIt.FormItCountryOptions</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.FormItStateOptions">FormIt.FormItStateOptions</a>
+</li>
+</ol>

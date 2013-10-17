@@ -1,47 +1,38 @@
 <div>
 <ul>
 <li>
-<a href='#Image%2B-WhatisImage%3F'>What is Image+?</a>
+<a href="#Image%2B-WhatisImage%3F">What is Image+?</a>
 </li>
 
 <li>
-<a href='#Image%2B-Requirements'>Requirements</a>
+<a href="#Image%2B-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#Image%2B-History%26Info'>History &amp; Info</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Image%2B-History%26Info">History &amp; Info</a>
 <ul>
 <li>
-<a href='#Image%2B-Download'>Download</a>
+<a href="#Image%2B-Download">Download</a>
 </li>
 
 <li>
-<a href='#Image%2B-Development%26BugReporting'>Development &amp; Bug Reporting</a>
+<a href="#Image%2B-Development%26BugReporting">Development &amp; Bug Reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Image%2B-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Image%2B-Usage">Usage</a>
 <ul>
 <li>
-<a href='#Image%2B-InputOptions'>Input Options</a>
+<a href="#Image%2B-InputOptions">Input Options</a>
 </li>
 
 <li>
-<a href='#Image%2B-OutputOptions'>Output Options</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Image%2B-OutputOptions">Output Options</a>
 <ul>
 <li>
-<a href='#Image%2B-OutputChunk'>Output Chunk</a>
+<a href="#Image%2B-OutputChunk">Output Chunk</a>
 </li>
 </ul>
 </li>
@@ -50,16 +41,16 @@
 </ul>
 </div>
 
-<h2>
-<a name="Image%2B-WhatisImage%3F"></a>What is Image+?
+<h2 id="Image+-WhatisImage?">
+What is Image+?
 </h2>
 
 <p>
 Image+ is an extension to the native MODx Image TV type. It provides an image cropping function when selecting images via a resource TV interface. Developers can specify either/both with &amp; height constraints and the editor will ensure that the chosen crop of the image satisfies these dimensions. The output renderer allows for either raw URL output, or the use of a chunk for formatting, allowing you to make use of the Alt-Tag/Image title field to add alt-tags to your images from within the TV.
 </p>
 
-<h2>
-<a name="Image%2B-Requirements"></a>Requirements
+<h2 id="Image+-Requirements">
+Requirements
 </h2>
 
 <ul>
@@ -70,198 +61,188 @@ Image+ is an extension to the native MODx Image TV type. It provides an image cr
 </li>
 
 <li>
-<a href="http://modx.com/extras/package/phpthumbof" class="external-link" rel="nofollow">phpThumbOf</a> extension
+<a href="http://modx.com/extras/package/phpthumbof">phpThumbOf</a> extension
 </li>
 </ul>
 
-<h2>
-<a name="Image%2B-History%26Info"></a>History &amp; Info
+<h2 id="Image+-History&amp;Info">
+History &amp; Info
 </h2>
 
 <p>
 Image+ was written by Alan Pich in early 2012. Version 1.x proved too buggy for general use so the component was completely re-written for version 2.0 which was released at the end of November, 2012.
 </p>
 
-<h3>
-<a name="Image%2B-Download"></a>Download
+<h3 id="Image+-Download">
+Download
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via Package Management, or from the MODx Extras Repository, available here:&nbsp;<a href="http://modx.com/extras/package/imageplustvinput" class="external-link" rel="nofollow">http://modx.com/extras/package/imageplustvinput</a><a href="http://modx.com/extras/package/imageplustvinput" class="external-link" rel="nofollow">http://modx.com/extras/package/imageplustvinput</a>
+It can be downloaded from within the MODx Revolution manager via Package Management, or from the MODx Extras Repository, available here:&nbsp;<a href="http://modx.com/extras/package/imageplustvinput">http://modx.com/extras/package/imageplustvinput</a><a href="http://modx.com/extras/package/imageplustvinput">http://modx.com/extras/package/imageplustvinput</a>
 </p>
 
-<h3>
-<a name="Image%2B-Development%26BugReporting"></a>Development &amp; Bug Reporting
+<h3 id="Image+-Development&amp;BugReporting">
+Development &amp; Bug Reporting
 </h3>
 
 <p>
-Image+ is stored and developed in GitHub, and can be found here:&nbsp;<a href="https://github.com/alanpich/tvImagePlus" class="external-link" rel="nofollow">https://github.com/alanpich/tvImagePlus</a>
+Image+ is stored and developed in GitHub, and can be found here:&nbsp;<a href="https://github.com/alanpich/tvImagePlus">https://github.com/alanpich/tvImagePlus</a>
 </p>
 
-<h2>
-<a name="Image%2B-Usage"></a>Usage
+<h2 id="Image+-Usage">
+Usage
 </h2>
 
 <p>
 Image+ consists of two components; A custom TV Input type, and an Output type (both conveniently called Image+). Both need to be selected for a TV to work properly. Several options can be configured on the Template Variable to customize the output of the TV.
 </p>
 
-<h3>
-<a name="Image%2B-InputOptions"></a>Input Options
+<h3 id="Image+-InputOptions">
+Input Options
 </h3>
 
 <p>
 When Image+ is selected as an Input type for a TV, the following options become available:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Field
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Target Width
 </td>
-<td class='confluenceTd'>
+<td>
 Optional width constraint for output image. If set, TV output image will be exactly this width. Can be used in conjunction with Target Height field to constrain image dimensions.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Target Height
 </td>
-<td class='confluenceTd'>
+<td>
 Optional height constraint for output image. If set, TV output image will be exactly this height. Can be used in conjunction with Target Width field to constrain image dimensions.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Alt tag field
 </td>
-<td class='confluenceTd'>
+<td>
 If set to 'Yes', an additional field will become available when editing the TV for a resource. This field can be used for supplying a title or alt-tag for the image. Used in conjunction with output chunks (see Output Options below).
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="Image%2B-OutputOptions"></a>Output Options
+<h3 id="Image+-OutputOptions">
+Output Options
 </h3>
 
 <p>
 Configuring the output options is completely optional, but allows for some extra refinement to the images as they are generated. Currently available options are:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Field
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Additional phpThumb params
 </td>
-<td class='confluenceTd'>
-Allows entering additional parameters to pass to phpThumb when generating the image. See&nbsp;<a href="http://phpthumb.sourceforge.net/demo/docs/phpthumb.readme.txt" class="external-link" rel="nofollow">here</a>&nbsp;for details. Should be in url parameter format (fltr[]=abc&amp;zc=1...)
+<td>
+Allows entering additional parameters to pass to phpThumb when generating the image. See&nbsp;<a href="http://phpthumb.sourceforge.net/demo/docs/phpthumb.readme.txt">here</a>&nbsp;for details. Should be in url parameter format (fltr[]=abc&amp;zc=1...)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Output Chunk
 </td>
-<td class='confluenceTd'>
+<td>
 If left blank, the TV will output a raw URL to the prepared image. You can also specify the name of a chunk to use to format output. Details of available placeholders can be found below.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h4>
-<a name="Image%2B-OutputChunk"></a>Output Chunk
+<h4 id="Image+-OutputChunk">
+Output Chunk
 </h4>
 
 <p>
 Optionally selecting an Output Chunk allows you access to other placeholders to better customise the TV's output. Placeholders available are:&nbsp;
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+url]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Url of image. This is the default output when an Output Chunk is not specified.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+width]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Width of output image (if specified in Input Options)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+height]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Height of output image (if specified in Input Options)
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 [[+alt]]
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Alt tag field text (if specified in Input Options)
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-
-<p>
-<br class="atl-forced-newline" />
-</p>

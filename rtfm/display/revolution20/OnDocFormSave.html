@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="OnDocFormSave-Event%3AOnDocFormSave"></a>Event: OnDocFormSave
+<h2 id="OnDocFormSave-Event:OnDocFormSave">
+Event: OnDocFormSave
 </h2>
 
 <p>
@@ -16,173 +12,123 @@ Service: 1 - Parser Service Events
 Group: Documents
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>TVs are best Modified Here</b>
+<div class="tip">
+<strong>TVs are best Modified Here</strong>
 <br />
 If you need to modify TV values, it's best to modify them here and not during <a href="/display/revolution20/OnBeforeDocFormSave" title="OnBeforeDocFormSave">OnBeforeDocFormSave</a>.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Unlike <a href="/display/revolution20/OnBeforeDocFormSave" title="OnBeforeDocFormSave">OnBeforeDocFormSave</a>, this event does not support the $modx-&gt;event-&gt;output() method.
 </p>
 
-<h2>
-<a name="OnDocFormSave-EventParameters"></a>Event Parameters
+<h2 id="OnDocFormSave-EventParameters">
+Event Parameters
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mode
 </td>
-<td class='confluenceTd'>
+<td>
 Either 'new' or 'upd', depending on the circumstances.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resource
 </td>
-<td class='confluenceTd'>
+<td>
 A reference to the modResource object.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 id
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the Resource (even for new resources)
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="OnDocFormSave-Examples"></a>Examples
+<h2 id="OnDocFormSave-Examples">
+Examples
 </h2>
 
 <p>
-To do something with the page ID (e.g. to update a related custom table), you can read this out of the <b>$resource</b> object (even if you are creating a new resource):
+To do something with the page ID (e.g. to update a related custom table), you can read this out of the <strong>$resource</strong> object (even if you are creating a new resource):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// Log all available properties of the $resource
-</span>$modx-&gt;log(MODX_LOG_LEVEL_ERROR, print_r($resource-&gt;toArray(),<span class="code-keyword">true</span>) );
-<span class="code-comment">// Get the page id
-</span>$page_id = $resource-&gt;get('id');
-<span class="code-comment">// or simply
-</span>$page_id = $id;
+<pre class="brush: php">
+// Log all available properties of the $resource
+$modx-&gt;log(MODX_LOG_LEVEL_ERROR, print_r($resource-&gt;toArray(),true) );
+// Get the page id
+$page_id = $resource-&gt;get('id');
+// or simply
+$page_id = $id;
 
-<span class="code-keyword">if</span> ($mode == '<span class="code-keyword">new</span>') {
-    <span class="code-comment">// resource created
-</span>}
-<span class="code-keyword">else</span> {
-   <span class="code-comment">// existing resource was updated
-</span>}
+if ($mode == 'new') {
+    // resource created
+}
+else {
+   // existing resource was updated
+}
 </pre>
-</div>
-</div>
-
 <p>
 Anything you return from this event will be written to the logs, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">return</span> <span class="code-quote">"Help I'm a bug!"</span>;
+<pre class="brush: php">
+return "Help I'm a bug!";
 </pre>
-</div>
-</div>
-
 <p>
 Will result in a log message like the following:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  [2012-06-22 13:00:28] (ERROR @ /connectors/resource/index.php) [OnDocFormSave]Help I'm a bug!
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="OnDocFormSave-CalculatingaTVValue"></a>Calculating a TV Value
+<h3 id="OnDocFormSave-CalculatingaTVValue">
+Calculating a TV Value
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">switch</span> ($modx-&gt;event-&gt;name) {
+<pre class="brush: php">
+switch ($modx-&gt;event-&gt;name) {
 
-        <span class="code-comment">// Documents
-</span> <span class="code-keyword">case</span> 'OnDocFormSave':
-            <span class="code-keyword">if</span> ($resource-&gt;get('template') == 8) {  
-                <span class="code-keyword">if</span>(!$resource-&gt;setTVValue('my_tv', 'Some Value')) {
+        // Documents
+        case 'OnDocFormSave':
+            if ($resource-&gt;get('template') == 8) {  
+                if(!$resource-&gt;setTVValue('my_tv', 'Some Value')) {
                     $modx-&gt;log(modX::LOG_LEVEL_ERROR, 'There was a problem setting the TV value.');
                 }
             }
 
-        <span class="code-keyword">break</span>;
+        break;
 }
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Saving Happens Automatically</b>
+<div class="tip">
+<strong>Saving Happens Automatically</strong>
 <br />
-No need to run the <tt>$resource-&gt;save()</tt> method as that happens automatically.
-</td>
-</tr>
-</table>
+No need to run the <code>$resource-&gt;save()</code> method as that happens automatically.
 </div>
 
-<h2>
-<a name="OnDocFormSave-SeeAlso"></a>See Also
+<h2 id="OnDocFormSave-SeeAlso">
+See Also
 </h2>
 
 <ul>

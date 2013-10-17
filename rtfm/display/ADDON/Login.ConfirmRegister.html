@@ -1,45 +1,38 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Login.ConfirmRegister-WhatisConfirmRegister%3F'>What is ConfirmRegister?</a>
+<a href="#Login.ConfirmRegister-WhatisConfirmRegister%3F">What is ConfirmRegister?</a>
 </li>
 
 <li>
-<a href='#Login.ConfirmRegister-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Login.ConfirmRegister-Usage">Usage</a>
 <ul>
 <li>
-<a href='#Login.ConfirmRegister-DefaultProperties'>Default Properties</a>
+<a href="#Login.ConfirmRegister-DefaultProperties">Default Properties</a>
 </li>
 
 <li>
-<a href='#Login.ConfirmRegister-Events'>Events</a>
+<a href="#Login.ConfirmRegister-Events">Events</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Login.ConfirmRegister-SeeAlso'>See Also</a>
+<a href="#Login.ConfirmRegister-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Login.ConfirmRegister-WhatisConfirmRegister%3F"></a>What is ConfirmRegister?
+<h2 id="Login.ConfirmRegister-WhatisConfirmRegister?">
+What is ConfirmRegister?
 </h2>
 
 <p>
 ConfirmRegister is a simple snippet that confirms a registration by a User from the <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> snippet, when 'activation' in that snippet is set to 1 (the default). It is placed on a separate, "Registration Activated" page.
 </p>
 
-<h2>
-<a name="Login.ConfirmRegister-Usage" id="Login.ConfirmRegister-Usage"></a>Usage
+<h2 id="Login.ConfirmRegister-Usage">
+Usage
 </h2>
 
 <p>
@@ -50,139 +43,185 @@ ConfirmRegister is a simple snippet that confirms a registration by a User from 
 To enable this, you will need to create an Activation page by creating a new Resource, and putting this <a href="/display/ADDON/Login.ConfirmRegister" title="Login.ConfirmRegister">ConfirmRegister</a> snippet inside of it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!ConfirmRegister]]
 </pre>
-</div>
-</div>
-
 <p>
 An example <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> snippet call with activation would look like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Register? 
    &amp;activationEmailTpl=`myActivationEmailTpl`
    &amp;activationEmailSubject=`Please activate your account!`
    &amp;activationResourceId=`26`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 This would send the User the email specified in the "myActivationEmailTpl" chunk, with the specified subject line, which will direct the User to the Resource 26 - the Resource you put the ConfirmRegister snippet call in - to activate their account.
 </p>
 
-<h3>
-<a name="Login.ConfirmRegister-DefaultProperties" id="Login.ConfirmRegister-DefaultProperties"></a>Default Properties
+<h3 id="Login.ConfirmRegister-DefaultProperties">
+Default Properties
 </h3>
 
 <p>
 ConfirmRegister has some default properties packaged into it. They are:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 redirectTo
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. After a successful confirmation, redirect to this Resource.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 redirectParams
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. A JSON object of parameters to pass when redirecting using redirectTo.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 authenticate
 </td>
-<td class='confluenceTd'>
+<td>
 Authenticate and login the user to the current context after confirming registration.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 authenticateContexts
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. A comma-separated list of contexts to authenticate to. Defaults to the current context.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 errorPage
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. If set, will redirect user to a custom error page if they try to access this page after activating their account.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="Login.ConfirmRegister-Events" id="Login.ConfirmRegister-Events"></a>Events
+<h3 id="Login.ConfirmRegister-Events">
+Events
 </h3>
 
 <p>
 ConfirmRegister also fires the <a href="/display/revolution20/OnUserActivate" title="OnUserActivate">OnUserActivate</a> plugin event after the User is activated, and passes in a 'user' parameter, which contains the newly-activated modUser object.
 </p>
 
-<h2>
-<a name="Login.ConfirmRegister-SeeAlso" id="Login.ConfirmRegister-SeeAlso"></a>See Also
+<h2 id="Login.ConfirmRegister-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Login.Login">Login.Login</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="21135387" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042888" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FLogin.ConfirmRegister" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11042888" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Login.Profile">Login.Profile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.UpdateProfile">Login.UpdateProfile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Register">Login.Register</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Register.Example+Form+1">Register.Example Form 1</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ConfirmRegister">Login.ConfirmRegister</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ForgotPassword">Login.ForgotPassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ResetPassword">Login.ResetPassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ChangePassword">Login.ChangePassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Tutorials">Login.Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Login.Basic+Setup">Login.Basic Setup</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Extended+User+Profiles">Login.Extended User Profiles</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Request+Membership">Login.Request Membership</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.User+Profiles">Login.User Profiles</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Using+Custom+Fields">Login.Using Custom Fields</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Using+Pre+and+Post+Hooks">Login.Using Pre and Post Hooks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Roadmap">Login.Roadmap</a>
+</li>
+</ol>

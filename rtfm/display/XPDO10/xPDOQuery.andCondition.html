@@ -1,52 +1,38 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDOQuery.andCondition-xPDOQuery%3A%3AandCondition"></a>xPDOQuery::andCondition
+<h2 id="xPDOQuery.andCondition-xPDOQuery::andCondition">
+xPDOQuery::andCondition
 </h2>
 
 <p>
 Add an AND condition to the WHERE clause.
 </p>
 
-<h2>
-<a name="xPDOQuery.andCondition-Syntax" id="xPDOQuery.andCondition-Syntax"></a>Syntax
+<h2 id="xPDOQuery.andCondition-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#andCondition" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOQuery.html#andCondition</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#andCondition">http://api.modxcms.com/xpdo/om/xPDOQuery.html#andCondition</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-void andCondition ( $conditions, [ $binding = <span class="code-keyword">null</span>], [ $group = 0])
+<pre class="brush: php">
+void andCondition ( $conditions, [ $binding = null], [ $group = 0])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.andCondition-Example" id="xPDOQuery.andCondition-Example"></a>Example
+<h2 id="xPDOQuery.andCondition-Example">
+Example
 </h2>
 
 <p>
 Grab all Boxes with width of 12 and height of 4.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array('width' =&gt; 12));
 $query-&gt;andCondition(array('height' =&gt; 4));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.andCondition-SeeAlso" id="xPDOQuery.andCondition-SeeAlso"></a>See Also
+<h2 id="xPDOQuery.andCondition-SeeAlso">
+See Also
 </h2>
 
 <ul>

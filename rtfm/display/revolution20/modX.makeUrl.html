@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modX.makeUrl-modX%3A%3AmakeUrl"></a>modX::makeUrl
+<h2 id="modX.makeUrl-modX::makeUrl">
+modX::makeUrl
 </h2>
 
 <p>
@@ -37,58 +33,39 @@ The scheme indicates in what format the URL is generated.
 </li>
 </ul>
 
-<h2>
-<a name="modX.makeUrl-Syntax" id="modX.makeUrl-Syntax"></a>Syntax
+<h2 id="modX.makeUrl-Syntax">
+Syntax
 </h2>
 
 <p>
-API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::makeUrl()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::makeUrl()</a>
+API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::makeUrl()">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::makeUrl()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 string makeUrl (integer $id, [string $context = ''], [string $args = ''], [mixed $scheme = -1])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.makeUrl-Examples" id="modX.makeUrl-Examples"></a>Examples
+<h2 id="modX.makeUrl-Examples">
+Examples
 </h2>
 
 <p>
 Make a URL for the Resource with ID 4.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $url = $modx-&gt;makeUrl(4);
 </pre>
-</div>
-</div>
-
 <p>
 Make a URL for the Resource with ID 12, but make sure it's in HTTPS.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $url = $modx-&gt;makeUrl(12,'','','https');
 </pre>
-</div>
-</div>
-
 <p>
 Make a URL to Resource with ID 56, but add a ?fun=123 to the URL.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $url = $modx-&gt;makeUrl(56,'',array('fun' =&gt; '123'));
 </pre>
-</div>
-</div>

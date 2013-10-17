@@ -1,13 +1,13 @@
-<h1>
-<a name="UsingFriendlyURLs-Description%3A"></a>Description:
+<h1 id="UsingFriendlyURLs-Description:">
+Description:
 </h1>
 
 <p>
 You can have friendly URLs fully functioning in under two minutes by following a simple four step process:
 </p>
 
-<h3>
-<a name="UsingFriendlyURLs-1%29Working.htaccesssample"></a>1) Working .htaccess sample
+<h3 id="UsingFriendlyURLs-1)Working.htaccesssample">
+1) Working .htaccess sample
 </h3>
 
 <p>
@@ -15,34 +15,30 @@ MODx supplies an ht.access file for you to edit to match your server settings. T
 </p>
 
 <ol>
-<li>
-<font color="#0000FF">change the DOMAINNAME to your domain name in lowercase.</font>
+<li>change the DOMAINNAME to your domain name in lowercase.
 <br />
 For me: shawnwilkerson
 </li>
 
-<li>
-<font color="#0000FF">change the TLD to the com, net, org, info, whatever you have</font>
+<li>change the TLD to the com, net, org, info, whatever you have
 <br />
 For me: com
 </li>
 </ol>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678057/shawnwilkerson_09_01.jpg?version=1&amp;modificationDate=1299237799000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/18678057/shawnwilkerson_09_01.jpg?version=1&amp;modificationDate=1299237799000" style="border: 1px solid black" />
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 # Friendly URLs Part
 RewriteEngine On
 RewriteBase /
 RewriteCond %{HTTP_HOST} .
-# Force all pages to go to www.domain.com <span class="code-keyword">for</span> SEO
+# Force all pages to go to www.domain.com for SEO
 RewriteCond %{HTTP_HOST} !^www\.DOMAINNAME\.TLD [NC]
-RewriteRule (.*) http:<span class="code-comment">//www.DOMAINANME.TLD/$1 [R=301,L]
-</span># Friendly URLs
+RewriteRule (.*) http://www.DOMAINANME.TLD/$1 [R=301,L]
+# Friendly URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
@@ -51,188 +47,82 @@ ExpiresActive On
 ExpiresByType image/gif A2592000
 ExpiresByType image/jpeg A2592000
 ExpiresByType image/png A2592000
-BrowserMatch <span class="code-quote">"MSIE"</span> brokenvary=1
-BrowserMatch <span class="code-quote">"Mozilla/4.[0-9]{2}"</span> brokenvary=1
-BrowserMatch <span class="code-quote">"Opera"</span> !brokenvary
+BrowserMatch "MSIE" brokenvary=1
+BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
+BrowserMatch "Opera" !brokenvary
 SetEnvIf brokenvary 1 force-no-vary
 </pre>
-</div>
-</div>
-
 <p>
 /htdocs is fine or /public_html or what ever. your server uses
 <br />
 The .htacess has to be at the same level as the main index.php or above the document MODx is presenting.
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 Be aware some control panels like to write their own .htaccess just above the site level so the best place to put it is where the home page of the site points to (view image above)
-</td>
-</tr>
-</table>
 </div>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 The RewriteBase should end with a / for root installations
 <p>
 The RewriteBase for a subdirectory installation should be entered as: RewriteBase /subdirectoryName although it is normally only necessary on localhost.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 This works fine for Redhat Linux 5 / Apache setups. If it is not working for you contact your hosting provider -- send them this code and ask them what you need to get it working. The majority of comments have been removed and most of what remains is not required for Friendly URLS to function.
 </p>
 
-<h3>
-<a name="UsingFriendlyURLs-2%29ConfigureMODxRevolution"></a>2) Configure MODx Revolution
+<h3 id="UsingFriendlyURLs-2)ConfigureMODxRevolution">
+2) Configure MODx Revolution
 </h3>
 
 <p>
 Next change the settings in the Friendly URLs Area of the System Settings in the System menu of the Revolution Manager to something like the following image indicates.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 If you do not see all of Revolution's FURL settings, simply change the "Area" drop-down box to Friendly URL as I did.
-</td>
-</tr>
-</table>
 </div>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You will not find friendly_url_prefix and friendly_url_suffix among the settings in the image below - these have been deprecated in favor of extensions defined by <a href="/display/revolution20/Content+Types" title="Content Types">Content Types</a> and container_suffix (for Container Resources with Content Types having a mime_type of text/html).&nbsp;
 <p>
 The default Container Suffix setting is now "/" which results in the urls of container resources instead of the content type of the container.&nbsp; If you want your container resources to show as their content type, remove the "/" from this setting.&nbsp; If you have issues with packages that utilize the container suffix for FURLS (such as <a href="/display/ADDON/Articles" title="Articles">Articles</a>), return this setting to "/".
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678057/furl_settings.png?version=4&amp;modificationDate=1327431457000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678057/furl_settings.png?version=4&amp;modificationDate=1327431457000" />
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 The use_alias_path setting allows the site to display directory structures.&nbsp; There are scenarios where all of the documents on the site might appear as directly off of the root, disregarding the paths. In this scenario you can simply choose not to have the paths utilized when Revolution presents the page.
-</td>
-</tr>
-</table>
 </div>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 The friendly_alias_urls setting was removed in MODX 2.1+. Enabling friendly_urls implies you are using friendly_alias_urls in 2.1+ and this setting was no longer useful or necessary.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="UsingFriendlyURLs-3%29Edityourtemplate%28s%29"></a>3) Edit your template(s)
+<h3 id="UsingFriendlyURLs-3)Edityourtemplate(s)">
+3) Edit your template(s)
 </h3>
 
 <p>
 Make sure you have the following between the&nbsp; &lt;head&gt;&lt;/head&gt; tags:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;base href=<span class="code-quote">"[[!++site_url]]"</span> /&gt;
+<pre class="brush: php">
+&lt;base href="[[!++site_url]]" /&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="UsingFriendlyURLs-4%29CleartheMODxRevolutioncache"></a>4) Clear the MODx Revolution cache
+<h3 id="UsingFriendlyURLs-4)CleartheMODxRevolutioncache">
+4) Clear the MODx Revolution cache
 </h3>
 
 <p>
 And you're done!
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 The easiest way to take advantage of using fully qualified Friendly URLs, is to allow MODx Revolution to build the links even within page content. As described at the bottom of <a href="/display/revolution20/Resources" title="Resources">resource tag syntax</a> to create links to different resources, is easy as &lt;a href="[[~1]]" title="some title"&gt;Some Page&lt;/a&gt; . This has the added benefit of being able to move resources around a web project, without needing to fix a bunch of broken links, as MODx Revolution will simply update links created in this manner automatically.
-</td>
-</tr>
-</table>
 </div>

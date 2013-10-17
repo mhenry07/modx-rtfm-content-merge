@@ -1,31 +1,22 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="getOption-xPDOObject%3A%3AgetOption%28%29"></a>xPDOObject::getOption()
+<h2 id="getOption-xPDOObject::getOption()">
+xPDOObject::getOption()
 </h2>
 
 <p>
 Get an option value for this instance of an xPDOObject, using xPDO options if no instance specific option exists.
 </p>
 
-<h2>
-<a name="getOption-Syntax" id="getOption-Syntax"></a>Syntax
+<h2 id="getOption-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#getOption" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#getOption</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#getOption">http://api.modxcms.com/xpdo/om/xPDOObject.html#getOption</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-mixed getOption (string $key [, array|<span class="code-keyword">null</span> $options [, mixed $<span class="code-keyword">default</span> [, <span class="code-object">boolean</span> $skipEmpty]]] )
+<pre class="brush: php">
+mixed getOption (string $key [, array|null $options [, mixed $default [, boolean $skipEmpty]]] )
 </pre>
-</div>
-</div>
-
 <ul>
 <li>$key: the key of the setting or option to load.
 </li>
@@ -36,60 +27,46 @@ mixed getOption (string $key [, array|<span class="code-keyword">null</span> $op
 <li>$default: the value to return when the key was not found.
 </li>
 
-<li>$skipEmpty: when set to true, the $default will also be returned if the $key's value is an empty string. <b><em>Added in xPDO 2.2.1 / MODX 2.2.0-rc2</em></b>.
+<li>$skipEmpty: when set to true, the $default will also be returned if the $key's value is an empty string. <strong><em>Added in xPDO 2.2.1 / MODX 2.2.0-rc2</em></strong>.
 </li>
 </ul>
 
-<h2>
-<a name="getOption-Examples" id="getOption-Examples"></a>Examples
+<h2 id="getOption-Examples">
+Examples
 </h2>
 
-<h3>
-<a name="getOption-SimpleOptionRetrieval" id="getOption-SimpleOptionRetrieval"></a>Simple Option Retrieval
+<h3 id="getOption-SimpleOptionRetrieval">
+Simple Option Retrieval
 </h3>
 
 <p>
 Gets the config setting for xPDO::OPT_HYDRATE_FIELDS.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $hydrateFields = $xpdo-&gt;getOption(xPDO::OPT_HYDRATE_FIELDS);
 </pre>
-</div>
-</div>
-
 <p>
 Gets the config option for 'test', and if not set, returns '123'.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$test = $xpdo-&gt;getOption('test',<span class="code-keyword">null</span>,'123');
+<pre class="brush: php">
+$test = $xpdo-&gt;getOption('test',null,'123');
 </pre>
-</div>
-</div>
-
 <p>
 Checks the $props array for the key 'depth', and if doesn't exist, then checks $xpdo-&gt;config, and if still doesn't exist, then sets to 10.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $props = array();
 $depth = $xpdo-&gt;getOption('depth',$props,10);
-echo $depth; <span class="code-comment">// prints 10
-</span>
+echo $depth; // prints 10
+
 $xpdo-&gt;setOption('depth',20);
 $depth = $xpdo-&gt;getOption('depth',$props,10);
-echo $depth; <span class="code-comment">// prints 20
-</span>
+echo $depth; // prints 20
+
 $props['depth'] = 30;
 $depth = $xpdo-&gt;getOption('depth',$props,10);
-echo $depth; <span class="code-comment">// prints 30</span>
+echo $depth; // prints 30
 </pre>
-</div>
-</div>

@@ -1,340 +1,333 @@
-<h2>
-<a name="Quip.QuipReply-TheQuipReplySnippet" id="Quip.QuipReply-TheQuipReplySnippet"></a>The QuipReply Snippet
+<h2 id="Quip.QuipReply-TheQuipReplySnippet">
+The QuipReply Snippet
 </h2>
 
 <p>
 Displays a reply form for a given thread.
 </p>
 
-<h2>
-<a name="Quip.QuipReply-Usage" id="Quip.QuipReply-Usage"></a>Usage
+<h2 id="Quip.QuipReply-Usage">
+Usage
 </h2>
 
 <p>
 Place anywhere you would like a reply form for a thread.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!QuipReply? &amp;thread=`myThread`]]
 </pre>
-</div>
-</div>
-
 <p>
 Not specifying a thread will make the QuipReply snippet look for the 'quip_thread' GET parameter. This is useful for threaded comments.
 </p>
 
-<h2>
-<a name="Quip.QuipReply-AvailableProperties" id="Quip.QuipReply-AvailableProperties"></a>Available Properties
+<h2 id="Quip.QuipReply-AvailableProperties">
+Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 requireAuth
 </td>
-<td class='confluenceTd'>
+<td>
 If set to true, only logged in users will be able to comment on the thread.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 closed
 </td>
-<td class='confluenceTd'>
+<td>
 If set to 1, the thread will not accept new comments.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 closeAfter
 </td>
-<td class='confluenceTd'>
+<td>
 The number of days at which the thread will automatically close after it was created. Set to 0 to leave open indefinitely.
 </td>
-<td class='confluenceTd'>
+<td>
 14
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 moderate
 </td>
-<td class='confluenceTd'>
+<td>
 If set to true, all new posts to the thread will be moderated.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 moderateAnonymousOnly
 </td>
-<td class='confluenceTd'>
+<td>
 If set to 0, only anonymous (non-logged-in users) will be moderated.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 moderateFirstPostOnly
 </td>
-<td class='confluenceTd'>
+<td>
 If set to 0, only the first post of the user will be moderated. All subsequent posts will be auto-approved. This only applies to logged-in users.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 moderators
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of moderator usernames for this thread.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 moderatorGroup
 </td>
-<td class='confluenceTd'>
+<td>
 Any Users in this User Group will have moderator access.
 </td>
-<td class='confluenceTd'>
+<td>
 Administrator
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dontModerateManagerUsers
 </td>
-<td class='confluenceTd'>
+<td>
 Never moderate users logged into the manager.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dateFormat
 </td>
-<td class='confluenceTd'>
-The format of the date to show for a comment's post date. The syntax is in PHP <a href="http://php.net/strftime" class="external-link" rel="nofollow">strftime</a> format.
+<td>
+The format of the date to show for a comment's post date. The syntax is in PHP <a href="http://php.net/strftime">strftime</a> format.
 </td>
-<td class='confluenceTd'>
+<td>
 %b %d, %Y at %I:%M %p
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 notifyEmails
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of email addresses to send a notification email to when a new post is made on this thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 recaptcha
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will enable reCaptcha in the add comment form.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 disableRecaptchaWhenLoggedIn
 </td>
-<td class='confluenceTd'>
+<td>
 Disable reCaptcha validation for logged in users.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 autoConvertLinks
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will automatically convert URLs to links.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useGravatar
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not to show Gravatar icons in comments.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 gravatarIcon
 </td>
-<td class='confluenceTd'>
+<td>
 The type of Gravatar icon to use for a user without a Gravatar.
 </td>
-<td class='confluenceTd'>
+<td>
 identicon
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 gravatarSize
 </td>
-<td class='confluenceTd'>
+<td>
 The size in pixels of the Gravatar.
 </td>
-<td class='confluenceTd'>
+<td>
 50
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 postAction
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the submit field to initiate a comment post.
 </td>
-<td class='confluenceTd'>
+<td>
 quip-post
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 previewAction
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the submit field to preview a comment post.
 </td>
-<td class='confluenceTd'>
+<td>
 quip-preview
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplAddComment
 </td>
-<td class='confluenceTd'>
+<td>
 The add comment form. Can either be a chunk name or value. If set to a value, will override the chunk. See <a href="/display/ADDON/Quip.QuipReply.tplAddComment" title="Quip.QuipReply.tplAddComment">tplAddComment</a> for the default form used. It lives on the filesystem: core/components/quip/elements/chunks/quipaddcomment.chunk.tpl
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplLoginToComment
 </td>
-<td class='confluenceTd'>
+<td>
 The portion to show when the user is not logged in. Can either be a chunk name or value. If set to a value, will override the chunk. The default chunk lives on the filesystem: core/components/quip/elements/chunks/quipaddcomment.chunk.tpl
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplPreview
 </td>
-<td class='confluenceTd'>
+<td>
 The preview view. Can either be a chunk name or value. If set to a value, will override the chunk.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 idPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 If you want to use multiple Quip instances on a page, change this ID prefix.
 </td>
-<td class='confluenceTd'>
+<td>
 qcom
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 requirePreview
 </td>
-<td class='confluenceTd'>
+<td>
 If set to 1, will require a user to preview their comment before posting.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Quip.QuipReply-QuipReplyChunks" id="Quip.QuipReply-QuipReplyChunks"></a>QuipReply Chunks
+<h2 id="Quip.QuipReply-QuipReplyChunks">
+QuipReply Chunks
 </h2>
 
 <p>
@@ -355,36 +348,82 @@ There are 3 chunks that are processed. Their corresponding parameters are:
 </li>
 </ul>
 
-<h2>
-<a name="Quip.QuipReply-Examples" id="Quip.QuipReply-Examples"></a>Examples
+<h2 id="Quip.QuipReply-Examples">
+Examples
 </h2>
 
 <p>
 Display a reply form for the thread 'myThread', with the moderators in the User Group 'Moderators':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!QuipReply? &amp;thread=`myThread` &amp;moderatorGroup=`Moderators`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Quip.QuipReply-SeeAlso" id="Quip.QuipReply-SeeAlso"></a>See Also
+<h2 id="Quip.QuipReply-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Quip.Quip">Quip.Quip</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComment">Quip.Quip.tplComment</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="16646300" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042879" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FQuip.QuipReply" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11042879" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Quip.Quip.tplCommentOptions">Quip.Quip.tplCommentOptions</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComments">Quip.Quip.tplComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplReport">Quip.Quip.tplReport</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipCount">Quip.QuipCount</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipLatestComments">Quip.QuipLatestComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply">Quip.QuipReply</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplAddComment">Quip.QuipReply.tplAddComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplLoginToComment">Quip.QuipReply.tplLoginToComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplPreview">Quip.QuipReply.tplPreview</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipRss">Quip.QuipRss</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Roadmap">Quip.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Upgrading">Quip.Upgrading</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Upgrading+to+1.0.1">Quip.Upgrading to 1.0.1</a>
+</li>
+</ol>
+</li>
+</ol>

@@ -1,13 +1,9 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Settings-WhatareSettings%3F"></a>What are Settings?
+<h2 id="Settings-WhatareSettings?">
+What are Settings?
 </h2>
 
 <p>
-Settings are site-wide variables that can be used by either the MODx Core or by 3rd-Party Components to provide site, context, or user-level customization. The trick here is the override behavior that applies in the hierarchy: <a href="/display/revolution20/Contexts" title="Contexts">Contextual Settings</a> (if present), override any of the System Settings. <a href="/display/revolution20/Users#Users-UsersUserSettings">User Settings</a> (if present) override any of the Context or System settings obeying the hierarchy of <b>System -&gt; Context -&gt; User</b>
+Settings are site-wide variables that can be used by either the MODx Core or by 3rd-Party Components to provide site, context, or user-level customization. The trick here is the override behavior that applies in the hierarchy: <a href="/display/revolution20/Contexts" title="Contexts">Contextual Settings</a> (if present), override any of the System Settings. <a href="/display/revolution20/Users#Users-UsersUserSettings">User Settings</a> (if present) override any of the Context or System settings obeying the hierarchy of <strong>System -&gt; Context -&gt; User</strong>
 </p>
 
 <p>
@@ -28,22 +24,17 @@ See the following for more information:
 </li>
 </ul>
 
-<h2>
-<a name="Settings-Usage" id="Settings-Usage"></a>Usage
+<h2 id="Settings-Usage">
+Usage
 </h2>
 
 <p>
 They can be referenced at any point via their Tag, for example, for the 'site_start' Setting:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[++site_start]]
 </pre>
-</div>
-</div>
-
 <p>
 System Settings can be overridden by Context Settings, which are specific to each <a href="/display/revolution20/Contexts" title="Contexts">Context</a>. Context Settings can in turn be overridden by <a href="/display/revolution20/Users#Users-UsersUserSettings">User Settings</a>.
 </p>
@@ -72,22 +63,17 @@ Further, I've got a user named 'johndoe' who I don't want to use the editor. I c
 Settings can also be specific to <a href="/display/revolution20/Namespaces" title="Namespaces">Namespaces</a>, as well. This allows you to easily group your settings for each of your different Components.
 </p>
 
-<h2>
-<a name="Settings-RetrievingSettingsinPHP" id="Settings-RetrievingSettingsinPHP"></a>Retrieving Settings in PHP
+<h2 id="Settings-RetrievingSettingsinPHP">
+Retrieving Settings in PHP
 </h2>
 
 <p>
 Getting settings is simple in MODx Revolution; simply use <a href="/display/XPDO10/xPDO.getOption" title="xPDO.getOption">getOption</a>. For example, to get the setting 'site_start', simply:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $siteStartId = $modx-&gt;getOption('site_start');
 </pre>
-</div>
-</div>
-
 <p>
 Now, all settings are overridable by Context and User, as described above, and getOption respects that. So, if in the above code example, if you had set site_start as a Context Setting that overrode the System Setting, getOption will respect that - but only if you're executing the PHP in that Context that has the Setting.
 </p>
@@ -100,8 +86,8 @@ For example, if I were using that code block in a Context called 'boo', and I ha
 Now if I were in the 'web' context, and site_start was still '1' (from the System Setting), getOption would return 1.
 </p>
 
-<h3>
-<a name="Settings-DefaultvalueswithgetOption" id="Settings-DefaultvalueswithgetOption"></a>Default values with getOption
+<h3 id="Settings-DefaultvalueswithgetOption">
+Default values with getOption
 </h3>
 
 <p>
@@ -120,14 +106,9 @@ getOption supports 3 parameters:
 So, for example, if I were in a Snippet and wanted some default properties at the top, I could use getOption. <a href="/display/revolution20/Snippets" title="Snippets">Snippets</a> automatically pass in an array of all the Properties attached to that snippet (or specified in the Tag call) via the $scriptProperties array. So, you can use that array to check for default properties. This example sets a default value to the 'showPublished' property should it not be specified:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$showPublished = $modx-&gt;getOption('showPublished',$scriptProperties,<span class="code-keyword">true</span>);
+<pre class="brush: php">
+$showPublished = $modx-&gt;getOption('showPublished',$scriptProperties,true);
 </pre>
-</div>
-</div>
-
 <p>
 Now, assuming the Snippet doesnt have showPublished as a <a href="/display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">default property</a>, if you called the Snippet via the tag call:
 </p>
@@ -142,8 +123,8 @@ Now, assuming the Snippet doesnt have showPublished as a <a href="/display/revol
 showPublished will be set to true. If it did have the default Property attached to it that set the value to 0, or the showPublished property was specified as 0 in the tag, then showPublished would be 0.
 </p>
 
-<h2>
-<a name="Settings-AdditionalInformation" id="Settings-AdditionalInformation"></a>Additional Information
+<h2 id="Settings-AdditionalInformation">
+Additional Information
 </h2>
 
 <ul>
@@ -157,24 +138,709 @@ showPublished will be set to true. If it did have the default Property attached 
 </li>
 </ul>
 
-<h2>
-<a name="Settings-SeeAlso" id="Settings-SeeAlso"></a>See Also
+<h2 id="Settings-SeeAlso">
+See Also
 </h2>
 
 <p>
 <a href="/display/revolution20/System+Settings" title="System Settings">System Settings</a>
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/System+Settings">System Settings</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/access_category_enabled">access_category_enabled</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678126" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678126" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="1" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FSettings" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678126" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/access_context_enabled">access_context_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/access_resource_group_enabled">access_resource_group_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/allow_duplicate_alias">allow_duplicate_alias</a>
+</li>
+
+<li>
+<a href="/display/revolution20/allow_forward_across_contexts">allow_forward_across_contexts</a>
+</li>
+
+<li>
+<a href="/display/revolution20/allow_multiple_emails">allow_multiple_emails</a>
+</li>
+
+<li>
+<a href="/display/revolution20/allow_tags_in_post">allow_tags_in_post</a>
+</li>
+
+<li>
+<a href="/display/revolution20/archive_with">archive_with</a>
+</li>
+
+<li>
+<a href="/display/revolution20/auto_check_pkg_updates">auto_check_pkg_updates</a>
+</li>
+
+<li>
+<a href="/display/revolution20/auto_check_pkg_updates_cache_expire">auto_check_pkg_updates_cache_expire</a>
+</li>
+
+<li>
+<a href="/display/revolution20/auto_menuindex">auto_menuindex</a>
+</li>
+
+<li>
+<a href="/display/revolution20/automatic_alias">automatic_alias</a>
+</li>
+
+<li>
+<a href="/display/revolution20/base_help_url">base_help_url</a>
+</li>
+
+<li>
+<a href="/display/revolution20/blocked_minutes">blocked_minutes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_action_map">cache_action_map</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_context_settings">cache_context_settings</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_db">cache_db</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_db_expires">cache_db_expires</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_db_session">cache_db_session</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_default">cache_default</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_disabled">cache_disabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_format">cache_format</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_handler">cache_handler</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_json">cache_json</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_json_expires">cache_json_expires</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_lang_js">cache_lang_js</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_lexicon_topics">cache_lexicon_topics</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_noncore_lexicon_topics">cache_noncore_lexicon_topics</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_resource">cache_resource</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_resource_expires">cache_resource_expires</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_scripts">cache_scripts</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_system_settings">cache_system_settings</a>
+</li>
+
+<li>
+<a href="/display/revolution20/clear_cache_refresh_trees">clear_cache_refresh_trees</a>
+</li>
+
+<li>
+<a href="/display/revolution20/compress_css">compress_css</a>
+</li>
+
+<li>
+<a href="/display/revolution20/compress_js">compress_js</a>
+</li>
+
+<li>
+<a href="/display/revolution20/concat_js">concat_js</a>
+</li>
+
+<li>
+<a href="/display/revolution20/container_suffix">container_suffix</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cultureKey">cultureKey</a>
+</li>
+
+<li>
+<a href="/display/revolution20/custom_resource_classes">custom_resource_classes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/default_per_page">default_per_page</a>
+</li>
+
+<li>
+<a href="/display/revolution20/default_template">default_template</a>
+</li>
+
+<li>
+<a href="/display/revolution20/editor_css_path">editor_css_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/editor_css_selectors">editor_css_selectors</a>
+</li>
+
+<li>
+<a href="/display/revolution20/emailsender">emailsender</a>
+</li>
+
+<li>
+<a href="/display/revolution20/emailsubject">emailsubject</a>
+</li>
+
+<li>
+<a href="/display/revolution20/enable_dragdrop">enable_dragdrop</a>
+</li>
+
+<li>
+<a href="/display/revolution20/error_page">error_page</a>
+</li>
+
+<li>
+<a href="/display/revolution20/extension_packages">extension_packages</a>
+</li>
+
+<li>
+<a href="/display/revolution20/failed_login_attempts">failed_login_attempts</a>
+</li>
+
+<li>
+<a href="/display/revolution20/fe_editor_lang">fe_editor_lang</a>
+</li>
+
+<li>
+<a href="/display/revolution20/feed_modx_news">feed_modx_news</a>
+</li>
+
+<li>
+<a href="/display/revolution20/feed_modx_news_enabled">feed_modx_news_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/feed_modx_security">feed_modx_security</a>
+</li>
+
+<li>
+<a href="/display/revolution20/feed_modx_security_enabled">feed_modx_security_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/filemanager_path">filemanager_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/filemanager_path_relative">filemanager_path_relative</a>
+</li>
+
+<li>
+<a href="/display/revolution20/filemanager_url">filemanager_url</a>
+</li>
+
+<li>
+<a href="/display/revolution20/filemanager_url_relative">filemanager_url_relative</a>
+</li>
+
+<li>
+<a href="/display/revolution20/forgot_login_email">forgot_login_email</a>
+</li>
+
+<li>
+<a href="/display/revolution20/forward_merge_excludes">forward_merge_excludes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_lowercase_only">friendly_alias_lowercase_only</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_max_length">friendly_alias_max_length</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_restrict_chars">friendly_alias_restrict_chars</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_restrict_chars_pattern">friendly_alias_restrict_chars_pattern</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_strip_element_tags">friendly_alias_strip_element_tags</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_translit">friendly_alias_translit</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_translit_class">friendly_alias_translit_class</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_translit_class_path">friendly_alias_translit_class_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_trim_chars">friendly_alias_trim_chars</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_urls">friendly_alias_urls</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_word_delimiter">friendly_alias_word_delimiter</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_word_delimiters">friendly_alias_word_delimiters</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_url_prefix">friendly_url_prefix</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_url_suffix">friendly_url_suffix</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_urls">friendly_urls</a>
+</li>
+
+<li>
+<a href="/display/revolution20/global_duplicate_uri_check">global_duplicate_uri_check</a>
+</li>
+
+<li>
+<a href="/display/revolution20/hidemenu_default">hidemenu_default</a>
+</li>
+
+<li>
+<a href="/display/revolution20/link_tag_scheme">link_tag_scheme</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_charset">mail_charset</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_encoding">mail_encoding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_auth">mail_smtp_auth</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_helo">mail_smtp_helo</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_hosts">mail_smtp_hosts</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_keepalive">mail_smtp_keepalive</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_pass">mail_smtp_pass</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_port">mail_smtp_port</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_prefix">mail_smtp_prefix</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_single_to">mail_smtp_single_to</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_timeout">mail_smtp_timeout</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_user">mail_smtp_user</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_use_smtp">mail_use_smtp</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_date_format">manager_date_format</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_direction">manager_direction</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_favicon_url">manager_favicon_url</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_lang_attribute">manager_lang_attribute</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_language">manager_language</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_theme">manager_theme</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_time_format">manager_time_format</a>
+</li>
+
+<li>
+<a href="/display/revolution20/modx_charset">modx_charset</a>
+</li>
+
+<li>
+<a href="/display/revolution20/new_file_permissions">new_file_permissions</a>
+</li>
+
+<li>
+<a href="/display/revolution20/new_folder_permissions">new_folder_permissions</a>
+</li>
+
+<li>
+<a href="/display/revolution20/password_generated_length">password_generated_length</a>
+</li>
+
+<li>
+<a href="/display/revolution20/password_min_length">password_min_length</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_allow_src_above_docroot">phpthumb_allow_src_above_docroot</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_cache_maxage">phpthumb_cache_maxage</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_cache_maxfiles">phpthumb_cache_maxfiles</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_cache_maxsize">phpthumb_cache_maxsize</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_cache_source_enabled">phpthumb_cache_source_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_document_root">phpthumb_document_root</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_error_bgcolor">phpthumb_error_bgcolor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_error_fontsize">phpthumb_error_fontsize</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_error_textcolor">phpthumb_error_textcolor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_far">phpthumb_far</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_imagemagick_path">phpthumb_imagemagick_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nohotlink_enabled">phpthumb_nohotlink_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nohotlink_erase_image">phpthumb_nohotlink_erase_image</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nohotlink_text_message">phpthumb_nohotlink_text_message</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nohotlink_valid_domains">phpthumb_nohotlink_valid_domains</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_enabled">phpthumb_nooffsitelink_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_erase_image">phpthumb_nooffsitelink_erase_image</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_require_refer">phpthumb_nooffsitelink_require_refer</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_text_message">phpthumb_nooffsitelink_text_message</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_valid_domains">phpthumb_nooffsitelink_valid_domains</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_watermark_src">phpthumb_nooffsitelink_watermark_src</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_zoomcrop">phpthumb_zoomcrop</a>
+</li>
+
+<li>
+<a href="/display/revolution20/principal_targets">principal_targets</a>
+</li>
+
+<li>
+<a href="/display/revolution20/proxy_auth_type">proxy_auth_type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/proxy_host">proxy_host</a>
+</li>
+
+<li>
+<a href="/display/revolution20/proxy_password">proxy_password</a>
+</li>
+
+<li>
+<a href="/display/revolution20/proxy_port">proxy_port</a>
+</li>
+
+<li>
+<a href="/display/revolution20/proxy_username">proxy_username</a>
+</li>
+
+<li>
+<a href="/display/revolution20/publish_default">publish_default</a>
+</li>
+
+<li>
+<a href="/display/revolution20/rb_base_dir">rb_base_dir</a>
+</li>
+
+<li>
+<a href="/display/revolution20/rb_base_url">rb_base_url</a>
+</li>
+
+<li>
+<a href="/display/revolution20/request_controller">request_controller</a>
+</li>
+
+<li>
+<a href="/display/revolution20/request_param_alias">request_param_alias</a>
+</li>
+
+<li>
+<a href="/display/revolution20/request_param_id">request_param_id</a>
+</li>
+
+<li>
+<a href="/display/revolution20/resource_tree_node_name">resource_tree_node_name</a>
+</li>
+
+<li>
+<a href="/display/revolution20/resource_tree_node_tooltip">resource_tree_node_tooltip</a>
+</li>
+
+<li>
+<a href="/display/revolution20/richtext_default">richtext_default</a>
+</li>
+
+<li>
+<a href="/display/revolution20/search_default">search_default</a>
+</li>
+
+<li>
+<a href="/display/revolution20/server_offset_time">server_offset_time</a>
+</li>
+
+<li>
+<a href="/display/revolution20/server_protocol">server_protocol</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_cookie_domain">session_cookie_domain</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_cookie_lifetime">session_cookie_lifetime</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_cookie_path">session_cookie_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_cookie_secure">session_cookie_secure</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_handler_class">session_handler_class</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_name">session_name</a>
+</li>
+
+<li>
+<a href="/display/revolution20/settings_version">settings_version</a>
+</li>
+
+<li>
+<a href="/display/revolution20/signupemail_message">signupemail_message</a>
+</li>
+
+<li>
+<a href="/display/revolution20/site_name">site_name</a>
+</li>
+
+<li>
+<a href="/display/revolution20/site_start">site_start</a>
+</li>
+
+<li>
+<a href="/display/revolution20/site_status">site_status</a>
+</li>
+
+<li>
+<a href="/display/revolution20/site_unavailable_message">site_unavailable_message</a>
+</li>
+
+<li>
+<a href="/display/revolution20/site_unavailable_page">site_unavailable_page</a>
+</li>
+
+<li>
+<a href="/display/revolution20/strip_image_paths">strip_image_paths</a>
+</li>
+
+<li>
+<a href="/display/revolution20/symlink_merge_fields">symlink_merge_fields</a>
+</li>
+
+<li>
+<a href="/display/revolution20/tree_default_sort">tree_default_sort</a>
+</li>
+
+<li>
+<a href="/display/revolution20/tree_root_id">tree_root_id</a>
+</li>
+
+<li>
+<a href="/display/revolution20/tvs_below_content">tvs_below_content</a>
+</li>
+
+<li>
+<a href="/display/revolution20/udperms_allowroot">udperms_allowroot</a>
+</li>
+
+<li>
+<a href="/display/revolution20/ui_debug_mode">ui_debug_mode</a>
+</li>
+
+<li>
+<a href="/display/revolution20/unauthorized_page">unauthorized_page</a>
+</li>
+
+<li>
+<a href="/display/revolution20/upload_maxsize">upload_maxsize</a>
+</li>
+
+<li>
+<a href="/display/revolution20/use_alias_path">use_alias_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/use_browser">use_browser</a>
+</li>
+
+<li>
+<a href="/display/revolution20/use_editor">use_editor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/use_multibyte">use_multibyte</a>
+</li>
+
+<li>
+<a href="/display/revolution20/welcome_screen">welcome_screen</a>
+</li>
+
+<li>
+<a href="/display/revolution20/which_editor">which_editor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/which_element_editor">which_element_editor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/xhtml_urls">xhtml_urls</a>
+</li>
+</ol>
+</li>
+</ol>

@@ -1,127 +1,121 @@
 <div>
 <ul>
 <li>
-<a href='#Login.UserProfiles-Outline'>Outline</a>
+<a href="#Login.UserProfiles-Outline">Outline</a>
 </li>
 
 <li>
-<a href='#Login.UserProfiles-CreatetheRequiredPages'>Create the Required Pages</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Login.UserProfiles-CreatetheRequiredPages">Create the Required Pages</a>
 <ul>
 <li>
-<a href='#Login.UserProfiles-UpdateProfile%2810%29'>Update Profile (10)</a>
+<a href="#Login.UserProfiles-UpdateProfile%2810%29">Update Profile (10)</a>
 </li>
 
 <li>
-<a href='#Login.UserProfiles-ViewProfile%2811%29'>View Profile (11)</a>
+<a href="#Login.UserProfiles-ViewProfile%2811%29">View Profile (11)</a>
 </li>
 
 <li>
-<a href='#Login.UserProfiles-ChangePassword%2812%29'>Change Password (12)</a>
+<a href="#Login.UserProfiles-ChangePassword%2812%29">Change Password (12)</a>
 </li>
 
 <li>
-<a href='#Login.UserProfiles-MembersHomePage%284%29'>Members Home Page (4)</a>
+<a href="#Login.UserProfiles-MembersHomePage%284%29">Members Home Page (4)</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Login.UserProfiles-Testing%3AMakingitallWork'>Testing: Making it all Work</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Login.UserProfiles-Testing%3AMakingitallWork">Testing: Making it all Work</a>
 <ul>
 <li>
-<a href='#Login.UserProfiles-Login'>Login</a>
+<a href="#Login.UserProfiles-Login">Login</a>
 </li>
 
 <li>
-<a href='#Login.UserProfiles-ViewProfile%2811%29'>View Profile (11)</a>
+<a href="#Login.UserProfiles-ViewProfile%2811%29">View Profile (11)</a>
 </li>
 
 <li>
-<a href='#Login.UserProfiles-UpdateProfile%2810%29'>Update Profile (10)</a>
+<a href="#Login.UserProfiles-UpdateProfile%2810%29">Update Profile (10)</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Login.UserProfiles-Next'>Next</a>
+<a href="#Login.UserProfiles-Next">Next</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Login.UserProfiles-Outline"></a>Outline
+<h2 id="Login.UserProfiles-Outline">
+Outline
 </h2>
 
 <p>
 This tutorial builds the <a href="/display/ADDON/Login.Request+Membership" title="Login.Request Membership">Basic Setup</a> tutorial (which in turn was based on the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Basic Setup</a>). Do not attempt this tutorial until you've gotten the other login flows setup and working on your site!
 </p>
 
-<h2>
-<a name="Login.UserProfiles-CreatetheRequiredPages"></a>Create the Required Pages
+<h2 id="Login.UserProfiles-CreatetheRequiredPages">
+Create the Required Pages
 </h2>
 
 <p>
-As with the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Basic Setup</a>, we want to make sure we have the required pages in place before we add in all the Snippets. Make sure the following <b>9</b> pages exist on your MODx Revo site (1 - 9 are the same as the previous setup, additional pages highlighted in green):
+As with the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Basic Setup</a>, we want to make sure we have the required pages in place before we add in all the Snippets. Make sure the following <strong>9</strong> pages exist on your MODx Revo site (1 - 9 are the same as the previous setup, additional pages highlighted in green):
 </p>
 
 <ul>
 <li>
-<b>Login Page (1)</b> : the page containing your login form
+<strong>Login Page (1)</strong> : the page containing your login form
 </li>
 
 <li>
-<b>Forgot Password (2)</b> : the page where users can go when they forgot their password
+<strong>Forgot Password (2)</strong> : the page where users can go when they forgot their password
 </li>
 
 <li>
-<b>Reset Password Handler (3)</b> : the hidden page that will actually do the resetting of the password
+<strong>Reset Password Handler (3)</strong> : the hidden page that will actually do the resetting of the password
 </li>
 
 <li>
-<b>Members Home Page (4)</b> : the secret clubhouse, available only to valid members
+<strong>Members Home Page (4)</strong> : the secret clubhouse, available only to valid members
 </li>
 
 <li>
-<b>Come Again Soon (5)</b> : the page displayed upon successful logout
+<strong>Come Again Soon (5)</strong> : the page displayed upon successful logout
 </li>
 
 <li>
-<b>Request Membership (6)</b> : the page where users can request membership, i.e. the "Become a Member" page.
+<strong>Request Membership (6)</strong> : the page where users can request membership, i.e. the "Become a Member" page.
 </li>
 
 <li>
-<b>Request Pending (7)</b> : notifies the user that the user's request has been received
+<strong>Request Pending (7)</strong> : notifies the user that the user's request has been received
 </li>
 
 <li>
-<b>Membership Confirmation Handler (8)</b> : the hidden page that will actually register the user
+<strong>Membership Confirmation Handler (8)</strong> : the hidden page that will actually register the user
 </li>
 
 <li>
-<b>Home Page (9)</b> : we're just being thorough – you probably already some page designated as your home page.
+<strong>Home Page (9)</strong> : we're just being thorough – you probably already some page designated as your home page.
 </li>
 
 <li>
-<b><font color="green">Update Profile (10)</font></b> – where the user can edit their profile
+<strong>Update Profile (10)</strong> – where the user can edit their profile
 </li>
 
 <li>
-<b><font color="green">View Profile (11)</font></b> – where the user can view their profile
+<strong>View Profile (11)</strong> – where the user can view their profile
 </li>
 
 <li>
-<b><font color="green">Change Password (12)</font></b> – where the user can change their password.
+<strong>Change Password (12)</strong> – where the user can change their password.
 </li>
 </ul>
 
-<h3>
-<a name="Login.UserProfiles-UpdateProfile%2810%29"></a>Update Profile (10)
+<h3 id="Login.UserProfiles-UpdateProfile(10)">
+Update Profile (10)
 </h3>
 
 <p>
@@ -136,71 +130,52 @@ Create the page, and add it to the "Members Only" Resource Group.
 For the content, use something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!UpdateProfile? &amp;useExtended=`0`]]
  
-&lt;div class=<span class="code-quote">"update-profile"</span>&gt;
-    &lt;div class=<span class="code-quote">"updprof-error"</span>&gt;[[+error.message]]&lt;/div&gt;
-    [[+login.update_success:<span class="code-keyword">if</span>=`[[+login.update_success]]`:is=`1`:then=`[[%login.profile_updated? &amp;namespace=`login` &amp;topic=`updateprofile`]]`]]
+&lt;div class="update-profile"&gt;
+    &lt;div class="updprof-error"&gt;[[+error.message]]&lt;/div&gt;
+    [[+login.update_success:if=`[[+login.update_success]]`:is=`1`:then=`[[%login.profile_updated? &amp;namespace=`login` &amp;topic=`updateprofile`]]`]]
  
-    &lt;form class=<span class="code-quote">"form"</span> action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span>&gt;
-        &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"nospam:blank"</span> value="" /&gt;
+    &lt;form class="form" action="[[~[[*id]]]]" method="post"&gt;
+        &lt;input type="hidden" name="nospam:blank" value="" /&gt;
  
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"fullname"</span>&gt;[[!%login.fullname? &amp;namespace=`login` &amp;topic=`updateprofile`]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.fullname]]&lt;/span&gt;
+        &lt;label for="fullname"&gt;[[!%login.fullname? &amp;namespace=`login` &amp;topic=`updateprofile`]]
+            &lt;span class="error"&gt;[[+error.fullname]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"fullname"</span> id=<span class="code-quote">"fullname"</span> value=<span class="code-quote">"[[+fullname]]"</span> /&gt;
+        &lt;input type="text" name="fullname" id="fullname" value="[[+fullname]]" /&gt;
  
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"email"</span>&gt;[[!%login.email]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.email]]&lt;/span&gt;
+        &lt;label for="email"&gt;[[!%login.email]]
+            &lt;span class="error"&gt;[[+error.email]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"email:required:email"</span> id=<span class="code-quote">"email"</span> value=<span class="code-quote">"[[+email]]"</span> /&gt;
+        &lt;input type="text" name="email:required:email" id="email" value="[[+email]]" /&gt;
  
-                &lt;br class=<span class="code-quote">"clear"</span> /&gt;
+                &lt;br class="clear" /&gt;
  
-        &lt;div class=<span class="code-quote">"form-buttons"</span>&gt;
-            &lt;input type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"login-updprof-btn"</span> value=<span class="code-quote">"[[!%login.update_profile]]"</span> /&gt;
+        &lt;div class="form-buttons"&gt;
+            &lt;input type="submit" name="login-updprof-btn" value="[[!%login.update_profile]]" /&gt;
         &lt;/div&gt;
     &lt;/form&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 This is a stripped down example from what appears on the <a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> page. There are a couple things to note, just for your MODX education:
 </p>
 
 <ol>
-<li>The example uses MODX lexicon entries to translate text, e.g. . See [<a href="/display/revolution20/Internationalization" title="Internationalization">Internationalization</a>] for how you can translate lexicon entries. E.g. <tt>&lt;label&gt;[[!%login.email]]&lt;/label&gt;</tt> instead of <tt>&lt;label&gt;Email&lt;/label&gt;</tt>. The tag will translate; hard-coding it will not.
+<li>The example uses MODX lexicon entries to translate text, e.g. . See [<a href="/display/revolution20/Internationalization" title="Internationalization">Internationalization</a>] for how you can translate lexicon entries. E.g. <code>&lt;label&gt;[[!%login.email]]&lt;/label&gt;</code> instead of <code>&lt;label&gt;Email&lt;/label&gt;</code>. The tag will translate; hard-coding it will not.
 </li>
 
-<li>Note that the password field is <b>never</b> made available for direct editing. This is for security reasons. Use the <a href="/display/ADDON/Login.ChangePassword" title="Login.ChangePassword">ChangePassword</a> Snippet for that.
+<li>Note that the password field is <strong>never</strong> made available for direct editing. This is for security reasons. Use the <a href="/display/ADDON/Login.ChangePassword" title="Login.ChangePassword">ChangePassword</a> Snippet for that.
 </li>
 </ol>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 If you don't want a user to be able to edit a field, simply omit it from the form.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="Login.UserProfiles-ViewProfile%2811%29"></a>View Profile (11)
+<h3 id="Login.UserProfiles-ViewProfile(11)">
+View Profile (11)
 </h3>
 
 <p>
@@ -215,35 +190,28 @@ Create the page, and add it to the "Members Only" Resource Group.
 For the content, use something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Profile]]
  
 &lt;p&gt;Username: [[+username]]&lt;/p&gt;
 &lt;p&gt;Full Name: [[+fullname]]&lt;/p&gt;
 &lt;p&gt;Email: [[+email]]&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=<span class="code-quote">"[[~10]]"</span>&gt;Edit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="[[~10]]"&gt;Edit&lt;/a&gt;&lt;/p&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Notice that we're putting a link in there so we can edit the profile. Remember: the password is never made available for security reasons.
 </p>
 
-<h3>
-<a name="Login.UserProfiles-ChangePassword%2812%29"></a>Change Password (12)
+<h3 id="Login.UserProfiles-ChangePassword(12)">
+Change Password (12)
 </h3>
 
 <p>
 This is a page where the user can change their password. It happens on a separate page. We're just following along with [<a href="/display/ADDON/Login.ChangePassword" title="Login.ChangePassword">ChangePassword</a>] playbook.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h2&gt;Change Password&lt;/h2&gt;
 [[!ChangePassword?
    &amp;submitVar=`change-password`
@@ -254,98 +222,76 @@ This is a page where the user can change their password. It happens on a separat
    &amp;successMessage=`Your password has been updated!`
 ]]
 &lt;div&gt;[[!+successMessage]]&lt;/div&gt;
-&lt;div class=<span class="code-quote">"updprof-error"</span>&gt;[[!+error_message]]&lt;/div&gt;
-&lt;form class=<span class="code-quote">"form"</span> action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span>&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"nospam"</span> value="" /&gt;
-    &lt;div class=<span class="code-quote">"ff"</span>&gt;
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"password_old"</span>&gt;Old Password
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+error.password_old]]&lt;/span&gt;
+&lt;div class="updprof-error"&gt;[[!+error_message]]&lt;/div&gt;
+&lt;form class="form" action="[[~[[*id]]]]" method="post"&gt;
+    &lt;input type="hidden" name="nospam" value="" /&gt;
+    &lt;div class="ff"&gt;
+        &lt;label for="password_old"&gt;Old Password
+            &lt;span class="error"&gt;[[!+error.password_old]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"password"</span> name=<span class="code-quote">"password_old"</span> id=<span class="code-quote">"password_old"</span> value=<span class="code-quote">"[[+password_old]]"</span> /&gt;
+        &lt;input type="password" name="password_old" id="password_old" value="[[+password_old]]" /&gt;
     &lt;/div&gt;
-    &lt;div class=<span class="code-quote">"ff"</span>&gt;
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"password_new"</span>&gt;New Password
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+error.password_new]]&lt;/span&gt;
+    &lt;div class="ff"&gt;
+        &lt;label for="password_new"&gt;New Password
+            &lt;span class="error"&gt;[[!+error.password_new]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"password"</span> name=<span class="code-quote">"password_new"</span> id=<span class="code-quote">"password_new"</span> value=<span class="code-quote">"[[+password_new]]"</span> /&gt;
+        &lt;input type="password" name="password_new" id="password_new" value="[[+password_new]]" /&gt;
     &lt;/div&gt;
-    &lt;div class=<span class="code-quote">"ff"</span>&gt;
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"password_new_confirm"</span>&gt;Confirm New Password
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+error.password_new_confirm]]&lt;/span&gt;
+    &lt;div class="ff"&gt;
+        &lt;label for="password_new_confirm"&gt;Confirm New Password
+            &lt;span class="error"&gt;[[!+error.password_new_confirm]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"password"</span> name=<span class="code-quote">"password_new_confirm"</span> id=<span class="code-quote">"password_new_confirm"</span> value=<span class="code-quote">"[[+password_new_confirm]]"</span> /&gt;
+        &lt;input type="password" name="password_new_confirm" id="password_new_confirm" value="[[+password_new_confirm]]" /&gt;
     &lt;/div&gt;
-    &lt;div class=<span class="code-quote">"ff"</span>&gt;
-        &lt;input type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"change-password"</span> value=<span class="code-quote">"Change Password"</span> /&gt;
+    &lt;div class="ff"&gt;
+        &lt;input type="submit" name="change-password" value="Change Password" /&gt;
     &lt;/div&gt;
 &lt;/form&gt;
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Watch out for the <b>&amp;placeholderPrefix</b> parameter. It has a default of "logcp.", which can have unintended consequences ... so you will almost set this parameter.
-</td>
-</tr>
-</table>
+<div class="note">
+Watch out for the <strong>&amp;placeholderPrefix</strong> parameter. It has a default of "logcp.", which can have unintended consequences ... so you will almost set this parameter.
 </div>
 
 <p>
 You'll probably want to put a link to this page on your Profile Editing page.
 </p>
 
-<h3>
-<a name="Login.UserProfiles-MembersHomePage%284%29"></a>Members Home Page (4)
+<h3 id="Login.UserProfiles-MembersHomePage(4)">
+Members Home Page (4)
 </h3>
 
 <p>
 Just to be thorough, you should put a link on your Members Home Page so users can view their profile, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 ...
-&lt;p&gt;&lt;a href=<span class="code-quote">"[[~11]]"</span>&gt;View Profile&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="[[~11]]"&gt;View Profile&lt;/a&gt;&lt;/p&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Login.UserProfiles-Testing%3AMakingitallWork"></a>Testing: Making it all Work
+<h2 id="Login.UserProfiles-Testing:MakingitallWork">
+Testing: Making it all Work
 </h2>
 
-<h3>
-<a name="Login.UserProfiles-Login"></a>Login
+<h3 id="Login.UserProfiles-Login">
+Login
 </h3>
 
 <p>
 Using a separate browser, you need to log into the front-end. This stuff should work from the previous tutorial.
 </p>
 
-<h3>
-<a name="Login.UserProfiles-ViewProfile%2811%29"></a>View Profile (11)
+<h3 id="Login.UserProfiles-ViewProfile(11)">
+View Profile (11)
 </h3>
 
 <ol>
 <li>
-<b>CHECK:</b> This page should display your info.
+<strong>CHECK:</strong> This page should display your info.
 </li>
 </ol>
 
-<h3>
-<a name="Login.UserProfiles-UpdateProfile%2810%29"></a>Update Profile (10)
+<h3 id="Login.UserProfiles-UpdateProfile(10)">
+Update Profile (10)
 </h3>
 
 <p>
@@ -354,12 +300,12 @@ Try changing your info.
 
 <ol>
 <li>
-<b>CHECK:</b> Can you edit your info? Try changing the Full Name or Email and saving.
+<strong>CHECK:</strong> Can you edit your info? Try changing the Full Name or Email and saving.
 </li>
 </ol>
 
-<h2>
-<a name="Login.UserProfiles-Next"></a>Next
+<h2 id="Login.UserProfiles-Next">
+Next
 </h2>
 
 <p>

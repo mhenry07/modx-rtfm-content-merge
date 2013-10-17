@@ -1,75 +1,47 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDOGenerator.writeSchema-xPDOGenerator%3A%3AwriteSchema"></a>xPDOGenerator::writeSchema
+<h2 id="xPDOGenerator.writeSchema-xPDOGenerator::writeSchema">
+xPDOGenerator::writeSchema
 </h2>
 
 <p>
 Parses an existing database and generates a XPDO XML schema from it.
 </p>
 
-<h2>
-<a name="xPDOGenerator.writeSchema-Syntax"></a>Syntax
+<h2 id="xPDOGenerator.writeSchema-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om-mysql/xPDOGenerator_mysql.html#writeSchema" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om-mysql/xPDOGenerator_mysql.html#writeSchema</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om-mysql/xPDOGenerator_mysql.html#writeSchema">http://api.modxcms.com/xpdo/om-mysql/xPDOGenerator_mysql.html#writeSchema</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> writeSchema (string $schemaFile, 
-  [string $<span class="code-keyword">package</span> = ''],
+<pre class="brush: php">
+boolean writeSchema (string $schemaFile, 
+  [string $package = ''],
   [string $baseClass = ''],
   [string $tablePrefix = ''],
-  [<span class="code-object">boolean</span> $restrictPrefix = <span class="code-keyword">false</span>])
+  [boolean $restrictPrefix = false])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOGenerator.writeSchema-Example"></a>Example
+<h2 id="xPDOGenerator.writeSchema-Example">
+Example
 </h2>
 
 <p>
 Generate the xml schema from an existing database. This also only generates XML for the tables prefixed with 'mydb_'.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$xpdo= <span class="code-keyword">new</span> xPDO('mysql:host=localhost;dbname=myolddatabase','username','password','mydb_');
+<pre class="brush: php">
+$xpdo= new xPDO('mysql:host=localhost;dbname=myolddatabase','username','password','mydb_');
 $manager= $xpdo-&gt;getManager();
 $generator= $manager-&gt;getGenerator();
 
-$xml= $generator-&gt;writeSchema('/path/to/my/<span class="code-keyword">new</span>/packagename.schema.xml','mypackage', 'xPDOObject','mydb_');
+$xml= $generator-&gt;writeSchema('/path/to/my/new/packagename.schema.xml','mypackage', 'xPDOObject','mydb_');
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Note that generating the XML schema doesn't generate the aggregate and composite relationships - just the field and object definitions. You'll need to specify those relationships yourself.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="xPDOGenerator.writeSchema-SeeAlso"></a>See Also
+<h2 id="xPDOGenerator.writeSchema-SeeAlso">
+See Also
 </h2>
 
 <ul>

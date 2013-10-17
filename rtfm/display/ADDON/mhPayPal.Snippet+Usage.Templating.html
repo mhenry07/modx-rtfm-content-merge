@@ -9,264 +9,240 @@ Templating mhPayPal is done through the use of tpl chunks.
 <div>
 <ul>
 <li>
-<a href='#mhPayPal.SnippetUsage.Templating-formTpl%2CformTplAnonymous'>formTpl, formTplAnonymous</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#mhPayPal.SnippetUsage.Templating-formTpl%2CformTplAnonymous">formTpl, formTplAnonymous</a>
 <ul>
 <li>
-<a href='#mhPayPal.SnippetUsage.Templating-Examples'>Examples</a>
+<a href="#mhPayPal.SnippetUsage.Templating-Examples">Examples</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#mhPayPal.SnippetUsage.Templating-errorTpl'>errorTpl</a>
+<a href="#mhPayPal.SnippetUsage.Templating-errorTpl">errorTpl</a>
 </li>
 
 <li>
-<a href='#mhPayPal.SnippetUsage.Templating-successTpl'>successTpl</a>
+<a href="#mhPayPal.SnippetUsage.Templating-successTpl">successTpl</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="mhPayPal.SnippetUsage.Templating-formTpl%2CformTplAnonymous"></a>formTpl, formTplAnonymous
+<h2 id="mhPayPal.SnippetUsage.Templating-formTpl,formTplAnonymous">
+formTpl, formTplAnonymous
 </h2>
 
 <p>
 Default:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;form action=<span class="code-quote">"[[+action]]"</span> method=<span class="code-quote">"[[+config.method]]"</span> id=<span class="code-quote">"mhpp_form_[[+config.id]]"</span>&gt;
+<pre class="brush: php">
+&lt;form action="[[+action]]" method="[[+config.method]]" id="mhpp_form_[[+config.id]]"&gt;
     &lt;p&gt;Your donation will be safely processed by PayPal, allowing you to donate via a PayPal account or directly with a credit card.&lt;/p&gt;
     [[+errors:notempty=`
         &lt;p&gt;Uh oh.. The following error(s) were found in your form: &lt;br /&gt;[[+errors]]&lt;/p&gt;
     `]]
     &lt;div&gt;
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"mhpp_amount_[[+config.id]]"</span>&gt;Amount&lt;/label&gt;
+        &lt;label for="mhpp_amount_[[+config.id]]"&gt;Amount&lt;/label&gt;
         &lt;div&gt;
-            &lt;select name=<span class="code-quote">"currency"</span> id=<span class="code-quote">"mhpp_currency_[[+config.id]]"</span>&gt;
-                &lt;option value=<span class="code-quote">"EUR"</span>[[+currency_EUR:notempty=` selected=<span class="code-quote">"selected"</span>`]]&gt;EUR &amp;euro;&lt;/option&gt;
-                &lt;option value=<span class="code-quote">"USD"</span>[[+currency_USD:notempty=` selected=<span class="code-quote">"selected"</span>`]]&gt;USD &amp;#36;&lt;/option&gt;
-                &lt;option value=<span class="code-quote">"GBP"</span>[[+currency_GBP:notempty=` selected=<span class="code-quote">"selected"</span>`]]&gt;GBP &amp;#163;&lt;/option&gt;
+            &lt;select name="currency" id="mhpp_currency_[[+config.id]]"&gt;
+                &lt;option value="EUR"[[+currency_EUR:notempty=` selected="selected"`]]&gt;EUR &amp;euro;&lt;/option&gt;
+                &lt;option value="USD"[[+currency_USD:notempty=` selected="selected"`]]&gt;USD &amp;#36;&lt;/option&gt;
+                &lt;option value="GBP"[[+currency_GBP:notempty=` selected="selected"`]]&gt;GBP &amp;#163;&lt;/option&gt;
             &lt;/select&gt;
 
 
-            &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"amount"</span> id=<span class="code-quote">"mhpp_amount_[[+config.id]]"</span> /&gt;
+            &lt;input type="text" name="amount" id="mhpp_amount_[[+config.id]]" /&gt;
             [[+currency.error]] [[+amount.error]]
         &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div&gt;
         &lt;div&gt;
-            &lt;input type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"[[+config.submitVar]]"</span> value=<span class="code-quote">"Donate!"</span> /&gt;
+            &lt;input type="submit" name="[[+config.submitVar]]" value="Donate!" /&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/form&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Available Placeholders
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder [[+<ins>name here</ins>]]
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 config.___
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The value of the snippet property identified with the __. See [mhPayPal] for all snippet properties available.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 action
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 An URL to the current page to make sure it posts to itself.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 amount
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The filled in amount (if any).
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 currency
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The chosen currency (if any).
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 currency_CURRENCYKEY
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The chosen currency key will get this placeholder set to 1, for example currency_USD. This can help with selectboxes like in the default above.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 _____.error
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Where _____ is the name of a field, this placeholder contains an error for it.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 errors
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 A collection of errors as fieldname: error, separated by the &amp;errorSeparator property.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="mhPayPal.SnippetUsage.Templating-Examples" id="mhPayPal.SnippetUsage.Templating-Examples"></a>Examples
+<h3 id="mhPayPal.SnippetUsage.Templating-Examples">
+Examples
 </h3>
 
 <p>
 Bring it on..
 </p>
 
-<h2>
-<a name="mhPayPal.SnippetUsage.Templating-errorTpl" id="mhPayPal.SnippetUsage.Templating-errorTpl"></a>errorTpl
+<h2 id="mhPayPal.SnippetUsage.Templating-errorTpl">
+errorTpl
 </h2>
 
 <p>
 Default:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;span&gt;[[+error]]&lt;/span&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Placeholders:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder [[+<ins>name here</ins>]]
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 error
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The error message.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="mhPayPal.SnippetUsage.Templating-successTpl" id="mhPayPal.SnippetUsage.Templating-successTpl"></a>successTpl
+<h2 id="mhPayPal.SnippetUsage.Templating-successTpl">
+successTpl
 </h2>
 
 <p>
 Default:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;div&gt;
     &lt;h3&gt;Thanks! You're awesome!&lt;/h3&gt;
-    &lt;p&gt;PayPal says your [[+description]] ([[+currency]] [[+amount]]) transaction is [[+PAYMENTSTATUS]]! You're really cool <span class="code-keyword">for</span> helping out on <span class="code-keyword">this</span> project further. Do not hesitate to get in touch should you need help!&lt;/p&gt;
+    &lt;p&gt;PayPal says your [[+description]] ([[+currency]] [[+amount]]) transaction is [[+PAYMENTSTATUS]]! You're really cool for helping out on this project further. Do not hesitate to get in touch should you need help!&lt;/p&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder [[+<ins>name here</ins>]]
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Any data fields' name
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The data fields' value.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>

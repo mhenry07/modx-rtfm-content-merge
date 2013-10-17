@@ -1,88 +1,78 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 For some, writing a MODX snippet might be their first foray into coding. Here are some tips for newbies and experienced developers alike.
 </p>
 
 <div>
 <ul>
 <li>
-<a href='#HowtoWriteaGoodSnippet-OurExampleSnippet'>Our Example Snippet</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#HowtoWriteaGoodSnippet-OurExampleSnippet">Our Example Snippet</a>
 <ul>
 <li>
-<a href='#HowtoWriteaGoodSnippet-YourSnippetChecklist'>Your Snippet Checklist</a>
+<a href="#HowtoWriteaGoodSnippet-YourSnippetChecklist">Your Snippet Checklist</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-AGoodName'>A Good Name</a>
+<a href="#HowtoWriteaGoodSnippet-AGoodName">A Good Name</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-Description'>Description</a>
+<a href="#HowtoWriteaGoodSnippet-Description">Description</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-CommentBlock'>Comment Block</a>
-</li>
-
-<li style="list-style: none; display: inline">
-<div style="margin-left: 2em">
+<a href="#HowtoWriteaGoodSnippet-CommentBlock">Comment Block</a>
 <ul>
 <li>
-<a href='#HowtoWriteaGoodSnippet-DESCRIPTION'>DESCRIPTION</a>
+<ul>
+<li>
+<a href="#HowtoWriteaGoodSnippet-DESCRIPTION">DESCRIPTION</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-PARAMETERS'>PARAMETERS</a>
+<a href="#HowtoWriteaGoodSnippet-PARAMETERS">PARAMETERS</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-USAGE'>USAGE</a>
+<a href="#HowtoWriteaGoodSnippet-USAGE">USAGE</a>
 </li>
 </ul>
-</div>
+</li>
+</ul>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-SetDefaultValues'>Set Default Values</a>
+<a href="#HowtoWriteaGoodSnippet-SetDefaultValues">Set Default Values</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-DonotincludeHTML'>Do not include HTML</a>
+<a href="#HowtoWriteaGoodSnippet-DonotincludeHTML">Do not include HTML</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-DonotPrint'>Do not Print</a>
+<a href="#HowtoWriteaGoodSnippet-DonotPrint">Do not Print</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-Consistency'>Consistency</a>
+<a href="#HowtoWriteaGoodSnippet-Consistency">Consistency</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-LogErrorsandInfo'>Log Errors and Info</a>
+<a href="#HowtoWriteaGoodSnippet-LogErrorsandInfo">Log Errors and Info</a>
 </li>
 
 <li>
-<a href='#HowtoWriteaGoodSnippet-SeeAlso'>See Also</a>
+<a href="#HowtoWriteaGoodSnippet-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="HowtoWriteaGoodSnippet-OurExampleSnippet" id="HowtoWriteaGoodSnippet-OurExampleSnippet"></a>Our Example Snippet
+<h2 id="HowtoWriteaGoodSnippet-OurExampleSnippet">
+Our Example Snippet
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 /**
  * mySnippet
@@ -104,50 +94,47 @@ For some, writing a MODX snippet might be their first foray into coding. Here ar
  *
  */
 
-$x = (<span class="code-object">int</span>) $modx-&gt;getOption('x', $scriptProperties);
-$y = (<span class="code-object">int</span>) $modx-&gt;getOption('y', $scriptProperties);
-$z = (<span class="code-object">int</span>) $modx-&gt;getOption('y', $scriptProperties, 1);
+$x = (int) $modx-&gt;getOption('x', $scriptProperties);
+$y = (int) $modx-&gt;getOption('y', $scriptProperties);
+$z = (int) $modx-&gt;getOption('y', $scriptProperties, 1);
 
-<span class="code-comment">// For debugging:
-</span>$modx-&gt;log(modX::LOG_LEVEL_DEBUG
+// For debugging:
+$modx-&gt;log(modX::LOG_LEVEL_DEBUG
     , '[mySnippet] called on page '. $modx-&gt;resource-&gt;id . ' with the following parameters: '
-    .print_r($scriptProperties, <span class="code-keyword">true</span>));
+    .print_r($scriptProperties, true));
 
-<span class="code-comment">// Verify Inputs
-</span><span class="code-keyword">if</span> (!isset($scriptProperties['x']) || !isset($scriptProperties['y'])) {
+// Verify Inputs
+if (!isset($scriptProperties['x']) || !isset($scriptProperties['y'])) {
         $modx-&gt;log(modX::LOG_LEVEL_ERROR, '[mySnippet] missing required parameters &amp;x and &amp;y!');
-        <span class="code-keyword">return</span>;
+        return;
 }
 
-<span class="code-keyword">return</span> $x * $y * $z;
+return $x * $y * $z;
 
 ?&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="HowtoWriteaGoodSnippet-YourSnippetChecklist" id="HowtoWriteaGoodSnippet-YourSnippetChecklist"></a>Your Snippet Checklist
+<h3 id="HowtoWriteaGoodSnippet-YourSnippetChecklist">
+Your Snippet Checklist
 </h3>
 
-<h2>
-<a name="HowtoWriteaGoodSnippet-AGoodName" id="HowtoWriteaGoodSnippet-AGoodName"></a>A Good Name
+<h2 id="HowtoWriteaGoodSnippet-AGoodName">
+A Good Name
 </h2>
 
 <p>
 Give your Snippet a name that makes sense to someone who is not familiar with it. A good name is easy to remember.
 </p>
 
-<h2>
-<a name="HowtoWriteaGoodSnippet-Description" id="HowtoWriteaGoodSnippet-Description"></a>Description
+<h2 id="HowtoWriteaGoodSnippet-Description">
+Description
 </h2>
 
 <p>
 <em>Always</em> include a brief description that explains what your Snippet does. It should be clear enough that a stranger (e.g. another manager user, not necessarily a developer) could understand what your code does just by reading your description.
 </p>
 
-<h2>
-<a name="HowtoWriteaGoodSnippet-CommentBlock" id="HowtoWriteaGoodSnippet-CommentBlock"></a>Comment Block
+<h2 id="HowtoWriteaGoodSnippet-CommentBlock">
+Comment Block
 </h2>
 
 <p>
@@ -158,16 +145,16 @@ Give your Snippet a name that makes sense to someone who is not familiar with it
 Your comment block should include the following items:
 </p>
 
-<h4>
-<a name="HowtoWriteaGoodSnippet-DESCRIPTION" id="HowtoWriteaGoodSnippet-DESCRIPTION"></a>DESCRIPTION
+<h4 id="HowtoWriteaGoodSnippet-DESCRIPTION">
+DESCRIPTION
 </h4>
 
 <p>
 This is where you can describe your code in more detail.
 </p>
 
-<h4>
-<a name="HowtoWriteaGoodSnippet-PARAMETERS" id="HowtoWriteaGoodSnippet-PARAMETERS"></a>PARAMETERS
+<h4 id="HowtoWriteaGoodSnippet-PARAMETERS">
+PARAMETERS
 </h4>
 
 <p>
@@ -175,128 +162,112 @@ Detail exactly which parameters can be passed to your Snippet <em>and</em> what 
 </p>
 
 <p>
-<tt>&amp;day integer a number from 0 (Sunday) to 6 (Saturday) representing the day of the week. (required)</tt>
+<code>&amp;day integer a number from 0 (Sunday) to 6 (Saturday) representing the day of the week. (required)</code>
 <br />
-<tt>&amp;is_secure boolean 1 will force an HTTPS connection; 0 uses an HTTP connection. Default: 1</tt>
+<code>&amp;is_secure boolean 1 will force an HTTPS connection; 0 uses an HTTP connection. Default: 1</code>
 <br />
-<tt>&amp;formatTpl string name of a Chunk used to format output. Default myChunk</tt>
+<code>&amp;formatTpl string name of a Chunk used to format output. Default myChunk</code>
 </p>
 
-<h4>
-<a name="HowtoWriteaGoodSnippet-USAGE" id="HowtoWriteaGoodSnippet-USAGE"></a>USAGE
+<h4 id="HowtoWriteaGoodSnippet-USAGE">
+USAGE
 </h4>
 
 <p>
 <em>Always</em> include some examples of how to use your Snippet. These should be examples that users can literally copy and paste into their pages to see how your Snippet works.
 </p>
 
-<h2>
-<a name="HowtoWriteaGoodSnippet-SetDefaultValues" id="HowtoWriteaGoodSnippet-SetDefaultValues"></a>Set Default Values
+<h2 id="HowtoWriteaGoodSnippet-SetDefaultValues">
+Set Default Values
 </h2>
 
 <p>
-You can read values passed to the Snippet and set default values using the <b>getOption</b> method. Remember that all Snippets are passed an array of $scriptProperties.
+You can read values passed to the Snippet and set default values using the <strong>getOption</strong> method. Remember that all Snippets are passed an array of $scriptProperties.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $headTpl = $modx-&gt;getOption('headTpl', $scriptProperties, 'myHeadTpl');
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="HowtoWriteaGoodSnippet-DonotincludeHTML" id="HowtoWriteaGoodSnippet-DonotincludeHTML"></a>Do not include HTML
+<h2 id="HowtoWriteaGoodSnippet-DonotincludeHTML">
+Do not include HTML
 </h2>
 
 <p>
 Your Snippet should be as clean from HTML as possible. If you need to format the output, use a Chunk to format the output. This is an important architectural principle!
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $props = array(
     'cow' =&gt; 'Moo',
     'pig' =&gt; 'Oink',
 );
-<span class="code-keyword">return</span> $modx-&gt;getChunk('myChunk', $props);
+return $modx-&gt;getChunk('myChunk', $props);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="HowtoWriteaGoodSnippet-DonotPrint" id="HowtoWriteaGoodSnippet-DonotPrint"></a>Do not Print
+<h2 id="HowtoWriteaGoodSnippet-DonotPrint">
+Do not Print
 </h2>
 
 <p>
 Never print values in your Snippet. Snippets are like functions: they should <em>return</em> data.
 </p>
 
-<h2>
-<a name="HowtoWriteaGoodSnippet-Consistency" id="HowtoWriteaGoodSnippet-Consistency"></a>Consistency
+<h2 id="HowtoWriteaGoodSnippet-Consistency">
+Consistency
 </h2>
 
 <p>
-<b>Variable Names:</b> Whatever your coding style, be consistent. If you want to use camelCase variable names, then make sure all your variables use that style.
+<strong>Variable Names:</strong> Whatever your coding style, be consistent. If you want to use camelCase variable names, then make sure all your variables use that style.
 </p>
 
 <p>
-<b>Indents:</b> Use the same indenting style throughout. See the MODX <a href="/display/revolution20/Code+Standards" title="Code Standards">Code Standards</a> for some great recommendations on how to structure your code.
+<strong>Indents:</strong> Use the same indenting style throughout. See the MODX <a href="/display/revolution20/Code+Standards" title="Code Standards">Code Standards</a> for some great recommendations on how to structure your code.
 </p>
 
-<h2>
-<a name="HowtoWriteaGoodSnippet-LogErrorsandInfo" id="HowtoWriteaGoodSnippet-LogErrorsandInfo"></a>Log Errors and Info
+<h2 id="HowtoWriteaGoodSnippet-LogErrorsandInfo">
+Log Errors and Info
 </h2>
 
 <p>
 MODX has a logging function: <em>use it</em>. If your users forgot to include a required parameter, log an error so your users will know it.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;log(modX::LOG_LEVEL_ERROR, '[mySnippet] missing the &amp;xyz parameter!');
 </pre>
-</div>
-</div>
-
 <p>
 You can also log debugging info, which is useful for users who are debugging things. This will only be written to the error log when the log_level system setting is set to the appropriate level.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;log(modX::LOG_LEVEL_DEBUG, '[mySnippet] was called with the following parameters: '.print_r($scriptProperties,<span class="code-keyword">true</span>));
+<pre class="brush: php">
+$modx-&gt;log(modX::LOG_LEVEL_DEBUG, '[mySnippet] was called with the following parameters: '.print_r($scriptProperties,true));
 </pre>
-</div>
-</div>
-
 <p>
 -------------------
 </p>
 
-<h2>
-<a name="HowtoWriteaGoodSnippet-SeeAlso" id="HowtoWriteaGoodSnippet-SeeAlso"></a>See Also
+<h2 id="HowtoWriteaGoodSnippet-SeeAlso">
+See Also
 </h2>
 
 <ul>
 <li>
 <a href="/display/revolution20/Code+Standards" title="Code Standards">Code Standards</a>
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/revolution20/Templating+Your+Snippets">Templating Your Snippets</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="42926128" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678225" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FHow%2Bto%2BWrite%2Ba%2BGood%2BSnippet" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678225" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Adding+CSS+and+JS+to+Your+Pages+Through+Snippets">Adding CSS and JS to Your Pages Through Snippets</a>
+</li>
+
+<li>
+<a href="/display/revolution20/How+to+Write+a+Good+Snippet">How to Write a Good Snippet</a>
+</li>
+
+<li>
+<a href="/display/revolution20/How+to+Write+a+Good+Chunk">How to Write a Good Chunk</a>
+</li>
+</ol>
 </li>
 </ul>

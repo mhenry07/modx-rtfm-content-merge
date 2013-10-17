@@ -1,109 +1,82 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#PropertiesandPropertySets-WhatareProperties%3F'>What are Properties?</a>
+<a href="#PropertiesandPropertySets-WhatareProperties%3F">What are Properties?</a>
 </li>
 
 <li>
-<a href='#PropertiesandPropertySets-WhatarePropertySets%3F'>What are Property Sets?</a>
+<a href="#PropertiesandPropertySets-WhatarePropertySets%3F">What are Property Sets?</a>
 </li>
 
 <li>
-<a href='#PropertiesandPropertySets-AssigningPropertySetstoElements'>Assigning Property Sets to Elements</a>
+<a href="#PropertiesandPropertySets-AssigningPropertySetstoElements">Assigning Property Sets to Elements</a>
 </li>
 
 <li>
-<a href='#PropertiesandPropertySets-CreatingPropertiesinaPropertySet'>Creating Properties in a Property Set</a>
+<a href="#PropertiesandPropertySets-CreatingPropertiesinaPropertySet">Creating Properties in a Property Set</a>
 </li>
 
 <li>
-<a href='#PropertiesandPropertySets-ImportingandExportingProperties'>Importing and Exporting Properties</a>
+<a href="#PropertiesandPropertySets-ImportingandExportingProperties">Importing and Exporting Properties</a>
 </li>
 
 <li>
-<a href='#PropertiesandPropertySets-UsingPropertiesProgrammatically'>Using Properties Programmatically</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#PropertiesandPropertySets-UsingPropertiesProgrammatically">Using Properties Programmatically</a>
 <ul>
 <li>
-<a href='#PropertiesandPropertySets-UsinggetOption'>Using getOption</a>
+<a href="#PropertiesandPropertySets-UsinggetOption">Using getOption</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#PropertiesandPropertySets-Conclusion'>Conclusion</a>
+<a href="#PropertiesandPropertySets-Conclusion">Conclusion</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="PropertiesandPropertySets-WhatareProperties%3F"></a>What are Properties?
+<h2 id="PropertiesandPropertySets-WhatareProperties?">
+What are Properties?
 </h2>
 
 <p>
 Properties are simply values that can be configured for any Element via <a href="/display/revolution20/Tag+Syntax" title="Tag Syntax">Tag Syntax</a>. An example of a Property is the token 'debug' in this Snippet call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[Quip? &amp;debug=`1`]]
 </pre>
-</div>
-</div>
-
 <p>
 'debug' is the Property, where '1' is the Property Value. They are passed to the Element's parser and interpreted there. Snippets and Plugins can access them through the $scriptProperties array, or straight in their key values, as they are extract()'ed.
 </p>
 
-<h2>
-<a name="PropertiesandPropertySets-WhatarePropertySets%3F"></a>What are Property Sets?
+<h2 id="PropertiesandPropertySets-WhatarePropertySets?">
+What are Property Sets?
 </h2>
 
 <p>
 Property Sets are user-defined collections of properties for an Element. So instead of having an enormous Snippet call with an unreadable long list of properties, you can store all the properties together as a set:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[MySnippet? &amp;prop1=`a` &amp;prop2=`b` &amp;prop3=`c` &amp;prop4=`d` &amp;prop5=`e` &amp;prop6=`f`]]
 ... becomes ...
 [[MySnippet@myPropertySet]]
 </pre>
-</div>
-</div>
-
 <p>
 Property Sets can be attached not only to Snippets, but to <em>any element</em> via that Element's editing page, and a single Property Set can be used by multiple elements. Once a Property Set has been defined and attached to an Element, you can call it by name using the "at" symbol:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[ElementName@PropertySetName]]
 </pre>
-</div>
-</div>
-
 <p>
 So, for an example, let's have a Property Set with two properties - 'debug' set to true, and 'user' set to 2. Then let's call it in a snippet.:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[TestSnippet@DebugMode? &amp;user=`1`]]
 </pre>
-</div>
-</div>
-
 <p>
 This example would call the snippet "TestSnippet", load the Property Set 'DebugMode', and then would set the value 'user' to 1. Since the property 'user' is defined as 2 in the Property Set, it will be overridden in the call, and end up as 1. The order of property loading is:
 <br />
@@ -123,8 +96,8 @@ The property set can also contain properties not defined in either the default e
 Properties will be passed into the Element just as they were in MODx 0.9.6, but they are also passed in via the $scriptProperties array, for those of you wanting more flexibility with knowing what properties are passed in.&nbsp;
 </p>
 
-<h2>
-<a name="PropertiesandPropertySets-AssigningPropertySetstoElements"></a>Assigning Property Sets to Elements
+<h2 id="PropertiesandPropertySets-AssigningPropertySetstoElements">
+Assigning Property Sets to Elements
 </h2>
 
 <p>
@@ -140,7 +113,7 @@ For example, here's an image of a property set named 'TestPropertySet' in a snip
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678075/prop-grid1.png?version=1&amp;modificationDate=1268853879000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678075/prop-grid1.png?version=1&amp;modificationDate=1268853879000" />
 </p>
 
 <p>
@@ -152,7 +125,7 @@ To add a property set to an Element, you'll simply click the "Add Property Set" 
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678075/propset-add1.png?version=1&amp;modificationDate=1268853882000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678075/propset-add1.png?version=1&amp;modificationDate=1268853882000" />
 </p>
 
 <p>
@@ -160,15 +133,15 @@ From there, you can select the property set you want to add. If you'd like to cr
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678075/propset-new1.png?version=1&amp;modificationDate=1268853886000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678075/propset-new1.png?version=1&amp;modificationDate=1268853886000" />
 </p>
 
 <p>
 Then once you save your new Property Set, it will be automatically attached to that Element.
 </p>
 
-<h2>
-<a name="PropertiesandPropertySets-CreatingPropertiesinaPropertySet"></a>Creating Properties in a Property Set
+<h2 id="PropertiesandPropertySets-CreatingPropertiesinaPropertySet">
+Creating Properties in a Property Set
 </h2>
 
 <p>
@@ -176,75 +149,51 @@ To create a Property in a Property Set, you'll simply need to just load the Prop
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678075/prop-create1.png?version=1&amp;modificationDate=1268853875000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678075/prop-create1.png?version=1&amp;modificationDate=1268853875000" />
 </p>
 
 <p>
 From there, you can create a property and associated options. Note here that we are creating a property of type "List", which is a dropdown property. You can add options to that property from the grid. Once you save the property, it will be added to the property set.
 </p>
 
-<h2>
-<a name="PropertiesandPropertySets-ImportingandExportingProperties"></a>Importing and Exporting Properties
+<h2 id="PropertiesandPropertySets-ImportingandExportingProperties">
+Importing and Exporting Properties
 </h2>
 
 <p>
 You can also import and export properties using the grid. Simply click on the corresponding buttons at the bottom.
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 When you import properties, it will overwrite your properties in the grid currently. Make sure that you want to do this before importing!
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="PropertiesandPropertySets-UsingPropertiesProgrammatically"></a>Using Properties Programmatically
+<h2 id="PropertiesandPropertySets-UsingPropertiesProgrammatically">
+Using Properties Programmatically
 </h2>
 
 <p>
 Properties are available in a snippet via the $scriptProperties array:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $prop = $scriptProperties['propertyName'];
 </pre>
-</div>
-</div>
-
 <p>
 Note that if a parameter is sent in the snippet call that has the same name as a property in a property set, the parameter value will override the default value in the property set.
 </p>
 
-<h3>
-<a name="PropertiesandPropertySets-UsinggetOption"></a>Using getOption
+<h3 id="PropertiesandPropertySets-UsinggetOption">
+Using getOption
 </h3>
 
 <p>
 You can also get a snippet property with $modx-&gt;getOption() like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;getOption('propertyName', $scriptProperties, '<span class="code-keyword">default</span>');
+<pre class="brush: php">
+$modx-&gt;getOption('propertyName', $scriptProperties, 'default');
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="PropertiesandPropertySets-Conclusion"></a>Conclusion
+<h2 id="PropertiesandPropertySets-Conclusion">
+Conclusion
 </h2>

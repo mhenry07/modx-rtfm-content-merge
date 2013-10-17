@@ -1,143 +1,192 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Gallery.GalleryItem.tpl-GalleryItem%27stplChunk"></a>GalleryItem's tpl Chunk
+<h2 id="Gallery.GalleryItem.tpl-GalleryItem'stplChunk">
+GalleryItem's tpl Chunk
 </h2>
 
 <p>
 This chunk is used when &amp;toPlaceholders is set to 0 on the <a href="/display/ADDON/Gallery.GalleryItem" title="Gallery.GalleryItem">GalleryItem</a> snippet.
 </p>
 
-<h2>
-<a name="Gallery.GalleryItem.tpl-DefaultValue" id="Gallery.GalleryItem.tpl-DefaultValue"></a>Default Value
+<h2 id="Gallery.GalleryItem.tpl-DefaultValue">
+Default Value
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a href=<span class="code-quote">"[[+url:is=``:then=`[[+image]]`:<span class="code-keyword">else</span>=`[[+url]]`]]"</span>&gt;
-    &lt;img src=<span class="code-quote">"[[+thumbnail]]"</span> alt=<span class="code-quote">"[[+name]]"</span> /&gt;
+<pre class="brush: php">
+&lt;a href="[[+url:is=``:then=`[[+image]]`:else=`[[+url]]`]]"&gt;
+    &lt;img src="[[+thumbnail]]" alt="[[+name]]" /&gt;
 &lt;/a&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Gallery.GalleryItem.tpl-AvailablePlaceholders" id="Gallery.GalleryItem.tpl-AvailablePlaceholders"></a>Available Placeholders
+<h2 id="Gallery.GalleryItem.tpl-AvailablePlaceholders">
+Available Placeholders
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the Item.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 filename
 </td>
-<td class='confluenceTd'>
+<td>
 The filename of the item. This will be relative to the path where the files are stored, which is usually assets/components/gallery/files/.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 description
 </td>
-<td class='confluenceTd'>
+<td>
 The description of the item.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mediatype
 </td>
-<td class='confluenceTd'>
+<td>
 The media type of the Item. Currently this is only 'image'.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 createdon
 </td>
-<td class='confluenceTd'>
+<td>
 The timestamp that this Item was created on.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 createdby
 </td>
-<td class='confluenceTd'>
+<td>
 The User ID of the creator of this Item.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 active
 </td>
-<td class='confluenceTd'>
+<td>
 If this Item is active or not. Can be 1 or 0.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 albums
 </td>
-<td class='confluenceTd'>
+<td>
 A list of Albums this Item is in.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tags
 </td>
-<td class='confluenceTd'>
+<td>
 A list of Tags associated with this Item.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Gallery.GalleryItem.tpl-SeeAlso" id="Gallery.GalleryItem.tpl-SeeAlso"></a>See Also
+<h2 id="Gallery.GalleryItem.tpl-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Gallery.Gallery">Gallery.Gallery</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.Gallery.containerTpl">Gallery.Gallery.containerTpl</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="16646210" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="13664292" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FGallery.GalleryItem.tpl" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="16646196" /> <input type="hidden" name="ancestorId" value="13664292" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Gallery.Gallery.thumbTpl">Gallery.Gallery.thumbTpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryAlbums">Gallery.GalleryAlbums</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.GalleryAlbums.rowTpl">Gallery.GalleryAlbums.rowTpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem">Gallery.GalleryItem</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.albumTpl">Gallery.GalleryItem.albumTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.GalleryItemPagination">Gallery.GalleryItem.GalleryItemPagination</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.tagTpl">Gallery.GalleryItem.tagTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.tpl">Gallery.GalleryItem.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Plugins">Gallery.Plugins</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.Plugins.Galleriffic">Gallery.Plugins.Galleriffic</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Plugins.Slimbox">Gallery.Plugins.Slimbox</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Roadmap">Gallery.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Setting+Up+Your+Gallery">Gallery.Setting Up Your Gallery</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Example1">Gallery.Example1</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Setting+Up+the+GalleryItem+TV">Gallery.Setting Up the GalleryItem TV</a>
+</li>
+</ol>

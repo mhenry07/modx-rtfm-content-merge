@@ -2,20 +2,20 @@
 PHx (Placeholders Xtended) will add the capability of output modifiers when using placeholders, content tags (including template variables) and settings tags. The recursive parser allows for nested tags. Custom modifiers can be added by creating "mini-snippets" in the MODx resource manager.&nbsp; PHx is only intended for use with MODX Evolution, if you are using MODX Revolution see <a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">Output Filters</a>.
 </p>
 
-<h2>
-<a name="PHx-Download" id="PHx-Download"></a>Download
+<h2 id="PHx-Download">
+Download
 </h2>
 
 <p>
-You can download the <a href="http://modx.com/extras/package/phx" class="external-link" rel="nofollow">latest version</a> of PHx from MODX extras site. The current version is <b>2.1.4-GA</b>.
+You can download the <a href="http://modx.com/extras/package/phx">latest version</a> of PHx from MODX extras site. The current version is <strong>2.1.4-GA</strong>.
 </p>
 
-<h2>
-<a name="PHx-Installation" id="PHx-Installation"></a>Installation
+<h2 id="PHx-Installation">
+Installation
 </h2>
 
-<h3>
-<a name="PHx-Newinstall" id="PHx-Newinstall"></a>New install
+<h3 id="PHx-Newinstall">
+New install
 </h3>
 
 <ol>
@@ -35,8 +35,8 @@ You can download the <a href="http://modx.com/extras/package/phx" class="externa
 </li>
 </ol>
 
-<h3>
-<a name="PHx-Update" id="PHx-Update"></a>Update
+<h3 id="PHx-Update">
+Update
 </h3>
 
 <ol>
@@ -59,16 +59,16 @@ You can download the <a href="http://modx.com/extras/package/phx" class="externa
 </li>
 </ol>
 
-<h3>
-<a name="PHx-Configuration" id="PHx-Configuration"></a>Configuration
+<h3 id="PHx-Configuration">
+Configuration
 </h3>
 
 <p>
 On the Configuration tab -&gt; Plugin configuration enter:&amp;phxdebug=Log events;int;0 &amp;phxmaxpass=Max. Passes;int;50
 </p>
 
-<h4>
-<a name="PHx-AdvancedUsers" id="PHx-AdvancedUsers"></a>Advanced Users
+<h4 id="PHx-AdvancedUsers">
+Advanced Users
 </h4>
 
 <p>
@@ -77,16 +77,16 @@ You can change the default values of the PHx parser
 
 <ul>
 <li>
-<b>Log Events</b> 0 = Disabled 1 = Enabled logging of PHx When enabled PHx creates a detailed processing log for every page load in the MODX System Event log ( Manager-&gt;Reports-&gt;System Events)
+<strong>Log Events</strong> 0 = Disabled 1 = Enabled logging of PHx When enabled PHx creates a detailed processing log for every page load in the MODX System Event log ( Manager-&gt;Reports-&gt;System Events)
 </li>
 
 <li>
-<b>Max. Passes</b> Enter a number which represents the maximum depth of your nested tags. I recommend leaving this on the default value of 50.
+<strong>Max. Passes</strong> Enter a number which represents the maximum depth of your nested tags. I recommend leaving this on the default value of 50.
 </li>
 </ul>
 
-<h2>
-<a name="PHx-Description" id="PHx-Description"></a>Description
+<h2 id="PHx-Description">
+Description
 </h2>
 
 <p>
@@ -98,29 +98,24 @@ Great for templating!
 </p>
 
 <p>
-Transforming a value is is as easy as adding <b>:modifier</b>.
+Transforming a value is is as easy as adding <strong>:modifier</strong>.
 </p>
 
-<h3>
-<a name="PHx-Supportedtags" id="PHx-Supportedtags"></a>Supported tags
+<h3 id="PHx-Supportedtags">
+Supported tags
 </h3>
 
 <p>
 When enabled, PHx supports extensions of the following MODX tags:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+placeholder+]
 [*content tag/TV*]
 [(setting)]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="PHx-SnippetssupportingPHx" id="PHx-SnippetssupportingPHx"></a>Snippets supporting PHx
+<h3 id="PHx-SnippetssupportingPHx">
+Snippets supporting PHx
 </h3>
 
 <ul>
@@ -138,89 +133,62 @@ When enabled, PHx supports extensions of the following MODX tags:
 You can also use PHx in chunks of other snippets that are not in the above list but it may require another approach (see the Tips &amp; Tricks section).
 </p>
 
-<h3>
-<a name="PHx-Usage" id="PHx-Usage"></a>Usage
+<h3 id="PHx-Usage">
+Usage
 </h3>
 
 <p>
 A normal placeholder like [<ins>placeholder</ins>] can be extended to a PHx placeholder: [<ins>placeholder:esc</ins>]. The same applies for content tags like:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [*createdby*]
 </pre>
-</div>
-</div>
-
 <p>
 Some modifiers take options like:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [*createdby:date=`%a %B %d, %Y at %H:%M`*]
 </pre>
-</div>
-</div>
-
 <p>
 Multiple modifiers can be placed into one placeholder/template variables and will be processed from left to right.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 somevar:esc:nl2br:strip
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="PHx-Advancedusage" id="PHx-Advancedusage"></a>Advanced usage
+<h4 id="PHx-Advancedusage">
+Advanced usage
 </h4>
 
 <p>
 There is a special placeholder called 'phx' which acts as a dummy placeholder to start a sequence without an actual variable.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:<span class="code-keyword">if</span>=`[+<span class="code-keyword">this</span>+]`:is=`[+that+]`:then=`<span class="code-keyword">do</span> <span class="code-keyword">this</span>`:<span class="code-keyword">else</span>=`<span class="code-keyword">do</span> that`+]
+<pre class="brush: php">
+[+phx:if=`[+this+]`:is=`[+that+]`:then=`do this`:else=`do that`+]
 </pre>
-</div>
-</div>
-
 <p>
 Also, with some modifiers this dummy will automatically have a specific default value. In case of the "userinfo" modifier it takes on the value of the current userid.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+phx:userinfo=`username`+]
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="PHx-Knownissues" id="PHx-Knownissues"></a>Known issues
+<h4 id="PHx-Knownissues">
+Known issues
 </h4>
 
-<h5>
-<a name="PHx-Syntax" id="PHx-Syntax"></a>Syntax
+<h5 id="PHx-Syntax">
+Syntax
 </h5>
 
 <p>
 It seems logical, but I mention this as an issue because it's easy to take into account. Try to avoid the following character combinations in your template if they are not part of a MODx tag:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+
 [*
 [(
@@ -229,33 +197,20 @@ It seems logical, but I mention this as an issue because it's easy to take into 
 )]
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 They might throw the parser and MODx off guard. In normal circumstances this wouldn't be a problem. But in the case of JavaScript in your template a situation like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 array[counter++]
 </pre>
-</div>
-</div>
-
 <p>
 ... might trigger weird behavior because of the +]. Also, using a closing CDATA tag like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 /* ]]&gt; */
 </pre>
-</div>
-</div>
-
 <p>
 ... will create issues as well.
 </p>
@@ -264,30 +219,25 @@ array[counter++]
 Just remember that you can't break your website by using faulty PHx syntax, the worst thing that could happen is that your layout comes out the wrong way.
 </p>
 
-<h2>
-<a name="PHx-Modifiers" id="PHx-Modifiers"></a>Modifiers
+<h2 id="PHx-Modifiers">
+Modifiers
 </h2>
 
-<h3>
-<a name="PHx-String" id="PHx-String"></a>String
+<h3 id="PHx-String">
+String
 </h3>
 
-<h4>
-<a name="PHx-lcase" id="PHx-lcase"></a>lcase
+<h4 id="PHx-lcase">
+lcase
 </h4>
 
 <p>
 Returns current value with all alphabetic characters converted to lowercase.Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+string:lcase+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Input: This is a string
 </li>
@@ -296,22 +246,17 @@ Returns current value with all alphabetic characters converted to lowercase.Exam
 </li>
 </ul>
 
-<h4>
-<a name="PHx-ucase" id="PHx-ucase"></a>ucase
+<h4 id="PHx-ucase">
+ucase
 </h4>
 
 <p>
 Returns current value with all alphabetic characters converted to uppercase.Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+string:ucase+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Input:This is a string
 </li>
@@ -320,22 +265,17 @@ Returns current value with all alphabetic characters converted to uppercase.Exam
 </li>
 </ul>
 
-<h4>
-<a name="PHx-ucfirst" id="PHx-ucfirst"></a>ucfirst
+<h4 id="PHx-ucfirst">
+ucfirst
 </h4>
 
 <p>
 Returns current value's first character as uppercaseExample:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+string:ucfirst+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Input:this is a string
 </li>
@@ -344,22 +284,17 @@ Returns current value's first character as uppercaseExample:
 </li>
 </ul>
 
-<h4>
-<a name="PHx-length%5Clen"></a>length | len
+<h4 id="PHx-length\len">
+length | len
 </h4>
 
 <p>
 Returns length of the current value.Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+string:len+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Input:this is a string
 </li>
@@ -368,22 +303,17 @@ Returns length of the current value.Example:
 </li>
 </ul>
 
-<h4>
-<a name="PHx-notags" id="PHx-notags"></a>notags
+<h4 id="PHx-notags">
+notags
 </h4>
 
 <p>
 Strips html tags from the current value.Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+string:notags+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Input:this &lt;b&gt;is&lt;/b&gt; a &lt;i&gt;string&lt;/i&gt;
 </li>
@@ -392,38 +322,33 @@ Strips html tags from the current value.Example:
 </li>
 </ul>
 
-<h4>
-<a name="PHx-esc" id="PHx-esc"></a>esc
+<h4 id="PHx-esc">
+esc
 </h4>
 
 <p>
 Escapes html and the bracket characters.
 </p>
 
-<h4>
-<a name="PHx-htmlent" id="PHx-htmlent"></a>htmlent
+<h4 id="PHx-htmlent">
+htmlent
 </h4>
 
 <p>
 Converts the input to html entities.
 </p>
 
-<h4>
-<a name="PHx-nl2br" id="PHx-nl2br"></a>nl2br
+<h4 id="PHx-nl2br">
+nl2br
 </h4>
 
 <p>
 Converts new lines to breaks.Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+string:nl2br+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Input:this isa string
 </li>
@@ -434,22 +359,17 @@ Converts new lines to breaks.Example:
 </li>
 </ul>
 
-<h4>
-<a name="PHx-strip" id="PHx-strip"></a>strip
+<h4 id="PHx-strip">
+strip
 </h4>
 
 <p>
 Strip newlines (\n), tabs (\t) and multiple spaces.Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+string:strip+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Input:this is a string
 </li>
@@ -460,34 +380,34 @@ Strip newlines (\n), tabs (\t) and multiple spaces.Example:
 </li>
 </ul>
 
-<h4>
-<a name="PHx-Other" id="PHx-Other"></a>Other
+<h4 id="PHx-Other">
+Other
 </h4>
 
 <ul>
 <li>
-<b>reverse</b> Reverses the current value.
+<strong>reverse</strong> Reverses the current value.
 </li>
 
 <li>
-<b>wordwrap</b>(=`length`) length - charactersBreaks words in the current value longer than the given length of characters by putting a space in between.Default: 70 characters.
+<strong>wordwrap</strong>(=`length`) length - charactersBreaks words in the current value longer than the given length of characters by putting a space in between.Default: 70 characters.
 </li>
 
 <li>
-<b>limit</b>(=`length`) Returns the first X characters from the current value. Default: 100 characters.
+<strong>limit</strong>(=`length`) Returns the first X characters from the current value. Default: 100 characters.
 </li>
 </ul>
 
-<h3>
-<a name="PHx-Special" id="PHx-Special"></a>Special
+<h3 id="PHx-Special">
+Special
 </h3>
 
-<h4>
-<a name="PHx-date%28%3D%60dateformat%60%29"></a>date(=`dateformat`)
+<h4 id="PHx-date(=`dateformat`)">
+date(=`dateformat`)
 </h4>
 
 <ul>
-<li>dateformat: Like PHP <a href="http://www.php.net/strftime" class="external-link" rel="nofollow">strftime</a>
+<li>dateformat: Like PHP <a href="http://www.php.net/strftime">strftime</a>
 </li>
 
 <li>Converts unix timestamps to the format specified.
@@ -498,20 +418,15 @@ Strip newlines (\n), tabs (\t) and multiple spaces.Example:
 Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [*createdon:date=`%d.%m.%Y`*]
 </pre>
-</div>
-</div>
-
 <p>
 To change the output of date according to the language of the website, insert setlocale at the beginning of the PHx-plugin (this is an example for German language): setlocale(LC_ALL, 'de_DE@euro', 'de_DE', 'de', 'ge');
 </p>
 
-<h4>
-<a name="PHx-md5" id="PHx-md5"></a>md5
+<h4 id="PHx-md5">
+md5
 </h4>
 
 <ul>
@@ -519,98 +434,98 @@ To change the output of date according to the language of the website, insert se
 </li>
 </ul>
 
-<h4>
-<a name="PHx-userinfo%3D%60field%60"></a>userinfo=`field`
+<h4 id="PHx-userinfo=`field`">
+userinfo=`field`
 </h4>
 
 <ul>
 <li>field: Formats a userid value (webuser have negative ids) to a field specified. Similar to the fields used in the MODx database <em>user_attributes</em> table (eg: username, useremail):
 <ul>
 <li>
-<b>cachepwd</b>&nbsp;: Cache password
+<strong>cachepwd</strong>&nbsp;: Cache password
 </li>
 
 <li>
-<b>comment</b>&nbsp;: Comment
+<strong>comment</strong>&nbsp;: Comment
 </li>
 
 <li>
-<b>country</b>&nbsp;: Country
+<strong>country</strong>&nbsp;: Country
 </li>
 
 <li>
-<b>dob</b>&nbsp;: Date of birth, in UNIX time format
+<strong>dob</strong>&nbsp;: Date of birth, in UNIX time format
 </li>
 
 <li>
-<b>email</b>&nbsp;: Email
+<strong>email</strong>&nbsp;: Email
 </li>
 
 <li>
-<b>fax</b>&nbsp;: Fax
+<strong>fax</strong>&nbsp;: Fax
 </li>
 
 <li>
-<b>fullname</b>&nbsp;: Full name
+<strong>fullname</strong>&nbsp;: Full name
 </li>
 
 <li>
-<b>gender</b>&nbsp;: Gender
+<strong>gender</strong>&nbsp;: Gender
 </li>
 
 <li>
-<b>internalKey</b>&nbsp;: User internal key
+<strong>internalKey</strong>&nbsp;: User internal key
 </li>
 
 <li>
-<b>lastlogin</b>&nbsp;: Last login, in UNIX time format
+<strong>lastlogin</strong>&nbsp;: Last login, in UNIX time format
 </li>
 
 <li>
-<b>logincount</b>&nbsp;: Number of logins
+<strong>logincount</strong>&nbsp;: Number of logins
 </li>
 
 <li>
-<b>mobilephone</b>&nbsp;: Mobile phone
+<strong>mobilephone</strong>&nbsp;: Mobile phone
 </li>
 
 <li>
-<b>password</b>&nbsp;: Password
+<strong>password</strong>&nbsp;: Password
 </li>
 
 <li>
-<b>phone</b>&nbsp;: Phone
+<strong>phone</strong>&nbsp;: Phone
 </li>
 
 <li>
-<b>photo</b>&nbsp;: Photo
+<strong>photo</strong>&nbsp;: Photo
 </li>
 
 <li>
-<b>role</b>&nbsp;: Role
+<strong>role</strong>&nbsp;: Role
 </li>
 
 <li>
-<b>state</b>&nbsp;: State
+<strong>state</strong>&nbsp;: State
 </li>
 
 <li>
-<b>thislogin</b>&nbsp;: This login, in UNIX time format
+<strong>thislogin</strong>&nbsp;: This login, in UNIX time format
 </li>
 
 <li>
-<b>username</b>&nbsp;: User name
+<strong>username</strong>&nbsp;: User name
 </li>
 
 <li>
-<b>zip</b>&nbsp;: Zip code
+<strong>zip</strong>&nbsp;: Zip code
 </li>
 </ul>
 </li>
 </ul>
 
-<h4>
-<a name="PHx-math%3D%60calculation%60"></a>math=`calculation`
+<h4 id="PHx-math=`calculation`">
+math=`calculation`
 </h4>
 
 <ul>
@@ -624,8 +539,8 @@ To change the output of date according to the language of the website, insert se
 </li>
 </ul>
 
-<h4>
-<a name="PHx-ifempty%3D%60othervalue%60"></a>ifempty=`other value`
+<h4 id="PHx-ifempty=`othervalue`">
+ifempty=`other value`
 </h4>
 
 <ul>
@@ -633,8 +548,8 @@ To change the output of date according to the language of the website, insert se
 </li>
 </ul>
 
-<h4>
-<a name="PHx-select%3D%60options%60"></a>select=`options`
+<h4 id="PHx-select=`options`">
+select=`options`
 </h4>
 
 <p>
@@ -647,7 +562,7 @@ Translates the value of placeholder/templatevar to a specified output.
 </ul>
 
 <p>
-<b>Example</b>:
+<strong>Example</strong>:
 </p>
 
 <ul>
@@ -655,25 +570,20 @@ Translates the value of placeholder/templatevar to a specified output.
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+placeholder:select=`0=OFF&amp;1=ON&amp;2=UNKNOWN`+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Returns ON
 </li>
 </ul>
 
-<h3>
-<a name="PHx-Conditionaloperators" id="PHx-Conditionaloperators"></a>Conditional operators
+<h3 id="PHx-Conditionaloperators">
+Conditional operators
 </h3>
 
-<h4>
-<a name="PHx-is" id="PHx-is"></a>is
+<h4 id="PHx-is">
+is
 </h4>
 
 <ul>
@@ -685,8 +595,8 @@ Translates the value of placeholder/templatevar to a specified output.
 is equal to (==)
 </p>
 
-<h4>
-<a name="PHx-ne" id="PHx-ne"></a>ne
+<h4 id="PHx-ne">
+ne
 </h4>
 
 <ul>
@@ -698,8 +608,8 @@ is equal to (==)
 is not equal to (!=)
 </p>
 
-<h4>
-<a name="PHx-eg" id="PHx-eg"></a>eg
+<h4 id="PHx-eg">
+eg
 </h4>
 
 <ul>
@@ -711,8 +621,8 @@ is not equal to (!=)
 is equal or greater than (&gt;=)
 </p>
 
-<h4>
-<a name="PHx-el" id="PHx-el"></a>el
+<h4 id="PHx-el">
+el
 </h4>
 
 <ul>
@@ -724,24 +634,24 @@ is equal or greater than (&gt;=)
 is equal or lower than (&lt;=)
 </p>
 
-<h4>
-<a name="PHx-gt" id="PHx-gt"></a>gt
+<h4 id="PHx-gt">
+gt
 </h4>
 
 <p>
 is greater than (&gt;)
 </p>
 
-<h4>
-<a name="PHx-lt" id="PHx-lt"></a>lt
+<h4 id="PHx-lt">
+lt
 </h4>
 
 <p>
 is lower than (&lt;)
 </p>
 
-<h4>
-<a name="PHx-mo%3D%60Webgroups%60"></a>mo=`Webgroups`
+<h4 id="PHx-mo=`Webgroups`">
+mo=`Webgroups`
 </h4>
 
 <ul>
@@ -753,149 +663,124 @@ is lower than (&lt;)
 Takes a comma-separated list of webgroup names and returns true/false depending on the user being in the group or not (replaces the "inrole" modifier which had to be combined with a conditional operator). Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:mo=`myWebgroup`:then=`I'm a member`:<span class="code-keyword">else</span>=`I'm NOT a member`+]
+<pre class="brush: php">
+[+phx:mo=`myWebgroup`:then=`I'm a member`:else=`I'm NOT a member`+]
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="PHx-if%3D%60value%60"></a>if=`value`
+<h4 id="PHx-if=`value`">
+if=`value`
 </h4>
 
 <p>
 Takes a new value. Will normally be used before&nbsp;:or or&nbsp;:and
 </p>
 
-<h4>
-<a name="PHx-or" id="PHx-or"></a>or
+<h4 id="PHx-or">
+or
 </h4>
 
 <p>
 Previous OR next statement
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:<span class="code-keyword">if</span>=`[*id*]`:is=`2`:or:is=`3`:then=`{{Chunk}}`:<span class="code-keyword">else</span>=`{{OtherChunk}}`+]
+<pre class="brush: php">
+[+phx:if=`[*id*]`:is=`2`:or:is=`3`:then=`{{Chunk}}`:else=`{{OtherChunk}}`+]
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="PHx-and" id="PHx-and"></a>and
+<h4 id="PHx-and">
+and
 </h4>
 
 <p>
 Previous AND next statement
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[+phx:<span class="code-keyword">if</span>=`[!UltimateParent!]`:is=`1`:and:isnot=`[*id*]`:then=`{{ChildChunk}}`:<span class="code-keyword">else</span>=`{{ParentChunk}}`+]
+<pre class="brush: php">
+[+phx:if=`[!UltimateParent!]`:is=`1`:and:isnot=`[*id*]`:then=`{{ChildChunk}}`:else=`{{ParentChunk}}`+]
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="PHx-then%3D%60template%60"></a>then=`template`
+<h4 id="PHx-then=`template`">
+then=`template`
 </h4>
 
 <p>
-template&nbsp;: This is shown if conditions are true. Template can be a <tt>chunk</tt>, [[snippet]] or just plain html
+template&nbsp;: This is shown if conditions are true. Template can be a <code>chunk</code>, [[snippet]] or just plain html
 </p>
 
-<h4>
-<a name="PHx-else%3D%60template%60"></a>else=`template`
+<h4 id="PHx-else=`template`">
+else=`template`
 </h4>
 
 <p>
-template&nbsp;: This is shown if conditions are false. Template can be a&nbsp;<tt>chunk</tt>, [[snippet]] or just plain html
+template&nbsp;: This is shown if conditions are false. Template can be a&nbsp;<code>chunk</code>, [[snippet]] or just plain html
 </p>
 
-<h4>
-<a name="PHx-show" id="PHx-show"></a>show
+<h4 id="PHx-show">
+show
 </h4>
 
 <p>
-Similar to <b>then</b> except that it uses the original input as 'template' when the condition is true.
+Similar to <strong>then</strong> except that it uses the original input as 'template' when the condition is true.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+myplaceholder:len:gt=`3`:show+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Will return the value of myplaceholder if it contains more then 3 characters.
 </li>
 </ul>
 
-<h4>
-<a name="PHx-Moreexamples" id="PHx-Moreexamples"></a>More examples
+<h4 id="PHx-Moreexamples">
+More examples
 </h4>
 
-<h5>
-<a name="PHx-Example1" id="PHx-Example1"></a>Example 1
+<h5 id="PHx-Example1">
+Example 1
 </h5>
 
 <p>
-<b>myplaceholder</b> is set to <b>myvalue</b>
+<strong>myplaceholder</strong> is set to <strong>myvalue</strong>
 </p>
 
 <ul>
 <li>
-<b>[</b><b>+myplaceholder:is=`myvalue`:then=`Correct`:else=`Incorrect`+</b><b>]</b> will return:Correct
+<strong>[</strong><strong>+myplaceholder:is=`myvalue`:then=`Correct`:else=`Incorrect`+</strong><strong>]</strong> will return:Correct
 </li>
 
 <li>
-<b>[</b><b>+myplaceholder:isnot=`myvalue`:then=`Correct`:else=`Incorrect`+</b><b>]</b>
+<strong>[</strong><strong>+myplaceholder:isnot=`myvalue`:then=`Correct`:else=`Incorrect`+</strong><strong>]</strong>
 </li>
 
 <li>
-<b>[</b><b>+myplaceholder:is=`othervalue`:then=`Correct`:else=`Incorrect`</b><b>+]</b> will both return:Incorrect
+<strong>[</strong><strong>+myplaceholder:is=`othervalue`:then=`Correct`:else=`Incorrect`</strong><strong>+]</strong> will both return:Incorrect
 </li>
 </ul>
 
-<h5>
-<a name="PHx-Example2" id="PHx-Example2"></a>Example 2
+<h5 id="PHx-Example2">
+Example 2
 </h5>
 
 <ul>
 <li>
-<b>myplaceholder</b> is set to <b>2</b>
+<strong>myplaceholder</strong> is set to <strong>2</strong>
 </li>
 
 <li>
-<b>someplaceholder</b> is set to <b>3</b>
+<strong>someplaceholder</strong> is set to <strong>3</strong>
 </li>
 
 <li>
-<b>otherplaceholder</b> is set to <b>1</b>
+<strong>otherplaceholder</strong> is set to <strong>1</strong>
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
      [+myplaceholder:is=`2`:then=`
      {{ChunkGood}}
-     `:<span class="code-keyword">else</span>=`
+     `:else=`
      {{ChunkBad}}
      `+]
 </pre>
-</div>
-</div>
-
 <p>
-Will display the contents of chunk called <b>ChunkGood</b>.
+Will display the contents of chunk called <strong>ChunkGood</strong>.
 </p>
 
 <ul>
@@ -916,7 +801,7 @@ Will display the contents of chunk called <b>ChunkGood</b>.
 </ul>
 
 <p>
-Will all return <b>Yes</b>.
+Will all return <strong>Yes</strong>.
 </p>
 
 <ul>
@@ -937,11 +822,11 @@ Will all return <b>Yes</b>.
 </ul>
 
 <p>
-Will all return <b>No</b>.
+Will all return <strong>No</strong>.
 </p>
 
-<h2>
-<a name="PHx-Custommodifiers" id="PHx-Custommodifiers"></a>Custom modifiers
+<h2 id="PHx-Custommodifiers">
+Custom modifiers
 </h2>
 
 <p>
@@ -954,70 +839,60 @@ Because a modifier doesn't hold complicated code you don't need parameters other
 
 <ol>
 <li>
-<b>$output</b> the current value of the variable that is getting "modified"
+<strong>$output</strong> the current value of the variable that is getting "modified"
 </li>
 
 <li>
-<b>$options</b> (optional) an optionial string that a modifier could have
+<strong>$options</strong> (optional) an optionial string that a modifier could have
 </li>
 </ol>
 
 <p>
-To bring this into perspective here are some short examples assuming <b>myplaceholder</b> is set to <b>"test"</b>:
+To bring this into perspective here are some short examples assuming <strong>myplaceholder</strong> is set to <strong>"test"</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+myplaceholder:mymodifier+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>
-<b>$output</b> contains the value "<b>test</b>".
+<strong>$output</strong> contains the value "<strong>test</strong>".
 </li>
 
 <li>
-<b>$options</b> contains <b>nothing</b> because they aren't specified.
+<strong>$options</strong> contains <strong>nothing</strong> because they aren't specified.
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+myplaceholder:mymodifier=`my options`+]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>
-<b>$output</b> still contains the value "<b>test</b>".
+<strong>$output</strong> still contains the value "<strong>test</strong>".
 </li>
 
 <li>
-<b>$options</b> contains the value "<b>my options</b>".
+<strong>$options</strong> contains the value "<strong>my options</strong>".
 <br />
-----<b>Other variables (advanced users)</b>
+----<strong>Other variables (advanced users)</strong>
 </li>
 
 <li>
-<b>$input</b> contains the original input (starting value).
+<strong>$input</strong> contains the original input (starting value).
 </li>
 
 <li>
-<b>$condition</b> an array containing the elements that make up a conditional statement (<em>0</em>, <em>1</em>, <em>||</em> and <em>&amp;&amp;</em>).
+<strong>$condition</strong> an array containing the elements that make up a conditional statement (<em>0</em>, <em>1</em>, <em>||</em> and <em>&amp;&amp;</em>).
 </li>
 </ul>
 
-<h3>
-<a name="PHx-Creatingacustommodifier" id="PHx-Creatingacustommodifier"></a>Creating a custom modifier
+<h3 id="PHx-Creatingacustommodifier">
+Creating a custom modifier
 </h3>
 
-<h4>
-<a name="PHx-Example%3AIloveMODx"></a>Example: I love MODx
+<h4 id="PHx-Example:IloveMODx">
+Example: I love MODx
 </h4>
 
 <p>
@@ -1034,18 +909,18 @@ With this knowledge we are going to create a new custom modifier. In this exampl
 <li>Click "new snippet"
 </li>
 
-<li>For the snippet name we enter "'<b><em>phx:love'</em></b>" For PHx to know about the custom modifier all snippets created for PHx should be prefixed with "phx:" the string (containing NO spaces) after the prefix will be the actual modifier name. In this case our modifier will be triggered by adding&nbsp;:love to the placeholder like [<ins>+myplaceholder:love</ins>+].
+<li>For the snippet name we enter "'<strong><em>phx:love'</em></strong>" For PHx to know about the custom modifier all snippets created for PHx should be prefixed with "phx:" the string (containing NO spaces) after the prefix will be the actual modifier name. In this case our modifier will be triggered by adding&nbsp;:love to the placeholder like [<ins>+myplaceholder:love</ins>+].
 </li>
 
 <li>Now we are going to enter the modifier code into the snippet code field. For this example we create it like this: &lt;?php $newvalue=$output." because I love MODx"; return $newvalue; ?&gt;
 </li>
 
-<li>Click "Save" and your custom modifier (<b>:love</b>) is ready for use!
+<li>Click "Save" and your custom modifier (<strong>:love</strong>) is ready for use!
 </li>
 </ol>
 
-<h4>
-<a name="PHx-Example%3AIloveMODxevenmore"></a>Example: I love MODx even more
+<h4 id="PHx-Example:IloveMODxevenmore">
+Example: I love MODx even more
 </h4>
 
 <p>
@@ -1062,48 +937,43 @@ Similar to example 1 we are now going to create a modifier that will do the same
 <li>Click "new snippet"
 </li>
 
-<li>For the snippet name we enter "<b>phx:love2</b>" For PHx to know about the custom modifier all snippets created for PHx should be prefixed with "phx:" the string (containing NO spaces) after the prefix will be the actual modifier name. In this case our modifier will be triggered by adding&nbsp;:love to the placeholder like <b>[</b><b><ins>+myplaceholder:love2</ins></b><b>+]</b>.
+<li>For the snippet name we enter "<strong>phx:love2</strong>" For PHx to know about the custom modifier all snippets created for PHx should be prefixed with "phx:" the string (containing NO spaces) after the prefix will be the actual modifier name. In this case our modifier will be triggered by adding&nbsp;:love to the placeholder like <strong>[</strong><strong><ins>+myplaceholder:love2</ins></strong><strong>+]</strong>.
 </li>
 
 <li>Now we are going to enter the modifier code into the snippet code field. For this example we create it like this:
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-$defaultValue = <span class="code-quote">" because I <span class="code-keyword">do</span> love MODx"</span>;
-<span class="code-keyword">if</span> (strlen($options)&gt;0) {
+$defaultValue = " because I do love MODx";
+if (strlen($options)&gt;0) {
 $newvalue = $output . $options;
-} <span class="code-keyword">else</span> {
+} else {
 $newvalue = $output . $defaultValue;
 }
-<span class="code-keyword">return</span> $newvalue;
+return $newvalue;
 ?&gt;
 </pre>
-</div>
-</div>
-
 <ol>
-<li>Click "Save" and your custom modifier (<b>:love2</b>) is ready for use!
+<li>Click "Save" and your custom modifier (<strong>:love2</strong>) is ready for use!
 </li>
 </ol>
 
-<h3>
-<a name="PHx-Contributed" id="PHx-Contributed"></a>Contributed
+<h3 id="PHx-Contributed">
+Contributed
 </h3>
 
 <p>
 Check <a href="/display/ADDON/PHx+Custom+Modifiers" title="PHx Custom Modifiers">PHx/CustomModifiers</a> for a list of custom modifiers you can install.
 </p>
 
-<h2>
-<a name="PHx-TipsandTricks" id="PHx-TipsandTricks"></a>Tips and Tricks
+<h2 id="PHx-TipsandTricks">
+Tips and Tricks
 </h2>
 
-<h3>
-<a name="PHx-UsingPHxinnonphxsnippettemplates" id="PHx-UsingPHxinnonphxsnippettemplates"></a>Using PHx in non-phx snippet templates
+<h3 id="PHx-UsingPHxinnonphxsnippettemplates">
+Using PHx in non-phx snippet templates
 </h3>
 
 <p>
@@ -1111,47 +981,32 @@ Most snippets render their templates "locally" before they are passed to MODx. U
 </p>
 
 <p>
-This example will <b>not</b> work with a non-PHx snippet:
+This example will <strong>not</strong> work with a non-PHx snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+phx:input=`[+myplaceholder+]`:modifier1:modifier2+]
 </pre>
-</div>
-</div>
-
 <p>
 Try this method instead:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+phx:input=`[+myplaceholder+]`:modifier1:modifier2+]
 </pre>
-</div>
-</div>
-
 <p>
 Or:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+phx:input=`[+myplaceholder+]`:modifier1:modifier2+]
 </pre>
-</div>
-</div>
-
 <p>
 This example will work with a non-PHx snippet. Some restrictions may apply depending on the snippet logic.
 </p>
 
-<h2>
-<a name="PHx-TechnicalDocumentation" id="PHx-TechnicalDocumentation"></a>Technical Documentation
+<h2 id="PHx-TechnicalDocumentation">
+Technical Documentation
 </h2>
 
 <p>
@@ -1159,7 +1014,7 @@ This part of the documentation is not intended for the average user but is just 
 </p>
 
 <p>
-PHx makes use of the <b>OnParseDocument</b> (MODx API) event to process the documentOutput. OnParseDocument is triggered before the default MODx elements are processed so PHx is activated on the raw template version of the output and goes trough the following phases:
+PHx makes use of the <strong>OnParseDocument</strong> (MODx API) event to process the documentOutput. OnParseDocument is triggered before the default MODx elements are processed so PHx is activated on the raw template version of the output and goes trough the following phases:
 </p>
 
 <ol>
@@ -1177,7 +1032,7 @@ PHx makes use of the <b>OnParseDocument</b> (MODx API) event to process the docu
 <li>A hash is made of the current content of the document to check for changes in the process later on.
 </li>
 
-<li>Chunks are merged using <b>mergeChunkContent</b> (MODx API).
+<li>Chunks are merged using <strong>mergeChunkContent</strong> (MODx API).
 </li>
 
 <li>Snippets are detected using an advanced regular expression that takes nested tags into account:
@@ -1185,7 +1040,7 @@ PHx makes use of the <b>OnParseDocument</b> (MODx API) event to process the docu
 <li>Snippet calls which contain no nested tags are matched.
 </li>
 
-<li>Each matching call is checked for (non-)cached output, prepared and passed to <b>evalSnippets</b> (MODx API).
+<li>Each matching call is checked for (non-)cached output, prepared and passed to <strong>evalSnippets</strong> (MODx API).
 </li>
 </ol>
 </li>
@@ -1195,10 +1050,10 @@ PHx makes use of the <b>OnParseDocument</b> (MODx API) event to process the docu
 
 <li>The rest of the MODx tags are detected using an advanced regular expression that takes nested tags into account:
 <ol>
-<li>Document/Template Variable output is gathered from <b>mergeDocumentContent</b> (MODx API).
+<li>Document/Template Variable output is gathered from <strong>mergeDocumentContent</strong> (MODx API).
 </li>
 
-<li>Setting Variables output is gathered from <b>mergeSettingsContent</b> (MODx API).
+<li>Setting Variables output is gathered from <strong>mergeSettingsContent</strong> (MODx API).
 </li>
 
 <li>Placeholder output is gathered in the following order PHx, MODx.
@@ -1246,8 +1101,8 @@ PHx makes use of the <b>OnParseDocument</b> (MODx API) event to process the docu
 After the entire PHx logic is through, it's 99% certain that MODx does not have any tags left to parse. You could say that PHx replaces the core function of MODx that handles the merging (with added flexibility by allowing nesting). However, the different types of elements are still processed by the responsible MODx functions.
 </p>
 
-<h2>
-<a name="PHx-Troubleshooting" id="PHx-Troubleshooting"></a>Troubleshooting
+<h2 id="PHx-Troubleshooting">
+Troubleshooting
 </h2>
 
 <p>
@@ -1255,7 +1110,7 @@ If you experience problems with the page loading slowly, this could be cause by 
 </p>
 
 <p>
-Example of a PHx Loop:Page Call: [<ins>+phx:if=`</ins><ins><span class="error">[*shownews*]</span></ins><ins>`:is=`1`:then=`</ins><tt><ins>Chunk</ins></tt><ins>`</ins>+]
+Example of a PHx Loop:Page Call: [<ins>+phx:if=`</ins><ins><span class="error">[*shownews*]</span></ins><ins>`:is=`1`:then=`</ins><code><ins>Chunk</ins></code><ins>`</ins>+]
 <br />
-Chunk Contents: ?[<ins>+phx:if=`</ins><ins><span class="error">[*shownews*]</span></ins><ins>`:is=`1`:then=`</ins><tt><ins>Chunk</ins></tt><ins>`</ins>+]
+Chunk Contents: ?[<ins>+phx:if=`</ins><ins><span class="error">[*shownews*]</span></ins><ins>`:is=`1`:then=`</ins><code><ins>Chunk</ins></code><ins>`</ins>+]
 </p>

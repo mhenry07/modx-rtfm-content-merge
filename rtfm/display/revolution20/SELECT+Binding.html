@@ -1,29 +1,20 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="SELECTBinding-Whatisthe@SELECTBinding%3F"></a>What is the @SELECT Binding?
+<h2 id="SELECTBinding-Whatisthe@SELECTBinding?">
+What is the @SELECT Binding?
 </h2>
 
 <p>
 The @SELECT binding calls a database query based on the provided value and returns the result.
 </p>
 
-<h2>
-<a name="SELECTBinding-Syntax"></a>Syntax
+<h2 id="SELECTBinding-Syntax">
+Syntax
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 @SELECT `pagetitle` AS `name`,`id` FROM `[[+PREFIX]]site_content` WHERE `published` = 1 AND `deleted` = 0
 </pre>
-</div>
-</div>
-
 <p>
-To write one of these, you need to be familiar with <a href="http://dev.mysql.com/doc/refman/5.1/en/" class="external-link" rel="nofollow">MySQL syntax</a>. It is recommended that you first write a functional MySQL statement that executes without error in the MySQL command line (see errors, below for some pit-falls). Once you've verified that your query works, then you can create a @SELECT binding with it.
+To write one of these, you need to be familiar with <a href="http://dev.mysql.com/doc/refman/5.1/en/">MySQL syntax</a>. It is recommended that you first write a functional MySQL statement that executes without error in the MySQL command line (see errors, below for some pit-falls). Once you've verified that your query works, then you can create a @SELECT binding with it.
 </p>
 
 <p>
@@ -53,22 +44,8 @@ You can place this binding in one of two places:
 </li>
 </ul>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 REMEMBER: The query must be on ONE LINE. No returns!
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -79,16 +56,11 @@ You'll need to select only 2 columns - the first being the display value, the se
 For example, to grab a list of active users in a SELECT box:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 @SELECT `username` AS `name`,`id` FROM `[[+PREFIX]]users` WHERE `active` = 1
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="SELECTBinding-Alternatives"></a>Alternatives
+<h2 id="SELECTBinding-Alternatives">
+Alternatives
 </h2>
 
 <p>
@@ -99,8 +71,8 @@ Before we get any more complicated, consider doing this a different way. A <a hr
 If your query needs to work with template variables and you need specialized formatting for the output, the @SELECT binding is probably not the way to go. Pretty much everything that's done with the bindings is also possible with <a href="/display/revolution20/Snippets" title="Snippets">Snippets</a>; the bindings just provide a shortcut. When you start over-using the shortcut, you may run into headaches.
 </p>
 
-<h2>
-<a name="SELECTBinding-HavingablankOption"></a>Having a blank Option
+<h2 id="SELECTBinding-HavingablankOption">
+Having a blank Option
 </h2>
 
 <p>
@@ -111,21 +83,16 @@ Select queries are a great way to power a listbox dropdown, but since they ALWAY
 Consider the following query:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 @SELECT '-none-' AS username, 0 AS id UNION ALL 
 SELECT `username`,`id` FROM `[[+PREFIX]]users` WHERE `active` = 1 ORDER BY username ASC
 </pre>
-</div>
-</div>
-
 <p>
 Just be aware that the sort order here may force your empty option somewhere into the stack instead of keeping it on top. In the above example, a hyphen is used in the username to ensure that it sorts to the top of the list.
 </p>
 
-<h2>
-<a name="SELECTBinding-MoreComplexExample%3ATemplateVariables"></a>More Complex Example: Template Variables
+<h2 id="SELECTBinding-MoreComplexExample:TemplateVariables">
+More Complex Example: Template Variables
 </h2>
 
 <p>
@@ -155,12 +122,10 @@ First, have a look at the following tables (you may have prefixes to your table 
 </ul>
 
 <p>
-In our example, we want to filter based on a custom date field named "opening_date", but if you look closely, the site_tmplvar_contentvalues.value field is a <em>text</em> field. MySQL won't automatically recognize arbitrary text as a date value, so you'll have to make use of MySQL's <a href="http://dev.mysql.com/doc/refman/5.0/en/date-and-time-functions.html#function_str-to-date" class="external-link" rel="nofollow">str_to_date()</a> function. You may think that the site_tmplvars.display_params is a savior here, but it's not... you end up smashing your nose directly into the nasty truth that the formats used by PHP's <a href="http://www.php.net/strftime" class="external-link" rel="nofollow">strftime()</a> (stored in site_tmplvars.display_params) are <b>not</b> the same as what MySQL can use in its STR_TO_DATE() function. There may be a way to automatically do this, but it's easier to just hard-code it. You might end up with a query like this:
+In our example, we want to filter based on a custom date field named "opening_date", but if you look closely, the site_tmplvar_contentvalues.value field is a <em>text</em> field. MySQL won't automatically recognize arbitrary text as a date value, so you'll have to make use of MySQL's <a href="http://dev.mysql.com/doc/refman/5.0/en/date-and-time-functions.html#function_str-to-date">str_to_date()</a> function. You may think that the site_tmplvars.display_params is a savior here, but it's not... you end up smashing your nose directly into the nasty truth that the formats used by PHP's <a href="http://www.php.net/strftime">strftime()</a> (stored in site_tmplvars.display_params) are <strong>not</strong> the same as what MySQL can use in its STR_TO_DATE() function. There may be a way to automatically do this, but it's easier to just hard-code it. You might end up with a query like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 SELECT
         page.alias,
         tv_val.value,
@@ -174,29 +139,12 @@ WHERE
         AND DATE_FORMAT(STR_TO_DATE(tv_val.value, '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s')&gt;'2008-10-24 13:04:57'
 ;
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 MODx uses the MyISAM table engine, not InnoDB, so it does not rigidly enforce the foreign key constraints that are inferred by the table structure.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="SELECTBinding-Errors"></a>Errors
+<h2 id="SELECTBinding-Errors">
+Errors
 </h2>
 
 <p>
@@ -204,7 +152,7 @@ What if your MySQL statement executes perfectly, but once you put it in your SEL
 </p>
 
 <ul>
-<li>Your query <b>MUST</b> appear on one line. Newline characters cause the @SELECT binding to choke.
+<li>Your query <strong>MUST</strong> appear on one line. Newline characters cause the @SELECT binding to choke.
 </li>
 
 <li>Delete all MySQL comments /* this style */ and -- this style
@@ -214,24 +162,24 @@ What if your MySQL statement executes perfectly, but once you put it in your SEL
 </li>
 </ul>
 
-<h2>
-<a name="SELECTBinding-NextStep%3AFormatting"></a>Next Step: Formatting
+<h2 id="SELECTBinding-NextStep:Formatting">
+Next Step: Formatting
 </h2>
 
 <p>
 Ok, so you can return a bunch of data from the database... now what? If you need to format it intelligently, you might get some mileage out of the Output Renders, but you might find the available options limiting to you. You can write your own <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> that formats the value of a Template Variable.
 </p>
 
-<h2>
-<a name="SELECTBinding-Security"></a>Security
+<h2 id="SELECTBinding-Security">
+Security
 </h2>
 
 <p>
-Does this binding let you execute UPDATE, INSERT, or DELETE queries (or, <b>gasp</b>, DROP TABLE statements)? Even if it doesn't <em>directly</em> support this, you may be able to construct and execute a complex query that SELECT's the result of a such a destructive query. At the very least, a user could construct a query to select another user's password hash or to see documents that the user isn't supposed to have access to. A lot of the CMS's out there give <b>full</b> access to the database (including DROP and DELETE statements) with the database handle used by the application. That's dangerous, and the @SELECT binding may expose some of those same vulnerabilities.
+Does this binding let you execute UPDATE, INSERT, or DELETE queries (or, <strong>gasp</strong>, DROP TABLE statements)? Even if it doesn't <em>directly</em> support this, you may be able to construct and execute a complex query that SELECT's the result of a such a destructive query. At the very least, a user could construct a query to select another user's password hash or to see documents that the user isn't supposed to have access to. A lot of the CMS's out there give <strong>full</strong> access to the database (including DROP and DELETE statements) with the database handle used by the application. That's dangerous, and the @SELECT binding may expose some of those same vulnerabilities.
 </p>
 
-<h2>
-<a name="SELECTBinding-SeeAlso"></a>See Also
+<h2 id="SELECTBinding-SeeAlso">
+See Also
 </h2>
 
 <ul>

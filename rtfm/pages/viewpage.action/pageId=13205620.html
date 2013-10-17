@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,50 +13,35 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMS%2BWayfinder-HowcanWayfinderbemadetoworkwithYAMS%3F"></a>How can Wayfinder be made to work with YAMS?
+<h1 id="YAMS+Wayfinder-HowcanWayfinderbemadetoworkwithYAMS?">
+How can Wayfinder be made to work with YAMS?
 </h1>
 
-<h2>
-<a name="YAMS%2BWayfinder-StandardWayfinderTemplates"></a>Standard Wayfinder Templates
+<h2 id="YAMS+Wayfinder-StandardWayfinderTemplates">
+Standard Wayfinder Templates
 </h2>
 
 <p>
 Multilingual versions of the default Wayfinder templates are available, which will display the output in the correct language for the current page. To reproduce the default Wayfinder behaviour the following multilingual template parameter must be added to the Wayfinder call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &amp;rowTpl=`@FILE:assets/modules/yams/tpl/wayfinder/docr/row.tpl`
 </pre>
-</div>
-</div>
-
 <p>
 The Wayfinder &amp;useWeblinkUrl parameter will not do anything when using the YAMS Wayfinder templates. To avoid resolving weblinks, or to improve efficiency of the Wayfinder call when not using weblinks, it is necessary to use the doc version of the template instead:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &amp;rowTpl=`@FILE:assets/modules/yams/tpl/wayfinder/doc/row.tpl`
 </pre>
-</div>
-</div>
-
 <p>
 When setting the &amp;displayStart parameter to TRUE, it will also be necessary to add the following parameter to the Wayfinder call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &amp;startItemTpl=`@FILE:assets/modules/yams/tpl/wayfinder/mode/startitem.tpl`
 </pre>
-</div>
-</div>
-
 <p>
 where mode is doc or docr.
 </p>
@@ -65,20 +50,15 @@ where mode is doc or docr.
 The full list of multilingual Wayfinder templates available are as follows:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &amp;rowTpl=`@FILE:assets/modules/yams/tpl/wayfinder/mode/row.tpl` &amp;parentRowHereTpl=`@FILE:assets/modules/yams/tpl/wayfinder/mode/parentrowhere.tpl` &amp;parentRowTpl=`@FILE:assets/modules/yams/tpl/wayfinder/mode/parentrow.tpl` &amp;hereTpl=`@FILE:assets/modules/yams/tpl/wayfinder/mode/here.tpl` &amp;innerRowTpl=`@FILE:assets/modules/yams/tpl/wayfinder/mode/innerrow.tpl` &amp;innerHereTpl=`@FILE:assets/modules/yams/tpl/wayfinder/mode/innerhere.tpl` &amp;activeParentRowTpl=`@FILE:assets/modules/yams/tpl/wayfinder/mode/activeparentrow.tpl` &amp;categoryFoldersTpl=`@FILE:assets/modules/yams/tpl/wayfinder/mode/categoryfolders.tpl` &amp;startItemTpl=`@FILE:assets/modules/yams/tpl/wayfinder/mode/startitem.tpl`
 </pre>
-</div>
-</div>
-
 <p>
 where once again, mode is doc or docr.
 </p>
 
-<h2>
-<a name="YAMS%2BWayfinder-CustomWayfinderTemplates"></a><a name="YAMS%2BWayfinder-CustomTemplates"></a>Custom Wayfinder Templates
+<h2 id="YAMS+Wayfinder-CustomWayfinderTemplates">
+<a name="YAMS%2BWayfinder-CustomTemplates"></a>Custom Wayfinder Templates
 </h2>
 
 <p>
@@ -87,78 +67,48 @@ Custom Wayfinder templates need to be modified to generate multilingual output. 
 
 <ol>
 <li>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+wf.link+]
 </pre>
-</div>
-</div>
-
 <p>
 should be replaced by
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 (yams_docr:[+wf.docid+])
 </pre>
-</div>
-</div>
-
 <p>
 This will ensure that multilingual URLs are used and will resolve all weblink URLs to their final destination. If weblink URLs should be output directly rather than being resolved, then (yams_doc:[+wf.docid+]) can be used instead.
 </p>
 </li>
 
 <li>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+wf.title+]
 </pre>
-</div>
-</div>
-
 <p>
 should be replaced by
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[YAMS? &amp;get=`data` &amp;from=`pagetitle` &amp;docid=`[+wf.docid+]`]]
 </pre>
-</div>
-</div>
-
 <p>
 This will output the correct pagetitle language variant for the hover text of the menu links. pagetitle can be replaced by menutitle, longtitle or any of the other standard document variable fields.
 </p>
 </li>
 
 <li>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+wf.linktext+]
 </pre>
-</div>
-</div>
-
 <p>
 should be replaced by
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[YAMS? &amp;get=`data` &amp;from=`menutitle` &amp;docid=`[+wf.docid+]`]]
 </pre>
-</div>
-</div>
-
 <p>
 This will output the correct menutitle language variant for the text of the menu links. menutitle can be replaced by pagetitle, longtitle or any of the other standard document variable fields.
 </p>

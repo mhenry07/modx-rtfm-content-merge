@@ -1,59 +1,46 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Caching-HowisCachingDoneinRevolution%3F'>How is Caching Done in Revolution?</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Caching-HowisCachingDoneinRevolution%3F">How is Caching Done in Revolution?</a>
 <ul>
 <li>
-<a href='#Caching-SystemSettingsCache'>System Settings Cache</a>
+<a href="#Caching-SystemSettingsCache">System Settings Cache</a>
 </li>
 
 <li>
-<a href='#Caching-ContextSettingsCache'>Context Settings Cache</a>
+<a href="#Caching-ContextSettingsCache">Context Settings Cache</a>
 </li>
 
 <li>
-<a href='#Caching-Resource%28PartialPage%29Cache'>Resource (Partial-Page) Cache</a>
+<a href="#Caching-Resource%28PartialPage%29Cache">Resource (Partial-Page) Cache</a>
 </li>
 
 <li>
-<a href='#Caching-ElementCache'>Element Cache</a>
+<a href="#Caching-ElementCache">Element Cache</a>
 </li>
 
 <li>
-<a href='#Caching-DatabaseCache'>Database Cache</a>
+<a href="#Caching-DatabaseCache">Database Cache</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Caching-ProgrammaticCaching'>Programmatic Caching</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Caching-ProgrammaticCaching">Programmatic Caching</a>
 <ul>
 <li>
-<a href='#Caching-UsingmodCacheManager'>Using modCacheManager</a>
+<a href="#Caching-UsingmodCacheManager">Using modCacheManager</a>
 </li>
 
 <li>
-<a href='#Caching-RefreshingtheMODXCache'>Refreshing the MODX Cache</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Caching-RefreshingtheMODXCache">Refreshing the MODX Cache</a>
 <ul>
 <li>
-<a href='#Caching-UsingmodCacheManager%3A%3Arefresh%28%29%28forMODX2.1andlater%29'>Using modCacheManager::refresh() (for MODX 2.1 and later)</a>
+<a href="#Caching-UsingmodCacheManager%3A%3Arefresh%28%29%28forMODX2.1andlater%29">Using modCacheManager::refresh() (for MODX 2.1 and later)</a>
 </li>
 
 <li>
-<a href='#Caching-UsingmodCacheManager%3A%3AclearCache%28%29%28forMODX2.0.xonly%29'>Using modCacheManager::clearCache() (for MODX 2.0.x only)</a>
+<a href="#Caching-UsingmodCacheManager%3A%3AclearCache%28%29%28forMODX2.0.xonly%29">Using modCacheManager::clearCache() (for MODX 2.0.x only)</a>
 </li>
 </ul>
 </li>
@@ -61,7 +48,7 @@
 </li>
 
 <li>
-<a href='#Caching-SeeAlso'>See Also</a>
+<a href="#Caching-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -70,8 +57,8 @@
 There are many different caching features in Revolution. Different aspects of the caching can be extended with user-defined classes, so it is possible to implement different kinds of features in custom component cache mechanisms (i.e. where you cache your own custom data), configure the default cache settings or settings for specific partitions of the core cache, or even extend/override the behavior of all core caching mechanisms by providing your own derivative implementation of <span class="error">[modCacheManager]</span>.
 </p>
 
-<h2>
-<a name="Caching-HowisCachingDoneinRevolution%3F"></a>How is Caching Done in Revolution?
+<h2 id="Caching-HowisCachingDoneinRevolution?">
+How is Caching Done in Revolution?
 </h2>
 
 <p>
@@ -82,369 +69,175 @@ Revolution isolates different portions of it's core caching into partitions that
 First, lets take a look at all of the partitions that are available by default in the core of MODX Revolution.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>MODX_CONFIG_KEY</b>
+<div class="note">
+<strong>MODX_CONFIG_KEY</strong>
 <br />
 If you are using a custom MODX_CONFIG_KEY (i.e. a value other than 'config'), the cache files for that configuration will be in a subdirectory named after the value of MODX_CONFIG_KEY.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="Caching-SystemSettingsCache"></a>System Settings Cache
+<h3 id="Caching-SystemSettingsCache">
+System Settings Cache
 </h3>
 
 <p>
 A collection of the global MODX configuration options, known as System Settings, is the first cache partition loaded by any request to MODX.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.0.x</b>
+<div class="info">
+<strong>2.0.x</strong>
 <br />
-In MODX 2.0.x releases this is cached to file in the root of the cache directory for the configuration, i.e. <tt>core/cache/config.cache.php</tt>, by default.
-</td>
-</tr>
-</table>
+In MODX 2.0.x releases this is cached to file in the root of the cache directory for the configuration, i.e. <code>core/cache/config.cache.php</code>, by default.
 </div>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.1+</b>
+<div class="info">
+<strong>2.1+</strong>
 <br />
-In MODX 2.1 and later releases, the <tt>config.cache.php</tt> file is located in a subdirectory based on the partition name. In this case it would be <tt>system_settings</tt> which is the default <tt>cache_key</tt> option defined for this partition.
-</td>
-</tr>
-</table>
+In MODX 2.1 and later releases, the <code>config.cache.php</code> file is located in a subdirectory based on the partition name. In this case it would be <code>system_settings</code> which is the default <code>cache_key</code> option defined for this partition.
 </div>
 
-<h3>
-<a name="Caching-ContextSettingsCache"></a>Context Settings Cache
+<h3 id="Caching-ContextSettingsCache">
+Context Settings Cache
 </h3>
 
 <p>
 This partition contains the configuration options for a specific Context, maps of the Resources and URI's that represent those Resources in the Context, along with a Plugin event map for the Context, and the source of the Plugin Elements that are registered in that event map.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.0.x</b>
+<div class="info">
+<strong>2.0.x</strong>
 <br />
 In MODX 2.0.x, there is a subdirectory of the cache for each Context (i.e. web/ or mgr/) where you will find the context.cache.php file.
-</td>
-</tr>
-</table>
 </div>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.1+</b>
+<div class="info">
+<strong>2.1+</strong>
 <br />
-In MODX 2.1 and later, the files are further isolated into a subdirectory for the partition, named <tt>context_settings</tt> by default.
-</td>
-</tr>
-</table>
+In MODX 2.1 and later, the files are further isolated into a subdirectory for the partition, named <code>context_settings</code> by default.
 </div>
 
-<h3>
-<a name="Caching-Resource%28PartialPage%29Cache"></a>Resource (Partial-Page) Cache
+<h3 id="Caching-Resource(PartialPage)Cache">
+Resource (Partial-Page) Cache
 </h3>
 
 <p>
-The <tt>resource</tt> cache partition contains the partial-page caching assets for each cacheable Resource. The cache items in this partition contain a cacheable representation of the Resource object as well as representations of any cacheable Element output or other cacheable metadata used by the Resource.
+The <code>resource</code> cache partition contains the partial-page caching assets for each cacheable Resource. The cache items in this partition contain a cacheable representation of the Resource object as well as representations of any cacheable Element output or other cacheable metadata used by the Resource.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.0.x</b>
+<div class="info">
+<strong>2.0.x</strong>
 <br />
 In MODX 2.0.x, these cache items are located in the same Context-specific directories as the Context Settings. in a subdirectory called resources/ you will find files named 1.cache.php where the 1 represents the id of the cached Resource.
-</td>
-</tr>
-</table>
 </div>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.1+</b>
+<div class="info">
+<strong>2.1+</strong>
 <br />
-In MODX 2.1 or later, these cache items are organized into Context-specific subdirectories underneath a directory named after the partition, which is <tt>resource</tt> by default.
-</td>
-</tr>
-</table>
+In MODX 2.1 or later, these cache items are organized into Context-specific subdirectories underneath a directory named after the partition, which is <code>resource</code> by default.
 </div>
 
-<h3>
-<a name="Caching-ElementCache"></a>Element Cache
+<h3 id="Caching-ElementCache">
+Element Cache
 </h3>
 
 <p>
 Elements that represent PHP scripts (see <span class="error">[modScript]</span> for more information) cache both a representation of the object and an includable copy of the global function which is executed when the script is processed.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.0.x</b>
+<div class="info">
+<strong>2.0.x</strong>
 <br />
 In MODX 2.0.x, these cache items are stored in an elements subdirectory of the cache, within additional subdirectories for class (i.e. modsnippet or modplugin). Both the object and include file are stored in the same directory as 1.cache.php and 1.include.cache.php where 1 is the id of the Element.
-</td>
-</tr>
-</table>
 </div>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.1+</b>
+<div class="info">
+<strong>2.1+</strong>
 <br />
-In MODX 2.1 and later, this partition is named <tt>scripts</tt> by default, while the includes are isolated into a separate subdirectory called includes. Both the scripts and includes are then further organized into an elements subdirectory with subdirectories for each class (i.e. modsnippet or modplugin).
-</td>
-</tr>
-</table>
+In MODX 2.1 and later, this partition is named <code>scripts</code> by default, while the includes are isolated into a separate subdirectory called includes. Both the scripts and includes are then further organized into an elements subdirectory with subdirectories for each class (i.e. modsnippet or modplugin).
 </div>
 
-<h3>
-<a name="Caching-DatabaseCache"></a>Database Cache
+<h3 id="Caching-DatabaseCache">
+Database Cache
 </h3>
 
 <p>
 If you enable this, MODX can automatically cache database result sets fetched by any xPDOCriteria or xPDOQuery instance. This includes all of the result sets representing xPDOObjects or collections of xPDOObjects returned by methods like getObject and getCollection. This feature can be enabled in environments where database access is more expensive than PHP include time, for instance, when using an external database server, or custom configured for environments with memcached, APC, or other caching systems available. This is again a separate partition from all of the other cache partitions in MODX, most of which are more specific to MODX operations than this one. See <a href="/display/xPDO20/Caching" title="Caching">xPDO Caching</a> for additional information.
 </p>
 
-<h2>
-<a name="Caching-ProgrammaticCaching"></a>Programmatic Caching
+<h2 id="Caching-ProgrammaticCaching">
+Programmatic Caching
 </h2>
 
 <p>
 xPDOCacheManager, and the MODX-specific modCacheManager class derived from it, provide some useful features for caching any kind of data to just about any cache system. xPDO includes implementations for file-based, memcached, APC, and WinCache out of the box. There is no tagging feature here as in the programmatic features of the Zend_Cache library, but you can clear specific partitions, or even just parts of a partition in certain implementations.
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Clearing by Key Prefix</b>
+<div class="warning">
+<strong>Clearing by Key Prefix</strong>
 <br />
 Most cache implementations provide a way to delete specific cache items by regular expressions or key hierarchy, but some, like memcached, do not support this. Providers that do not support this will flush the entire instance (this could include all partitions as well since some providers only allow a single instance) whenever you attempt to delete just specific keys by pattern.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="Caching-UsingmodCacheManager"></a>Using modCacheManager
+<h3 id="Caching-UsingmodCacheManager">
+Using modCacheManager
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 /* write some data to a variable */
 $colors = array('red','blue','green');
-/* store the variable as a cache item named 'colors' in the <span class="code-keyword">default</span> cache provider */
+/* store the variable as a cache item named 'colors' in the default cache provider */
 $modx-&gt;cacheManager-&gt;set('colors',$colors);
 
 /* get that data */
 $colors = $modx-&gt;cacheManager-&gt;get('colors');
 foreach ($colors as $color) {
    echo $color.'-';
-} /* <span class="code-keyword">this</span> echoes 'red-blue-green' */ 
+} /* this echoes 'red-blue-green' */ 
 ?&gt;
 </pre>
-</div>
-</div>
-
 <p>
 You can optionally set an expiration time on individual cache items:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $str = 'My test cached data.';
 $modx-&gt;cacheManager-&gt;set('testdata',$str,7200);
-/* <span class="code-keyword">this</span> caches the data <span class="code-keyword">for</span> 2 hours. */
+/* this caches the data for 2 hours. */
 </pre>
-</div>
-</div>
-
 <p>
 Once an item is past it's expiration time, it is not available and next access removes any trace of the cached item.
 </p>
 
-<h3>
-<a name="Caching-RefreshingtheMODXCache"></a>Refreshing the MODX Cache
+<h3 id="Caching-RefreshingtheMODXCache">
+Refreshing the MODX Cache
 </h3>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Major Change in 2.1</b>
+<div class="note">
+<strong>Major Change in 2.1</strong>
 <br />
 In MODX 2.1 and later, the cache is refreshed instead of cleared and the clearCache() method is deprecated in favor of the new refresh() method. This is an important distinction and one that deserves a better explanation. In particular, the System and Context Settings Cache items are never deleted, only replaced. This transfers the overhead of cache regeneration from the database to the request which is requesting the action, rather than the next request that needs that information. Since this is generally a request in the manager, this greatly improves the apparent performance of the front-end requests since they rarely have to wait for the regeneration activity to complete themselves.
-</td>
-</tr>
-</table>
 </div>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.0.x</b>
+<div class="note">
+<strong>2.0.x</strong>
 <br />
 MODX 2.0.x users, see the examples under Using modCacheManager::clearCache() at the bottom.
-</td>
-</tr>
-</table>
 </div>
 
-<h4>
-<a name="Caching-UsingmodCacheManager%3A%3Arefresh%28%29%28forMODX2.1andlater%29"></a>Using modCacheManager::refresh() (for MODX 2.1 and later)
+<h4 id="Caching-UsingmodCacheManager::refresh()(forMODX2.1andlater)">
+Using modCacheManager::refresh() (for MODX 2.1 and later)
 </h4>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>2.1+</b>
+<div class="info">
+<strong>2.1+</strong>
 <br />
 This method is only available in MODX 2.1 or later. See Using modCacheManager::clearCache() below for previous releases.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Here are some examples of using modCacheManager-&gt;refresh() to refresh various parts of the cache:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 /* refresh all the core partitions */
 $modx-&gt;cacheManager-&gt;refresh();
 
@@ -455,12 +248,12 @@ $modx-&gt;cacheManager-&gt;refresh(array(
 
 /* get all the Contexts */
 $contexts = array();
-$query = $<span class="code-keyword">this</span>-&gt;xpdo-&gt;newQuery('modContext');
-$query-&gt;select($<span class="code-keyword">this</span>-&gt;xpdo-&gt;escape('key'));
-<span class="code-keyword">if</span> ($query-&gt;prepare() &amp;&amp; $query-&gt;stmt-&gt;execute()) {
+$query = $this-&gt;xpdo-&gt;newQuery('modContext');
+$query-&gt;select($this-&gt;xpdo-&gt;escape('key'));
+if ($query-&gt;prepare() &amp;&amp; $query-&gt;stmt-&gt;execute()) {
     $contexts = $query-&gt;stmt-&gt;fetchAll(PDO::FETCH_COLUMN);
 }
-/* refresh the <span class="code-keyword">default</span> partitions in the <span class="code-keyword">default</span> order, excluding the mgr Context */
+/* refresh the default partitions in the default order, excluding the mgr Context */
 $results = array();
 $modx-&gt;cacheManager-&gt;refresh(array(
     'auto_publish' =&gt; array('contexts' =&gt; array_diff($contexts, array('mgr'))),
@@ -468,7 +261,7 @@ $modx-&gt;cacheManager-&gt;refresh(array(
     'context_settings' =&gt; array('contexts' =&gt; $contexts),
     'db' =&gt; array(),
     'scripts' =&gt; array(),
-    '<span class="code-keyword">default</span>' =&gt; array(),
+    'default' =&gt; array(),
     'resource' =&gt; array('contexts' =&gt; array_diff($contexts, array('mgr'))),
     'menu' =&gt; array(),
     'action_map' =&gt; array(),
@@ -477,61 +270,39 @@ $modx-&gt;cacheManager-&gt;refresh(array(
 /* var_dump the results collected from the refresh operation on each partition */
 var_dump($results);
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="Caching-UsingmodCacheManager%3A%3AclearCache%28%29%28forMODX2.0.xonly%29"></a>Using modCacheManager::clearCache() (for MODX 2.0.x only)
+<h4 id="Caching-UsingmodCacheManager::clearCache()(forMODX2.0.xonly)">
+Using modCacheManager::clearCache() (for MODX 2.0.x only)
 </h4>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Deprecated in 2.1</b>
+<div class="warning">
+<strong>Deprecated in 2.1</strong>
 <br />
 This method is deprecated in MODX 2.1 and will not be available starting in version 2.2.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Here are some examples of using modCacheManager-&gt;clearCache():
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// clear all the usual stuff by <span class="code-keyword">default</span> (all files with the extension .cache.php
-</span><span class="code-comment">// in the cachePath + all object caches)
-</span>$modx-&gt;cacheManager-&gt;clearCache();
+<pre class="brush: php">
+// clear all the usual stuff by default (all files with the extension .cache.php
+// in the cachePath + all object caches)
+$modx-&gt;cacheManager-&gt;clearCache();
 
-<span class="code-comment">// clear only cache files with extension .php or .log in the web/ custom/
-</span><span class="code-comment">// or logs/ paths; no objects are cleared
-</span>$paths = array('web/', 'custom/', 'logs/');
-$options = array('objects' =&gt; <span class="code-keyword">null</span>, 'extensions' =&gt; array('.php', '.log'));
+// clear only cache files with extension .php or .log in the web/ custom/
+// or logs/ paths; no objects are cleared
+$paths = array('web/', 'custom/', 'logs/');
+$options = array('objects' =&gt; null, 'extensions' =&gt; array('.php', '.log'));
 $modx-&gt;cacheManager-&gt;clearCache($paths, $options);
 
-<span class="code-comment">// clear all cache files with extension .php in the cachePath
-</span><span class="code-comment">// + all objects + execute the timed publishing checks
-</span>$paths = array('');
-$options = array('objects' =&gt; '*', 'publishing' =&gt; <span class="code-keyword">true</span>, 'extensions' =&gt; array('.php'));
+// clear all cache files with extension .php in the cachePath
+// + all objects + execute the timed publishing checks
+$paths = array('');
+$options = array('objects' =&gt; '*', 'publishing' =&gt; true, 'extensions' =&gt; array('.php'));
 $modx-&gt;cacheManager-&gt;clearCache($paths, $options);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Caching-SeeAlso"></a>See Also
+<h2 id="Caching-SeeAlso">
+See Also
 </h2>
 
 <ul>
@@ -543,3 +314,11 @@ $modx-&gt;cacheManager-&gt;clearCache($paths, $options);
 <a href="/display/xPDO20/xPDOCacheManager" title="xPDOCacheManager">xPDOCacheManager</a>
 </li>
 </ul>
+
+<p>
+Created a little tutorial on how to get started when you want to use this with your own component and you want the cache not only to be cleared by your component, but with the site's Clear Cache function as well.
+</p>
+
+<p>
+<a href="http://modxcms.com/forums/index.php/topic,67496.new.html">http://modxcms.com/forums/index.php/topic,67496.new.html</a>
+</p>

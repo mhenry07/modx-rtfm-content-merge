@@ -6,8 +6,8 @@
 In the template basics article, we saw a very basic template that didn't do much. Let's add a few [<a href="/display/MODx096/MODx+Tags" title="MODx Tags">MODx Tags</a>] to it and see it come alive.
 </p>
 
-<h3>
-<a name="AddingMODxTags-InternalMODxTags" id="AddingMODxTags-InternalMODxTags"></a>Internal MODx Tags
+<h3 id="AddingMODxTags-InternalMODxTags">
+Internal MODx Tags
 </h3>
 
 <p>
@@ -18,14 +18,9 @@ This document will focus on using internal [<a href="/display/MODx096/MODx+Tags"
 To begin with, we can personalize the page's title with our site's name and the name of the page:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;title&gt;</span>[(site_name)] - [*pagetitle*]<span class="code-tag">&lt;/title&gt;</span>
+<pre class="brush: html">
+&lt;title&gt;[(site_name)] - [*pagetitle*]&lt;/title&gt;
 </pre>
-</div>
-</div>
-
 <p>
 These tags in the head of your template will display something like "MODx Content Management System - Adding MODx Tags" in the title bar of the browser.
 </p>
@@ -38,29 +33,19 @@ The "site_name" is taken from the name that was configured for your site in the 
 The next thing we want to do is have the document's content appear in the main part of our page. Add the
 </p>
 
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
 <pre>
 [*content*]
 </pre>
-</div>
-</div>
-
 <p>
 tag where the content should appear:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;div id=<span class="code-quote">"content"</span>&gt;</span>
-  <span class="code-tag">&lt;h1&gt;</span>[*longtitle*]<span class="code-tag">&lt;/h1&gt;</span>
+<pre class="brush: html">
+&lt;div id="content"&gt;
+  &lt;h1&gt;[*longtitle*]&lt;/h1&gt;
   [*content*]
-<span class="code-tag">&lt;/div&gt;</span>
+&lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 You will also see that the "longtitle" was added before the "content", so every page will have a customized subheading. The "longtitle" is taken from the Long Title field when you created the document. The "content" is the text you entered in the Document content editor when you created the document.
 </p>
@@ -69,14 +54,9 @@ You will also see that the "longtitle" was added before the "content", so every 
 And finally, in the footer, you may want to have your site's name and email address:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;div id=<span class="code-quote">"footer"</span>&gt;</span>Copyright © <span class="code-tag">&lt;a href=<span class="code-quote">"mailto:[(emailsender)]"</span>&gt;</span>[(site_name)]<span class="code-tag">&lt;/a&gt;</span> 2005<span class="code-tag">&lt;/div&gt;</span>
+<pre class="brush: html">
+&lt;div id="footer"&gt;Copyright © &lt;a href="mailto:[(emailsender)]"&gt;[(site_name)]&lt;/a&gt; 2005&lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Both of these values are taken from the database and were set in the System Configuration menu.
 </p>

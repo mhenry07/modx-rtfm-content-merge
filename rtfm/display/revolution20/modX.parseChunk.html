@@ -1,63 +1,35 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modX.parseChunk-modX%3A%3AparseChunk"></a>modX::parseChunk
+<h2 id="modX.parseChunk-modX::parseChunk">
+modX::parseChunk
 </h2>
 
 <p>
 Parse a chunk using an associative array of replacement variables.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>parseChunk</b> simply does a str_replace on the values in the associative array you pass it, so you cannot use Output Filters or other complex placeholder modifiers here. If you require more functionality from the parser, see <a href="/display/revolution20/modX.getChunk" title="modX.getChunk">modX.getChunk</a> instead.
-</td>
-</tr>
-</table>
+<div class="info">
+<strong>parseChunk</strong> simply does a str_replace on the values in the associative array you pass it, so you cannot use Output Filters or other complex placeholder modifiers here. If you require more functionality from the parser, see <a href="/display/revolution20/modX.getChunk" title="modX.getChunk">modX.getChunk</a> instead.
 </div>
 
-<h2>
-<a name="modX.parseChunk-Syntax"></a>Syntax
+<h2 id="modX.parseChunk-Syntax">
+Syntax
 </h2>
 
 <p>
-API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::parseChunk()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::parseChunk()</a>
+API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::parseChunk()">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::parseChunk()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 string parseChunk (string $chunkName, array $chunkArr, [string $prefix = '[[+'], [string $suffix = ']]'])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.parseChunk-Example"></a>Example
+<h2 id="modX.parseChunk-Example">
+Example
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $output = $modx-&gt;parseChunk('myChunk',array('name' =&gt; 'John'));
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.parseChunk-SeeAlso"></a>See Also
+<h2 id="modX.parseChunk-SeeAlso">
+See Also
 </h2>
 
 <ul>

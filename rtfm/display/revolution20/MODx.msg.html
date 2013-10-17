@@ -1,31 +1,27 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="MODx.msg-MODx.msg" id="MODx.msg-MODx.msg"></a>MODx.msg
+<h2 id="MODx.msg-MODx.msg">
+MODx.msg
 </h2>
 
 <p>
-<b>Extends:</b> Ext.Component
+<strong>Extends:</strong> Ext.Component
 <br />
-<b>Key Features:</b> AJAX connector features.
+<strong>Key Features:</strong> AJAX connector features.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678080/confirm.png?version=1&amp;modificationDate=1302195122000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678080/confirm.png?version=1&amp;modificationDate=1302195122000" />
 </p>
 
 <p>
 The MODx.msg class provides the functionality of the Ext.MessageBox class, with the added benefit of using an AJAX callback function (for confirmation dialogs). Simply provide a URL and optional parameters and a connector request will be sent after the user confirms the prompt. It defaults to a minimum width of 200px.
 </p>
 
-<h2>
-<a name="MODx.msg-Methods" id="MODx.msg-Methods"></a>Methods
+<h2 id="MODx.msg-Methods">
+Methods
 </h2>
 
-<h3>
-<a name="MODx.msg-alert" id="MODx.msg-alert"></a>alert
+<h3 id="MODx.msg-alert">
+alert
 </h3>
 
 <blockquote>
@@ -38,18 +34,13 @@ MODx.msg.alert(title,text,fn,scope)
 Used to display an alert dialog box on the page. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 MODx.msg.alert('Warning!','You are out of space! We should clear the cache.',function() {
   MODx.clearCache();
 },MODx);
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="MODx.msg-confirm" id="MODx.msg-confirm"></a>confirm
+<h3 id="MODx.msg-confirm">
+confirm
 </h3>
 
 <blockquote>
@@ -62,229 +53,211 @@ MODx.msg.confirm(config)
 Loads a confirmation dialog that prompts the user for a Yes/No response. If Yes is selected, fires an AJAX request to a specific connector. The properties for the config parameter are:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 title
 </td>
-<td class='confluenceTd'>
+<td>
 The title of the confirmation box.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 text
 </td>
-<td class='confluenceTd'>
+<td>
 The text in the confirmation box.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 url
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to send the AJAX request to.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 params
 </td>
-<td class='confluenceTd'>
+<td>
 The REQUEST params to send with the AJAX request.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 listeners
 </td>
-<td class='confluenceTd'>
+<td>
 Any listeners to look for on the request.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 An example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 MODx.msg.confirm({
    title: 'Are you sure?',
    text: 'Do you want to delete the world? This is irreversible.',
-   url: 'http:<span class="code-comment">//<span class="code-keyword">rest</span>.endofdays.com/armageddon/',
-</span>   params: {
-      deleteWorld: <span class="code-keyword">true</span>
+   url: 'http://rest.endofdays.com/armageddon/',
+   params: {
+      deleteWorld: true
    },
    listeners: {
         'success':{fn: function(r) {
              MODx.clearCache(); /* clear cache after world destruction, so we dont have latent data */
-        },scope:<span class="code-keyword">true</span>}
+        },scope:true}
    }
 });
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="MODx.msg-MODx.msg.confirmCustomEvents" id="MODx.msg-MODx.msg.confirmCustomEvents"></a>MODx.msg.confirm Custom Events
+<h4 id="MODx.msg-MODx.msg.confirmCustomEvents">
+MODx.msg.confirm Custom Events
 </h4>
 
 <p>
 MODx.msg.confirm adds a few custom events that fire:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 success
 </td>
-<td class='confluenceTd'>
+<td>
 Fires on a successful response from the AJAX submission.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 failure
 </td>
-<td class='confluenceTd'>
+<td>
 Fires on a failed response from the AJAX submission.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cancel
 </td>
-<td class='confluenceTd'>
+<td>
 Fires when the user cancels the confirmation dialog.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="MODx.msg-status" id="MODx.msg-status"></a>status
+<h3 id="MODx.msg-status">
+status
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 MODx.msg.status(opt)
 </pre>
-</div>
-</div>
-
 <p>
 Loads a temporary status message in the top-right of the screen, that fades away. The properties for the opt parameter are:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 title
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. The title of the message.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 message
 </td>
-<td class='confluenceTd'>
+<td>
 The text of the status message.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dontHide
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will not automatically hide the status message. Will stay until it is clicked.
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 delay
 </td>
-<td class='confluenceTd'>
+<td>
 The number of seconds to show the message.
 </td>
-<td class='confluenceTd'>
+<td>
 1.5
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 You could use this in custom manager pages to provide confirmation your object was saved. You could add something like this to your FormPanel definition:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
         listeners: {
             'success': function (res) {
                 MODx.msg.status({
@@ -295,27 +268,81 @@ You could use this in custom manager pages to provide confirmation your object w
             }
         }
 </pre>
-</div>
-</div>
-
 <p>
 The 'success' listener is part of modExt and comes with <a href="/display/revolution20/MODx.FormPanel" title="MODx.FormPanel">MODx.FormPanel</a>.
 </p>
 
-<h2>
-<a name="MODx.msg-SeeAlso" id="MODx.msg-SeeAlso"></a>See Also
+<h2 id="MODx.msg-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/MODExt+MODx+Object">MODExt MODx Object</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678080" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678078" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FMODx.msg" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678078" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/MODExt+Tutorials">MODExt Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/1.+Ext+JS+Tutorial+-+Message+Boxes">1. Ext JS Tutorial - Message Boxes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/2.+Ext+JS+Tutorial+-+Ajax+Include">2. Ext JS Tutorial - Ajax Include</a>
+</li>
+
+<li>
+<a href="/display/revolution20/3.+Ext+JS+Tutorial+-+Animation">3. Ext JS Tutorial - Animation</a>
+</li>
+
+<li>
+<a href="/display/revolution20/4.+Ext+JS+Tutorial+-+Manipulating+Nodes">4. Ext JS Tutorial - Manipulating Nodes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/5.+Ext+JS+Tutorial+-+Panels">5. Ext JS Tutorial - Panels</a>
+</li>
+
+<li>
+<a href="/display/revolution20/7.+Ext+JS+Tutoral+-+Advanced+Grid">7. Ext JS Tutoral - Advanced Grid</a>
+</li>
+
+<li>
+<a href="/display/revolution20/8.+Ext+JS+Tutorial+-+Inside+a+CMP">8. Ext JS Tutorial - Inside a CMP</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.combo.ComboBox">MODx.combo.ComboBox</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.Console">MODx.Console</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.FormPanel">MODx.FormPanel</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.grid.Grid">MODx.grid.Grid</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.grid.LocalGrid">MODx.grid.LocalGrid</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.msg">MODx.msg</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.tree.Tree">MODx.tree.Tree</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.Window">MODx.Window</a>
+</li>
+</ol>

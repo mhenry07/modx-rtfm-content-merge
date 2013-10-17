@@ -1,21 +1,19 @@
-<h2>
-<a name="signupemail_message-signupemailmessage"></a>signupemail_message
+<h2 id="signupemail_message-signupemailmessage">
+signupemail_message
 </h2>
 
 <p>
-<b>Name</b>: Signup Email Message
+<strong>Name</strong>: Signup Email Message
 <br />
-<b>Type</b>: String
+<strong>Type</strong>: String
 <br />
-<b>Default</b>:
+<strong>Default</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Hello [[+uid]]
 
-Here are your login details <span class="code-keyword">for</span> [[+sname]] Content Manager:
+Here are your login details for [[+sname]] Content Manager:
 
 Username: [[+uid]]
 Password: [[+pwd]]
@@ -25,25 +23,11 @@ Once you log into the Content Manager ([[+surl]]), you can change your password.
 Regards,
 Site Administrator
 </pre>
-</div>
-</div>
-
 <p>
 Here you can set the message sent to your users when you create an account for them and let MODx send them an e-mail containing their username and password.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 The following placeholders are replaced by the Content Manager when the message is sent:
 <p>
 [[+sname]] - Name of your web site
@@ -58,33 +42,12 @@ The following placeholders are replaced by the Content Manager when the message 
 <br />
 [[+ufn]] - User\'s full name.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 Leave the [[+uid]] and [[+pwd]] in the e-mail, or else the username and password won't be sent in the mail and your users won't know their username or password!
-</td>
-</tr>
-</table>
 </div>
-
-<p>
-<br class="atl-forced-newline" />
-</p>

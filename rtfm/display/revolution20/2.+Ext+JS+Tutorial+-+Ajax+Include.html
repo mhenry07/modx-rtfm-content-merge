@@ -1,52 +1,45 @@
-<h2>
-<a name="2.ExtJSTutorial-AjaxInclude-UsingJavascripttoIncludeanotherFile"></a>Using Javascript to Include another File
+<h2 id="2.ExtJSTutorial-AjaxInclude-UsingJavascripttoIncludeanotherFile">
+Using Javascript to Include another File
 </h2>
 
 <p>
 Ext JS makes it simple to issue Ajax requests to other pages. This example builds on the previous one by implementing a simple Ext JS tool: a pop-up Window. You'll notice that we have once again included the required CSS and JS files in our HTML:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-&lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-&lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;
+<pre class="brush: php">
+&lt;link  rel="stylesheet" type="text/css" href="manager/assets/ext3/resources/css/ext-all.css" /&gt;
+&lt;script type="text/javascript" src="manager/assets/ext3/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="manager/assets/ext3/ext-all.js"&gt;&lt;/script&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="2.ExtJSTutorial-AjaxInclude-a.html"></a>a.html
+<h3 id="2.ExtJSTutorial-AjaxInclude-a.html">
+a.html
 </h3>
 
 <p>
-We have passed a callback function <em>name</em> to the <tt>Ext.onReady()</tt> command.
+We have passed a callback function <em>name</em> to the <code>Ext.onReady()</code> command.
 </p>
 
 <p>
-This is the contents of <b>a.html</b>:
+This is the contents of <strong>a.html</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;html&gt;
     &lt;title&gt;My Ext JS Test Page&lt;/title&gt;
-    &lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+    &lt;link  rel="stylesheet" type="text/css" href="manager/assets/ext3/resources/css/ext-all.css" /&gt;
+    &lt;script type="text/javascript" src="manager/assets/ext3/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="manager/assets/ext3/ext-all.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
         function buildWindow() {
-            <span class="code-keyword">var</span> win = <span class="code-keyword">new</span> Ext.Window({
+            var win = new Ext.Window({
                 id: 'my_window'
-                , title : <span class="code-quote">"Welcome to Ext JS"</span>
+                , title : "Welcome to Ext JS"
                 , width : 300
                 , height: 150
-                , layout: <span class="code-quote">"fit"</span>
+                , layout: "fit"
                 , autoLoad: {
-                    url : <span class="code-quote">"b.html"</span>
-                    , scripts : <span class="code-keyword">true</span>
+                    url : "b.html"
+                    , scripts : true
                 }
                 
             });
@@ -57,63 +50,41 @@ This is the contents of <b>a.html</b>:
     &lt;/script&gt;
     &lt;body&gt;
         &lt;h1&gt;Intro to Ext JS&lt;/h1&gt;
-        &lt;p&gt;I've uploaded <span class="code-keyword">this</span> HTML to the root of my site and I'm including the Ext JS libraries that ship with the MODX manager.&lt;/p&gt;
+        &lt;p&gt;I've uploaded this HTML to the root of my site and I'm including the Ext JS libraries that ship with the MODX manager.&lt;/p&gt;
     
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Commas</b>
+<div class="tip">
+<strong>Commas</strong>
 <br />
 A lot of the Ext JS stuff that is used in the MODX manager and in MODX components will put the comma first in a line when adding items to an array. That makes it a bit easier to comment out unwanted items. We demonstrate that formatting style here so you can prepare yourself mentally for what you'll see in the MODX Javascript.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="2.ExtJSTutorial-AjaxInclude-b.html"></a>b.html
+<h3 id="2.ExtJSTutorial-AjaxInclude-b.html">
+b.html
 </h3>
 
 <p>
-As you may have noticed, the Javascript there referenced a file named <b>b.html</b>. Let's create that alongside the <b>a.html</b> at the root of our MODX site.
+As you may have noticed, the Javascript there referenced a file named <strong>b.html</strong>. Let's create that alongside the <strong>a.html</strong> at the root of our MODX site.
 </p>
 
 <p>
-Here's what we can put into <b>b.html</b> and save it:
+Here's what we can put into <strong>b.html</strong> and save it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;div&gt;Here's my Ajax payload!&lt;/div&gt;
 
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+&lt;script type="text/javascript"&gt;
     function highlightWindow() {
-        <span class="code-keyword">var</span> win = Ext.getCmp('my_window');
-        <span class="code-keyword">var</span> winBody = win.body;
+        var win = Ext.getCmp('my_window');
+        var winBody = win.body;
         winBody.highlight();
     }
     highlightWindow.defer(1000);
 &lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Now when you visit a.html in a browser, you should see a window pop up that contains the contents of b.html:
 </p>
@@ -127,108 +98,83 @@ If everything worked, you should see the window become highlighted in yellow and
 </p>
 
 <p>
-What is interesting about this is that we were able to put some Javascript into <b>b.html</b> and have it control part of its own behavior. When you include HTML or text via Javascript, it's not always a given that the Javascript in the payload page will be included and executed (this little trick is a bit harder to do using jQuery, for example). Notice that Ext JS allowed us to specify <tt>scripts : true</tt> when we referenced <b>b.html</b>.
+What is interesting about this is that we were able to put some Javascript into <strong>b.html</strong> and have it control part of its own behavior. When you include HTML or text via Javascript, it's not always a given that the Javascript in the payload page will be included and executed (this little trick is a bit harder to do using jQuery, for example). Notice that Ext JS allowed us to specify <code>scripts : true</code> when we referenced <strong>b.html</strong>.
 </p>
 
-<h2>
-<a name="2.ExtJSTutorial-AjaxInclude-MethodReview"></a>Method Review
+<h2 id="2.ExtJSTutorial-AjaxInclude-MethodReview">
+Method Review
 </h2>
 
-<h3>
-<a name="2.ExtJSTutorial-AjaxInclude-Ext.onReady%28%29"></a>Ext.onReady()
+<h3 id="2.ExtJSTutorial-AjaxInclude-Ext.onReady()">
+Ext.onReady()
 </h3>
 
 <p>
-It's important that nearly everything we do with Javascript occurs <em>after</em> the page has loaded (no matter which framework you're using). That is why the <tt>Ext.onReady()</tt> function is so important: you will use that function inside nearly every page that you use Ext JS on.
+It's important that nearly everything we do with Javascript occurs <em>after</em> the page has loaded (no matter which framework you're using). That is why the <code>Ext.onReady()</code> function is so important: you will use that function inside nearly every page that you use Ext JS on.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Are you Ready?</b>
+<div class="tip">
+<strong>Are you Ready?</strong>
 <br />
-Nearly everything you do with Ext JS will occur <em>after</em> the DOM has loaded, so you will use <tt>Ext.onReady()</tt> on nearly every page you create with Ext JS and pretty much every bit of Javascript you write should be included inside that block.
+Nearly everything you do with Ext JS will occur <em>after</em> the DOM has loaded, so you will use <code>Ext.onReady()</code> on nearly every page you create with Ext JS and pretty much every bit of Javascript you write should be included inside that block.
 <p>
 This is equivalent to jQuery's handler:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $(function() {
 
 });
 </pre>
 </div>
-</div>
-</td>
-</tr>
-</table>
-</div>
 
-<h3>
-<a name="2.ExtJSTutorial-AjaxInclude-Ext.getCmp%28%29"></a>Ext.getCmp()
+<h3 id="2.ExtJSTutorial-AjaxInclude-Ext.getCmp()">
+Ext.getCmp()
 </h3>
 
 <p>
 This is how Ext JS can select areas of the DOM. The functionality is quite similar to jQuery, but the syntax is slightly different. We still reference an element by its id, but ExtJS does not use the hash-tag "#" as a selector.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
-    <span class="code-keyword">var</span> win = Ext.getCmp('my_window');
-    <span class="code-comment">// vs. jQuery's selector:
-</span>    <span class="code-keyword">var</span> win = jQuery('#my_window');
+<pre class="brush: php">
+&lt;script type="text/javascript"&gt;
+    var win = Ext.getCmp('my_window');
+    // vs. jQuery's selector:
+    var win = jQuery('#my_window');
 &lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
-What's interesting in the above example is that Ext JS created the new id <em>on the fly</em> in the <tt>Ext.Window()</tt> method and then it was accessed by the <tt>Ext.getCmp()</tt> method. See that? We passed "id: 'my_window'" as an argument to <tt>Ext.Window()</tt>. If you are used to searching the HTML for "id" attributes, that little sleight of hand may have confused you, but you can see already that Ext JS is painting things on the browser screen without any need for existing HTML.
+What's interesting in the above example is that Ext JS created the new id <em>on the fly</em> in the <code>Ext.Window()</code> method and then it was accessed by the <code>Ext.getCmp()</code> method. See that? We passed "id: 'my_window'" as an argument to <code>Ext.Window()</code>. If you are used to searching the HTML for "id" attributes, that little sleight of hand may have confused you, but you can see already that Ext JS is painting things on the browser screen without any need for existing HTML.
 </p>
 
-<h3>
-<a name="2.ExtJSTutorial-AjaxInclude-.delay%28%29"></a>.delay()
+<h3 id="2.ExtJSTutorial-AjaxInclude-.delay()">
+.delay()
 </h3>
 
 <p>
 This is a useful method that can be tacked on to just about anything. In our example, we used it to delay the highlighting of the window.
 </p>
 
-<h2>
-<a name="2.ExtJSTutorial-AjaxInclude-VariousSyntax"></a>Various Syntax
+<h2 id="2.ExtJSTutorial-AjaxInclude-VariousSyntax">
+Various Syntax
 </h2>
 
 <p>
-The more Javascript development you do, the more you'll become comfortable with the shifting syntax. Sometimes it's easier to read functions in-line (a.k.a. anonymous or lambda functions), and other times it's more clear to use a callback. The above code inside <b>a.html</b> could have been written this way:
+The more Javascript development you do, the more you'll become comfortable with the shifting syntax. Sometimes it's easier to read functions in-line (a.k.a. anonymous or lambda functions), and other times it's more clear to use a callback. The above code inside <strong>a.html</strong> could have been written this way:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-    &lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+<pre class="brush: php">
+    &lt;script type="text/javascript"&gt;
         Ext.onReady(function() {
-            <span class="code-keyword">var</span> win = <span class="code-keyword">new</span> Ext.Window({
+            var win = new Ext.Window({
                 id: 'my_window'
-                , title : <span class="code-quote">"Welcome to Ext JS"</span>
+                , title : "Welcome to Ext JS"
                 , width : 300
                 , height: 150
-                , layout: <span class="code-quote">"fit"</span>
+                , layout: "fit"
                 , autoLoad: {
-                    url : <span class="code-quote">"b.html"</span>
-                    , scripts : <span class="code-keyword">true</span>
+                    url : "b.html"
+                    , scripts : true
                 }
                 
             });
@@ -236,42 +182,50 @@ The more Javascript development you do, the more you'll become comfortable with 
         });
     &lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
-Likewise, the code inside <b>b.html</b> could have been chained, like this:
+Likewise, the code inside <strong>b.html</strong> could have been chained, like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;div&gt;Here's my Ajax payload!&lt;/div&gt;
 
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+&lt;script type="text/javascript"&gt;
     function highlightWindow() {
         Ext.getCmp('my_window').body.highlight();      
     }
     highlightWindow.defer(1000);
 &lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Find a syntax that makes sense to you, and as you improve in your Javascript abilities you will become more and more comfortable switching between the various syntaxes that it supports.
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/revolution20/1.+Ext+JS+Tutorial+-+Message+Boxes">1. Ext JS Tutorial - Message Boxes</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="46137375" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="46137364" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2F2.%2BExt%2BJS%2BTutorial%2B-%2BAjax%2BInclude" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="46137364" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/2.+Ext+JS+Tutorial+-+Ajax+Include">2. Ext JS Tutorial - Ajax Include</a>
+</li>
+
+<li>
+<a href="/display/revolution20/3.+Ext+JS+Tutorial+-+Animation">3. Ext JS Tutorial - Animation</a>
+</li>
+
+<li>
+<a href="/display/revolution20/4.+Ext+JS+Tutorial+-+Manipulating+Nodes">4. Ext JS Tutorial - Manipulating Nodes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/5.+Ext+JS+Tutorial+-+Panels">5. Ext JS Tutorial - Panels</a>
+</li>
+
+<li>
+<a href="/display/revolution20/7.+Ext+JS+Tutoral+-+Advanced+Grid">7. Ext JS Tutoral - Advanced Grid</a>
+</li>
+
+<li>
+<a href="/display/revolution20/8.+Ext+JS+Tutorial+-+Inside+a+CMP">8. Ext JS Tutorial - Inside a CMP</a>
+</li>
+</ol>

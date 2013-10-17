@@ -1,65 +1,55 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#tagLister-WhatistagLister%3F'>What is tagLister?</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#tagLister-WhatistagLister%3F">What is tagLister?</a>
 <ul>
 <li>
-<a href='#tagLister-1.ShowallPagestaggedwithagivenTerm'>1. Show all Pages tagged with a given Term</a>
+<a href="#tagLister-1.ShowallPagestaggedwithagivenTerm">1. Show all Pages tagged with a given Term</a>
 </li>
 
 <li>
-<a href='#tagLister-2.Showalltagsforagivenpage'>2. Show all tags for a given page</a>
+<a href="#tagLister-2.Showalltagsforagivenpage">2. Show all tags for a given page</a>
 </li>
 
 <li>
-<a href='#tagLister-3.DisplayaTagCloud'>3. Display a Tag Cloud</a>
+<a href="#tagLister-3.DisplayaTagCloud">3. Display a Tag Cloud</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#tagLister-Requirements'>Requirements</a>
+<a href="#tagLister-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#tagLister-History'>History</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#tagLister-History">History</a>
 <ul>
 <li>
-<a href='#tagLister-Download'>Download</a>
+<a href="#tagLister-Download">Download</a>
 </li>
 
 <li>
-<a href='#tagLister-DevelopmentandBugReporting'>Development and Bug Reporting</a>
+<a href="#tagLister-DevelopmentandBugReporting">Development and Bug Reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#tagLister-Usage'>Usage</a>
+<a href="#tagLister-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#tagLister-Examples'>Examples</a>
+<a href="#tagLister-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#tagLister-SeeAlso'>See Also</a>
+<a href="#tagLister-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="tagLister-WhatistagLister%3F"></a>What is tagLister?
+<h2 id="tagLister-WhatistagLister?">
+What is tagLister?
 </h2>
 
 <p>
@@ -67,44 +57,39 @@ tagLister is a snippet which lists tags in order to generate tag-based navigatio
 </p>
 
 <p>
-<b>tagLister</b> is used on the page where the unique tags should be displayed, and the getResourcesTag Snippet is used on the page that will display the links to the pages that were tagged by the given tag.
+<strong>tagLister</strong> is used on the page where the unique tags should be displayed, and the getResourcesTag Snippet is used on the page that will display the links to the pages that were tagged by the given tag.
 </p>
 
 <p>
-If you think about the various components here, we need <b>tagLister</b> to do 3 things: list the tags associated with a given post, list a tag cloud showing all available posts, and finally a page that will show all pages that have been tagged with a given tag. Those 3 tasks are handled by <b>tagLister</b>'s 3 component Snippets.
+If you think about the various components here, we need <strong>tagLister</strong> to do 3 things: list the tags associated with a given post, list a tag cloud showing all available posts, and finally a page that will show all pages that have been tagged with a given tag. Those 3 tasks are handled by <strong>tagLister</strong>'s 3 component Snippets.
 </p>
 
 <p>
 Here are the 3 components you need to establish to make this work.
 </p>
 
-<h3>
-<a name="tagLister-1.ShowallPagestaggedwithagivenTerm" id="tagLister-1.ShowallPagestaggedwithagivenTerm"></a>1. Show all Pages tagged with a given Term
+<h3 id="tagLister-1.ShowallPagestaggedwithagivenTerm">
+1. Show all Pages tagged with a given Term
 </h3>
 
 <p>
-Create a page dedicated to showing all pages tagged with a given term. On that page, place the <b>getResourcesTag</b> Snippet. It's more or less an extension of the <a href="/display/ADDON/getResources" title="getResources">getResources</a> Snippet, so it shares most of the same arguments.
+Create a page dedicated to showing all pages tagged with a given term. On that page, place the <strong>getResourcesTag</strong> Snippet. It's more or less an extension of the <a href="/display/ADDON/getResources" title="getResources">getResources</a> Snippet, so it shares most of the same arguments.
 </p>
 
 <p>
-If you are tagging only resources in a certain folder, reference the folder's page ID in the <b>&amp;parents</b> argument, otherwise use "0" to search the entire site.
+If you are tagging only resources in a certain folder, reference the folder's page ID in the <strong>&amp;parents</strong> argument, otherwise use "0" to search the entire site.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getResourcesTag? &amp;parents=`0` &amp;tagKey=`my_tags` &amp;tpl=`result_tpl`]]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>
-<b>&amp;tagKey</b> is the unique name of the Template Variable containing the tags
+<strong>&amp;tagKey</strong> is the unique name of the Template Variable containing the tags
 </li>
 
 <li>
-<b>&amp;tpl</b> is a chunk used to format each result (just like you would use for <b>getResources</b>)
+<strong>&amp;tpl</strong> is a chunk used to format each result (just like you would use for <strong>getResources</strong>)
 </li>
 </ul>
 
@@ -112,36 +97,31 @@ If you are tagging only resources in a certain folder, reference the folder's pa
 Remember the page ID of this page: we will use it in the next step.
 </p>
 
-<h3>
-<a name="tagLister-2.Showalltagsforagivenpage" id="tagLister-2.Showalltagsforagivenpage"></a>2. Show all tags for a given page
+<h3 id="tagLister-2.Showalltagsforagivenpage">
+2. Show all tags for a given page
 </h3>
 
 <p>
-The next component here is showing all the given tags that appear on a given page. For this component, we rely on the <b>toLinks</b> Snippet. This will point to the page ID we created in step 1.
+The next component here is showing all the given tags that appear on a given page. For this component, we rely on the <strong>toLinks</strong> Snippet. This will point to the page ID we created in step 1.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!toLinks? &amp;items=`[[*my_tags]]` &amp;target=`123`]]
 </pre>
-</div>
-</div>
-
 <p>
-The <b>&amp;items</b> argument should include the goods: what has your page been tagged with? This should be the name of your Template Variable.
+The <strong>&amp;items</strong> argument should include the goods: what has your page been tagged with? This should be the name of your Template Variable.
 </p>
 
-<h3>
-<a name="tagLister-3.DisplayaTagCloud" id="tagLister-3.DisplayaTagCloud"></a>3. Display a Tag Cloud
+<h3 id="tagLister-3.DisplayaTagCloud">
+3. Display a Tag Cloud
 </h3>
 
 <p>
-The third common component here is to display a tag cloud listing all available tags. For this, we rely on the third of <b>tagLister</b>'s bundled Snippets.
+The third common component here is to display a tag cloud listing all available tags. For this, we rely on the third of <strong>tagLister</strong>'s bundled Snippets.
 </p>
 
-<h2>
-<a name="tagLister-Requirements" id="tagLister-Requirements"></a>Requirements
+<h2 id="tagLister-Requirements">
+Requirements
 </h2>
 
 <ul>
@@ -158,36 +138,36 @@ The third common component here is to display a tag cloud listing all available 
 </li>
 </ul>
 
-<h2>
-<a name="tagLister-History" id="tagLister-History"></a>History
+<h2 id="tagLister-History">
+History
 </h2>
 
 <p>
 tagLister was written by <a href="/display/~splittingred" class="confluence-userlink" data-username="splittingred">Shaun McCormick</a> and first released on June 14th, 2010.
 </p>
 
-<h3>
-<a name="tagLister-Download" id="tagLister-Download"></a>Download
+<h3 id="tagLister-Download">
+Download
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/691" class="external-link" rel="nofollow">http://modxcms.com/extras/package/691</a>
+It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/691">http://modxcms.com/extras/package/691</a>
 </p>
 
-<h3>
-<a name="tagLister-DevelopmentandBugReporting" id="tagLister-DevelopmentandBugReporting"></a>Development and Bug Reporting
+<h3 id="tagLister-DevelopmentandBugReporting">
+Development and Bug Reporting
 </h3>
 
 <p>
-tagLister is stored and developed in GitHub, and can be found here:<a href="http://github.com/splittingred/tagLister" class="external-link" rel="nofollow">http://github.com/splittingred/tagLister</a>
+tagLister is stored and developed in GitHub, and can be found here:<a href="http://github.com/splittingred/tagLister">http://github.com/splittingred/tagLister</a>
 </p>
 
 <p>
-Bugs can be filed here: <a href="http://github.com/splittingred/tagLister/issues" class="external-link" rel="nofollow">http://github.com/splittingred/tagLister/issues</a>
+Bugs can be filed here: <a href="http://github.com/splittingred/tagLister/issues">http://github.com/splittingred/tagLister/issues</a>
 </p>
 
-<h2>
-<a name="tagLister-Usage" id="tagLister-Usage"></a>Usage
+<h2 id="tagLister-Usage">
+Usage
 </h2>
 
 <p>
@@ -212,48 +192,52 @@ tagLister comes with three Snippets:
 </li>
 </ul>
 
-<h2>
-<a name="tagLister-Examples" id="tagLister-Examples"></a>Examples
+<h2 id="tagLister-Examples">
+Examples
 </h2>
 
 <p>
 Grab a list of tags specified in the TV 'tags', which are separated by commas, and make the links go to the home page:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!tagLister? &amp;tv=`tags`]]
 </pre>
-</div>
-</div>
-
 <p>
 Grab a list of tags specified in the TV 'blog-tags', which are separated by spaces, and make the links go to Resource ID 123:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!tagLister? &amp;tv=`blog-tags` &amp;tvDelimiter=` ` &amp;target=`123`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="tagLister-SeeAlso" id="tagLister-SeeAlso"></a>See Also
+<h2 id="tagLister-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/tagLister.getResourcesTag">tagLister.getResourcesTag</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="16646398" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="16646398" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FtagLister" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="16646398" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/tagLister.tagLister">tagLister.tagLister</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/tagLister.tagLister.all">tagLister.tagLister.all</a>
+</li>
+
+<li>
+<a href="/display/ADDON/tagLister.tagLister.tpl">tagLister.tagLister.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/tagLister.tolinks">tagLister.tolinks</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/tagLister.tolinks.tpl">tagLister.tolinks.tpl</a>
+</li>
+</ol>
+</li>
+</ol>

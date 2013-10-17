@@ -1,41 +1,38 @@
 <div>
 <ul>
 <li>
-<a href='#CronManager-WhatisCronManager'>What is Cron Manager</a>
+<a href="#CronManager-WhatisCronManager">What is Cron Manager</a>
 </li>
 
 <li>
-<a href='#CronManager-Installation'>Installation</a>
+<a href="#CronManager-Installation">Installation</a>
 </li>
 
 <li>
-<a href='#CronManager-Usageexamples'>Usage examples</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#CronManager-Usageexamples">Usage examples</a>
 <ul>
 <li>
-<a href='#CronManager-Createnewcronjob'>Create new cronjob</a>
+<a href="#CronManager-Createnewcronjob">Create new cronjob</a>
 </li>
 
 <li>
-<a href='#CronManager-Explanationoftheoverview'>Explanation of the overview</a>
+<a href="#CronManager-Explanationoftheoverview">Explanation of the overview</a>
 </li>
 
 <li>
-<a href='#CronManager-Logforeachcronjob'>Log for each cronjob</a>
+<a href="#CronManager-Logforeachcronjob">Log for each cronjob</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#CronManager-Developmentandbugreporting'>Development and bug reporting</a>
+<a href="#CronManager-Developmentandbugreporting">Development and bug reporting</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="CronManager-WhatisCronManager" id="CronManager-WhatisCronManager"></a>What is Cron Manager
+<h2 id="CronManager-WhatisCronManager">
+What is Cron Manager
 </h2>
 
 <p>
@@ -46,8 +43,8 @@ The cron manager for MODx makes it possible to execute snippets by the crontab o
 Using snippets for your cron management also requires properties and you can add properties manually by setting up key value pairs but also with a propertyset (name).
 </p>
 
-<h2>
-<a name="CronManager-Installation" id="CronManager-Installation"></a>Installation
+<h2 id="CronManager-Installation">
+Installation
 </h2>
 
 <p>
@@ -58,28 +55,23 @@ First install the package via the Package Management inside MODx Revolution.
 After that, you need to configure the cron script in your servers crontab list. On most hostings is control panel like Direct Admin available en mostly you're able to configure cronjobs via that control panel. People who have access to there server with SSH could add the cronjob with the "crontab -e" command. Add the following line as cronjob. (Note: in some cases this command needs some modifications, you could discuss it with your provider).
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 cd /path/to/your/modx/installation/assets/components/cronmanager/ &amp;&amp; php cron.php
 </pre>
-</div>
-</div>
-
 <p>
 We advise you to execute it on every minute, every day in every month (* to all: m h&nbsp; dom mon dow). But when you're sure there are no needs for an every minute cronjob, you could change the crontab interval by your own needs.
 </p>
 
-<h2>
-<a name="CronManager-Usageexamples" id="CronManager-Usageexamples"></a>Usage examples
+<h2 id="CronManager-Usageexamples">
+Usage examples
 </h2>
 
 <p>
 To use the component, navigate to your manager and click on "Components &gt; Cron Manager".
 </p>
 
-<h3>
-<a name="CronManager-Createnewcronjob" id="CronManager-Createnewcronjob"></a>Create new cronjob
+<h3 id="CronManager-Createnewcronjob">
+Create new cronjob
 </h3>
 
 <p>
@@ -87,7 +79,7 @@ Here you can create a new cronjob by clicking on the "new" button.
 </p>
 
 <p>
-<span class="image-wrap" style=""><a class="confluence-thumbnail-link 684x403" href='http://oldrtfm.modx.com/download/attachments/35095318/create-new-cronjob.JPG'><img src="/download/thumbnails/35095318/create-new-cronjob.JPG" width="200" style="border: 1px solid black" /></a></span>
+<a class="confluence-thumbnail-link 684x403" href="/download/attachments/35095318/create-new-cronjob.JPG"><img src="/download/thumbnails/35095318/create-new-cronjob.JPG" width="200" style="border: 1px solid black" /></a>
 </p>
 
 <p>
@@ -95,27 +87,27 @@ You see the fields "Snippet", "Minutes" and "Snippet properties".
 </p>
 
 <p>
-<b>Snippet:</b> You can start typing the name of the snippet or browse by clicking the down-arrow
+<strong>Snippet:</strong> You can start typing the name of the snippet or browse by clicking the down-arrow
 <br />
-<b>Minutes:</b> Enter the minutes you want to execute the snippet on. For example; if you enter 15, the snippet runs every 15 minutes (when the crontab on the server is configured correctly)
+<strong>Minutes:</strong> Enter the minutes you want to execute the snippet on. For example; if you enter 15, the snippet runs every 15 minutes (when the crontab on the server is configured correctly)
 <br />
-<b>Snippet properties:</b> Here you can enter properties for the snippet. You could enter them in key-value pair (each on a new line) or also as JSON object. Maybe a better way is using propertysets, in this case you can add the name of the <a href="/display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">propertyset</a>.
+<strong>Snippet properties:</strong> Here you can enter properties for the snippet. You could enter them in key-value pair (each on a new line) or also as JSON object. Maybe a better way is using propertysets, in this case you can add the name of the <a href="/display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">propertyset</a>.
 </p>
 
 <p>
 <em>Note: after adding a cronjob it isn't active directly. You must specify the active state to yes in the last column in the overview.</em>
 </p>
 
-<h3>
-<a name="CronManager-Explanationoftheoverview" id="CronManager-Explanationoftheoverview"></a>Explanation of the overview
+<h3 id="CronManager-Explanationoftheoverview">
+Explanation of the overview
 </h3>
 
 <p>
 In the overview of the cronjobs you're able to see directly wich snippets are in the cronjob and the minute interval. Also there is are two columns with the titles "Last run" and "Next run". These columns contains a date and time for when the cronjob is runned at last and when it should run the next time. The last column says if the cronjob is active or not. This is usefull for those who want to disable the cronjob temporary.
 </p>
 
-<h3>
-<a name="CronManager-Logforeachcronjob" id="CronManager-Logforeachcronjob"></a>Log for each cronjob
+<h3 id="CronManager-Logforeachcronjob">
+Log for each cronjob
 </h3>
 
 <p>
@@ -123,21 +115,35 @@ Each snippet in a cronjob could return some values, for testing purposes or some
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35095318/viewlog-action.JPG?version=1&amp;modificationDate=1307298900000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/35095318/viewlog-action.JPG?version=1&amp;modificationDate=1307298900000" style="border: 1px solid black" />
 </p>
 
 <p>
 The log is a simple overview of all the return messages, and also a timestamp is shown there.
 </p>
 
-<h2>
-<a name="CronManager-Developmentandbugreporting" id="CronManager-Developmentandbugreporting"></a>Development and bug reporting
+<h2 id="CronManager-Developmentandbugreporting">
+Development and bug reporting
 </h2>
 
 <p>
-The Cron Manager is developped in GitHub on: <a href="http://github.com/bertoost/MODx-CronManager/" class="external-link" rel="nofollow">https://github.com/bertoost/MODx-CronManager/</a>
+The Cron Manager is developped in GitHub on: <a href="http://github.com/bertoost/MODx-CronManager/">https://github.com/bertoost/MODx-CronManager/</a>
 </p>
 
 <p>
-Bugs and new ideas could be entered here: <a href="http://github.com/bertoost/MODx-CronManager/issues/" class="external-link" rel="nofollow">https://github.com/bertoost/MODx-CronManager/issues/</a>
+Bugs and new ideas could be entered here: <a href="http://github.com/bertoost/MODx-CronManager/issues/">https://github.com/bertoost/MODx-CronManager/issues/</a>
+</p>
+
+<p>
+This might help some that have shared hosting.
+</p>
+
+<p>
+For my blog site the host is using cPanel, this was the command that was needed to work:
+</p>
+
+<p>
+php -q public_html/assets/components/cronmanager/cron.php
+<br />
+<img src="/download/attachments/35095318/cron-setup.png?version=1&amp;modificationDate=1348836956000" style="border: 1px solid black" />
 </p>

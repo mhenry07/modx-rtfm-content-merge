@@ -1,67 +1,46 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#UpgradingMODx-UpgradingMODxRevolution2.x'>Upgrading MODx Revolution 2.x</a>
+<a href="#UpgradingMODx-UpgradingMODxRevolution2.x">Upgrading MODx Revolution 2.x</a>
 </li>
 
 <li>
-<a href='#UpgradingMODx-UploadingtheFiles'>Uploading the Files</a>
+<a href="#UpgradingMODx-UploadingtheFiles">Uploading the Files</a>
 </li>
 
 <li>
-<a href='#UpgradingMODx-BeginningSetup'>Beginning Setup</a>
+<a href="#UpgradingMODx-BeginningSetup">Beginning Setup</a>
 </li>
 
 <li>
-<a href='#UpgradingMODx-AfterSetup'>After Setup</a>
+<a href="#UpgradingMODx-AfterSetup">After Setup</a>
 </li>
 
 <li>
-<a href='#UpgradingMODx-VersionSpecificChanges'>Version-Specific Changes</a>
+<a href="#UpgradingMODx-VersionSpecificChanges">Version-Specific Changes</a>
 </li>
 
 <li>
-<a href='#UpgradingMODx-SeeAlso'>See Also</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#UpgradingMODx-SeeAlso">See Also</a>
 <ul>
 <li>
-<a href='#UpgradingMODx-MacOSXUsers'>Mac OS X Users</a>
+<a href="#UpgradingMODx-MacOSXUsers">Mac OS X Users</a>
 </li>
 
 <li>
-<a href='#UpgradingMODx-RelatedArticles'>Related Articles</a>
+<a href="#UpgradingMODx-RelatedArticles">Related Articles</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-This document is for Upgrading MODx 2.x. If you are looking to upgrade from Evolution (1.x), this is not officially supported at this time, but resources to help you in this process can be <a href="http://rtfm.modx.com/display/revolution20/Upgrading+from+MODx+Evolution" class="external-link" rel="nofollow">found here</a>.
-</td>
-</tr>
-</table>
+<div class="info">
+This document is for Upgrading MODx 2.x. If you are looking to upgrade from Evolution (1.x), this is not officially supported at this time, but resources to help you in this process can be <a href="http://rtfm.modx.com/display/revolution20/Upgrading+from+MODx+Evolution">found here</a>.
 </div>
 
-<h2>
-<a name="UpgradingMODx-UpgradingMODxRevolution2.x"></a>Upgrading MODx Revolution 2.x
+<h2 id="UpgradingMODx-UpgradingMODxRevolution2.x">
+Upgrading MODx Revolution 2.x
 </h2>
 
 <p>
@@ -69,66 +48,27 @@ This document assumes you are upgrading from a standard install. For Git users, 
 </p>
 
 <p>
-<b>The latest MODX Revolution release can be downloaded at</b> <b><a href="http://modx.com/download/" class="external-link" rel="nofollow">http://modx.com/download/</a></b>
+<strong>The latest MODX Revolution release can be downloaded at</strong> <strong><a href="http://modx.com/download/">http://modx.com/download/</a></strong>
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Always make sure to backup your files and database before upgrading. Upgrades should go smoothly, but it is <b>always</b> a safe and smart practice to backup.
-</td>
-</tr>
-</table>
+<div class="warning">
+Always make sure to backup your files and database before upgrading. Upgrades should go smoothly, but it is <strong>always</strong> a safe and smart practice to backup.
 </div>
 
 <p>
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 When you are updating from MODX Revolution 2.0.x to 2.1.x it is VERY important to realize a lot of functions have been deprecated. Most addons will have been updated to use the new methods, however you may not always be running the latest version. So, BEFORE starting the upgrade process make sure all your packages are up to date, and working properly in 2.0.x. If you don't, you may end up being locked in some kind of limbo where the manager can not be accessed due to fatal PHP errors. While this can often be fixed by manually removing or updating the offending files, in certain server setups you may not have access to php generated files (such as files created by the package manager on install) requiring a lot more work to fix.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Pre-Upgrade Checklist:</b>
+<div class="note">
+<strong>Pre-Upgrade Checklist:</strong>
 <ul>
 <li>Upgrade any packages if needed
 </li>
@@ -139,35 +79,18 @@ When you are updating from MODX Revolution 2.0.x to 2.1.x it is VERY important t
 <li>Delete the files in your core/cache folder
 </li>
 </ul>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<h2>
-<a name="UpgradingMODx-UploadingtheFiles"></a>Uploading the Files
+<h2 id="UpgradingMODx-UploadingtheFiles">
+Uploading the Files
 </h2>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 It is generally best not to use FTP to upload files that have been extracted locally.&nbsp; FTP can miss or corrupt files, which will cause errors in your installation.&nbsp; It is also much slower than using the file manager on the server itself.&nbsp; If your server's file manager does not allow extraction, check in the control panel for an extraction script.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -182,26 +105,12 @@ Open the new folder, select all of the extracted files and merge/copy them into 
 For the advanced distribution, do the same, but you'll only need to do so for the core/ and setup/ directories. With the advanced, you'll need to make sure the manager and connectors directories and files are writable.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Make sure that you don't overwrite core/config/config.inc.php, and that it's writable. Also, don't overwrite or erase the core/components/ directory.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-The trick here is to get an FTP client that supports <b>directory merging</b>. You don't want to indiscriminately <b>overwrite</b> directories: you want to insert the updated files into place inside the directories. A self-extracting MODX update mechanism is still a couple releases away, so until then, it is <b>extremely</b> handy to have an FTP program that supports directory merging or better yet, use the server's extraction script or function in the file manager as suggested above.
+The trick here is to get an FTP client that supports <strong>directory merging</strong>. You don't want to indiscriminately <strong>overwrite</strong> directories: you want to insert the updated files into place inside the directories. A self-extracting MODX update mechanism is still a couple releases away, so until then, it is <strong>extremely</strong> handy to have an FTP program that supports directory merging or better yet, use the server's extraction script or function in the file manager as suggested above.
 </p>
 
 <p>
@@ -210,86 +119,44 @@ On OS X, you can purchase one of the following:
 
 <ul>
 <li>
-<a href="http://panic.com/coda/" class="external-link" rel="nofollow">Coda</a>
+<a href="http://panic.com/coda/">Coda</a>
 </li>
 
 <li>
-<a href="http://panic.com/transmit/" class="external-link" rel="nofollow">Transmit</a>
+<a href="http://panic.com/transmit/">Transmit</a>
 </li>
 </ul>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Do Not Overwrite Directories!</b>
+<div class="warning">
+<strong>Do Not Overwrite Directories!</strong>
 <br />
 Make sure your FTP program <em>merges</em> directories and does not overwrite them!
-</td>
-</tr>
-</table>
 </div>
 
 <hr />
 
-<h2>
-<a name="UpgradingMODx-BeginningSetup"></a>Beginning Setup
+<h2 id="UpgradingMODx-BeginningSetup">
+Beginning Setup
 </h2>
 
 <p>
-In your browser, navigate to <a href="http://yourSite.com/setup.&amp;nbsp" class="external-link" rel="nofollow">yourSite.com/setup</a> .&nbsp; Select your language, and follow the install/upgrade process, selecting whichever upgrade you want to perform (normal or database).
+In your browser, navigate to <a href="http://yourSite.com/setup.&amp;nbsp">yourSite.com/setup</a> .&nbsp; Select your language, and follow the install/upgrade process, selecting whichever upgrade you want to perform (normal or database).
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Update should be pre-selected for you, however if it is not, make sure to select "Upgrade Normal" so as not to overwrite your existing database.&nbsp; Choosing "New Site" will overwrite your database.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-If you are upgrading using the <b>Advanced</b> distribution, make sure you have the "Core Package has been manually unpacked" and "Files in-place" checkboxes unchecked, and that the core/, manager/ and connectors/ directories are writable.
+If you are upgrading using the <strong>Advanced</strong> distribution, make sure you have the "Core Package has been manually unpacked" and "Files in-place" checkboxes unchecked, and that the core/, manager/ and connectors/ directories are writable.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 If you get errors during setup, please read the <a href="/display/revolution20/Troubleshooting+Installation" title="Troubleshooting Installation">Troubleshooting Installation</a> and the <a href="/display/revolution20/Troubleshooting+Upgrades" title="Troubleshooting Upgrades">Troubleshooting Upgrades</a> pages.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="UpgradingMODx-AfterSetup"></a>After Setup
+<h2 id="UpgradingMODx-AfterSetup">
+After Setup
 </h2>
 
 <p>
@@ -300,26 +167,12 @@ Make sure to remove the setup/ directory via the last option after setup has com
 Your config.inc.php file should have CHMOD 644 permission.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 It's a good idea to clear your browser cache after upgrading. Browsers often cache JS and CSS, and you want to make sure you're getting the newest files in your browser&nbsp;after the upgrade.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="UpgradingMODx-VersionSpecificChanges"></a>Version-Specific Changes
+<h2 id="UpgradingMODx-VersionSpecificChanges">
+Version-Specific Changes
 </h2>
 
 <p>
@@ -332,7 +185,7 @@ For changes relating to specific versions, please see the following pages:
 </li>
 
 <li>
-<a href="/display/revolution20/Upgrading+from+2.0.x+to+2.1.x" title="Upgrading from 2.0.x to 2.1.x">For Upgrading From 2.0.x to 2.1.x</a>&nbsp;<b>!important</b>
+<a href="/display/revolution20/Upgrading+from+2.0.x+to+2.1.x" title="Upgrading from 2.0.x to 2.1.x">For Upgrading From 2.0.x to 2.1.x</a>&nbsp;<strong>!important</strong>
 </li>
 
 <li>
@@ -348,38 +201,28 @@ For changes relating to specific versions, please see the following pages:
 Upgrades after 2.0.0-rc-2 should run smoothly without issues.
 </p>
 
-<h2>
-<a name="UpgradingMODx-SeeAlso"></a>See Also
+<h2 id="UpgradingMODx-SeeAlso">
+See Also
 </h2>
 
-<h3>
-<a name="UpgradingMODx-MacOSXUsers"></a>Mac OS X Users
+<h3 id="UpgradingMODx-MacOSXUsers">
+Mac OS X Users
 </h3>
 
 <p>
 If you're copying the extracted folder in Mac OS X, be careful, as OS X will "replace" folders when you drag and drop them over each other. Make sure that you use the "ditto" command from the command line, rather than drag/dropping from Finder, otherwise your core/config/config.inc.php file will be erased. A sample ditto command after you've extracted the zip could be:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 ditto modx-2.1.0-pl /www/public_html/modx/
 </pre>
-</div>
-</div>
-
 <p>
-The effect is the same if you use the humble <b>cp</b> command:
+The effect is the same if you use the humble <strong>cp</strong> command:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 \cp -fr modx-2.2.0-pl/* /www/public_html/modx
 </pre>
-</div>
-</div>
-
 <p>
 The "-fr" bit forces a recursive copy (i.e. a directory merge). Using a backslash before the "cp" command lets you avoid all the prompts asking "Are you sure?" to every overwrite operation.
 </p>
@@ -388,20 +231,37 @@ The "-fr" bit forces a recursive copy (i.e. a directory merge). Using a backslas
 See the not above about FTP clients that support directory merging.
 </p>
 
-<h3>
-<a name="UpgradingMODx-RelatedArticles"></a>Related Articles
+<h3 id="UpgradingMODx-RelatedArticles">
+Related Articles
 </h3>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/revolution20/Troubleshooting+Upgrades">Troubleshooting Upgrades</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678122" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678122" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FUpgrading%2BMODx" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678122" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Upgrading+to+2.2.x">Upgrading to 2.2.x</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+from+2.0.x+to+2.1.x">Upgrading from 2.0.x to 2.1.x</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+from+Versions+Earlier+than+2.0.5">Upgrading from Versions Earlier than 2.0.5</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+to+Revolution+2.0.0-rc-2">Upgrading to Revolution 2.0.0-rc-2</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+from+MODx+Evolution">Upgrading from MODx Evolution</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Functional+Changes+from+Evolution">Functional Changes from Evolution</a>
+</li>
+</ol>
+</li>
+</ol>

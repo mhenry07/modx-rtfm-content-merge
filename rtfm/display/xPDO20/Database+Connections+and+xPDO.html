@@ -1,76 +1,56 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#DatabaseConnectionsandxPDO-xPDODatabaseConnections'>xPDO Database Connections</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#DatabaseConnectionsandxPDO-xPDODatabaseConnections">xPDO Database Connections</a>
 <ul>
 <li>
-<a href='#DatabaseConnectionsandxPDO-ExampleConnection'>Example Connection</a>
+<a href="#DatabaseConnectionsandxPDO-ExampleConnection">Example Connection</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#DatabaseConnectionsandxPDO-DefiningMultipleConnections%28xPDO2.2%29'>Defining Multiple Connections <em>(xPDO 2.2+)</em></a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#DatabaseConnectionsandxPDO-DefiningMultipleConnections%28xPDO2.2%29">Defining Multiple Connections <em>(xPDO 2.2+)</em></a>
 <ul>
 <li>
-<a href='#DatabaseConnectionsandxPDO-xPDO%3A%3AOPTCONNECTIONS'>xPDO::OPT_CONNECTIONS</a>
+<a href="#DatabaseConnectionsandxPDO-xPDO%3A%3AOPTCONNECTIONS">xPDO::OPT_CONNECTIONS</a>
 </li>
 
 <li>
-<a href='#DatabaseConnectionsandxPDO-xPDO%3A%3AOPTCONNMUTABLE'>xPDO::OPT_CONN_MUTABLE</a>
+<a href="#DatabaseConnectionsandxPDO-xPDO%3A%3AOPTCONNMUTABLE">xPDO::OPT_CONN_MUTABLE</a>
 </li>
 
 <li>
-<a href='#DatabaseConnectionsandxPDO-xPDO%3A%3AOPTCONNINIT'>xPDO::OPT_CONN_INIT</a>
+<a href="#DatabaseConnectionsandxPDO-xPDO%3A%3AOPTCONNINIT">xPDO::OPT_CONN_INIT</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#DatabaseConnectionsandxPDO-SeeAlso'>See Also</a>
+<a href="#DatabaseConnectionsandxPDO-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="DatabaseConnectionsandxPDO-xPDODatabaseConnections"></a>xPDO Database Connections
+<h2 id="DatabaseConnectionsandxPDO-xPDODatabaseConnections">
+xPDO Database Connections
 </h2>
 
 <p>
 Database connectivity in xPDO is done in the constructor. The xPDO object can only hold one database connection per instance, but you are free to instantiate as many xPDO instances as you need. The syntax of the constructor is such:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-function xPDO($dsn, $username= '', $password= '', $options= array(), $driverOptions= <span class="code-keyword">null</span>)
+<pre class="brush: php">
+function xPDO($dsn, $username= '', $password= '', $options= array(), $driverOptions= null)
 </pre>
-</div>
-</div>
-
 <p>
 So let's say we want to connect to a localhost database named 'test' on port 3306, with a utf-8 charset:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $dsn = 'mysql:host=localhost;dbname=test;port=3306;charset=utf-8';
-$xpdo = <span class="code-keyword">new</span> xPDO($dsn,'username','password');
+$xpdo = new xPDO($dsn,'username','password');
 </pre>
-</div>
-</div>
-
 <p>
 And you're done!
 </p>
@@ -79,30 +59,11 @@ And you're done!
 Optionally verify the connection, by simply adding the following line afterward
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 echo $o=($xpdo-&gt;connect()) ? 'Connected' : 'Not Connected';
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 xPDO creates a PDO object, and thus connects to the database, only when a PDO method is called and the connection is needed. This connect-on-demand feature allows xPDO caching to work without a database connection being required (assuming everything is cached).
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -113,74 +74,67 @@ More information on these parameters can be found on <a href="/display/xPDO20/Th
 Once you're connected, you'll need to <a href="/display/xPDO20/Loading+Packages" title="Loading Packages">load your package</a>.
 </p>
 
-<h3>
-<a name="DatabaseConnectionsandxPDO-ExampleConnection"></a>Example Connection
+<h3 id="DatabaseConnectionsandxPDO-ExampleConnection">
+Example Connection
 </h3>
 
 <p>
 Here's an example script that can be used to connect to a foreign database:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 
 define('MODX_CORE_PATH', '/path/to/revo/core/');
 define('MODX_CONFIG_KEY','config');
 require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 
-<span class="code-comment">// Criteria <span class="code-keyword">for</span> foreign Database
-</span>$host = 'localhost';
+// Criteria for foreign Database
+$host = 'localhost';
 $username = 'your_username';
 $password = 'your_password';
 $dbname = 'your_database';
 $port = 3306;
 $charset = 'utf-8';
 
-$dsn = <span class="code-quote">"mysql:host=$host;dbname=$dbname;port=$port;charset=$charset"</span>;
-$xpdo = <span class="code-keyword">new</span> xPDO($dsn, $username, $password);
+$dsn = "mysql:host=$host;dbname=$dbname;port=$port;charset=$charset";
+$xpdo = new xPDO($dsn, $username, $password);
 
-<span class="code-comment">// Test your connection
-</span>echo $o = ($xpdo-&gt;connect()) ? 'Connected' : 'Not Connected';
+// Test your connection
+echo $o = ($xpdo-&gt;connect()) ? 'Connected' : 'Not Connected';
 
-<span class="code-comment">// Issue queries against the foreign database:
-</span>$results = $xpdo-&gt;query(<span class="code-quote">"SELECT id FROM some_table"</span>); 
+// Issue queries against the foreign database:
+$results = $xpdo-&gt;query("SELECT id FROM some_table"); 
 $recordCount = $results-&gt;rowCount();
 print $recordCount;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="DatabaseConnectionsandxPDO-DefiningMultipleConnections%28xPDO2.2%29"></a>Defining Multiple Connections <em>(xPDO 2.2+)</em>
+<h2 id="DatabaseConnectionsandxPDO-DefiningMultipleConnections(xPDO2.2)">
+Defining Multiple Connections <em>(xPDO 2.2+)</em>
 </h2>
 
 <p>
 xPDO 2.2 introduces the ability to define multiple connections, and includes configuration options for specifying read-only attributes per connection. This allows the use of xPDO with various kinds of master/slave database configurations.
 </p>
 
-<h3>
-<a name="DatabaseConnectionsandxPDO-xPDO%3A%3AOPTCONNECTIONS"></a>xPDO::OPT_CONNECTIONS
+<h3 id="DatabaseConnectionsandxPDO-xPDO::OPTCONNECTIONS">
+xPDO::OPT_CONNECTIONS
 </h3>
 
 <p>
-To define additional connections for an xPDO instance, you can pass an array of connection configuration arrays in the <tt>$options</tt> parameter of the xPDO constructor. Each connection array defines the same parameters as an xPDO constructor call. Here is an example constructor call with multiple read-only connections specified:
+To define additional connections for an xPDO instance, you can pass an array of connection configuration arrays in the <code>$options</code> parameter of the xPDO constructor. Each connection array defines the same parameters as an xPDO constructor call. Here is an example constructor call with multiple read-only connections specified:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$xpdo = <span class="code-keyword">new</span> xPDO('mysql:host=127.0.0.1:19570;dbname=xpdotest;charset=utf8', 'username', 'password' array(
-    xPDO::OPT_CONN_MUTABLE =&gt; <span class="code-keyword">true</span>,
-    xPDO::OPT_CONN_INIT =&gt; array(xPDO::OPT_CONN_MUTABLE =&gt; <span class="code-keyword">false</span>),
+<pre class="brush: php">
+$xpdo = new xPDO('mysql:host=127.0.0.1:19570;dbname=xpdotest;charset=utf8', 'username', 'password' array(
+    xPDO::OPT_CONN_MUTABLE =&gt; true,
+    xPDO::OPT_CONN_INIT =&gt; array(xPDO::OPT_CONN_MUTABLE =&gt; false),
     xPDO::OPT_CONNECTIONS =&gt; array(
             array(
                 'dsn' =&gt; 'mysql:host=127.0.0.1:19571;dbname=xpdotest;charset=utf8',
                 'username' =&gt; 'username',
                 'password' =&gt; 'password',
                 'options' =&gt; array(
-                    xPDO::OPT_CONN_MUTABLE =&gt; <span class="code-keyword">false</span>,
+                    xPDO::OPT_CONN_MUTABLE =&gt; false,
                 ),
                 'driverOptions' =&gt; array(),
             ),
@@ -189,50 +143,42 @@ $xpdo = <span class="code-keyword">new</span> xPDO('mysql:host=127.0.0.1:19570;d
                 'username' =&gt; 'username',
                 'password' =&gt; 'password',
                 'options' =&gt; array(
-                    xPDO::OPT_CONN_MUTABLE =&gt; <span class="code-keyword">false</span>,
+                    xPDO::OPT_CONN_MUTABLE =&gt; false,
                 ),
                 'driverOptions' =&gt; array(),
             ),
         ),
 ));
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="DatabaseConnectionsandxPDO-xPDO%3A%3AOPTCONNMUTABLE"></a>xPDO::OPT_CONN_MUTABLE
+<h3 id="DatabaseConnectionsandxPDO-xPDO::OPTCONNMUTABLE">
+xPDO::OPT_CONN_MUTABLE
 </h3>
 
 <p>
-This option defines the mutability of a defined connection, i.e. is it a read-only connection or can we write to it. It can be specified in the <tt>$options</tt> array of the constructor as well as in the <em>options</em> for each additional connection.
+This option defines the mutability of a defined connection, i.e. is it a read-only connection or can we write to it. It can be specified in the <code>$options</code> array of the constructor as well as in the <em>options</em> for each additional connection.
 </p>
 
-<h3>
-<a name="DatabaseConnectionsandxPDO-xPDO%3A%3AOPTCONNINIT"></a>xPDO::OPT_CONN_INIT
+<h3 id="DatabaseConnectionsandxPDO-xPDO::OPTCONNINIT">
+xPDO::OPT_CONN_INIT
 </h3>
 
 <p>
 This option defines criteria that a connection must meet to be considered for use as the initial connection created by xPDO. In master/slave configurations, a typical value for this option (which is specified only once in the main configuration options) would indicate to initialize a read-only or immutable connection.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDO::OPT_CONN_INIT =&gt; array(xPDO::_OPT_CONN_MUTABLE =&gt; <span class="code-keyword">false</span>)
+<pre class="brush: php">
+xPDO::OPT_CONN_INIT =&gt; array(xPDO::_OPT_CONN_MUTABLE =&gt; false)
 </pre>
-</div>
-</div>
-
 <p>
 This makes sure that xPDO selects a connection with that option set to false to start with. If a write operation is performed within xPDO after a read-only connection is initialized, a new mutable connection will be selected and cached for reuse by other write operations within the same execution cycle.
 </p>
 
-<h2>
-<a name="DatabaseConnectionsandxPDO-SeeAlso"></a>See Also
+<h2 id="DatabaseConnectionsandxPDO-SeeAlso">
+See Also
 </h2>
 
 <p>
 <a href="/display/xPDO20/The+xPDO+Constructor" title="The xPDO Constructor">The xPDO Constructor</a>
 <br />
-<a href="http://www.php.net/manual/en/pdo.construct.php" class="external-link" rel="nofollow">PDO::__construct()</a>
+<a href="http://www.php.net/manual/en/pdo.construct.php">PDO::__construct()</a>
 </p>

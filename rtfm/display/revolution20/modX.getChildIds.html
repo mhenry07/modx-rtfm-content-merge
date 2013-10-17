@@ -1,49 +1,39 @@
-<h2>
-<a name="modX.getChildIds-modX%3A%3AgetChildIds"></a>modX::getChildIds
+<h2 id="modX.getChildIds-modX::getChildIds">
+modX::getChildIds
 </h2>
 
 <p>
 Gets all of the child resource ids for a given resource.
 </p>
 
-<h2>
-<a name="modX.getChildIds-Syntax" id="modX.getChildIds-Syntax"></a>Syntax
+<h2 id="modX.getChildIds-Syntax">
+Syntax
 </h2>
 
 <p>
-API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::getChildIds()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::getChildIds()</a>
+API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::getChildIds()">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::getChildIds()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-array getChildIds ([integer $id = <span class="code-keyword">null</span>], [integer $depth = 10], [array $options = array()])
+<pre class="brush: php">
+array getChildIds ([integer $id = null], [integer $depth = 10], [array $options = array()])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.getChildIds-Example" id="modX.getChildIds-Example"></a>Example
+<h2 id="modX.getChildIds-Example">
+Example
 </h2>
 
 <p>
 Get all the children IDs for the Resource 23. Limit to 6 levels deep. Only in the web context.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $array_ids = $modx-&gt;getChildIds(23,6,array('context' =&gt; 'web'));
 </pre>
-</div>
-</div>
-
 <p>
 Note that when using this method in the manager (to collect input options for a TV for example), you need to define the context with the third options parameter as it&nbsp; defaults to the current context (in that scenario the manager).
 </p>
 
-<h2>
-<a name="modX.getChildIds-SeeAlso" id="modX.getChildIds-SeeAlso"></a>See Also
+<h2 id="modX.getChildIds-SeeAlso">
+See Also
 </h2>
 
 <ul>

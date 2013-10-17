@@ -1,5 +1,5 @@
-<h1>
-<a name="Archivist.ArchivistGrouper-ArchivistGrouper" id="Archivist.ArchivistGrouper-ArchivistGrouper"></a>ArchivistGrouper
+<h1 id="Archivist.ArchivistGrouper-ArchivistGrouper">
+ArchivistGrouper
 </h1>
 
 <p>
@@ -9,345 +9,333 @@ The <a href="/display/ADDON/Articles" title="Articles">Articles</a> addon 1.6.1 
 <div class="panel" style="border-width: 1px;">
 <div class="panelContent">
 <p>
-<font color="#FF0000">The descriptions in the table are just a guess!!! &nbsp; Someone with more experience or the creator should confirm or adjust these!!</font>
+The descriptions in the table are just a guess!!! &nbsp; Someone with more experience or the creator should confirm or adjust these!!
 </p>
 </div>
 </div>
 
-<h2>
-<a name="Archivist.ArchivistGrouper-Usage" id="Archivist.ArchivistGrouper-Usage"></a>Usage
+<h2 id="Archivist.ArchivistGrouper-Usage">
+Usage
 </h2>
 
 <p>
 Simply place the snippet wherever you would like to display archive listings in, the parents to grab archives from.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!ArchivistGrouper? &amp;parents=`12`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Archivist.ArchivistGrouper-AvailableProperties" id="Archivist.ArchivistGrouper-AvailableProperties"></a>Available Properties
+<h2 id="Archivist.ArchivistGrouper-AvailableProperties">
+Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mode
 </td>
-<td class='confluenceTd'>
+<td>
 Choose between month and year
 </td>
-<td class='confluenceTd'>
+<td>
 month
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 itemTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk that will be used to display each item within a group
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parents
 </td>
-<td class='confluenceTd'>
+<td>
 Comma-delimited list of ids serving as parents.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 target
 </td>
-<td class='confluenceTd'>
+<td>
 The Resource that the getArchives snippet is called on, that will display the results of the archive filter.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 depth
 </td>
-<td class='confluenceTd'>
+<td>
 Integer value indicating depth to search for resources from each parent.
 </td>
-<td class='confluenceTd'>
+<td>
 10
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 where
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 hideContainers
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortBy
 </td>
-<td class='confluenceTd'>
+<td>
 The field to sort and group results by.
 </td>
-<td class='confluenceTd'>
+<td>
 publishedon
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortDir
 </td>
-<td class='confluenceTd'>
+<td>
 Order which to sort by. Defaults to DESC.
 </td>
-<td class='confluenceTd'>
+<td>
 DESC
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dateFormat
 </td>
-<td class='confluenceTd'>
+<td>
 The date format, according to MySQL DATE_FORMAT() syntax, for each row. If blank, ArchivistGrouper will calculate this automatically.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limitGroups
 </td>
-<td class='confluenceTd'>
+<td>
 Limits the number of groups returned.
 </td>
-<td class='confluenceTd'>
+<td>
 12
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limitItems
 </td>
-<td class='confluenceTd'>
+<td>
 Limits the number of items returned. 0 means no limit??
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resourceSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 \n
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 groupSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 \n
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 filterPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 The prefix to use for GET parameters with the Archivist links. Make sure this is the same as the filterPrefix parameter on the getArchives snippet call.
 </td>
-<td class='confluenceTd'>
+<td>
 arc_
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useFurls
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will generate links in pretty Friendly URL format.
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 persistGetParams
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 extraParams
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cls
 </td>
-<td class='confluenceTd'>
+<td>
 A CSS class to add to each row.
 </td>
-<td class='confluenceTd'>
+<td>
 arc-resource-row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 altCls
 </td>
-<td class='confluenceTd'>
+<td>
 A CSS class to add to each alternate row.
 </td>
-<td class='confluenceTd'>
+<td>
 arc-resource-row-alt
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setLocale
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 If true, Archivist will run the setlocale function with your cultureKey setting if your cultureKey is not "en".
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 groupTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk that will be used to display each month/year result.
 </td>
-<td class='confluenceTd'>
+<td>
 yearContainer (when property mode=`year`)
-<br class="atl-forced-newline" />
+<br />
 monthContainer (when property mode=`month`)
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 Almost all of the descriptions are the same properties as mentioned on the <a href="/display/ADDON/Archivist.Archivist" title="Archivist.Archivist">Archivist page</a>.
 </p>
 
-<h2>
-<a name="Archivist.ArchivistGrouper-Chunks" id="Archivist.ArchivistGrouper-Chunks"></a>Chunks
+<h2 id="Archivist.ArchivistGrouper-Chunks">
+Chunks
 </h2>
 
 <p>
 If no templates are given, the defaults are used. As it got me puzzled how to create my own template for the groups, I dived into the source and found this template that is used as monthContainer:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li&gt;&lt;a href=<span class="code-quote">"[[+url]]"</span>&gt;[[+month_name]] [[+year]]&lt;/a&gt;
+<pre class="brush: php">
+&lt;li&gt;&lt;a href="[[+url]]"&gt;[[+month_name]] [[+year]]&lt;/a&gt;
 &lt;ul&gt;
 [[+resources]]
 &lt;/ul&gt;
 </pre>
-</div>
-</div>
-
 <p>
-Notice the placeholder <b>[[+resources]]</b> that passes on the results to the itemTpl.
+Notice the placeholder <strong>[[+resources]]</strong> that passes on the results to the itemTpl.
 </p>
 
-<h2>
-<a name="Archivist.ArchivistGrouper-Result" id="Archivist.ArchivistGrouper-Result"></a>Result
+<h2 id="Archivist.ArchivistGrouper-Result">
+Result
 </h2>
 
 <p>

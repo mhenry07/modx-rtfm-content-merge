@@ -1,5 +1,5 @@
-<h2>
-<a name="ConfiguringSphinxforSearch-RequirementsforSphinxSearchwithDiscuss" id="ConfiguringSphinxforSearch-RequirementsforSphinxSearchwithDiscuss"></a>Requirements for Sphinx Search with Discuss
+<h2 id="ConfiguringSphinxforSearch-RequirementsforSphinxSearchwithDiscuss">
+Requirements for Sphinx Search with Discuss
 </h2>
 
 <p>
@@ -18,19 +18,17 @@ Discuss has only few requirements to work with Sphinx search:
 </ul>
 
 <p>
-For more how to install Sphinx can be found from <a href="http://sphinxsearch.com/docs/" class="external-link" rel="nofollow">official Sphinx documentation</a>
+For more how to install Sphinx can be found from <a href="http://sphinxsearch.com/docs/">official Sphinx documentation</a>
 </p>
 
-<h2>
-<a name="ConfiguringSphinxforSearch-ExampleConfiguration" id="ConfiguringSphinxforSearch-ExampleConfiguration"></a>Example Configuration
+<h2 id="ConfiguringSphinxforSearch-ExampleConfiguration">
+Example Configuration
 </h2>
 
 <p>
-<font color="#333333">Example configuration uses two indexes for Sphinx; the main index and delta index for faster and more frequent indexing. Using delta index is preferred when forum is active or there are considerable amount of posts which can cause indexer to take long re-indexing main index. Delta index can also keep search more up to date with results depending on indexing frequency.</font>
+Example configuration uses two indexes for Sphinx; the main index and delta index for faster and more frequent indexing. Using delta index is preferred when forum is active or there are considerable amount of posts which can cause indexer to take long re-indexing main index. Delta index can also keep search more up to date with results depending on indexing frequency.
 </p>
 
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
 <pre>
 source discuss_posts {
     type                    = mysql
@@ -95,15 +93,10 @@ searchd {
 }
 
 </pre>
-</div>
-</div>
-
 <p>
 Before running indexer with the configuration, create new table with next sql piece to your database which has discuss installed. You can rename the delta table to anything you want, as long it matches with the pre_query delta update and delta query table in the main index.
 </p>
 
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
 <pre>
 CREATE TABLE `modx_discuss_sphinx_delta` (
   `counter_id` int(11) NOT NULL,
@@ -111,35 +104,32 @@ CREATE TABLE `modx_discuss_sphinx_delta` (
   PRIMARY KEY (`counter_id`)
 )
 </pre>
-</div>
-</div>
-
 <p>
-You can read more about delta index updates and merging to main index from official documentation for <a href="http://sphinxsearch.com/docs/manual-2.0.8.html#delta-updates" class="external-link" rel="nofollow">Delta Updates</a>
+You can read more about delta index updates and merging to main index from official documentation for <a href="http://sphinxsearch.com/docs/manual-2.0.8.html#delta-updates">Delta Updates</a>
 </p>
 
-<h2>
-<a name="ConfiguringSphinxforSearch-SettingSphinxtoDiscussSettings" id="ConfiguringSphinxforSearch-SettingSphinxtoDiscussSettings"></a>Setting Sphinx to Discuss Settings
+<h2 id="ConfiguringSphinxforSearch-SettingSphinxtoDiscussSettings">
+Setting Sphinx to Discuss Settings
 </h2>
 
 <p>
-<font color="#222222">Go to</font> <a href="/display/revolution20/System+Settings" title="System Settings"><font color="#222222">System Settings</font></a><font color="#222222">&nbsp;</font><font color="#222222">and change the following settings:</font>
+Go to <a href="/display/revolution20/System+Settings" title="System Settings">System Settings</a>&nbsp;and change the following settings:
 </p>
 
 <ul>
 <li>
-<font color="#222222"><b>discuss.search_class</b></font><font color="#222222">&nbsp;-&gt; Change to disSphinxSearch</font>
+<strong>discuss.search_class</strong>&nbsp;-&gt; Change to disSphinxSearch
 </li>
 
 <li>
-<font color="#222222"><b>discuss.sphinx.host_name</b></font> <font color="#222222">-&gt; Set to hostname where Sphinx server is running</font>
+<strong>discuss.sphinx.host_name</strong> -&gt; Set to hostname where Sphinx server is running
 </li>
 
 <li>
-<font color="#222222"><b>discuss.sphinx.indexes</b></font> <font color="#222222">-&gt; List of indexes mentioned in the configuration file. The list can be separated with semicolon, comma or space</font>
+<strong>discuss.sphinx.indexes</strong> -&gt; List of indexes mentioned in the configuration file. The list can be separated with semicolon, comma or space
 </li>
 
 <li>
-<font color="#222222"><b>discuss.sphinx.port</b></font> <font color="#222222">-&gt; Set port number that Sphinx is listening to</font>
+<strong>discuss.sphinx.port</strong> -&gt; Set port number that Sphinx is listening to
 </li>
 </ul>

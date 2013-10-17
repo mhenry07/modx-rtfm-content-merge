@@ -1,45 +1,38 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Users-WhatisaUser%3F'>What is a User?</a>
+<a href="#Users-WhatisaUser%3F">What is a User?</a>
 </li>
 
 <li>
-<a href='#Users-UserSettings'>User Settings</a>
+<a href="#Users-UserSettings">User Settings</a>
 </li>
 
 <li>
-<a href='#Users-UsersintheFrontEnd'>Users in the Front-End</a>
+<a href="#Users-UsersintheFrontEnd">Users in the Front-End</a>
 </li>
 
 <li>
-<a href='#Users-UserFields'>User Fields</a>
+<a href="#Users-UserFields">User Fields</a>
 </li>
 
 <li>
-<a href='#Users-GrabbingtheUserviatheAPI'>Grabbing the User via the API</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Users-GrabbingtheUserviatheAPI">Grabbing the User via the API</a>
 <ul>
 <li>
-<a href='#Users-UsingExtendedFields'>Using Extended Fields</a>
+<a href="#Users-UsingExtendedFields">Using Extended Fields</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Users-SeeAlso'>See Also</a>
+<a href="#Users-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Users-WhatisaUser%3F"></a>What is a User?
+<h2 id="Users-WhatisaUser?">
+What is a User?
 </h2>
 
 <p>
@@ -50,8 +43,8 @@ A User is simply a representation of a login in MODx Revolution.
 Users can also be assigned to User Groups, which can have <a href="/display/revolution20/ACLs" title="ACLs">ACLs</a> attached to them to provide Access Controls.
 </p>
 
-<h2>
-<a name="Users-UserSettings"></a>User Settings
+<h2 id="Users-UserSettings">
+User Settings
 </h2>
 
 <p>
@@ -65,434 +58,385 @@ System Settings -&gt; Context Settings -&gt; User Settings
 </blockquote>
 
 <p>
-To edit the user settings, navigate to <b>Security -&gt; Manage Users -&gt; Update User (<em>right-click</em>) -&gt; Settings (<em>tab</em>)</b>
+To edit the user settings, navigate to <strong>Security -&gt; Manage Users -&gt; Update User (<em>right-click</em>) -&gt; Settings (<em>tab</em>)</strong>
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You can change user-specific settings only <em>after</em> you've created the user. The "Settings" tab is not visible when you first create the user.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="Users-UsersintheFrontEnd"></a>Users in the Front-End
+<h2 id="Users-UsersintheFrontEnd">
+Users in the Front-End
 </h2>
 
 <p>
 When a user is logged into the frontend of your site, their username and ID can be accessed by the following <a href="/display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">Properties</a>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+modx.user.id]] - Prints the ID
 [[+modx.user.username]] - Prints the username
 </pre>
-</div>
-</div>
-
 <p>
 If a user is not logged in, ID will be blank, and Username will be "(anonymous)".
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Remember</b>
+<div class="note">
+<strong>Remember</strong>
 <br />
-Keep in mind that confusing caveat: just because you have logged into the <em>manager</em> does not mean that you are logged into the <em>web</em> front-end. The user-specific settings and the <a href="/display/xPDO20/getOption" title="getOption">getOption</a> API method obeys this same rule, so if you're not logged in, then the <b>System Settings -&gt; Context Settings -&gt; User Settings</b> cannot fully apply.
-</td>
-</tr>
-</table>
+Keep in mind that confusing caveat: just because you have logged into the <em>manager</em> does not mean that you are logged into the <em>web</em> front-end. The user-specific settings and the <a href="/display/xPDO20/getOption" title="getOption">getOption</a> API method obeys this same rule, so if you're not logged in, then the <strong>System Settings -&gt; Context Settings -&gt; User Settings</strong> cannot fully apply.
 </div>
 
-<h2>
-<a name="Users-UserFields"></a>User Fields
+<h2 id="Users-UserFields">
+User Fields
 </h2>
 
 <p>
 Users contain the following fields:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 id
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 username
 </td>
-<td class='confluenceTd'>
+<td>
 The username of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 password
 </td>
-<td class='confluenceTd'>
+<td>
 The user's encrypted password.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 active
 </td>
-<td class='confluenceTd'>
+<td>
 Either 1 or 0. If not active, the user will not be able to log in.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 remote_key
 </td>
-<td class='confluenceTd'>
+<td>
 A remote user Key used by remote authentication apps.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 remote_data
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON array of data used by remote authentication apps.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 Users also have a Profile attached to them. It contains the following fields:
 </p>
 
-<div class='table-wrap'>
-<table id='TBL1376497247122' class='confluenceTable'>
+<table id="TBL1376497247036">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 internalKey
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fullname
 </td>
-<td class='confluenceTd'>
+<td>
 The full name of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 email
 </td>
-<td class='confluenceTd'>
+<td>
 The email of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 phone
 </td>
-<td class='confluenceTd'>
+<td>
 The phone number.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mobilephone
 </td>
-<td class='confluenceTd'>
+<td>
 The cellphone number.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fax
 </td>
-<td class='confluenceTd'>
+<td>
 The fax number.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 blocked
 </td>
-<td class='confluenceTd'>
+<td>
 Either 1 or 0. If blocked is set to true, the user will not be able to log in.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 blockeduntil
 </td>
-<td class='confluenceTd'>
+<td>
 A timestamp that, when set, will prevent the user from logging in until this date.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 blockedafter
 </td>
-<td class='confluenceTd'>
+<td>
 A timestamp that, when set, will prevent the user from logging in after this date.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logincount
 </td>
-<td class='confluenceTd'>
+<td>
 The number of logins for this user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 lastlogin
 </td>
-<td class='confluenceTd'>
+<td>
 The last time the user logged in.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thislogin
 </td>
-<td class='confluenceTd'>
+<td>
 The time the user logged in in their current session.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 failedlogincount
 </td>
-<td class='confluenceTd'>
+<td>
 The number of times the user has failed to log in since last logging in.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sessionid
 </td>
-<td class='confluenceTd'>
+<td>
 The User's session ID that maps to the session table.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dob
 </td>
-<td class='confluenceTd'>
+<td>
 The date of birth.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 gender
 </td>
-<td class='confluenceTd'>
+<td>
 0 for neither, 1 for male and 2 for female.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 address
 </td>
-<td class='confluenceTd'>
+<td>
 The physical address.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 country
 </td>
-<td class='confluenceTd'>
+<td>
 The country of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 city
 </td>
-<td class='confluenceTd'>
+<td>
 The city of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 zip
 </td>
-<td class='confluenceTd'>
+<td>
 The zip or postal code for the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 state
 </td>
-<td class='confluenceTd'>
+<td>
 The physical state or province of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 photo
 </td>
-<td class='confluenceTd'>
+<td>
 An optional field for a photo. Not used in the UI.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 comment
 </td>
-<td class='confluenceTd'>
+<td>
 An optional comment field for comments on the User.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 website
 </td>
-<td class='confluenceTd'>
+<td>
 The website of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 extended
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON array that can be used to store extra fields for the User.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Users-GrabbingtheUserviatheAPI"></a>Grabbing the User via the API
+<h2 id="Users-GrabbingtheUserviatheAPI">
+Grabbing the User via the API
 </h2>
 
 <p>
 The current user can be retrieved in the API via the $modx-&gt;user reference. For example, this snippet outputs the username of the user:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">return</span> $modx-&gt;user-&gt;get('username');
+<pre class="brush: php">
+return $modx-&gt;user-&gt;get('username');
 </pre>
-</div>
-</div>
-
 <p>
 Note that to grab Profile fields, you'll need to first get the modUserProfile object via the Profile alias. For example, this snippet grabs the email of the user and returns it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $profile = $modx-&gt;user-&gt;getOne('Profile');
-<span class="code-keyword">return</span> $profile ? $profile-&gt;get('email') : '';
+return $profile ? $profile-&gt;get('email') : '';
 </pre>
-</div>
-</div>
-
 <p>
 If the User is not logged in, $modx-&gt;user will still be available as an object, but will return 0 as the ID and (Anonymous) as the username.
 </p>
 
-<h3>
-<a name="Users-UsingExtendedFields"></a>Using Extended Fields
+<h3 id="Users-UsingExtendedFields">
+Using Extended Fields
 </h3>
 
 <p>
 Values in the extended field return as an array. They can be manipulated like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-/* get the extended field named <span class="code-quote">"color"</span>: */
+<pre class="brush: php">
+/* get the extended field named "color": */
 $fields = $profile-&gt;get('extended');
 $color = $fields['color'];
 
@@ -502,26 +446,95 @@ $fields['color'] = 'red';
 $profile-&gt;set('extended',$fields);
 $profile-&gt;save();
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Users-SeeAlso"></a>See Also
+<h2 id="Users-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Users">Users</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678339" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678085" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FUsers" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678085" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/User+Groups">User Groups</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Resource+Groups">Resource Groups</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Roles">Roles</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Policies">Policies</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Permissions">Permissions</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Permissions+-+Administrator+Policy">Permissions - Administrator Policy</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Permissions+-+Resource+Policy">Permissions - Resource Policy</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/ACLs">ACLs</a>
+</li>
+
+<li>
+<a href="/display/revolution20/PolicyTemplates">PolicyTemplates</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Security+Tutorials">Security Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Giving+a+User+Manager+Access">Giving a User Manager Access</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Making+Member-Only+Pages">Making Member-Only Pages</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Creating+a+Second+Super+Admin+User">Creating a Second Super Admin User</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Restricting+an+Element+from+Users">Restricting an Element from Users</a>
+</li>
+
+<li>
+<a href="/display/revolution20/More+on+the+Anonymous+User+Group">More on the Anonymous User Group</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Hardening+MODX+Revolution">Hardening MODX Revolution</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Security+Standards">Security Standards</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Troubleshooting+Security">Troubleshooting Security</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Resetting+a+User+Password+Manually">Resetting a User Password Manually</a>
+</li>
+</ol>
+</li>
+</ol>
 
 <p>
 <a href="/display/revolution20/Extending+modUser" title="Extending modUser">Extending modUser</a>

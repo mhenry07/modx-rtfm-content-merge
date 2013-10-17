@@ -1,19 +1,15 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Register.ExampleForm1-TheResource'>The Resource</a>
+<a href="#Register.ExampleForm1-TheResource">The Resource</a>
 </li>
 
 <li>
-<a href='#Register.ExampleForm1-ThemyActivationEmailTplChunk'>The myActivationEmailTpl Chunk</a>
+<a href="#Register.ExampleForm1-ThemyActivationEmailTplChunk">The myActivationEmailTpl Chunk</a>
 </li>
 
 <li>
-<a href='#Register.ExampleForm1-SeeAlso'>See Also</a>
+<a href="#Register.ExampleForm1-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -39,20 +35,18 @@ This example form will register a user and do the following:
 </li>
 </ul>
 
-<h2>
-<a name="Register.ExampleForm1-TheResource" id="Register.ExampleForm1-TheResource"></a>The Resource
+<h2 id="Register.ExampleForm1-TheResource">
+The Resource
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h2&gt;Register&lt;/h2&gt;
 
 [[!Register?
     &amp;submitVar=`registerbtn`
     &amp;activationResourceId=`12`
     &amp;activationEmailTpl=`myActivationEmailTpl`
-    &amp;activationEmailSubject=`Thanks <span class="code-keyword">for</span> Registering!`
+    &amp;activationEmailSubject=`Thanks for Registering!`
     &amp;submittedResourceId=`45`
     &amp;usergroups=`Marketing,Research`
     &amp;validate=`nospam:blank,
@@ -64,60 +58,55 @@ This example form will register a user and do the following:
     &amp;placeholderPrefix=`reg.`
 ]]
 
-&lt;div class=<span class="code-quote">"register"</span>&gt;
-    &lt;div class=<span class="code-quote">"registerMessage"</span>&gt;[[!+reg.error.message]]&lt;/div&gt;
+&lt;div class="register"&gt;
+    &lt;div class="registerMessage"&gt;[[!+reg.error.message]]&lt;/div&gt;
 
-    &lt;form class=<span class="code-quote">"form"</span> action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span>&gt;
-        &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"nospam"</span> value=<span class="code-quote">"[[!+reg.nospam]]"</span> /&gt;
+    &lt;form class="form" action="[[~[[*id]]]]" method="post"&gt;
+        &lt;input type="hidden" name="nospam" value="[[!+reg.nospam]]" /&gt;
 
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"username"</span>&gt;[[%register.username? &amp;namespace=`login` &amp;topic=`register`]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+reg.error.username]]&lt;/span&gt;
+        &lt;label for="username"&gt;[[%register.username? &amp;namespace=`login` &amp;topic=`register`]]
+            &lt;span class="error"&gt;[[!+reg.error.username]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"username"</span> id=<span class="code-quote">"username"</span> value=<span class="code-quote">"[[!+reg.username]]"</span> /&gt;
+        &lt;input type="text" name="username" id="username" value="[[!+reg.username]]" /&gt;
 
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"password"</span>&gt;[[%register.password]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+reg.error.password]]&lt;/span&gt;
+        &lt;label for="password"&gt;[[%register.password]]
+            &lt;span class="error"&gt;[[!+reg.error.password]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"password"</span> name=<span class="code-quote">"password"</span> id=<span class="code-quote">"password"</span> value=<span class="code-quote">"[[!+reg.password]]"</span> /&gt;
+        &lt;input type="password" name="password" id="password" value="[[!+reg.password]]" /&gt;
 
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"password_confirm"</span>&gt;[[%register.password_confirm]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+reg.error.password_confirm]]&lt;/span&gt;
+        &lt;label for="password_confirm"&gt;[[%register.password_confirm]]
+            &lt;span class="error"&gt;[[!+reg.error.password_confirm]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"password"</span> name=<span class="code-quote">"password_confirm"</span> id=<span class="code-quote">"password_confirm"</span> value=<span class="code-quote">"[[!+reg.password_confirm]]"</span> /&gt;
+        &lt;input type="password" name="password_confirm" id="password_confirm" value="[[!+reg.password_confirm]]" /&gt;
 
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"fullname"</span>&gt;[[%register.fullname]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+reg.error.fullname]]&lt;/span&gt;
+        &lt;label for="fullname"&gt;[[%register.fullname]]
+            &lt;span class="error"&gt;[[!+reg.error.fullname]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"fullname"</span> id=<span class="code-quote">"fullname"</span> value=<span class="code-quote">"[[!+reg.fullname]]"</span> /&gt;
+        &lt;input type="text" name="fullname" id="fullname" value="[[!+reg.fullname]]" /&gt;
 
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"email"</span>&gt;[[%register.email]]
-            &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+reg.error.email]]&lt;/span&gt;
+        &lt;label for="email"&gt;[[%register.email]]
+            &lt;span class="error"&gt;[[!+reg.error.email]]&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"email"</span> id=<span class="code-quote">"email"</span> value=<span class="code-quote">"[[!+reg.email]]"</span> /&gt;
+        &lt;input type="text" name="email" id="email" value="[[!+reg.email]]" /&gt;
 
-        &lt;br class=<span class="code-quote">"clear"</span> /&gt;
+        &lt;br class="clear" /&gt;
 
-        &lt;div class=<span class="code-quote">"form-buttons"</span>&gt;
-            &lt;input type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"registerbtn"</span> value=<span class="code-quote">"Register"</span> /&gt;
+        &lt;div class="form-buttons"&gt;
+            &lt;input type="submit" name="registerbtn" value="Register" /&gt;
         &lt;/div&gt;
     &lt;/form&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Register.ExampleForm1-ThemyActivationEmailTplChunk" id="Register.ExampleForm1-ThemyActivationEmailTplChunk"></a>The myActivationEmailTpl Chunk
+<h2 id="Register.ExampleForm1-ThemyActivationEmailTplChunk">
+The myActivationEmailTpl Chunk
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;p&gt;[[+username]],&lt;/p&gt;
 
-&lt;p&gt;Thanks <span class="code-keyword">for</span> registering! To activate your <span class="code-keyword">new</span> account, please click on the following link:&lt;/p&gt;
+&lt;p&gt;Thanks for registering! To activate your new account, please click on the following link:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=<span class="code-quote">"[[+confirmUrl]]"</span>&gt;[[+confirmUrl]]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="[[+confirmUrl]]"&gt;[[+confirmUrl]]&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;After activating, you may login with your password and username:&lt;/p&gt;
 
@@ -125,28 +114,83 @@ This example form will register a user and do the following:
 Username: &lt;strong&gt;[[+username]]&lt;/strong&gt;&lt;br /&gt;
 Password: &lt;strong&gt;[[+password]]&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;If you did not request <span class="code-keyword">this</span> message, please ignore it.&lt;/p&gt;
+&lt;p&gt;If you did not request this message, please ignore it.&lt;/p&gt;
 
 &lt;p&gt;Thanks,&lt;br /&gt;
 &lt;em&gt;Site Administrator&lt;/em&gt;&lt;/p&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Register.ExampleForm1-SeeAlso" id="Register.ExampleForm1-SeeAlso"></a>See Also
+<h2 id="Register.ExampleForm1-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Login.Login">Login.Login</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="11862048" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042888" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FRegister.Example%2BForm%2B1" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11862020" /> <input type="hidden" name="ancestorId" value="11042888" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Login.Profile">Login.Profile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.UpdateProfile">Login.UpdateProfile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Register">Login.Register</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Register.Example+Form+1">Register.Example Form 1</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ConfirmRegister">Login.ConfirmRegister</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ForgotPassword">Login.ForgotPassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ResetPassword">Login.ResetPassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ChangePassword">Login.ChangePassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Tutorials">Login.Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Login.Basic+Setup">Login.Basic Setup</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Extended+User+Profiles">Login.Extended User Profiles</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Request+Membership">Login.Request Membership</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.User+Profiles">Login.User Profiles</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Using+Custom+Fields">Login.Using Custom Fields</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Using+Pre+and+Post+Hooks">Login.Using Pre and Post Hooks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Roadmap">Login.Roadmap</a>
+</li>
+</ol>

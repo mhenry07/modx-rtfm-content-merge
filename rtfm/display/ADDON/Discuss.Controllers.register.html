@@ -1,85 +1,83 @@
 <p>
-The Register controller is used for either showing a registration form, or when <b>discuss.sso_mode</b> is enabled (recommended), to redirect the user to the registration resource.
+The Register controller is used for either showing a registration form, or when <strong>discuss.sso_mode</strong> is enabled (recommended), to redirect the user to the registration resource.
 </p>
 
 <div>
 <ul>
 <li>
-<a href='#Discuss.Controllers.register-BasicInformation'>Basic Information</a>
+<a href="#Discuss.Controllers.register-BasicInformation">Basic Information</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.register-Options'>Options</a>
+<a href="#Discuss.Controllers.register-Options">Options</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.register-ControllerTemplate'>Controller Template</a>
+<a href="#Discuss.Controllers.register-ControllerTemplate">Controller Template</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.register-SystemEvents'>System Events</a>
+<a href="#Discuss.Controllers.register-SystemEvents">System Events</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Discuss.Controllers.register-BasicInformation" id="Discuss.Controllers.register-BasicInformation"></a>Basic Information
+<h2 id="Discuss.Controllers.register-BasicInformation">
+Basic Information
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Since Version
 </td>
-<td class='confluenceTd'>
+<td>
 1.0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller File
 </td>
-<td class='confluenceTd'>
+<td>
 controllers/web/register.class.php
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller Class Name
 </td>
-<td class='confluenceTd'>
+<td>
 DiscussRegisterController
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller Template
 </td>
-<td class='confluenceTd'>
+<td>
 pages/register.tpl (only used if sso_mode=0)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Manifest Name
 </td>
-<td class='confluenceTd'>
+<td>
 register
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Discuss.Controllers.register-Options" id="Discuss.Controllers.register-Options"></a>Options
+<h2 id="Discuss.Controllers.register-Options">
+Options
 </h2>
 
 <p>
@@ -87,76 +85,71 @@ The Register controller does not have any manifest options.
 </p>
 
 <p>
-The usage of the Register controller depends on 2 system settings. If the <b>discuss.register_resource_id</b> is set and discuss.sso_mode is enabled, the Register controller will simply redirect requests to the resource specified by the register_resource_id setting with a &amp;discuss=1 query string.
+The usage of the Register controller depends on 2 system settings. If the <strong>discuss.register_resource_id</strong> is set and discuss.sso_mode is enabled, the Register controller will simply redirect requests to the resource specified by the register_resource_id setting with a &amp;discuss=1 query string.
 </p>
 
 <p>
 If either sso_mode is disabled or no register_resource_id is set, the Login controller will use the pages/login.tpl template to display a login form.
 </p>
 
-<h2>
-<a name="Discuss.Controllers.register-ControllerTemplate" id="Discuss.Controllers.register-ControllerTemplate"></a>Controller Template
+<h2 id="Discuss.Controllers.register-ControllerTemplate">
+Controller Template
 </h2>
 
 <p>
 There are no specific placeholders to use in this controller template.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Register?
     &amp;submitVar=`dis-register-btn`
     &amp;activationResourceId=`[[*id]]`
     &amp;activationEmailTpl=`disActivationEmailTpl`
-    &amp;activationEmailSubject=`Thanks <span class="code-keyword">for</span> Registering!`
+    &amp;activationEmailSubject=`Thanks for Registering!`
     &amp;usergroups=`Forum New Member`
 ]]
 
 
 
-&lt;form class=<span class="code-quote">"dis-form dis-register"</span> action=<span class="code-quote">"[[~[[*id]]]]register"</span> method=<span class="code-quote">"post"</span>&gt;
+&lt;form class="dis-form dis-register" action="[[~[[*id]]]]register" method="post"&gt;
     &lt;h2&gt;[[%discuss.register? &amp;namespace=`discuss` &amp;topic=`web`]]&lt;/h2&gt;
-    &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.spam_empty]]&lt;/span&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"spam_empty"</span> value="" /&gt;
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-register-username"</span>&gt;[[%discuss.username]]:
-        &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.username]]&lt;/span&gt;
+    &lt;span class="error"&gt;[[+error.spam_empty]]&lt;/span&gt;
+    &lt;input type="hidden" name="spam_empty" value="" /&gt;
+    &lt;label for="dis-register-username"&gt;[[%discuss.username]]:
+        &lt;span class="error"&gt;[[+error.username]]&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"username"</span> id=<span class="code-quote">"dis-register-username"</span> value=<span class="code-quote">"[[+username]]"</span> /&gt;
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-register-password"</span>&gt;[[%discuss.password]]:
-        &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.password]]&lt;/span&gt;
+    &lt;input type="text" name="username" id="dis-register-username" value="[[+username]]" /&gt;
+    &lt;label for="dis-register-password"&gt;[[%discuss.password]]:
+        &lt;span class="error"&gt;[[+error.password]]&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type=<span class="code-quote">"password"</span> name=<span class="code-quote">"password"</span> id=<span class="code-quote">"dis-register-password"</span> value=<span class="code-quote">"[[+password]]"</span> /&gt;
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-register-password-confirm"</span>&gt;[[%discuss.password_confirm]]:
-        &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.password_confirm]]&lt;/span&gt;
+    &lt;input type="password" name="password" id="dis-register-password" value="[[+password]]" /&gt;
+    &lt;label for="dis-register-password-confirm"&gt;[[%discuss.password_confirm]]:
+        &lt;span class="error"&gt;[[+error.password_confirm]]&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type=<span class="code-quote">"password"</span> name=<span class="code-quote">"password_confirm"</span> id=<span class="code-quote">"dis-register-password-confirm"</span> value=<span class="code-quote">"[[+password]]"</span> /&gt;
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-register-email"</span>&gt;[[%discuss.email]]:
-        &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.email]]&lt;/span&gt;
+    &lt;input type="password" name="password_confirm" id="dis-register-password-confirm" value="[[+password]]" /&gt;
+    &lt;label for="dis-register-email"&gt;[[%discuss.email]]:
+        &lt;span class="error"&gt;[[+error.email]]&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"email"</span> id=<span class="code-quote">"dis-register-email"</span> value=<span class="code-quote">"[[+email]]"</span> /&gt;
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-register-show-email"</span>&gt;[[%discuss.show_email]]:
-        &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.show_email]]&lt;/span&gt;
+    &lt;input type="text" name="email" id="dis-register-email" value="[[+email]]" /&gt;
+    &lt;label for="dis-register-show-email"&gt;[[%discuss.show_email]]:
+        &lt;span class="error"&gt;[[+error.show_email]]&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"show_email"</span> id=<span class="code-quote">"dis-register-show-email"</span> value=<span class="code-quote">"1"</span> [[+show_email]] /&gt;
+    &lt;input type="checkbox" name="show_email" id="dis-register-show-email" value="1" [[+show_email]] /&gt;
 
-    &lt;div style=<span class="code-quote">"padding-left: 140px; clear:both;"</span>&gt;
+    &lt;div style="padding-left: 140px; clear:both;"&gt;
     [[+recaptcha_html]]
     [[+error.recaptcha]]
     &lt;/div&gt;
 
-    &lt;br class=<span class="code-quote">"clearfix"</span> /&gt;
+    &lt;br class="clearfix" /&gt;
     [[+discuss.login_error]]
-    &lt;div class=<span class="code-quote">"dis-form-buttons"</span>&gt;
-    &lt;input type=<span class="code-quote">"submit"</span> class=<span class="code-quote">"dis-action-btn"</span> name=<span class="code-quote">"dis-register-btn"</span> value=<span class="code-quote">"[[%discuss.register]]"</span> /&gt;
+    &lt;div class="dis-form-buttons"&gt;
+    &lt;input type="submit" class="dis-action-btn" name="dis-register-btn" value="[[%discuss.register]]" /&gt;
     &lt;/div&gt;
 &lt;/form&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Discuss.Controllers.register-SystemEvents" id="Discuss.Controllers.register-SystemEvents"></a>System Events
+<h2 id="Discuss.Controllers.register-SystemEvents">
+System Events
 </h2>
 
 <p>

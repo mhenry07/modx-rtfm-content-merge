@@ -24,15 +24,15 @@ This tutorial is part of a Series:
 </div>
 
 <p>
-We're going to create a sample Custom Resource Class (CRC) that does a very simple task - it outputs a copyright on the bottom of a page with the current date. Yes, something this trivial should be done by placing a <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> in your <a href="/display/revolution20/Templates" title="Templates">Template</a>, but we want to illustrate the concept of CRCs using something very, very simple, so bear with us. <img class="emoticon" src="/images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0" />
+We're going to create a sample Custom Resource Class (CRC) that does a very simple task - it outputs a copyright on the bottom of a page with the current date. Yes, something this trivial should be done by placing a <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> in your <a href="/display/revolution20/Templates" title="Templates">Template</a>, but we want to illustrate the concept of CRCs using something very, very simple, so bear with us. :)
 </p>
 
 <p>
-This page deals with Part I - creating the actual Custom Resource Class itself. <a href="/display/revolution20/Creating+a+Resource+Class+-+Step+2" title="Creating a Resource Class - Step 2">Part II</a> will actually implement the behavior of appending the copyright. <a href="/display/revolution20/Creating+a+Resource+Class+-+Step+3" title="Creating a Resource Class - Step 3">Part III</a> will deal with overriding the Controllers, and <a href="/display/revolution20/Creating+a+Resource+Class+-+Step+4" title="Creating a Resource Class - Step 4">Part IV</a> will deal with overriding the Processors. The files used in this tutorial can be found on GitHub for reference: <a href="https://github.com/modxcms/CopyrightedResource" class="external-link" rel="nofollow">https://github.com/modxcms/CopyrightedResource</a>
+This page deals with Part I - creating the actual Custom Resource Class itself. <a href="/display/revolution20/Creating+a+Resource+Class+-+Step+2" title="Creating a Resource Class - Step 2">Part II</a> will actually implement the behavior of appending the copyright. <a href="/display/revolution20/Creating+a+Resource+Class+-+Step+3" title="Creating a Resource Class - Step 3">Part III</a> will deal with overriding the Controllers, and <a href="/display/revolution20/Creating+a+Resource+Class+-+Step+4" title="Creating a Resource Class - Step 4">Part IV</a> will deal with overriding the Processors. The files used in this tutorial can be found on GitHub for reference: <a href="https://github.com/modxcms/CopyrightedResource">https://github.com/modxcms/CopyrightedResource</a>
 </p>
 
-<h2>
-<a name="CreatingaResourceClass-CreateyourXMLSchema"></a>Create your XML Schema
+<h2 id="CreatingaResourceClass-CreateyourXMLSchema">
+Create your XML Schema
 </h2>
 
 <p>
@@ -40,26 +40,21 @@ First, we are going to create a xPDO package using a schema (if you're not famil
 </p>
 
 <p>
-If you are planning on versioning this code in Git, your paths may be different, but ultimately you want your files to end up inside the <tt>core/components/your_component/</tt> directory. So for this tutorial our package is named "copyrightedresource", so we will create the schema file <tt>core/components/copyrightedresource/model/schema/copyrightedresource.mysql.schema.xml</tt>:
+If you are planning on versioning this code in Git, your paths may be different, but ultimately you want your files to end up inside the <code>core/components/your_component/</code> directory. So for this tutorial our package is named "copyrightedresource", so we will create the schema file <code>core/components/copyrightedresource/model/schema/copyrightedresource.mysql.schema.xml</code>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
-&lt;model <span class="code-keyword">package</span>=<span class="code-quote">"copyrightedresource"</span> version=<span class="code-quote">"1.0"</span> baseClass=<span class="code-quote">"xPDOObject"</span> platform=<span class="code-quote">"mysql"</span> defaultEngine=<span class="code-quote">"MyISAM"</span>&gt;
-    &lt;object class=<span class="code-quote">"CopyrightedResource"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"modResource"</span> /&gt;
+<pre class="brush: php">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;model package="copyrightedresource" version="1.0" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM"&gt;
+    &lt;object class="CopyrightedResource" extends="modResource" /&gt;
 &lt;/model&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Note that the "package" attribute in the XML should reflect the exact name of our package: "copyrightedresource".
 </p>
 
-<h2>
-<a name="CreatingaResourceClass-GeneratingyourClassFiles"></a>Generating your Class Files
+<h2 id="CreatingaResourceClass-GeneratingyourClassFiles">
+Generating your Class Files
 </h2>
 
 <p>
@@ -70,39 +65,37 @@ The next step is to generate the maps and classes for the model. You can do this
 Create the script at the web root of your MODX site, then execute it by hitting that page in a browser.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 /**
  * Parses a MODX XML schema file in order to create the corresponding PHP classes
- * and (optionally) database tables.  Use <span class="code-keyword">this</span> script when you are editing a MODX XML
- * schema file and you are using it as your basis <span class="code-keyword">for</span> creating PHP classes.  Do not
- * use <span class="code-keyword">this</span> script <span class="code-keyword">if</span> you are trying to reverse-engineer existing database tables!
+ * and (optionally) database tables.  Use this script when you are editing a MODX XML
+ * schema file and you are using it as your basis for creating PHP classes.  Do not
+ * use this script if you are trying to reverse-engineer existing database tables!
  *
- * See http:<span class="code-comment">//rtfm.modx.com/display/revolution20/Creating+a+Resource+<span class="code-object">Class</span>
-</span> * 
+ * See http://rtfm.modx.com/display/revolution20/Creating+a+Resource+Class
+ * 
  * USAGE:
- * 1. Create <span class="code-keyword">this</span> file in the docroot (webroot) of your MODX installation.
- * 2. Execute the file by visiting it in a browser, e.g. http:<span class="code-comment">//yoursite.com/parse_schema.php
-</span> */
-<span class="code-comment">//------------------------------------------------------------------------------
-</span><span class="code-comment">//! CONFIGURATION
-</span><span class="code-comment">//------------------------------------------------------------------------------
-</span><span class="code-comment">// Your <span class="code-keyword">package</span> shortname:
-</span>$package_name = 'copyrightedresource';
+ * 1. Create this file in the docroot (webroot) of your MODX installation.
+ * 2. Execute the file by visiting it in a browser, e.g. http://yoursite.com/parse_schema.php
+ */
+//------------------------------------------------------------------------------
+//! CONFIGURATION
+//------------------------------------------------------------------------------
+// Your package shortname:
+$package_name = 'copyrightedresource';
 
-<span class="code-comment">// Set <span class="code-keyword">this</span> to <span class="code-keyword">false</span> <span class="code-keyword">if</span> you've started to customize the PHP classes, otherwise
-</span><span class="code-comment">// your changes will be overwritten!
-</span>$regenerate_classes = <span class="code-keyword">true</span>;
+// Set this to false if you've started to customize the PHP classes, otherwise
+// your changes will be overwritten!
+$regenerate_classes = true;
 
 
-<span class="code-comment">//------------------------------------------------------------------------------
-</span><span class="code-comment">//  DO NOT TOUCH BELOW THIS LINE
-</span><span class="code-comment">//------------------------------------------------------------------------------
-</span>require_once 'config.core.php';
+//------------------------------------------------------------------------------
+//  DO NOT TOUCH BELOW THIS LINE
+//------------------------------------------------------------------------------
+require_once 'config.core.php';
 
-<span class="code-keyword">if</span> (!defined('MODX_CORE_PATH')) {
+if (!defined('MODX_CORE_PATH')) {
     print_msg('&lt;h1&gt;Parsing Error&lt;/h1&gt;
         &lt;p&gt;MODX_CORE_PATH not defined! Did you include the correct config file?&lt;/p&gt;');
     exit;
@@ -111,45 +104,45 @@ require_once MODX_CORE_PATH . 'config/config.inc.php';
 $xpdo_path = strtr(MODX_CORE_PATH . 'xpdo/xpdo.class.php', '\\', '/');
 include_once ( $xpdo_path );
  
-<span class="code-comment">// A few definitions of files/folders:
-</span>$package_dir = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/"</span>;
-$model_dir = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/model/"</span>;
-$class_dir = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/model/$package_name"</span>;
-$schema_dir = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/model/schema"</span>;
-$mysql_class_dir = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/model/$package_name/mysql"</span>;
-$xml_schema_file = MODX_CORE_PATH . <span class="code-quote">"components/$package_name/model/schema/$package_name.mysql.schema.xml"</span>;
+// A few definitions of files/folders:
+$package_dir = MODX_CORE_PATH . "components/$package_name/";
+$model_dir = MODX_CORE_PATH . "components/$package_name/model/";
+$class_dir = MODX_CORE_PATH . "components/$package_name/model/$package_name";
+$schema_dir = MODX_CORE_PATH . "components/$package_name/model/schema";
+$mysql_class_dir = MODX_CORE_PATH . "components/$package_name/model/$package_name/mysql";
+$xml_schema_file = MODX_CORE_PATH . "components/$package_name/model/schema/$package_name.mysql.schema.xml";
  
-<span class="code-comment">// A few variables used to track execution times.
-</span>$mtime= microtime();
+// A few variables used to track execution times.
+$mtime= microtime();
 $mtime= explode(' ', $mtime);
 $mtime= $mtime[1] + $mtime[0];
 $tstart= $mtime;
  
-<span class="code-comment">// Validations
-</span><span class="code-keyword">if</span> ( empty($package_name) ) {
+// Validations
+if ( empty($package_name) ) {
     print_msg('&lt;h1&gt;Parsing Error&lt;/h1&gt;
-        &lt;p&gt;The $package_name cannot be empty!  Please adjust the configuration and <span class="code-keyword">try</span> again.&lt;/p&gt;');
+        &lt;p&gt;The $package_name cannot be empty!  Please adjust the configuration and try again.&lt;/p&gt;');
     exit;
 }
  
-<span class="code-comment">// Create directories <span class="code-keyword">if</span> necessary
-</span>$dirs = array($package_dir, $schema_dir ,$mysql_class_dir, $class_dir);
+// Create directories if necessary
+$dirs = array($package_dir, $schema_dir ,$mysql_class_dir, $class_dir);
  
 foreach ($dirs as $d) {
-    <span class="code-keyword">if</span> ( !file_exists($d) ) {
-        <span class="code-keyword">if</span> ( !mkdir($d, 0777, <span class="code-keyword">true</span>) ) {
+    if ( !file_exists($d) ) {
+        if ( !mkdir($d, 0777, true) ) {
             print_msg( sprintf('&lt;h1&gt;Parsing Error&lt;/h1&gt;
                 &lt;p&gt;Error creating &lt;code&gt;%s&lt;/code&gt;&lt;/p&gt;
-                &lt;p&gt;Create the directory (and its parents) and <span class="code-keyword">try</span> again.&lt;/p&gt;'
+                &lt;p&gt;Create the directory (and its parents) and try again.&lt;/p&gt;'
                 , $d
             ));
             exit;
         }
     }
-    <span class="code-keyword">if</span> ( !is_writable($d) ) {
+    if ( !is_writable($d) ) {
         print_msg( sprintf('&lt;h1&gt;Parsing Error&lt;/h1&gt;
             &lt;p&gt;The &lt;code&gt;%s&lt;/code&gt; directory is not writable by PHP.&lt;/p&gt;
-            &lt;p&gt;Adjust the permissions and <span class="code-keyword">try</span> again.&lt;/p&gt;'
+            &lt;p&gt;Adjust the permissions and try again.&lt;/p&gt;'
         , $d));
         exit;
     }
@@ -159,19 +152,19 @@ foreach ($dirs as $d) {
 print_msg( sprintf('&lt;br/&gt;&lt;strong&gt;Ok:&lt;/strong&gt; The necessary directories exist and have the correct permissions inside of &lt;br/&gt;
         &lt;code&gt;%s&lt;/code&gt;', $package_dir));
  
-<span class="code-keyword">if</span> (file_exists($xml_schema_file)) {
+if (file_exists($xml_schema_file)) {
     print_msg( sprintf('&lt;br/&gt;&lt;strong&gt;Ok:&lt;/strong&gt; Using existing XML schema file:&lt;br/&gt;&lt;code&gt;%s&lt;/code&gt;',$xml_schema_file));
 }
 
-$xpdo = <span class="code-keyword">new</span> xPDO(<span class="code-quote">"mysql:host=$database_server;dbname=$dbase"</span>, $database_user, $database_password, $table_prefix);
+$xpdo = new xPDO("mysql:host=$database_server;dbname=$dbase", $database_user, $database_password, $table_prefix);
 $xpdo-&gt;setLogLevel(xPDO::LOG_LEVEL_INFO);
 $xpdo-&gt;setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
 
 $manager = $xpdo-&gt;getManager();
 $generator = $manager-&gt;getGenerator();
 
-<span class="code-comment">// Use <span class="code-keyword">this</span> to generate classes and maps from your schema
-</span><span class="code-keyword">if</span> ($regenerate_classes) { 
+// Use this to generate classes and maps from your schema
+if ($regenerate_classes) { 
     print_msg('&lt;br/&gt;Attempting to remove/regenerate class files...');
     delete_class_files($class_dir);
     delete_class_files($mysql_class_dir);
@@ -181,37 +174,37 @@ $generator-&gt;parseSchema($xml_schema_file,$model_dir);
 
 
 $mtime= microtime();
-$mtime= explode(<span class="code-quote">" "</span>, $mtime);
+$mtime= explode(" ", $mtime);
 $mtime= $mtime[1] + $mtime[0];
 $tend= $mtime;
 $totalTime= ($tend - $tstart);
-$totalTime= sprintf(<span class="code-quote">"%2.4f s"</span>, $totalTime);
+$totalTime= sprintf("%2.4f s", $totalTime);
 
-print_msg(<span class="code-quote">"&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Finished!&lt;/strong&gt; Execution time: {$totalTime}&lt;br/&gt;"</span>);
-print_msg(<span class="code-quote">"&lt;br/&gt;Check &lt;code&gt;$class_dir&lt;/code&gt; <span class="code-keyword">for</span> your newly generated class files!"</span>); 
+print_msg("&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Finished!&lt;/strong&gt; Execution time: {$totalTime}&lt;br/&gt;");
+print_msg("&lt;br/&gt;Check &lt;code&gt;$class_dir&lt;/code&gt; for your newly generated class files!"); 
 exit();
 
-<span class="code-comment">//------------------------------------------------------------------------------
-</span><span class="code-comment">//! FUNCTIONS
-</span><span class="code-comment">//------------------------------------------------------------------------------
-</span>/**
+//------------------------------------------------------------------------------
+//! FUNCTIONS
+//------------------------------------------------------------------------------
+/**
  * Deletes the MODX class files in a given directory.
  *
  * @param string $dir: full path to directory containing class files you wish to delete.
- * @<span class="code-keyword">return</span> void
+ * @return void
  */
 function delete_class_files($dir) {
     global $verbose;
  
     $all_files = scandir($dir);
     foreach ( $all_files as $f ) {
-        <span class="code-keyword">if</span> ( preg_match('#\.class\.php$#i', $f) || preg_match('#\.map\.inc\.php$#i', $f)) {
-            <span class="code-keyword">if</span> ( unlink(<span class="code-quote">"$dir/$f"</span>) ) {
-                <span class="code-keyword">if</span> ($verbose) {
+        if ( preg_match('#\.class\.php$#i', $f) || preg_match('#\.map\.inc\.php$#i', $f)) {
+            if ( unlink("$dir/$f") ) {
+                if ($verbose) {
                     print_msg( sprintf('&lt;br/&gt;Deleted file: &lt;code&gt;%s/%s&lt;/code&gt;',$dir,$f) );
                 }
             }
-            <span class="code-keyword">else</span> {
+            else {
                 print_msg( sprintf('&lt;br/&gt;Failed to delete file: &lt;code&gt;%s/%s&lt;/code&gt;',$dir,$f) );
             }
         }
@@ -219,172 +212,112 @@ function delete_class_files($dir) {
 }
 
 /**
- * Formats/prints messages. HTML is stripped <span class="code-keyword">if</span> <span class="code-keyword">this</span> is run via the command line.
+ * Formats/prints messages. HTML is stripped if this is run via the command line.
  *
  * @param string $msg to be printed
- * @<span class="code-keyword">return</span> void <span class="code-keyword">this</span> actually prints data to stdout
+ * @return void this actually prints data to stdout
  */
 function print_msg($msg) {
-    <span class="code-keyword">if</span> ( php_sapi_name() == 'cli' ) {
-        $msg = preg_replace('#&lt;br\s*/&gt;#i', <span class="code-quote">"\n"</span>, $msg);
+    if ( php_sapi_name() == 'cli' ) {
+        $msg = preg_replace('#&lt;br\s*/&gt;#i', "\n", $msg);
         $msg = preg_replace('#&lt;h1&gt;#i', '== ', $msg);
         $msg = preg_replace('#&lt;/h1&gt;#i', ' ==', $msg);
         $msg = preg_replace('#&lt;h2&gt;#i', '=== ', $msg);
         $msg = preg_replace('#&lt;/h2&gt;#i', ' ===', $msg);
-        $msg = strip_tags($msg) . <span class="code-quote">"\n"</span>;
+        $msg = strip_tags($msg) . "\n";
     }
     print $msg;
 }
 ?&gt;
 </pre>
-</div>
-</div>
-
 <p>
-After this script runs, a handful of PHP files should have been created inside your <tt>core/components/copyrightedresource/model/</tt> directory. See the image below.
+After this script runs, a handful of PHP files should have been created inside your <code>core/components/copyrightedresource/model/</code> directory. See the image below.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/36634952/copyrightedresource_class_files.png?version=1&amp;modificationDate=1360972022000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/36634952/copyrightedresource_class_files.png?version=1&amp;modificationDate=1360972022000" style="border: 1px solid black" />
 </p>
 
 <p>
-The <tt>copyrightedresource.class.php</tt> file should look like this:
+The <code>copyrightedresource.class.php</code> file should look like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-class CopyrightedResource <span class="code-keyword">extends</span> modResource {
+class CopyrightedResource extends modResource {
 }
 </pre>
-</div>
-</div>
-
 <p>
 If the class files did not get created, the sample script should help you identify errors (usually permissions).
 </p>
 
-<h2>
-<a name="CreatingaResourceClass-CustomizingyourPHPclass"></a>Customizing your PHP class
+<h2 id="CreatingaResourceClass-CustomizingyourPHPclass">
+Customizing your PHP class
 </h2>
 
 <p>
 Once we have the basic PHP classes generated, we need to customize them.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Be Careful!</b>
+<div class="note">
+<strong>Be Careful!</strong>
 <br />
 Once you've got your PHP classes generated, do not re-run the Parsing Script! Doing so will destroy the changes that you're going to be making.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Now we want to force the class_key of the resource, and ensure that it shows up in the Resource Create context menu (which we'll configure later on):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-class CopyrightedResource <span class="code-keyword">extends</span> modResource {
-    <span class="code-keyword">public</span> $showInContextMenu = <span class="code-keyword">true</span>;
+class CopyrightedResource extends modResource {
+    public $showInContextMenu = true;
     function __construct(xPDO &amp; $xpdo) {
         parent :: __construct($xpdo);
-        $<span class="code-keyword">this</span>-&gt;set('class_key','CopyrightedResource');
+        $this-&gt;set('class_key','CopyrightedResource');
     }
 }
 </pre>
-</div>
-</div>
-
 <p>
 This forces the class_key to "CopyrightedResource", which is our class, and ensures our Resource class shows up in the left-hand tree's context menu. This is how we govern the value set in the modx_site_content "class_key" column.
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-You should <b>never</b> add fields to the modResource table (yes, some Extras have done this, but it's not the proper way). Rather, create a separate related table to join into, or use Revolution 2.2.1+'s new properties field to store extra data.
-</td>
-</tr>
-</table>
+<div class="warning">
+You should <strong>never</strong> add fields to the modResource table (yes, some Extras have done this, but it's not the proper way). Rather, create a separate related table to join into, or use Revolution 2.2.1+'s new properties field to store extra data.
 </div>
 
-<h3>
-<a name="CreatingaResourceClass-GettingFamiliarwiththemodResourceInterfaceInterfaceclass"></a>Getting Familiar with the modResourceInterface Interface class
+<h3 id="CreatingaResourceClass-GettingFamiliarwiththemodResourceInterfaceInterfaceclass">
+Getting Familiar with the modResourceInterface Interface class
 </h3>
 
 <p>
-For those of you geeks who want to code responsibly, it's a very good idea to look at the parent class here, so have a look inside the <tt>core/model/modx/modresource.class.php</tt>.
+For those of you geeks who want to code responsibly, it's a very good idea to look at the parent class here, so have a look inside the <code>core/model/modx/modresource.class.php</code>.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Code Responsibly</b>
+<div class="tip">
+<strong>Code Responsibly</strong>
 <br />
 Any time you extend a PHP class, you should look at the parent class, otherwise you won't know what you are implementing!
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-If you look in the modResource class file, you'll see at the top a PHP Interface that defines what methods <b>must</b> be defined for a CRC to work:
+If you look in the modResource class file, you'll see at the top a PHP Interface that defines what methods <strong>must</strong> be defined for a CRC to work:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">interface</span> modResourceInterface {
-    <span class="code-keyword">public</span> <span class="code-keyword">static</span> function getControllerPath(xPDO &amp;$modx);
-    <span class="code-keyword">public</span> function getContextMenuText();
-    <span class="code-keyword">public</span> function getResourceTypeName();
+<pre class="brush: php">
+interface modResourceInterface {
+    public static function getControllerPath(xPDO &amp;$modx);
+    public function getContextMenuText();
+    public function getResourceTypeName();
 }
 </pre>
-</div>
-</div>
-
 <p>
 We'll now go into detail on each of these methods and how they implement our CRC.
 </p>
 
-<h3>
-<a name="CreatingaResourceClass-CreateaNamespace"></a>Create a Namespace
+<h3 id="CreatingaResourceClass-CreateaNamespace">
+Create a Namespace
 </h3>
 
 <p>
@@ -392,45 +325,35 @@ Before we go any further, create a <a href="/display/revolution20/Namespaces" ti
 </p>
 
 <p>
-Log into the MODX manager and head to <b>System -&gt; Namespaces</b>.
+Log into the MODX manager and head to <strong>System -&gt; Namespaces</strong>.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Namespace: copyrightedresource
 Core Path: {core_path}components/copyrightedresource/
 Assets Path: {assets_path}components/copyrightedresource/
 </pre>
-</div>
-</div>
-
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/36634952/create_namespace.png?version=1&amp;modificationDate=1360974139000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/36634952/create_namespace.png?version=1&amp;modificationDate=1360974139000" style="border: 1px solid black" />
 </p>
 
 <p>
 Note the special placeholders you can use to refer to your directories.
 </p>
 
-<h3>
-<a name="CreatingaResourceClass-AddingthegetControllerPathMethod"></a>Adding the getControllerPath Method
+<h3 id="CreatingaResourceClass-AddingthegetControllerPathMethod">
+Adding the getControllerPath Method
 </h3>
 
 <p>
-Once you've added a namespace, we're going to add the getControllerPath method to our class by adding this to your <tt>copyrightedresource.class.php</tt> class:
+Once you've added a namespace, we're going to add the getControllerPath method to our class by adding this to your <code>copyrightedresource.class.php</code> class:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">public</span> <span class="code-keyword">static</span> function getControllerPath(xPDO &amp;$modx) {
-    <span class="code-keyword">return</span> $modx-&gt;getOption('copyrightedresource.core_path',<span class="code-keyword">null</span>,$modx-&gt;getOption('core_path').'components/copyrightedresource/').'controllers/';
+<pre class="brush: php">
+public static function getControllerPath(xPDO &amp;$modx) {
+    return $modx-&gt;getOption('copyrightedresource.core_path',null,$modx-&gt;getOption('core_path').'components/copyrightedresource/').'controllers/';
 }
 </pre>
-</div>
-</div>
-
 <p>
 This method tells MODX to look for our manager controllers in our custom directory, thereby overriding the standard default controllers. The line first checks for a custom System Setting that shows where our CRC core directory path is (we add this setting to make our life easier when we are developing the code so we can keep it in a location that is non-standard so that we may version it more easily). If the System Setting has not been set, the code will look for our CRC path in 'core/components/copyrightedresource/'. It looks in the "controllers/" subdirectory.
 </p>
@@ -439,28 +362,23 @@ This method tells MODX to look for our manager controllers in our custom directo
 Great! MODX will now look for our controllers in that directory. We'll get into creating those in Step 2 of the tutorial.
 </p>
 
-<h3>
-<a name="CreatingaResourceClass-AddingthegetContextMenuTextMethod"></a>Adding the getContextMenuText Method
+<h3 id="CreatingaResourceClass-AddingthegetContextMenuTextMethod">
+Adding the getContextMenuText Method
 </h3>
 
 <p>
 Go ahead and add this method to your class:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">public</span> function getContextMenuText() {
-  $<span class="code-keyword">this</span>-&gt;xpdo-&gt;lexicon-&gt;load('copyrightedresource:<span class="code-keyword">default</span>');
-  <span class="code-keyword">return</span> array(
-    'text_create' =&gt; $<span class="code-keyword">this</span>-&gt;xpdo-&gt;lexicon('copyrightedresource'),
-    'text_create_here' =&gt; $<span class="code-keyword">this</span>-&gt;xpdo-&gt;lexicon('copyrightedresource_create_here'),
+<pre class="brush: php">
+public function getContextMenuText() {
+  $this-&gt;xpdo-&gt;lexicon-&gt;load('copyrightedresource:default');
+  return array(
+    'text_create' =&gt; $this-&gt;xpdo-&gt;lexicon('copyrightedresource'),
+    'text_create_here' =&gt; $this-&gt;xpdo-&gt;lexicon('copyrightedresource_create_here'),
   );
 }
 </pre>
-</div>
-</div>
-
 <p>
 This returns two translated strings that MODX will insert into the "Create" context menu when right-clicking on a node in the Resource tab on the left-hand tree.
 </p>
@@ -469,137 +387,107 @@ This returns two translated strings that MODX will insert into the "Create" cont
 Just to be clear, you don't necessarily <em>need</em> to use the MODX lexicon here. You could simply return the text like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">public</span> function getContextMenuText() {
-  <span class="code-keyword">return</span> array(
+<pre class="brush: php">
+public function getContextMenuText() {
+  return array(
     'text_create' =&gt; 'Copyrighted Page',
     'text_create_here' =&gt; 'Create a Copyrighted Page Here',
   );
 }
 </pre>
-</div>
-</div>
-
 <p>
 And that'd work fine. But MODX allows you to load a Lexicon Topic so that you can translate the strings for your worldwide users.
 </p>
 
-<h3>
-<a name="CreatingaResourceClass-AddingthegetResourceTypeNameMethod"></a>Adding the getResourceTypeName Method
+<h3 id="CreatingaResourceClass-AddingthegetResourceTypeNameMethod">
+Adding the getResourceTypeName Method
 </h3>
 
 <p>
 This final method tells MODX what the translated "name" of your CRC is. We probably don't want to call it "CopyrightedResource", so we're going to plop in this method:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">public</span> function getResourceTypeName() {
-  $<span class="code-keyword">this</span>-&gt;xpdo-&gt;lexicon-&gt;load('copyrightedresource:<span class="code-keyword">default</span>');
-  <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;xpdo-&gt;lexicon('copyrightedresource');
+<pre class="brush: php">
+public function getResourceTypeName() {
+  $this-&gt;xpdo-&gt;lexicon-&gt;load('copyrightedresource:default');
+  return $this-&gt;xpdo-&gt;lexicon('copyrightedresource');
 }
 </pre>
-</div>
-</div>
-
 <p>
 Again, this could just return a string:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">public</span> function getResourceTypeName() {
-  <span class="code-keyword">return</span> 'Copyrighted Page';
+<pre class="brush: php">
+public function getResourceTypeName() {
+  return 'Copyrighted Page';
 }
 </pre>
-</div>
-</div>
-
 <p>
 This tells MODX to call it a "Copyrighted Page", rather than its class name, when dealing with it in the manager.
 </p>
 
-<h2>
-<a name="CreatingaResourceClass-AddingtheClasstoExtensionPackages"></a>Adding the Class to Extension Packages
+<h2 id="CreatingaResourceClass-AddingtheClasstoExtensionPackages">
+Adding the Class to Extension Packages
 </h2>
 
 <p>
 To load the CRC properly, you'll need to add it to the Extension Packages. Why? Well, MODX needs to load your CRC when it loads, so that it has a "library" of sorts of all the loaded Resource Classes available to it. MODX 2.2 provides you with an assistance method to add your package to the Extension Packages dataset:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;addExtensionPackage('copyrightedresource','/path/to/copyrightedresource/model/');
 </pre>
-</div>
-</div>
-
 <p>
 Simply run this code once and MODX will automatically add it to the Extension Packages. Here is another sample script for helping you to do this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 /**
- * Use <span class="code-keyword">this</span> script to add your extension <span class="code-keyword">package</span> to MODX's <span class="code-quote">"radar"</span>.
+ * Use this script to add your extension package to MODX's "radar".
  * This should only need to be done once.
  * Note that we have to instantiate MODX: xPDO is not sufficient
  * because we're running functions that exist only in MODX, not in the 
  * underlying xPDO framework.
  *
  * USAGE:
- * 1. Copy <span class="code-keyword">this</span> file into the docroot (web root) of your MODX installation.
- * 2. Execute the file by visiting it in a browser, e.g. http:<span class="code-comment">//yoursite.com/add_extension.php
-</span> */
-<span class="code-comment">//------------------------------------------------------------------------------
-</span><span class="code-comment">//! CONFIGURATION
-</span><span class="code-comment">//------------------------------------------------------------------------------
-</span><span class="code-comment">// Your <span class="code-keyword">package</span> shortname:
-</span>$package_name = 'copyrightedresource';
+ * 1. Copy this file into the docroot (web root) of your MODX installation.
+ * 2. Execute the file by visiting it in a browser, e.g. http://yoursite.com/add_extension.php
+ */
+//------------------------------------------------------------------------------
+//! CONFIGURATION
+//------------------------------------------------------------------------------
+// Your package shortname:
+$package_name = 'copyrightedresource';
 
-<span class="code-comment">//------------------------------------------------------------------------------
-</span><span class="code-comment">//  DO NOT TOUCH BELOW THIS LINE
-</span><span class="code-comment">//------------------------------------------------------------------------------
-</span>define('MODX_API_MODE', <span class="code-keyword">true</span>);
+//------------------------------------------------------------------------------
+//  DO NOT TOUCH BELOW THIS LINE
+//------------------------------------------------------------------------------
+define('MODX_API_MODE', true);
 require_once('index.php');
-<span class="code-keyword">if</span> (!defined('MODX_CORE_PATH')) {
-    print '&lt;p&gt;MODX_CORE_PATH not defined! Did you put <span class="code-keyword">this</span> script in the web root of your MODX installation?&lt;/p&gt;';
+if (!defined('MODX_CORE_PATH')) {
+    print '&lt;p&gt;MODX_CORE_PATH not defined! Did you put this script in the web root of your MODX installation?&lt;/p&gt;';
     exit;
 }
 
-$modx= <span class="code-keyword">new</span> modX();
+$modx= new modX();
 $modx-&gt;initialize('mgr');
 
 $modx-&gt;setLogLevel(xPDO::LOG_LEVEL_INFO);
 $modx-&gt;setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
 
-$modx-&gt;addExtensionPackage($package_name,<span class="code-quote">"[[++core_path]]components/$package_name/model/"</span>);
+$modx-&gt;addExtensionPackage($package_name,"[[++core_path]]components/$package_name/model/");
 
 print 'Success!';
 ?&gt;
 </pre>
-</div>
-</div>
-
 <p>
 To test whether or not this worked, log into the MODX manager and search the System Settings for the "extension_packages" key. You should see something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[{<span class="code-quote">"copyrightedresource"</span>:{<span class="code-quote">"path"</span>:<span class="code-quote">"[[++core_path]]components/copyrightedresource/model/"</span>}}]
+<pre class="brush: php">
+[{"copyrightedresource":{"path":"[[++core_path]]components/copyrightedresource/model/"}}]
 </pre>
-</div>
-</div>
-
 <p>
 Note that you can use core_path placeholder in this path: this offers way to ensure that your path will work should you ever migrate your MODX site to a different server.
 </p>
@@ -608,26 +496,12 @@ Note that you can use core_path placeholder in this path: this offers way to ens
 There's also a removeExtensionPackage as well for removing the package from MODX.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 addExtensionPackage and removeExtensionPackage are very useful methods to add to a Resolver if you're building an Extra for your CRC so that this happens on install and uninstall.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="CreatingaResourceClass-Conclusion"></a>Conclusion
+<h2 id="CreatingaResourceClass-Conclusion">
+Conclusion
 </h2>
 
 <p>
@@ -635,7 +509,7 @@ Now, if you reload the page and right-click on a Resource in the tree, then move
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/36634952/context-menu.png?version=1&amp;modificationDate=1322512993000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/36634952/context-menu.png?version=1&amp;modificationDate=1322512993000" />
 </p>
 
 <p>

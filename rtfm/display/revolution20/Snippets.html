@@ -1,105 +1,92 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Snippets-Overview'>Overview</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Snippets-Overview">Overview</a>
 <ul>
 <li>
-<a href='#Snippets-WhatisaSnippet%3F'>What is a Snippet?</a>
+<a href="#Snippets-WhatisaSnippet%3F">What is a Snippet?</a>
 </li>
 
 <li>
-<a href='#Snippets-HowDoTheyWork%3F'>How Do They Work?</a>
+<a href="#Snippets-HowDoTheyWork%3F">How Do They Work?</a>
 </li>
 
 <li>
-<a href='#Snippets-SimpleExample'>Simple Example</a>
+<a href="#Snippets-SimpleExample">Simple Example</a>
 </li>
 
 <li>
-<a href='#Snippets-PassingValuesIntoaSnippet'>Passing Values Into a Snippet</a>
+<a href="#Snippets-PassingValuesIntoaSnippet">Passing Values Into a Snippet</a>
 </li>
 
 <li>
-<a href='#Snippets-ReadingValuesinyourSnippets'>Reading Values in your Snippets</a>
+<a href="#Snippets-ReadingValuesinyourSnippets">Reading Values in your Snippets</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Snippets-DatabaseInteractioninSnippets'>Database Interaction in Snippets</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Snippets-DatabaseInteractioninSnippets">Database Interaction in Snippets</a>
 <ul>
 <li>
-<a href='#Snippets-WhyanORM%3F'>Why an ORM?</a>
+<a href="#Snippets-WhyanORM%3F">Why an ORM?</a>
 </li>
 
 <li>
-<a href='#Snippets-ExampleDBCode'>Example DB Code</a>
+<a href="#Snippets-ExampleDBCode">Example DB Code</a>
 </li>
 
 <li>
-<a href='#Snippets-FurtherDatabaseReading'>Further Database Reading</a>
+<a href="#Snippets-FurtherDatabaseReading">Further Database Reading</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Snippets-RecommendedMethodsandTips'>Recommended Methods and Tips</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Snippets-RecommendedMethodsandTips">Recommended Methods and Tips</a>
 <ul>
 <li>
-<a href='#Snippets-WriteyourSnippetsoutsideofMODx.'>Write your Snippets outside of MODx.</a>
+<a href="#Snippets-WriteyourSnippetsoutsideofMODx.">Write your Snippets outside of MODx.</a>
 </li>
 
 <li>
-<a href='#Snippets-Don%27ttrytomixPHPandHTMLinaSnippet.'>Don't try to mix PHP and HTML in a Snippet.</a>
+<a href="#Snippets-Don%27ttrytomixPHPandHTMLinaSnippet.">Don't try to mix PHP and HTML in a Snippet.</a>
 </li>
 
 <li>
-<a href='#Snippets-Don%27tWorkonLiveSnippets'>Don't Work on Live Snippets</a>
+<a href="#Snippets-Don%27tWorkonLiveSnippets">Don't Work on Live Snippets</a>
 </li>
 
 <li>
-<a href='#Snippets-UseDefaultProperties'>Use Default Properties</a>
+<a href="#Snippets-UseDefaultProperties">Use Default Properties</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Snippets-SeeAlso'>See Also</a>
+<a href="#Snippets-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Snippets-Overview"></a>Overview
+<h2 id="Snippets-Overview">
+Overview
 </h2>
 
 <p>
 Snippets are the method by which MODx allows you to run dynamic PHP code in any of your pages. They are the main development vehicle for most developers.
 </p>
 
-<h3>
-<a name="Snippets-WhatisaSnippet%3F"></a>What is a Snippet?
+<h3 id="Snippets-WhatisaSnippet?">
+What is a Snippet?
 </h3>
 
 <p>
 According to one definition, a "snippet" is "a short reusable piece of computer source code". Some people have a hard time distinguishing this from a "chunk", so a helpful mnemonic might lie in the p's... as in "PHP", e.g. sni-"P(h)P"-et.
 </p>
 
-<h3>
-<a name="Snippets-HowDoTheyWork%3F"></a>How Do They Work?
+<h3 id="Snippets-HowDoTheyWork?">
+How Do They Work?
 </h3>
 
 <p>
@@ -110,129 +97,90 @@ First off, most Snippets are <em>cached</em>, meaning they're stored as a tempor
 Then, once they're up to be cached, Snippets are then parsed by the MODx Parser. They have access to the $modx object.
 </p>
 
-<h3>
-<a name="Snippets-SimpleExample"></a>Simple Example
+<h3 id="Snippets-SimpleExample">
+Simple Example
 </h3>
 
 <p>
 Here's the perfunctory super-basic example of what a Snippet's code might look like:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-<span class="code-keyword">return</span> 'Hello, World!';
+return 'Hello, World!';
 ?&gt;
 </pre>
-</div>
-</div>
-
 <p>
 If you named this <em>"helloWorld"</em>, you could call this snippet by using [[helloWorld]] in your documents, templates, or Chunks (see <a href="/display/revolution20/Tag+Syntax" title="Tag Syntax">Tag Syntax</a>). You can also call a Snippet from another Snippet using the <a href="/display/revolution20/modX.runSnippet" title="modX.runSnippet">runSnippet</a> API method.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Note how we returned the code rather than echo'ed the content out. <b>Never use echo</b> in a Snippet - always return the output.
-</td>
-</tr>
-</table>
+<div class="note">
+Note how we returned the code rather than echo'ed the content out. <strong>Never use echo</strong> in a Snippet - always return the output.
 </div>
 
-<h3>
-<a name="Snippets-PassingValuesIntoaSnippet"></a>Passing Values Into a Snippet
+<h3 id="Snippets-PassingValuesIntoaSnippet">
+Passing Values Into a Snippet
 </h3>
 
 <p>
 Values are passed to your Snippet using a modifed CGI web-form type notation that follows the Snippet's name. If your Snippet were named "mySnippet", you might call it using something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!mySnippet? &amp;input=`Hello World`]]
 </pre>
-</div>
-</div>
-
 <p>
 And the code for your Snippet might look something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-<span class="code-keyword">return</span> 'My input was: ' . $input;
+return 'My input was: ' . $input;
 ?&gt;
 </pre>
-</div>
-</div>
-
 <p>
-Notice that the variable names in the calling bit need to match the variable names in the Snippet EXACTLY (case matters... i.e. 'input' not 'INPUT' or 'Input'). Secondly, don't forget the '&amp;' in front of the would-be variable names. And last but most certainly not least, take note that those are <b>backticks</b>, not single quotes!
+Notice that the variable names in the calling bit need to match the variable names in the Snippet EXACTLY (case matters... i.e. 'input' not 'INPUT' or 'Input'). Secondly, don't forget the '&amp;' in front of the would-be variable names. And last but most certainly not least, take note that those are <strong>backticks</strong>, not single quotes!
 </p>
 
-<h3>
-<a name="Snippets-ReadingValuesinyourSnippets"></a>Reading Values in your Snippets
+<h3 id="Snippets-ReadingValuesinyourSnippets">
+Reading Values in your Snippets
 </h3>
 
 <p>
-In general, you can read your values by referencing the arguments that were passed: <b>&amp;someParameter</b> in the call translates to <b>$someParameter</b> in the PHP code.
+In general, you can read your values by referencing the arguments that were passed: <strong>&amp;someParameter</strong> in the call translates to <strong>$someParameter</strong> in the PHP code.
 </p>
 
 <p>
-You can also read <em>all</em> parameters by using the built-in <b>$scriptProperties</b> array. This is useful if your Snippet takes variable parameters – it handles a similar use-case as PHP's <a href="http://www.php.net/manual/en/function.func-get-args.php" class="external-link" rel="nofollow">func_get_args()</a> function.
+You can also read <em>all</em> parameters by using the built-in <strong>$scriptProperties</strong> array. This is useful if your Snippet takes variable parameters – it handles a similar use-case as PHP's <a href="http://www.php.net/manual/en/function.func-get-args.php">func_get_args()</a> function.
 </p>
 
 <p>
 For example, if you call your Snippet using a call like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!mySnippet? &amp;x=`x-ray` &amp;y=`yellow`]]
 </pre>
-</div>
-</div>
-
 <p>
-Then the <b>$scriptProperties</b> array will contain this:
+Then the <strong>$scriptProperties</strong> array will contain this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Array(
  'x' =&gt; 'x-ray',
  'y' =&gt; 'yellow'
 )
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Snippets-DatabaseInteractioninSnippets"></a>Database Interaction in Snippets
+<h2 id="Snippets-DatabaseInteractioninSnippets">
+Database Interaction in Snippets
 </h2>
 
 <p>
 Accessing the database layer in MODx relies on an Object Relational Model (ORM) called <a href="/display/xPDO20/Home" title="Home">xPDO</a> for database connectivity, so you won't often write raw database queries like you might do in other CMS's. Usually you will access data from the database using several MODx objects and methods such as <a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> and <a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getCollection</a>. This relies on the underlying xPDO framework.
 </p>
 
-<h3>
-<a name="Snippets-WhyanORM%3F"></a>Why an ORM?
+<h3 id="Snippets-WhyanORM?">
+Why an ORM?
 </h3>
 
 <p>
@@ -241,15 +189,15 @@ You might be asking, why use an ORM instead of just straight SQL? Well, a few re
 
 <ol>
 <li>
-<b>SQL Abstraction</b> - This means that you can write code that works in a variety of different database types, such as MySQL, sqllite, postegresql, and more, as MODx expands to those databases. All without having to rewrite a single line of code. This makes it ideal for plugin authors who want their code to be executable on the widest possible variety of systems.
+<strong>SQL Abstraction</strong> - This means that you can write code that works in a variety of different database types, such as MySQL, sqllite, postegresql, and more, as MODx expands to those databases. All without having to rewrite a single line of code. This makes it ideal for plugin authors who want their code to be executable on the widest possible variety of systems.
 </li>
 
 <li>
-<b>Parameter Escaping</b> - No more having to worry about SQL injection; xPDO uses PHP's PDO to escape all variables passed in to the SQL call to prevent any malicious calls.
+<strong>Parameter Escaping</strong> - No more having to worry about SQL injection; xPDO uses PHP's PDO to escape all variables passed in to the SQL call to prevent any malicious calls.
 </li>
 
 <li>
-<b>Cleaner, shorter Code</b> - What could be done in 40+ lines in mysql_* calls can now be done in 10 or less.
+<strong>Cleaner, shorter Code</strong> - What could be done in 40+ lines in mysql_* calls can now be done in 10 or less.
 </li>
 </ol>
 
@@ -257,30 +205,25 @@ You might be asking, why use an ORM instead of just straight SQL? Well, a few re
 There are more reasons, but that's for brevity. Let's look at a few examples:
 </p>
 
-<h3>
-<a name="Snippets-ExampleDBCode"></a>Example DB Code
+<h3 id="Snippets-ExampleDBCode">
+Example DB Code
 </h3>
 
 <p>
 Let's get a chunk named 'LineItem', and change the placeholders in it (done with [[+placeholderName]] syntax) to some custom values:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $chunk = $modx-&gt;getObject('modChunk',array(
    'name' =&gt; 'LineItem',
 ));
-<span class="code-keyword">if</span> (!$chunk) <span class="code-keyword">return</span> 'No line item chunk!';
+if (!$chunk) return 'No line item chunk!';
 
-<span class="code-keyword">return</span> $chunk-&gt;process(array(
+return $chunk-&gt;process(array(
    'name' =&gt; 'G.I. Joe',
    'grenades' =&gt; 42,
 ));
 </pre>
-</div>
-</div>
-
 <p>
 That code would get a chunk with the name of 'LineItem', and return it processed with the placeholders set. The $chunk variable there is actually an <a href="/display/xPDO20/xPDOObject" title="xPDOObject">xPDOObject</a>, which is an object representation of the Resource.
 </p>
@@ -289,23 +232,18 @@ That code would get a chunk with the name of 'LineItem', and return it processed
 What about more complex queries? Like, say, getting the first 10 Resources with a parent of 23, 24 or 25. And let's make it so they aren't hidden from menus or deleted, are published, and sort them by menuindex. That's when we use the powerful $modx-&gt;newQuery() method:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $c = $modx-&gt;newQuery('modResource');
 $c-&gt;where(array(
    'parent:IN' =&gt; array(23,24,25),
-   'deleted' =&gt; <span class="code-keyword">false</span>,
-   'hidemenu' =&gt; <span class="code-keyword">false</span>,
-   'published' =&gt; <span class="code-keyword">true</span>,
+   'deleted' =&gt; false,
+   'hidemenu' =&gt; false,
+   'published' =&gt; true,
 ));
 $c-&gt;sortby('menuindex','ASC');
 $c-&gt;limit(10);
 $resources = $modx-&gt;getCollection('modResource',$c);
 </pre>
-</div>
-</div>
-
 <p>
 Note how we first create an xPDOQuery object ($c) using $modx-&gt;newQuery(). We passed in the name of the class we wanted to build the query from - here 'modResource', or Resources - and then used our where() function to add some restrictions. Then we sorted and limited them.
 </p>
@@ -314,8 +252,8 @@ Note how we first create an xPDOQuery object ($c) using $modx-&gt;newQuery(). We
 And finally, we called getCollection which - unlike getObject - returns a collection, or array, of xPDOObjects. We could then iterate over those using foreach and do whatever we want with them.
 </p>
 
-<h3>
-<a name="Snippets-FurtherDatabaseReading"></a>Further Database Reading
+<h3 id="Snippets-FurtherDatabaseReading">
+Further Database Reading
 </h3>
 
 <p>
@@ -334,12 +272,12 @@ For further reading on xPDO, read up on these:
 </li>
 </ul>
 
-<h2>
-<a name="Snippets-RecommendedMethodsandTips"></a>Recommended Methods and Tips
+<h2 id="Snippets-RecommendedMethodsandTips">
+Recommended Methods and Tips
 </h2>
 
-<h3>
-<a name="Snippets-WriteyourSnippetsoutsideofMODx."></a>Write your Snippets outside of MODx.
+<h3 id="Snippets-WriteyourSnippetsoutsideofMODx.">
+Write your Snippets outside of MODx.
 </h3>
 
 <p>
@@ -350,29 +288,19 @@ As of 2.2.0, you can simply add a "static" Snippet: just reference the static fi
 Pre 2.2.0, it's still pretty easy to do - just create an 'include' snippet, but make its content be this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> (file_exists($file)) {
+<pre class="brush: php">
+if (file_exists($file)) {
    $o = include $file;
-} <span class="code-keyword">else</span> { $o = 'File not found at: '.$file; }
-<span class="code-keyword">return</span> $o;
+} else { $o = 'File not found at: '.$file; }
+return $o;
 </pre>
-</div>
-</div>
-
 <p>
 You can use the include snippet on a page like such:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!include? &amp;file=`/absolute/path/to/my/snippet.php`]]
 </pre>
-</div>
-</div>
-
 <p>
 And run your Snippets externally while you develop them!
 </p>
@@ -385,87 +313,76 @@ Then you can test them to make sure they work (e.g. on the bash command line, yo
 Remember that a snippet in a file on your web site can be executed by anyone with a web browser, so don't leave them there on a live site unless you've placed the snippet code outside the web root so the file can't be accessed via the web. In MODx Revolution, you can put the snippet files under the core directory and move the entire directory outside the web root. You can also put a test in the snippet that makes it exit if it's not running inside MODx, but it's safest just to move the file or paste the code into a snippet in the Manager and delete the file.
 </p>
 
-<h3>
-<a name="Snippets-Don%27ttrytomixPHPandHTMLinaSnippet."></a>Don't try to mix PHP and HTML in a Snippet.
+<h3 id="Snippets-Don'ttrytomixPHPandHTMLinaSnippet.">
+Don't try to mix PHP and HTML in a Snippet.
 </h3>
 
 <p>
-Snippets execute PHP code. They should always begin with a <b>&lt;?php</b> and end with a <b>?&gt;</b> <em>You cannot mix PHP and HTML in a Snippet!</em> For example, the following code won't work:
+Snippets execute PHP code. They should always begin with a <strong>&lt;?php</strong> and end with a <strong>?&gt;</strong> <em>You cannot mix PHP and HTML in a Snippet!</em> For example, the following code won't work:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;p&gt;This is a horrible mixture of HTML and PHP&lt;/p&gt;
 &lt;?php
-<span class="code-keyword">return</span> <span class="code-quote">"&lt;p&gt;and PHP!&amp;nbsp; Don't <span class="code-keyword">try</span> it!&amp;nbsp; It's bad architecture and it won't work!!&lt;/p&gt;"</span>;
+return "&lt;p&gt;and PHP!&amp;nbsp; Don't try it!&amp;nbsp; It's bad architecture and it won't work!!&lt;/p&gt;";
 ?&gt;
 </pre>
-</div>
-</div>
-
 <p>
 You'll find that MODx will append PHP tags to beginning and end of the snippet, creating an invalid syntax, e.g.:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?php &lt;?php <span class="code-comment">//something here ?&gt; ?&gt;</span>
+<pre class="brush: php">
+&lt;?php &lt;?php //something here ?&gt; ?&gt;
 </pre>
-</div>
-</div>
-
 <p>
-If you need to do something like this, <b>use a Chunk</b> - separate the PHP into a Snippet, load its output into a placeholder with the <a href="/display/revolution20/modX" title="modX">modx API</a> placeholder functions or chunk processing, and include the Snippet's placeholders in the Chunk:
+If you need to do something like this, <strong>use a Chunk</strong> - separate the PHP into a Snippet, load its output into a placeholder with the <a href="/display/revolution20/modX" title="modX">modx API</a> placeholder functions or chunk processing, and include the Snippet's placeholders in the Chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $output = $modx-&gt;getChunk('myChunk',array(
   'placeholderOne' =&gt; 'test',
   'name' =&gt; 'Harry',
   'scar' =&gt; 'Lightning',
 ));
-<span class="code-keyword">return</span> $output;
+return $output;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="Snippets-Don%27tWorkonLiveSnippets"></a>Don't Work on Live Snippets
+<h3 id="Snippets-Don'tWorkonLiveSnippets">
+Don't Work on Live Snippets
 </h3>
 
 <p>
 If you're writing new versions of Snippets, <em>duplicate</em> the old version! That way you can go back to the old version of the code if something doesn't work correctly! MODx doesn't inherently do versioning control, so you have to backup code yourself.
 </p>
 
-<h3>
-<a name="Snippets-UseDefaultProperties"></a>Use Default Properties
+<h3 id="Snippets-UseDefaultProperties">
+Use Default Properties
 </h3>
 
 <p>
 Consider adding your properties for your snippet into the Properties grid, so that the user can add custom <a href="/display/revolution20/Properties+and+Property+Sets" title="Properties and Property Sets">Property Sets</a> to override them.
 </p>
 
-<h2>
-<a name="Snippets-SeeAlso"></a>See Also
+<h2 id="Snippets-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Templating+Your+Snippets">Templating Your Snippets</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678225" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678225" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FSnippets" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678225" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Adding+CSS+and+JS+to+Your+Pages+Through+Snippets">Adding CSS and JS to Your Pages Through Snippets</a>
+</li>
+
+<li>
+<a href="/display/revolution20/How+to+Write+a+Good+Snippet">How to Write a Good Snippet</a>
+</li>
+
+<li>
+<a href="/display/revolution20/How+to+Write+a+Good+Chunk">How to Write a Good Chunk</a>
+</li>
+</ol>
 
 <ul>
 <li>

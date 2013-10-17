@@ -1,17 +1,13 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="CreatingaSecondSuperAdminUser-TheProblem" id="CreatingaSecondSuperAdminUser-TheProblem"></a>The Problem
+<h2 id="CreatingaSecondSuperAdminUser-TheProblem">
+The Problem
 </h2>
 
 <p>
 You want another MODx Revolution User to have full manager access, with all the <a href="/display/revolution20/Permissions" title="Permissions">Permissions</a> of an Administrator user. Perhaps it's your colleague or your client, but by creating another Administrator, you are handing over the keys to the <em>entire</em> site. This is a simplistic scenario: the other admin would be able to modify or delete your user, so it may not be a viable solution for what you need to do. In the process of walking users through this task, this page gives a brief introduction to roles and access policies.
 </p>
 
-<h2>
-<a name="CreatingaSecondSuperAdminUser-TheSolution" id="CreatingaSecondSuperAdminUser-TheSolution"></a>The Solution
+<h2 id="CreatingaSecondSuperAdminUser-TheSolution">
+The Solution
 </h2>
 
 <p>
@@ -25,14 +21,14 @@ After logging into your site's manager, do the following:
 <li>Be sure you give the new user a unique username, password, and email.
 </li>
 
-<li>Before saving the user, click the tab marked <b>Access Permissions</b> and click the button marked <b>Add User Group to User</b>
+<li>Before saving the user, click the tab marked <strong>Access Permissions</strong> and click the button marked <strong>Add User Group to User</strong>
 <ol>
 <li>
-<b>User Group:</b> <tt>Administrator</tt>
+<strong>User Group:</strong> <code>Administrator</code>
 </li>
 
 <li>
-<b>Role:</b> <tt>Super User</tt>
+<strong>Role:</strong> <code>Super User</code>
 </li>
 </ol>
 </li>
@@ -44,32 +40,32 @@ After logging into your site's manager, do the following:
 </li>
 </ol>
 
-<h2>
-<a name="CreatingaSecondSuperAdminUser-Whycan%27tIaddanotherAdministratorwithadifferentRoleRoles%2Ce.g.a%22Member%22%3F"></a>Why can't I add another Administrator with a different <a href="/display/revolution20/Roles" title="Roles">Role</a>, e.g. a "Member"?
+<h2 id="CreatingaSecondSuperAdminUser-Whycan'tIaddanotherAdministratorwithadifferentRoleRoles,e.g.a&quot;Member&quot;?">
+Why can't I add another Administrator with a different <a href="/display/revolution20/Roles" title="Roles">Role</a>, e.g. a "Member"?
 </h2>
 
 <p>
-Try it. When you try to login using the other username with only a "Member" role, permission will be denied. But why? It has to do with <a href="/display/revolution20/Contexts" title="Contexts">Context Access</a> and <a href="/display/revolution20/Policies" title="Policies">Access Policies</a>, which get a lot more complicated in a hurry. If you have a look at Security -&gt; Access Controls and then right-click the Administrator User Group -&gt; Update User Group, then click on the <b>Context Access</b> tab. You'll see something like this:
+Try it. When you try to login using the other username with only a "Member" role, permission will be denied. But why? It has to do with <a href="/display/revolution20/Contexts" title="Contexts">Context Access</a> and <a href="/display/revolution20/Policies" title="Policies">Access Policies</a>, which get a lot more complicated in a hurry. If you have a look at Security -&gt; Access Controls and then right-click the Administrator User Group -&gt; Update User Group, then click on the <strong>Context Access</strong> tab. You'll see something like this:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/33226828/User-Group-Perms.jpg?version=1&amp;modificationDate=1287981106000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/33226828/User-Group-Perms.jpg?version=1&amp;modificationDate=1287981106000" style="border: 1px solid black" />
 </p>
 
 <p>
-By default, MODx Revolution has 2 contexts: <b>web</b> (the front-end) and <b>mgr</b> (the back-end). From this table, we can learn 2 things: that the <em>minimum</em> role is the Super-User role, and the "Access Policy" in use for this context is "Administrator". Even if you don't understand what all of that means, this is a good place to start educating you about permissions.
+By default, MODx Revolution has 2 contexts: <strong>web</strong> (the front-end) and <strong>mgr</strong> (the back-end). From this table, we can learn 2 things: that the <em>minimum</em> role is the Super-User role, and the "Access Policy" in use for this context is "Administrator". Even if you don't understand what all of that means, this is a good place to start educating you about permissions.
 </p>
 
-<h3>
-<a name="CreatingaSecondSuperAdminUser-MinimumRole" id="CreatingaSecondSuperAdminUser-MinimumRole"></a>Minimum Role
+<h3 id="CreatingaSecondSuperAdminUser-MinimumRole">
+Minimum Role
 </h3>
 
 <p>
 From the Context Access screen, you can see that you have to be at least a "Super User". Merely being a "Member" won't cut it. So that's why logging in fails for Admins with only "Member" roles.
 </p>
 
-<h3>
-<a name="CreatingaSecondSuperAdminUser-Roles" id="CreatingaSecondSuperAdminUser-Roles"></a>Roles
+<h3 id="CreatingaSecondSuperAdminUser-Roles">
+Roles
 </h3>
 
 <p>
@@ -80,8 +76,8 @@ While we're at it, why would you want to give another user another role if he or
 When thinking about roles, think about that access policy there. The access policy says what your user can and can't do if you are assigned a particular role.
 </p>
 
-<h2>
-<a name="CreatingaSecondSuperAdminUser-SeeAlso" id="CreatingaSecondSuperAdminUser-SeeAlso"></a>See Also
+<h2 id="CreatingaSecondSuperAdminUser-SeeAlso">
+See Also
 </h2>
 
 <p>
@@ -89,19 +85,27 @@ See the other tutorial about <a href="/display/revolution20/Giving+a+User+Manage
 </p>
 
 <p>
-Shaun McCormick's video on <a href="http://vimeo.com/13856994" class="external-link" rel="nofollow">Understanding MODx Revolution Security</a> gives a detailed walk-through of setting up some complex permission schemes.
+Shaun McCormick's video on <a href="http://vimeo.com/13856994">Understanding MODx Revolution Security</a> gives a detailed walk-through of setting up some complex permission schemes.
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Giving+a+User+Manager+Access">Giving a User Manager Access</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33226828" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678350" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="2" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FCreating%2Ba%2BSecond%2BSuper%2BAdmin%2BUser" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678350" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Making+Member-Only+Pages">Making Member-Only Pages</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Creating+a+Second+Super+Admin+User">Creating a Second Super Admin User</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Restricting+an+Element+from+Users">Restricting an Element from Users</a>
+</li>
+
+<li>
+<a href="/display/revolution20/More+on+the+Anonymous+User+Group">More on the Anonymous User Group</a>
+</li>
+</ol>

@@ -22,61 +22,55 @@ This tutorial is part of a Series:
 <div>
 <ul>
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-Overview'>Overview</a>
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-Overview">Overview</a>
 </li>
 
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-SettingUpOurBuildDirectory'>Setting Up Our Build Directory</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-SettingUpOurBuildDirectory">Setting Up Our Build Directory</a>
 <ul>
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-TheBuildScript'>The Build Script</a>
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-TheBuildScript">The Build Script</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingintheData'>Adding in the Data</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-AddingintheData">Adding in the Data</a>
 <ul>
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheSnippet'>Adding the Snippet</a>
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheSnippet">Adding the Snippet</a>
 </li>
 
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddinginSnippetProperties'>Adding in Snippet Properties</a>
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-AddinginSnippetProperties">Adding in Snippet Properties</a>
 </li>
 
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheFileResolvers'>Adding the File Resolvers</a>
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheFileResolvers">Adding the File Resolvers</a>
 </li>
 
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheMenuandAction'>Adding the Menu and Action</a>
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheMenuandAction">Adding the Menu and Action</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingaResolver'>Adding a Resolver</a>
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-AddingaResolver">Adding a Resolver</a>
 </li>
 
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheChangelog%2CReadme%2CLicenseandSetupOptions'>Adding the Changelog, Readme, License and Setup Options</a>
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheChangelog%2CReadme%2CLicenseandSetupOptions">Adding the Changelog, Readme, License and Setup Options</a>
 </li>
 
 <li>
-<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-Summary'>Summary</a>
+<a href="#DevelopinganExtrainMODXRevolution%2CPartIII-Summary">Summary</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-Overview"></a>Overview
+<h2 id="DevelopinganExtrainMODXRevolution,PartIII-Overview">
+Overview
 </h2>
 
 <p>
@@ -91,26 +85,12 @@ First off, if you're not sure what a Transport Package is, or what Package Manag
 Our main goals for this part of the tutorial will be getting the Extra in a package: specifically our Snippet; the files in core/components and assets/components; the Action, Menu and Namespace for our CMP; making our Snippet's default properties i18n supported; and finally, adding a Resolver that creates our custom DB table in the installing user's database.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 For simple Extras that don't have a CMP, we could just use <a href="/display/ADDON/PackMan" title="PackMan">PackMan</a> to package up our Extra. However, we have a CMP, and we want to learn how to do the script. So, here we are.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-SettingUpOurBuildDirectory"></a>Setting Up Our Build Directory
+<h2 id="DevelopinganExtrainMODXRevolution,PartIII-SettingUpOurBuildDirectory">
+Setting Up Our Build Directory
 </h2>
 
 <p>
@@ -118,44 +98,42 @@ This is what our _build directory will look like when we're through. We're alrea
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/33947702/doodles-build-dir1.png?version=1&amp;modificationDate=1295964982000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/33947702/doodles-build-dir1.png?version=1&amp;modificationDate=1295964982000" />
 </p>
 
 <ul>
 <li>
-<b>data</b> - This is where we're going to put all of our data-packaging scripts. We'll get into that shortly.
+<strong>data</strong> - This is where we're going to put all of our data-packaging scripts. We'll get into that shortly.
 </li>
 
 <li>
-<b>resolvers</b> - A directory containing our <a href="http://rtfm.modx.com/display/revolution20/Transport+Packages#TransportPackages-AResolver" class="external-link" rel="nofollow">resolvers</a> for our Transport Package.
+<strong>resolvers</strong> - A directory containing our <a href="http://rtfm.modx.com/display/revolution20/Transport+Packages#TransportPackages-AResolver">resolvers</a> for our Transport Package.
 </li>
 
 <li>
-<b>build.transport.php</b> - This is our main build script. Running it will create the Transport Package. We'll be heavily looking at this file.
+<strong>build.transport.php</strong> - This is our main build script. Running it will create the Transport Package. We'll be heavily looking at this file.
 </li>
 
 <li>
-<b>setup.options.php</b> - While we won't use this extensively for our TP, we'll look at it briefly to show what's possible with it.
+<strong>setup.options.php</strong> - While we won't use this extensively for our TP, we'll look at it briefly to show what's possible with it.
 </li>
 </ul>
 
-<h3>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-TheBuildScript"></a>The Build Script
+<h3 id="DevelopinganExtrainMODXRevolution,PartIII-TheBuildScript">
+The Build Script
 </h3>
 
 <p>
 Let's go ahead and create a file at /www/doodles/_build/build.transport.php, and fill it with this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $tstart = explode(' ', microtime());
 $tstart = $tstart[1] + $tstart[0];
 set_time_limit(0);
 
-/* define <span class="code-keyword">package</span> names */
+/* define package names */
 define('PKG_NAME','Doodles');
 define('PKG_NAME_LOWER','doodles');
 define('PKG_VERSION','1.0');
@@ -181,53 +159,45 @@ unset($root);
 require_once $sources['build'] . 'build.config.php';
 require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 
-$modx= <span class="code-keyword">new</span> modX();
+$modx= new modX();
 $modx-&gt;initialize('mgr');
-echo '&lt;pre&gt;'; /* used <span class="code-keyword">for</span> nice formatting of log messages */
+echo '&lt;pre&gt;'; /* used for nice formatting of log messages */
 $modx-&gt;setLogLevel(modX::LOG_LEVEL_INFO);
 $modx-&gt;setLogTarget('ECHO');
 
-$modx-&gt;loadClass('transport.modPackageBuilder','',<span class="code-keyword">false</span>, <span class="code-keyword">true</span>);
-$builder = <span class="code-keyword">new</span> modPackageBuilder($modx);
+$modx-&gt;loadClass('transport.modPackageBuilder','',false, true);
+$builder = new modPackageBuilder($modx);
 $builder-&gt;createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
-$builder-&gt;registerNamespace(PKG_NAME_LOWER,<span class="code-keyword">false</span>,<span class="code-keyword">true</span>,'{core_path}components/'.PKG_NAME_LOWER.'/');
+$builder-&gt;registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/');
 
-/* zip up <span class="code-keyword">package</span> */
-$modx-&gt;log(modX::LOG_LEVEL_INFO,'Packing up transport <span class="code-keyword">package</span> zip...');
+/* zip up package */
+$modx-&gt;log(modX::LOG_LEVEL_INFO,'Packing up transport package zip...');
 $builder-&gt;pack();
 
-$tend= explode(<span class="code-quote">" "</span>, microtime());
+$tend= explode(" ", microtime());
 $tend= $tend[1] + $tend[0];
-$totalTime= sprintf(<span class="code-quote">"%2.4f s"</span>,($tend - $tstart));
-$modx-&gt;log(modX::LOG_LEVEL_INFO,<span class="code-quote">"\n&lt;br /&gt;Package Built.&lt;br /&gt;\nExecution time: {$totalTime}\n"</span>);
+$totalTime= sprintf("%2.4f s",($tend - $tstart));
+$modx-&gt;log(modX::LOG_LEVEL_INFO,"\n&lt;br /&gt;Package Built.&lt;br /&gt;\nExecution time: {$totalTime}\n");
 
 
 session_write_close();
 exit ();
 </pre>
-</div>
-</div>
-
 <p>
 There's a lot in there. It's helpful to note that all this is doing so far is packaging in our Namespace, and creating a "doodles-1.0-beta4.zip" transport file. Let's go deeper to understand a bit more of it.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $tstart = explode(' ', microtime());
 $tstart = $tstart[1] + $tstart[0];
 set_time_limit(0);
 
-/* define <span class="code-keyword">package</span> names */
+/* define package names */
 define('PKG_NAME','Doodles');
 define('PKG_NAME_LOWER','doodles');
 define('PKG_VERSION','1.0');
 define('PKG_RELEASE','beta4');
 </pre>
-</div>
-</div>
-
 <p>
 First off, we're going to get the time started for this build script so we can output at the end how long it took to build it. It's definitely not necessary code to build the TP, but it's useful information anyway.
 </p>
@@ -236,9 +206,7 @@ First off, we're going to get the time started for this build script so we can o
 Then we'll set up some defines we'll use later to determine our package's name, version and release. Next:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 /* define build paths */
 $root = dirname(dirname(__FILE__)).'/';
 $sources = array(
@@ -259,52 +227,30 @@ unset($root);
 require_once $sources['build'] . 'build.config.php';
 require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 </pre>
-</div>
-</div>
-
 <p>
 Okay, here we're defining a whole bunch of paths on where to find stuff in our directory structure. This will be useful later on in our build script, so we can easily reference locations of files.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Note the source_core and source_assets keys - it's very important to note that they <b>do not</b> have a trailing slash. When we package them in later, this is important.
-</td>
-</tr>
-</table>
+<div class="note">
+Note the source_core and source_assets keys - it's very important to note that they <strong>do not</strong> have a trailing slash. When we package them in later, this is important.
 </div>
 
 <p>
 Finally, we'll include our build.config.php file and our modx class. Now it's time to load up the modX object:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx= <span class="code-keyword">new</span> modX();
+<pre class="brush: php">
+$modx= new modX();
 $modx-&gt;initialize('mgr');
-echo '&lt;pre&gt;'; /* used <span class="code-keyword">for</span> nice formatting of log messages */
+echo '&lt;pre&gt;'; /* used for nice formatting of log messages */
 $modx-&gt;setLogLevel(modX::LOG_LEVEL_INFO);
 $modx-&gt;setLogTarget('ECHO');
 
-$modx-&gt;loadClass('transport.modPackageBuilder','',<span class="code-keyword">false</span>, <span class="code-keyword">true</span>);
-$builder = <span class="code-keyword">new</span> modPackageBuilder($modx);
+$modx-&gt;loadClass('transport.modPackageBuilder','',false, true);
+$builder = new modPackageBuilder($modx);
 $builder-&gt;createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
-$builder-&gt;registerNamespace(PKG_NAME_LOWER,<span class="code-keyword">false</span>,<span class="code-keyword">true</span>,'{core_path}components/'.PKG_NAME_LOWER.'/');
+$builder-&gt;registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/');
 </pre>
-</div>
-</div>
-
 <p>
 Okay, a bit in here. First off, we'll instantiate the modX object, and initialize our 'mgr' Context. This sets up all the modX environment stuff we'll need. Next, we'll tell MODX to be a little more verbose in it's error reporting during this build script with the $modx-&gt;setLogLevel method - and we'll tell it to output to the screen as well with the setLogTarget message.
 </p>
@@ -345,65 +291,58 @@ That last parameter is key - note how we make it resolve to: '{core_path}compone
 And now finally, the last few lines in our script:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-/* zip up <span class="code-keyword">package</span> */
-$modx-&gt;log(modX::LOG_LEVEL_INFO,'Packing up transport <span class="code-keyword">package</span> zip...');
+<pre class="brush: php">
+/* zip up package */
+$modx-&gt;log(modX::LOG_LEVEL_INFO,'Packing up transport package zip...');
 $builder-&gt;pack();
 
-$tend= explode(<span class="code-quote">" "</span>, microtime());
+$tend= explode(" ", microtime());
 $tend= $tend[1] + $tend[0];
-$totalTime= sprintf(<span class="code-quote">"%2.4f s"</span>,($tend - $tstart));
-$modx-&gt;log(modX::LOG_LEVEL_INFO,<span class="code-quote">"\n&lt;br /&gt;Package Built.&lt;br /&gt;\nExecution time: {$totalTime}\n"</span>);
+$totalTime= sprintf("%2.4f s",($tend - $tstart));
+$modx-&gt;log(modX::LOG_LEVEL_INFO,"\n&lt;br /&gt;Package Built.&lt;br /&gt;\nExecution time: {$totalTime}\n");
 exit ();
 </pre>
-</div>
-</div>
-
 <p>
-The pack() method tells MODX to go ahead and make the Transport Package zip with our built package so far. The rest of the lines after that just display how long it took to do the build. That's it! If you run this via the browser (on mine, <a href="http://localhost/doodles/_build/build.transport.php" class="external-link" rel="nofollow">http://localhost/doodles/_build/build.transport.php</a>) you'll get some debugging info displayed, and then in your MODX's core/packages/ directory, you'll find this:
+The pack() method tells MODX to go ahead and make the Transport Package zip with our built package so far. The rest of the lines after that just display how long it took to do the build. That's it! If you run this via the browser (on mine, <a href="http://localhost/doodles/_build/build.transport.php">http://localhost/doodles/_build/build.transport.php</a>) you'll get some debugging info displayed, and then in your MODX's core/packages/ directory, you'll find this:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/33947702/doodles-zip1.png?version=1&amp;modificationDate=1295966567000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/33947702/doodles-zip1.png?version=1&amp;modificationDate=1295966567000" />
 </p>
 
 <p>
 Our Transport Package! Nice and done. However, installing it wont actually do anything. Let's try and solve that.
 </p>
 
-<h2>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingintheData"></a>Adding in the Data
+<h2 id="DevelopinganExtrainMODXRevolution,PartIII-AddingintheData">
+Adding in the Data
 </h2>
 
 <p>
 We're going to want to package in our Snippet in its own 'Doodles' category, to get it to be nice and separated out from other Snippets the user might be using. In our build.transport.php file, add this below our registerNamespace call at line 42:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $category= $modx-&gt;newObject('modCategory');
 $category-&gt;set('id',1);
 $category-&gt;set('category',PKG_NAME);
 
 /* add snippets */
-<span class="code-comment">//$modx-&gt;log(modX::LOG_LEVEL_INFO,'Packaging in snippets...');
-</span><span class="code-comment">//$snippets = include $sources['data'].'transport.snippets.php';
-</span><span class="code-comment">//<span class="code-keyword">if</span> (empty($snippets)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not <span class="code-keyword">package</span> in snippets.');
-</span><span class="code-comment">//$category-&gt;addMany($snippets);
-</span>
+//$modx-&gt;log(modX::LOG_LEVEL_INFO,'Packaging in snippets...');
+//$snippets = include $sources['data'].'transport.snippets.php';
+//if (empty($snippets)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not package in snippets.');
+//$category-&gt;addMany($snippets);
+
 /* create category vehicle */
 $attr = array(
     xPDOTransport::UNIQUE_KEY =&gt; 'category',
-    xPDOTransport::PRESERVE_KEYS =&gt; <span class="code-keyword">false</span>,
-    xPDOTransport::UPDATE_OBJECT =&gt; <span class="code-keyword">true</span>,
-    xPDOTransport::RELATED_OBJECTS =&gt; <span class="code-keyword">true</span>,
+    xPDOTransport::PRESERVE_KEYS =&gt; false,
+    xPDOTransport::UPDATE_OBJECT =&gt; true,
+    xPDOTransport::RELATED_OBJECTS =&gt; true,
     xPDOTransport::RELATED_OBJECT_ATTRIBUTES =&gt; array (
         'Snippets' =&gt; array(
-            xPDOTransport::PRESERVE_KEYS =&gt; <span class="code-keyword">false</span>,
-            xPDOTransport::UPDATE_OBJECT =&gt; <span class="code-keyword">true</span>,
+            xPDOTransport::PRESERVE_KEYS =&gt; false,
+            xPDOTransport::UPDATE_OBJECT =&gt; true,
             xPDOTransport::UNIQUE_KEY =&gt; 'name',
         ),
     ),
@@ -411,9 +350,6 @@ $attr = array(
 $vehicle = $builder-&gt;createVehicle($category,$attr);
 $builder-&gt;putVehicle($vehicle);
 </pre>
-</div>
-</div>
-
 <p>
 Quite a bit of this is detailed <a href="/display/revolution20/Creating+a+3rd+Party+Component+Build+Script" title="Creating a 3rd Party Component Build Script">in this tutorial here</a>, but we'll go over it again here. First off, we create a modCategory object that has the name (category) of 'Doodles'. Great. Note how we don't -&gt;save() on it - we just want the object. Next we have some code to package in the Snippet, but we've commented it out for now. Go ahead and ignore it - we'll come back to it.
 </p>
@@ -424,46 +360,41 @@ Next, we create this really big array of attributes, it seems. A bit more on the
 
 <ul>
 <li>
-<b>xPDOTransport::UNIQUE_KEY =&gt; 'category'</b> - Here, we're telling MODX that the unique key for this Category is the field 'category'. Since we are installing this on another machine, the ID of the Category there will most likely be different than our ID on our machine. So MODX needs some way of identifying our 'Doodles' category if the User were to decide and uninstall our Doodles Extra. MODX uses this UNIQUE_KEY property to look for a modCategory object with 'category' =&gt; "Doodles", and then removes it there.
+<strong>xPDOTransport::UNIQUE_KEY =&gt; 'category'</strong> - Here, we're telling MODX that the unique key for this Category is the field 'category'. Since we are installing this on another machine, the ID of the Category there will most likely be different than our ID on our machine. So MODX needs some way of identifying our 'Doodles' category if the User were to decide and uninstall our Doodles Extra. MODX uses this UNIQUE_KEY property to look for a modCategory object with 'category' =&gt; "Doodles", and then removes it there.
 </li>
 </ul>
 
 <ul>
 <li>
-<b>xPDOTransport::PRESERVE_KEYS =&gt; false</b> - Sometimes, however, we want the primary key of our object to be 'preserved' - or rather, used when the User installs our package. This is useful for non-auto-incrementing primary keys (PKs), such as Menu items, which we'll get to later. Our Category doesn't need its ID preserved, so we'll set that to false here.
+<strong>xPDOTransport::PRESERVE_KEYS =&gt; false</strong> - Sometimes, however, we want the primary key of our object to be 'preserved' - or rather, used when the User installs our package. This is useful for non-auto-incrementing primary keys (PKs), such as Menu items, which we'll get to later. Our Category doesn't need its ID preserved, so we'll set that to false here.
 </li>
 </ul>
 
 <ul>
 <li>
-<b>xPDOTransport::UPDATE_OBJECT =&gt; true</b> - A crucial one. This tells MODX that if the Category already exists, update it with our version. If we had set this to false, MODX would just skip this Category if it found it. We don't want that - say we want to release an update for our Doodles Extra later; we'd want the Category to update.
+<strong>xPDOTransport::UPDATE_OBJECT =&gt; true</strong> - A crucial one. This tells MODX that if the Category already exists, update it with our version. If we had set this to false, MODX would just skip this Category if it found it. We don't want that - say we want to release an update for our Doodles Extra later; we'd want the Category to update.
 </li>
 </ul>
 
 <ul>
 <li>
-<b>xPDOTransport::RELATED_OBJECTS =&gt; true</b> - This tells MODX that we have some related objects to our Category we want to package in. (We do. We have a Snippet.) Related objects are important, as this means that they will be "related" to one another on install. Our example is a good one - any Snippets we install, we want to assign to the Category we're installing.
+<strong>xPDOTransport::RELATED_OBJECTS =&gt; true</strong> - This tells MODX that we have some related objects to our Category we want to package in. (We do. We have a Snippet.) Related objects are important, as this means that they will be "related" to one another on install. Our example is a good one - any Snippets we install, we want to assign to the Category we're installing.
 </li>
 </ul>
 
 <ul>
 <li>
-<b>xPDOTransport::RELATED_OBJECT_ATTRIBUTES</b> - This takes in an associative array. Each index in the first depth of it tells MODX what the alias of it is - note we only have one, "Snippets". That tells MODX to look for any Related Objects in this Category that are Snippets, and then below that defines properties for those Snippets:
+<strong>xPDOTransport::RELATED_OBJECT_ATTRIBUTES</strong> - This takes in an associative array. Each index in the first depth of it tells MODX what the alias of it is - note we only have one, "Snippets". That tells MODX to look for any Related Objects in this Category that are Snippets, and then below that defines properties for those Snippets:
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 'Snippets' =&gt; array(
-   xPDOTransport::PRESERVE_KEYS =&gt; <span class="code-keyword">false</span>,
-   xPDOTransport::UPDATE_OBJECT =&gt; <span class="code-keyword">true</span>,
+   xPDOTransport::PRESERVE_KEYS =&gt; false,
+   xPDOTransport::UPDATE_OBJECT =&gt; true,
    xPDOTransport::UNIQUE_KEY =&gt; 'name',
 ),
 </pre>
-</div>
-</div>
-
 <p>
 We're going to tell the package to not preserve the Snippet's keys (similarly to the Category). Then we want to update it should MODX find it already during installs or upgrades. Finally, we tell MODX that its unique key is 'name' - MODX will look for a Snippet with the name of 'Doodles' (we'll get to where that's defined here in a bit) during install, and if it finds it, upgrade it (or remove it during uninstall).
 </p>
@@ -472,35 +403,28 @@ We're going to tell the package to not preserve the Snippet's keys (similarly to
 Then we hit this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $vehicle = $builder-&gt;createVehicle($category,$attr);
 $builder-&gt;putVehicle($vehicle);
 </pre>
-</div>
-</div>
-
 <p>
 This packages our Category object into a nice little vehicle for us, with the attributes we just defined. And then it adds it to the Transport Package. Done! Our Category is now in the TP. But we need to add the Snippets to it!
 </p>
 
-<h3>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheSnippet"></a>Adding the Snippet
+<h3 id="DevelopinganExtrainMODXRevolution,PartIII-AddingtheSnippet">
+Adding the Snippet
 </h3>
 
 <p>
 Go ahead and create a directory at /www/doodles/_build/data/. Now let's add a file at /www/doodles/_build/data/transport.snippets.php. Place this in there:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 function getSnippetContent($filename) {
     $o = file_get_contents($filename);
     $o = trim(str_replace(array('&lt;?php','?&gt;'),'',$o));
-    <span class="code-keyword">return</span> $o;
+    return $o;
 }
 $snippets = array();
 
@@ -510,51 +434,41 @@ $snippets[1]-&gt;fromArray(array(
     'name' =&gt; 'Doodles',
     'description' =&gt; 'Displays a list of Doodles.',
     'snippet' =&gt; getSnippetContent($sources['elements'].'snippets/snippet.doodles.php'),
-),'',<span class="code-keyword">true</span>,<span class="code-keyword">true</span>);
+),'',true,true);
 $properties = include $sources['data'].'properties/properties.doodles.php';
 $snippets[1]-&gt;setProperties($properties);
 unset($properties);
 
-<span class="code-keyword">return</span> $snippets;
+return $snippets;
 </pre>
-</div>
-</div>
-
 <p>
 First off, we're going to make a little helper method that grabs our snippet we worked on earlier and strips the &lt;?php tags from it. Then, we'll make a $snippets array - basically an array of all the Snippets we want to package up.
 </p>
 
 <p>
-Next, we'll actually make a new Snippet object. Note, however, we're <b>not</b> saving it - just creating it. Also, we're going to include some properties on them (more on that in a second). Finally, we return the $snippets array. Remember that part we commented out in our build.transport.php file? This part:
+Next, we'll actually make a new Snippet object. Note, however, we're <strong>not</strong> saving it - just creating it. Also, we're going to include some properties on them (more on that in a second). Finally, we return the $snippets array. Remember that part we commented out in our build.transport.php file? This part:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 /* add snippets */
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Packaging in snippets...');
 $snippets = include $sources['data'].'transport.snippets.php';
-<span class="code-keyword">if</span> (empty($snippets)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not <span class="code-keyword">package</span> in snippets.');
+if (empty($snippets)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not package in snippets.');
 $category-&gt;addMany($snippets);
 </pre>
-</div>
-</div>
-
 <p>
 Go ahead and uncomment it. Now our Snippets are loaded into the Category Vehicle. We're done there. Let's add those properties that we mentioned earlier.
 </p>
 
-<h3>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddinginSnippetProperties"></a>Adding in Snippet Properties
+<h3 id="DevelopinganExtrainMODXRevolution,PartIII-AddinginSnippetProperties">
+Adding in Snippet Properties
 </h3>
 
 <p>
 Create a file at /www/doodles/_build/data/properties/properties.doodles.php. Put this in it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $properties = array(
     array(
@@ -585,18 +499,15 @@ $properties = array(
         'lexicon' =&gt; 'doodles:properties',
     ),
 );
-<span class="code-keyword">return</span> $properties;
+return $properties;
 </pre>
-</div>
-</div>
-
 <p>
 These are PHP representations of the default Properties for our Snippet. Let's look at the keys they have:
 </p>
 
 <ul>
 <li>
-<b>name</b> - This is the name, or key, of the property. We've got tpl, sort, and dir. For example, in our tpl property, we're telling it to default to 'rowTpl'. When someone wants to use the property, it would look like this in their snippet call:
+<strong>name</strong> - This is the name, or key, of the property. We've got tpl, sort, and dir. For example, in our tpl property, we're telling it to default to 'rowTpl'. When someone wants to use the property, it would look like this in their snippet call:
 </li>
 </ul>
 
@@ -608,23 +519,23 @@ These are PHP representations of the default Properties for our Snippet. Let's l
 
 <ul>
 <li>
-<b>desc</b> - The description of our property. This can either be the actual description, or, if the 'lexicon' attribute on this property is set, a Lexicon key. We've got it as a Lexicon key, because we're going to i18n our properties.
+<strong>desc</strong> - The description of our property. This can either be the actual description, or, if the 'lexicon' attribute on this property is set, a Lexicon key. We've got it as a Lexicon key, because we're going to i18n our properties.
 </li>
 
 <li>
-<b>type</b> - This is the 'xtype' of the property. Currently, the 4 available values are "textfield", "textarea", "combo-boolean" (Yes/No) and "list". We've got two textfields here, and a list type.
+<strong>type</strong> - This is the 'xtype' of the property. Currently, the 4 available values are "textfield", "textarea", "combo-boolean" (Yes/No) and "list". We've got two textfields here, and a list type.
 </li>
 
 <li>
-<b>options</b> - Only used by the 'list' type, this is an array of arrays, which each contain an option in the list. Each option has two values - 'text' and 'value', where value is the actual value stored when it's selected, and 'text' is the text displayed for the value. 'text' can be a Lexicon key, if wanted.
+<strong>options</strong> - Only used by the 'list' type, this is an array of arrays, which each contain an option in the list. Each option has two values - 'text' and 'value', where value is the actual value stored when it's selected, and 'text' is the text displayed for the value. 'text' can be a Lexicon key, if wanted.
 </li>
 
 <li>
-<b>value</b> - The default value of the property.
+<strong>value</strong> - The default value of the property.
 </li>
 
 <li>
-<b>lexicon</b> - If wanted, properties can be i18n-compatible. Just specify the Lexicon Topic here, and MODX will handle the rest.
+<strong>lexicon</strong> - If wanted, properties can be i18n-compatible. Just specify the Lexicon Topic here, and MODX will handle the rest.
 </li>
 </ul>
 
@@ -632,19 +543,14 @@ These are PHP representations of the default Properties for our Snippet. Let's l
 Okay, so we've got our properties. But as you can see, we've referenced a 'doodles:properties' Lexicon Topic. Let's go ahead and create that, in the file /www/doodles/core/components/doodles/lexicon/en/properties.inc.php:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $_lang['prop_doodles.ascending'] = 'Ascending';
 $_lang['prop_doodles.descending'] = 'Descending';
 $_lang['prop_doodles.dir_desc'] = 'The direction to sort by.';
 $_lang['prop_doodles.sort_desc'] = 'The field to sort by.';
-$_lang['prop_doodles.tpl_desc'] = 'The chunk <span class="code-keyword">for</span> displaying each row.';
+$_lang['prop_doodles.tpl_desc'] = 'The chunk for displaying each row.';
 </pre>
-</div>
-</div>
-
 <p>
 As you can see here, it's a similar format to our default topic. Also, the keys in each string here match with the 'desc' attribute in each of our properties. This means that our Snippet's properties will be translated when they are shown - useful for making Extras that are translatable!
 </p>
@@ -653,8 +559,8 @@ As you can see here, it's a similar format to our default topic. Also, the keys 
 If you run the build script now, your Category, Snippet and its Properties will be packaged in. Great! But we've missed something - the actual files aren't getting copied. Let's remedy that.
 </p>
 
-<h3>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheFileResolvers"></a>Adding the File Resolvers
+<h3 id="DevelopinganExtrainMODXRevolution,PartIII-AddingtheFileResolvers">
+Adding the File Resolvers
 </h3>
 
 <p>
@@ -665,47 +571,37 @@ So we want to add /www/doodles/core/components/doodles/ and /www/doodles/assets/
 So, in build.transport.php, right after this, where we add the Category Vehicle at line 67:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $vehicle = $builder-&gt;createVehicle($category,$attr);
 </pre>
-</div>
-</div>
-
 <p>
 add this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding file resolvers to category...');
 $vehicle-&gt;resolve('file',array(
     'source' =&gt; $sources['source_assets'],
-    'target' =&gt; <span class="code-quote">"<span class="code-keyword">return</span> MODX_ASSETS_PATH . 'components/';"</span>,
+    'target' =&gt; "return MODX_ASSETS_PATH . 'components/';",
 ));
 $vehicle-&gt;resolve('file',array(
     'source' =&gt; $sources['source_core'],
-    'target' =&gt; <span class="code-quote">"<span class="code-keyword">return</span> MODX_CORE_PATH . 'components/';"</span>,
+    'target' =&gt; "return MODX_CORE_PATH . 'components/';",
 ));
 </pre>
-</div>
-</div>
-
 <p>
 Let's explain. First off, there are two attributes here worth noting:
 </p>
 
 <ul>
 <li>
-<b>source</b> - This is the source of the files, or the path in which they can be found. This points to our source_assets and source_core paths, which were defined above. Note the lack of a trailing slash, as we mentioned earlier.
+<strong>source</strong> - This is the source of the files, or the path in which they can be found. This points to our source_assets and source_core paths, which were defined above. Note the lack of a trailing slash, as we mentioned earlier.
 </li>
 </ul>
 
 <ul>
 <li>
-<b>target</b> - This an eval'ed statement that returns where the script will be installed. Here, we're telling it to install to the assets path and core path of the User's MODX install, respectively.
+<strong>target</strong> - This an eval'ed statement that returns where the script will be installed. Here, we're telling it to install to the assets path and core path of the User's MODX install, respectively.
 </li>
 </ul>
 
@@ -717,29 +613,27 @@ Also, the first parameter of the resolve() call tells MODX this is a 'file' reso
 If you run the build script now, it will package in your doodles/core/ and doodles/assets/ directories, and install them into the User's proper directories. Great!
 </p>
 
-<h3>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheMenuandAction"></a>Adding the Menu and Action
+<h3 id="DevelopinganExtrainMODXRevolution,PartIII-AddingtheMenuandAction">
+Adding the Menu and Action
 </h3>
 
 <p>
 Now that we've got most of our Extra nice and packaged, let's add in the Menu and Action that make up our Custom Manager Page (CMP). Add this code below the putVehicle line at line 80 for our Category:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Packaging in menu...');
 $menu = include $sources['data'].'transport.menu.php';
-<span class="code-keyword">if</span> (empty($menu)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not <span class="code-keyword">package</span> in menu.');
+if (empty($menu)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not package in menu.');
 $vehicle= $builder-&gt;createVehicle($menu,array (
-    xPDOTransport::PRESERVE_KEYS =&gt; <span class="code-keyword">true</span>,
-    xPDOTransport::UPDATE_OBJECT =&gt; <span class="code-keyword">true</span>,
+    xPDOTransport::PRESERVE_KEYS =&gt; true,
+    xPDOTransport::UPDATE_OBJECT =&gt; true,
     xPDOTransport::UNIQUE_KEY =&gt; 'text',
-    xPDOTransport::RELATED_OBJECTS =&gt; <span class="code-keyword">true</span>,
+    xPDOTransport::RELATED_OBJECTS =&gt; true,
     xPDOTransport::RELATED_OBJECT_ATTRIBUTES =&gt; array (
         'Action' =&gt; array (
-            xPDOTransport::PRESERVE_KEYS =&gt; <span class="code-keyword">false</span>,
-            xPDOTransport::UPDATE_OBJECT =&gt; <span class="code-keyword">true</span>,
+            xPDOTransport::PRESERVE_KEYS =&gt; false,
+            xPDOTransport::UPDATE_OBJECT =&gt; true,
             xPDOTransport::UNIQUE_KEY =&gt; array ('namespace','controller'),
         ),
     ),
@@ -748,9 +642,6 @@ $modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding in PHP resolvers...');
 $builder-&gt;putVehicle($vehicle);
 unset($vehicle,$menu);
 </pre>
-</div>
-</div>
-
 <p>
 Very similar to our Category Vehicle creation code. We've also got a related object of our Action. There are a couple differences, however, worth noting:
 </p>
@@ -767,9 +658,7 @@ Very similar to our Category Vehicle creation code. We've also got a related obj
 As you probably guessed, we need to add a transport.menu.php file. Add one at /www/doodles/_build/data/transport.menu.php:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $action= $modx-&gt;newObject('modAction');
 $action-&gt;fromArray(array(
@@ -777,10 +666,10 @@ $action-&gt;fromArray(array(
     'namespace' =&gt; 'doodles',
     'parent' =&gt; 0,
     'controller' =&gt; 'index',
-    'haslayout' =&gt; <span class="code-keyword">true</span>,
-    'lang_topics' =&gt; 'doodles:<span class="code-keyword">default</span>',
+    'haslayout' =&gt; true,
+    'lang_topics' =&gt; 'doodles:default',
     'assets' =&gt; '',
-),'',<span class="code-keyword">true</span>,<span class="code-keyword">true</span>);
+),'',true,true);
 
 $menu= $modx-&gt;newObject('modMenu');
 $menu-&gt;fromArray(array(
@@ -791,15 +680,12 @@ $menu-&gt;fromArray(array(
     'menuindex' =&gt; 0,
     'params' =&gt; '',
     'handler' =&gt; '',
-),'',<span class="code-keyword">true</span>,<span class="code-keyword">true</span>);
+),'',true,true);
 $menu-&gt;addOne($action);
 unset($menus);
 
-<span class="code-keyword">return</span> $menu;
+return $menu;
 </pre>
-</div>
-</div>
-
 <p>
 Looks very similar to our transport.snippets.php file, except we're just returning one menu, and we're calling addOne on the menu object to add the Action as a related object to the menu. Note that the fields in each of the fromArray calls are the fields in the DB table for the menu and action, by the way.
 </p>
@@ -808,56 +694,46 @@ Looks very similar to our transport.snippets.php file, except we're just returni
 So now our Menu and Action are all nicely packaged in.
 </p>
 
-<h2>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingaResolver"></a>Adding a Resolver
+<h2 id="DevelopinganExtrainMODXRevolution,PartIII-AddingaResolver">
+Adding a Resolver
 </h2>
 
 <p>
 When someone installs our system, however, they're going to have 1 big problem - the database table modx_doodles isn't going to exist! Let's write a PHP resolver to create it on install. A PHP Resolver is a PHP script that runs after the Vehicle it's attached to has been installed. We'll attach this resolver to our Menu vehicle. Right below our $builder-&gt;createVehicle call for the Menu, and before you run putVehicle for that vehicle, add this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding in PHP resolvers...');
 $vehicle-&gt;resolve('php',array(
     'source' =&gt; $sources['resolvers'] . 'resolve.tables.php',
 ));
 </pre>
-</div>
-</div>
-
 <p>
 All that's passed into this PHP resolver is the 'source' field, which points to the PHP script. Let's create a file at /www/doodles/_build/resolvers/resolve.tables.php, and put this inside:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-<span class="code-keyword">if</span> ($object-&gt;xpdo) {
-    <span class="code-keyword">switch</span> ($options[xPDOTransport::PACKAGE_ACTION]) {
-        <span class="code-keyword">case</span> xPDOTransport::ACTION_INSTALL:
+if ($object-&gt;xpdo) {
+    switch ($options[xPDOTransport::PACKAGE_ACTION]) {
+        case xPDOTransport::ACTION_INSTALL:
             $modx =&amp; $object-&gt;xpdo;
-            $modelPath = $modx-&gt;getOption('doodles.core_path',<span class="code-keyword">null</span>,$modx-&gt;getOption('core_path').'components/doodles/').'model/';
+            $modelPath = $modx-&gt;getOption('doodles.core_path',null,$modx-&gt;getOption('core_path').'components/doodles/').'model/';
             $modx-&gt;addPackage('doodles',$modelPath);
 
             $manager = $modx-&gt;getManager();
 
             $manager-&gt;createObjectContainer('Doodle');
 
-            <span class="code-keyword">break</span>;
-        <span class="code-keyword">case</span> xPDOTransport::ACTION_UPGRADE:
-            <span class="code-keyword">break</span>;
+            break;
+        case xPDOTransport::ACTION_UPGRADE:
+            break;
     }
 }
-<span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+return true;
 </pre>
-</div>
-</div>
-
 <p>
-Great. So here we're doing a few things. Note the initial check for $object-&gt;xpdo. $object is our Menu, since we attached this to the Menu's vehicle. Then we want to check for the xpdo var on it (which is also MODX). We then run into a switch statement, that checks a mysterious PACKAGE_ACTION const in the $options array. This little switch tells us to only run this code during <b>new</b> installs, or ACTION_INSTALL.
+Great. So here we're doing a few things. Note the initial check for $object-&gt;xpdo. $object is our Menu, since we attached this to the Menu's vehicle. Then we want to check for the xpdo var on it (which is also MODX). We then run into a switch statement, that checks a mysterious PACKAGE_ACTION const in the $options array. This little switch tells us to only run this code during <strong>new</strong> installs, or ACTION_INSTALL.
 </p>
 
 <p>
@@ -872,8 +748,8 @@ This method tells MODX to run the SQL to create the database table for the Doodl
 If you build the package, and install it now, it will create our database table. Great!
 </p>
 
-<h2>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheChangelog%2CReadme%2CLicenseandSetupOptions"></a>Adding the Changelog, Readme, License and Setup Options
+<h2 id="DevelopinganExtrainMODXRevolution,PartIII-AddingtheChangelog,Readme,LicenseandSetupOptions">
+Adding the Changelog, Readme, License and Setup Options
 </h2>
 
 <p>
@@ -884,22 +760,17 @@ Let's get fancy. When installing packages in MODX, often you'll see a dialog wit
 Create a file in /www/doodles/core/components/doodles/docs/changelog.txt:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-Changelog file <span class="code-keyword">for</span> Doodles component.
+<pre class="brush: php">
+Changelog file for Doodles component.
 
 Doodles 1.0
 ====================================
 - Updating text, ready to build
-- Added <span class="code-keyword">default</span> properties to Doodles snippet in build
+- Added default properties to Doodles snippet in build
 - Fixes to doodles class
 - Fixed bugs with build, updated readme
 - Initial commit
 </pre>
-</div>
-</div>
-
 <p>
 Then create a license file (we'll let you put the content in) at /www/doodles/core/components/doodles/docs/license.txt.
 </p>
@@ -908,27 +779,20 @@ Then create a license file (we'll let you put the content in) at /www/doodles/co
 Finally, create a readme.txt in the docs/ directory:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 --------------------
 Extra: Doodles
 --------------------
 Version: 1.0
 
-A simple demo extra <span class="code-keyword">for</span> creating robust 3rd-Party Components in MODx Revolution.
+A simple demo extra for creating robust 3rd-Party Components in MODx Revolution.
 </pre>
-</div>
-</div>
-
 <p>
 Now that we've got our docs files, let's go to the end of our build.transport.php script, right before the $builder-&gt;pack() part, and add these lines:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding <span class="code-keyword">package</span> attributes and setup options...');
+<pre class="brush: php">
+$modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding package attributes and setup options...');
 $builder-&gt;setPackageAttributes(array(
     'license' =&gt; file_get_contents($sources['docs'] . 'license.txt'),
     'readme' =&gt; file_get_contents($sources['docs'] . 'readme.txt'),
@@ -938,9 +802,6 @@ $builder-&gt;setPackageAttributes(array(
     ),
 ));
 </pre>
-</div>
-</div>
-
 <p>
 So as you can see here, we have a setPackageAttributes() method, that allows some attributes. They're pretty self-explanatory - license takes in text for the license (which we grab using file_get_contents), readme takes in text for the readme, and changelog takes in text for the changelog.
 </p>
@@ -949,25 +810,20 @@ So as you can see here, we have a setPackageAttributes() method, that allows som
 The new one is the 'setup-options' array. First off, it's an array with a key of 'source' (like a resolver!), that points to a path of a PHP file (also like a resolver!). Let's create this PHP file, at /www/doodles/_build/setup.options.php:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $output = '';
-<span class="code-keyword">switch</span> ($options[xPDOTransport::PACKAGE_ACTION]) {
-    <span class="code-keyword">case</span> xPDOTransport::ACTION_INSTALL:
+switch ($options[xPDOTransport::PACKAGE_ACTION]) {
+    case xPDOTransport::ACTION_INSTALL:
         $output = '&lt;h2&gt;Doodles Installer&lt;/h2&gt;
-&lt;p&gt;Thanks <span class="code-keyword">for</span> installing Doodles! Please review the setup options below before proceeding.&lt;/p&gt;&lt;br /&gt;';
-        <span class="code-keyword">break</span>;
-    <span class="code-keyword">case</span> xPDOTransport::ACTION_UPGRADE:
-    <span class="code-keyword">case</span> xPDOTransport::ACTION_UNINSTALL:
-        <span class="code-keyword">break</span>;
+&lt;p&gt;Thanks for installing Doodles! Please review the setup options below before proceeding.&lt;/p&gt;&lt;br /&gt;';
+        break;
+    case xPDOTransport::ACTION_UPGRADE:
+    case xPDOTransport::ACTION_UNINSTALL:
+        break;
 }
-<span class="code-keyword">return</span> $output;
+return $output;
 </pre>
-</div>
-</div>
-
 <p>
 So, this looks familiar to a resolver, eh? That's because this little bit of code allows us to present 'Setup Options' to the user on installation. Right now we're just going to output a pretty message to tell people thanks for installing Doodles.
 </p>
@@ -977,15 +833,15 @@ Remember that $options array in our PHP resolver? If we were to put any form ele
 </p>
 
 <p>
-That means that you could have a lot of neat little fields that do pre-installation options. That's a bit beyond the scope of this tutorial, but now that you know the basics, you can probably figure it out from there. (Also, plenty of existing Extras, such as <a href="/display/ADDON/Quip" title="Quip">Quip</a> do this, and you can <a href="https://github.com/splittingred/Quip" class="external-link" rel="nofollow">view their code</a> to see how.
+That means that you could have a lot of neat little fields that do pre-installation options. That's a bit beyond the scope of this tutorial, but now that you know the basics, you can probably figure it out from there. (Also, plenty of existing Extras, such as <a href="/display/ADDON/Quip" title="Quip">Quip</a> do this, and you can <a href="https://github.com/splittingred/Quip">view their code</a> to see how.
 </p>
 
-<h2>
-<a name="DevelopinganExtrainMODXRevolution%2CPartIII-Summary"></a>Summary
+<h2 id="DevelopinganExtrainMODXRevolution,PartIII-Summary">
+Summary
 </h2>
 
 <p>
-Now you can run your build.transport.php file, and you'll get a nice little doodles-1.0-beta4.zip file in your MODX install's core/packages/ directory. You can now either install that by uploading it to a MODX install's core/packages/ directory (but not the same one you just developed in!), or post it to <a href="http://modx.com/extras/" class="external-link" rel="nofollow">modx.com/extras/</a> to be included in the official MODX Provider that hooks into <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>. Pretty neat?
+Now you can run your build.transport.php file, and you'll get a nice little doodles-1.0-beta4.zip file in your MODX install's core/packages/ directory. You can now either install that by uploading it to a MODX install's core/packages/ directory (but not the same one you just developed in!), or post it to <a href="http://modx.com/extras/">modx.com/extras/</a> to be included in the official MODX Provider that hooks into <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>. Pretty neat?
 </p>
 
 <p>
@@ -1019,22 +875,8 @@ Let's recap. Over the 3 parts of this tutorial, we:
 All in all, I'd say that was pretty successful. Congrats, and we hope you enjoy developing on MODX!
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-The Doodles Extra in this tutorial can be found on GitHub, here: <a href="https://github.com/splittingred/doodles" class="external-link" rel="nofollow">https://github.com/splittingred/doodles</a>
-</td>
-</tr>
-</table>
+<div class="note">
+The Doodles Extra in this tutorial can be found on GitHub, here: <a href="https://github.com/splittingred/doodles">https://github.com/splittingred/doodles</a>
 </div>
 
 <div class="panel" style="border-width: 1px;">
@@ -1057,3 +899,41 @@ This tutorial is part of a Series:
 </ul>
 </div>
 </div>
+
+<p>
+the&nbsp;transport.menu.php modAction controller value should be just "index" and not have the preceding "controllers/" as follows when using the new abstract classes:
+</p>
+
+<pre class="brush: php">
+$action= $modx-&gt;newObject('modAction');
+$action-&gt;fromArray(array(
+    'id' =&gt; 1,
+    'namespace' =&gt; 'doodles',
+    'parent' =&gt; 0,
+    'controller' =&gt; 'index',
+    'haslayout' =&gt; true,
+    'lang_topics' =&gt; 'doodles:default',
+    'assets' =&gt; '',
+),'',true,true);
+</pre>
+<p>
+$action= $modx-&gt;newObject('modAction');
+<br />
+$action-&gt;fromArray(array(
+<br />
+&nbsp; &nbsp; 'id' =&gt; 1,
+<br />
+&nbsp; &nbsp; 'namespace' =&gt; 'doodles',
+<br />
+&nbsp; &nbsp; 'parent' =&gt; 0,
+<br />
+&nbsp; &nbsp; 'controller' =&gt; 'controllers/index',
+<br />
+&nbsp; &nbsp; 'haslayout' =&gt; true,
+<br />
+&nbsp; &nbsp; 'lang_topics' =&gt; 'doodles:default',
+<br />
+&nbsp; &nbsp; 'assets' =&gt; '',
+<br />
+),'',true,true);
+</p>

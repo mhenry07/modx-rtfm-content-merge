@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDO.getIterator-xPDO%3A%3AgetIterator"></a>xPDO::getIterator
+<h2 id="xPDO.getIterator-xPDO::getIterator">
+xPDO::getIterator
 </h2>
 
 <p>
@@ -14,58 +10,43 @@ Retrieves an xPDOIterator representing an iterable collection of xPDOObjects by 
 If none are found, the xPDOIterator object will be empty.
 </p>
 
-<h2>
-<a name="xPDO.getIterator-Syntax" id="xPDO.getIterator-Syntax"></a>Syntax
+<h2 id="xPDO.getIterator-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#getIterator" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/xPDO.html#getIterator</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#getIterator">http://api.modxcms.com/xpdo/xPDO.html#getIterator</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOIterator getIterator (string $className, [xPDOCriteria|array|str|<span class="code-object">int</span> $criteria = <span class="code-keyword">null</span>], [bool|<span class="code-object">int</span> $cacheFlag = <span class="code-keyword">true</span>])
+<pre class="brush: php">
+xPDOIterator getIterator (string $className, [xPDOCriteria|array|str|int $criteria = null], [bool|int $cacheFlag = true])
 </pre>
-</div>
-</div>
-
 <p>
-Remember, if you are using xPDO map and class files that were generated from XML schema, the classname is <b>not</b> the same as your table name. If in doubt, have a look at the schema XML file, e.g.
+Remember, if you are using xPDO map and class files that were generated from XML schema, the classname is <strong>not</strong> the same as your table name. If in doubt, have a look at the schema XML file, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;object class=<span class="code-quote">"MyClassName"</span> table=<span class="code-quote">"my_class_name"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOObject"</span>&gt;
+<pre class="brush: php">
+&lt;object class="MyClassName" table="my_class_name" extends="xPDOObject"&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.getIterator-Example" id="xPDO.getIterator-Example"></a>Example
+<h2 id="xPDO.getIterator-Example">
+Example
 </h2>
 
 <p>
 Get an iterator for a collection of Box objects with a width of 40.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $boxes = $xpdo-&gt;getIterator('Box',array(
    'width' =&gt; 40,
 ));
 
 foreach ($boxes as $idx =&gt; $box) {
-    echo <span class="code-quote">"Box #{$idx} has an id of {$box-&gt;get('id')} and a width of {$box-&gt;get('width')}\n"</span>;
+    echo "Box #{$idx} has an id of {$box-&gt;get('id')} and a width of {$box-&gt;get('width')}\n";
 }
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.getIterator-SeeAlso" id="xPDO.getIterator-SeeAlso"></a>See Also
+<h2 id="xPDO.getIterator-SeeAlso">
+See Also
 </h2>
 
 <ul>

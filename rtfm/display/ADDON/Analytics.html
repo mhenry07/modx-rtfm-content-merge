@@ -1,63 +1,53 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Analytics-WhatisAnalytics%3F'>What is Analytics?</a>
+<a href="#Analytics-WhatisAnalytics%3F">What is Analytics?</a>
 </li>
 
 <li>
-<a href='#Analytics-Requirements'>Requirements</a>
+<a href="#Analytics-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#Analytics-History'>History</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Analytics-History">History</a>
 <ul>
 <li>
-<a href='#Analytics-Download'>Download</a>
+<a href="#Analytics-Download">Download</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Analytics-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Analytics-Usage">Usage</a>
 <ul>
 <li>
-<a href='#Analytics-AnalyticsProperties'>Analytics Properties</a>
+<a href="#Analytics-AnalyticsProperties">Analytics Properties</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Analytics-Troubleshooting'>Troubleshooting</a>
+<a href="#Analytics-Troubleshooting">Troubleshooting</a>
 </li>
 
 <li>
-<a href='#Analytics-DevelopmentandBugreporting'>Development and Bug reporting</a>
+<a href="#Analytics-DevelopmentandBugreporting">Development and Bug reporting</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Analytics-WhatisAnalytics%3F"></a>What is Analytics?
+<h2 id="Analytics-WhatisAnalytics?">
+What is Analytics?
 </h2>
 
 <p>
 Analytics is a MODX Revolution extra to insert an optimized and minified Google Analytics asynchronous js tracking code on your pages. It will ignore traffic from users logged into the manager.
 <br />
-<a href="https://support.google.com/analytics/bin/answer.py?hl=en&amp;answer=2558867&amp;topic=2558810&amp;ctx=topic" class="external-link" rel="nofollow">Enhanced Link Attribution</a> is supported, enable it from your GA account.
+<a href="https://support.google.com/analytics/bin/answer.py?hl=en&amp;answer=2558867&amp;topic=2558810&amp;ctx=topic">Enhanced Link Attribution</a> is supported, enable it from your GA account.
 </p>
 
-<h2>
-<a name="Analytics-Requirements" id="Analytics-Requirements"></a>Requirements
+<h2 id="Analytics-Requirements">
+Requirements
 </h2>
 
 <ul>
@@ -68,126 +58,119 @@ Analytics is a MODX Revolution extra to insert an optimized and minified Google 
 </li>
 </ul>
 
-<h2>
-<a name="Analytics-History" id="Analytics-History"></a>History
+<h2 id="Analytics-History">
+History
 </h2>
 
 <p>
-Analytics was first released on February 5th, 2012 by <a href="http://modx.com/extras/author/yogooo" class="external-link" rel="nofollow">yogooo</a>. The idea of making this extra emerged after reading <a href="http://modx.com/extras/author/MarkH" class="external-link" rel="nofollow">Mark Hamstra</a>'s blog post: <a href="http://www.markhamstra.com/modx-blog/2012/01/hiding-google-analytics-code-from-manager-users/" class="external-link" rel="nofollow">Hiding Google Analytics code for MODX Manager users</a>.
+Analytics was first released on February 5th, 2012 by <a href="http://modx.com/extras/author/yogooo">yogooo</a>. The idea of making this extra emerged after reading <a href="http://modx.com/extras/author/MarkH">Mark Hamstra</a>'s blog post: <a href="http://www.markhamstra.com/modx-blog/2012/01/hiding-google-analytics-code-from-manager-users/">Hiding Google Analytics code for MODX Manager users</a>.
 </p>
 
-<h3>
-<a name="Analytics-Download" id="Analytics-Download"></a>Download
+<h3 id="Analytics-Download">
+Download
 </h3>
 
 <p>
-The extra can be retrieved through the <a href="http://rtfm.modx.com/display/revolution20/Package+Management" class="external-link" rel="nofollow">Package Manager</a>, or downloaded manually from the <a href="http://modx.com/extras/package/analytics" class="external-link" rel="nofollow">Repository</a>.
+The extra can be retrieved through the <a href="http://rtfm.modx.com/display/revolution20/Package+Management">Package Manager</a>, or downloaded manually from the <a href="http://modx.com/extras/package/analytics">Repository</a>.
 </p>
 
-<h2>
-<a name="Analytics-Usage" id="Analytics-Usage"></a>Usage
+<h2 id="Analytics-Usage">
+Usage
 </h2>
 
 <p>
 The minimum tag is as follows:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Analytics? &amp;setAccount=`UA-XXXXX-X`]]
 </pre>
-</div>
-</div>
-
 <p>
 Always call the snippet uncached.
 </p>
 
-<h3>
-<a name="Analytics-AnalyticsProperties" id="Analytics-AnalyticsProperties"></a>Analytics Properties
+<h3 id="Analytics-AnalyticsProperties">
+Analytics Properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 debug
 </td>
-<td class='confluenceTd'>
+<td>
 A simple debug mode to ouput debug messages as html comments.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setAccount
 </td>
-<td class='confluenceTd'>
-Google Analytics <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._setAccount" class="external-link" rel="nofollow">_setAccount</a> parameter.
+<td>
+Google Analytics <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._setAccount">_setAccount</a> parameter.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 trackPageview
 </td>
-<td class='confluenceTd'>
-Google Analytics <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview" class="external-link" rel="nofollow">_trackPageview</a> parameter.
+<td>
+Google Analytics <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview">_trackPageview</a> parameter.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setDomainName
 </td>
-<td class='confluenceTd'>
-Google Analytics <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setDomainName" class="external-link" rel="nofollow">_setDomainName</a> parameter.
+<td>
+Google Analytics <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setDomainName">_setDomainName</a> parameter.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setCookiePath
 </td>
-<td class='confluenceTd'>
-Google Analytics <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setCookiePath" class="external-link" rel="nofollow">_setCookiePath</a> parameter.
+<td>
+Google Analytics <a href="http://code.google.com/apis/analytics/docs/gaJS/gaJSApiDomainDirectory.html#_gat.GA_Tracker_._setCookiePath">_setCookiePath</a> parameter.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
-For more on Google Analytics parameters, read <a href="https://code.google.com/apis/analytics/docs/gaJS/gaJSApi.html" class="external-link" rel="nofollow">Google Analytics Tracking Code documentation</a>.
+For more on Google Analytics parameters, read <a href="https://code.google.com/apis/analytics/docs/gaJS/gaJSApi.html">Google Analytics Tracking Code documentation</a>.
 </p>
 
 <p>
@@ -195,11 +178,11 @@ Properties can be set in the snippet call, property sets or via custom system se
 <br />
 To set them up via system settings: create your own system settings and name the keys such as gaq_analyticsParameter. Ex.: gaq_setAccount, gaq_setDomainName, etc.
 <br />
-If you set up your site settings in a resource, you can use <a href="http://rtfm.modx.com/display/ADDON/getResourceField" class="external-link" rel="nofollow">getResourceField</a> to retrieve the values and pass them through the snippet call.
+If you set up your site settings in a resource, you can use <a href="http://rtfm.modx.com/display/ADDON/getResourceField">getResourceField</a> to retrieve the values and pass them through the snippet call.
 </p>
 
-<h2>
-<a name="Analytics-Troubleshooting" id="Analytics-Troubleshooting"></a>Troubleshooting
+<h2 id="Analytics-Troubleshooting">
+Troubleshooting
 </h2>
 
 <ul>
@@ -213,10 +196,10 @@ If you set up your site settings in a resource, you can use <a href="http://rtfm
 </li>
 </ul>
 
-<h2>
-<a name="Analytics-DevelopmentandBugreporting" id="Analytics-DevelopmentandBugreporting"></a>Development and Bug reporting
+<h2 id="Analytics-DevelopmentandBugreporting">
+Development and Bug reporting
 </h2>
 
 <p>
-Feature requests and bugs can be filed on <a href="https://github.com/yogoo/Analytics/issues" class="external-link" rel="nofollow">github</a>.
+Feature requests and bugs can be filed on <a href="https://github.com/yogoo/Analytics/issues">github</a>.
 </p>

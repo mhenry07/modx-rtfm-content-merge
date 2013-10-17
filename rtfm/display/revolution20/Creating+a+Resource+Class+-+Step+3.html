@@ -23,75 +23,60 @@ This tutorial is part of a Series:
 </div>
 </div>
 
-<h2>
-<a name="CreatingaResourceClass-Step3-CreatingtheResourceControllers" id="CreatingaResourceClass-Step3-CreatingtheResourceControllers"></a>Creating the Resource Controllers
+<h2 id="CreatingaResourceClass-Step3-CreatingtheResourceControllers">
+Creating the Resource Controllers
 </h2>
 
 <p>
 Okay, remember how in <a href="/display/revolution20/Creating+a+Resource+Class" title="Creating a Resource Class">Step 1</a> we told MODX where our controllers/ directory was, via the "getControllerPath" method? To refresh your memory, here's the code from
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">return</span> $modx-&gt;getOption('copyrightedresource.core_path',<span class="code-keyword">null</span>,$modx-&gt;getOption('core_path').'components/copyrightedresource/').'controllers/';
+<pre class="brush: php">
+return $modx-&gt;getOption('copyrightedresource.core_path',null,$modx-&gt;getOption('core_path').'components/copyrightedresource/').'controllers/';
 </pre>
-</div>
-</div>
-
 <p>
-As you might have guessed, we're going to put two files into the <tt>core/components/copyrightedresource/controllers/</tt> directory. Create the directory if you haven't already and then create a file named <b>create.class.php</b>:
+As you might have guessed, we're going to put two files into the <code>core/components/copyrightedresource/controllers/</code> directory. Create the directory if you haven't already and then create a file named <strong>create.class.php</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-class CopyrightedResourceCreateManagerController <span class="code-keyword">extends</span> ResourceCreateManagerController {
-    <span class="code-keyword">public</span> function getLanguageTopics() {
-        <span class="code-keyword">return</span> array('resource','copyrightedresource:<span class="code-keyword">default</span>');
+class CopyrightedResourceCreateManagerController extends ResourceCreateManagerController {
+    public function getLanguageTopics() {
+        return array('resource','copyrightedresource:default');
     }
 }
 </pre>
-</div>
-</div>
-
 <p>
-Next add <b>update.class.php</b>:
+Next add <strong>update.class.php</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-class CopyrightedResourceUpdateManagerController <span class="code-keyword">extends</span> ResourceUpdateManagerController {
-    <span class="code-keyword">public</span> function getLanguageTopics() {
-        <span class="code-keyword">return</span> array('resource','copyrightedresource:<span class="code-keyword">default</span>');
+class CopyrightedResourceUpdateManagerController extends ResourceUpdateManagerController {
+    public function getLanguageTopics() {
+        return array('resource','copyrightedresource:default');
     }
 }
 </pre>
-</div>
-</div>
-
 <p>
 So when we're done with that, our file structure should look something like this:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/36634961/controllers.png?version=1&amp;modificationDate=1360981998000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/36634961/controllers.png?version=1&amp;modificationDate=1360981998000" style="border: 1px solid black" />
 </p>
 
 <p>
-And that's all we need to get our custom controllers up and running. You don't even have to include the getLanguageTopics call, but we did so we can load our custom Lexicon for the page. Read that again: you do not need to create the <b>getLanguageTopics()</b> function! You do need to create the controllers and create the classes, but you do not need to add any functions to them. If you're confused, remember our hot tip from <a href="/display/revolution20/Creating+a+Resource+Class" title="Creating a Resource Class">Part I</a>: any time you extend a PHP class, you should review the parent class that you're extending. In this case, you can take a gander at the parent classes:
+And that's all we need to get our custom controllers up and running. You don't even have to include the getLanguageTopics call, but we did so we can load our custom Lexicon for the page. Read that again: you do not need to create the <strong>getLanguageTopics()</strong> function! You do need to create the controllers and create the classes, but you do not need to add any functions to them. If you're confused, remember our hot tip from <a href="/display/revolution20/Creating+a+Resource+Class" title="Creating a Resource Class">Part I</a>: any time you extend a PHP class, you should review the parent class that you're extending. In this case, you can take a gander at the parent classes:
 </p>
 
 <ul>
 <li>
-<tt>manager/controllers/default/resource/create.class.php</tt>
+<code>manager/controllers/default/resource/create.class.php</code>
 </li>
 
 <li>
-<tt>manager/controllers/default/resource/update.class.php</tt>
+<code>manager/controllers/default/resource/update.class.php</code>
 </li>
 </ul>
 
@@ -104,7 +89,7 @@ Now you can go to the Resource tree, and create a "Copyrighted Page", and it wil
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/36634961/fe-view.png?version=1&amp;modificationDate=1322513681000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/36634961/fe-view.png?version=1&amp;modificationDate=1322513681000" />
 </p>
 
 <p>

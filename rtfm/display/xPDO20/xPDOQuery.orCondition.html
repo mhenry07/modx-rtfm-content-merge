@@ -1,42 +1,31 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDOQuery.orCondition-xPDOQuery%3A%3AorCondition"></a>xPDOQuery::orCondition
+<h2 id="xPDOQuery.orCondition-xPDOQuery::orCondition">
+xPDOQuery::orCondition
 </h2>
 
 <p>
 Add an OR condition to the WHERE statement in the query.
 </p>
 
-<h2>
-<a name="xPDOQuery.orCondition-Syntax"></a>Syntax
+<h2 id="xPDOQuery.orCondition-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#xPDOQuery::orCondition()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#\xPDOQuery::orCondition()</a>
+API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#xPDOQuery::orCondition()">http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#\xPDOQuery::orCondition()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-void orCondition ( $conditions, [ $binding = <span class="code-keyword">null</span>], [ $group = 0])
+<pre class="brush: php">
+void orCondition ( $conditions, [ $binding = null], [ $group = 0])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.orCondition-Example"></a>Example
+<h2 id="xPDOQuery.orCondition-Example">
+Example
 </h2>
 
 <p>
 Grab all boxes with width 12 or 14.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array(
    'width' =&gt; 14,
@@ -46,44 +35,25 @@ $query-&gt;orCondition(array(
 ));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Warning</b>
+<div class="warning">
+<strong>Warning</strong>
 <br />
-The order you call the functions is important! The <b>orCondition</b> must come after the <b>where</b> method has been used.
-</td>
-</tr>
-</table>
+The order you call the functions is important! The <strong>orCondition</strong> must come after the <strong>where</strong> method has been used.
 </div>
 
-<h2>
-<a name="xPDOQuery.orCondition-AnotherExample"></a>Another Example
+<h2 id="xPDOQuery.orCondition-AnotherExample">
+Another Example
 </h2>
 
 <p>
-Here's a more familiar example used to retrieve pages when they've got publish/unpublish dates set. This demonstrates an alternative syntax for an or condition. Normally, each place in the array supplied to the <b>where</b> method is joined together by a SQL "AND", but you can use the "OR" prefix on your column names to specify how groups of terms are joined together.
+Here's a more familiar example used to retrieve pages when they've got publish/unpublish dates set. This demonstrates an alternative syntax for an or condition. Normally, each place in the array supplied to the <strong>where</strong> method is joined together by a SQL "AND", but you can use the "OR" prefix on your column names to specify how groups of terms are joined together.
 </p>
 
 <p>
 In the following example, a page <em>must</em> be published (1), and the pub_date must be either zero OR less than or equal to the current timestamp. The unpub_date must be either zero OR greater than current timestamp.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $criteria = $modx-&gt;newQuery('modResource');
 $criteria-&gt;where(array(
         'published' =&gt; 1,
@@ -98,11 +68,8 @@ $criteria-&gt;where(array(
         )
 );
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.orCondition-SeeAlso"></a>See Also
+<h2 id="xPDOQuery.orCondition-SeeAlso">
+See Also
 </h2>
 
 <ul>

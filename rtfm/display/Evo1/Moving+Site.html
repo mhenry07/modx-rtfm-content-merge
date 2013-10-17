@@ -4,20 +4,16 @@ This tutorial is based on a typical scenario, which is developing locally (XAMPP
 
 <ol>
 <li>Install the site locally, renaming and editing the .htaccess file to indicate the subdirectory you are deploying your site into in the test environment, as in the following example with a local development copy of the MODx CMS site at /localhost/modxcms/:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 # If your MODx installation is in a subdirectory, change the following line to
-# match the physical path to the <span class="code-quote">"root"</span> of the site as follows:
+# match the physical path to the "root" of the site as follows:
 # RewriteRule ^(.*)$ /path/to/subdirectory/index.php?q=$1 [L,QSA]
 RewriteRule ^(.*)$ /modxcms/index.php?q=$1 [L,QSA]
 </pre>
-</div>
-</div>
-
 <p>
 Rename the ht.access file in the /manager folder to .htaccess. This will turn off the RewriteEngine for that folder.
 </p>
@@ -54,10 +50,10 @@ Rename the ht.access file in the /manager folder to .htaccess. This will turn of
 <li>Dump (export) the local DB contents (use the Backup Manager, or any MySQL client such as phpMyAdmin). In phpMyAdmin, select SQL for the file type. Save to a file on your local machine and note the location. You will probably want to empty any log tables before backing them up, or else you'll have rows and rows of log data useless to your new server.Then go to the remote server and import the SQL dump you saved. In PhPMyAdmin, select the database and "import" the SQL file.
 </li>
 
-<li>&nbsp;Point your browser at <a href="http://domain_of_your_new_site.com/manager" class="external-link" rel="nofollow">http://domain_of_your_new_site.com/manager</a>. After logging in, go to Adminstration -&gt; System configuration and change the paths for the resource browser (Resource Path and Resource URL in System Settings -&gt; Interface &amp; Editor Settings tab) and the filemanager (File Manager Path at System Settings -&gt; Miscellaneous Settings tab)
+<li>&nbsp;Point your browser at <a href="http://domain_of_your_new_site.com/manager">http://domain_of_your_new_site.com/manager</a>. After logging in, go to Adminstration -&gt; System configuration and change the paths for the resource browser (Resource Path and Resource URL in System Settings -&gt; Interface &amp; Editor Settings tab) and the filemanager (File Manager Path at System Settings -&gt; Miscellaneous Settings tab)
 </li>
 
-<li>If you can't access the manager, you may have the wrong database settings in manager/includes/config.inc.php. Try correcting them on the local machine and uploading the file again. If you still can't access the manager, try going to <a href="http://domain_of_your_site.com/install" class="external-link" rel="nofollow">http://domain_of_your_site.com/install</a> and doing a "custom install." There you can try different database settings and test them until you get a connection. As long as you haven't hacked any of the MODx code on the local machine, you can finish the install. Alternately, you can put the correct settings (now that you know them) in manager/includes/config.inc.php and upload it.
+<li>If you can't access the manager, you may have the wrong database settings in manager/includes/config.inc.php. Try correcting them on the local machine and uploading the file again. If you still can't access the manager, try going to <a href="http://domain_of_your_site.com/install">http://domain_of_your_site.com/install</a> and doing a "custom install." There you can try different database settings and test them until you get a connection. As long as you haven't hacked any of the MODx code on the local machine, you can finish the install. Alternately, you can put the correct settings (now that you know them) in manager/includes/config.inc.php and upload it.
 </li>
 
 <li>Test the remote site. It should be working just the same as your local development site.

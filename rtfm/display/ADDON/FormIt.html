@@ -1,97 +1,87 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#FormIt-WhatisFormIt%3F'>What is FormIt?</a>
+<a href="#FormIt-WhatisFormIt%3F">What is FormIt?</a>
 </li>
 
 <li>
-<a href='#FormIt-History'>History</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FormIt-History">History</a>
 <ul>
 <li>
-<a href='#FormIt-Download'>Download</a>
+<a href="#FormIt-Download">Download</a>
 </li>
 
 <li>
-<a href='#FormIt-DevelopmentandBugReporting'>Development and Bug Reporting</a>
+<a href="#FormIt-DevelopmentandBugReporting">Development and Bug Reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormIt-HowtoUse'>How to Use</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FormIt-HowtoUse">How to Use</a>
 <ul>
 <li>
-<a href='#FormIt-AvailableProperties'>Available Properties</a>
+<a href="#FormIt-AvailableProperties">Available Properties</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormIt-Validation'>Validation</a>
+<a href="#FormIt-Validation">Validation</a>
 </li>
 
 <li>
-<a href='#FormIt-Hooks'>Hooks</a>
+<a href="#FormIt-Hooks">Hooks</a>
 </li>
 
 <li>
-<a href='#FormIt-SeeAlso'>See Also</a>
+<a href="#FormIt-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="FormIt-WhatisFormIt%3F"></a>What is FormIt?
+<h2 id="FormIt-WhatisFormIt?">
+What is FormIt?
 </h2>
 
 <p>
 FormIt is a dynamic form processing <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> for MODx Revolution. &nbsp;It handles a form after submission, performing validation and followup actions like sending an email. &nbsp;It does not generate the form, but it can repopulate it if it fails validation.
 </p>
 
-<h2>
-<a name="FormIt-History" id="FormIt-History"></a>History
+<h2 id="FormIt-History">
+History
 </h2>
 
 <p>
 FormIt was written by Shaun McCormick as a form processing Extra, and first released on October 19th, 2009.
 </p>
 
-<h3>
-<a name="FormIt-Download" id="FormIt-Download"></a>Download
+<h3 id="FormIt-Download">
+Download
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modx.com/extras/package/formit" class="external-link" rel="nofollow">http://modx.com/extras/package/formit</a>
+It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modx.com/extras/package/formit">http://modx.com/extras/package/formit</a>
 </p>
 
-<h3>
-<a name="FormIt-DevelopmentandBugReporting" id="FormIt-DevelopmentandBugReporting"></a>Development and Bug Reporting
+<h3 id="FormIt-DevelopmentandBugReporting">
+Development and Bug Reporting
 </h3>
 
 <p>
-FormIt is stored and developed in GitHub, and can be found here:<a href="http://github.com/splittingred/FormIt" class="external-link" rel="nofollow">http://github.com/splittingred/FormIt</a>
+FormIt is stored and developed in GitHub, and can be found here:<a href="http://github.com/splittingred/FormIt">http://github.com/splittingred/FormIt</a>
 </p>
 
 <p>
-Bugs can be filed here: <a href="http://bugs.modx.com/projects/FormIt/issues" class="external-link" rel="nofollow">http://bugs.modx.com/projects/FormIt/issues</a>
+Bugs can be filed here: <a href="http://bugs.modx.com/projects/FormIt/issues">http://bugs.modx.com/projects/FormIt/issues</a>
 </p>
 
 <p>
-API Documentation can also be found here: <a href="http://api.modx.com/formit/" class="external-link" rel="nofollow">http://api.modx.com/formit/</a>
+API Documentation can also be found here: <a href="http://api.modx.com/formit/">http://api.modx.com/formit/</a>
 </p>
 
-<h2>
-<a name="FormIt-HowtoUse" id="FormIt-HowtoUse"></a>How to Use
+<h2 id="FormIt-HowtoUse">
+How to Use
 </h2>
 
 <p>
@@ -102,211 +92,209 @@ Simply place the FormIt snippet call into the Resource that contains the form yo
 If you have multiple forms on a page, set the <em>&amp;submitVar</em> property on your Snippet call to a name of a form element within the form (ie, &amp;submitVar=`form1-submit`). This tells FormIt to only process form requests with that POST variable.
 </p>
 
-<h3>
-<a name="FormIt-AvailableProperties" id="FormIt-AvailableProperties"></a>Available Properties
+<h3 id="FormIt-AvailableProperties">
+Available Properties
 </h3>
 
 <p>
 These are the available general properties for the FormIt call (not including hook-specific properties):
 </p>
 
-<div class='table-wrap'>
-<table id='TBL1376497247097' class='confluenceTable'>
+<table id="TBL1376497247011">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 hooks
 </td>
-<td class='confluenceTd'>
+<td>
 What scripts to fire, if any, after the form passes validation. This can be a comma-separated list of <a href="/display/ADDON/FormIt.Hooks" title="FormIt.Hooks">hooks</a>, and if the first fails, the proceeding ones will not fire. A hook can also be a Snippet name that will execute that Snippet.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 preHooks
 </td>
-<td class='confluenceTd'>
+<td>
 What scripts to fire, if any, once the form loads. This can be a comma-separated list of <a href="/display/ADDON/FormIt.Hooks" title="FormIt.Hooks">hooks</a>, and if the first fails, the proceeding ones will not fire. A hook can also be a Snippet name that will execute that Snippet.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 submitVar
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will not begin form processing if this POST variable is not passed. <em>Notice: Needed if you use &amp;store property (+ set submit var in input="submit"!).</em>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 validate
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of fields to validate, with each field name as name:validator (eg: username:required,email:required). <a href="/display/ADDON/FormIt.Validators" title="FormIt.Validators">Validators</a> can also be chained, like email:email:required. This property can be specified on multiple lines.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 validationErrorMessage
 </td>
-<td class='confluenceTd'>
+<td>
 A general error message to set to a placeholder if validation fails. Can contain [[+errors]] if you want to display a list of all errors at the top.
 </td>
-<td class='confluenceTd'>
+<td>
 &lt;p class="error"&gt;A form validation error occurred. Please check the values you have entered.&lt;/p&gt;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 validationErrorBulkTpl
 </td>
-<td class='confluenceTd'>
+<td>
 HTML tpl that is used for each individual error in the generic validation error message value.
 </td>
-<td class='confluenceTd'>
+<td>
 &lt;li&gt;[[+error]]&lt;/li&gt;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 errTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The wrapper html for error messages. Note: not a chunk, just straight HTML.
 </td>
-<td class='confluenceTd'>
+<td>
 &lt;span class="error"&gt;[[+error]]&lt;/span&gt;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 customValidators
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of custom validator names (snippets) you plan to use in this form. They must be explicitly stated here, or they will not be run.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 clearFieldsOnSuccess
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will clear the fields on a successful form submission that does not redirect.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 store
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will store the data in the cache for retrieval using the <a href="/display/ADDON/FormIt.FormItRetriever" title="FormIt.FormItRetriever">FormItRetriever</a> snippet.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 storeTime
 </td>
-<td class='confluenceTd'>
+<td>
 If 'store' is set to true, this specifies the number of seconds to store the data from the form submission. Defaults to five minutes.
 </td>
-<td class='confluenceTd'>
+<td>
 300
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 placeholderPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 The prefix to use for all placeholders set by FormIt for fields.
 </td>
-<td class='confluenceTd'>
+<td>
 fi.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 successMessage
 </td>
-<td class='confluenceTd'>
+<td>
 If not using the redirect hook, display this success message after a successful submission.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 successMessagePlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the placeholder to set the success message to.
 </td>
-<td class='confluenceTd'>
+<td>
 fi.successMessage
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 redirectTo
 </td>
-<td class='confluenceTd'>
+<td>
 page ID of a "Thank You" page, where the visitor can be sent after successfully submitting the form, but this parameter is read ONLY if you include "redirect" in the list of &amp;hooks.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="FormIt-Validation" id="FormIt-Validation"></a>Validation
+<h2 id="FormIt-Validation">
+Validation
 </h2>
 
 <p>
@@ -317,8 +305,8 @@ Validation in FormIt is done via the &amp;validate property, and can be used to 
 For more information on validation in FormIt, see the <a href="/display/ADDON/FormIt.Validators" title="FormIt.Validators">Validators</a> page.
 </p>
 
-<h2>
-<a name="FormIt-Hooks" id="FormIt-Hooks"></a>Hooks
+<h2 id="FormIt-Hooks">
+Hooks
 </h2>
 
 <p>
@@ -329,20 +317,78 @@ Hooks are basically scripts that run during FormIt processing. Hooks can be chai
 For more information on hooks, see the <a href="/display/ADDON/FormIt.Hooks" title="FormIt.Hooks">Hooks</a> page.
 </p>
 
-<h2>
-<a name="FormIt-SeeAlso" id="FormIt-SeeAlso"></a>See Also
+<h2 id="FormIt-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/FormIt.Hooks">FormIt.Hooks</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/FormIt.Hooks.email">FormIt.Hooks.email</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="11698177" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11698177" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FFormIt" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11698177" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/FormIt.Hooks.FormItAutoResponder">FormIt.Hooks.FormItAutoResponder</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.math">FormIt.Hooks.math</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.recaptcha">FormIt.Hooks.recaptcha</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.redirect">FormIt.Hooks.redirect</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.spam">FormIt.Hooks.spam</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Validators">FormIt.Validators</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.FormItRetriever">FormIt.FormItRetriever</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Tutorials+and+Examples">FormIt.Tutorials and Examples</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/FormIt.Examples.Custom+Hook">FormIt.Examples.Custom Hook</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Examples.Simple+Contact+Page">FormIt.Examples.Simple Contact Page</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Handling+Selects%2C+Checkboxes+and+Radios">FormIt.Handling Selects, Checkboxes and Radios</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Using+a+Blank+NoSpam+Field">FormIt.Using a Blank NoSpam Field</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Roadmap">FormIt.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.FormItCountryOptions">FormIt.FormItCountryOptions</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.FormItStateOptions">FormIt.FormItStateOptions</a>
+</li>
+</ol>

@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,8 +13,8 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMSSnippet-YAMSSnippetCall"></a>YAMS Snippet Call
+<h1 id="YAMSSnippet-YAMSSnippetCall">
+YAMS Snippet Call
 </h1>
 
 <p>
@@ -22,37 +22,36 @@ The YAMS snippet call is used for obtaining and outputting multilingual content 
 </p>
 
 <p>
-The YAMS snippet is in fact a macro for creating special hidden language constructs that are embedded in the document template and removed before the document is served. See <a href="/display/ADDON/YAMS+Technical+Details" title="YAMS Technical Details">the YAMS Technical Details page</a>. These allow all possible language versions of the content to be embedded in a single document. The blocks are reorganised and optimised as much as possible before a document is cached. This helps to ensure that as little parsing as possible is required to select the correct language content once it has been retrieved from the cache. Note that language selection occurs after a document is retrieved from the cache, so it is not possible to end up caching the wrong language content. <b>It is important that the YAMS snippet is run as a cacheable at all times, since this will allow pre-cache optimisation to be undertaken.</b>
+The YAMS snippet is in fact a macro for creating special hidden language constructs that are embedded in the document template and removed before the document is served. See <a href="/display/ADDON/YAMS+Technical+Details" title="YAMS Technical Details">the YAMS Technical Details page</a>. These allow all possible language versions of the content to be embedded in a single document. The blocks are reorganised and optimised as much as possible before a document is cached. This helps to ensure that as little parsing as possible is required to select the correct language content once it has been retrieved from the cache. Note that language selection occurs after a document is retrieved from the cache, so it is not possible to end up caching the wrong language content. <strong>It is important that the YAMS snippet is run as a cacheable at all times, since this will allow pre-cache optimisation to be undertaken.</strong>
 </p>
 
 <p>
 See the <a href="/display/ADDON/YAMS+How+To" title="YAMS How To">How To? page</a> tab for examples of its use.
 </p>
 
-<h2>
-<a name="YAMSSnippet-YAMSSnippetParameters"></a>YAMS Snippet Parameters
+<h2 id="YAMSSnippet-YAMSSnippetParameters">
+YAMS Snippet Parameters
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Parameter
 </th>
-<th class='confluenceTh'>
+<th>
 Values
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &amp;get
 </th>
-<td class='confluenceTd'>
+<td>
 <ul>
 <li>chunk
 </li>
@@ -70,188 +69,187 @@ Description
 </li>
 </ul>
 </td>
-<td class='confluenceTd'>
-These parameters choose from multiple language versions of a <tt>chunk</tt>, [[cacheable snippet]], [!uncacheable snippet!], [*template variable*] or [+placeholder+] and display the correct one depending on the current language.
-<br class="atl-forced-newline" />
+<td>
+These parameters choose from multiple language versions of a <code>chunk</code>, [[cacheable snippet]], [!uncacheable snippet!], [*template variable*] or [+placeholder+] and display the correct one depending on the current language.
+<br />
 Use the &amp;from parameter to specify the names of the resources to choose from. The multiple language versions are assumed to have the name basename_langId where langId is the language group id unless otherwise specified.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &nbsp;
 </th>
-<td class='confluenceTd'>
+<td>
 text
 </td>
-<td class='confluenceTd'>
+<td>
 In this case, the &amp;from parameter will accept plain text in multiple languages rather than the name of a resource.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &nbsp;
 </th>
-<td class='confluenceTd'>
+<td>
 data
 </td>
-<td class='confluenceTd'>
-This parameter is used to extract multilingual content from the document or template variables of specific documents. In this case, the &amp;from parameter specifies the the names of the document or template variables from which the content will be extracted and &amp;docidspecifies the document identifier. This is primarily for use in the templates of snippets which don't understand multilingual variables. See the YAMS 'How To?' for more information. <b>This parameter used to be called content</b>. The content syntax still works, but is depracated and may be removed in a future version. So, please switch to using data.*
+<td>
+This parameter is used to extract multilingual content from the document or template variables of specific documents. In this case, the &amp;from parameter specifies the the names of the document or template variables from which the content will be extracted and &amp;docidspecifies the document identifier. This is primarily for use in the templates of snippets which don't understand multilingual variables. See the YAMS 'How To?' for more information. <strong>This parameter used to be called content</strong>. The content syntax still works, but is depracated and may be removed in a future version. So, please switch to using data.*
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &nbsp;
 </th>
-<td class='confluenceTd'>
+<td>
 repeat
 </td>
-<td class='confluenceTd'>
+<td>
 Repeats multiple language versions of content on a page. This option works using the templates specified by the &amp;beforetpl, &amp;repeattpl, &amp;currenttpl and &amp;aftertpl parameters. If a &amp;currenttpl template is specified, then it is used in place of &amp;repeattpl for the current document language. Otherwise, the &amp;repeattpl template is repeated for all languages.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &nbsp;
 </th>
-<td class='confluenceTd'>
+<td>
 list
 </td>
-<td class='confluenceTd'>
+<td>
 This functions in the same way as &amp;get=`repeat` except that by default it uses the templates in assets/modules/yams/tpl/yams/list/to create a list of hyperlinks to the different language versions of the page. These default templates can be overridden using the &amp;beforetpl, &amp;repeattpl, &amp;currenttpl and &amp;aftertpl parameters.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &nbsp;
 </th>
-<td class='confluenceTd'>
+<td>
 selectform
 </td>
-<td class='confluenceTd'>
+<td>
 This functions in the same way as &amp;get=`repeat` except that by default it uses the templates in assets/modules/yams/tpl/yams/selectform/ to create a select box and form allowing users to change language. These default templates can be overridden using the &amp;beforetpl, &amp;repeattpl, &amp;currenttpl and &amp;aftertpl parameters.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &nbsp;
 </th>
-<td class='confluenceTd'>
+<td>
 select
 </td>
-<td class='confluenceTd'>
+<td>
 This functions in the same way as &amp;get=`selectform` except that it only outputs the select box, not the form.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &amp;from
 </th>
-<td class='confluenceTd'>
+<td>
 resource_name
 </td>
-<td class='confluenceTd'>
+<td>
 This parameter enables the names of the chunks/snippets etc. in which the information lies to be specified. It has two forms:
-<br class="atl-forced-newline" />
+<br />
 In the first, simpler form, the basename of a resource, say, resource_name is specified. On multilingual pages this will be replaced by a construct that includes one language variant for each active language group. The language variants are assumed to have the name resource_name_id, where id is the language group id. These language variants are subject to normal MODx caching. When a request is made for the document in a given language, all incorrect language variants are stripped out, allowing the user to see only the correct language content.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &nbsp;
 </th>
-<td class='confluenceTd'>
+<td>
 id1::resource_name1||id2::resource_name1||...
 </td>
-<td class='confluenceTd'>
+<td>
 In the second, more complex form, the languages group ids and full resource names for each language are specified. Here <em>id1</em>, <em>id2</em>, ..., are the language group ids, and <em>resource_name1</em>, ... are the full corresponding resource names.
-<br class="atl-forced-newline" />
+<br />
 When using &amp;get=`text`, the resource name can be replaced by text to be output instead, but this text cannot itself contain a double pipe ||.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &amp;docid
 </th>
-<td class='confluenceTd'>
+<td>
 A document identifier
 </td>
-<td class='confluenceTd'>
+<td>
 The document identifier of the document from which to obtain the data. This is for use with the &amp;get=`data` parameter.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &amp;beforetpl
 </th>
-<td class='confluenceTd'>
+<td>
 <em>a chunk name</em>
-<br class="atl-forced-newline" />
+<br />
 @CODE:template code
-<br class="atl-forced-newline" />
+<br />
 @FILE:path to template file
 </td>
-<td class='confluenceTd'>
+<td>
 Specifies a template to be placed before a repeat block.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &amp;repeattpl
 </th>
-<td class='confluenceTd'>
+<td>
 <em>a chunk name</em>
-<br class="atl-forced-newline" />
+<br />
 @CODE:template code
-<br class="atl-forced-newline" />
+<br />
 @FILE:path to template file
 </td>
-<td class='confluenceTd'>
+<td>
 Specifies a template to be repeated once for each active language. Can be overridden by the &amp;currenttpl param.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &amp;currenttpl
 </th>
-<td class='confluenceTd'>
+<td>
 <em>a chunk name</em>
-<br class="atl-forced-newline" />
+<br />
 @CODE:template code
-<br class="atl-forced-newline" />
+<br />
 @FILE:path to template file
 </td>
-<td class='confluenceTd'>
+<td>
 Specifies a template to be used if it is in the same language as the current document. Overrides by the &amp;repeattpl.
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 &amp;aftertpl
 </th>
-<td class='confluenceTd'>
+<td>
 <em>a chunk name</em>
-<br class="atl-forced-newline" />
+<br />
 @CODE:template code
-<br class="atl-forced-newline" />
+<br />
 @FILE:path to template file
 </td>
-<td class='confluenceTd'>
+<td>
 Specifies a template to be placed after a repeat block.
 </td>
 </tr>
 </tbody>
 </table>
-</div>

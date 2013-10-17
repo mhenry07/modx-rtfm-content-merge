@@ -27,114 +27,94 @@ This tutorial is part of a Series:
 This is a bit of bonus material to help identify some of the things you can do by extending the default processors.
 </p>
 
-<h2>
-<a name="CreatingaResourceClass-Step4-ExtendingtheProcessorsforourCRC" id="CreatingaResourceClass-Step4-ExtendingtheProcessorsforourCRC"></a>Extending the Processors for our CRC
+<h2 id="CreatingaResourceClass-Step4-ExtendingtheProcessorsforourCRC">
+Extending the Processors for our CRC
 </h2>
 
 <p>
-Extending the Processors for our CopyrightedResource is fairly simple. Load up your <b>copyrightedresource.class.php</b> file that contains your main class, and at the top, put this:
+Extending the Processors for our CopyrightedResource is fairly simple. Load up your <strong>copyrightedresource.class.php</strong> file that contains your main class, and at the top, put this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 require_once MODX_CORE_PATH.'model/modx/modprocessor.class.php';
 require_once MODX_CORE_PATH.'model/modx/processors/resource/create.class.php';
 require_once MODX_CORE_PATH.'model/modx/processors/resource/update.class.php';
 </pre>
-</div>
-</div>
-
 <p>
 This tells MODX to load some base classes that we'll need – yes, we're sort of double-dipping here. Because our main class file is on MODX's radar and will be included when MODX loads, we just can require more files from there. At the bottom of the same file, after your CopyrightedResource class, put this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-class CopyrightedResourceCreateProcessor <span class="code-keyword">extends</span> modResourceCreateProcessor {
+<pre class="brush: php">
+class CopyrightedResourceCreateProcessor extends modResourceCreateProcessor {
 }
-class CopyrightedResourceUpdateProcessor <span class="code-keyword">extends</span> modResourceUpdateProcessor {
+class CopyrightedResourceUpdateProcessor extends modResourceUpdateProcessor {
 }
 </pre>
-</div>
-</div>
-
 <p>
 Now we've overridden the processors for our class; MODX will automatically use these classes as the processor class when creating or updating our CRC. We can then override methods to provide custom functionality for our CopyrightedResource class. For example, here is a stub for our CopyrightedResource class and the Update processor that shows some methods that you could override:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-class CopyrightedResourceUpdateProcessor <span class="code-keyword">extends</span> modResourceUpdateProcessor {
+<pre class="brush: php">
+class CopyrightedResourceUpdateProcessor extends modResourceUpdateProcessor {
     /**
      * Do any processing before the fields are set
-     * @<span class="code-keyword">return</span> <span class="code-object">boolean</span>
+     * @return boolean
      */
-    <span class="code-keyword">public</span> function beforeSet() {
+    public function beforeSet() {
         $beforeSet = parent::beforeSet();
         /* force all Copyrighted Page CRCs to be cacheable always */
-        $<span class="code-keyword">this</span>-&gt;setProperty('cacheable',<span class="code-keyword">true</span>);
-        <span class="code-keyword">return</span> $beforeSet;
+        $this-&gt;setProperty('cacheable',true);
+        return $beforeSet;
     }
 
     /**
      * Do any processing before the save of the Resource but after fields are set.
-     * @<span class="code-keyword">return</span> <span class="code-object">boolean</span>
+     * @return boolean
      */
-    <span class="code-keyword">public</span> function beforeSave() {
+    public function beforeSave() {
         $beforeSave = parent::beforeSave();
-        <span class="code-keyword">if</span> ($<span class="code-keyword">this</span>-&gt;object-&gt;get('longtitle') == 'Send an Error') {
-            $<span class="code-keyword">this</span>-&gt;addFieldError('longtitle','Specify a different longtitle!');
+        if ($this-&gt;object-&gt;get('longtitle') == 'Send an Error') {
+            $this-&gt;addFieldError('longtitle','Specify a different longtitle!');
         }
         
         /* force CopyrightedResource objects to always be non-folders */
-        $<span class="code-keyword">this</span>-&gt;object-&gt;set('isfolder',<span class="code-keyword">false</span>);
-        <span class="code-keyword">return</span> $beforeSave;
+        $this-&gt;object-&gt;set('isfolder',false);
+        return $beforeSave;
     }
 
     /**
      * Do any custom after save processing
-     * @<span class="code-keyword">return</span> <span class="code-object">boolean</span>
+     * @return boolean
      */
-    <span class="code-keyword">public</span> function afterSave() {
+    public function afterSave() {
         $afterSave = parent::afterSave();
-        $<span class="code-keyword">this</span>-&gt;modx-&gt;log(modX::LOG_LEVEL_DEBUG,'Saving a Copyrighted Page!');
-        <span class="code-keyword">return</span> $afterSave;
+        $this-&gt;modx-&gt;log(modX::LOG_LEVEL_DEBUG,'Saving a Copyrighted Page!');
+        return $afterSave;
     }
 }
 </pre>
-</div>
-</div>
-
 <p>
-These are just trivial examples, but hopefully you get the idea. If you've been paying close attention to our examples on these pages, you may have noticed that we set some properties in the <b>CopyrightedResource</b> class (class_key), and we set others in <b>CopyrightedResourceUpdateProcessor</b> (cacheable, isfolder). This may leave you confused as to where you should modify a behavior – in the resource child class? In the controller class? or in the processor?
+These are just trivial examples, but hopefully you get the idea. If you've been paying close attention to our examples on these pages, you may have noticed that we set some properties in the <strong>CopyrightedResource</strong> class (class_key), and we set others in <strong>CopyrightedResourceUpdateProcessor</strong> (cacheable, isfolder). This may leave you confused as to where you should modify a behavior – in the resource child class? In the controller class? or in the processor?
 </p>
 
 <p>
 If the attribute is something that can be controlled by the GUI, then you'll have to do some customizations in the processors.
 </p>
 
-<h2>
-<a name="CreatingaResourceClass-Step4-ExtraAttributes" id="CreatingaResourceClass-Step4-ExtraAttributes"></a>Extra Attributes
+<h2 id="CreatingaResourceClass-Step4-ExtraAttributes">
+Extra Attributes
 </h2>
 
 <p>
-There are some attributes that are not in the <b>modx_site_content</b> table. See the comments in the <b>modresource.class.php</b> file for a list of attributes. You can set them in your resource class via the set method, e.g.:
+There are some attributes that are not in the <strong>modx_site_content</strong> table. See the comments in the <strong>modresource.class.php</strong> file for a list of attributes. You can set them in your resource class via the set method, e.g.:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$<span class="code-keyword">this</span>-&gt;set('show_in_tree',<span class="code-keyword">false</span>);
-$<span class="code-keyword">this</span>-&gt;set('hide_children_in_tree',<span class="code-keyword">true</span>);
+<pre class="brush: php">
+$this-&gt;set('show_in_tree',false);
+$this-&gt;set('hide_children_in_tree',true);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="CreatingaResourceClass-Step4-Conclusion" id="CreatingaResourceClass-Step4-Conclusion"></a>Conclusion
+<h2 id="CreatingaResourceClass-Step4-Conclusion">
+Conclusion
 </h2>
 
 <p>

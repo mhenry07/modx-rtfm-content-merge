@@ -1,108 +1,98 @@
 <div>
 <ul>
 <li>
-<a href='#FormIt.Hooks.redirect-Theredirecthook'>The redirect hook</a>
+<a href="#FormIt.Hooks.redirect-Theredirecthook">The redirect hook</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.redirect-AvailableProperties'>Available Properties</a>
+<a href="#FormIt.Hooks.redirect-AvailableProperties">Available Properties</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.redirect-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FormIt.Hooks.redirect-Usage">Usage</a>
 <ul>
 <li>
-<a href='#FormIt.Hooks.redirect-RedirectingwithParameters'>Redirecting with Parameters</a>
+<a href="#FormIt.Hooks.redirect-RedirectingwithParameters">Redirecting with Parameters</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.redirect-SeeAlso'>See Also</a>
+<a href="#FormIt.Hooks.redirect-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="FormIt.Hooks.redirect-Theredirecthook" id="FormIt.Hooks.redirect-Theredirecthook"></a>The redirect hook
+<h2 id="FormIt.Hooks.redirect-Theredirecthook">
+The redirect hook
 </h2>
 
 <p>
-The redirect hook will redirect the user to a specified Resource when their form finishes submitting. It requires one parameter, <em>redirectTo</em>, which must the ID of the Resource you want to redirect to. The field values will <b>not</b> be forwarded.
+The redirect hook will redirect the user to a specified Resource when their form finishes submitting. It requires one parameter, <em>redirectTo</em>, which must the ID of the Resource you want to redirect to. The field values will <strong>not</strong> be forwarded.
 </p>
 
-<h2>
-<a name="FormIt.Hooks.redirect-AvailableProperties" id="FormIt.Hooks.redirect-AvailableProperties"></a>Available Properties
+<h2 id="FormIt.Hooks.redirect-AvailableProperties">
+Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 name
 </th>
-<th class='confluenceTh'>
+<th>
 description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 redirectTo
 </td>
-<td class='confluenceTd'>
-<font color="red">Required.</font> The ID of the resource to to redirect the user to on a successful submission.
+<td>
+Required. The ID of the resource to to redirect the user to on a successful submission.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 redirectParams
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON object of parameters to pass in the redirect URL.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 Note that this can also be used with the &amp;store property to send the form values off to the redirected-to page, using the <a href="/display/ADDON/FormIt.FormItRetriever" title="FormIt.FormItRetriever">FormItRetriever</a> snippet.
 </p>
 
-<h2>
-<a name="FormIt.Hooks.redirect-Usage" id="FormIt.Hooks.redirect-Usage"></a>Usage
+<h2 id="FormIt.Hooks.redirect-Usage">
+Usage
 </h2>
 
 <p>
 Just include the redirect hook in your &amp;hooks property on the FormIt call. Then specify the ID of the Resource to redirect to with the &amp;redirectTo property.
 </p>
 
-<h3>
-<a name="FormIt.Hooks.redirect-RedirectingwithParameters" id="FormIt.Hooks.redirect-RedirectingwithParameters"></a>Redirecting with Parameters
+<h3 id="FormIt.Hooks.redirect-RedirectingwithParameters">
+Redirecting with Parameters
 </h3>
 
 <p>
 You can specify parameters to redirect with when using this hook. Simply use the &amp;redirectParams property:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
    &amp;hooks=`redirect`
    &amp;redirectTo=`212`
-   &amp;redirectParams=`{<span class="code-quote">"user"</span>:<span class="code-quote">"123"</span>,<span class="code-quote">"success"</span>:<span class="code-quote">"1"</span>}`
+   &amp;redirectParams=`{"user":"123","success":"1"}`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 That will build the URL with those params. Say the Resource ID 212 is at books.html, then the redirect URL would be:
 </p>
@@ -112,20 +102,32 @@ That will build the URL with those params. Say the Resource ID 212 is at books.h
 </li>
 </ul>
 
-<h2>
-<a name="FormIt.Hooks.redirect-SeeAlso" id="FormIt.Hooks.redirect-SeeAlso"></a>See Also
+<h2 id="FormIt.Hooks.redirect-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/FormIt.Hooks.email">FormIt.Hooks.email</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33227042" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="33227035" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FFormIt.Hooks.redirect" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="33227035" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/FormIt.Hooks.FormItAutoResponder">FormIt.Hooks.FormItAutoResponder</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.math">FormIt.Hooks.math</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.recaptcha">FormIt.Hooks.recaptcha</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.redirect">FormIt.Hooks.redirect</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.spam">FormIt.Hooks.spam</a>
+</li>
+</ol>

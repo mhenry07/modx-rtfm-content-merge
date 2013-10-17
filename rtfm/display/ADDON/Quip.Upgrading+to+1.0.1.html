@@ -1,78 +1,61 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Quip.Upgradingto1.0.1-Upgradingto1.0.1" id="Quip.Upgradingto1.0.1-Upgradingto1.0.1"></a>Upgrading to 1.0.1
+<h2 id="Quip.Upgradingto1.0.1-Upgradingto1.0.1">
+Upgrading to 1.0.1
 </h2>
 
 <p>
 If you are upgrading to Quip 1.0.0, you'll need to note the following changes:
 </p>
 
-<h3>
-<a name="Quip.Upgradingto1.0.1-NoMoreFormTag" id="Quip.Upgradingto1.0.1-NoMoreFormTag"></a>No More Form Tag
+<h3 id="Quip.Upgradingto1.0.1-NoMoreFormTag">
+No More Form Tag
 </h3>
 
 <p>
 In the &amp;tplComment chunk, there is no longer any html form tag. The 'remove' and 'report as spam' buttons are now links. You will need to upgrade your tpls and CSS to reflect this.
 </p>
 
-<h3>
-<a name="Quip.Upgradingto1.0.1-OLs%2FLIsNowProperlyNested"></a>OLs/LIs Now Properly Nested
+<h3 id="Quip.Upgradingto1.0.1-OLs/LIsNowProperlyNested">
+OLs/LIs Now Properly Nested
 </h3>
 
 <p>
 In the &amp;tplComment chunk, children comments are now properly nested inside, rather than outside each li tag. You may need to upgrade your tpls and CSS to reflect this. The new chunk looks like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li class=<span class="code-quote">"[[+cls]]"</span> id=<span class="code-quote">"[[+idprefix]][[+id]]"</span> [[+depth_margin:notempty=`style=<span class="code-quote">"padding-left: [[+depth_margin]]px"</span>`]]&gt;
-&lt;div id=<span class="code-quote">"[[+idprefix]][[+id]]-div"</span> class=<span class="code-quote">"quip-comment-body [[+alt]]"</span>&gt;
-    &lt;div class=<span class="code-quote">"quip-comment-right"</span>&gt;
-        [[+md5email:notempty=`&lt;img src=<span class="code-quote">"http:<span class="code-comment">//www.gravatar.com/avatar/[[+md5email]]?s=[[+gravatarSize]]&amp;d=[[+gravatarIcon]]"</span> class=<span class="code-quote">"quip-avatar"</span> /&gt;`]]
-</span>    &lt;/div&gt;
+<pre class="brush: php">
+&lt;li class="[[+cls]]" id="[[+idprefix]][[+id]]" [[+depth_margin:notempty=`style="padding-left: [[+depth_margin]]px"`]]&gt;
+&lt;div id="[[+idprefix]][[+id]]-div" class="quip-comment-body [[+alt]]"&gt;
+    &lt;div class="quip-comment-right"&gt;
+        [[+md5email:notempty=`&lt;img src="http://www.gravatar.com/avatar/[[+md5email]]?s=[[+gravatarSize]]&amp;d=[[+gravatarIcon]]" class="quip-avatar" /&gt;`]]
+    &lt;/div&gt;
 
-    &lt;p class=<span class="code-quote">"quip-comment-meta"</span>&gt;
-        &lt;span class=<span class="code-quote">"quip-comment-author"</span>&gt;[[+authorName]]:&lt;/span&gt;&lt;br /&gt;
-        &lt;span class=<span class="code-quote">"quip-comment-createdon"</span>&gt;&lt;a href=<span class="code-quote">"[[+url]]"</span>&gt;[[+createdon]]&lt;/a&gt;
-        [[+approved:<span class="code-keyword">if</span>=`[[+approved]]`:is=`1`:then=``:<span class="code-keyword">else</span>=`- &lt;em&gt;[[%quip.unapproved? &amp;namespace=`quip` &amp;topic=`<span class="code-keyword">default</span>`]]&lt;/em&gt;`]]
+    &lt;p class="quip-comment-meta"&gt;
+        &lt;span class="quip-comment-author"&gt;[[+authorName]]:&lt;/span&gt;&lt;br /&gt;
+        &lt;span class="quip-comment-createdon"&gt;&lt;a href="[[+url]]"&gt;[[+createdon]]&lt;/a&gt;
+        [[+approved:if=`[[+approved]]`:is=`1`:then=``:else=`- &lt;em&gt;[[%quip.unapproved? &amp;namespace=`quip` &amp;topic=`default`]]&lt;/em&gt;`]]
         &lt;/span&gt;
     &lt;/p&gt;
 
-    &lt;div class=<span class="code-quote">"quip-comment-text"</span>&gt;
+    &lt;div class="quip-comment-text"&gt;
         &lt;p&gt;[[+body]]&lt;/p&gt;
 
-        [[+replyUrl:notempty=`&lt;p&gt;&lt;span class=<span class="code-quote">"quip-reply-link"</span>&gt;&lt;a href=<span class="code-quote">"[[+replyUrl]]"</span>&gt;[[%quip.reply? &amp;namespace=`quip` &amp;topic=`<span class="code-keyword">default</span>`]]&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;`]]
+        [[+replyUrl:notempty=`&lt;p&gt;&lt;span class="quip-reply-link"&gt;&lt;a href="[[+replyUrl]]"&gt;[[%quip.reply? &amp;namespace=`quip` &amp;topic=`default`]]&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;`]]
     &lt;/div&gt;
 
-    &lt;div class=<span class="code-quote">"quip-comment-options"</span>&gt;
+    &lt;div class="quip-comment-options"&gt;
         [[+report]]
         [[+options]]
     &lt;/div&gt;
 &lt;/div&gt;
-    [[+children:notempty=`&lt;ol class=<span class="code-quote">"quip-comment-list"</span>&gt;[[+children]]&lt;/ol&gt;`]]
+    [[+children:notempty=`&lt;ol class="quip-comment-list"&gt;[[+children]]&lt;/ol&gt;`]]
 &lt;/li&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Quip.Upgradingto1.0.1-SeeAlso" id="Quip.Upgradingto1.0.1-SeeAlso"></a>See Also
+<h2 id="Quip.Upgradingto1.0.1-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="20119619" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="20119617" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FQuip.Upgrading%2Bto%2B1.0.1" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="20119617" />
-</fieldset>
-</fieldset>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Quip.Upgrading+to+1.0.1">Quip.Upgrading to 1.0.1</a>
+</li>
+</ol>

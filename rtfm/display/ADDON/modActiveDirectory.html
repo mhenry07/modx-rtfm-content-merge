@@ -1,65 +1,55 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#modActiveDirectory-WhatismodActiveDirectory%3F'>What is modActiveDirectory?</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#modActiveDirectory-WhatismodActiveDirectory%3F">What is modActiveDirectory?</a>
 <ul>
 <li>
-<a href='#modActiveDirectory-Requirements'>Requirements</a>
+<a href="#modActiveDirectory-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#modActiveDirectory-Installation'>Installation</a>
+<a href="#modActiveDirectory-Installation">Installation</a>
 </li>
 
 <li>
-<a href='#modActiveDirectory-History'>History</a>
+<a href="#modActiveDirectory-History">History</a>
 </li>
 
 <li>
-<a href='#modActiveDirectory-DevelopmentandBugReporting'>Development and Bug Reporting</a>
+<a href="#modActiveDirectory-DevelopmentandBugReporting">Development and Bug Reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#modActiveDirectory-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#modActiveDirectory-Usage">Usage</a>
 <ul>
 <li>
-<a href='#modActiveDirectory-AvailableSettings'>Available Settings</a>
+<a href="#modActiveDirectory-AvailableSettings">Available Settings</a>
 </li>
 
 <li>
-<a href='#modActiveDirectory-ActiveDirectoryGroupSynchronization'>ActiveDirectory Group Synchronization</a>
+<a href="#modActiveDirectory-ActiveDirectoryGroupSynchronization">ActiveDirectory Group Synchronization</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#modActiveDirectory-SeeAlso'>See Also</a>
+<a href="#modActiveDirectory-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="modActiveDirectory-WhatismodActiveDirectory%3F"></a>What is modActiveDirectory?
+<h2 id="modActiveDirectory-WhatismodActiveDirectory?">
+What is modActiveDirectory?
 </h2>
 
 <p>
 modActiveDirectory is a Microsoft ActiveDirectory integration for MODx Revolution. It allows you to use ActiveDirectory to authenticate against to login to MODx.
 </p>
 
-<h3>
-<a name="modActiveDirectory-Requirements"></a>Requirements
+<h3 id="modActiveDirectory-Requirements">
+Requirements
 </h3>
 
 <ul>
@@ -73,30 +63,16 @@ modActiveDirectory is a Microsoft ActiveDirectory integration for MODx Revolutio
 </li>
 </ul>
 
-<h3>
-<a name="modActiveDirectory-Installation"></a>Installation
+<h3 id="modActiveDirectory-Installation">
+Installation
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via <span class="error">[Package Management]</span>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/711" class="external-link" rel="nofollow">http://modxcms.com/extras/package/711</a>
+It can be downloaded from within the MODx Revolution manager via <span class="error">[Package Management]</span>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/711">http://modxcms.com/extras/package/711</a>
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You will need to ensure the manager/controllers/security/login.php file is writable by PHP, if it is not already, before installing. modActiveDirectory patches a bug in that file that is in Revo 2.0.0-pl.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -111,166 +87,164 @@ From there, you'll need to setup two System Settings before beginning:
 </li>
 </ul>
 
-<h3>
-<a name="modActiveDirectory-History"></a>History
+<h3 id="modActiveDirectory-History">
+History
 </h3>
 
 <p>
 modActiveDirectory was written by <a href="/display/~splittingred" class="confluence-userlink" data-username="splittingred">Shaun McCormick</a> and first released on August 6th, 2010.
 </p>
 
-<h3>
-<a name="modActiveDirectory-DevelopmentandBugReporting"></a>Development and Bug Reporting
+<h3 id="modActiveDirectory-DevelopmentandBugReporting">
+Development and Bug Reporting
 </h3>
 
 <p>
-modActiveDirectory is stored and developed in GitHub, and can be found here: <a href="http://github.com/splittingred/modActiveDirectory" class="external-link" rel="nofollow">http://github.com/splittingred/modActiveDirectory</a>
+modActiveDirectory is stored and developed in GitHub, and can be found here: <a href="http://github.com/splittingred/modActiveDirectory">http://github.com/splittingred/modActiveDirectory</a>
 </p>
 
 <p>
-Bugs can be filed here: <a href="http://github.com/splittingred/modActiveDirectory/issues" class="external-link" rel="nofollow">http://github.com/splittingred/modActiveDirectory/issues</a>
+Bugs can be filed here: <a href="http://github.com/splittingred/modActiveDirectory/issues">http://github.com/splittingred/modActiveDirectory/issues</a>
 </p>
 
-<h2>
-<a name="modActiveDirectory-Usage"></a>Usage
+<h2 id="modActiveDirectory-Usage">
+Usage
 </h2>
 
 <p>
 modActiveDirectory will automatically work after you have installed it and setup the domain controllers and account suffix. There are more settings you can use, as well, in the 'activedirectory' namespace in System Settings.
 </p>
 
-<h3>
-<a name="modActiveDirectory-AvailableSettings"></a>Available Settings
+<h3 id="modActiveDirectory-AvailableSettings">
+Available Settings
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activedirectory.account_suffix
 </td>
-<td class='confluenceTd'>
+<td>
 The account suffix for your domain. Usually in @forest.domain format.
 </td>
-<td class='confluenceTd'>
+<td>
 @forest.local
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activedirectory.autoadd_adgroups
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will grab all Active Directory groups the User belongs to, and search for any matching UserGroups in MODx. If any are found, the MODx User will automatically be added to the matching MODx UserGroups.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activedirectory.autoadd_usergroups
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of MODx UserGroup names which the User will always be added to.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activedirectory.base_dn
 </td>
-<td class='confluenceTd'>
+<td>
 The base dn for your domain. This can usually be left blank, as MODx will automatically calculate it for you.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activedirectory.domain_controllers
 </td>
-<td class='confluenceTd'>
+<td>
 Comma-separated list of domain controllers. Specifiy multiple controllers if you would like the class to balance the LDAP queries.
 </td>
-<td class='confluenceTd'>
+<td>
 127.0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activedirectory.real_primarygroup
 </td>
-<td class='confluenceTd'>
-This tweak will resolve the real primary group. Setting to false will fudge "Domain Users" and is much faster. Keep in mind though that if someones primary group is NOT "Domain Users", this is obviously going to mess up the results. Related to <a href="http://support.microsoft.com/?kbid=321360" class="external-link" rel="nofollow">http://support.microsoft.com/?kbid=321360</a>.
+<td>
+This tweak will resolve the real primary group. Setting to false will fudge "Domain Users" and is much faster. Keep in mind though that if someones primary group is NOT "Domain Users", this is obviously going to mess up the results. Related to <a href="http://support.microsoft.com/?kbid=321360">http://support.microsoft.com/?kbid=321360</a>.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activedirectory.recursive_groups
 </td>
-<td class='confluenceTd'>
+<td>
 When querying group memberships, do so recursively. Recommended to leave on.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activedirectory.use_ssl
 </td>
-<td class='confluenceTd'>
+<td>
 Use SSL (LDAPS). Your AD server will need to be setup to support this. Works only if use_tls is off.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activedirectory.use_tls
 </td>
-<td class='confluenceTd'>
+<td>
 Use TLS. Your AD server will need to be setup to support this. Works only if use_ssl is off.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="modActiveDirectory-ActiveDirectoryGroupSynchronization"></a>ActiveDirectory Group Synchronization
+<h3 id="modActiveDirectory-ActiveDirectoryGroupSynchronization">
+ActiveDirectory Group Synchronization
 </h3>
 
 <p>
@@ -289,20 +263,6 @@ modActiveDirectory also allows you to specify a comma-separated list of MODx Use
 Make sure you give the User Groups the User will auto-join access to the manager (through Access Controls), should you want your ActiveDirectory users to have manager access.
 </p>
 
-<h2>
-<a name="modActiveDirectory-SeeAlso"></a>See Also
+<h2 id="modActiveDirectory-SeeAlso">
+See Also
 </h2>
-
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="20119574" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="20119574" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FmodActiveDirectory" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="20119574" />
-</fieldset>
-</fieldset>
-</div>

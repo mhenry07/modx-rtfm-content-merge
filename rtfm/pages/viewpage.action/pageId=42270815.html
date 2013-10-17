@@ -1,38 +1,36 @@
-<h2>
-<a name="sekFancyBox%26Gallery-sekFancyBox%26Gallery"></a>sekFancyBox &amp; Gallery
+<h2 id="sekFancyBox&amp;Gallery-sekFancyBox&amp;Gallery">
+sekFancyBox &amp; Gallery
 </h2>
 
 <p>
 This is just a simple example of how you might use sekFancyBox with the Gallery addon to create a nice modal window gallery with a slideshow.
 </p>
 
-<h3>
-<a name="sekFancyBox%26Gallery-Requirements"></a>Requirements
+<h3 id="sekFancyBox&amp;Gallery-Requirements">
+Requirements
 </h3>
 
 <ul>
-<li>sekFancyBox, which can be downloaded via <a href="http://rtfm.modx.com/display/revolution20/Package+Management" class="external-link" rel="nofollow">Package Management</a>, or from the MODx Extras Repository here: <a href="http://modx.com/extras/package/sekfancybox" class="external-link" rel="nofollow">http://modx.com/extras/package/sekfancybox</a>.
+<li>sekFancyBox, which can be downloaded via <a href="http://rtfm.modx.com/display/revolution20/Package+Management">Package Management</a>, or from the MODx Extras Repository here: <a href="http://modx.com/extras/package/sekfancybox">http://modx.com/extras/package/sekfancybox</a>.
 </li>
 
-<li>Gallery, which can be downloaded via <a href="http://rtfm.modx.com/display/revolution20/Package+Management" class="external-link" rel="nofollow">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modx.com/extras/package/gallery" class="external-link" rel="nofollow">http://modx.com/extras/package/gallery</a>.
+<li>Gallery, which can be downloaded via <a href="http://rtfm.modx.com/display/revolution20/Package+Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modx.com/extras/package/gallery">http://modx.com/extras/package/gallery</a>.
 </li>
 
-<li>getPage, which can be downloaded via <a href="http://rtfm.modx.com/display/revolution20/Package+Management" class="external-link" rel="nofollow">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modx.com/extras/package/getpage" class="external-link" rel="nofollow">http://modx.com/extras/package/getpage</a>.
+<li>getPage, which can be downloaded via <a href="http://rtfm.modx.com/display/revolution20/Package+Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modx.com/extras/package/getpage">http://modx.com/extras/package/getpage</a>.
 </li>
 </ul>
 
-<h4>
-<a name="sekFancyBox%26Gallery-TheSnippetCall"></a>The Snippet Call
+<h4 id="sekFancyBox&amp;Gallery-TheSnippetCall">
+The Snippet Call
 </h4>
 
 <p>
 On the page you wish to display your gallery, place the snippet call using getPage. Don't forget the page.nav.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;ul class=<span class="code-quote">"pagination-nav"</span>&gt;
+<pre class="brush: php">
+&lt;ul class="pagination-nav"&gt;
 [[!+page.nav]]
 &lt;/ul&gt;
 [[!getPage?
@@ -48,54 +46,39 @@ On the page you wish to display your gallery, place the snippet call using getPa
     &amp;imageWidth=`700`
     &amp;imageHeight=`500`
 ]]
-&lt;ul class=<span class="code-quote">"pagination-nav"</span>&gt;
+&lt;ul class="pagination-nav"&gt;
 [[!+page.nav]]
 &lt;/ul&gt;
 </pre>
-</div>
-</div>
-
 <p>
-In order to make pagination work with Gallery, I had to add the below line to the getPage snippet. I placed it on line 41 as suggested by the helpful people in the forums <a href="http://forums.modx.com/thread/37769/revolution-gallery---how-to-add-pagination" class="external-link" rel="nofollow">Revolution Gallery - how to add pagination</a>.
+In order to make pagination work with Gallery, I had to add the below line to the getPage snippet. I placed it on line 41 as suggested by the helpful people in the forums <a href="http://forums.modx.com/thread/37769/revolution-gallery---how-to-add-pagination">Revolution Gallery - how to add pagination</a>.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $properties['start'] = $properties['offset'];
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="sekFancyBox%26Gallery-Chunk%3AgalContainer.custom"></a>Chunk: galContainer.custom
+<h4 id="sekFancyBox&amp;Gallery-Chunk:galContainer.custom">
+Chunk: galContainer.custom
 </h4>
 
 <p>
 Keeping it simple, the custom chunk is a simple unordered list with a class call to the css.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;ul class=<span class="code-quote">"image-container"</span>&gt;
+<pre class="brush: php">
+&lt;ul class="image-container"&gt;
 [[+thumbnails]]
 &lt;/ul&gt;
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="sekFancyBox%26Gallery-Chunk%3AgalItemThumb.custom"></a>Chunk: galItemThumb.custom
+<h4 id="sekFancyBox&amp;Gallery-Chunk:galItemThumb.custom">
+Chunk: galItemThumb.custom
 </h4>
 
 <p>
 The thumbnail chunk has the sekfancybox snippet call. Here I set the buttonhelper to 1, this gives me a little play button at the top of the screen so I can start a slideshow.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;li&gt;
 [[!sekfancybox?
     &amp;type=`media`
@@ -104,24 +87,19 @@ The thumbnail chunk has the sekfancybox snippet call. Here I set the buttonhelpe
     &amp;modalclass=`[[+cls]]`
     &amp;group=`gal`
     &amp;title=`[[+description]]`
-    &amp;linktext=`&lt;img class=<span class="code-quote">"[[+imgCls]]"</span> src=<span class="code-quote">"[[+thumbnail]]"</span> alt=<span class="code-quote">"[[+name]]"</span> [[+image_attributes]] /&gt;`
+    &amp;linktext=`&lt;img class="[[+imgCls]]" src="[[+thumbnail]]" alt="[[+name]]" [[+image_attributes]] /&gt;`
     &amp;link=`[[+image]]`]]
 &lt;/li&gt;
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="sekFancyBox%26Gallery-TheCSS"></a>The CSS
+<h4 id="sekFancyBox&amp;Gallery-TheCSS">
+The CSS
 </h4>
 
 <p>
 I am far from being a css master, but the css below is very handy for this gallery method.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 /* gallery images */
 ul.image-container{
     margin:0;
@@ -157,9 +135,6 @@ ul.pagination-nav li a.active{
     color:#000000;
 }
 </pre>
-</div>
-</div>
-
 <p>
 There it is. It doesn't look like much here, but it works great.
 </p>

@@ -1,52 +1,38 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="toJSON-xPDOObject%3A%3AtoJSON%28%29"></a>xPDOObject::toJSON()
+<h2 id="toJSON-xPDOObject::toJSON()">
+xPDOObject::toJSON()
 </h2>
 
 <p>
 Returns a JSON representation of the object.
 </p>
 
-<h2>
-<a name="toJSON-Syntax" id="toJSON-Syntax"></a>Syntax
+<h2 id="toJSON-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#toJSON" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#toJSON</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#toJSON">http://api.modxcms.com/xpdo/om/xPDOObject.html#toJSON</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 string toJSON (
    [string $keyPrefix = ''],
-   [<span class="code-object">boolean</span> $rawValues = <span class="code-keyword">false</span>]
+   [boolean $rawValues = false]
 )
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="toJSON-Example" id="toJSON-Example"></a>Example
+<h2 id="toJSON-Example">
+Example
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;set('name','Bob');
 $object-&gt;set('email','pinkdaisies@gmail.com');
 $json = $object-&gt;toJSON();
 echo $json;
-<span class="code-comment">// prints {<span class="code-quote">"name"</span>:<span class="code-quote">"Bob"</span>,<span class="code-quote">"email"</span>:<span class="code-quote">"pinkdaisies@gmail.com"</span>}</span>
+// prints {"name":"Bob","email":"pinkdaisies@gmail.com"}
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="toJSON-SeeAlso" id="toJSON-SeeAlso"></a>See Also
+<h2 id="toJSON-SeeAlso">
+See Also
 </h2>
 
 <ul>

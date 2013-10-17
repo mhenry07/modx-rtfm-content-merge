@@ -1,87 +1,61 @@
-<h1>
-<a name="getParent-functiongetParent%28%24id%3D1%2C%24active%3D1%2C%24fields%3D%27id%2Cpagetitle%2Cdescription%2Calias%2Cparent%27%29%3B"></a>function getParent($id=-1, $active=1, $fields='id, pagetitle, description, alias, parent');
+<h1 id="getParent-functiongetParent($id=1,$active=1,$fields='id,pagetitle,description,alias,parent');">
+function getParent($id=-1, $active=1, $fields='id, pagetitle, description, alias, parent');
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Function Definition</b>
+<div class="info">
+<strong>API Function Definition</strong>
 <br />
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Access
 </td>
-<td class='confluenceTd'>
+<td>
 Private
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Available since
 </td>
-<td class='confluenceTd'>
+<td>
 Unknown
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Returns
 </td>
-<td class='confluenceTd'>
+<td>
 Array
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
-<h2>
-<a name="getParent-Usage%2FExamples"></a>Usage / Examples
+<h2 id="getParent-Usage/Examples">
+Usage / Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $parent = $modx-&gt;getParent(55,1,'pagetitle');
 </pre>
-</div>
-</div>
-
 <p>
 will return the title of the parent of document 55 if the parent is published.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $parent = $modx-&gt;getParent(55,0,'id');
 </pre>
-</div>
-</div>
-
 <p>
 will return the parent document's id if it is not published.
 </p>
 
-<h2>
-<a name="getParent-RelatedFunction"></a>Related Function
+<h2 id="getParent-RelatedFunction">
+Related Function
 </h2>

@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,8 +13,8 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMS%2BJot-HowcanJotbemadetoworkwithYAMS%3F"></a>How can Jot be made to work with YAMS?
+<h1 id="YAMS+Jot-HowcanJotbemadetoworkwithYAMS?">
+How can Jot be made to work with YAMS?
 </h1>
 
 <ul>
@@ -22,20 +22,16 @@
 </li>
 
 <li>Modify the second and third lines of the Jot snippet code to make them look like follows:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 include_once($modx-&gt;config['base_path'] .'assets/modules/yams/class/yams.jot.class.inc.php');
-$Jot = <span class="code-keyword">new</span> CJotYAMS;
+$Jot = new CJotYAMS;
 </pre>
-</div>
-</div>
 </li>
 
 <li>If Jot placeholders are being used, then it will be necessary to specify the &amp;tagid parameter as follows:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 [!Jot? &amp;tagid=`(yams_id)` ... !]
 [+jot.html.form.(yams_id)+]
 [+jot.html.navigation.(yams_id)+]
@@ -43,31 +39,22 @@ $Jot = <span class="code-keyword">new</span> CJotYAMS;
 [+jot.html.comments.(yams_id)+]
 [+jot.html.navigation.(yams_id)+]
 </pre>
-</div>
-</div>
-
 <p>
 This will prevent multiple language versions of the placeholders from interfering with each other.
 </p>
 </li>
 
 <li>To use mutliple language versions of the jot templates, it will first be necessary to find or translate templates for each required language. The forums are a good place to start searching. Then for each template, copy and paste it into a new chunk. Use a naming convention that ends in the language group id. Then add something like the following to the snippet call (uncacheable):
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 &amp;tplForm=`jot.tpl.form.(yams_id)` &amp;tplComments=`jot.tpl.comment.(yams_id)` &amp;tplModerate=`jot.tpl.moderate.(yams_id)` &amp;tplNav=`jot.tpl.navigation.(yams_id)` &amp;tplSubscribe=`jot.tpl.subscribe.(yams_id)` &amp;tplNotify=`jot.tpl.notify.(yams_id)` &amp;tplNotifyModerator=`jot.tpl.notify.moderator.(yams_id)` &amp;tplNotifyAuthor=`jot.tpl.notify.author.(yams_id)`
 </pre>
-</div>
-</div>
 </li>
 
 <li>If it is necessary to translate text within the &amp;validate parameter or elsewhere in the snippet call then it can be done as follows:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 &amp;validate=`email:[[YAMS? &amp;get=`text` &amp;from=`en::Invalid email address||de::Ungültige Email-Adresse`]]:email,content:[[YAMS? &amp;get=`text` &amp;from=`en::Please enter a comment.||de::Bitte schreiben Sie einen Kommentar.`]]`
 </pre>
-</div>
-</div>
 </li>
 </ul>

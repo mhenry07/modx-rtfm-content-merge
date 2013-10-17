@@ -1,25 +1,25 @@
 <div>
 <ul>
 <li>
-<a href='#SimpleSearch.FacetedSearchThroughPostHooks-DoingFacetedSearchinSimpleSearch'>Doing Faceted Search in SimpleSearch</a>
+<a href="#SimpleSearch.FacetedSearchThroughPostHooks-DoingFacetedSearchinSimpleSearch">Doing Faceted Search in SimpleSearch</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.FacetedSearchThroughPostHooks-SettingupyourResource'>Setting up your Resource</a>
+<a href="#SimpleSearch.FacetedSearchThroughPostHooks-SettingupyourResource">Setting up your Resource</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.FacetedSearchThroughPostHooks-SettingupthePostHook'>Setting up the PostHook</a>
+<a href="#SimpleSearch.FacetedSearchThroughPostHooks-SettingupthePostHook">Setting up the PostHook</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.FacetedSearchThroughPostHooks-SeparateTemplatingPerFacet'>Separate Templating Per Facet</a>
+<a href="#SimpleSearch.FacetedSearchThroughPostHooks-SeparateTemplatingPerFacet">Separate Templating Per Facet</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="SimpleSearch.FacetedSearchThroughPostHooks-DoingFacetedSearchinSimpleSearch" id="SimpleSearch.FacetedSearchThroughPostHooks-DoingFacetedSearchinSimpleSearch"></a>Doing Faceted Search in SimpleSearch
+<h2 id="SimpleSearch.FacetedSearchThroughPostHooks-DoingFacetedSearchinSimpleSearch">
+Doing Faceted Search in SimpleSearch
 </h2>
 
 <p>
@@ -30,17 +30,15 @@ SimpleSearch 1.3.0+ allows faceted search results to be set through postHooks, a
 Basically, SimpleSearch puts all main, resource-based results into a 'default' facet. In postHooks, you can add other facets to the results and allow users to target their search into those facets. We're going to create a 'people' facet that searches our Users and creates results that have links to a profile Resource (ID 10).
 </p>
 
-<h2>
-<a name="SimpleSearch.FacetedSearchThroughPostHooks-SettingupyourResource" id="SimpleSearch.FacetedSearchThroughPostHooks-SettingupyourResource"></a>Setting up your Resource
+<h2 id="SimpleSearch.FacetedSearchThroughPostHooks-SettingupyourResource">
+Setting up your Resource
 </h2>
 
 <p>
 First off, you'll want to have a place to show your results
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!SimpleSearch?
   &amp;toPlaceholder=`sisea.results`
   &amp;perPage=`10`
@@ -55,11 +53,8 @@ First off, you'll want to have a place to show your results
 &lt;h2&gt;People Results ([[+sisea.people.total]])&lt;/h2&gt;
 &lt;ol&gt;[[+sisea.people.results]]&lt;/ol&gt;
 
-&lt;a href=<span class="code-quote">"[[~123]]?facet=people&amp;search=[[!+sisea.query]]"</span>&gt;Get more Peoples...&lt;/a&gt;
+&lt;a href="[[~123]]?facet=people&amp;search=[[!+sisea.query]]"&gt;Get more Peoples...&lt;/a&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Note we have the standard 'sisea.results' placeholder, but we've also added a 'sisea.people.results' placeholder. This will have the top results from our postHook's search in it. The 'people' in between the placeholder name is the name of our custom facet. We only want to grab the top 5 results out of our custom facet search, so we used facetLimit to set it to 5.
 </p>
@@ -68,9 +63,7 @@ Note we have the standard 'sisea.results' placeholder, but we've also added a 's
 Then at the bottom, we'll have a page that links to another page (ID 123) that will let us fine-grain our search results, showing only People results, and showing 20 at a time:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!SimpleSearch?
   &amp;toPlaceholder=`sisea.results`
   &amp;perPage=`20`
@@ -81,20 +74,15 @@ Then at the bottom, we'll have a page that links to another page (ID 123) that w
 &lt;h2&gt;Search Results&lt;/h2&gt;
 [[+sisea.results]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="SimpleSearch.FacetedSearchThroughPostHooks-SettingupthePostHook" id="SimpleSearch.FacetedSearchThroughPostHooks-SettingupthePostHook"></a>Setting up the PostHook
+<h2 id="SimpleSearch.FacetedSearchThroughPostHooks-SettingupthePostHook">
+Setting up the PostHook
 </h2>
 
 <p>
 Go ahead and make a Snippet named 'PeopleFacetHook', and put this in it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 $c = $modx-&gt;newQuery('modUser');
 $c-&gt;innerJoin('modUserProfile','Profile');
@@ -124,26 +112,23 @@ foreach ($users as $user) {
     );
 }
 $hook-&gt;addFacet('people',$results,$count);
-<span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+return true;
 </pre>
-</div>
-</div>
-
 <p>
 So basically, in this snippet, we're grabbing all the Users who's username, fullname, or email match the search string. Note we're also limiting as well in this, and grabbing a 'total' count (for our pagination in the 2nd Resource). SimpleSearch passes in the following variables for our postHook:
 </p>
 
 <ul>
 <li>
-<b>$search</b> - The search string
+<strong>$search</strong> - The search string
 </li>
 
 <li>
-<b>$limit</b> - The number of results to limit this facet search to
+<strong>$limit</strong> - The number of results to limit this facet search to
 </li>
 
 <li>
-<b>$offset</b> - The starting index to begin this facet search at
+<strong>$offset</strong> - The starting index to begin this facet search at
 </li>
 </ul>
 
@@ -166,17 +151,15 @@ Then we call the $hook-&gt;addFacet method, which takes 3 parameters:
 </li>
 </ul>
 
-<h2>
-<a name="SimpleSearch.FacetedSearchThroughPostHooks-SeparateTemplatingPerFacet" id="SimpleSearch.FacetedSearchThroughPostHooks-SeparateTemplatingPerFacet"></a>Separate Templating Per Facet
+<h2 id="SimpleSearch.FacetedSearchThroughPostHooks-SeparateTemplatingPerFacet">
+Separate Templating Per Facet
 </h2>
 
 <p>
 Let's say we wanted a separate chunk template for our "people" results, rather than the standard one we set in the &amp;tpl property on the SimpleSearch call. Remember how we set the "name" of the facet to "people"? Well, SimpleSearch allows us to pass facet-specific tpl calls, such as a custom chunk called "OurPeopleChunk" by postfixing the name of the facet to the property &amp;tpl, if we wish:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!SimpleSearch?
   &amp;toPlaceholder=`sisea.results`
   &amp;perPage=`20`
@@ -191,9 +174,6 @@ Let's say we wanted a separate chunk template for our "people" results, rather t
 &lt;h2&gt;People&lt;/h2&gt;
 [[+sisea.people.results]]
 </pre>
-</div>
-</div>
-
 <p>
 It will default to the standard &amp;tpl if no facet-specific tpl is specified.
 </p>

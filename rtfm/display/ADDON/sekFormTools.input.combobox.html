@@ -1,572 +1,529 @@
-<h2>
-<a name="sekFormTools.input.combobox-Whatisinput.combobox%3F"></a>What is input.combobox?
+<h2 id="sekFormTools.input.combobox-Whatisinput.combobox?">
+What is input.combobox?
 </h2>
 
 <p>
 Add a combobox to a form quickly and easily using this snippet.
 </p>
 
-<h2>
-<a name="sekFormTools.input.combobox-Usage" id="sekFormTools.input.combobox-Usage"></a>Usage
+<h2 id="sekFormTools.input.combobox-Usage">
+Usage
 </h2>
 
 <p>
 Example for input.combobox using a value list:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[input.combobox? &amp;value_list=`[{ <span class="code-quote">"value"</span>: <span class="code-quote">"r"</span>, <span class="code-quote">"label"</span>: <span class="code-quote">"Red"</span> }, { <span class="code-quote">"value"</span>: <span class="code-quote">"b"</span>, <span class="code-quote">"label"</span>: <span class="code-quote">"Blue"</span> }]`]]
+<pre class="brush: php">
+[[input.combobox? &amp;value_list=`[{ "value": "r", "label": "Red" }, { "value": "b", "label": "Blue" }]`]]
 </pre>
-</div>
-</div>
-
 <p>
 Example for input.combobox using an object:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[input.combobox? &amp;object=`[{<span class="code-quote">"name"</span>: <span class="code-quote">"sekftStates"</span>, <span class="code-quote">"sortby"</span>: <span class="code-quote">"state_name"</span>, <span class="code-quote">"value"</span>: <span class="code-quote">"state_abbr"</span>, <span class="code-quote">"label"</span>: <span class="code-quote">"state_name"</span>}]`]]
+<pre class="brush: php">
+[[input.combobox? &amp;object=`[{"name": "sekftStates", "sortby": "state_name", "value": "state_abbr", "label": "state_name"}]`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="sekFormTools.input.combobox-Properties" id="sekFormTools.input.combobox-Properties"></a>Properties
+<h2 id="sekFormTools.input.combobox-Properties">
+Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Required
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Version
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 input_id
 </td>
-<td class='confluenceTd'>
+<td>
 The id to assign to the input box. While not required, it is best to give all fields an input id.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
+<td>
+<br />
 </td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
+<td>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 The name to assign to the input box.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 value
 </td>
-<td class='confluenceTd'>
+<td>
 The value to assign to the input box.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 object
 </td>
-<td class='confluenceTd'>
+<td>
 JSON array of options to return a combobox list.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 snippet
 </td>
-<td class='confluenceTd'>
+<td>
 A snippet call to return a custom JSON list.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 value_list
 </td>
-<td class='confluenceTd'>
+<td>
 Create a custom list for the combobox.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 filter
 </td>
-<td class='confluenceTd'>
+<td>
 JSON array to filter the combo list.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 helper_snippet
 </td>
-<td class='confluenceTd'>
+<td>
 Name of the snippet to call by ajax request to change option list.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="sekFormTools.input.combobox-object" id="sekFormTools.input.combobox-object"></a>object
+<h3 id="sekFormTools.input.combobox-object">
+object
 </h3>
 
 <p>
 The object property has several parts to quickly define combo box options from a modx table.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Required
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Version
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the modx table called by the object name.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
+<td>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortby
 </td>
-<td class='confluenceTd'>
+<td>
 The table field to sort by.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 groupby
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Simply group values together ?(most likely to be used if the value and label fields are the same).
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.4
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 value
 </td>
-<td class='confluenceTd'>
+<td>
 The table field that will be used as the value for the option.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 label
 </td>
-<td class='confluenceTd'>
+<td>
 The table field that will be used as the label for the option.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="sekFormTools.input.combobox-filter" id="sekFormTools.input.combobox-filter"></a>filter
+<h3 id="sekFormTools.input.combobox-filter">
+filter
 </h3>
 
 <p>
 The filter property has several parts to filter the data returned by the object property.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Required
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Version
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 input_id
 </td>
-<td class='confluenceTd'>
+<td>
 The id of an input field that will dynamically change the options list.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
+<td>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 The object name to base filter on.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 field
 </td>
-<td class='confluenceTd'>
+<td>
 The field that will be used to filter the results.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 value
 </td>
-<td class='confluenceTd'>
+<td>
 The value to filter on.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
+<td>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="sekFormTools.input.combobox-Examples" id="sekFormTools.input.combobox-Examples"></a>Examples
+<h2 id="sekFormTools.input.combobox-Examples">
+Examples
 </h2>
 
 <p>
 Some additional examples
 </p>
 
-<h3>
-<a name="sekFormTools.input.combobox-ValueList" id="sekFormTools.input.combobox-ValueList"></a>Value List
+<h3 id="sekFormTools.input.combobox-ValueList">
+Value List
 </h3>
 
 <p>
 The simplest way to create a quick combo box.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!input.combobox? &amp;value_list=`[
-{ <span class="code-quote">"value"</span>: <span class="code-quote">"101"</span>, <span class="code-quote">"label"</span>: <span class="code-quote">"Regular"</span> },
-{ <span class="code-quote">"value"</span>: <span class="code-quote">"102"</span>, <span class="code-quote">"label"</span>: <span class="code-quote">"Chocolate"</span> },
-{ <span class="code-quote">"value"</span>: <span class="code-quote">"103"</span>, <span class="code-quote">"label"</span>: <span class="code-quote">"Blueberry"</span> },
-{ <span class="code-quote">"value"</span>: <span class="code-quote">"104"</span>, <span class="code-quote">"label"</span>: <span class="code-quote">"Devil's Food"</span>}
+{ "value": "101", "label": "Regular" },
+{ "value": "102", "label": "Chocolate" },
+{ "value": "103", "label": "Blueberry" },
+{ "value": "104", "label": "Devil's Food"}
 ]`]]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="sekFormTools.input.combobox-Object" id="sekFormTools.input.combobox-Object"></a>Object
+<h3 id="sekFormTools.input.combobox-Object">
+Object
 </h3>
 
 <p>
 Grabbing data by a table object is simple and straight forward. Using a json string, enter the name of the object, the optional sort by, and the table fields to use in the combo box options label and value.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!input.combobox?
-      &amp;object=`{<span class="code-quote">"name"</span>: <span class="code-quote">"sekftUSCities"</span>, <span class="code-quote">"sortby"</span>: <span class="code-quote">"city_name"</span>, <span class="code-quote">"value"</span>: <span class="code-quote">"city_name"</span>, <span class="code-quote">"label"</span>: <span class="code-quote">"city_name"</span>}`
+      &amp;object=`{"name": "sekftUSCities", "sortby": "city_name", "value": "city_name", "label": "city_name"}`
     ]]
 </pre>
-</div>
-</div>
-
 <p>
 You can even filter the data by using the filter option. Here we just want to grab all the cities with the state id of 62, which in this case is Kansas.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!input.combobox?
-      &amp;object=`{<span class="code-quote">"name"</span>: <span class="code-quote">"sekftUSCities"</span>, <span class="code-quote">"sortby"</span>: <span class="code-quote">"city_name"</span>, <span class="code-quote">"value"</span>: <span class="code-quote">"city_name"</span>, <span class="code-quote">"label"</span>: <span class="code-quote">"city_name"</span>}`
-      &amp;filter=`{<span class="code-quote">"field"</span>: <span class="code-quote">"state_id"</span>, <span class="code-quote">"value"</span>: <span class="code-quote">"62"</span>}`
+      &amp;object=`{"name": "sekftUSCities", "sortby": "city_name", "value": "city_name", "label": "city_name"}`
+      &amp;filter=`{"field": "state_id", "value": "62"}`
     ]]
 </pre>
-</div>
-</div>
-
 <p>
 We can also filter the combo box using xpdo's powerful relational filters. Here we use the filter-&gt;name field to grab the states table. The field we filter on is the abbreviation, and the value we want to filter "KS". XPDO will then do the work by finding the relationship between the two tables ( the "id" of the states table and the "state_id" field of the city table ) and return the filtered list by state.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!input.combobox?
-      &amp;object=`{<span class="code-quote">"name"</span>: <span class="code-quote">"sekftUSCities"</span>, <span class="code-quote">"sortby"</span>: <span class="code-quote">"city_name"</span>, <span class="code-quote">"value"</span>: <span class="code-quote">"city_name"</span>, <span class="code-quote">"label"</span>: <span class="code-quote">"city_name"</span>}`
-      &amp;filter=`{<span class="code-quote">"name"</span>: <span class="code-quote">"sekftStates"</span>, <span class="code-quote">"field"</span>: <span class="code-quote">"state_abbr"</span>, <span class="code-quote">"value"</span>: <span class="code-quote">"KS"</span>}`
+      &amp;object=`{"name": "sekftUSCities", "sortby": "city_name", "value": "city_name", "label": "city_name"}`
+      &amp;filter=`{"name": "sekftStates", "field": "state_abbr", "value": "KS"}`
     ]]
 </pre>
-</div>
-</div>
-
 <p>
 The combo box can also be filter live using jquery. please view the <a href="/display/ADDON/sekFormTools+Advanced+Examples" title="sekFormTools Advanced Examples">Advanced Examples</a> for more information.
 </p>
 
-<h3>
-<a name="sekFormTools.input.combobox-Snippet" id="sekFormTools.input.combobox-Snippet"></a>Snippet
+<h3 id="sekFormTools.input.combobox-Snippet">
+Snippet
 </h3>
 
 <p>
 If more advanced filters are needed, a custom snippet can be called to fill the combo box.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!input.combobox? &amp;snippet=`xpdo`]]
 </pre>
-</div>
-</div>
-
 <p>
 The snippet must must return a json array.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $items = $modx-&gt;getCollection('sekftStates');
 $itemListArray = array();
 foreach ($items as $item) {
@@ -576,30 +533,20 @@ foreach ($items as $item) {
   $itemList['label'] = $itemArray['state_name'];
   $itemListArray[] = $itemList;
 }
-<span class="code-keyword">return</span> $modx-&gt;toJSON($itemListArray);
+return $modx-&gt;toJSON($itemListArray);
 </pre>
-</div>
-</div>
-
 <p>
 Similarly, a large list of values can be placed in an array within a snippet.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!input.combobox? &amp;snippet=`array`]]
 </pre>
-</div>
-</div>
-
 <p>
 The snippet must must return a json array.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $itemListArray = array(
   array(
     'value' =&gt; '1',
@@ -618,7 +565,5 @@ $itemListArray = array(
     'label' =&gt; 'Four'
   )
 );
-<span class="code-keyword">return</span> $modx-&gt;toJSON($itemListArray);
+return $modx-&gt;toJSON($itemListArray);
 </pre>
-</div>
-</div>

@@ -1,17 +1,13 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="UserGroups-WhatisaUserGroup%3F"></a>What is a User Group?
+<h2 id="UserGroups-WhatisaUserGroup?">
+What is a User Group?
 </h2>
 
 <p>
 A User Group is simply a collection of Users.
 </p>
 
-<h2>
-<a name="UserGroups-Usage" id="UserGroups-Usage"></a>Usage
+<h2 id="UserGroups-Usage">
+Usage
 </h2>
 
 <p>
@@ -26,8 +22,8 @@ Go to Security -&gt; Access Controls. From there you will see a tree of User Gro
 </li>
 </ul>
 
-<h3>
-<a name="UserGroups-AssigningPolicies" id="UserGroups-AssigningPolicies"></a>Assigning Policies
+<h3 id="UserGroups-AssigningPolicies">
+Assigning Policies
 </h3>
 
 <p>
@@ -45,8 +41,8 @@ A quick clarification on which policies to use:
 </li>
 </ul>
 
-<h2>
-<a name="UserGroups-RolesinUserGroups" id="UserGroups-RolesinUserGroups"></a>Roles in User Groups
+<h2 id="UserGroups-RolesinUserGroups">
+Roles in User Groups
 </h2>
 
 <p>
@@ -62,50 +58,117 @@ Then, you'll just add a Resource Policy (the packaged-in-with-modx one will do f
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678087/ug-rg-grid1.png?version=1&amp;modificationDate=1268850005000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678087/ug-rg-grid1.png?version=1&amp;modificationDate=1268850005000" />
 </p>
 
 <p>
 And you've got a role-based access permission! This specific ACL will limit all Resources (aka Documents) in the web context and in the resource group "TestResourceGroup4" to only Users in the "HR Department" User Group with at least a Role of Supervisor. Roles with lower authority numbers would also inherit access - say you had a Coordinator Role with an authority of 2; Users in this User Group would have access to this ACL as well.
 </p>
 
-<h3>
-<a name="UserGroups-" id="UserGroups-"></a><font color="#000000">Assigning User Groups and Roles via the MODX API</font>
+<h3 id="UserGroups-">
+Assigning User Groups and Roles via the MODX API
 </h3>
 
 <p>
-When working with the modUser object in the MODX API, you can assign access permissions via modUser::<a href="http://api.modx.com/revolution/2.1/_model_modx_moduser.class.html#%5CmodUser::joinGroup()" class="external-link" rel="nofollow">joinGroup</a>. Using this method, you can add&nbsp;a user directly to a User Group, and optionally assign a Role.
+When working with the modUser object in the MODX API, you can assign access permissions via modUser::<a href="http://api.modx.com/revolution/2.1/_model_modx_moduser.class.html#%5CmodUser::joinGroup()">joinGroup</a>. Using this method, you can add&nbsp;a user directly to a User Group, and optionally assign a Role.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-<span class="code-comment">// Get modUser object
-</span>$user = $modx-&gt;getObject('modUser', array('username' =&gt; $username));
-<span class="code-keyword">if</span>( $user ){
+// Get modUser object
+$user = $modx-&gt;getObject('modUser', array('username' =&gt; $username));
+if( $user ){
     $user-&gt;save();
-    <span class="code-comment">// Assign <span class="code-keyword">new</span> user to User Group / Role
-</span>    $user-&gt;joinGroup('UserGroupNameOrId','OptionalRoleNameOrId');}
+    // Assign new user to User Group / Role
+    $user-&gt;joinGroup('UserGroupNameOrId','OptionalRoleNameOrId');}
 ?&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="UserGroups-SeeAlso" id="UserGroups-SeeAlso"></a>See Also
+<h2 id="UserGroups-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Users">Users</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678087" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678085" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FUser%2BGroups" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678085" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/User+Groups">User Groups</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Resource+Groups">Resource Groups</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Roles">Roles</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Policies">Policies</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Permissions">Permissions</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Permissions+-+Administrator+Policy">Permissions - Administrator Policy</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Permissions+-+Resource+Policy">Permissions - Resource Policy</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/ACLs">ACLs</a>
+</li>
+
+<li>
+<a href="/display/revolution20/PolicyTemplates">PolicyTemplates</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Security+Tutorials">Security Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Giving+a+User+Manager+Access">Giving a User Manager Access</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Making+Member-Only+Pages">Making Member-Only Pages</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Creating+a+Second+Super+Admin+User">Creating a Second Super Admin User</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Restricting+an+Element+from+Users">Restricting an Element from Users</a>
+</li>
+
+<li>
+<a href="/display/revolution20/More+on+the+Anonymous+User+Group">More on the Anonymous User Group</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Hardening+MODX+Revolution">Hardening MODX Revolution</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Security+Standards">Security Standards</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Troubleshooting+Security">Troubleshooting Security</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Resetting+a+User+Password+Manually">Resetting a User Password Manually</a>
+</li>
+</ol>
+</li>
+</ol>

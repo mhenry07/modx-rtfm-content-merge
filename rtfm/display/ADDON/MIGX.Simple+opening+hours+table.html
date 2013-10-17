@@ -2,8 +2,8 @@
 To allow a flexible table layout displaying opening hours, you could use MIGX.
 </p>
 
-<h2>
-<a name="MIGX.Simpleopeninghourstable-TheMIGXTVConfiguration" id="MIGX.Simpleopeninghourstable-TheMIGXTVConfiguration"></a>The MIGX TV Configuration
+<h2 id="MIGX.Simpleopeninghourstable-TheMIGXTVConfiguration">
+The MIGX TV Configuration
 </h2>
 
 <p>
@@ -18,26 +18,21 @@ Create a new TV (we called it "operatingHours") using the MIGX TV Input Type (th
 So for the Form Tabs:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [
-{<span class="code-quote">"caption"</span>:<span class="code-quote">"Operating Hours"</span>,<span class="code-quote">"fields"</span>: [
-{<span class="code-quote">"field"</span>:<span class="code-quote">"day"</span>,
-<span class="code-quote">"caption"</span>:<span class="code-quote">"Day"</span>
+{"caption":"Operating Hours","fields": [
+{"field":"day",
+"caption":"Day"
 },{
-<span class="code-quote">"field"</span>:<span class="code-quote">"from"</span>,
-<span class="code-quote">"caption"</span>:<span class="code-quote">"From"</span>
+"field":"from",
+"caption":"From"
 },{
-<span class="code-quote">"field"</span>:<span class="code-quote">"until"</span>,
-<span class="code-quote">"caption"</span>:<span class="code-quote">"Until"</span>
+"field":"until",
+"caption":"Until"
 }
 ]
 }]
 </pre>
-</div>
-</div>
-
 <p>
 We're giving the tab (we need one) the caption of "Operating Hours", and then add three fields to it. The day, the from time, and the until time. As we're not specifying an input type it will just assume a textfield.
 </p>
@@ -46,18 +41,13 @@ We're giving the tab (we need one) the caption of "Operating Hours", and then ad
 Now to display this in the resource panel, we will need to set up the Grid Columns too. We're using this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [
-{<span class="code-quote">"header"</span>: <span class="code-quote">"Day"</span>, <span class="code-quote">"width"</span>: <span class="code-quote">"60"</span>, <span class="code-quote">"sortable"</span>: <span class="code-quote">"<span class="code-keyword">false</span>"</span>, <span class="code-quote">"dataIndex"</span>: <span class="code-quote">"day"</span>},
-{<span class="code-quote">"header"</span>: <span class="code-quote">"From"</span>, <span class="code-quote">"width"</span>: <span class="code-quote">"50"</span>, <span class="code-quote">"sortable"</span>: <span class="code-quote">"<span class="code-keyword">false</span>"</span>, <span class="code-quote">"dataIndex"</span>: <span class="code-quote">"from"</span>},
-{<span class="code-quote">"header"</span>: <span class="code-quote">"Until"</span>, <span class="code-quote">"width"</span>: <span class="code-quote">"50"</span>, <span class="code-quote">"sortable"</span>: <span class="code-quote">"<span class="code-keyword">false</span>"</span>, <span class="code-quote">"dataIndex"</span>: <span class="code-quote">"until"</span>}
+{"header": "Day", "width": "60", "sortable": "false", "dataIndex": "day"},
+{"header": "From", "width": "50", "sortable": "false", "dataIndex": "from"},
+{"header": "Until", "width": "50", "sortable": "false", "dataIndex": "until"}
 ]
 </pre>
-</div>
-</div>
-
 <p>
 We're setting three columns ("Day", "From", and "Until") and giving them a width, the proper dataIndex (which needs to be the same as the "field" value in the form) and we're also saying we don't want them to be sortable.
 </p>
@@ -67,11 +57,11 @@ Finally we're setting an "Add Item" Replacement, in my case it was set to "Add n
 </p>
 
 <p>
-You should now be able to get the following in the Manager (though the image has terms in Dutch). <span class="image-wrap" style=""><img src="/download/attachments/35586346/migx+grid.PNG?version=1&amp;modificationDate=1315272600000" style="border: 1px solid black" /></span>
+You should now be able to get the following in the Manager (though the image has terms in Dutch). <img src="/download/attachments/35586346/migx+grid.PNG?version=1&amp;modificationDate=1315272600000" style="border: 1px solid black" />
 </p>
 
-<h2>
-<a name="MIGX.Simpleopeninghourstable-ParsingtheData" id="MIGX.Simpleopeninghourstable-ParsingtheData"></a>Parsing the Data
+<h2 id="MIGX.Simpleopeninghourstable-ParsingtheData">
+Parsing the Data
 </h2>
 
 <p>
@@ -82,9 +72,7 @@ Now in the front-end we'll need to display that, using the getImageList snippet 
 Here's the snippet call to put in your template where you want it to appear:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;table&gt;
 [[getImageList?
   &amp;tvname=`operatingHours`
@@ -92,9 +80,6 @@ Here's the snippet call to put in your template where you want it to appear:
 ]]
 &lt;/table&gt;
 </pre>
-</div>
-</div>
-
 <p>
 This will check the operatingHours TV, and parse its values with the operatingHoursTpl chunk.
 </p>
@@ -103,17 +88,12 @@ This will check the operatingHours TV, and parse its values with the operatingHo
 Here's the chunk we used:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;tr&gt;
   &lt;td&gt;[[+day]]&lt;/td&gt;
-  [[+from:notempty=`&lt;td&gt;[[+from]]&lt;/td&gt;&lt;td&gt;[[+until]]&lt;/td&gt;`:<span class="code-keyword">default</span>=`&lt;td colspan=<span class="code-quote">"2"</span>&gt;Closed&lt;/td&gt;`]]
+  [[+from:notempty=`&lt;td&gt;[[+from]]&lt;/td&gt;&lt;td&gt;[[+until]]&lt;/td&gt;`:default=`&lt;td colspan="2"&gt;Closed&lt;/td&gt;`]]
 &lt;/tr&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Whoah! What's going on there?
 </p>
@@ -126,8 +106,8 @@ Basically we're outputting a table row for every row of the TV, and we're simply
 If there isn't a value it will use the default output modifier, which means it will set a cell covering two columns with the text "Closed".
 </p>
 
-<h2>
-<a name="MIGX.Simpleopeninghourstable-TheResult%26nbsp%3B"></a>The Result&nbsp;
+<h2 id="MIGX.Simpleopeninghourstable-TheResult&amp;nbsp;">
+The Result&nbsp;
 </h2>
 
 <p>
@@ -136,6 +116,10 @@ See the image below for the result. (Though we have replaced the texts with Dutc
 And that's just another example of what you can do with MIGX! Of course you could go much further in this, adding more columns, multiple forms etc etc.
 </p>
 
-<h2>
-<a name="MIGX.Simpleopeninghourstable-%21Knipsel.PNGborder%3D1%21"></a><span class="image-wrap" style=""><img src="/download/attachments/35586346/Knipsel.PNG?version=1&amp;modificationDate=1313929587000" style="border: 1px solid black" /></span>
+<h2 id="MIGX.Simpleopeninghourstable-!Knipsel.PNGborder=1!">
+<img src="/download/attachments/35586346/Knipsel.PNG?version=1&amp;modificationDate=1313929587000" style="border: 1px solid black" />
 </h2>
+
+<p>
+Great example, just tried it out and it works flawless.
+</p>

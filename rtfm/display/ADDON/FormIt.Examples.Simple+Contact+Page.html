@@ -1,19 +1,15 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#FormIt.Examples.SimpleContactPage-SnippetTag'>Snippet Tag</a>
+<a href="#FormIt.Examples.SimpleContactPage-SnippetTag">Snippet Tag</a>
 </li>
 
 <li>
-<a href='#FormIt.Examples.SimpleContactPage-ContactForm'>Contact Form</a>
+<a href="#FormIt.Examples.SimpleContactPage-ContactForm">Contact Form</a>
 </li>
 
 <li>
-<a href='#FormIt.Examples.SimpleContactPage-MyEmailChunk%28TplChunk%29'>MyEmailChunk (Tpl Chunk)</a>
+<a href="#FormIt.Examples.SimpleContactPage-MyEmailChunk%28TplChunk%29">MyEmailChunk (Tpl Chunk)</a>
 </li>
 </ul>
 </div>
@@ -38,13 +34,11 @@ And finally, we want reCaptcha support. We've already setup our public and priva
 </li>
 </ul>
 
-<h2>
-<a name="FormIt.Examples.SimpleContactPage-SnippetTag" id="FormIt.Examples.SimpleContactPage-SnippetTag"></a>Snippet Tag
+<h2 id="FormIt.Examples.SimpleContactPage-SnippetTag">
+Snippet Tag
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
    &amp;hooks=`recaptcha,spam,email,redirect`
    &amp;emailTpl=`MyEmailChunk`
@@ -58,100 +52,88 @@ And finally, we want reCaptcha support. We've already setup our public and priva
       colors:required`
 ]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="FormIt.Examples.SimpleContactPage-ContactForm" id="FormIt.Examples.SimpleContactPage-ContactForm"></a>Contact Form
+<h2 id="FormIt.Examples.SimpleContactPage-ContactForm">
+Contact Form
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h2&gt;Contact Form&lt;/h2&gt;
 
 [[!+fi.error_message:notempty=`&lt;p&gt;[[!+fi.error_message]]&lt;/p&gt;`]]
 
-&lt;form action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span> class=<span class="code-quote">"form"</span>&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"nospam:blank"</span> value="" /&gt;
+&lt;form action="[[~[[*id]]]]" method="post" class="form"&gt;
+    &lt;input type="hidden" name="nospam:blank" value="" /&gt;
 
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"name"</span>&gt;
+    &lt;label for="name"&gt;
         Name:
-        &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+fi.error.name]]&lt;/span&gt;
+        &lt;span class="error"&gt;[[!+fi.error.name]]&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"name"</span> id=<span class="code-quote">"name"</span> value=<span class="code-quote">"[[!+fi.name]]"</span> /&gt;
+    &lt;input type="text" name="name" id="name" value="[[!+fi.name]]" /&gt;
 
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"email"</span>&gt;
+    &lt;label for="email"&gt;
         Email:
-        &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+fi.error.email]]&lt;/span&gt;
+        &lt;span class="error"&gt;[[!+fi.error.email]]&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"email"</span> id=<span class="code-quote">"email"</span> value=<span class="code-quote">"[[!+fi.email]]"</span> /&gt;
+    &lt;input type="text" name="email" id="email" value="[[!+fi.email]]" /&gt;
 
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"subject"</span>&gt;
+    &lt;label for="subject"&gt;
         Subject:
-        &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+fi.error.subject]]&lt;/span&gt;
+        &lt;span class="error"&gt;[[!+fi.error.subject]]&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"subject"</span> id=<span class="code-quote">"subject"</span> value=<span class="code-quote">"[[!+fi.subject]]"</span> /&gt;
+    &lt;input type="text" name="subject" id="subject" value="[[!+fi.subject]]" /&gt;
 
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"text"</span>&gt;
+    &lt;label for="text"&gt;
         Message:
-        &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+fi.error.text]]&lt;/span&gt;
+        &lt;span class="error"&gt;[[!+fi.error.text]]&lt;/span&gt;
     &lt;/label&gt;
-    &lt;textarea name=<span class="code-quote">"text"</span> id=<span class="code-quote">"text"</span> cols=<span class="code-quote">"55"</span> rows=<span class="code-quote">"7"</span> value=<span class="code-quote">"[[!+fi.text]]"</span>&gt;[[!+fi.text]]&lt;/textarea&gt;
+    &lt;textarea name="text" id="text" cols="55" rows="7" value="[[!+fi.text]]"&gt;[[!+fi.text]]&lt;/textarea&gt;
 
 
     &lt;label&gt;
         Numbers:[[+fi.error.numbers]]
-        &lt;select name=<span class="code-quote">"numbers"</span> value=<span class="code-quote">"[[!+fi.numbers]]"</span>&gt;
+        &lt;select name="numbers" value="[[!+fi.numbers]]"&gt;
             &lt;option value=""&gt;Select an option...&lt;/option&gt;
-            &lt;option value=<span class="code-quote">"one"</span> [[!+fi.numbers:FormItIsSelected=`one`]]&gt;One&lt;/option&gt;
-            &lt;option value=<span class="code-quote">"two"</span> [[!+fi.numbers:FormItIsSelected=`two`]]&gt;Two&lt;/option&gt;
-            &lt;option value=<span class="code-quote">"three"</span> [[!+fi.numbers:FormItIsSelected=`three`]]&gt;Three&lt;/option&gt;
+            &lt;option value="one" [[!+fi.numbers:FormItIsSelected=`one`]]&gt;One&lt;/option&gt;
+            &lt;option value="two" [[!+fi.numbers:FormItIsSelected=`two`]]&gt;Two&lt;/option&gt;
+            &lt;option value="three" [[!+fi.numbers:FormItIsSelected=`three`]]&gt;Three&lt;/option&gt;
         &lt;/select&gt;
     &lt;/label&gt;
 
     &lt;label&gt;
         Colors:[[!+fi.error.colors]]
-        &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"colors[]"</span> value="" /&gt;
+        &lt;input type="hidden" name="colors[]" value="" /&gt;
     &lt;/label&gt;
     &lt;ul&gt;
       &lt;li&gt;
-        &lt;label&gt;&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"colors[]"</span> value=<span class="code-quote">"red"</span> [[!+fi.colors:FormItIsChecked=`red`]] /&gt; Red&lt;/label&gt;
+        &lt;label&gt;&lt;input type="checkbox" name="colors[]" value="red" [[!+fi.colors:FormItIsChecked=`red`]] /&gt; Red&lt;/label&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;label&gt;&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"colors[]"</span> value=<span class="code-quote">"blue"</span> [[!+fi.colors:FormItIsChecked=`blue`]] /&gt; Blue&lt;/label&gt;
+        &lt;label&gt;&lt;input type="checkbox" name="colors[]" value="blue" [[!+fi.colors:FormItIsChecked=`blue`]] /&gt; Blue&lt;/label&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;label&gt;&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"colors[]"</span> value=<span class="code-quote">"green"</span> [[!+fi.colors:FormItIsChecked=`green`]] /&gt; Green&lt;/label&gt;
+        &lt;label&gt;&lt;input type="checkbox" name="colors[]" value="green" [[!+fi.colors:FormItIsChecked=`green`]] /&gt; Green&lt;/label&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;br class=<span class="code-quote">"clear"</span> /&gt;
+    &lt;br class="clear" /&gt;
     [[!+formit.recaptcha_html]]
     [[!+fi.error.recaptcha]]
 
-    &lt;br class=<span class="code-quote">"clear"</span> /&gt;
+    &lt;br class="clear" /&gt;
 
-    &lt;div class=<span class="code-quote">"form-buttons"</span>&gt;
-        &lt;input type=<span class="code-quote">"submit"</span> value=<span class="code-quote">"Send Contact Inquiry"</span> /&gt;
+    &lt;div class="form-buttons"&gt;
+        &lt;input type="submit" value="Send Contact Inquiry" /&gt;
     &lt;/div&gt;
 &lt;/form&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="FormIt.Examples.SimpleContactPage-MyEmailChunk%28TplChunk%29"></a>MyEmailChunk (Tpl Chunk)
+<h2 id="FormIt.Examples.SimpleContactPage-MyEmailChunk(TplChunk)">
+MyEmailChunk (Tpl Chunk)
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 This is the Formit Email Chunk.
 
 &lt;br /&gt;[[+name]] ([[+email]]) Wrote: &lt;br /&gt;
 
 [[+text]]
 </pre>
-</div>
-</div>

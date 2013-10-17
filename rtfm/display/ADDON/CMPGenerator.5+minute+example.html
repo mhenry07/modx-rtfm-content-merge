@@ -7,31 +7,26 @@ Complete these steps after you have installed CMPGenerator.
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-sql">
+<pre class="brush: sql">
 CREATE TABLE `modx_test` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` <span class="code-object">VARCHAR</span>(64) NOT NULL,
-  `description` <span class="code-object">VARCHAR</span>(64) NOT NULL,
+  `name` VARCHAR(64) NOT NULL,
+  `description` VARCHAR(64) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8
 
 </pre>
-</div>
-</div>
-
 <ol>
 <li>Go to the Manager then CMPGenerator and click on Create Package
 <br />
 Fill in the table info we just created and pick a package name:
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/37683291/create-package2.2.png?version=2&amp;modificationDate=1331827781000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/37683291/create-package2.2.png?version=2&amp;modificationDate=1331827781000" style="border: 1px solid black" />
 </li>
 
 <li>Once you hit save all the files are created in /your MODX/core/components/mytest/
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/37683291/created-folders-files.png?version=1&amp;modificationDate=1325784884000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/37683291/created-folders-files.png?version=1&amp;modificationDate=1325784884000" />
 </li>
 
 <li>Now go lets see if this worked and create a simple snippet to test out our newly created table.
@@ -40,22 +35,21 @@ Name the Snippet: mytest and insert the following code:
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeHeader panelHeader" style="border-bottom-width: 1px;">
-<b>mytest Snippet Code</b>
-</div>
+<figure class="code">
+<figcaption>
+<strong>mytest Snippet Code</strong>
+</figcaption>
 
-<div class="codeContent panelContent">
-<pre class="code-javascript">
+<pre class="brush: javascript">
 &lt;?php
 /**
  * mytest table
  */
-$output = '';// <span class="code-keyword">this</span> is what the snippet will <span class="code-keyword">return</span>
+$output = '';// this is what the snippet will return
 
-// add <span class="code-keyword">package</span> so xpdo can be used:
+// add package so xpdo can be used:
 $package_path = $modx-&gt;getOption('core_path').'components/mytest/model/';
-// see the scheme file and the xml model element and you will see the attribute <span class="code-keyword">package</span> and that must match here
+// see the scheme file and the xml model element and you will see the attribute package and that must match here
 $modx-&gt;addPackage('mytest', $package_path);
 
 // lets add some data!
@@ -68,13 +62,13 @@ $data = array(
     );
 $myRow-&gt;fromArray($data);
 
-<span class="code-keyword">if</span> ( !$myRow-&gt;save() ) {
+if ( !$myRow-&gt;save() ) {
     $output .= '&lt;p&gt;Could not create row&lt;/p&gt;';
-} <span class="code-keyword">else</span> {
+} else {
     $output .= '&lt;p&gt;Created row successfully&lt;/p&gt;';
 }
 
-// now lets show the data <span class="code-keyword">in</span> a quick and dirty table:
+// now lets show the data in a quick and dirty table:
 $output .= '
 &lt;table&gt;
     &lt;tr&gt;
@@ -83,7 +77,7 @@ $output .= '
         &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;';
 
-// Note <span class="code-keyword">for</span> all HTML you should be using Chunks see: http://rtfm.modx.com/display/revolution20/Chunks#Chunks-ProcessingChunkviatheAPI
+// Note for all HTML you should be using Chunks see: http://rtfm.modx.com/display/revolution20/Chunks#Chunks-ProcessingChunkviatheAPI
 /* build query */
 $query = $modx-&gt;newQuery('Test');
 $rows = $modx-&gt;getIterator('Test', $query);
@@ -91,7 +85,7 @@ $rows = $modx-&gt;getIterator('Test', $query);
 /* iterate */
 $list = array();
 foreach ($rows as $row) {
-    // from object to array you can also <span class="code-keyword">do</span> $row-&gt;get('name');
+    // from object to array you can also do $row-&gt;get('name');
     $row_array = $row-&gt;toArray();
 
     $output .= '
@@ -104,27 +98,21 @@ foreach ($rows as $row) {
 $output .= '
 &lt;/table&gt;';
 
-<span class="code-keyword">return</span> $output;
+return $output;
 </pre>
-</div>
-</div>
+</figure>
 
 <ol>
 <li>Now put the snippet in a resource and run it a few times.
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!mytest]]
 </pre>
-</div>
-</div>
-
 <p>
 You should see something like this (note my test page has CSS assigned to tables):
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/37683291/snippet-output.png?version=1&amp;modificationDate=1325784884000" style="border: 1px solid black" /></span>
-<br class="atl-forced-newline" />
+<img src="/download/attachments/37683291/snippet-output.png?version=1&amp;modificationDate=1325784884000" style="border: 1px solid black" />
+<br />
 </p>

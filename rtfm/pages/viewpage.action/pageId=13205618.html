@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,8 +13,8 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMS%2BDitto-HowcanDittobemadetoworkwithYAMS%3F"></a>How can Ditto be made to work with YAMS?
+<h1 id="YAMS+Ditto-HowcanDittobemadetoworkwithYAMS?">
+How can Ditto be made to work with YAMS?
 </h1>
 
 <p>
@@ -23,42 +23,30 @@ A YAMS extender has been written for ditto which allows existing ditto templates
 
 <ul>
 <li>The parameter
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 &amp;extenders=`@FILE assets/modules/yams/yams.extender.inc.php`
 </pre>
-</div>
-</div>
-
 <p>
 must be added to ditto calls. This will automatically replace normal placeholders like [+pagetitle+] with multilingual ones.
 </p>
 </li>
 
 <li>If the snippet call is runnning as uncacheable ([!Ditto? ...) add
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 &amp;id=`(yams_id)` &amp;language=`(yams_mname)`
 </pre>
-</div>
-</div>
-
 <p>
 to the Ditto snippet calls and prefix the names any ditto specific placeholders with (yams_id)_. For example, when using pagination it will be necessary to use [+(yams_id)_start+].
 </p>
 </li>
 
 <li>If the snippet call is runnning as cacheable ([[Ditto? ...) then place once copy of the snippet call in each language tab of the document and add
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 &amp;id=`id` &amp;language=`language file name`
 </pre>
-</div>
-</div>
-
 <p>
 to each snippet call, where id is to be replaced by the language group id of the language and language file name is to be replaced with the name of the relevant language file. Also prefix the names any ditto specific placeholders with id_. For example, when using pagination it will be necessary to use [+id_start+].
 </p>

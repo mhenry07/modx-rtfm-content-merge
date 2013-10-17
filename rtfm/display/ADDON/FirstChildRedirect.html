@@ -1,11 +1,11 @@
 <div>
 <ul>
 <li>
-<a href='#FirstChildRedirect-Installation%26bugs'>Installation &amp; bugs</a>
+<a href="#FirstChildRedirect-Installation%26bugs">Installation &amp; bugs</a>
 </li>
 
 <li>
-<a href='#FirstChildRedirect-Snippetusage'>Snippet usage</a>
+<a href="#FirstChildRedirect-Snippetusage">Snippet usage</a>
 </li>
 </ul>
 </div>
@@ -14,8 +14,8 @@
 FirstChildRedirect is a snippet that will redirect a certain resource to its first child resource. There is a version for both Revolution and Evolution, of which the Revolution one allows more easy customization.
 </p>
 
-<h2>
-<a name="FirstChildRedirect-Installation%26bugs"></a>Installation &amp; bugs
+<h2 id="FirstChildRedirect-Installation&amp;bugs">
+Installation &amp; bugs
 </h2>
 
 <p>
@@ -26,138 +26,139 @@ FirstChildRedirect can be installed through the MODX Revolution Package Manager,
 FirstChildRedirect is also available for MODX Evolution, however that does not support all additional parameters as described below.
 </p>
 
-<h2>
-<a name="FirstChildRedirect-Snippetusage" id="FirstChildRedirect-Snippetusage"></a>Snippet usage
+<h2 id="FirstChildRedirect-Snippetusage">
+Snippet usage
 </h2>
 
 <p>
 The snippet is really easy to use, just call uncached it in the content or template of the container resource you want to redirect to its first child.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FirstChildRedirect]]
 </pre>
-</div>
-</div>
-
 <p>
 Alternatively, you can specify one or more parameters in the snippet call which influence how the redirect will be handled.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Parameter
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Evo/Revo
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Details
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &amp;docid
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Yes/Yes
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Setting a docid parameter to another resource's ID will tell the snippet to use that resource as the container to look in for the first child.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 current resource ID (ie [[*id]]
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &amp;default
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 No*/Yes
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The resource to redirect to when there are no children resources found. This can be either a resource ID or one of the following settings: site_start, site_unavailable_page, error_page or unauthorized_page. * In Evolution, this also defaults to site_start and can be modified in the actual snippet code if required. Just find $modx-&gt;config['site_start'] and replace that by an ID or one of the system settings mentioned.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 site_start setting
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &amp;sortBy
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 No/Yes
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Any valid resource fieldname to sort the children found on.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 menuindex setting
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &amp;sortDir
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 No/Yes
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Either 'desc' for descending (redirects to highest menuindex or &amp;sortBy field found) or 'asc' for ascending (redirects to lowest menuindex or &amp;sortBy field found).
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 "asc"
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &amp;responseCode
 </td>
-<td class='confluenceTd'>
+<td>
 No/Yes
 </td>
-<td class='confluenceTd'>
+<td>
 The response code (status code) for sending the redirect. Defaults to a 301 ("HTTP/1.1 301 Moved Permanently") but also contains shortcuts for 302 (temporarily) - you can also specify the complete response code (including the HTTP part and name) for others. <em>Added in 2.3.1.</em>
 </td>
-<td class='confluenceTd'>
+<td>
 301
 </td>
 </tr>
 </tbody>
 </table>
-</div>
+
+<p>
+Using &amp;sortBy=`RAND()` seems to work in 2.1.3 :)
+</p>
+
+<p>
+This is good for A/B Split Testing, for example.
+</p>

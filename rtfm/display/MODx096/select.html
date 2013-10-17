@@ -1,107 +1,86 @@
-<h1>
-<a name="select-API%3ADB%3Aselect"></a>API:DB:select
+<h1 id="select-API:DB:select">
+API:DB:select
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Quick reference</b>
+<div class="info">
+<strong>API Quick reference</strong>
 <br />
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable name:
 </td>
-<td class='confluenceTd'>
+<td>
 select
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Modx versions:
 </td>
-<td class='confluenceTd'>
+<td>
 0.9.x + Evolution
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Input parameters:
 </td>
-<td class='confluenceTd'>
+<td>
 ([string $fields [, string $from [, string $where [, string $orderby [, string $limit]]]]])
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return if successful:
 </td>
-<td class='confluenceTd'>
+<td>
 resource
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return type:
 </td>
-<td class='confluenceTd'>
+<td>
 resource
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return on failure:
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Object parent:
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/MODx096/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a> -&gt; <a href="/display/MODx096/DBAPI" title="DBAPI">DBAPI</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
-<h2>
-<a name="select-Description"></a>Description
+<h2 id="select-Description">
+Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 resource select([string $fields [, string $from [, string $where [, string $orderby [, string $limit]]]]])
 </pre>
-</div>
-</div>
-
 <p>
 The select function is a simple wrapper for the SQL SELECT query. select() sends a query to the currently active database, $this-&gt;conn as created when connect() is called. This function is analogous to mysql_query() except the query string is broken up into 5 parts. Only the $from field is required for a meaningful result.
 </p>
@@ -118,84 +97,69 @@ The select function is a simple wrapper for the SQL SELECT query. select() sends
 *$limit is the limit of the number of results to return, leave blank for all
 </p>
 
-<h2>
-<a name="select-Usage%2FExamples"></a>Usage / Examples
+<h2 id="select-Usage/Examples">
+Usage / Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$results = $modx-&gt;db-&gt;select(<span class="code-quote">"field1, field2"</span>, <span class="code-quote">"table"</span>, <span class="code-quote">"field = value"</span>, <span class="code-quote">"field to order by"</span>, <span class="code-quote">"limit value"</span>); 
+<pre class="brush: php">
+$results = $modx-&gt;db-&gt;select("field1, field2", "table", "field = value", "field to order by", "limit value"); 
 </pre>
-</div>
-</div>
-
 <p>
 This example login function uses the select function to get the id of a user given the username and password.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 function login($username, $password)
 {
    global $modx;
-   $username = $modx-&gt;db-&gt;escape($username); <span class="code-comment">// <span class="code-keyword">this</span> should have been done with the POST
-</span>   $password = $modx-&gt;db-&gt;escape($password); <span class="code-comment">// values before passing them to the function
-</span> 
-   $res = $modx-&gt;db-&gt;select(<span class="code-quote">"id"</span>, $modx-&gt;getFullTableName('web_users'), 
-      <span class="code-quote">"username='"</span> . $username .<span class="code-quote">"' AND password='"</span>.md5($password).<span class="code-quote">"'"</span>);
-   <span class="code-keyword">if</span>($modx-&gt;db-&gt;getRecordCount($res))
+   $username = $modx-&gt;db-&gt;escape($username); // this should have been done with the POST
+   $password = $modx-&gt;db-&gt;escape($password); // values before passing them to the function
+ 
+   $res = $modx-&gt;db-&gt;select("id", $modx-&gt;getFullTableName('web_users'), 
+      "username='" . $username ."' AND password='".md5($password)."'");
+   if($modx-&gt;db-&gt;getRecordCount($res))
    {
       $id = $modx-&gt;db-&gt;getValue($res);
       $_SESSION['userid'] = $id;
-      <span class="code-comment">//other log in things...
-</span>   }
-   <span class="code-keyword">else</span>
+      //other log in things...
+   }
+   else
    {
-      <span class="code-comment">//incorrect login
-</span>   }
+      //incorrect login
+   }
 }
 </pre>
-</div>
-</div>
-
 <p>
 Example2:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $userId = $modx-&gt;getLoginUserID();
-$table = $modx-&gt;getFullTableName(<span class="code-quote">"user_messages"</span>);
-$messages = $modx-&gt;db-&gt;select(<span class="code-quote">"subject, message, sender"</span>, $table, <span class="code-quote">"recipient = $userId"</span>, <span class="code-quote">"postdate DESC"</span>, <span class="code-quote">"10"</span>); 
+$table = $modx-&gt;getFullTableName("user_messages");
+$messages = $modx-&gt;db-&gt;select("subject, message, sender", $table, "recipient = $userId", "postdate DESC", "10"); 
 </pre>
-</div>
-</div>
-
 <p>
 This will return the subject, message and sender of the latest 10 messages for the current user.
 </p>
 
-<h2>
-<a name="select-Related"></a>Related
+<h2 id="select-Related">
+Related
 </h2>
 
 <p>
 <span class="error">[getRecordCount]</span>(), <a href="/display/MODx096/query" title="query">query</a>(), <span class="error">[getRow]</span>(), <span class="error">[makeArray]</span>().
 </p>
 
-<h2>
-<a name="select-Notes"></a>Notes
+<h2 id="select-Notes">
+Notes
 </h2>
 
 <p>
 One could easily use mysql_query($qry) instead of this function, however it is preferred to use this function, especially for modx table calls, to ensure future compatibility should their be any changes to the way modx queries the database (eg: changing to mysqli_query(), or using another database type altogether).
 </p>
 
-<h2>
-<a name="select-FunctionSource"></a>Function Source
+<h2 id="select-FunctionSource">
+Function Source
 </h2>
 
 <p>
@@ -204,20 +168,16 @@ File: manager/includes/extenders/dbapi.class.inc.php
 Line: 169
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-function select($fields = <span class="code-quote">"*"</span>, $from = <span class="code-quote">"", $where = "</span><span class="code-quote">", $orderby = "</span><span class="code-quote">", $limit = "</span>") {
-   <span class="code-keyword">if</span> (!$from)
-      <span class="code-keyword">return</span> <span class="code-keyword">false</span>;
-   <span class="code-keyword">else</span> {
+<pre class="brush: php">
+function select($fields = "*", $from = "", $where = "", $orderby = "", $limit = "") {
+   if (!$from)
+      return false;
+   else {
       $table = $from;
-      $where = ($where != <span class="code-quote">"") ? "</span>WHERE $where<span class="code-quote">" : "</span>";
-      $orderby = ($orderby != <span class="code-quote">"") ? "</span>ORDER BY $orderby <span class="code-quote">" : "</span>";
-      $limit = ($limit != <span class="code-quote">"") ? "</span>LIMIT $limit<span class="code-quote">" : "</span>";
-      <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;query(<span class="code-quote">"SELECT $fields FROM $table $where $orderby $limit"</span>);
+      $where = ($where != "") ? "WHERE $where" : "";
+      $orderby = ($orderby != "") ? "ORDER BY $orderby " : "";
+      $limit = ($limit != "") ? "LIMIT $limit" : "";
+      return $this-&gt;query("SELECT $fields FROM $table $where $orderby $limit");
    }
 }
 </pre>
-</div>
-</div>

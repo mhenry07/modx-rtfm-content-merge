@@ -1,25 +1,21 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#DateFormats-CommonExamples.'>Common Examples.</a>
+<a href="#DateFormats-CommonExamples.">Common Examples.</a>
 </li>
 
 <li>
-<a href='#DateFormats-AllParameters'>All Parameters</a>
+<a href="#DateFormats-AllParameters">All Parameters</a>
 </li>
 
 <li>
-<a href='#DateFormats-SeeAlso'>See Also</a>
+<a href="#DateFormats-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
 <p>
-MODx is written in PHP, and as such, it relies on the underlying PHP date functions, e.g. <a href="http://www.php.net/manual/en/function.strftime.php" class="external-link" rel="nofollow">strftime</a>. The discussion here can get quite tricky because the <a href="http://www.php.net/manual/en/function.strftime.php" class="external-link" rel="nofollow">strftime</a> and <a href="http://co.php.net/strtotime" class="external-link" rel="nofollow">strtotime</a> functions deploy <em>similar</em> arguments, but they are not identical. Sorry for the confusion; date manipulation and formatting is more complex than it might at first seem.
+MODx is written in PHP, and as such, it relies on the underlying PHP date functions, e.g. <a href="http://www.php.net/manual/en/function.strftime.php">strftime</a>. The discussion here can get quite tricky because the <a href="http://www.php.net/manual/en/function.strftime.php">strftime</a> and <a href="http://co.php.net/strtotime">strtotime</a> functions deploy <em>similar</em> arguments, but they are not identical. Sorry for the confusion; date manipulation and formatting is more complex than it might at first seem.
 </p>
 
 <p>
@@ -43,488 +39,526 @@ The discussion here relates primarily to the following content fields:
 </li>
 </ul>
 
-<h2>
-<a name="DateFormats-CommonExamples." id="DateFormats-CommonExamples."></a>Common Examples.
+<h2 id="DateFormats-CommonExamples.">
+Common Examples.
 </h2>
 
 <p>
 It's not possible to give every possible example because date formatting can be complex, and it varies from region to region. Here are a few common examples that demonstrate how to use the output filters below.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Example Output
 </th>
-<th class='confluenceTh'>
+<th>
 The Filter Parameters
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Thu Apr 14, 2011
 </td>
-<td class='confluenceTd'>
-<tt>[[*createdon:strtotime:date=`%a %b %e, %Y`]]</tt>
+<td>
+<code>[[*createdon:strtotime:date=`%a %b %e, %Y`]]</code>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 18 April 2011
 </td>
-<td class='confluenceTd'>
-<tt>[[*createdon:strtotime:date=`%e %B %Y`]]</tt>
+<td>
+<code>[[*createdon:strtotime:date=`%e %B %Y`]]</code>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Monday, April 18, 2011
 </td>
-<td class='confluenceTd'>
-<tt>[[*createdon:strtotime:date=`%A, %B %e, %Y`]]</tt>
+<td>
+<code>[[*createdon:strtotime:date=`%A, %B %e, %Y`]]</code>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 2011-04-18
 </td>
-<td class='confluenceTd'>
-<tt>[[*createdon:strtotime:date=`%Y-%m-%d`]]</tt>
+<td>
+<code>[[*createdon:strtotime:date=`%Y-%m-%d`]]</code>
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="DateFormats-AllParameters" id="DateFormats-AllParameters"></a>All Parameters
+<h2 id="DateFormats-AllParameters">
+All Parameters
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Code
 </th>
-<th class='confluenceTh'>
+<th>
 Display
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %a
 </td>
-<td class='confluenceTd'>
+<td>
 Short weekday name
 </td>
-<td class='confluenceTd'>
+<td>
 Sun
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %A
 </td>
-<td class='confluenceTd'>
+<td>
 Full weekday name
 </td>
-<td class='confluenceTd'>
+<td>
 Sunday
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %b
 </td>
-<td class='confluenceTd'>
+<td>
 Short month name
 </td>
-<td class='confluenceTd'>
+<td>
 Jan
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %B
 </td>
-<td class='confluenceTd'>
+<td>
 Full month name
 </td>
-<td class='confluenceTd'>
+<td>
 January
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %c
 </td>
-<td class='confluenceTd'>
+<td>
 Local date and time
 </td>
-<td class='confluenceTd'>
+<td>
 Wed Jan 7 00:22:10 2010
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %C
 </td>
-<td class='confluenceTd'>
+<td>
 Century (the year divided by 100, range 00 to 99)
 </td>
-<td class='confluenceTd'>
+<td>
 20
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %d
 </td>
-<td class='confluenceTd'>
+<td>
 Day of the month (01 to 31)
 </td>
-<td class='confluenceTd'>
+<td>
 03
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %D
 </td>
-<td class='confluenceTd'>
+<td>
 Same as %m/%d/%y
 </td>
-<td class='confluenceTd'>
+<td>
 04/29/10
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %e
 </td>
-<td class='confluenceTd'>
+<td>
 Day of the month (1 to 31)
 </td>
-<td class='confluenceTd'>
+<td>
 3
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %H
 </td>
-<td class='confluenceTd'>
+<td>
 Hour (24-hour clock)
 </td>
-<td class='confluenceTd'>
+<td>
 00-23
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %I
 </td>
-<td class='confluenceTd'>
+<td>
 Hour (12-hour clock)
 </td>
-<td class='confluenceTd'>
+<td>
 01-12
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %l (lower-case L)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Hour in 12-hour format, with a space preceding single digits
 </td>
-<td class='confluenceTd'>
+<td>
 1-12
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %j
 </td>
-<td class='confluenceTd'>
+<td>
 Day of the year
 </td>
-<td class='confluenceTd'>
+<td>
 001 to 366
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %m
 </td>
-<td class='confluenceTd'>
+<td>
 Month
 </td>
-<td class='confluenceTd'>
+<td>
 01 to 12
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %M
 </td>
-<td class='confluenceTd'>
+<td>
 Minute
 </td>
-<td class='confluenceTd'>
+<td>
 00 to 59
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %n
 </td>
-<td class='confluenceTd'>
+<td>
 Newline character
 </td>
-<td class='confluenceTd'>
+<td>
 \n
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %p
 </td>
-<td class='confluenceTd'>
+<td>
 am or pm
 </td>
-<td class='confluenceTd'>
+<td>
 amz
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %P
 </td>
-<td class='confluenceTd'>
+<td>
 AM or PM
 </td>
-<td class='confluenceTd'>
+<td>
 AM
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %r
 </td>
-<td class='confluenceTd'>
+<td>
 Same as %I:%M:%S %p
 </td>
-<td class='confluenceTd'>
+<td>
 08:23:11 PM
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %R
 </td>
-<td class='confluenceTd'>
+<td>
 Same as %H:%M
 </td>
-<td class='confluenceTd'>
+<td>
 23:11
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %S
 </td>
-<td class='confluenceTd'>
+<td>
 Second
 </td>
-<td class='confluenceTd'>
+<td>
 00 to 59
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %t
 </td>
-<td class='confluenceTd'>
+<td>
 Tab character
 </td>
-<td class='confluenceTd'>
+<td>
 \t
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %T
 </td>
-<td class='confluenceTd'>
+<td>
 Same as %H:%M:%S
 </td>
-<td class='confluenceTd'>
+<td>
 26:12:27
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %u
 </td>
-<td class='confluenceTd'>
+<td>
 Weekday (Monday=1)
 </td>
-<td class='confluenceTd'>
+<td>
 01 to 07
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %w
 </td>
-<td class='confluenceTd'>
+<td>
 Weekday (Sunday=0)
 </td>
-<td class='confluenceTd'>
+<td>
 00 to 06
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %x
 </td>
-<td class='confluenceTd'>
+<td>
 Date only
 </td>
-<td class='confluenceTd'>
+<td>
 01/25/09
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %X
 </td>
-<td class='confluenceTd'>
+<td>
 Time only
 </td>
-<td class='confluenceTd'>
+<td>
 02:58:12
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %y
 </td>
-<td class='confluenceTd'>
+<td>
 Two-digit year
 </td>
-<td class='confluenceTd'>
+<td>
 09
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %Y
 </td>
-<td class='confluenceTd'>
+<td>
 Four-digit year
 </td>
-<td class='confluenceTd'>
+<td>
 2010
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %Z or %z
 </td>
-<td class='confluenceTd'>
+<td>
 Time zone offset or name
 </td>
-<td class='confluenceTd'>
+<td>
 -005 or EST
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 %%
 </td>
-<td class='confluenceTd'>
+<td>
 A literal % character
 </td>
-<td class='confluenceTd'>
+<td>
 %
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="DateFormats-SeeAlso" id="DateFormats-SeeAlso"></a>See Also
+<h2 id="DateFormats-SeeAlso">
+See Also
 </h2>
 
 <ul>
-<li>The above were gleaned from one of Bob's helpful forum posts: <a href="http://modxcms.com/forums/index.php?topic=56339.0" class="external-link" rel="nofollow">http://modxcms.com/forums/index.php?topic=56339.0</a>
+<li>The above were gleaned from one of Bob's helpful forum posts: <a href="http://modxcms.com/forums/index.php?topic=56339.0">http://modxcms.com/forums/index.php?topic=56339.0</a>
 </li>
 
 <li>
-<a href="http://rtfm.modx.com/display/revolution20/Input+and+Output+Filters+(Output+Modifiers)" class="external-link" rel="nofollow">http://rtfm.modx.com/display/revolution20/Input+and+Output+Filters+(Output+Modifiers)</a>
+<a href="http://rtfm.modx.com/display/revolution20/Input+and+Output+Filters+(Output+Modifiers)">http://rtfm.modx.com/display/revolution20/Input+and+Output+Filters+(Output+Modifiers)</a>
 </li>
 
 <li>
-<a href="http://rtfm.modx.com/display/revolution20/Commonly+Used+Template+Tags" class="external-link" rel="nofollow">http://rtfm.modx.com/display/revolution20/Commonly+Used+Template+Tags</a>
+<a href="http://rtfm.modx.com/display/revolution20/Commonly+Used+Template+Tags">http://rtfm.modx.com/display/revolution20/Commonly+Used+Template+Tags</a>
 </li>
 </ul>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Resources">Resources</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Content+Types">Content Types</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="35094557" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678460" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FDate%2BFormats" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="33226843" /> <input type="hidden" name="ancestorId" value="18678456" /> <input type="hidden" name="ancestorId" value="18678050" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Named+Anchor">Named Anchor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Static+Resource">Static Resource</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Symlink">Symlink</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Using+Resource+Symlinks">Using Resource Symlinks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Weblink">Weblink</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Templates">Templates</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Chunks">Chunks</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Using+Snippets">Using Snippets</a>
+</li>
+</ol>
+
+<p>
+FYI for those running on Windows from the PHP site:
+</p>
+
+<p>
+Additionally, not all platforms support negative timestamps, so your date range may be limited to no earlier than the Unix epoch. This means that %e, %T, %R and, %D (and possibly others) - as well as dates prior to <em>Jan 1, 1970</em> - will not work on Windows, some Linux distributions, and a few other operating systems. For Windows systems, a complete overview of supported conversion specifiers can be found at <a href="http://msdn.microsoft.com/en-us/library/fe06s4ak.aspx">»&nbsp;MSDN</a>.
+</p>
+
+<p>
+So the first 3 common examples given do not work on Windows!
+</p>

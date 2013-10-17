@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDO.getCount-xPDO%3A%3AgetCount"></a>xPDO::getCount
+<h2 id="xPDO.getCount-xPDO::getCount">
+xPDO::getCount
 </h2>
 
 <p>
@@ -15,59 +11,44 @@ If you are specifying the select(), don't use getCount(), just run the query and
 </p>
 
 <p>
-<font color="#000000"><b>Syntax</b></font>
+<strong>Syntax</strong>
 </p>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#getCount" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/xPDO.html#getCount</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#getCount">http://api.modxcms.com/xpdo/xPDO.html#getCount</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-integer getCount (string $className, [mixed $criteria = <span class="code-keyword">null</span>])
+<pre class="brush: php">
+integer getCount (string $className, [mixed $criteria = null])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.getCount-Example" id="xPDO.getCount-Example"></a>Example
+<h2 id="xPDO.getCount-Example">
+Example
 </h2>
 
 <p>
 Get a count of all the Box objects with width 20.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $total = $xpdo-&gt;getCount('Box',array(
    'width' =&gt; 20,
 ));
 </pre>
-</div>
-</div>
-
 <p>
-Note that if you pass this function a query object for the second parameter, the <b>limit</b> criteria may be ignored.
+Note that if you pass this function a query object for the second parameter, the <strong>limit</strong> criteria may be ignored.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $modx-&gt;newQuery('States');
-$query-&gt;limit(10, 0);  <span class="code-comment">// &lt;-- probably you want to put <span class="code-keyword">this</span> line AFTER the getCount
-</span>
+$query-&gt;limit(10, 0);  // &lt;-- probably you want to put this line AFTER the getCount
+
 $total_states = $modx-&gt;getCount('States',$query);
 
-<span class="code-comment">// If you have 50 states, <span class="code-keyword">this</span> may print 50, not 10!  Be careful!
-</span>$modx-&gt;log(modX::LOG_LEVEL_ERROR, <span class="code-quote">"Total States: $total_states"</span>);
+// If you have 50 states, this may print 50, not 10!  Be careful!
+$modx-&gt;log(modX::LOG_LEVEL_ERROR, "Total States: $total_states");
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.getCount-SeeAlso" id="xPDO.getCount-SeeAlso"></a>See Also
+<h2 id="xPDO.getCount-SeeAlso">
+See Also
 </h2>
 
 <ul>

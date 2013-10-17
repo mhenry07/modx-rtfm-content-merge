@@ -1,77 +1,64 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Quip-WhatisQuip%3F'>What is Quip?</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Quip-WhatisQuip%3F">What is Quip?</a>
 <ul>
 <li>
-<a href='#Quip-Requirements'>Requirements</a>
+<a href="#Quip-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#Quip-History'>History</a>
+<a href="#Quip-History">History</a>
 </li>
 
 <li>
-<a href='#Quip-Download'>Download</a>
+<a href="#Quip-Download">Download</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Quip-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Quip-Usage">Usage</a>
 <ul>
 <li>
-<a href='#Quip-NonthreadedComments'>Non-threaded Comments</a>
+<a href="#Quip-NonthreadedComments">Non-threaded Comments</a>
 </li>
 
 <li>
-<a href='#Quip-ThreadedComments'>Threaded Comments</a>
+<a href="#Quip-ThreadedComments">Threaded Comments</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Quip-QuipSnippets'>Quip Snippets</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Quip-QuipSnippets">Quip Snippets</a>
 <ul>
 <li>
-<a href='#Quip-SystemSettings'>System Settings</a>
+<a href="#Quip-SystemSettings">System Settings</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Quip-Examples'>Examples</a>
+<a href="#Quip-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#Quip-SeeAlso'>See Also</a>
+<a href="#Quip-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Quip-WhatisQuip%3F"></a>What is Quip?
+<h2 id="Quip-WhatisQuip?">
+What is Quip?
 </h2>
 
 <p>
 Quip is a simple commenting <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> for MODx Revolution. It allows you to quickly and easily put up comments on your website, including threaded support, moderation, url to link conversion, automatic thread closing, and more. It also allows for full comment management via the backend system in the Revolution manager.
 </p>
 
-<h3>
-<a name="Quip-Requirements"></a>Requirements
+<h3 id="Quip-Requirements">
+Requirements
 </h3>
 
 <ul>
@@ -82,109 +69,80 @@ Quip is a simple commenting <a href="/display/revolution20/Snippets" title="Snip
 </li>
 </ul>
 
-<h3>
-<a name="Quip-History"></a>History
+<h3 id="Quip-History">
+History
 </h3>
 
 <p>
 Quip was written by <a href="/display/~splittingred" class="confluence-userlink" data-username="splittingred">Shaun McCormick</a> as a simple commenting component, and first released on May 7th, 2009.
 </p>
 
-<h3>
-<a name="Quip-Download"></a>Download
+<h3 id="Quip-Download">
+Download
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modx.com/extras/package/quip" class="external-link" rel="nofollow">http://modx.com/extras/package/quip</a>
+It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modx.com/extras/package/quip">http://modx.com/extras/package/quip</a>
 </p>
 
 <p>
-API Documentation for Quip can also be found here: <a href="http://api.modx.com/quip/" class="external-link" rel="nofollow">http://api.modx.com/quip/</a>
+API Documentation for Quip can also be found here: <a href="http://api.modx.com/quip/">http://api.modx.com/quip/</a>
 </p>
 
-<h2>
-<a name="Quip-Usage"></a>Usage
+<h2 id="Quip-Usage">
+Usage
 </h2>
 
 <p>
 Quip has 2 modes, threaded and non-threaded comments.
 </p>
 
-<h3>
-<a name="Quip-NonthreadedComments"></a>Non-threaded Comments
+<h3 id="Quip-NonthreadedComments">
+Non-threaded Comments
 </h3>
 
 <p>
 The Quip snippet can be called like so in the page you want comments to display:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Quip? &amp;thread=`threadNameHere` &amp;threading=`0`]]
 &lt;br /&gt;
 [[!QuipReply? &amp;thread=`threadNameHere`]]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="Quip-ThreadedComments"></a>Threaded Comments
+<h3 id="Quip-ThreadedComments">
+Threaded Comments
 </h3>
 
 <p>
 If you have threading turned on, you'll need to first do a couple things. One is to add a "Reply to Thread" page with these snippet calls:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;h2&gt;Reply to <span class="code-object">Thread</span>&lt;/h2&gt;
+<pre class="brush: php">
+&lt;h2&gt;Reply to Thread&lt;/h2&gt;
 [[!Quip]]
 &lt;br /&gt;
 [[!QuipReply]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You wont need to set any properties on this call, since it will pull from your original QuipReply call on your main thread page.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 And then you'll need to add the 'replyResourceId' property to your original Quip snippet call in your page where the comments will load (such as a blog post), so it will look like this with a Resource of ID 123:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Quip? &amp;thread=`threadNameHere` &amp;replyResourceId=`123`]]
 &lt;br /&gt;
 [[!QuipReply? &amp;thread=`threadNameHere`]]
 </pre>
-</div>
-</div>
-
 <p>
 Also, Quip provides users with an assistance snippet called <a href="/display/ADDON/Quip.QuipCount" title="Quip.QuipCount">QuipCount</a>, which can be used to find thread comment totals or user comment totals.
 </p>
 
-<h2>
-<a name="Quip-QuipSnippets"></a>Quip Snippets
+<h2 id="Quip-QuipSnippets">
+Quip Snippets
 </h2>
 
 <p>
@@ -209,169 +167,201 @@ Quip comes with 4 separate snippets:
 </li>
 </ul>
 
-<h3>
-<a name="Quip-SystemSettings"></a>System Settings
+<h3 id="Quip-SystemSettings">
+System Settings
 </h3>
 
 <p>
 Quip comes pre-packaged with some site-wide settings as well.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 quip.emailsFrom
 </td>
-<td class='confluenceTd'>
+<td>
 The email address to send system and moderation emails from.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 quip.emailsTo
 </td>
-<td class='confluenceTd'>
+<td>
 The email address to send system and moderation emails to.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 quip.emailsReplyTo
 </td>
-<td class='confluenceTd'>
+<td>
 The email address to set the reply-to to. Defaults to emailFrom.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 quip.allowedTags
 </td>
-<td class='confluenceTd'>
-The tags allowed by users in comment posting. See <a href="http://php.net/strip_tags" class="external-link" rel="nofollow">php.net/strip_tags</a> for a list of acceptable values.
+<td>
+The tags allowed by users in comment posting. See <a href="http://php.net/strip_tags">php.net/strip_tags</a> for a list of acceptable values.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 Also, there are 3 settings for reCaptcha support, in the recaptcha namespace:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 recaptcha.public_key
 </td>
-<td class='confluenceTd'>
+<td>
 Your public key for reCaptcha.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 recaptcha.private_key
 </td>
-<td class='confluenceTd'>
+<td>
 Your private key for reCaptcha.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 recaptcha.use_ssl
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will use SSL for reCaptcha connectivity.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Quip-Examples"></a>Examples
+<h2 id="Quip-Examples">
+Examples
 </h2>
 
 <p>
 A sample code line for a blog post that's on a Resource with no threading:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[Quip? &amp;thread=`blogpost[[*id]]` &amp;threading=`0`]]
 </pre>
-</div>
-</div>
-
 <p>
 Display comments for thread `post45`, but only allow logged-in users to comment, and have the "Reply to Thread" resource be ID 123:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Quip? &amp;thread=`post45` &amp;replyResourceId=`123`]]
 &lt;br /&gt;
 [[!QuipReply? &amp;thread=`post45` &amp;requireAuth=`1`]]
 </pre>
-</div>
-</div>
-
 <p>
 Display comments for thread `spamproof123`, with no threading, with reCaptcha support.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Quip? &amp;thread=`spamproof123` &amp;threaded=`0`]]
 &lt;br /&gt;
 [[!QuipReply? &amp;thread=`spamproof123` &amp;recaptcha=`1`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Quip-SeeAlso"></a>See Also
+<h2 id="Quip-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Quip.Quip">Quip.Quip</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComment">Quip.Quip.tplComment</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="11042879" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042879" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FQuip" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11042879" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Quip.Quip.tplCommentOptions">Quip.Quip.tplCommentOptions</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComments">Quip.Quip.tplComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplReport">Quip.Quip.tplReport</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipCount">Quip.QuipCount</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipLatestComments">Quip.QuipLatestComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply">Quip.QuipReply</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplAddComment">Quip.QuipReply.tplAddComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplLoginToComment">Quip.QuipReply.tplLoginToComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplPreview">Quip.QuipReply.tplPreview</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipRss">Quip.QuipRss</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Roadmap">Quip.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Upgrading">Quip.Upgrading</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Upgrading+to+1.0.1">Quip.Upgrading to 1.0.1</a>
+</li>
+</ol>
+</li>
+</ol>

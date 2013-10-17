@@ -1,78 +1,73 @@
 <div>
 <ul>
 <li>
-<a href='#tpl.PageBreaker.ajax-Description'>Description</a>
+<a href="#tpl.PageBreaker.ajax-Description">Description</a>
 </li>
 
 <li>
-<a href='#tpl.PageBreaker.ajax-Placeholders'>Placeholders</a>
+<a href="#tpl.PageBreaker.ajax-Placeholders">Placeholders</a>
 </li>
 
 <li>
-<a href='#tpl.PageBreaker.ajax-SeeAlso'>See Also</a>
+<a href="#tpl.PageBreaker.ajax-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="tpl.PageBreaker.ajax-Description" id="tpl.PageBreaker.ajax-Description"></a>Description
+<h2 id="tpl.PageBreaker.ajax-Description">
+Description
 </h2>
 
 <p>
-This chunk used only if you enable <b>pb_ajax</b> parameter of <a href="/display/ADDON/PageBreaker.PageBreaker" title="PageBreaker.PageBreaker">PageBreaker</a> plugin.
+This chunk used only if you enable <strong>pb_ajax</strong> parameter of <a href="/display/ADDON/PageBreaker.PageBreaker" title="PageBreaker.PageBreaker">PageBreaker</a> plugin.
 </p>
 
 <p>
-It is simply handle clicks on links with class <b>load_page</b> and sends ajax request to current page. After receiving response from plugin it changes old text block to new.
+It is simply handle clicks on links with class <strong>load_page</strong> and sends ajax request to current page. After receiving response from plugin it changes old text block to new.
 </p>
 
 <p>
 You need to specify id of element on webpage where content is.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;script type='text/javascript'&gt;
-  <span class="code-keyword">var</span> elem = '#content'; <span class="code-comment">// HTML element on webpage in which will be loaded <span class="code-keyword">new</span> block of text
-</span>
+  var elem = '#content'; // HTML element on webpage in which will be loaded new block of text
+
   $(document).ready(function() {
     $('.load_page').live('click', function() {
-      <span class="code-keyword">var</span> href = $(<span class="code-keyword">this</span>).attr('href');
+      var href = $(this).attr('href');
       $.post(href, {'action': 'PageBreakLoad'}, function(data) {
               $(elem).html(data);
       })
-      <span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+      return false;
     })
   })
 
 &lt;/script&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="tpl.PageBreaker.ajax-Placeholders" id="tpl.PageBreaker.ajax-Placeholders"></a>Placeholders
+<h2 id="tpl.PageBreaker.ajax-Placeholders">
+Placeholders
 </h2>
 
 <p>
 There is no unusual placeholders in this chunk.
 </p>
 
-<h2>
-<a name="tpl.PageBreaker.ajax-SeeAlso" id="tpl.PageBreaker.ajax-SeeAlso"></a>See Also
+<h2 id="tpl.PageBreaker.ajax-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/PageBreaker.PageBreaker">PageBreaker.PageBreaker</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="39355050" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="39355041" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2Ftpl.PageBreaker.ajax" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="39355041" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/tpl.PageBreaker.ajax">tpl.PageBreaker.ajax</a>
+</li>
+
+<li>
+<a href="/display/ADDON/tpl.PageBreaker.navigation">tpl.PageBreaker.navigation</a>
+</li>
+</ol>

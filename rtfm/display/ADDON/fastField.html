@@ -1,57 +1,57 @@
 <div>
 <ul>
 <li>
-<a href='#fastField-WhatisfastField%3F'>What is fastField?</a>
+<a href="#fastField-WhatisfastField%3F">What is fastField?</a>
 </li>
 
 <li>
-<a href='#fastField-History'>History</a>
+<a href="#fastField-History">History</a>
 </li>
 
 <li>
-<a href='#fastField-Download'>Download</a>
+<a href="#fastField-Download">Download</a>
 </li>
 
 <li>
-<a href='#fastField-Usage'>Usage</a>
+<a href="#fastField-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#fastField-Examples'>Examples</a>
+<a href="#fastField-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#fastField-Howitworks'>How it works</a>
+<a href="#fastField-Howitworks">How it works</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="fastField-WhatisfastField%3F"></a>What is fastField?
+<h2 id="fastField-WhatisfastField?">
+What is fastField?
 </h2>
 
 <p>
 fastField is a plugin which adds new type of tag [[#...]] . It can be used to display a single field, including template variables and properties, of a different resource for MODx Revolution 2.2+. It also can display the value of superglobal PHP variables $_POST, $_GET and others.
 </p>
 
-<h2>
-<a name="fastField-History" id="fastField-History"></a>History
+<h2 id="fastField-History">
+History
 </h2>
 
 <p>
-fastField was first released on November 29th, 2012 by <a href="http://modx.com/extras/author/argnist" class="external-link" rel="nofollow">argnist</a>.
+fastField was first released on November 29th, 2012 by <a href="http://modx.com/extras/author/argnist">argnist</a>.
 </p>
 
-<h2>
-<a name="fastField-Download" id="fastField-Download"></a>Download
+<h2 id="fastField-Download">
+Download
 </h2>
 
 <p>
-The plugin can be retrieved through the Package Manager, or downloaded manually from the <a href="http://modx.com/extras/package/fastfield" class="external-link" rel="nofollow">Repository</a>.
+The plugin can be retrieved through the Package Manager, or downloaded manually from the <a href="http://modx.com/extras/package/fastfield">Repository</a>.
 </p>
 
-<h2>
-<a name="fastField-Usage" id="fastField-Usage"></a>Usage
+<h2 id="fastField-Usage">
+Usage
 </h2>
 
 <p>
@@ -67,93 +67,63 @@ For usage with global arrays you must replace resource_id by array name, eg. "po
 </p>
 
 <p>
-In general, this plugin replaces <a href="http://rtfm.modx.com/display/ADDON/getResourceField" class="external-link" rel="nofollow">getResourceField</a> and <a href="http://modx.com/extras/package/getreqparam" class="external-link" rel="nofollow">getReqParam</a> snippets.
+In general, this plugin replaces <a href="http://rtfm.modx.com/display/ADDON/getResourceField">getResourceField</a> and <a href="http://modx.com/extras/package/getreqparam">getReqParam</a> snippets.
 </p>
 
-<h2>
-<a name="fastField-Examples" id="fastField-Examples"></a>Examples
+<h2 id="fastField-Examples">
+Examples
 </h2>
 
 <p>
 Return the pagetitle from the resource with id 123:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  [[#123.pagetitle]]
 </pre>
-</div>
-</div>
-
 <p>
 Return the introtext of a parent of a current resource and display description for empty one:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- [[#[[*parent]].introtext:<span class="code-keyword">default</span>=`[[#[[*parent]].description]]`]]
+<pre class="brush: php">
+ [[#[[*parent]].introtext:default=`[[#[[*parent]].description]]`]]
 </pre>
-</div>
-</div>
-
 <p>
-Return the content of the resources in rowTpl chunk while <a href="http://rtfm.modx.com/display/ADDON/Wayfinder" class="external-link" rel="nofollow">Wayfinder</a> usage:
+Return the content of the resources in rowTpl chunk while <a href="http://rtfm.modx.com/display/ADDON/Wayfinder">Wayfinder</a> usage:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  [[#[[+wf.docid]].content]]
 </pre>
-</div>
-</div>
-
 <p>
 Return TV image from the resource with id 10:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  [[#10.tv.image]]
 </pre>
-</div>
-</div>
-
 <p>
-Return property articlesPerPage from the resource with id 1 of custom resource type <a href="http://rtfm.modx.com/display/ADDON/Articles" class="external-link" rel="nofollow">Articles</a>
+Return property articlesPerPage from the resource with id 1 of custom resource type <a href="http://rtfm.modx.com/display/ADDON/Articles">Articles</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  [[#1.properties.articles.articlesPerPage]]
 </pre>
-</div>
-</div>
-
 <p>
 Return the value of $_POST['myVar']:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  [[!#post.myVar]]
 </pre>
-</div>
-</div>
-
 <p>
 Supported global arrays: $_GET, $_POST, $_REQUEST, $_SERVER, $_FILES, $_COOKIE, $_SESSION. The type of array after # is case-insensitive. The name of array element is case-sensitive. You should use uncached tag, eg. [[!#get.name]], for cached resources.
 <br />
-<b>CAUTION</b>: <b>It is dangerous to use raw global variables on the page. For example, use :stripTags output filter to prevent XSS-attacks (eg. [[!#get.name:stripTags]])!</b>
+<strong>CAUTION</strong>: <strong>It is dangerous to use raw global variables on the page. For example, use :stripTags output filter to prevent XSS-attacks (eg. [[!#get.name:stripTags]])!</strong>
 </p>
 
-<h2>
-<a name="fastField-Howitworks" id="fastField-Howitworks"></a>How it works
+<h2 id="fastField-Howitworks">
+How it works
 </h2>
 
 <p>

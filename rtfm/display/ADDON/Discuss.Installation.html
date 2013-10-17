@@ -1,69 +1,56 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Discuss.Installation-InstallingDiscuss'>Installing Discuss</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Discuss.Installation-InstallingDiscuss">Installing Discuss</a>
 <ul>
 <li>
-<a href='#Discuss.Installation-SettingupthenecessaryResources'>Setting up the necessary Resources</a>
+<a href="#Discuss.Installation-SettingupthenecessaryResources">Setting up the necessary Resources</a>
 </li>
 
 <li>
-<a href='#Discuss.Installation-SettingupFriendlyURLs%26Discussspecificrewriterules'>Setting up Friendly URLs &amp; Discuss specific rewrite rules</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Discuss.Installation-SettingupFriendlyURLs%26Discussspecificrewriterules">Setting up Friendly URLs &amp; Discuss specific rewrite rules</a>
 <ul>
 <li>
-<a href='#Discuss.Installation-For.htaccess%28Apache%2Cmodrewriteenabled%29'>For .htaccess (Apache, mod_rewrite enabled)</a>
+<a href="#Discuss.Installation-For.htaccess%28Apache%2Cmodrewriteenabled%29">For .htaccess (Apache, mod_rewrite enabled)</a>
 </li>
 
 <li>
-<a href='#Discuss.Installation-Fornginx'>For nginx</a>
+<a href="#Discuss.Installation-Fornginx">For nginx</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Discuss.Installation-ConfigureDiscusstomatchyourenvironment.'>Configure Discuss to match your environment.</a>
+<a href="#Discuss.Installation-ConfigureDiscusstomatchyourenvironment.">Configure Discuss to match your environment.</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Discuss.Installation-SettingupLogin%2CRegister%26UpdateProfilepageswithDiscuss'>Setting up Login, Register &amp; Update Profile pages with Discuss</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Discuss.Installation-SettingupLogin%2CRegister%26UpdateProfilepageswithDiscuss">Setting up Login, Register &amp; Update Profile pages with Discuss</a>
 <ul>
 <li>
-<a href='#Discuss.Installation-SettingUpLogin'>Setting Up Login</a>
+<a href="#Discuss.Installation-SettingUpLogin">Setting Up Login</a>
 </li>
 
 <li>
-<a href='#Discuss.Installation-SettingUpRegister'>Setting Up Register</a>
+<a href="#Discuss.Installation-SettingUpRegister">Setting Up Register</a>
 </li>
 
 <li>
-<a href='#Discuss.Installation-SettingUpUpdateProfile'>Setting Up UpdateProfile</a>
+<a href="#Discuss.Installation-SettingUpUpdateProfile">Setting Up UpdateProfile</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Discuss.Installation-SeeAlso'>See Also</a>
+<a href="#Discuss.Installation-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Discuss.Installation-InstallingDiscuss" id="Discuss.Installation-InstallingDiscuss"></a>Installing Discuss
+<h2 id="Discuss.Installation-InstallingDiscuss">
+Installing Discuss
 </h2>
 
 <p>
@@ -101,8 +88,8 @@ Once you installed Discuss using the Package Manager, there are a few steps and 
 We will go through all of these steps below.
 </p>
 
-<h3>
-<a name="Discuss.Installation-SettingupthenecessaryResources" id="Discuss.Installation-SettingupthenecessaryResources"></a>Setting up the necessary Resources
+<h3 id="Discuss.Installation-SettingupthenecessaryResources">
+Setting up the necessary Resources
 </h3>
 
 <p>
@@ -142,15 +129,10 @@ While Discuss includes login and sign up functionality (using the Login package)
 You can build these as you normally would (<a href="/display/ADDON/Login" title="Login">see the Login documentation</a> for more information on them) and there are no requirements on how they look or are build. There is one important thing to include in your login, register and update profile pages, which is pre and posthooks specific to Discuss:&nbsp;
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  &amp;preHooks=`preHook.DiscussLogin`
    &amp;postHooks=`postHook.DiscussLogin`
 </pre>
-</div>
-</div>
-
 <p>
 So be sure to add those to your snippet calls.&nbsp;
 </p>
@@ -159,8 +141,8 @@ So be sure to add those to your snippet calls.&nbsp;
 Further down on this page there are more instructions on setting up your Login and Update Profile resources.
 </p>
 
-<h3>
-<a name="Discuss.Installation-SettingupFriendlyURLs%26Discussspecificrewriterules"></a>Setting up Friendly URLs &amp; Discuss specific rewrite rules
+<h3 id="Discuss.Installation-SettingupFriendlyURLs&amp;Discussspecificrewriterules">
+Setting up Friendly URLs &amp; Discuss specific rewrite rules
 </h3>
 
 <p>
@@ -171,22 +153,20 @@ Discuss only works with friendly URLs right now, so to start, make sure to enabl
 After Friendly URLs are set up, you will need to add some specific rewrite rules for Discuss to make it working. Below you will find code snippets you can copy/paste for use in .htaccess files on apache, as well as a config blurb for nginx.
 </p>
 
-<h4>
-<a name="Discuss.Installation-For.htaccess%28Apache%2Cmodrewriteenabled%29"></a>For .htaccess (Apache, mod_rewrite enabled)
+<h4 id="Discuss.Installation-For.htaccess(Apache,modrewriteenabled)">
+For .htaccess (Apache, mod_rewrite enabled)
 </h4>
 
 <p>
-<b>Rewrite rules are not necessary since 1.2.1 (relased on 23rd of July 2013)</b>
+<strong>Rewrite rules are not necessary since 1.2.1 (relased on 23rd of July 2013)</strong>
 </p>
 
 <p>
 Make sure to add this BEFORE the regular MODX rewrite rules in your .htaccess but AFTER the RewriteBase. If you have used a different alias than "forums" in your Discuss resource, or the forums are in the root of the site, make sure to replace all occurences of "forums" below accordingly.&nbsp;
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-# If imported from SMF, you can include the following lines to make sure existing urls don't <span class="code-keyword">break</span>.
+<pre class="brush: php">
+# If imported from SMF, you can include the following lines to make sure existing urls don't break.
 RewriteRule ^forums/index.php/topic,(.*).msg(.*).html$ forums/?action=thread&amp;thread=$1&amp;i=1
 RewriteRule ^forums/index.php/topic,(.*).(.*).html$ forums/?action=thread&amp;thread=$1&amp;i=1&amp;start=$2
 RewriteRule ^forums/\?topic=(.+).(.+)$ forums/?action=thread&amp;thread=$1&amp;i=1
@@ -202,24 +182,19 @@ RewriteRule ^forums/category/([0-9]+)/(.*)$ forums/?category=$1 [L,QSA]
 RewriteRule ^forums/(.+)$ forums/?action=$1 [L,QSA]
 RewriteRule ^forums/(.+)/$ forums/?action=$1 [L,QSA]
 </pre>
-</div>
-</div>
-
 <p>
 Remember, change "forums" if your alias is different.&nbsp;
 </p>
 
-<h4>
-<a name="Discuss.Installation-Fornginx" id="Discuss.Installation-Fornginx"></a>For nginx
+<h4 id="Discuss.Installation-Fornginx">
+For nginx
 </h4>
 
 <p>
 Suggested set of rules (called before your main rewrite for MODX):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
   rewrite ^/forums/thread/([0-9]+)/(.*)$ /index.php?q=forums/&amp;action=thread&amp;thread=$1 last;
   rewrite ^/forums/u/(.+)$ /index.php?q=forums/&amp;action=user&amp;user=$1 last;
   rewrite ^/forums/board/([0-9]+)/(.*)$ /index.php?q=forums/&amp;action=board&amp;board=$1 last;
@@ -227,22 +202,17 @@ Suggested set of rules (called before your main rewrite for MODX):
   rewrite ^/forums/(.+)$ /index.php?q=forums/&amp;action=$1 last;
   rewrite ^/forums/(.+)/$ /index.php?q=forums/&amp;action=$1 last;
 </pre>
-</div>
-</div>
-
 <p>
 Here's another more extensive set of rules that also rewrites SMF rules to the proper Discuss ones.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  # SMF rules
 rewrite ^/forums/index.php/topic,(.*).msg(.*).html$ /forums/?action=thread&amp;thread=$1&amp;i=1 last;
 rewrite ^/forums/index.php/topic,(.*).(.*).html$ /forums/?action=thread&amp;thread=$1&amp;i=1&amp;start=$2 last;
 
 rewrite ^/forums/index.php\?topic=(.*).(.*)$ /forums/?action=thread&amp;thread=$1&amp;i=1 last;
-<span class="code-keyword">if</span> ($args ~* topic=(.*).(.*)){
+if ($args ~* topic=(.*).(.*)){
   set $args action=thread&amp;thread=$1&amp;i=1;
 }
 rewrite ^/forums/\?topic=(.*).(.*)$ /forums/?action=thread&amp;thread=$1&amp;i=1 last;
@@ -258,20 +228,17 @@ rewrite ^/forums/board\.xml/([0-9]+)/(.*)$ /forums/?action=board.xml&amp;board=$
 rewrite ^/forums/category/([0-9]+)/(.*)$ /forums/?category=$1 last;
 
 rewrite ^/forums/index.php?action=unread$ /forums/thread/unread last;
-<span class="code-keyword">if</span> ($args ~* action=unread){
+if ($args ~* action=unread){
   set $args action=thread/unread;
 }
 
 # Discuss main FURL
-<span class="code-keyword">if</span> (!-e $request_filename){
+if (!-e $request_filename){
   rewrite ^/forums/(.*)$ /forums/?action=$1 last;
 }
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="Discuss.Installation-ConfigureDiscusstomatchyourenvironment." id="Discuss.Installation-ConfigureDiscusstomatchyourenvironment."></a>Configure Discuss to match your environment.
+<h3 id="Discuss.Installation-ConfigureDiscusstomatchyourenvironment.">
+Configure Discuss to match your environment.
 </h3>
 
 <p>
@@ -280,22 +247,22 @@ Now that friendly urls are working, we're ready to configure Discuss. As most of
 
 <ul>
 <li>
-<b>discuss.forums_resource_id</b>&nbsp;- Point this to the ID of the Resource your Discuss forum resides in.
+<strong>discuss.forums_resource_id</strong>&nbsp;- Point this to the ID of the Resource your Discuss forum resides in.
 </li>
 
 <li>
-<b>discuss.login_resource_id</b>&nbsp;- Point this to the ID of the Resource your&nbsp;<a href="/display/ADDON/Login" title="Login">Login</a>&nbsp;call resides in.
+<strong>discuss.login_resource_id</strong>&nbsp;- Point this to the ID of the Resource your&nbsp;<a href="/display/ADDON/Login" title="Login">Login</a>&nbsp;call resides in.
 </li>
 
 <li>
-<b>discuss.register_resource_id</b>&nbsp;- Point this to the ID of the Resource your&nbsp;<a href="/display/ADDON/Login.Register" title="Login.Register">Register</a>&nbsp;call resides in.
+<strong>discuss.register_resource_id</strong>&nbsp;- Point this to the ID of the Resource your&nbsp;<a href="/display/ADDON/Login.Register" title="Login.Register">Register</a>&nbsp;call resides in.
 </li>
 
 <li>
-<b>discuss.update_profile_resource_id</b>&nbsp;- Point this to the ID of the Resource your&nbsp;<a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a>&nbsp;call resides in.
+<strong>discuss.update_profile_resource_id</strong>&nbsp;- Point this to the ID of the Resource your&nbsp;<a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a>&nbsp;call resides in.
 </li>
 
-<li>Set <b>discuss.sso_mode</b>&nbsp;to yes. This will make Discuss let your own login, register and update_profile pages instead of the ones built in.&nbsp;
+<li>Set <strong>discuss.sso_mode</strong>&nbsp;to yes. This will make Discuss let your own login, register and update_profile pages instead of the ones built in.&nbsp;
 </li>
 </ul>
 
@@ -304,70 +271,60 @@ Some other nice configuration options to change or to keep in mind:
 </p>
 
 <ul>
-<li>When you are going to build a custom theme, enable the <b>discuss.debug_templates</b> setting to automatically add HTML comments on what chunks are being used to build the output.
+<li>When you are going to build a custom theme, enable the <strong>discuss.debug_templates</strong> setting to automatically add HTML comments on what chunks are being used to build the output.
 </li>
 
-<li>The <b>discuss.theme</b> setting is used to load the proper templates and assets. For now, default should do, but change this when you want to use a different theme. Just give it the name of the theme dir in the "themes" directory of Discuss.
+<li>The <strong>discuss.theme</strong> setting is used to load the proper templates and assets. For now, default should do, but change this when you want to use a different theme. Just give it the name of the theme dir in the "themes" directory of Discuss.
 </li>
 
-<li>Set <b>discuss.forum_title</b> to the name of your forum.
+<li>Set <strong>discuss.forum_title</strong> to the name of your forum.
 </li>
 
-<li>By default (if the theme uses it, that is) Discuss uses a simple text search engine, but you can enable Solr search by setting <b>discuss.search_class</b>&nbsp;to disSolrSearch and filling out the relevant solr setting.&nbsp;
+<li>By default (if the theme uses it, that is) Discuss uses a simple text search engine, but you can enable Solr search by setting <strong>discuss.search_class</strong>&nbsp;to disSolrSearch and filling out the relevant solr setting.&nbsp;
 </li>
 </ul>
 
-<h2>
-<a name="Discuss.Installation-SettingupLogin%2CRegister%26UpdateProfilepageswithDiscuss"></a>Setting up Login, Register &amp; Update Profile pages with Discuss
+<h2 id="Discuss.Installation-SettingupLogin,Register&amp;UpdateProfilepageswithDiscuss">
+Setting up Login, Register &amp; Update Profile pages with Discuss
 </h2>
 
 <p>
 While this bit of installation is technically not a part of Discuss, here's some instructions on setting up your login, register and update profile pages when using SSO mode.
 </p>
 
-<h3>
-<a name="Discuss.Installation-SettingUpLogin" id="Discuss.Installation-SettingUpLogin"></a>Setting Up Login
+<h3 id="Discuss.Installation-SettingUpLogin">
+Setting Up Login
 </h3>
 
 <p>
 Make sure in your <a href="/display/ADDON/Login" title="Login">Login</a> call that you specify the following as pre and post hooks:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
    &amp;preHooks=`preHook.DiscussLogin`
    &amp;postHooks=`postHook.DiscussLogin`
 </pre>
-</div>
-</div>
-
 <p>
 This will allow Discuss to add extra functionality to your Login methods.
 </p>
 
-<h3>
-<a name="Discuss.Installation-SettingUpRegister" id="Discuss.Installation-SettingUpRegister"></a>Setting Up Register
+<h3 id="Discuss.Installation-SettingUpRegister">
+Setting Up Register
 </h3>
 
 <p>
 Make sure you add the members to the "Forum Members" User Group, so that they will have forum access. This can be done via:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &amp;usergroups=`Forum Members:Member`
 </pre>
-</div>
-</div>
-
 <p>
 In your <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> call.
 </p>
 
-<h3>
-<a name="Discuss.Installation-SettingUpUpdateProfile" id="Discuss.Installation-SettingUpUpdateProfile"></a>Setting Up UpdateProfile
+<h3 id="Discuss.Installation-SettingUpUpdateProfile">
+Setting Up UpdateProfile
 </h3>
 
 <p>
@@ -378,72 +335,128 @@ A few things need to happen with UpdateProfile.
 One, make sure you add the following post-hook to your UpdateProfile call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
    &amp;postHooks=`postHook.DiscussUpdateProfile`
 </pre>
-</div>
-</div>
-
 <p>
-Then, <b>after</b> the UpdateProfile call, place this snippet call:
+Then, <strong>after</strong> the UpdateProfile call, place this snippet call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!DiscussUpdateProfileLoader]]
 </pre>
-</div>
-</div>
-
 <p>
 Finally, there are some extra form fields you can add to allow users to modify their Discuss profile:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;label <span class="code-keyword">for</span>=<span class="code-quote">"signature"</span>&gt;Signature &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+up.error.signature:stripTags=`p,b,strong,i,a,ul,li`]]&lt;/span&gt;&lt;/label&gt;
-&lt;textarea name=<span class="code-quote">"signature:allowTags"</span> id=<span class="code-quote">"signature"</span>&gt;[[!+up.signature]]&lt;/textarea&gt;
+<pre class="brush: php">
+&lt;label for="signature"&gt;Signature &lt;span class="error"&gt;[[!+up.error.signature:stripTags=`p,b,strong,i,a,ul,li`]]&lt;/span&gt;&lt;/label&gt;
+&lt;textarea name="signature:allowTags" id="signature"&gt;[[!+up.signature]]&lt;/textarea&gt;
 
-&lt;label <span class="code-keyword">for</span>=<span class="code-quote">"use_display_name"</span>&gt;Use Display Name in Forums &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+up.error.use_display_name]]&lt;/span&gt;&lt;/label&gt;
-&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"use_display_name"</span> id=<span class="code-quote">"use_display_name_hidden"</span> value=<span class="code-quote">"0"</span> /&gt;
-&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"use_display_name"</span> id=<span class="code-quote">"use_display_name"</span> value=<span class="code-quote">"1"</span> [[!+up.use_display_name:FormItIsChecked=`1`]] /&gt;
+&lt;label for="use_display_name"&gt;Use Display Name in Forums &lt;span class="error"&gt;[[!+up.error.use_display_name]]&lt;/span&gt;&lt;/label&gt;
+&lt;input type="hidden" name="use_display_name" id="use_display_name_hidden" value="0" /&gt;
+&lt;input type="checkbox" name="use_display_name" id="use_display_name" value="1" [[!+up.use_display_name:FormItIsChecked=`1`]] /&gt;
 
-&lt;label <span class="code-keyword">for</span>=<span class="code-quote">"display_name"</span>&gt;Display Name &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+up.error.display_name]]&lt;/span&gt;&lt;/label&gt;
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"display_name"</span> id=<span class="code-quote">"display_name"</span> value=<span class="code-quote">"[[+up.display_name]]"</span> /&gt;
+&lt;label for="display_name"&gt;Display Name &lt;span class="error"&gt;[[!+up.error.display_name]]&lt;/span&gt;&lt;/label&gt;
+&lt;input type="text" name="display_name" id="display_name" value="[[+up.display_name]]" /&gt;
 
-&lt;label <span class="code-keyword">for</span>=<span class="code-quote">"show_online"</span>&gt;Show Online Status &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+up.error.show_online]]&lt;/span&gt; &lt;/label&gt;
-&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"show_online"</span> id=<span class="code-quote">"show_online_hidden"</span> value=<span class="code-quote">"0"</span> /&gt;
-&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"show_online"</span> id=<span class="code-quote">"show_online"</span> value=<span class="code-quote">"1"</span> [[!+up.show_online:FormItIsChecked=`1`]] /&gt;
+&lt;label for="show_online"&gt;Show Online Status &lt;span class="error"&gt;[[!+up.error.show_online]]&lt;/span&gt; &lt;/label&gt;
+&lt;input type="hidden" name="show_online" id="show_online_hidden" value="0" /&gt;
+&lt;input type="checkbox" name="show_online" id="show_online" value="1" [[!+up.show_online:FormItIsChecked=`1`]] /&gt;
 
-&lt;label <span class="code-keyword">for</span>=<span class="code-quote">"show_email"</span>&gt;Show Email in Forums &lt;span class=<span class="code-quote">"error"</span>&gt;[[!+up.error.show_email]]&lt;/span&gt;&lt;/label&gt;
-&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"show_email"</span> id=<span class="code-quote">"show_email_hidden"</span> value=<span class="code-quote">"0"</span> /&gt;
-&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"show_email"</span> id=<span class="code-quote">"show_email"</span> value=<span class="code-quote">"1"</span> [[!+up.show_email:FormItIsChecked=`1`]] /&gt;
+&lt;label for="show_email"&gt;Show Email in Forums &lt;span class="error"&gt;[[!+up.error.show_email]]&lt;/span&gt;&lt;/label&gt;
+&lt;input type="hidden" name="show_email" id="show_email_hidden" value="0" /&gt;
+&lt;input type="checkbox" name="show_email" id="show_email" value="1" [[!+up.show_email:FormItIsChecked=`1`]] /&gt;
 </pre>
-</div>
-</div>
-
 <p>
 The prior fields will allow your users to toggle those values in their profile.
 </p>
 
-<h2>
-<a name="Discuss.Installation-SeeAlso" id="Discuss.Installation-SeeAlso"></a>See Also
+<h2 id="Discuss.Installation-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Discuss.Installation">Discuss.Installation</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Discuss.Installation+from+Git">Discuss.Installation from Git</a>
+</li>
+</ol>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="13205726" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="13205713" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FDiscuss.Installation" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="13205713" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Discuss.Getting+Started">Discuss.Getting Started</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Creating+a+Discuss+Theme">Discuss.Creating a Discuss Theme</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Controllers">Discuss.Controllers</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Discuss.Controllers.board">Discuss.Controllers.board</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Discuss.Controllers.board.xml">Discuss.Controllers.board.xml</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Controllers.home">Discuss.Controllers.home</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Controllers.login">Discuss.Controllers.login</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Controllers.logout">Discuss.Controllers.logout</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Controllers.profile">Discuss.Controllers.profile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Controllers.register">Discuss.Controllers.register</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Controllers.search">Discuss.Controllers.search</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Controllers.thread">Discuss.Controllers.thread</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Database+Model">Discuss.Database Model</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Contributing">Discuss.Contributing</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.ChunkMap">Discuss.ChunkMap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Features">Discuss.Features</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Discuss.Roadmap">Discuss.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Configuring+Sphinx+for+Search">Configuring Sphinx for Search</a>
+</li>
+</ol>

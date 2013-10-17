@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -25,12 +25,12 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMSInstallation-InstallingandUpdatingYAMS"></a>Installing and Updating YAMS
+<h1 id="YAMSInstallation-InstallingandUpdatingYAMS">
+Installing and Updating YAMS
 </h1>
 
-<h2>
-<a name="YAMSInstallation-Prerequisites"></a>Pre-requisites
+<h2 id="YAMSInstallation-Prerequisites">
+Pre-requisites
 </h2>
 
 <p>
@@ -41,8 +41,8 @@ YAMS has been developed on MODx v0.9.6.3 and with PHP &gt;= 5.2.6-3. It will not
 ManagerManager is not required for YAMS to function, but is recommended. YAMS can use ManagerManager to hide redundant document variables and to obtain a tabbed layout in the document view with one tab per language.
 </p>
 
-<h2>
-<a name="YAMSInstallation-Upgrade%2FUpdateInstructions"></a>Upgrade/Update Instructions
+<h2 id="YAMSInstallation-Upgrade/UpdateInstructions">
+Upgrade/Update Instructions
 </h2>
 
 <p>
@@ -72,8 +72,8 @@ To upgrade/update from a previous version do the following:
 </li>
 </ol>
 
-<h2>
-<a name="YAMSInstallation-InstallationInstructions"></a>Installation Instructions
+<h2 id="YAMSInstallation-InstallationInstructions">
+Installation Instructions
 </h2>
 
 <ol>
@@ -91,56 +91,46 @@ interface.
 
 <li>Within MODx under Elements &gt; Manage Elements &gt; Plugins create a new plugin:
 <br />
-<b>Plugin name:</b> YAMS
+<strong>Plugin name:</strong> YAMS
 <br />
-<b>Description:</b> Yet Another Multilingual Solution Plugin
+<strong>Description:</strong> Yet Another Multilingual Solution Plugin
 <br />
-<b>Plugin code:</b>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<strong>Plugin code:</strong>
+
+<pre class="brush: php">
 require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.plugin.inc.php');
 </pre>
-</div>
-</div>
-
 <p>
-<b>System Events:</b> Please refer to the readme.txt in the YAMS download.
+<strong>System Events:</strong> Please refer to the readme.txt in the YAMS download.
 </p>
 </li>
 
 <li>Within MODx under Elements &gt; Manage Elements &gt; Snippets create a new snippet:
 <br />
-<b>Snippet name:</b> YAMS
+<strong>Snippet name:</strong> YAMS
 <br />
-<b>Description:</b> Gets multi-language content.
+<strong>Description:</strong> Gets multi-language content.
 <br />
-<b>Snippet code:</b>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// The following line needs to be placed between the opening and closing php
-</span><span class="code-comment">// markers
-</span>require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.snippet.inc.php' );
+<strong>Snippet code:</strong>
+
+<pre class="brush: php">
+// The following line needs to be placed between the opening and closing php
+// markers
+require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.snippet.inc.php' );
 </pre>
-</div>
-</div>
 </li>
 
 <li>Within MODx under Modules&gt;Manage Modules create a new module:
 <br />
-<b>Module name:</b> YAMS
+<strong>Module name:</strong> YAMS
 <br />
-<b>Description:</b> Yet Another Multilingual Solution
+<strong>Description:</strong> Yet Another Multilingual Solution
 <br />
-<b>Module code:</b>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<strong>Module code:</strong>
+
+<pre class="brush: php">
 require_once( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.module.inc.php' );
 </pre>
-</div>
-</div>
 </li>
 
 <li>Reload the page to update the manager view. If you want to use ManagerManager
@@ -152,8 +142,8 @@ to obtain a tabbed document interface then follow <a href="#YAMSInstallation-Man
 </li>
 </ol>
 
-<h2>
-<a name="YAMSInstallation-ManagerManagerSetup"></a><a name="YAMSInstallation-ManagerManagerSetup"></a>ManagerManager Setup
+<h2 id="YAMSInstallation-ManagerManagerSetup">
+<a name="YAMSInstallation-ManagerManagerSetup"></a>ManagerManager Setup
 </h2>
 
 <p>
@@ -163,57 +153,44 @@ do the following:
 </p>
 
 <ol>
-<li>Check that the ManagerManager plugin is installed under Elements &gt; Manage Elements &gt; Plugins. If not, it can be obtained from the <a href="http://modxcms.com/extras/package/?package=255" class="external-link" rel="nofollow">MODx repository</a>. The latest version is generally recommended, but please keep an eye on the forums for reports of any problems.
+<li>Check that the ManagerManager plugin is installed under Elements &gt; Manage Elements &gt; Plugins. If not, it can be obtained from the <a href="http://modxcms.com/extras/package/?package=255">MODx repository</a>. The latest version is generally recommended, but please keep an eye on the forums for reports of any problems.
 </li>
 
 <li>Modify the ManagerManager plugin configuration so that it knows to find custom ManagerManager rules in a chunk called mm_rules. In newer versions this can be set using the configuration tab. In older versions this is done by including the line
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 $config_chunk = 'mm_rules';
 </pre>
-</div>
-</div>
-
 <p>
 in the plugin code.
 </p>
 </li>
 
 <li>Under Elements &gt; Manage Elements &gt; Chunks, create a chunk called mm_rules and add the following line:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.mm_rules.inc.php' );
 </pre>
-</div>
-</div>
-
 <p>
 If you are already using custom ManagerManager rules, then it is advisable to place the YAMS require line at the end of the rules.
 </p>
 </li>
 </ol>
 
-<h2>
-<a name="YAMSInstallation-PHxSetup"></a>PHx Setup
+<h2 id="YAMSInstallation-PHxSetup">
+PHx Setup
 </h2>
 
 <p>
 If using the PHx snippet then please note the following. For some reason, a file specified using include_once gets reincluded and this causes the PHxParser class to be redefined, which generates a PHP parse error. This can avoided by modifying the PHx snippet to wrap the include in some code that will only include the file if the class has not yet been defined:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> ( ! class_exists( 'PHxParser' ) )
+<pre class="brush: php">
+if ( ! class_exists( 'PHxParser' ) )
 {
- include_once $modx-&gt;config['rb_base_dir'] . <span class="code-quote">"plugins/phx/phx.parser.class.inc.php"</span>;
+ include_once $modx-&gt;config['rb_base_dir'] . "plugins/phx/phx.parser.class.inc.php";
 }
 </pre>
-</div>
-</div>
-
 <p>
 Also, please remember that the Plugin Execution Order must be edited to place YAMS in first place - that is before PHx - on all associated events.
 </p>

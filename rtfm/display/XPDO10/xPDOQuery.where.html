@@ -1,73 +1,52 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDOQuery.where-xPDOQuery%3A%3Awhere"></a>xPDOQuery::where
+<h2 id="xPDOQuery.where-xPDOQuery::where">
+xPDOQuery::where
 </h2>
 
 <p>
 Add a WHERE condition to the query.
 </p>
 
-<h2>
-<a name="xPDOQuery.where-Syntax" id="xPDOQuery.where-Syntax"></a>Syntax
+<h2 id="xPDOQuery.where-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#where" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOQuery.html#where</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#where">http://api.modxcms.com/xpdo/om/xPDOQuery.html#where</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOQuery where ([mixed $conditions = ''], [string $conjunction = XPDO_SQL_AND], [mixed $binding = <span class="code-keyword">null</span>], [integer $condGroup = 0])
+<pre class="brush: php">
+xPDOQuery where ([mixed $conditions = ''], [string $conjunction = XPDO_SQL_AND], [mixed $binding = null], [integer $condGroup = 0])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.where-Examples" id="xPDOQuery.where-Examples"></a>Examples
+<h2 id="xPDOQuery.where-Examples">
+Examples
 </h2>
 
 <p>
 Get all Boxes with width of 15.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array(
    'width' =&gt; 15,
 ));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
 <p>
 Get all boxes with a width of 15 or 10.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array('width' =&gt; 15));
-$query-&gt;where(array('width' =&gt; 10),XPDO_SQL_OR); <span class="code-comment">// you can use orCondition here as well
-</span>$boxes = $xpdo-&gt;getCollection('Box',$query);
+$query-&gt;where(array('width' =&gt; 10),XPDO_SQL_OR); // you can use orCondition here as well
+$boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
 <p>
 Grab all boxes with a width greater than or equal to 15, but not with a width of 23.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array(
    'width:&gt;=' =&gt; 15,
@@ -75,27 +54,19 @@ $query-&gt;where(array(
 ));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
 <p>
 Get all boxes with a name with the letter 'q' in it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array(
    'name:LIKE' =&gt; '%q%',
 ));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.where-SeeAlso" id="xPDOQuery.where-SeeAlso"></a>See Also
+<h2 id="xPDOQuery.where-SeeAlso">
+See Also
 </h2>
 
 <ul>

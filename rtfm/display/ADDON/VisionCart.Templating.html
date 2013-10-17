@@ -4,62 +4,52 @@ For VisionCart to work properly you will need a template and some resources, wit
 In this example we're going through 1 possible way of achieving this. You can also use the template you have configured for your current website.
 </p>
 
-<h2>
-<a name="VisionCart.Templating-Creatingatemplate" id="VisionCart.Templating-Creatingatemplate"></a>Creating a template
+<h2 id="VisionCart.Templating-Creatingatemplate">
+Creating a template
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;html&gt;</span>
-<span class="code-tag">&lt;head&gt;</span>
-<span class="code-tag">&lt;title&gt;</span>[[++site_name]] ([[+vc.shop.name]] :: [[+vc.product.name:default=`[[+vc.category.name]]`]])<span class="code-tag">&lt;/title&gt;</span>
-<span class="code-tag">&lt;base href=<span class="code-quote">"[[++site_url]]"</span> /&gt;</span>
-<span class="code-tag">&lt;link rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"assets/components/visioncart/web/css/style.css"</span> /&gt;</span>
+<pre class="brush: html">
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;[[++site_name]] ([[+vc.shop.name]] :: [[+vc.product.name:default=`[[+vc.category.name]]`]])&lt;/title&gt;
+&lt;base href="[[++site_url]]" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="assets/components/visioncart/web/css/style.css" /&gt;
 
-<span class="code-tag">&lt;/head&gt;</span>
-<span class="code-tag">&lt;body&gt;</span>
-<span class="code-tag">&lt;table width=<span class="code-quote">"100%"</span> cellpadding=<span class="code-quote">"0"</span> cellspacing=<span class="code-quote">"0"</span> border=<span class="code-quote">"0"</span>&gt;</span>
-    <span class="code-tag">&lt;tr&gt;</span>
-        <span class="code-tag">&lt;td colspan=<span class="code-quote">"2"</span>&gt;</span><span class="code-tag">&lt;h1&gt;</span>[[+vc.shop.name]] <span class="code-tag">&lt;span&gt;</span>[[+vc.category.name]] <span class="code-tag">&lt;span&gt;</span>[[+vc.product.name]]<span class="code-tag">&lt;/span&gt;</span><span class="code-tag">&lt;/span&gt;</span><span class="code-tag">&lt;/h1&gt;</span><span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span><span class="code-tag">&lt;div id=<span class="code-quote">"visioncart-shoppingcart"</span>&gt;</span><span class="code-tag">&lt;/div&gt;</span><span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>
-    <span class="code-tag">&lt;tr&gt;</span>
-        <span class="code-tag">&lt;td width=<span class="code-quote">"300"</span>&gt;</span>[[!vcWayfinder]]<span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>[[*content]]<span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td width=<span class="code-quote">"200"</span>&gt;</span>[[!Login?]]<span class="code-tag">&lt;hr /&gt;</span>[[!vcGetBasket]]<span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>
-<span class="code-tag">&lt;/table&gt;</span>
-<span class="code-tag">&lt;/body&gt;</span>
-<span class="code-tag">&lt;/html&gt;</span>
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table width="100%" cellpadding="0" cellspacing="0" border="0"&gt;
+    &lt;tr&gt;
+        &lt;td colspan="2"&gt;&lt;h1&gt;[[+vc.shop.name]] &lt;span&gt;[[+vc.category.name]] &lt;span&gt;[[+vc.product.name]]&lt;/span&gt;&lt;/span&gt;&lt;/h1&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;div id="visioncart-shoppingcart"&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td width="300"&gt;[[!vcWayfinder]]&lt;/td&gt;
+        &lt;td&gt;[[*content]]&lt;/td&gt;
+        &lt;td width="200"&gt;[[!Login?]]&lt;hr /&gt;[[!vcGetBasket]]&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="VisionCart.Templating-Creatingtheresources" id="VisionCart.Templating-Creatingtheresources"></a>Creating the resources
+<h2 id="VisionCart.Templating-Creatingtheresources">
+Creating the resources
 </h2>
 
 <p>
 VisionCart needs 6 resources,
 </p>
 
-<h3>
-<a name="VisionCart.Templating-Webshop" id="VisionCart.Templating-Webshop"></a>Webshop
+<h3 id="VisionCart.Templating-Webshop">
+Webshop
 </h3>
 
 <p>
 Create a resource that has the name of the webshop or just 'webshop' and place this in the content field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!vcGetCategories?parents=`0`]]
 </pre>
-</div>
-</div>
-
 <p>
 And set the template to the Template we just made and set it as folder.
 <br />
@@ -67,40 +57,33 @@ This will be the root of your web-shop
 </p>
 
 <p>
-<b>In that resource create the following 5 resources:</b>
+<strong>In that resource create the following 5 resources:</strong>
 </p>
 
-<h3>
-<a name="VisionCart.Templating-Product" id="VisionCart.Templating-Product"></a>Product
+<h3 id="VisionCart.Templating-Product">
+Product
 </h3>
 
 <p>
 Create a resource called 'Product' and place this in the content field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!vcGetProduct]]
 </pre>
-</div>
-</div>
-
 <p>
 And set the template to the Template we just made and hide in menu.
 </p>
 
-<h3>
-<a name="VisionCart.Templating-Category" id="VisionCart.Templating-Category"></a>Category
+<h3 id="VisionCart.Templating-Category">
+Category
 </h3>
 
 <p>
 Create a resource called 'Category' and place this in the content field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!vcGetCategory?id=`[[+vc.category.id]]`&amp;shopId=`[[+vc.shop.id]]`]]
 
 &lt;table&gt;
@@ -109,76 +92,58 @@ Create a resource called 'Category' and place this in the content field:
 
 [[!vcGetProductList?id=`[[+vc.category.id]]`&amp;shopId=`[[+vc.shop.id]]`&amp;sortBy=`Product.name`]]
 </pre>
-</div>
-</div>
-
 <p>
 And set the template to the Template we just made and hide in menu.
 </p>
 
-<h3>
-<a name="VisionCart.Templating-Order" id="VisionCart.Templating-Order"></a>Order
+<h3 id="VisionCart.Templating-Order">
+Order
 </h3>
 
 <p>
 Create a resource called Order and place this in the content field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!vcOrderProcess]]
 </pre>
-</div>
-</div>
-
 <p>
 And set the template to the Template we just made.
 </p>
 
-<h3>
-<a name="VisionCart.Templating-Vieworder" id="VisionCart.Templating-Vieworder"></a>View order
+<h3 id="VisionCart.Templating-Vieworder">
+View order
 </h3>
 
 <p>
 Create a resource called 'View order' and place this in the content field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!vcOrderView]]
 </pre>
-</div>
-</div>
-
 <p>
 And set the template to the Template we just made.
 </p>
 
-<h3>
-<a name="VisionCart.Templating-Orderhistory" id="VisionCart.Templating-Orderhistory"></a>Order history
+<h3 id="VisionCart.Templating-Orderhistory">
+Order history
 </h3>
 
 <p>
 Create a resource called 'Order history' and place this in the content field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h2&gt;Order history&lt;/h2&gt;
 [[!vcOrderHistory?viewOrderResource=`id from the view order resource we just made`]]?
 </pre>
-</div>
-</div>
-
 <p>
 And set the template to the Template we just made.
 </p>
 
-<h1>
-<a name="VisionCart.Templating-Modifyshopsettings" id="VisionCart.Templating-Modifyshopsettings"></a>Modify shop-settings
+<h1 id="VisionCart.Templating-Modifyshopsettings">
+Modify shop-settings
 </h1>
 
 <p>
@@ -186,5 +151,5 @@ Go to Components -&gt; VisionCart -&gt; Shop management, right-click your shop a
 <br />
 Select settings-tab and then Templates / resources. Then select the resources we just created.
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/33587418/Afbeelding+7.png?version=1&amp;modificationDate=1294916729000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/33587418/Afbeelding+7.png?version=1&amp;modificationDate=1294916729000" style="border: 1px solid black" />
 </p>

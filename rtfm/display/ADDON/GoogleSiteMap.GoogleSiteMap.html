@@ -1,253 +1,242 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="GoogleSiteMap.GoogleSiteMap-GoogleSiteMapSnippet" id="GoogleSiteMap.GoogleSiteMap-GoogleSiteMapSnippet"></a>GoogleSiteMap Snippet
+<h2 id="GoogleSiteMap.GoogleSiteMap-GoogleSiteMapSnippet">
+GoogleSiteMap Snippet
 </h2>
 
 <p>
 This snippet displays a Google Sitemap.
 </p>
 
-<h2>
-<a name="GoogleSiteMap.GoogleSiteMap-Usage" id="GoogleSiteMap.GoogleSiteMap-Usage"></a>Usage
+<h2 id="GoogleSiteMap.GoogleSiteMap-Usage">
+Usage
 </h2>
 
 <p>
 Simply place the snippet in the Resource you want to use, and set the Resource's Template to 'blank':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!GoogleSiteMap]]
 </pre>
-</div>
-</div>
-
 <p>
 Don't forget to set the content type to 'xml'.
 </p>
 
-<h2>
-<a name="GoogleSiteMap.GoogleSiteMap-Properties" id="GoogleSiteMap.GoogleSiteMap-Properties"></a>Properties
+<h2 id="GoogleSiteMap.GoogleSiteMap-Properties">
+Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 allowedtemplates
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of Template IDs to filter by. Will only filter if a value is set.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 containerTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The Chunk to use for the output container.
 </td>
-<td class='confluenceTd'>
+<td>
 gContainer
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 context
 </td>
-<td class='confluenceTd'>
+<td>
 Limit to the specified Context(s). If empty, will grab Resources from current Context. Defaults to empty, can support a comma-separated list.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 excludeResources
 </td>
-<td class='confluenceTd'>
+<td>
 An optional comma-separated list of Resources to skip.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 googleSchema
 </td>
-<td class='confluenceTd'>
+<td>
 The location of the GoogleSiteMap schema.
 </td>
-<td class='confluenceTd'>
-<a href="http://www.google.com/schemas/sitemap/0.9" class="external-link" rel="nofollow">http://www.google.com/schemas/sitemap/0.9</a>
+<td>
+<a href="http://www.google.com/schemas/sitemap/0.9">http://www.google.com/schemas/sitemap/0.9</a>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 hideDeleted
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will show only nondeleted Resources.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 itemTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The Chunk to use for each result item.
 </td>
-<td class='confluenceTd'>
+<td>
 gItem
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 maxDepth
 </td>
-<td class='confluenceTd'>
+<td>
 The depth down the tree to grab Resources. If set to empty or 0, will grab all depths.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 published
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will only show published resources.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 searchable
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will only show searchable resources.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showHidden
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will include hidden Resources.
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortBy
 </td>
-<td class='confluenceTd'>
+<td>
 The field to sort the results by.
 </td>
-<td class='confluenceTd'>
+<td>
 menuindex
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortByAlias
 </td>
-<td class='confluenceTd'>
+<td>
 The class to use as the alias for the sortBy property.
 </td>
-<td class='confluenceTd'>
+<td>
 modResource
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortDir
 </td>
-<td class='confluenceTd'>
+<td>
 The direction to sort in.
 </td>
-<td class='confluenceTd'>
+<td>
 ASC
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 templateFilter
 </td>
-<td class='confluenceTd'>
+<td>
 The modTemplate column to filter by.
 </td>
-<td class='confluenceTd'>
+<td>
 id
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 where
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-A JSON-style expression or array of criteria to select/filter resources to output. See <a href="http://rtfm.modx.com/display/xPDO20/xPDOQuery.where" class="external-link" rel="nofollow">http://rtfm.modx.com/display/xPDO20/xPDOQuery.where</a> for more detail. Somewhere is a bug, that doesn't show up anything for resources in containers.
-<br class="atl-forced-newline" />
+<td>
+A JSON-style expression or array of criteria to select/filter resources to output. See <a href="http://rtfm.modx.com/display/xPDO20/xPDOQuery.where">http://rtfm.modx.com/display/xPDO20/xPDOQuery.where</a> for more detail. Somewhere is a bug, that doesn't show up anything for resources in containers.
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="GoogleSiteMap.GoogleSiteMap-GoogleSiteMapChunks" id="GoogleSiteMap.GoogleSiteMap-GoogleSiteMapChunks"></a>GoogleSiteMap Chunks
+<h2 id="GoogleSiteMap.GoogleSiteMap-GoogleSiteMapChunks">
+GoogleSiteMap Chunks
 </h2>
 
 <p>
@@ -264,64 +253,54 @@ There are 2 chunks that are processed in GoogleSiteMap. Their corresponding para
 </li>
 </ul>
 
-<h2>
-<a name="GoogleSiteMap.GoogleSiteMap-Examples" id="GoogleSiteMap.GoogleSiteMap-Examples"></a>Examples
+<h2 id="GoogleSiteMap.GoogleSiteMap-Examples">
+Examples
 </h2>
 
 <p>
 Display a sitemap for the current context:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!GoogleSiteMap]]
 </pre>
-</div>
-</div>
-
 <p>
 Display a sitemap that combines both the web and marketing contexts:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!GoogleSiteMap? &amp;context=`web,marketing`]]
 </pre>
-</div>
-</div>
-
 <p>
 Limit the sitemap to only the Resources with Template named 'BlogTemplate', and exclude the Resources with IDs 123 or 78:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!GoogleSiteMap?
   &amp;allowedtemplates=`BlogTemplate`
   &amp;templateFilter=`templatename`
   &amp;excludeResources=`123,78`
 ]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="GoogleSiteMap.GoogleSiteMap-SeeAlso" id="GoogleSiteMap.GoogleSiteMap-SeeAlso"></a>See Also
+<h2 id="GoogleSiteMap.GoogleSiteMap-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/GoogleSiteMap.GoogleSiteMap">GoogleSiteMap.GoogleSiteMap</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/GoogleSiteMap.GoogleSiteMap.containerTpl">GoogleSiteMap.GoogleSiteMap.containerTpl</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18677777" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18677772" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FGoogleSiteMap.GoogleSiteMap" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18677772" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/GoogleSiteMap.GoogleSiteMap.itemTpl">GoogleSiteMap.GoogleSiteMap.itemTpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/GoogleSiteMap.Roadmap">GoogleSiteMap.Roadmap</a>
+</li>
+</ol>

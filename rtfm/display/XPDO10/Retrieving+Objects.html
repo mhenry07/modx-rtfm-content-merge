@@ -1,13 +1,9 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 There are a variety of ways to retrieve Objects via xPDO. The two basic approaches here allow us to retrieve either a single object or a collection of objects. An Object is a single xPDOObject. It is retrieved via xPDO::getObject(). A Collection is an array of xPDOObjects. They are retrieved via xPDO::getCollection.
 </p>
 
-<h3>
-<a name="RetrievingObjects-xPDO%3A%3AgetObjectxPDO.getObject"></a><a href="/display/XPDO10/xPDO.getObject" title="xPDO.getObject">xPDO::getObject</a>
+<h3 id="RetrievingObjects-xPDO::getObjectxPDO.getObject">
+<a href="/display/XPDO10/xPDO.getObject" title="xPDO.getObject">xPDO::getObject</a>
 </h3>
 
 <p>
@@ -37,14 +33,9 @@ Back to $criteria. This can be one of 3 things:
 We'll get back to the third option later. First, an example of the first option:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $box23 = $xpdo-&gt;getObject('Box',23);
 </pre>
-</div>
-</div>
-
 <p>
 If an object doesn't exist, it will return 'null'.
 </p>
@@ -53,56 +44,32 @@ If an object doesn't exist, it will return 'null'.
 You can specify multiple filter criteria inside your 2nd argument:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// GroupUser is a table with 2 PKs - 'user' and 'group'
-</span>$gu = $xpdo-&gt;getObject('GroupUser',array(
+<pre class="brush: php">
+// GroupUser is a table with 2 PKs - 'user' and 'group'
+$gu = $xpdo-&gt;getObject('GroupUser',array(
    'user' =&gt; 12,
    'group' =&gt; 4,
 ));
 </pre>
-</div>
-</div>
-
 <p>
 Or, let's say we wanted to grab the first Box object we find with a width of 150:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $bigbox = $xpdo-&gt;getObject('Box',array('width' =&gt; 150));
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Handy Hint</b>
+<div class="tip">
+<strong>Handy Hint</strong>
 <br />
 If your criteria matches multiple objects, getObject will only return the <em>first one</em>. Which one will be first? It's up to the database and how its natural sort order.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 We'll discuss the third option, xPDOCriteria, later in the xPDOQuery and xPDOCriteria sections.
 </p>
 
-<h3>
-<a name="RetrievingObjects-xPDO%3A%3AgetCollectionxPDO.getCollection"></a><a href="/display/XPDO10/xPDO.getCollection" title="xPDO.getCollection">xPDO::getCollection</a>
+<h3 id="RetrievingObjects-xPDO::getCollectionxPDO.getCollection">
+<a href="/display/XPDO10/xPDO.getCollection" title="xPDO.getCollection">xPDO::getCollection</a>
 </h3>
 
 <p>
@@ -113,26 +80,21 @@ xPDO::getCollection takes the same three arguments as getObject; except the $cri
 Let's say we wanted to grab all the Box objects with width of 14:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// assume we have 3 boxes
-</span>$boxes = $xpdo-&gt;getCollection('Box',array(
+<pre class="brush: php">
+// assume we have 3 boxes
+$boxes = $xpdo-&gt;getCollection('Box',array(
   'width' =&gt; 14,
 ));
 foreach ($boxes as $box) {
-   echo $box-&gt;get('color').<span class="code-quote">"\n"</span>;
+   echo $box-&gt;get('color')."\n";
 }
-<span class="code-comment">// If our 3 boxes had a color of 'red','blue' and 'yellow', <span class="code-keyword">this</span> would print:
-</span><span class="code-comment">// red
-</span><span class="code-comment">// blue
-</span><span class="code-comment">// yellow</span>
+// If our 3 boxes had a color of 'red','blue' and 'yellow', this would print:
+// red
+// blue
+// yellow
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="RetrievingObjects-xPDO%3A%3AnewQueryxPDO.newQuery"></a><a href="/display/XPDO10/xPDO.newQuery" title="xPDO.newQuery">xPDO::newQuery</a>
+<h3 id="RetrievingObjects-xPDO::newQueryxPDO.newQuery">
+<a href="/display/XPDO10/xPDO.newQuery" title="xPDO.newQuery">xPDO::newQuery</a>
 </h3>
 
 <p>
@@ -141,15 +103,15 @@ One of the most powerful parts of xPDO is its ability to create complex queries 
 
 <ul>
 <li>
-<b>$class</b> - The class name to create the query for.
+<strong>$class</strong> - The class name to create the query for.
 </li>
 
 <li>
-<b>$criteria</b> - This is optional; but you can specify criteria here.
+<strong>$criteria</strong> - This is optional; but you can specify criteria here.
 </li>
 
 <li>
-<b>$cacheFlag</b> - Similar to getObject's cacheFlag, you can specify the caching behavior for this query.
+<strong>$cacheFlag</strong> - Similar to getObject's cacheFlag, you can specify the caching behavior for this query.
 </li>
 </ul>
 
@@ -157,17 +119,12 @@ One of the most powerful parts of xPDO is its ability to create complex queries 
 First, let's just show how you might use newQuery to define the criteria we used before: width = 14. We'll just add a sorting option to sort the results.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $c = $xpdo-&gt;newQuery('Box');
 $c-&gt;where(array('width' =&gt; 14));
 $c-&gt;sortby('name','ASC');
 $boxes = $xpdo-&gt;getCollection('Box',$c);
 </pre>
-</div>
-</div>
-
 <p>
 Once you have your result, you can iterate over the array (see above). You can see the similarity between the defining a query object and passing a simple array to getObject or getCollection. So why use <a href="/display/XPDO10/xPDOQuery" title="xPDOQuery">xPDOQuery</a>? It's more flexible. Did you see how we could use it to specify the sorting order?
 </p>
@@ -176,12 +133,10 @@ Once you have your result, you can iterate over the array (see above). You can s
 Next, let's use the query to join on a related table using <a href="/display/XPDO10/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's create an example query using <a href="/display/XPDO10/xPDOQuery" title="xPDOQuery">xPDOQuery</a> that will grab the first 5 Boxes with width of 5 and an owner of ID 2, sorted by their name. Our "Box" table has a many-to-many relationship with the "BoxOwner" table.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $c = $xpdo-&gt;newQuery('Box');
-$c-&gt;innerJoin('BoxOwner','Owner'); <span class="code-comment">// arguments are className, alias
-</span>$c-&gt;where(array(
+$c-&gt;innerJoin('BoxOwner','Owner'); // arguments are className, alias
+$c-&gt;where(array(
    'width' =&gt; 5,
    'Owner.user' =&gt; 2,
 ));
@@ -189,32 +144,24 @@ $c-&gt;sortby('name','ASC');
 $c-&gt;limit(5);
 $boxes = $xpdo-&gt;getCollection('Box',$c);
 </pre>
-</div>
-</div>
-
 <p>
 We can join on 3rd table ("Owner") by using another call to <a href="/display/XPDO10/xPDOQuery.innerJoin" title="xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>. Let's also grab the 2nd 5 Boxes by specifying an offset – it's a 2nd argument to the limit() function:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $c = $xpdo-&gt;newQuery('Box');
-$c-&gt;innerJoin('BoxOwner','Owner'); <span class="code-comment">// arguments are: className, alias
-</span>$c-&gt;innerJoin('User','User','Owner.user = User.id');
-<span class="code-comment">// note the 3rd argument that defines the relationship in the innerJoin
-</span>
+$c-&gt;innerJoin('BoxOwner','Owner'); // arguments are: className, alias
+$c-&gt;innerJoin('User','User','Owner.user = User.id');
+// note the 3rd argument that defines the relationship in the innerJoin
+
 $c-&gt;where(array(
    'Box.width' =&gt; 5,
    'User.user' =&gt; 2,
 ));
 $c-&gt;sortby('Box.name','ASC');
-$c-&gt;limit(5,5); <span class="code-comment">// limit, offset
-</span>$boxes = $xpdo-&gt;getCollection('Box',$c);
+$c-&gt;limit(5,5); // limit, offset
+$boxes = $xpdo-&gt;getCollection('Box',$c);
 </pre>
-</div>
-</div>
-
 <p>
 You can see that the sortby and where functions can take dot syntax on their parameters; they can prefix their columns with alias – sometimes they have to do this to prevent collisions!
 </p>
@@ -223,41 +170,25 @@ You can see that the sortby and where functions can take dot syntax on their par
 More information on <a href="/display/XPDO10/xPDOQuery" title="xPDOQuery">xPDOQuery</a> can be found <a href="/display/XPDO10/xPDOQuery" title="xPDOQuery">here</a>.
 </p>
 
-<h3>
-<a name="RetrievingObjects-xPDOCriteria"></a>xPDOCriteria
+<h3 id="RetrievingObjects-xPDOCriteria">
+xPDOCriteria
 </h3>
 
 <p>
 xPDOCriteria is a base SQL criteria class, and can be used to create complex SQL queries that don't necessarily fit into abstraction paradigms. Examples of this could be HAVING clauses, UNIONs, subqueries or other complex and custom queries.
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 One downside to using xPDOCriteria is that it's not, by principle, database-agnostic since you're providing it with the SQL. If you plan on using other types of databases in the future, make sure to encapsulate any xPDOCriteria-based queries in Object classes that can be overridden per SQL platform.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 xPDOCriteria uses PDO formatting for it's SQL statements and bindings. An example of using xPDOCriteria to grab a list of Boxes with a width of greater than 4, limiting to only 10:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $boxTable = $xpdo-&gt;getTableName('Box');
-$query= <span class="code-keyword">new</span> xPDOCriteria($xpdo,'
+$query= new xPDOCriteria($xpdo,'
     SELECT * FROM '.$boxTable.'
     WHERE `width` &gt; :width
     LIMIT 10
@@ -266,48 +197,29 @@ $query= <span class="code-keyword">new</span> xPDOCriteria($xpdo,'
 ));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="RetrievingObjects-Graphs"></a>Graphs
+<h2 id="RetrievingObjects-Graphs">
+Graphs
 </h2>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 A graph extends the idea of an object (or objects in collections). Instead of a simple object, a graph includes references to related objects. Graphs are a useful alternative to JOINs.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="RetrievingObjects-xPDO%3A%3AgetObjectGraph"></a>xPDO::getObjectGraph
+<h3 id="RetrievingObjects-xPDO::getObjectGraph">
+xPDO::getObjectGraph
 </h3>
 
 <p>
 This is the same as getCollectionGraph, but it returns a single object. See getCollectionGraph below for info.
 </p>
 
-<h3>
-<a name="RetrievingObjects-xPDO%3A%3AgetCollectionGraph"></a>xPDO::getCollectionGraph
+<h3 id="RetrievingObjects-xPDO::getCollectionGraph">
+xPDO::getCollectionGraph
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$collection= $xpdo-&gt;getCollectionGraph('Zip', '{<span class="code-quote">"TZ"</span>:{},<span class="code-quote">"ST"</span>:{},<span class="code-quote">"CT"</span>:{}}');
-<span class="code-keyword">if</span> ($collection) {
+<pre class="brush: php">
+$collection= $xpdo-&gt;getCollectionGraph('Zip', '{"TZ":{},"ST":{},"CT":{}}');
+if ($collection) {
         foreach ($collection as $obj) {
                 $out = $obj-&gt;toArray();
                 $out['timezone'] = $obj-&gt;TZ-&gt;get('tzname');
@@ -317,27 +229,10 @@ $collection= $xpdo-&gt;getCollectionGraph('Zip', '{<span class="code-quote">"TZ"
         }
 }
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Aliases in JSON</b>
+<div class="tip">
+<strong>Aliases in JSON</strong>
 <br />
 Remember that the JSON hash passed to getObjectGraph or getCollectionGraph needs to use <em>aliases</em>, not class names.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -348,13 +243,11 @@ You have direct access to all of the fields (table rows) in the Collection Graph
 As with getObject and getCollection, we can supply a $criteria object to getCollectionGraph. Let's add some criteria to our getCollectionGraph() query. In this example, we can search for zipcodes in California (CA)
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $criteria = $modx-&gt;newQuery('Zip');
 $criteria-&gt;where(array('ST.statename' =&gt; 'CA'));
-$collection= $xpdo-&gt;getCollectionGraph('Zip', '{<span class="code-quote">"TZ"</span>:{},<span class="code-quote">"ST"</span>:{},<span class="code-quote">"CT"</span>:{}}', $criteria);
-<span class="code-keyword">if</span> ($collection) {
+$collection= $xpdo-&gt;getCollectionGraph('Zip', '{"TZ":{},"ST":{},"CT":{}}', $criteria);
+if ($collection) {
         foreach ($collection as $obj) {
                 $out = $obj-&gt;toArray();
                 $out['timezone'] = $obj-&gt;TZ-&gt;get('tzname');
@@ -364,42 +257,23 @@ $collection= $xpdo-&gt;getCollectionGraph('Zip', '{<span class="code-quote">"TZ"
         }
 }
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Aliases in Criteria</b>
+<div class="tip">
+<strong>Aliases in Criteria</strong>
 <br />
 The table names you specify in your criteria must use the <em>aliases</em>, not the class names (just like the JSON hashes).
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Let's show one more example, this time using MODX tables. This is only an example: filtering on Template Variables is a bit dangerous because the values stored in the database are not always the verbatim values you experience in the manager or in your templates. But this example should help demonstrate the usage of aliases and that you must be aware of the relationships between the objects (some related objects are singular, some are arrays).
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $criteria = array();
 $criteria['modResource.id:IN'] = array(1,2,3);
 $criteria['TemplateVarResources.tmplvarid'] = 5;
 $criteria = $modx-&gt;newQuery('modResource', $criteria);
-$pages = $modx-&gt;getCollectionGraph('modResource', '{<span class="code-quote">"TemplateVarResources"</span>:{<span class="code-quote">"TemplateVar"</span>:{}}}', $criteria);
-<span class="code-keyword">if</span> ($pages) {
+$pages = $modx-&gt;getCollectionGraph('modResource', '{"TemplateVarResources":{"TemplateVar":{}}}', $criteria);
+if ($pages) {
     foreach ($pages as $p) {
         print $p-&gt;get('pagetitle');
         foreach ($p-&gt;TemplateVarResources as $tvr) {
@@ -409,11 +283,8 @@ $pages = $modx-&gt;getCollectionGraph('modResource', '{<span class="code-quote">
     }
 }
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="RetrievingObjects-SeeAlso"></a>See Also
+<h2 id="RetrievingObjects-SeeAlso">
+See Also
 </h2>
 
 <ul>

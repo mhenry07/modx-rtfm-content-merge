@@ -1,41 +1,41 @@
 <div>
 <ul>
 <li>
-<a href='#AutomatedServer-SideImageEditing-Introduction'>Introduction</a>
+<a href="#AutomatedServer-SideImageEditing-Introduction">Introduction</a>
 </li>
 
 <li>
-<a href='#AutomatedServer-SideImageEditing-BasicUsage%28ResizingandCropping%29'>Basic Usage (Resizing and Cropping)</a>
+<a href="#AutomatedServer-SideImageEditing-BasicUsage%28ResizingandCropping%29">Basic Usage (Resizing and Cropping)</a>
 </li>
 
 <li>
-<a href='#AutomatedServer-SideImageEditing-Removebackgrounds'>Remove backgrounds</a>
+<a href="#AutomatedServer-SideImageEditing-Removebackgrounds">Remove backgrounds</a>
 </li>
 
 <li>
-<a href='#AutomatedServer-SideImageEditing-Desaturating'>Desaturating</a>
+<a href="#AutomatedServer-SideImageEditing-Desaturating">Desaturating</a>
 </li>
 
 <li>
-<a href='#AutomatedServer-SideImageEditing-Colouring'>Colouring</a>
+<a href="#AutomatedServer-SideImageEditing-Colouring">Colouring</a>
 </li>
 
 <li>
-<a href='#AutomatedServer-SideImageEditing-Chaining'>Chaining</a>
+<a href="#AutomatedServer-SideImageEditing-Chaining">Chaining</a>
 </li>
 
 <li>
-<a href='#AutomatedServer-SideImageEditing-MoreReading'>More Reading</a>
+<a href="#AutomatedServer-SideImageEditing-MoreReading">More Reading</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="AutomatedServer-SideImageEditing-Introduction" id="AutomatedServer-SideImageEditing-Introduction"></a>Introduction
+<h2 id="AutomatedServer-SideImageEditing-Introduction">
+Introduction
 </h2>
 
 <p>
-Don't want to wait ten seconds for Photoshop to load? Me neither. This tutorial will introduce you to the wonderful PHP script <a href="http://phpthumb.sourceforge.net/" class="external-link" rel="nofollow">phpthumbof</a> ported to <a href="/display/ADDON/phpThumbOf" title="phpThumbOf">MODX</a> by Shaun McCormick.
+Don't want to wait ten seconds for Photoshop to load? Me neither. This tutorial will introduce you to the wonderful PHP script <a href="http://phpthumb.sourceforge.net/">phpthumbof</a> ported to <a href="/display/ADDON/phpThumbOf" title="phpThumbOf">MODX</a> by Shaun McCormick.
 <br />
 <a href="/display/ADDON/phpThumbOf" title="phpThumbOf">phpthumbof</a> allows MODX to automatically generate thumbnails of a chosen width and height for us. Additionally, there are a billion other neat features to do basic image work that are at our disposal. Let's talk about a few of the most useful ones.
 </p>
@@ -48,55 +48,39 @@ This tutorial assumes that you know how to create and call <a href="/display/rev
 Each of these examples will assume that you've created an image Template Variable called "big_image", that it's applied to the current document, that you've filled in a valid image, and that you're ready to impress the pants off of your clients, friends, and families. Let's get started.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<tr>
-<td>
-<b>Performance&nbsp;Hit</b>
+<div class="note">
+<strong>Performance&nbsp;Hit</strong>
 <br />
 If you are on a shared server, remember excessive image processing can affect other users. &nbsp;Your host may contact you and/or suspend your account if it causes problems.
 <p>
 Reducing the picture size, even if not to the exact dimensions, will reduce the resource usage and processing time.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="AutomatedServer-SideImageEditing-BasicUsage%28ResizingandCropping%29"></a>Basic Usage (Resizing and Cropping)
+<h2 id="AutomatedServer-SideImageEditing-BasicUsage(ResizingandCropping)">
+Basic Usage (Resizing and Cropping)
 </h2>
 
 <p>
 The most obvious usage of phpthumbof is to generate thumbnails from larger images. No longer do you have to worry about your clients providing images that are too large -- bring on those 5MB 4800x3000 photos! Let's say you want to resize your 5MB photo into something that is 960 pixels wide and 300 tall. We call the phpthumbof snippet as an <a href="/display/revolution20/Input+and+Output+Filters" title="Input and Output Filters">output filter</a> and pass a width (w) of 960, and a height (h) of 300:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*big_image:phpthumbof=`w=960&amp;h=300`]]
 </pre>
-</div>
-</div>
-
 <p>
 Awesome, our image is now the right size. Unfortunately, unless the image is the right aspect ratio, we might have some padding in one direction. If you'd prefer to crop off the longer dimension and make the image fit to the box, you can use the zoom crop (zc) parameter:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*big_image:phpthumbof=`w=960&amp;h=300&amp;zc=1`]]
 </pre>
-</div>
-</div>
-
 <p>
 Looking good!&nbsp;
 </p>
 
-<h2>
-<a name="AutomatedServer-SideImageEditing-Removebackgrounds" id="AutomatedServer-SideImageEditing-Removebackgrounds"></a>Remove backgrounds
+<h2 id="AutomatedServer-SideImageEditing-Removebackgrounds">
+Remove backgrounds
 </h2>
 
 <p>
@@ -107,60 +91,45 @@ Have a bunch of images with a white (or any colour) background that you want to 
 For our example, we will keep it at 960x300 and take out a white (#FFFFFF) background. We'll also convert it to a png to get in on that transparency action:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*big_image:phpthumbof=`w=960&amp;h=300&amp;fltr[]=stc|ffffff&amp;f=png`]]
 </pre>
-</div>
-</div>
-
 <p>
 Nice work!&nbsp;
 </p>
 
-<h2>
-<a name="AutomatedServer-SideImageEditing-Desaturating" id="AutomatedServer-SideImageEditing-Desaturating"></a>Desaturating
+<h2 id="AutomatedServer-SideImageEditing-Desaturating">
+Desaturating
 </h2>
 
 <p>
 We can do a bunch of other things using phpthumb's filters as well. Let's desaturate the image by 90%.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*big_image:phpthumbof=`w=960&amp;h=300&amp;fltr[]=sat|-90`]]
 </pre>
-</div>
-</div>
-
 <p>
 Cool!
 </p>
 
-<h2>
-<a name="AutomatedServer-SideImageEditing-Colouring" id="AutomatedServer-SideImageEditing-Colouring"></a>Colouring
+<h2 id="AutomatedServer-SideImageEditing-Colouring">
+Colouring
 </h2>
 
 <p>
 Want to tint the image? We can do it! Let's tint it 30% with #ff00ff:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*big_image:phpthumbof=`w=960&amp;h=300&amp;fltr[]=clr|30|ff00ff`]]
 </pre>
-</div>
-</div>
-
 <p>
 You're great!
 </p>
 
-<h2>
-<a name="AutomatedServer-SideImageEditing-Chaining" id="AutomatedServer-SideImageEditing-Chaining"></a>Chaining
+<h2 id="AutomatedServer-SideImageEditing-Chaining">
+Chaining
 </h2>
 
 <p>
@@ -171,22 +140,17 @@ These are all cool and all, but we can do better. The cool thing about these eff
 Let's completely desaturate the image, brighten it by 20%, and then tint it by 6% with #00ab86:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[*big_image:phpthumbof=`w=960&amp;h=300&amp;fltr[]=gray&amp;fltr[]=brit|20&amp;fltr[]=clr|6|00ab86`]]
 </pre>
-</div>
-</div>
-
 <p>
 Them's some mighty fine chaining.
 </p>
 
-<h2>
-<a name="AutomatedServer-SideImageEditing-MoreReading" id="AutomatedServer-SideImageEditing-MoreReading"></a>More Reading
+<h2 id="AutomatedServer-SideImageEditing-MoreReading">
+More Reading
 </h2>
 
 <p>
-We've only really covered the tip of the iceberg. phpthumb has many other uses, <a href="http://phpthumb.sourceforge.net/" class="external-link" rel="nofollow">documented on phpthumb's website</a>. Go make cool things! Once you're feeling comfortable with the above, check the <a href="http://phpthumb.sourceforge.net/demo/docs/phpthumb.readme.txt" class="external-link" rel="nofollow">phpthumb readme</a> and prepare to have your mind blown again. <a href="http://www.belafontecode.com/image-manipulation-with-phpthumbof-in-modx-revolution/" class="external-link" rel="nofollow">Here</a> is another phpthumb tutorial written by&nbsp;
+We've only really covered the tip of the iceberg. phpthumb has many other uses, <a href="http://phpthumb.sourceforge.net/">documented on phpthumb's website</a>. Go make cool things! Once you're feeling comfortable with the above, check the <a href="http://phpthumb.sourceforge.net/demo/docs/phpthumb.readme.txt">phpthumb readme</a> and prepare to have your mind blown again. <a href="http://www.belafontecode.com/image-manipulation-with-phpthumbof-in-modx-revolution/">Here</a> is another phpthumb tutorial written by&nbsp;
 </p>

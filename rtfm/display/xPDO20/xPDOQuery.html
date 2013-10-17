@@ -1,27 +1,55 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 The xPDOQuery extends the xPDOCriteria class and allows you to abstract out complex SQL queries into an OOP format. This allows encapsulation of SQL calls so that they can work in multiple database types, and be easy to read and dynamically build.
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/xPDO20/xPDOQuery.andCondition">xPDOQuery.andCondition</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="12615820" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="12615820" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="4" /> <input type="hidden" name="spaceKey" value="xPDO20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FxPDO20%2FxPDOQuery" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="12615820" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/xPDO20/xPDOQuery.groupby">xPDOQuery.groupby</a>
+</li>
 
-<h2>
-<a name="xPDOQuery-Examples"></a>Examples
+<li>
+<a href="/display/xPDO20/xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.leftJoin">xPDOQuery.leftJoin</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.limit">xPDOQuery.limit</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.orCondition">xPDOQuery.orCondition</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.rightJoin">xPDOQuery.rightJoin</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.select">xPDOQuery.select</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.setClassAlias">xPDOQuery.setClassAlias</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.sortby">xPDOQuery.sortby</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.where">xPDOQuery.where</a>
+</li>
+</ol>
+
+<h2 id="xPDOQuery-Examples">
+Examples
 </h2>
 
 <p>
@@ -45,13 +73,11 @@ Grab the first 4 Boxes with:
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;innerJoin('Owner','User'); 
-<span class="code-comment">// the Owner is actually a User object, defined as Owner in the relationship alias
-</span>$query-&gt;where(array(
+// the Owner is actually a User object, defined as Owner in the relationship alias
+$query-&gt;where(array(
     'Owner.name:LIKE' =&gt; '%a%',
     'Box.width:&gt;=' =&gt; 10,
     'Box.height:!=' =&gt; 2,
@@ -62,16 +88,11 @@ $query-&gt;sortby('Box.height','DESC');
 $query-&gt;limit(4);
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
 <p>
 You can also do more complex queries, like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Person');
 $query-&gt;where(array(
     array(
@@ -81,19 +102,14 @@ $query-&gt;where(array(
             'AND:gender:=' =&gt; 'M',
         ),
     ),
-    'password:!=' =&gt; <span class="code-keyword">null</span>,
+    'password:!=' =&gt; null,
 ));
 </pre>
-</div>
-</div>
-
 <p>
 translates to:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 (
   (      `Person`.`first_name` = 'Bob' 
     OR ( `Person`.`last_name` LIKE 'Boblablaw' AND `Person`.`gender` = 'M' )
@@ -101,37 +117,18 @@ translates to:
   AND password IS NOT NULL
 )
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Note that if you're specifying the conditional in the key string, such as 'OR:disabled:!=' =&gt; true, you'll need to specify the operand as well. This means that you must specify = explicitly, such as in:
 <p>
 'AND:gender:=' =&gt; 'M'
 </p>
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="xPDOQuery-ValidOperators"></a>Valid Operators
+<h3 id="xPDOQuery-ValidOperators">
+Valid Operators
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $c = $xpdo-&gt;newQuery('Person');
 $c-&gt;where(array(
   'name:=' =&gt; 'John', /* Equal To */
@@ -141,34 +138,26 @@ $c-&gt;where(array(
   'age:&lt;' =&gt; '18', /* Less Than */
   'age:&lt;=' =&gt; '18', /* Less Than or Equal To */
   'search:LIKE' =&gt; 'Term', /* LIKE statement */
-  'field' =&gt; <span class="code-keyword">null</span>, /* check <span class="code-keyword">for</span> NULL */
+  'field' =&gt; null, /* check for NULL */
   'ids:IN' =&gt; array(1,2,3), /* IN statement */
 ));
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery-Debugging"></a>Debugging
+<h2 id="xPDOQuery-Debugging">
+Debugging
 </h2>
 
 <p>
-Sometimes you need to see what query is actually being generated. You can do this by preparing the query and outputting it using the <b>toSQL()</b> method.
+Sometimes you need to see what query is actually being generated. You can do this by preparing the query and outputting it using the <strong>toSQL()</strong> method.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $c = $xpdo-&gt;newQuery('Person');
-<span class="code-comment">// add filters here...
-</span>$c-&gt;prepare();
+// add filters here...
+$c-&gt;prepare();
 print $c-&gt;toSQL();
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery-SeeAlso"></a>See Also
+<h2 id="xPDOQuery-SeeAlso">
+See Also
 </h2>
 
 <ul>

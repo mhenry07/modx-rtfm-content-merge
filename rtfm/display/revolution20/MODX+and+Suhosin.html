@@ -1,37 +1,34 @@
 <div>
 <ul>
 <li>
-<a href='#MODXandSuhosin-KnownIssueswithSuhosin'>Known Issues with Suhosin</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#MODXandSuhosin-KnownIssueswithSuhosin">Known Issues with Suhosin</a>
 <ul>
 <li>
-<a href='#MODXandSuhosin-RecommendedConfiguration'>Recommended Configuration</a>
+<a href="#MODXandSuhosin-RecommendedConfiguration">Recommended Configuration</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#MODXandSuhosin-SeeAlso'>See Also</a>
+<a href="#MODXandSuhosin-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="MODXandSuhosin-KnownIssueswithSuhosin" id="MODXandSuhosin-KnownIssueswithSuhosin"></a>Known Issues with Suhosin
+<h2 id="MODXandSuhosin-KnownIssueswithSuhosin">
+Known Issues with Suhosin
 </h2>
 
 <p>
-Suhosin is a PHP extension that adds extra security measures to PHP. One of these, however, is a check to prevent access on a server if a GET variable is too long. This causes issues in the MODX manager in versions equal to or later than 2.2, as MODX uses <a href="http://code.google.com/p/minify" class="external-link" rel="nofollow">Google minify</a> to minimize and compress the JavaScript in the manager.
+Suhosin is a PHP extension that adds extra security measures to PHP. One of these, however, is a check to prevent access on a server if a GET variable is too long. This causes issues in the MODX manager in versions equal to or later than 2.2, as MODX uses <a href="http://code.google.com/p/minify">Google minify</a> to minimize and compress the JavaScript in the manager.
 </p>
 
 <p>
 This is remedied in setup/, as during MODX installation, MODX will attempt to find the value of suhosin.get.max_value_length, and if it's lower than 1024, turn off JS compression in the manager.
 </p>
 
-<h3>
-<a name="MODXandSuhosin-RecommendedConfiguration" id="MODXandSuhosin-RecommendedConfiguration"></a>Recommended Configuration
+<h3 id="MODXandSuhosin-RecommendedConfiguration">
+Recommended Configuration
 </h3>
 
 <p>
@@ -58,20 +55,32 @@ suhosin.executor.disable_eval 0
 If you cannot edit the php.ini directly, consult with your host on the best way to set up these configurations. Some hosts might allow changing it through htaccess files, a control panel interface or they can do it for you.
 </p>
 
-<h2>
-<a name="MODXandSuhosin-SeeAlso" id="MODXandSuhosin-SeeAlso"></a>See Also
+<h2 id="MODXandSuhosin-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/MODx+Revolution+on+Debian">MODx Revolution on Debian</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="36634637" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678053" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FMODX%2Band%2BSuhosin" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678053" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Lighttpd+Guide">Lighttpd Guide</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Problems+with+WAMPServer+2.0i">Problems with WAMPServer 2.0i</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Installation+on+a+server+running+ModSecurity">Installation on a server running ModSecurity</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODX+and+Suhosin">MODX and Suhosin</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Nginx+Server+Config">Nginx Server Config</a>
+</li>
+</ol>

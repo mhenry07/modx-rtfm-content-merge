@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,76 +13,48 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMS%2BBreadcrumbs-HowcanImakeBreadcrumbsworkwithYAMS%3F"></a>How can I make Breadcrumbs work with YAMS?
+<h1 id="YAMS+Breadcrumbs-HowcanImakeBreadcrumbsworkwithYAMS?">
+How can I make Breadcrumbs work with YAMS?
 </h1>
 
 <p>
 Two options are available.
 </p>
 
-<h2>
-<a name="YAMS%2BBreadcrumbs-Option1"></a>Option 1
+<h2 id="YAMS+Breadcrumbs-Option1">
+Option 1
 </h2>
 
 <p>
 A YAMS customised version of the Breadcrumbs snippet version 1.0.1 is available. To use this create a new snippet called BreadcrumbsYAMS, which has the following code:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-<span class="code-keyword">return</span> require( $modx-&gt;config['site_path'] . 'assets/modules/yams/snippets/breadcrumbs.101.yams.snippet.php' );
+return require( $modx-&gt;config['site_path'] . 'assets/modules/yams/snippets/breadcrumbs.101.yams.snippet.php' );
 ?&gt;
 </pre>
-</div>
-</div>
-
 <p>
-Then call the snippet with an additional language id parameter: <tt>&amp;langid=`(yams_id)`</tt>. For example:
+Then call the snippet with an additional language id parameter: <code>&amp;langid=`(yams_id)`</code>. For example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[BreadcrumbsYAMS? &amp;langid=`(yams_id)`]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Warning</b>
+<div class="warning">
+<strong>Warning</strong>
 <br />
-Please note that this version of the breadcrumbs snippet will not resolve weblinks. To do that, please see <a href="http://modxcms.com/forums/index.php/topic,43846.msg264300.html#msg264300" class="external-link" rel="nofollow">the instructions on the known issues page of the YAMS forums</a>.
-</td>
-</tr>
-</table>
+Please note that this version of the breadcrumbs snippet will not resolve weblinks. To do that, please see <a href="http://modxcms.com/forums/index.php/topic,43846.msg264300.html#msg264300">the instructions on the known issues page of the YAMS forums</a>.
 </div>
 
-<h2>
-<a name="YAMS%2BBreadcrumbs-Option2"></a>Option 2
+<h2 id="YAMS+Breadcrumbs-Option2">
+Option 2
 </h2>
 
 <p>
-The second option is to use Wayfinder to generate the Breadcrumbs. <a href="http://modxcms.com/forums/index.php?action=profile;u=16271" class="external-link" rel="nofollow">@French Fries</a> has kindly provided some templates that can be customised as required. To use them, the Wayfinder call should look something like this:
+The second option is to use Wayfinder to generate the Breadcrumbs. <a href="http://modxcms.com/forums/index.php?action=profile;u=16271">@French Fries</a> has kindly provided some templates that can be customised as required. To use them, the Wayfinder call should look something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;span class=<span class="code-quote">"crumbBox"</span>&gt; [[Wayfinder? &amp;startId=`0` &amp;displayStart=`1` &amp;textOfLinks=`menutitle` &amp;level=`6` &amp;titleOfLinks=`longtitle` &amp;hideSubMenus=`<span class="code-keyword">true</span>` &amp;rowIdPrefix=`` &amp;sortBy=`id` &amp;sortOrder=`asc` &amp;hereTpl=`@FILE:assets/modules/yams/tpl/wayfinder/doc/breadcrumbs/here.tpl` &amp;activeParentRowTpl=`@FILE:assets/modules/yams/tpl/wayfinder/doc/breadcrumbs/activeparentrow.tpl` &amp;rowTpl=`@FILE:assets/modules/yams/tpl/wayfinder/doc/breadcrumbs/row.tpl` &amp;outerTpl=`@FILE:assets/modules/yams/tpl/wayfinder/doc/breadcrumbs/<span class="code-keyword">outer</span>.tpl` ]] &lt;/span&gt;
+<pre class="brush: php">
+&lt;span class="crumbBox"&gt; [[Wayfinder? &amp;startId=`0` &amp;displayStart=`1` &amp;textOfLinks=`menutitle` &amp;level=`6` &amp;titleOfLinks=`longtitle` &amp;hideSubMenus=`true` &amp;rowIdPrefix=`` &amp;sortBy=`id` &amp;sortOrder=`asc` &amp;hereTpl=`@FILE:assets/modules/yams/tpl/wayfinder/doc/breadcrumbs/here.tpl` &amp;activeParentRowTpl=`@FILE:assets/modules/yams/tpl/wayfinder/doc/breadcrumbs/activeparentrow.tpl` &amp;rowTpl=`@FILE:assets/modules/yams/tpl/wayfinder/doc/breadcrumbs/row.tpl` &amp;outerTpl=`@FILE:assets/modules/yams/tpl/wayfinder/doc/breadcrumbs/outer.tpl` ]] &lt;/span&gt;
 </pre>
-</div>
-</div>

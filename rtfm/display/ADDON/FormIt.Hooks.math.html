@@ -1,33 +1,30 @@
 <div>
 <ul>
 <li>
-<a href='#FormIt.Hooks.math-FormItmathHook'>FormIt math Hook</a>
+<a href="#FormIt.Hooks.math-FormItmathHook">FormIt math Hook</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.math-AvailableProperties'>Available Properties</a>
+<a href="#FormIt.Hooks.math-AvailableProperties">Available Properties</a>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.math-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FormIt.Hooks.math-Usage">Usage</a>
 <ul>
 <li>
-<a href='#FormIt.Hooks.math-CustomizingtheOperatorText'>Customizing the Operator Text</a>
+<a href="#FormIt.Hooks.math-CustomizingtheOperatorText">Customizing the Operator Text</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormIt.Hooks.math-SeeAlso'>See Also</a>
+<a href="#FormIt.Hooks.math-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="FormIt.Hooks.math-FormItmathHook" id="FormIt.Hooks.math-FormItmathHook"></a>FormIt math Hook
+<h2 id="FormIt.Hooks.math-FormItmathHook">
+FormIt math Hook
 </h2>
 
 <p>
@@ -40,171 +37,166 @@ The math hook will allow you to have a math-based question on your form to preve
 </p>
 </blockquote>
 
-<h2>
-<a name="FormIt.Hooks.math-AvailableProperties" id="FormIt.Hooks.math-AvailableProperties"></a>Available Properties
+<h2 id="FormIt.Hooks.math-AvailableProperties">
+Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mathMinRange
 </td>
-<td class='confluenceTd'>
+<td>
 The minimum range for each number in the equation.
 </td>
-<td class='confluenceTd'>
+<td>
 10
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mathMaxRange
 </td>
-<td class='confluenceTd'>
+<td>
 The maximum range for each number in the equation.
 </td>
-<td class='confluenceTd'>
+<td>
 100
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mathField
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the input field for the answer.
 </td>
-<td class='confluenceTd'>
+<td>
 math
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mathOp1Field
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the field for the 1st number in the equation.
 </td>
-<td class='confluenceTd'>
+<td>
 op1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mathOp2Field
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the field for the 2nd number in the equation.
 </td>
-<td class='confluenceTd'>
+<td>
 op2
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mathOperatorField
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the field for the operator in the equation.
 </td>
-<td class='confluenceTd'>
+<td>
 operator
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="FormIt.Hooks.math-Usage" id="FormIt.Hooks.math-Usage"></a>Usage
+<h2 id="FormIt.Hooks.math-Usage">
+Usage
 </h2>
 
 <p>
 Simply specify it as a hook in your FormIt call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? &amp;hooks=`math`]]
 </pre>
-</div>
-</div>
-
 <p>
 And then paste this HTML in the part of the form you want to have the math question:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;label&gt;[[!+fi.op1]] [[!+fi.<span class="code-keyword">operator</span>]] [[!+fi.op2]]?&lt;/label&gt;
+<pre class="brush: php">
+&lt;label&gt;[[!+fi.op1]] [[!+fi.operator]] [[!+fi.op2]]?&lt;/label&gt;
 [[!+fi.error.math]]
-&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"math:required"</span> value=<span class="code-quote">"[[!+fi.math]]"</span> /&gt;
-&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"op1"</span> value=<span class="code-quote">"[[!+fi.op1]]"</span> /&gt;
-&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"op2"</span> value=<span class="code-quote">"[[!+fi.op2]]"</span> /&gt;
-&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"<span class="code-keyword">operator</span>"</span> value=<span class="code-quote">"[[!+fi.<span class="code-keyword">operator</span>]]"</span> /&gt;
+&lt;input type="text" name="math:required" value="[[!+fi.math]]" /&gt;
+&lt;input type="hidden" name="op1" value="[[!+fi.op1]]" /&gt;
+&lt;input type="hidden" name="op2" value="[[!+fi.op2]]" /&gt;
+&lt;input type="hidden" name="operator" value="[[!+fi.operator]]" /&gt;
 </pre>
-</div>
-</div>
-
 <p>
 That will then load the math question in the place of the input named "math". The hidden fields are crucial, as it tells FormIt what the equation will be (as it is random on first load).
 </p>
 
-<h3>
-<a name="FormIt.Hooks.math-CustomizingtheOperatorText" id="FormIt.Hooks.math-CustomizingtheOperatorText"></a>Customizing the Operator Text
+<h3 id="FormIt.Hooks.math-CustomizingtheOperatorText">
+Customizing the Operator Text
 </h3>
 
 <p>
 If you don't want just "-" or "+" as the operator, and want to hide it even more from spam bots, you can use output filters to further add ambiguity to the math equation. Change the line with the equation text in it to:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;label&gt;[[!+fi.op1]] [[!+fi.<span class="code-keyword">operator</span>:is=`-`:then=`minus`:<span class="code-keyword">else</span>=`plus`]] [[!+fi.op2]]?&lt;/label&gt;
+<pre class="brush: php">
+&lt;label&gt;[[!+fi.op1]] [[!+fi.operator:is=`-`:then=`minus`:else=`plus`]] [[!+fi.op2]]?&lt;/label&gt;
 </pre>
-</div>
-</div>
-
 <p>
 This will render the equation like "23 plus 41?" or "50 minus 12?" instead of a -/+ symbol, making it harder for spam bots.
 </p>
 
-<h2>
-<a name="FormIt.Hooks.math-SeeAlso" id="FormIt.Hooks.math-SeeAlso"></a>See Also
+<h2 id="FormIt.Hooks.math-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/FormIt.Hooks.email">FormIt.Hooks.email</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33587205" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="33227035" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FFormIt.Hooks.math" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="33227035" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/FormIt.Hooks.FormItAutoResponder">FormIt.Hooks.FormItAutoResponder</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.math">FormIt.Hooks.math</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.recaptcha">FormIt.Hooks.recaptcha</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.redirect">FormIt.Hooks.redirect</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.spam">FormIt.Hooks.spam</a>
+</li>
+</ol>

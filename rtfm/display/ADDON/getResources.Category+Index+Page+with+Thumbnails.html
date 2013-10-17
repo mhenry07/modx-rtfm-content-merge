@@ -2,8 +2,8 @@
 Make sure you get phpThumbOf as this does the magic of scaling your thumbnail images.
 </p>
 
-<h2>
-<a name="getResources.CategoryIndexPagewithThumbnails-TheTV" id="getResources.CategoryIndexPagewithThumbnails-TheTV"></a>The TV
+<h2 id="getResources.CategoryIndexPagewithThumbnails-TheTV">
+The TV
 </h2>
 
 <p>
@@ -21,8 +21,8 @@ We need to create a way to attach an image to each page.
 </li>
 </ol>
 
-<h2>
-<a name="getResources.CategoryIndexPagewithThumbnails-TheChunks" id="getResources.CategoryIndexPagewithThumbnails-TheChunks"></a>The Chunks
+<h2 id="getResources.CategoryIndexPagewithThumbnails-TheChunks">
+The Chunks
 </h2>
 
 <p>
@@ -30,13 +30,11 @@ I like to put my snippet calls in a chunk, this way the RTE doesn't turn the &am
 </p>
 
 <p>
-<b>Create a chunk and name it list-docs-thumb</b>
+<strong>Create a chunk and name it list-docs-thumb</strong>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"list-docs thumb grid"</span>&gt;
+<pre class="brush: php">
+&lt;div class="list-docs thumb grid"&gt;
  [[!getResources?  
         &amp;parents=`[[*id]]` 
          &amp;tpl=`list-docs-thumb-tpl`  
@@ -49,31 +47,35 @@ I like to put my snippet calls in a chunk, this way the RTE doesn't turn the &am
         ]]  
 &lt;/div&gt;&lt;!-- eof list-docs --&gt;?
 </pre>
-</div>
-</div>
-
 <p>
-<font color="black"><b>Create a second chunk for the getResources template, name it: list-docs-thumb-tpl</b></font> <font color="black">&nbsp; &nbsp;(see what I did there? Naming conventions are your friend.)</font>
+<strong>Create a second chunk for the getResources template, name it: list-docs-thumb-tpl</strong> &nbsp; &nbsp;(see what I did there? Naming conventions are your friend.)
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"list-item column span-6"</span>&gt;
+<pre class="brush: php">
+&lt;div class="list-item column span-6"&gt;
           &lt;h2&gt;[[+pagetitle]]&lt;/h2&gt;
-                 &lt;a href=<span class="code-quote">"[[~[[+id]]]]"</span> title=<span class="code-quote">"[[+pagetitle]]"</span>&gt;     
-                 &lt;img src=<span class="code-quote">"[[+tv.page-thumb:phpthumbof=`w=153&amp;h=200&amp;zc=1`]]"</span> alt=<span class="code-quote">"[[+pagetitle]]"</span> /&gt;
+                 &lt;a href="[[~[[+id]]]]" title="[[+pagetitle]]"&gt;     
+                 &lt;img src="[[+tv.page-thumb:phpthumbof=`w=153&amp;h=200&amp;zc=1`]]" alt="[[+pagetitle]]" /&gt;
              &lt;/a&gt;  
         &lt;p&gt;[[+introtext]]&lt;/p&gt;   
 &lt;/div&gt;  &lt;!-- eof item --&gt;?
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="getResources.CategoryIndexPagewithThumbnails-" id="getResources.CategoryIndexPagewithThumbnails-"></a><font color="black">Installation</font>
+<h2 id="getResources.CategoryIndexPagewithThumbnails-">
+Installation
 </h2>
 
 <p>
-<font color="black">Now just paste&nbsp;[[$list-docs-thumb]] into any page with child pages and TV's set and away you go.</font>
+Now just paste&nbsp;[[$list-docs-thumb]] into any page with child pages and TV's set and away you go.
+</p>
+
+<p>
+You should be able to pick up a little bit of speed by omitting the &amp;includeContent parameter if you're not using the content in the template :)
+</p>
+
+<p>
+Note that this specific example requires phpThumbOf to be installed to display the images - it can be gotten through the package manager.
+</p>
+
+<p>
+Use &amp;tvFilters=`page-thumb==%` to skip resources with empty TV
 </p>

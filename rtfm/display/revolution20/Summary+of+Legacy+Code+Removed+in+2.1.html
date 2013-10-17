@@ -1,48 +1,31 @@
 <div>
 <ul>
 <li>
-<a href='#SummaryofLegacyCodeRemovedin2.1-Functionality'>Functionality</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#SummaryofLegacyCodeRemovedin2.1-Functionality">Functionality</a>
 <ul>
 <li>
-<a href='#SummaryofLegacyCodeRemovedin2.1-TVInputTypes'>TV Input Types</a>
+<a href="#SummaryofLegacyCodeRemovedin2.1-TVInputTypes">TV Input Types</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SummaryofLegacyCodeRemovedin2.1-Methods%2CConstantsandVariables'>Methods, Constants and Variables</a>
+<a href="#SummaryofLegacyCodeRemovedin2.1-Methods%2CConstantsandVariables">Methods, Constants and Variables</a>
 </li>
 </ul>
 </div>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>In progress</b>
+<div class="note">
+<strong>In progress</strong>
 <br />
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="SummaryofLegacyCodeRemovedin2.1-Functionality"></a>Functionality
+<h2 id="SummaryofLegacyCodeRemovedin2.1-Functionality">
+Functionality
 </h2>
 
-<h3>
-<a name="SummaryofLegacyCodeRemovedin2.1-TVInputTypes"></a>TV Input Types
+<h3 id="SummaryofLegacyCodeRemovedin2.1-TVInputTypes">
+TV Input Types
 </h3>
 
 <p>
@@ -54,497 +37,472 @@ The following input types were removed:
 </li>
 </ul>
 
-<h2>
-<a name="SummaryofLegacyCodeRemovedin2.1-Methods%2CConstantsandVariables"></a>Methods, Constants and Variables
+<h2 id="SummaryofLegacyCodeRemovedin2.1-Methods,ConstantsandVariables">
+Methods, Constants and Variables
 </h2>
 
 <p>
 Many constants, variables and api methods have been long deprecated, marked for removal in 2.0 or 2.1 and are now finally removed from the MODX Revolution 2.1 codebase.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Item Removed
 </th>
-<th class='confluenceTh'>
+<th>
 Notes on Replacement or Potential Workaround
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 IN_PARSER_MODE
 </td>
-<td class='confluenceTd'>
+<td>
 check context is not mgr
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 IN_MANAGER_MODE
 </td>
-<td class='confluenceTd'>
+<td>
 check context is mgr
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 IN_MANAGER_MODE
 </td>
-<td class='confluenceTd'>
+<td>
 check context is mgr
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
+<td>
 <pre>
 $_SESSION["mgrValidated"]
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;user-&gt;isAuthenticated('mgr')
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
+<td>
 <pre>
 $_SESSION["webValidated"]
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;user-&gt;isAuthenticated('web')
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
+<td>
 <pre>
 $_SESSION["mgrInternalKey"]
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;user-&gt;get('id') when modX-&gt;user-&gt;isAuthenticated('mgr')
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
+<td>
 <pre>
 $_SESSION["webInternalKey"]
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;user-&gt;get('id') when modX-&gt;user-&gt;isAuthenticated('web')
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
+<td>
 <pre>
 $_SESSION["mgrShortname"]
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;user-&gt;get('username') when modX-&gt;user-&gt;isAuthenticated('mgr')
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
+<td>
 <pre>
 $_SESSION["webShortname"]
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;user-&gt;get('username') when modX-&gt;user-&gt;isAuthenticated('web')
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 DBAPI: modX-&gt;db
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;config
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/xPDO20/getOption" title="getOption">modX-&gt;getOption()</a>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;connect()
 </td>
-<td class='confluenceTd'>
+<td>
 modX automatically connects to MODX database. If you're looking to set up another connection, you could instantiate xPDO again.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;disconnect()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;escape($s)
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;quote()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;query($sql)
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;query() or modX-&gt;execute($criteria) see manual for PDO query
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;delete($from, $where= "",$fields='')
 </td>
-<td class='confluenceTd'>
+<td>
 see modX-&gt;query()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;select($fields= "*", $from= "", $where= "", $orderby= "", $limit= "")
 </td>
-<td class='confluenceTd'>
+<td>
 see modX-&gt;query()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;update($fields, $table, $where= "")
 </td>
-<td class='confluenceTd'>
+<td>
 see modX-&gt;query()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;insert($fields, $intotable, $fromfields= "*", $fromtable= "", $where= "", $limit= "")
 </td>
-<td class='confluenceTd'>
+<td>
 see modX-&gt;query()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;exec($sql)
 </td>
-<td class='confluenceTd'>
+<td>
 see modX-&gt;execute($criteria)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getInsertId()
 </td>
-<td class='confluenceTd'>
+<td>
 see modX-&gt;lastInsertId()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getAffectedRows()
 </td>
-<td class='confluenceTd'>
+<td>
 see modX-&gt;getCount() or xPDOCriteria-&gt;stmt-&gt;rowCount()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getLastError()
 </td>
-<td class='confluenceTd'>
+<td>
 see xPDOCriteria-&gt;stmt-&gt;errorCode or xPDOCriteria-&gt;stmt-&gt;errorInfo
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getRecordCount($ds)
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getCount($className, $criteria= null)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getRow($ds, $mode= 'assoc')
 </td>
-<td class='confluenceTd'>
+<td>
 see xPDOCriteria-&gt;stmt-&gt;fetch()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getColumn($name, $dsq)
 </td>
-<td class='confluenceTd'>
+<td>
 see xPDOCriteria-&gt;stmt-&gt;fetchColumn()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getColumnNames($dsq)
 </td>
-<td class='confluenceTd'>
+<td>
 see modX-&gt;getFields($className) (note: not exactly the same .. gives you column names for a specific class)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getValue($dsq)
 </td>
-<td class='confluenceTd'>
+<td>
 see xPDOCriteria-&gt;stmt-&gt;fetchColumn()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getXML($dsq)
 </td>
-<td class='confluenceTd'>
+<td>
 no direct analog
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getTableMetaData($table)
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;map property
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;prepareDate($timestamp, $fieldType= 'DATETIME')
 </td>
-<td class='confluenceTd'>
+<td>
 php to sql conversion of datetypes are handled automatically in the modX model (or a custom xPDO model)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;getHTMLGrid($dsq, $params)
 </td>
-<td class='confluenceTd'>
+<td>
 no direct analog
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;db-&gt;makeArray($rs= '')
 </td>
-<td class='confluenceTd'>
+<td>
 see xPDOCriteria-&gt;stmt-&gt;fetch()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getFullTableName()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getTableName($className, $includeDb=false)
-<br class="atl-forced-newline" />
+<br />
 or modX-&gt;escape($customTableName)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;dbConfig
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getOption() (NOTE: some of the configuration keys are different, i.e. dbuser = username, dbpass = password, dbase = dbname)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;putChunk()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getChunk()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;isFrontend()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;context-&gt;get('key') == 'web' or other front-end context
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;isBackend()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;context-&gt;get('key') == 'mgr'
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getSettings()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;config after $modx-&gt;getConfig()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getDocumentObject($method, $identifier)
 </td>
-<td class='confluenceTd'>
+<td>
 not public API method; no replacement (see modRequest-&gt;getResource())
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;isMemberOfWebGroup()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;user-&gt;isMember or modUser-&gt;isMember
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getDocument
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getObject('modResource', $criteria)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getDocuments
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getCollection('modResource', $criteria)
-<br class="atl-forced-newline" />
+<br />
 or modX-&gt;getIterator('modResource', $criteria)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getAllChildren()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getCollection('modResource', $criteria) , $criteria having where condition 'parent' = $id
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getActiveChildren()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getCollection('modResource', $criteria) , $criteria having where conditions 'parent' = $id, 'published' = 1, 'deleted' = 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getDocumentChildren()
 </td>
-<td class='confluenceTd'>
+<td>
 as above, modX-&gt;getCollection('modResource', $criteria) with specific criteria
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getDocumentChildrenTVars()
 </td>
-<td class='confluenceTd'>
+<td>
 <ul>
 <li>to get document child resources and their TVs all at once:
 </li>
@@ -562,354 +520,353 @@ modX-&gt;getDocumentChildrenTVars()
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getTemplateVar()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getObject('modTemplateVar', $criteria)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getTemplateVars()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getCollection('modTemplateVar', $criteria)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getTemplateVarOutput()
 </td>
-<td class='confluenceTd'>
+<td>
 use modTemplateVar-&gt;renderOutput() on a collection of modTemplateVar objects
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getParent()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getObject('modResource', $modx-&gt;resource-&gt;get('parent')) or pass in additional criteria as needed
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getPageInfo()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getObject('modResource', $criteria)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getUserInfo()
 </td>
-<td class='confluenceTd'>
+<td>
 $user= $this-&gt;getObjectGraph('modUser', '{"Profile":{}}', $uid, true)
-<br class="atl-forced-newline" />
+<br />
 access fields of modUser and fields of related modUserProfile
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getWebUserInfo()
 </td>
-<td class='confluenceTd'>
+<td>
 as above
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;changeWebUserPassword()
 </td>
-<td class='confluenceTd'>
+<td>
 modUser-&gt;changePassword()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;changePassword()
 </td>
-<td class='confluenceTd'>
+<td>
 modUser-&gt;changePassword()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;cleanDocumentIdentifier()
 </td>
-<td class='confluenceTd'>
+<td>
 modRequest-&gt;_cleanResourceIdentifier(), but is not a public API method (DO NOT USE)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getDocumentIdentifier()
 </td>
-<td class='confluenceTd'>
+<td>
 modRequest-&gt;getResourceIdentifier()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getDocumentMethod()
 </td>
-<td class='confluenceTd'>
+<td>
 modRequest-&gt;getResourceMethod()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;checkPreview()
 </td>
-<td class='confluenceTd'>
+<td>
 not valid anymore, removing for 2.1.0-rc1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;getManagerPath()
 </td>
-<td class='confluenceTd'>
+<td>
 Use modX-&gt;getOption('manager_url', null, MODX_MANAGER_URL)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;mergeDocumentContent()
 </td>
-<td class='confluenceTd'>
+<td>
 see modParser-&gt;processElementTags()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;mergeSettingsContent()
 </td>
-<td class='confluenceTd'>
+<td>
 see modParser-&gt;processElementTags()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;mergeChunkContent()
 </td>
-<td class='confluenceTd'>
+<td>
 see modParser-&gt;processElementTags()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;mergePlaceholderContent()
 </td>
-<td class='confluenceTd'>
+<td>
 see modParser-&gt;processElementTags()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;documentObject
 </td>
-<td class='confluenceTd'>
+<td>
 access via modX-&gt;resource-&gt;get($field) or modX-&gt;resource-&gt;$field directly for raw data
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;documentIdentifier
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;resourceIdentifier
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;documentMethod
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;resourceMethod
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;documentContent
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;resource-&gt;getContent()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;documentGenerated
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;resourceGenerated
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;dumpSQL
 </td>
-<td class='confluenceTd'>
+<td>
 see xPDOQuery-&gt;toSQL() (after xPDOQuery-&gt;prepare())
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modKeyword classes and related code
 </td>
-<td class='confluenceTd'>
+<td>
 gone from framework, to be implemented more efficiently as developer sees fit
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modMetatag classes and related code
 </td>
-<td class='confluenceTd'>
+<td>
 gone from framework, to be implemented more efficiently as developer sees fit
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modElement-&gt;toPlaceholders()
 </td>
-<td class='confluenceTd'>
+<td>
 modX-&gt;toPlaceholders()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modManagerUser and related classes and code
 </td>
-<td class='confluenceTd'>
+<td>
 see modUser
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modUserRole class and related code
 </td>
-<td class='confluenceTd'>
+<td>
 see Revo abac permissions
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modWebUser and related classes and code
 </td>
-<td class='confluenceTd'>
+<td>
 see modUser
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modEventLog class and modX-&gt;logEvent()
 </td>
-<td class='confluenceTd'>
+<td>
 see modX-&gt;log()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modLexiconFocus/Topic/Language and related classes and code
 </td>
-<td class='confluenceTd'>
+<td>
 see modLexicon and modLexiconEntry
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modX-&gt;executeProcessor()
 </td>
-<td class='confluenceTd'>
+<td>
 see modX-&gt;runProcessor()
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modTemplate-&gt;getTVs()
 </td>
-<td class='confluenceTd'>
+<td>
 modTemplate-&gt;getTemplateVars()
 </td>
 </tr>
 </tbody>
 </table>
-</div>

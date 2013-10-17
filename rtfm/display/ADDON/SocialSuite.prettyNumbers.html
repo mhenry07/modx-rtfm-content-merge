@@ -3,25 +3,20 @@
 </p>
 
 <p>
-prettyNumbers is an <a href="/display/revolution20/Input+and+Output+Filters" title="Input and Output Filters">output filter</a>, part of SocialSuite, which formats numbers nicely depending on the size of the number. It can also be used as a standalone snippet by passing a number into the <b>input</b>&nbsp;property.
+prettyNumbers is an <a href="/display/revolution20/Input+and+Output+Filters" title="Input and Output Filters">output filter</a>, part of SocialSuite, which formats numbers nicely depending on the size of the number. It can also be used as a standalone snippet by passing a number into the <strong>input</strong>&nbsp;property.
 </p>
 
-<h2>
-<a name="SocialSuite.prettyNumbers-BasicUsage" id="SocialSuite.prettyNumbers-BasicUsage"></a>Basic Usage
+<h2 id="SocialSuite.prettyNumbers-BasicUsage">
+Basic Usage
 </h2>
 
 <p>
 Assuming&nbsp;[[+count]] returns a number, you just add the prettyNumbers output filter to it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+count:prettyNumbers]]
 </pre>
-</div>
-</div>
-
 <p>
 and it will be prettyfied.
 </p>
@@ -30,108 +25,89 @@ and it will be prettyfied.
 When you want to parse the result of a snippet, you can also just use the output filter syntax, for example with getFacebookShares.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getFacebookShares:prettyNumbers? &amp;url=`http:<span class="code-comment">//google.com/`]]</span>
+<pre class="brush: php">
+[[!getFacebookShares:prettyNumbers? &amp;url=`http://google.com/`]]
 </pre>
-</div>
-</div>
-
 <p>
 As a standalone snippet, the syntax is slightly different in both scenarios:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[prettyNumbers? &amp;input=`[[+count]]`]]
-[[prettyNumbers? &amp;input=`[[!getFacebookShares? &amp;url=`http:<span class="code-comment">//google.com/`]]`]]</span>
+[[prettyNumbers? &amp;input=`[[!getFacebookShares? &amp;url=`http://google.com/`]]`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="SocialSuite.prettyNumbers-AdvancedUsage" id="SocialSuite.prettyNumbers-AdvancedUsage"></a>Advanced Usage
+<h2 id="SocialSuite.prettyNumbers-AdvancedUsage">
+Advanced Usage
 </h2>
 
 <p>
 You can also specify options to the output filter or snippet to change how it formats the number. These are as follows:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Option Key
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 case
 </td>
-<td class='confluenceTd'>
+<td>
 lower
 </td>
-<td class='confluenceTd'>
+<td>
 When set to "u", "ucase", "upper" or "strtoupper", this will change the suffix (k, m, b) to uppercase.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 decimal
 </td>
-<td class='confluenceTd'>
+<td>
 . (dot)
 </td>
-<td class='confluenceTd'>
+<td>
 A string to use as decimal separator.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thousands
 </td>
-<td class='confluenceTd'>
+<td>
 , (comma)
 </td>
-<td class='confluenceTd'>
+<td>
 A string to use as thousands' separator.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 You specify these like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[+count:prettyNumbers=`<span class="code-keyword">case</span>=upper&amp;decimal=,&amp;thousands=.`]][[prettyNumbers? &amp;input=`[[!getFacebookShares? &amp;url=`http:<span class="code-comment">//google.com/`]]` &amp;options=`<span class="code-keyword">case</span>=upper&amp;decimal=,&amp;thousands=.`]]</span>
+<pre class="brush: php">
+[[+count:prettyNumbers=`case=upper&amp;decimal=,&amp;thousands=.`]][[prettyNumbers? &amp;input=`[[!getFacebookShares? &amp;url=`http://google.com/`]]` &amp;options=`case=upper&amp;decimal=,&amp;thousands=.`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="SocialSuite.prettyNumbers-Hownumbersareformattedbydefault" id="SocialSuite.prettyNumbers-Hownumbersareformattedbydefault"></a>How numbers are formatted by default
+<h2 id="SocialSuite.prettyNumbers-Hownumbersareformattedbydefault">
+How numbers are formatted by default
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 5 =&gt; 5 
 515 =&gt; 515 
 5141 =&gt; 5.1k 
@@ -149,5 +125,3 @@ You specify these like this:
 51515151515151 =&gt; 51,515b 
 515151515151515 =&gt; 515,152b 
 </pre>
-</div>
-</div>

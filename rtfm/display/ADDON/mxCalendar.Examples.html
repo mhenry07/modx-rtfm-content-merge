@@ -1,13 +1,13 @@
-<h2>
-<a name="mxCalendar.Examples-Revolution" id="mxCalendar.Examples-Revolution"></a>Revolution
+<h2 id="mxCalendar.Examples-Revolution">
+Revolution
 </h2>
 
-<h3>
-<a name="mxCalendar.Examples-ListingEvents" id="mxCalendar.Examples-ListingEvents"></a>Listing Events
+<h3 id="mxCalendar.Examples-ListingEvents">
+Listing Events
 </h3>
 
-<h4>
-<a name="mxCalendar.Examples-GenericListofUpcomingEvents" id="mxCalendar.Examples-GenericListofUpcomingEvents"></a>Generic List of Upcoming Events
+<h4 id="mxCalendar.Examples-GenericListofUpcomingEvents">
+Generic List of Upcoming Events
 </h4>
 
 <p>
@@ -25,9 +25,7 @@ Display a generic list of events from all calendars and all categories with clic
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!mxcalendar?
 &amp;eventListlimit=`8`
 &amp;displayType=`list`
@@ -35,9 +33,6 @@ Display a generic list of events from all calendars and all categories with clic
 &amp;modalView=`1`
 &amp;dir=`ASC`]]
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Add parameters to display further ahead (default is +4 weeks)
 </li>
@@ -46,17 +41,12 @@ Display a generic list of events from all calendars and all categories with clic
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &amp;elStartDate=`now`
 &amp;elEndDate=`+16 weeks`
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="mxCalendar.Examples-GenericListofPastEvents" id="mxCalendar.Examples-GenericListofPastEvents"></a>Generic List of Past Events
+<h4 id="mxCalendar.Examples-GenericListofPastEvents">
+Generic List of Past Events
 </h4>
 
 <p>
@@ -64,11 +54,11 @@ mxCalendar can also display past events.&nbsp; The three parameters you want to 
 </p>
 
 <p>
-<b>&amp;elDirectinal=`past`</b> - This tells mxCalendar to pull back all calendar events that happened in past thus less than the date supplied in the elStartDate field
+<strong>&amp;elDirectinal=`past`</strong> - This tells mxCalendar to pull back all calendar events that happened in past thus less than the date supplied in the elStartDate field
 <br />
-<b>&amp;elStartDate=`now`</b> - Same as with regular events sets a starting point to filter date range for results
+<strong>&amp;elStartDate=`now`</strong> - Same as with regular events sets a starting point to filter date range for results
 <br />
-<b>&amp;dir=`DESC`</b> - Returns events in the order from most recent to oldest
+<strong>&amp;dir=`DESC`</strong> - Returns events in the order from most recent to oldest
 </p>
 
 <p>
@@ -79,9 +69,7 @@ Example:
 (duplicate the tplListItem and tplListWrap chunks, rename, save, and insert into the mxCalendar snippet call as shown below)
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!mxcalendar?
 &amp;displayType=`list`
 &amp;elDirectional=`past`
@@ -94,5 +82,3 @@ Example:
 &amp;tplListWrap=`tplListWrapNewChunk`
 &amp;dir=`DESC`]]
 </pre>
-</div>
-</div>

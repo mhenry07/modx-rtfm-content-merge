@@ -10,15 +10,10 @@ When a module is first executed the code stored inside the PHP field is evaluate
 For example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $doc = $modx-&gt;getDocument(1);
 echo $doc['pagetitle'];
 </pre>
-</div>
-</div>
-
 <p>
 In the above example we can either use the echo keyword or the return keyword to render text on the screen.
 </p>
@@ -35,15 +30,10 @@ Introduction
 We would also rewrite the above as:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $doc = $modx-&gt;getDocument(1);
-<span class="code-keyword">return</span> $doc['pagetitle'];
+return $doc['pagetitle'];
 </pre>
-</div>
-</div>
-
 <p>
 This time we are using the return keyword to render text on the screen.
 </p>
@@ -56,16 +46,11 @@ Using the echo keyword might be more convenient for your specific need.
 For example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 echo '&lt;h1&gt;Phone book&lt;/h1&gt;';
 echo '&lt;h3&gt;Manage your contacts with ease&lt;/h3&gt;';
 echo '&lt;hr /&gt;';
 </pre>
-</div>
-</div>
-
 <p>
 Now that you have gotten the basic idea of how a module works you can proceed to write your module the same way you would any PHP app with exception that your app will be running inside a frame and will have access to the MODx APIs.
 </p>
@@ -86,10 +71,8 @@ In order to use the MODx APIs you should postback to the initial page. To do thi
 and use the following postForm function posting form data or calling another page from the module:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;script language=<span class="code-quote">"JavaScript"</span> type=<span class="code-quote">"text/javascript"</span>&gt;
+<pre class="brush: php">
+&lt;script language="JavaScript" type="text/javascript"&gt;
 
    function postForm(opcode){
 
@@ -103,44 +86,34 @@ and use the following postForm function posting form data or calling another pag
 
 
 
-&lt;form name=<span class="code-quote">"module"</span> method=<span class="code-quote">"post"</span>&gt;
+&lt;form name="module" method="post"&gt;
 
-&lt;input name=<span class="code-quote">"opcode"</span> type=<span class="code-quote">"hidden"</span> value="" /&gt;
+&lt;input name="opcode" type="hidden" value="" /&gt;
 
 &lt;!-- content goes here --&gt;
 
 &lt;/form&gt;
 </pre>
-</div>
-</div>
-
 <p>
-<b>Note:</b> The opcode field can be used as a function directive for calling an action from within the module.
+<strong>Note:</strong> The opcode field can be used as a function directive for calling an action from within the module.
 </p>
 
 <p>
 When sending information back to the server you can use:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a href=<span class="code-quote">"javascript:;"</span> onclick=<span class="code-quote">"postForm('save')"</span>&gt;Save&lt;/a&gt;
+<pre class="brush: php">
+&lt;a href="javascript:;" onclick="postForm('save')"&gt;Save&lt;/a&gt;
 
-&lt;a href=<span class="code-quote">"javascript:;"</span> onclick=<span class="code-quote">"postForm('delete')"</span>&gt;Delete&lt;/a&gt;
+&lt;a href="javascript:;" onclick="postForm('delete')"&gt;Delete&lt;/a&gt;
 
-&lt;a href=<span class="code-quote">"javascript:;"</span> onclick=<span class="code-quote">"postForm('search')"</span>&gt;Search List&lt;/a&gt;
+&lt;a href="javascript:;" onclick="postForm('search')"&gt;Search List&lt;/a&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Here's what the final module code might look like.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 /* A simple module */
 
 
@@ -149,49 +122,49 @@ $opcode = isset($_POST['opcode']) ? $_POST['opcode']:'';
 
 
 
-<span class="code-comment">// action directive
-</span>
-<span class="code-keyword">switch</span>($opcode) {
+// action directive
 
-        <span class="code-keyword">case</span> 'save':
+switch($opcode) {
 
-                <span class="code-comment">// save code here
-</span>
+        case 'save':
+
+                // save code here
+
                 echo 'Save action';
 
-        <span class="code-keyword">break</span>;
+        break;
 
 
 
-        <span class="code-keyword">case</span> 'delete':
+        case 'delete':
 
-                <span class="code-comment">// delete code here
-</span>
+                // delete code here
+
                 echo 'Delete action';
 
-        <span class="code-keyword">break</span>;
+        break;
 
 
 
-        <span class="code-keyword">case</span> 'search':
+        case 'search':
 
-                <span class="code-comment">// search code here
-</span>
+                // search code here
+
                 echo 'Search action';
 
-        <span class="code-keyword">break</span>;
+        break;
 
 
 
-        <span class="code-keyword">default</span>: <span class="code-comment">// display module page
-</span>
+        default: // display module page
+
                 echo '&lt;html&gt;';
 
                 echo '&lt;head&gt;&lt;/head&gt;';
 
                 echo '&lt;body&gt;';
 
-                echo '&lt;script language=<span class="code-quote">"JavaScript"</span> type=<span class="code-quote">"text/javascript"</span>&gt;';
+                echo '&lt;script language="JavaScript" type="text/javascript"&gt;';
 
                 echo '   function postForm(opcode){';
 
@@ -203,9 +176,9 @@ $opcode = isset($_POST['opcode']) ? $_POST['opcode']:'';
 
                 echo '&lt;/script&gt;';
 
-                echo '&lt;form name=<span class="code-quote">"module"</span> method=<span class="code-quote">"post"</span>&gt;';
+                echo '&lt;form name="module" method="post"&gt;';
 
-                echo '&lt;input name=<span class="code-quote">"opcode"</span> type=<span class="code-quote">"hidden"</span> value="" /&gt;';
+                echo '&lt;input name="opcode" type="hidden" value="" /&gt;';
 
                 echo '&lt;h1&gt;Phone book&lt;/h1&gt;';
 
@@ -213,26 +186,24 @@ $opcode = isset($_POST['opcode']) ? $_POST['opcode']:'';
 
                 echo '&lt;hr /&gt;';
 
-                echo '&lt;a href=<span class="code-quote">"javascript:;"</span> onclick="postForm(\'save\');<span class="code-keyword">return</span>
-<span class="code-keyword">false</span>;"&gt;Save&lt;/a&gt; | ';
-                echo '&lt;a href=<span class="code-quote">"javascript:;"</span> onclick="postForm(\'delete\');<span class="code-keyword">return</span>
-<span class="code-keyword">false</span>;"&gt;Delete&lt;/a&gt; | ';
-                echo '&lt;a href=<span class="code-quote">"javascript:;"</span> onclick="postForm(\'search\');<span class="code-keyword">return</span>
-<span class="code-keyword">false</span>;"&gt;Search List&lt;/a&gt; | ';
-                echo '&lt;a href=<span class="code-quote">"javascript:;"</span> onclick="postForm(\'\');<span class="code-keyword">return</span>
-<span class="code-keyword">false</span>;"&gt;Main&lt;/a&gt;';
+                echo '&lt;a href="javascript:;" onclick="postForm(\'save\');return
+false;"&gt;Save&lt;/a&gt; | ';
+                echo '&lt;a href="javascript:;" onclick="postForm(\'delete\');return
+false;"&gt;Delete&lt;/a&gt; | ';
+                echo '&lt;a href="javascript:;" onclick="postForm(\'search\');return
+false;"&gt;Search List&lt;/a&gt; | ';
+                echo '&lt;a href="javascript:;" onclick="postForm(\'\');return
+false;"&gt;Main&lt;/a&gt;';
                 echo '&lt;/form&gt;';
 
                 echo '&lt;/body&gt;';
 
                 echo '&lt;/html&gt;';
 
-        <span class="code-keyword">break</span>;
+        break;
 
 
 }
 
 
 </pre>
-</div>
-</div>

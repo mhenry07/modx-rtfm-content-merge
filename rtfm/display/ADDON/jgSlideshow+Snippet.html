@@ -1,27 +1,24 @@
 <div>
 <ul>
 <li>
-<a href='#jgSlideshowSnippet-AvailableProperties'>Available Properties</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#jgSlideshowSnippet-AvailableProperties">Available Properties</a>
 <ul>
 <li>
-<a href='#jgSlideshowSnippet-Basics'>Basics</a>
+<a href="#jgSlideshowSnippet-Basics">Basics</a>
 </li>
 
 <li>
-<a href='#jgSlideshowSnippet-TheChunkproperties'>The Chunk properties</a>
+<a href="#jgSlideshowSnippet-TheChunkproperties">The Chunk properties</a>
 </li>
 
 <li>
-<a href='#jgSlideshowSnippet-PlaceholdersavailableforChunks'>Placeholders available for Chunks</a>
+<a href="#jgSlideshowSnippet-PlaceholdersavailableforChunks">Placeholders available for Chunks</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#jgSlideshowSnippet-Examples'>Examples</a>
+<a href="#jgSlideshowSnippet-Examples">Examples</a>
 </li>
 </ul>
 </div>
@@ -34,656 +31,627 @@ Snippet Usage - display the slideshow on your page
 Basic use this code:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;div id=<span class="code-quote">"slideShow"</span>&gt;</span>
+<pre class="brush: html">
+&lt;div id="slideShow"&gt;
 [[!jgSlideshow?
   &amp;album_id=`1`
 ]]
-<span class="code-tag">&lt;/div&gt;</span>
+&lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 The album_id is the id you see in the manager like this
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/37683278/album_id.png?version=1&amp;modificationDate=1325708634000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/37683278/album_id.png?version=1&amp;modificationDate=1325708634000" />
 </p>
 
-<h2>
-<a name="jgSlideshowSnippet-AvailableProperties"></a>Available Properties
+<h2 id="jgSlideshowSnippet-AvailableProperties">
+Available Properties
 </h2>
 
 <p>
 Version 1.1
 </p>
 
-<h3>
-<a name="jgSlideshowSnippet-Basics"></a>Basics
+<h3 id="jgSlideshowSnippet-Basics">
+Basics
 </h3>
 
-<div class='table-wrap'>
-<table id='TBL1376497247115' class='confluenceTable'>
+<table id="TBL1376497247029">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loadJQuery
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 On true it will load jQuery, if you already have jQuery loaded then set this to false (available from 1.1+)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 true
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 If set this will be the placeholder that the generated HTML will go to.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 skin
 </td>
-<td class='confluenceTd'>
+<td>
 The concept is that you can copy and rename all tpls with the prefix nivo and give them your own prefix like MyCustomSkin. Now rather then declare each property change in the snippet call you can just declare the Skin you want to use. If you assign a value to a tpl property it will override the skin name for that one property.
 </td>
-<td class='confluenceTd'>
+<td>
 nivo
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 album_id
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The id of the album you wish to show
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 slide_div_id
 </td>
-<td class='confluenceTd'>
+<td>
 The HTML id of the element that JS slideshow is attached to. &nbsp; It can be used the headTpl, see nivo_headTpl for how it is used.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 slider
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="jgSlideshowSnippet-TheChunkproperties"></a>The Chunk properties
+<h3 id="jgSlideshowSnippet-TheChunkproperties">
+The Chunk properties
 </h3>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 It is recommended to Duplicate the Chunk that you wish to change and rename it.&nbsp; Then you will not lose your changes when a new update is out. For organization it would be also recommend that you create a new folder to put you custom Chunks into.
-</td>
-</tr>
-</table>
 </div>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 headTpl
 </td>
-<td class='confluenceTd'>
+<td>
 This is the JS/CSS for the slideshow it goes in the &lt;head&gt; and can use the results from looping
 </td>
-<td class='confluenceTd'>
+<td>
 nivo_headTpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 slideHolderTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The holder for the slide panes
 </td>
-<td class='confluenceTd'>
+<td>
 nivo_slideHolder
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 htmlCaptionTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 HTML Caption Option
 </td>
-<td class='confluenceTd'>
+<td>
 nivo_htmlCaptionTpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 slideLinkTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 A slide pane wrapped in an anchor
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 nivo_slideLinkTpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 slidePaneTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The actual pane or image
 </td>
-<td class='confluenceTd'>
+<td>
 nivo_slidePaneTpl
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="jgSlideshowSnippet-PlaceholdersavailableforChunks"></a>Placeholders available for Chunks
+<h3 id="jgSlideshowSnippet-PlaceholdersavailableforChunks">
+Placeholders available for Chunks
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Tpls that use them
 </th>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 all Chunks
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
+<td>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 slide_div_id
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The HTML id of the element that JS slideshow is attached to.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 count
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 the total number of slides
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 only headTpl
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 id
 </td>
-<td class='confluenceTd'>
+<td>
 the album id
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 title
 </td>
-<td class='confluenceTd'>
+<td>
 the album title
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 description
 </td>
-<td class='confluenceTd'>
+<td>
 the album description
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 file_allowed
 </td>
-<td class='confluenceTd'>
+<td>
 the allowed file types for the album
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 file_size_limit
 </td>
-<td class='confluenceTd'>
+<td>
 the max allowed file size limit for the album
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 file_width
 </td>
-<td class='confluenceTd'>
+<td>
 the width of the slide show images
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 file_height
 </td>
-<td class='confluenceTd'>
+<td>
 the height of the slide show images
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 slideHolderTpl,
-<br class="atl-forced-newline" />
+<br />
 htmlCaptionTpl,
-<br class="atl-forced-newline" />
+<br />
 slideLinkTpl,
-<br class="atl-forced-newline" />
+<br />
 slidePaneTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 src
 </td>
-<td class='confluenceTd'>
+<td>
 the full image URL
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 id
 </td>
-<td class='confluenceTd'>
+<td>
 the slide id
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 slideshow_album_id
 </td>
-<td class='confluenceTd'>
+<td>
 the album id
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 url
 </td>
-<td class='confluenceTd'>
+<td>
 the url that can be assigned to a slide via the manager
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 title
 </td>
-<td class='confluenceTd'>
+<td>
 the title of the slide assigned to a slide via the manager
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 description
 </td>
-<td class='confluenceTd'>
+<td>
 assigned to a slide via the manager
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 notes
 </td>
-<td class='confluenceTd'>
+<td>
 assigned to a slide via the manager
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 html
 </td>
-<td class='confluenceTd'>
+<td>
 assigned to a slide via the manager
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 options
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 assigned to a slide via the manager
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 upload_time
 </td>
-<td class='confluenceTd'>
+<td>
 the time the image was uploaded
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 file_path
 </td>
-<td class='confluenceTd'>
+<td>
 just the image name, like image.jpg
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 file_type
 </td>
-<td class='confluenceTd'>
+<td>
 like jpg or png
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 web_user_id
 </td>
-<td class='confluenceTd'>
+<td>
 the user the last updated this slide
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 start_date
 </td>
-<td class='confluenceTd'>
+<td>
 the date the slide went live
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 end_date
 </td>
-<td class='confluenceTd'>
+<td>
 the last date the slide will be shown
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 edit_time
 </td>
-<td class='confluenceTd'>
+<td>
 the last time the slide was edited
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 sequence
 </td>
-<td class='confluenceTd'>
+<td>
 the order/sequence/rank of the slide
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 slide_status
 </td>
-<td class='confluenceTd'>
+<td>
 the status
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 version
 </td>
-<td class='confluenceTd'>
+<td>
 how many times it has been edited
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="jgSlideshowSnippet-Examples"></a>Examples
+<h2 id="jgSlideshowSnippet-Examples">
+Examples
 </h2>
 
 <p>
 Multiple slideshows:
 </p>
 
-<div class="code panel" style="border-color: #a2a2a2;border-style: solid;border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-<span class="code-tag">&lt;div id=<span class="code-quote">"slider-wrapper"</span>&gt;</span>
+<pre class="brush: html">
+&lt;div id="slider-wrapper"&gt;
  [[!jgSlideShow?
    &amp;album_id=`1`
  ]]
-<span class="code-tag">&lt;/div&gt;</span>
-<span class="code-tag"><span class="code-comment">&lt;!-- Make sure you use a different ID for each instance: --&gt;</span></span>
-<span class="code-tag">&lt;div id=<span class="code-quote">"slider-wrapper2"</span>&gt;</span>
+&lt;/div&gt;
+&lt;!-- Make sure you use a different ID for each instance: --&gt;
+&lt;div id="slider-wrapper2"&gt;
  [[!jgSlideShow?
    &amp;album_id=`8`
    &amp;slide_div_id=`slider2`
  ]]
-<span class="code-tag">&lt;/div&gt;</span> 
+&lt;/div&gt; 
 </pre>
-</div>
-</div>

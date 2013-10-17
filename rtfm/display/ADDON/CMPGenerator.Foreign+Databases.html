@@ -1,29 +1,26 @@
 <div>
 <ul>
 <li>
-<a href='#CMPGenerator.ForeignDatabases-UsingForeignDatabases'>Using Foreign Databases</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#CMPGenerator.ForeignDatabases-UsingForeignDatabases">Using Foreign Databases</a>
 <ul>
 <li>
-<a href='#CMPGenerator.ForeignDatabases-BasicSnippetCodeExample'>Basic Snippet Code Example</a>
+<a href="#CMPGenerator.ForeignDatabases-BasicSnippetCodeExample">Basic Snippet Code Example</a>
 </li>
 
 <li>
-<a href='#CMPGenerator.ForeignDatabases-AdvancedSnippetCodeExample'>Advanced Snippet Code Example</a>
+<a href="#CMPGenerator.ForeignDatabases-AdvancedSnippetCodeExample">Advanced Snippet Code Example</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#CMPGenerator.ForeignDatabases-SeeAlso'>See Also</a>
+<a href="#CMPGenerator.ForeignDatabases-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="CMPGenerator.ForeignDatabases-UsingForeignDatabases" id="CMPGenerator.ForeignDatabases-UsingForeignDatabases"></a>Using Foreign Databases
+<h2 id="CMPGenerator.ForeignDatabases-UsingForeignDatabases">
+Using Foreign Databases
 </h2>
 
 <p>
@@ -38,49 +35,48 @@ A foreign database means a another or third party database.&nbsp; Example your p
 When you run the CMPGenerator fill in the database name and if needed the table prefix.&nbsp; Now when you create a snippet you will need to create a new instance of xPDO and then you can code as normal (using your $foreignDB reference instead of $modx of course).&nbsp; See the example code below.
 </p>
 
-<h3>
-<a name="CMPGenerator.ForeignDatabases-BasicSnippetCodeExample" id="CMPGenerator.ForeignDatabases-BasicSnippetCodeExample"></a>Basic Snippet Code Example
+<h3 id="CMPGenerator.ForeignDatabases-BasicSnippetCodeExample">
+Basic Snippet Code Example
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeHeader panelHeader" style="border-bottom-width: 1px;">
-<b>Example code</b>
-</div>
+<figure class="code">
+<figcaption>
+<strong>Example code</strong>
+</figcaption>
 
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 require_once $modx-&gt;getOption('core_path').'config/foreigndb_config.php';
 
-$output = '';<span class="code-comment">// <span class="code-keyword">this</span> is what the snippet will <span class="code-keyword">return</span>
-</span>
-$foreignDB = <span class="code-keyword">new</span> xPDO('mysql:host=' . $foreign_database_host.';dbname='.$foreign_database_name/*.';charset='.$foreign_database_charset*/,
+$output = '';// this is what the snippet will return
+
+$foreignDB = new xPDO('mysql:host=' . $foreign_database_host.';dbname='.$foreign_database_name/*.';charset='.$foreign_database_charset*/,
         $foreign_database_username,
         $foreign_database_password );
 
 $package_path = $modx-&gt;getOption('core_path').'components/foreigndb/model/';
-<span class="code-comment">// see the scheme file and the xml model element and you will see the attribute <span class="code-keyword">package</span> and that must match here
-</span><span class="code-comment">// make sure you set the prefix as empty <span class="code-keyword">if</span> you don't use it
-</span><span class="code-keyword">if</span> ( !$foreignDB-&gt;addPackage('foreigndb', $package_path, '') ) {
-    <span class="code-keyword">return</span> 'Can not load <span class="code-keyword">package</span>';
+// see the scheme file and the xml model element and you will see the attribute package and that must match here
+// make sure you set the prefix as empty if you don't use it
+if ( !$foreignDB-&gt;addPackage('foreigndb', $package_path, '') ) {
+    return 'Can not load package';
 }
 
-<span class="code-comment">// lets add some data!
-</span><span class="code-comment">// see the scheme file and the xml object element and you will see the attribute class and that must match here
-</span>$myRow = $foreignDB-&gt;newObject('EventName');
+// lets add some data!
+// see the scheme file and the xml object element and you will see the attribute class and that must match here
+$myRow = $foreignDB-&gt;newObject('EventName');
 $data = array(
         'name' =&gt; 'MODX Revolution',
         'description' =&gt; 'A great CMS product...'
     );
 $myRow-&gt;fromArray($data);
 
-<span class="code-keyword">if</span> ( !$myRow-&gt;save() ) {
+if ( !$myRow-&gt;save() ) {
     $output .= '&lt;p&gt;Could not create row&lt;/p&gt;';
-} <span class="code-keyword">else</span> {
+} else {
     $output .= '&lt;p&gt;Created row successfully&lt;/p&gt;';
 }
-<span class="code-comment">// now lets show the data in a quick and dirty table:
-</span>$output .= '
+// now lets show the data in a quick and dirty table:
+$output .= '
 &lt;table&gt;
     &lt;tr&gt;
         &lt;th&gt;ID&lt;/th&gt;
@@ -88,16 +84,16 @@ $myRow-&gt;fromArray($data);
         &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;';
 
-<span class="code-comment">// Note <span class="code-keyword">for</span> all HTML you should be using Chunks see: http://rtfm.modx.com/display/revolution20/Chunks#Chunks-ProcessingChunkviatheAPI
-</span>/* build query */
+// Note for all HTML you should be using Chunks see: http://rtfm.modx.com/display/revolution20/Chunks#Chunks-ProcessingChunkviatheAPI
+/* build query */
 $query = $foreignDB-&gt;newQuery('EventName');
 $rows = $foreignDB-&gt;getIterator('EventName', $query);
 
 /* iterate */
 $list = array();
 foreach ($rows as $row) {
-    <span class="code-comment">// from object to array you can also <span class="code-keyword">do</span> $row-&gt;get('name');
-</span>    $row_array = $row-&gt;toArray();
+    // from object to array you can also do $row-&gt;get('name');
+    $row_array = $row-&gt;toArray();
 
     $output .= '
     &lt;tr&gt;
@@ -109,94 +105,90 @@ foreach ($rows as $row) {
 $output .= '
 &lt;/table&gt;';
 
-<span class="code-keyword">return</span> $output;
+return $output;
 </pre>
-</div>
-</div>
+</figure>
 
 <p>
 Example of schema and foreign DB from James Ehly
 <br />
-- <a href="http://devtrench.com/posts/first-impressions-of-xpdo-wordpress-to-modx-migration-tool" class="external-link" rel="nofollow">http://devtrench.com/posts/first-impressions-of-xpdo-wordpress-to-modx-migration-tool</a>
+- <a href="http://devtrench.com/posts/first-impressions-of-xpdo-wordpress-to-modx-migration-tool">http://devtrench.com/posts/first-impressions-of-xpdo-wordpress-to-modx-migration-tool</a>
 <br />
-- <a href="http://devtrench.com/posts/wordpress-to-modx-migration-part-2-schema-relationships-and-comments" class="external-link" rel="nofollow">http://devtrench.com/posts/wordpress-to-modx-migration-part-2-schema-relationships-and-comments</a>
+- <a href="http://devtrench.com/posts/wordpress-to-modx-migration-part-2-schema-relationships-and-comments">http://devtrench.com/posts/wordpress-to-modx-migration-part-2-schema-relationships-and-comments</a>
 <br />
-- <a href="http://devtrench.com/posts/wordpress-to-modx-migration-part-3-templates-categories-and-postmeta" class="external-link" rel="nofollow">http://devtrench.com/posts/wordpress-to-modx-migration-part-3-templates-categories-and-postmeta</a>
+- <a href="http://devtrench.com/posts/wordpress-to-modx-migration-part-3-templates-categories-and-postmeta">http://devtrench.com/posts/wordpress-to-modx-migration-part-3-templates-categories-and-postmeta</a>
 </p>
 
-<h3>
-<a name="CMPGenerator.ForeignDatabases-AdvancedSnippetCodeExample" id="CMPGenerator.ForeignDatabases-AdvancedSnippetCodeExample"></a>Advanced Snippet Code Example
+<h3 id="CMPGenerator.ForeignDatabases-AdvancedSnippetCodeExample">
+Advanced Snippet Code Example
 </h3>
 
 <p>
 The above code will create a new connection for each snippet call.&nbsp; So if you have 2 or 3 snippet calls to your snippet that is using a foreign db it will lag.&nbsp; So I wrote a simple class that will save you db connection so you don't have to reconnect each time.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeHeader panelHeader" style="border-bottom-width: 1px;">
-<b>foreignconnect.class.php</b>
-</div>
+<figure class="code">
+<figcaption>
+<strong>foreignconnect.class.php</strong>
+</figcaption>
 
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 class ForeignConnect {
     /**
-     * @<span class="code-keyword">var</span> (Array) of db_dsn =&gt; (<span class="code-object">Object</span>) the xPDO instance
+     * @var (Array) of db_dsn =&gt; (Object) the xPDO instance
      */
-    <span class="code-keyword">private</span> <span class="code-keyword">static</span> $instance = array();
+    private static $instance = array();
     
     /**
-     * <span class="code-keyword">private</span> constructor
+     * private constructor
      */
-    <span class="code-keyword">private</span> function __construct($database_dsn, $username, $password){
+    private function __construct($database_dsn, $username, $password){
         
     }
-    <span class="code-keyword">public</span> function __destruct(){
-        $<span class="code-keyword">this</span>-&gt;close();
+    public function __destruct(){
+        $this-&gt;close();
     }
     /**
-     * This <span class="code-keyword">static</span> method creates an instance of the class <span class="code-keyword">if</span> no instance already exists.
-     * @param (<span class="code-object">String</span>) $database_dsn
-     * @param (<span class="code-object">String</span>) $username
-     * @param (<span class="code-object">String</span>) $password
+     * This static method creates an instance of the class if no instance already exists.
+     * @param (String) $database_dsn
+     * @param (String) $username
+     * @param (String) $password
     */
-    <span class="code-keyword">static</span> <span class="code-keyword">public</span> function getInstance($database_dsn, $username, $password){
-        <span class="code-comment">//global $modx;
-</span>        <span class="code-comment">//$modx-&gt;log(xPDO::LOG_LEVEL_ERROR, 'getInstance');
-</span>        <span class="code-comment">//instance must be <span class="code-keyword">static</span> in order to be referenced here
-</span>        <span class="code-keyword">if</span>(!isset(self::$instance[$database_dsn]) ){
-            <span class="code-comment">// <span class="code-keyword">new</span> connection
-</span>            <span class="code-comment">//$modx-&gt;log(xPDO::LOG_LEVEL_ERROR, 'New Connection getInstance DB: '.$database_dsn);
-</span>            self::$instance[$database_dsn] = <span class="code-keyword">new</span> xPDO($database_dsn,
+    static public function getInstance($database_dsn, $username, $password){
+        //global $modx;
+        //$modx-&gt;log(xPDO::LOG_LEVEL_ERROR, 'getInstance');
+        //instance must be static in order to be referenced here
+        if(!isset(self::$instance[$database_dsn]) ){
+            // new connection
+            //$modx-&gt;log(xPDO::LOG_LEVEL_ERROR, 'New Connection getInstance DB: '.$database_dsn);
+            self::$instance[$database_dsn] = new xPDO($database_dsn,
                 $username,
                 $password );
             
         }
-        <span class="code-comment">//$modx-&gt;log(xPDO::LOG_LEVEL_ERROR, 'Return Connection');
-</span>        <span class="code-keyword">return</span> self::$instance[$database_dsn];
+        //$modx-&gt;log(xPDO::LOG_LEVEL_ERROR, 'Return Connection');
+        return self::$instance[$database_dsn];
     }
     /**
      * Close the instance
      */
-    <span class="code-keyword">public</span> function close(){
+    public function close(){
         self::$instance = array();
     }
 }
 </pre>
-</div>
-</div>
+</figure>
 
 <p>
 Now create a config file that can be required for each snippet call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeHeader panelHeader" style="border-bottom-width: 1px;">
-<b>Custom</b>
-</div>
+<figure class="code">
+<figcaption>
+<strong>Custom</strong>
+</figcaption>
 
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $database_type = 'mysql';
 
 $database_server = 'localhost';
@@ -208,48 +200,41 @@ $dbase = 'foreign_db';
 $table_prefix = '';
 $database_dsn = $database_type.':host='.$database_server.';dbname='.$dbase.';charset='.$database_connection_charset;
 </pre>
-</div>
-</div>
+</figure>
 
 <p>
 Then the first few lines of the snippet will looks like this instead:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeHeader panelHeader" style="border-bottom-width: 1px;">
-<b>Snippet</b>
-</div>
+<figure class="code">
+<figcaption>
+<strong>Snippet</strong>
+</figcaption>
 
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 require $modx-&gt;getOption('core_path').'/config/foreign_config.inc.php';
 
-$output = '';<span class="code-comment">// <span class="code-keyword">this</span> is what the snippet will <span class="code-keyword">return</span>
-</span>
+$output = '';// this is what the snippet will return
+
 $package_path = $modx-&gt;getOption('core_path').'components/foreigndb/model/';
 require_once $package_path.'foreignconnect.class.php';
 
-$foreignDB = ForeignConnect::getInstance($database_dsn, $database_user, $database_password); <span class="code-comment">// returns an xPDO instance</span>
+$foreignDB = ForeignConnect::getInstance($database_dsn, $database_user, $database_password); // returns an xPDO instance
 </pre>
-</div>
-</div>
+</figure>
 
-<h2>
-<a name="CMPGenerator.ForeignDatabases-SeeAlso" id="CMPGenerator.ForeignDatabases-SeeAlso"></a>See Also
+<h2 id="CMPGenerator.ForeignDatabases-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/CMPGenerator.5+minute+example">CMPGenerator.5 minute example</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="37683841" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="37683289" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FCMPGenerator.Foreign%2BDatabases" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="37683289" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/CMPGenerator.Foreign+Databases">CMPGenerator.Foreign Databases</a>
+</li>
+</ol>
 
-<br class="atl-forced-newline" />
+<br />

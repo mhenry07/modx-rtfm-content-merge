@@ -1,51 +1,38 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDOManager.createSourceContainer-xPDOManager%3A%3AcreateSourceContainer%28%29"></a>xPDOManager::createSourceContainer()
+<h2 id="xPDOManager.createSourceContainer-xPDOManager::createSourceContainer()">
+xPDOManager::createSourceContainer()
 </h2>
 
 <p>
 Creates the physical data container represented by a data source.
 </p>
 
-<h2>
-<a name="xPDOManager.createSourceContainer-Syntax" id="xPDOManager.createSourceContainer-Syntax"></a>Syntax
+<h2 id="xPDOManager.createSourceContainer-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOManager.html#createSourceContainer" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOManager.html#createSourceContainer</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOManager.html#createSourceContainer">http://api.modxcms.com/xpdo/om/xPDOManager.html#createSourceContainer</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 void createSourceContainer (
    $dsn,
    [$username = ''],
    [$password = ''], 
-   [$containerOptions = <span class="code-keyword">null</span>]
+   [$containerOptions = null]
 )
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOManager.createSourceContainer-Examples" id="xPDOManager.createSourceContainer-Examples"></a>Examples
+<h2 id="xPDOManager.createSourceContainer-Examples">
+Examples
 </h2>
 
 <p>
 Create a database called 'MyDatabase'.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $newDatabaseName = 'MyDatabase';
 $dsn = 'mysql:host=localhost;dbname='.$newDatabaseName.';charset=utf8';
 $manager = $xpdo-&gt;getManager();
 $manager-&gt;createSourceContainer($dsn,'myusername','mypassword');
 </pre>
-</div>
-</div>

@@ -1,295 +1,284 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Archivist.Archivist-ArchivistSnippet" id="Archivist.Archivist-ArchivistSnippet"></a>Archivist Snippet
+<h2 id="Archivist.Archivist-ArchivistSnippet">
+Archivist Snippet
 </h2>
 
 <p>
 This snippet displays monthly or yearly archive links.
 </p>
 
-<h2>
-<a name="Archivist.Archivist-Usage" id="Archivist.Archivist-Usage"></a>Usage
+<h2 id="Archivist.Archivist-Usage">
+Usage
 </h2>
 
 <p>
 Simply place the snippet wherever you would like to display archive listings in, the parents to grab archives from, and a target resource to load the archives using the <a href="/display/ADDON/Archivist.getArchives" title="Archivist.getArchives">getArchives</a> snippet.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Archivist? &amp;target=`123` &amp;parents=`4,12,33`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Archivist.Archivist-AvailableProperties" id="Archivist.Archivist-AvailableProperties"></a>Available Properties
+<h2 id="Archivist.Archivist-AvailableProperties">
+Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk that will be used to display each month/year result.
 </td>
-<td class='confluenceTd'>
+<td>
 row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 target
 </td>
-<td class='confluenceTd'>
+<td>
 The Resource that the getArchives snippet is called on, that will display the results of the archive filter.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parents
 </td>
-<td class='confluenceTd'>
+<td>
 Comma-delimited list of ids serving as parents.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 depth
 </td>
-<td class='confluenceTd'>
+<td>
 Integer value indicating depth to search for resources from each parent.
 </td>
-<td class='confluenceTd'>
+<td>
 10
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortBy
 </td>
-<td class='confluenceTd'>
+<td>
 The field to sort and group results by.
 </td>
-<td class='confluenceTd'>
+<td>
 publishedon
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortDir
 </td>
-<td class='confluenceTd'>
+<td>
 Order which to sort by. Defaults to DESC.
 </td>
-<td class='confluenceTd'>
+<td>
 DESC
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 Limits the number of resources returned.
 </td>
-<td class='confluenceTd'>
+<td>
 10
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 start
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. An offset of resources returned by the criteria to skip.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useMonth
 </td>
-<td class='confluenceTd'>
+<td>
 If 1, will use the month in the archive list.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useDay
 </td>
-<td class='confluenceTd'>
+<td>
 If 1, will use the day in the archive list.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dateFormat
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. The date format, according to MySQL DATE_FORMAT() syntax, for each row. If blank, Archivist will calculate this automatically.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useFurls
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will generate links in pretty Friendly URL format.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 extraParams
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. If specified, will attach this to the URL of each row.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cls
 </td>
-<td class='confluenceTd'>
+<td>
 A CSS class to add to each row.
 </td>
-<td class='confluenceTd'>
+<td>
 arc-row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 altCls
 </td>
-<td class='confluenceTd'>
+<td>
 A CSS class to add to each alternate row.
 </td>
-<td class='confluenceTd'>
+<td>
 arc-row-alt
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 firstCls
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. A CSS class to add to the first row. If empty will ignore.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 lastCls
 </td>
-<td class='confluenceTd'>
+<td>
 Optional. A CSS class to add to the last row. If empty will ignore.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 filterPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 The prefix to use for GET parameters with the Archivist links. Make sure this is the same as the filterPrefix parameter on the getArchives snippet call.
 </td>
-<td class='confluenceTd'>
+<td>
 arc_
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will set the output of this snippet to this placeholder rather than output it.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setLocale
 </td>
-<td class='confluenceTd'>
+<td>
 If true, Archivist will run the setlocale function with your cultureKey setting if your cultureKey is not "en".
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Archivist.Archivist-ArchivistChunks" id="Archivist.Archivist-ArchivistChunks"></a>Archivist Chunks
+<h2 id="Archivist.Archivist-ArchivistChunks">
+Archivist Chunks
 </h2>
 
 <p>
@@ -302,36 +291,41 @@ There is 1 chunk that is processed in Archivist. Its corresponding Archivist par
 </li>
 </ul>
 
-<h2>
-<a name="Archivist.Archivist-Examples" id="Archivist.Archivist-Examples"></a>Examples
+<h2 id="Archivist.Archivist-Examples">
+Examples
 </h2>
 
 <p>
 Display a list of months for archives for Resources under IDs 2, 4 &amp; 6, and when clicked, go to page 123:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Archivist? &amp;target=`123` &amp;parents=`2,4,6`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Archivist.Archivist-SeeAlso" id="Archivist.Archivist-SeeAlso"></a>See Also
+<h2 id="Archivist.Archivist-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Archivist.Archivist">Archivist.Archivist</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Archivist.Archivist.tpl">Archivist.Archivist.tpl</a>
+</li>
+</ol>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="16646283" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="16646178" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FArchivist.Archivist" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="16646178" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Archivist.ArchivistGrouper">Archivist.ArchivistGrouper</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Archivist.getArchives">Archivist.getArchives</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Archivist.getArchives.tpl">Archivist.getArchives.tpl</a>
+</li>
+</ol>
+</li>
+</ol>

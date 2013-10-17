@@ -1,51 +1,34 @@
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 Custom Resource Classes are available in MODX 2.2 and later only.
-</td>
-</tr>
-</table>
 </div>
 
 <div>
 <ul>
 <li>
-<a href='#CustomResourceClasses-WhatisaCustomResourceClass%3F'>What is a Custom Resource Class?</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#CustomResourceClasses-WhatisaCustomResourceClass%3F">What is a Custom Resource Class?</a>
 <ul>
 <li>
-<a href='#CustomResourceClasses-WhentoUse'>When to Use</a>
+<a href="#CustomResourceClasses-WhentoUse">When to Use</a>
 </li>
 
 <li>
-<a href='#CustomResourceClasses-WhenNottoUse'>When Not to Use</a>
+<a href="#CustomResourceClasses-WhenNottoUse">When Not to Use</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#CustomResourceClasses-Usage'>Usage</a>
+<a href="#CustomResourceClasses-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#CustomResourceClasses-CreatingaCRC'>Creating a CRC</a>
+<a href="#CustomResourceClasses-CreatingaCRC">Creating a CRC</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="CustomResourceClasses-WhatisaCustomResourceClass%3F"></a>What is a Custom Resource Class?
+<h2 id="CustomResourceClasses-WhatisaCustomResourceClass?">
+What is a Custom Resource Class?
 </h2>
 
 <p>
@@ -56,16 +39,16 @@ A Custom Resource Class (CRC) is a PHP class that extends the modResource class,
 CRCs are created by extending the modResource class in PHP and loading the new class into the MODX system via Extension Packages. They store their data in the same table as normal Resources (in modx_site_content, but they will use a custom value for the class_key column), but they can behave differently and have a custom management interface.
 </p>
 
-<h3>
-<a name="CustomResourceClasses-WhentoUse"></a>When to Use
+<h3 id="CustomResourceClasses-WhentoUse">
+When to Use
 </h3>
 
 <p>
 CRCs are useful for creating "embedded applications" into MODX, such as a Blog Post type (such as <a href="/display/ADDON/Articles" title="Articles">modBlog</a>) that lets you place a blog into your already existing MODX site. You can use them when you've got a fair amount of developer experience and you're comfortable with object-oriented code and you understand how your application can fit into the MODX content table along with other resources.
 </p>
 
-<h3>
-<a name="CustomResourceClasses-WhenNottoUse"></a>When Not to Use
+<h3 id="CustomResourceClasses-WhenNottoUse">
+When Not to Use
 </h3>
 
 <p>
@@ -76,28 +59,14 @@ CRCs are not recommended to use when you are just wanting to add a few extra fie
 Also remember that CRCs cannot be overridden themselves: you cannot extend a CRC.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>"Rule of Thumb"</b>
+<div class="tip">
+<strong>"Rule of Thumb"</strong>
 <br />
 If it can be done more easily using <a href="/display/revolution20/Snippets" title="Snippets">Snippets</a> or <a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>, then it's probably best to do it that way: CRCs are much more difficult to develop.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="CustomResourceClasses-Usage"></a>Usage
+<h2 id="CustomResourceClasses-Usage">
+Usage
 </h2>
 
 <p>
@@ -108,8 +77,8 @@ CRCs look like normal Resources in the tree. The CRC class can also hook into th
 CRCs can have their Controllers, Processors and main rendering functionality extended and overridden. You can, for example, automatically append text to the output of any CRC's content by overriding the process() or getContent() method of the CRC in the PHP class. Any method in the modResource class is available to be overridden when using CRCs.
 </p>
 
-<h2>
-<a name="CustomResourceClasses-CreatingaCRC"></a>Creating a CRC
+<h2 id="CustomResourceClasses-CreatingaCRC">
+Creating a CRC
 </h2>
 
 <p>

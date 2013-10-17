@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="ManagingResourcesandElementsviaSVN-TheProblem" id="ManagingResourcesandElementsviaSVN-TheProblem"></a>The Problem
+<h2 id="ManagingResourcesandElementsviaSVN-TheProblem">
+The Problem
 </h2>
 
 <p>
@@ -14,8 +10,8 @@ When working in collaboration, teams of developers and designers often collabora
 However, the solution in MODx Revolution is quite simple.
 </p>
 
-<h2>
-<a name="ManagingResourcesandElementsviaSVN-TheSolution" id="ManagingResourcesandElementsviaSVN-TheSolution"></a>The Solution
+<h2 id="ManagingResourcesandElementsviaSVN-TheSolution">
+The Solution
 </h2>
 
 <p>
@@ -26,42 +22,27 @@ For Resources, it's simple. Just use <a href="/display/revolution20/Static+Resou
 For Elements, all you need is a simple "include" <a href="/display/revolution20/Snippets" title="Snippets">snippet</a>. The code:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> (!file_exists($file)) <span class="code-keyword">return</span> '';
+<pre class="brush: php">
+if (!file_exists($file)) return '';
 $o = include $file;
-<span class="code-keyword">return</span> $o;
+return $o;
 </pre>
-</div>
-</div>
-
 <p>
 You can then call it like so in your Static Resources:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[include? &amp;file=`/path/to/my/svn/checkout/snippet.php`]]
 </pre>
-</div>
-</div>
-
 <p>
 And you're done. You can also use tags within the 'file' parameter, such as this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[include? &amp;file=`[[++assets_path]]/js/myscript.js`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="ManagingResourcesandElementsviaSVN-Conclusion" id="ManagingResourcesandElementsviaSVN-Conclusion"></a>Conclusion
+<h2 id="ManagingResourcesandElementsviaSVN-Conclusion">
+Conclusion
 </h2>
 
 <p>

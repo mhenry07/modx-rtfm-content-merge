@@ -1,45 +1,42 @@
 <div>
 <ul>
 <li>
-<a href='#VisionCart.vcGetProductImages-WhatisvcGetProductImages%3F'>What is vcGetProductImages?</a>
+<a href="#VisionCart.vcGetProductImages-WhatisvcGetProductImages%3F">What is vcGetProductImages?</a>
 </li>
 
 <li>
-<a href='#VisionCart.vcGetProductImages-Examples'>Examples</a>
+<a href="#VisionCart.vcGetProductImages-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#VisionCart.vcGetProductImages-AvailableProperties'>Available Properties</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#VisionCart.vcGetProductImages-AvailableProperties">Available Properties</a>
 <ul>
 <li>
-<a href='#VisionCart.vcGetProductImages-TemplatingProperties'>Templating Properties</a>
+<a href="#VisionCart.vcGetProductImages-TemplatingProperties">Templating Properties</a>
 </li>
 
 <li>
-<a href='#VisionCart.vcGetProductImages-SelectionProperties'>Selection Properties</a>
+<a href="#VisionCart.vcGetProductImages-SelectionProperties">Selection Properties</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#VisionCart.vcGetProductImages-Placeholders'>Placeholders</a>
+<a href="#VisionCart.vcGetProductImages-Placeholders">Placeholders</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="VisionCart.vcGetProductImages-WhatisvcGetProductImages%3F"></a>What is vcGetProductImages?
+<h2 id="VisionCart.vcGetProductImages-WhatisvcGetProductImages?">
+What is vcGetProductImages?
 </h2>
 
 <p>
 vcGetProductImages is a snippet that gets the image(s) from a VisionCart product and displays them using a chunk or config-file (included in the theme)
 </p>
 
-<h2>
-<a name="VisionCart.vcGetProductImages-Examples" id="VisionCart.vcGetProductImages-Examples"></a>Examples
+<h2 id="VisionCart.vcGetProductImages-Examples">
+Examples
 </h2>
 
 <p>
@@ -50,255 +47,234 @@ These 2 examples you can use in the getProduct snippet config/chunk [[+id]] is t
 Start with the first image (&amp;offset=`0`) and stop there (&amp;limit=`1`) where image prefix is medium_
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-javascript">
+<pre class="brush: javascript">
 [[!vcGetProductImages?id=`[[+id]]`&amp;offset=`0`&amp;limit=`1`&amp;prefix=`medium_`]]
 </pre>
-</div>
-</div>
-
 <p>
 Get all images for this product skipping the first image where prefix is thumb_
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!vcGetProductImages?id=`[[+id]]`&amp;offset=`1`&amp;prefix=`thumb_`]]
 </pre>
-</div>
-</div>
-
 <p>
 You can also use the snippet as a standalone snippet setting the id by hand but then a shopId must also be set.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!vcGetProductImages?id=`10`&amp;offset=`0`&amp;limit=`1`&amp;prefix=`thumb_`&amp;shopId=`1`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="VisionCart.vcGetProductImages-AvailableProperties" id="VisionCart.vcGetProductImages-AvailableProperties"></a>Available Properties
+<h2 id="VisionCart.vcGetProductImages-AvailableProperties">
+Available Properties
 </h2>
 
-<h3>
-<a name="VisionCart.vcGetProductImages-TemplatingProperties" id="VisionCart.vcGetProductImages-TemplatingProperties"></a>Templating Properties
+<h3 id="VisionCart.vcGetProductImages-TemplatingProperties">
+Templating Properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk serving as the image template. If not provided,default theme is used
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="VisionCart.vcGetProductImages-SelectionProperties" id="VisionCart.vcGetProductImages-SelectionProperties"></a>Selection Properties
+<h3 id="VisionCart.vcGetProductImages-SelectionProperties">
+Selection Properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rel
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Value for placeholder "rel" used in tpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Limits the number of images returned
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 offset
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 An offset of images returned by the criteria to skip
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 prefix
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Prefix of the images to show (filter by prefix)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 false
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 shopId
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Shop ID from the shop that holds this product
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 (current shop)
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="VisionCart.vcGetProductImages-Placeholders" id="VisionCart.vcGetProductImages-Placeholders"></a>Placeholders
+<h2 id="VisionCart.vcGetProductImages-Placeholders">
+Placeholders
 </h2>
 
 <p>
-<b>These placeholders can be used in the tpl:</b>
+<strong>These placeholders can be used in the tpl:</strong>
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 src
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The source of the image to be displayed (path to the image relative to the siteroot)
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rel
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Properties set in snippet call
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 width
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 width of the image
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 height
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 height of the image
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 count
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Number of the #nd image shown, starting with 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 ?

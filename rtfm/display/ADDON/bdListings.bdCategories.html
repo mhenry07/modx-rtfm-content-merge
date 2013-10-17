@@ -2,131 +2,130 @@
 The bdCategories snippet can be used to output a dynamic category listing based on your categories in the bdListings component.
 </p>
 
-<h2>
-<a name="bdListings.bdCategories-SnippetProperties" id="bdListings.bdCategories-SnippetProperties"></a>Snippet Properties
+<h2 id="bdListings.bdCategories-SnippetProperties">
+Snippet Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
-<font color="#333333">Property Name</font>
+<th>
+Property Name
 </th>
-<th class='confluenceTh'>
-<font color="#333333">Description</font>
+<th>
+Description
 </th>
-<th class='confluenceTh'>
-<font color="#333333">Default Value</font>
+<th>
+Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 Number of categories to display, defaults to 0 (all categories).
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 offset
 </td>
-<td class='confluenceTd'>
+<td>
 Offset of categories to display, defaults to 0 (start with the first)
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortby
 </td>
-<td class='confluenceTd'>
+<td>
 [ name | description | parent | sortorder ]&nbsp;Field to sort on.
 </td>
-<td class='confluenceTd'>
+<td>
 sortorder
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortdir
 </td>
-<td class='confluenceTd'>
+<td>
 [ asc | desc ] Sort direction
 </td>
-<td class='confluenceTd'>
+<td>
 asc
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parent
 </td>
-<td class='confluenceTd'>
+<td>
 ID of a category to list subcategories under. Defaults to 0 (top-level).
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeSub
 </td>
-<td class='confluenceTd'>
+<td>
 [ 1 | 0 ] When 1 this will also include subcategories (only if parent = 0)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 subSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 Separator to use between individual sub categories.
 </td>
-<td class='confluenceTd'>
+<td>
 - (space dash space)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 categorySeparator
 </td>
-<td class='confluenceTd'>
+<td>
 Separator to use between individual categories.
 </td>
-<td class='confluenceTd'>
+<td>
 line break (\n)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplCategory
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk (name) to use for displaying categories. Note that subcategories have a different template.
-<br class="atl-forced-newline" />
+<br />
 Placeholders you can use:
-<br class="atl-forced-newline" />
+<br />
 
 <ul>
 <li>id (category ID)
@@ -142,97 +141,86 @@ Placeholders you can use:
 </li>
 
 <li>subcategories (returns all subcategories for the current category object)
-<br class="atl-forced-newline" />
+<br />
 Default file in core / components / bdlistings / elements / chunks / bdCategories.category.tpl:&nbsp;
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 &lt;h3&gt;[[+name]]&lt;/h3&gt;
 &lt;p&gt;[[+description]]&lt;/p&gt;
 [[+subcategories]]
 </pre>
-</div>
-</div>
 </li>
 </ul>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplInner
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname to use to wrap all subcategories in. The result of this is assigned to the subcategories placeholder in the tplCategory chunk. Could be used for &lt;optgroup&gt;s or some extra markup distinguishing subcategories.
-<br class="atl-forced-newline" />
+<br />
 Placeholders you can use:
-<br class="atl-forced-newline" />
+<br />
 
 <ul>
 <li>subcategories (returns all subcategories, each separated by the value in the subSeparator property)
-<br class="atl-forced-newline" />
+<br />
 Default&nbsp;file in core / components / bdlistings / elements / chunks / bdCategories.inner.tpl:
-<br class="atl-forced-newline" />
+<br />
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;p&gt;Subcategories: [[+subcategories]]&lt;/p&gt;
 </pre>
-</div>
-</div>
 </li>
 </ul>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOuter
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk (name) to use to wrap all the categories in. The value of this is returned by the snippet.&nbsp;
-<br class="atl-forced-newline" />
+<br />
 Placeholders you can use:
-<br class="atl-forced-newline" />
+<br />
 
 <ul>
 <li>wrapper (returns all categories, each separated by the value in the categorySeparator property)
-<br class="atl-forced-newline" />
+<br />
 Default file in&nbsp;core / components / bdlistings / elements / chunks / bdCategories.outer.tpl:
-<br class="atl-forced-newline" />
+<br />
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h2&gt;Categories&lt;/h2&gt;
 [[+wrapper]]
 </pre>
-</div>
-</div>
 </li>
 </ul>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplSub
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk (name) to use for displaying subcategories.&nbsp;
-<br class="atl-forced-newline" />
+<br />
 Placeholders you can use:
-<br class="atl-forced-newline" />
+<br />
 
 <ul>
 <li>id (category &nbsp;ID)
@@ -245,32 +233,28 @@ Placeholders you can use:
 </li>
 
 <li>parent (returns the parent ID)
-<br class="atl-forced-newline" />
+<br />
 Default file in core / components / bdlistings / elements / chunks / bdCategories.outer.tpl:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a title=<span class="code-quote">"[[+description:htmlentities]]"</span>&gt;[[+name]]&lt;/a&gt;
+
+<pre class="brush: php">
+&lt;a title="[[+description:htmlentities]]"&gt;[[+name]]&lt;/a&gt;
 </pre>
-</div>
-</div>
 </li>
 </ul>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="bdListings.bdCategories-Examples" id="bdListings.bdCategories-Examples"></a>Examples
+<h2 id="bdListings.bdCategories-Examples">
+Examples
 </h2>
 
-<h3>
-<a name="bdListings.bdCategories-Minimumcall%3A"></a>Minimum call:
+<h3 id="bdListings.bdCategories-Minimumcall:">
+Minimum call:
 </h3>
 
 <p>
@@ -297,9 +281,7 @@ Categories Structure
 Resulting HTML with default templates:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h2&gt;Categories&lt;/h2&gt;
 &lt;h3&gt;Different&lt;/h3&gt;
 &lt;p&gt;&lt;/p&gt;
@@ -308,11 +290,8 @@ Resulting HTML with default templates:
 &lt;p&gt;sdfasdf?&lt;/p&gt;
 &lt;p&gt;Subcategories: &lt;a title=""&gt;Something - Sub Category&lt;/a&gt;&lt;/p&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="bdListings.bdCategories-CategoryDropdown" id="bdListings.bdCategories-CategoryDropdown"></a>Category Dropdown
+<h3 id="bdListings.bdCategories-CategoryDropdown">
+Category Dropdown
 </h3>
 
 <p>
@@ -327,69 +306,45 @@ Snippet call:
 bdl.cat.cat chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;option value=<span class="code-quote">"[[+id]]"</span>&gt;[[+name]]&lt;/option&gt;
+<pre class="brush: php">
+&lt;option value="[[+id]]"&gt;[[+name]]&lt;/option&gt;
    [[+subcategories]]
 </pre>
-</div>
-</div>
-
 <p>
 bdl.cat.sub chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;option value=<span class="code-quote">"[[+id]]"</span>&gt;- [[+name]]&lt;/option&gt;
+<pre class="brush: php">
+&lt;option value="[[+id]]"&gt;- [[+name]]&lt;/option&gt;
 </pre>
-</div>
-</div>
-
 <p>
 bdl.cat.inner chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+subcategories]]
 </pre>
-</div>
-</div>
-
 <p>
 bdl.cat.outer chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;select name=<span class="code-quote">"category"</span>&gt; 
+<pre class="brush: php">
+&lt;select name="category"&gt; 
   [[+wrapper]]
 &lt;/select&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Possible HTML output (depending on your category structure):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;select name=<span class="code-quote">"category"</span>&gt;
-  &lt;option value=<span class="code-quote">"1"</span>&gt;Clowns&lt;/option&gt;
-    &lt;option value=<span class="code-quote">"2"</span>&gt;- Friendly Clowns&lt;/option&gt;
-    &lt;option value=<span class="code-quote">"3"</span>&gt;- Halloween Clowns&lt;/option&gt;
-  &lt;option value=<span class="code-quote">"4"</span>&gt;Animals&lt;/option&gt;
-    &lt;option value=<span class="code-quote">"5"</span>&gt;- Horse Riding&lt;/option&gt;
-    &lt;option value=<span class="code-quote">"6"</span>&gt;- Alpacas&lt;/option&gt;
-  &lt;option value=<span class="code-quote">"8"</span>&gt;Kino&lt;/option&gt;
+<pre class="brush: php">
+&lt;select name="category"&gt;
+  &lt;option value="1"&gt;Clowns&lt;/option&gt;
+    &lt;option value="2"&gt;- Friendly Clowns&lt;/option&gt;
+    &lt;option value="3"&gt;- Halloween Clowns&lt;/option&gt;
+  &lt;option value="4"&gt;Animals&lt;/option&gt;
+    &lt;option value="5"&gt;- Horse Riding&lt;/option&gt;
+    &lt;option value="6"&gt;- Alpacas&lt;/option&gt;
+  &lt;option value="8"&gt;Kino&lt;/option&gt;
 &lt;/select&gt;
 </pre>
-</div>
-</div>

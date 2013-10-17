@@ -1,29 +1,29 @@
 <div>
 <ul>
 <li>
-<a href='#Loginza.Loginza-Description'>Description</a>
+<a href="#Loginza.Loginza-Description">Description</a>
 </li>
 
 <li>
-<a href='#Loginza.Loginza-Usage'>Usage</a>
+<a href="#Loginza.Loginza-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#Loginza.Loginza-Availibleproperties'>Availible properties</a>
+<a href="#Loginza.Loginza-Availibleproperties">Availible properties</a>
 </li>
 
 <li>
-<a href='#Loginza.Loginza-Sourcecode'>Source code</a>
+<a href="#Loginza.Loginza-Sourcecode">Source code</a>
 </li>
 
 <li>
-<a href='#Loginza.Loginza-SeeAlso'>See Also</a>
+<a href="#Loginza.Loginza-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Loginza.Loginza-Description" id="Loginza.Loginza-Description"></a>Description
+<h2 id="Loginza.Loginza-Description">
+Description
 </h2>
 
 <p>
@@ -34,353 +34,341 @@ This is snippet thats login and logout users.
 On first login user will be registered. On next logins user profile will be updated by default.
 </p>
 
-<h2>
-<a name="Loginza.Loginza-Usage" id="Loginza.Loginza-Usage"></a>Usage
+<h2 id="Loginza.Loginza-Usage">
+Usage
 </h2>
 
 <p>
 Call uncached snippet on your page.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Loginza]]
 </pre>
-</div>
-</div>
-
 <p>
 Register user to group Users, do not update his profile on next logins and remember him.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Loginza?
   &amp;groups=`Users`
   &amp;updateProfile=`0`
   &amp;rememberme=`1`
 ]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Loginza.Loginza-Availibleproperties" id="Loginza.Loginza-Availibleproperties"></a>Availible properties
+<h2 id="Loginza.Loginza-Availibleproperties">
+Availible properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 action
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Action of the snippet (login, logout,&nbsp;getProfile,&nbsp;updateProfile,&nbsp;loadTpl)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 loadTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 updateProfile
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Update user profile with info from validation service. Fullname, email, date of birth etc.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rememberme
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Remember user? Depends on&nbsp;<a href="/display/revolution20/session_cookie_lifetime" title="session_cookie_lifetime">session_cookie_lifetime</a>
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 groups
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Comma-separated list of existing groups for registering users.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 none
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk for not authenticated users with link to login.
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/ADDON/tpl.Loginza.login" title="tpl.Loginza.login">tpl.Loginza.login</a>
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk for authenticated user with link to logout.
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/ADDON/tpl.Loginza.logout" title="tpl.Loginza.logout">tpl.Loginza.logout</a>
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 profileTpl
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk for display and edit user profile
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/ADDON/tpl.Loginza.profile" title="tpl.Loginza.profile">tpl.Loginza.profile</a>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 saltName
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Any string to complicate md5 hash of username md(identity + salt). Without it username will be simple md5 hash of its identity from remote service.
 </td>
-<td class='confluenceTd'>
+<td>
 none
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 saltPass
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Any string to complicate md5 hash of pass.&nbsp;Without it pass will be simple md5 hash of its identity from remote service.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 none
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginContext
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Context to login.
 </td>
-<td class='confluenceTd'>
+<td>
 current context
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 addContexts
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 A comma-separated list of additional contexts to log in to.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 none
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 profileFields
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of allowed user fields for update
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 username,email,fullname,phone,mobilephone,dob,gender,address,country,city,state,zip,fax,photo,comment,website
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 requiredFields
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of required user fields when update
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 username,email,fullname
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 loginResourceId
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Resource id to redirect to on successful login. 0 will redirect to self.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 logoutResourceId
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Resource id to redirect to on successful logout. 0 will redirect to self.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Loginza.Loginza-Sourcecode" id="Loginza.Loginza-Sourcecode"></a>Source code
+<h2 id="Loginza.Loginza-Sourcecode">
+Source code
 </h2>
 
 <p>
-Here is this <a href="https://github.com/bezumkin/modx-loginza/blob/master/core/components/loginza/elements/snippets/loginza.php" class="external-link" rel="nofollow">snippet on Github</a>.
+Here is this <a href="https://github.com/bezumkin/modx-loginza/blob/master/core/components/loginza/elements/snippets/loginza.php">snippet on Github</a>.
 </p>
 
-<h2>
-<a name="Loginza.Loginza-SeeAlso" id="Loginza.Loginza-SeeAlso"></a>See Also
+<h2 id="Loginza.Loginza-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Loginza.Loginza">Loginza.Loginza</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="39355094" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="39355084" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FLoginza.Loginza" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="39355084" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/tpl.Loginza.login">tpl.Loginza.login</a>
+</li>
 
-<p>
-<br class="atl-forced-newline" />
-</p>
+<li>
+<a href="/display/ADDON/tpl.Loginza.logout">tpl.Loginza.logout</a>
+</li>
+
+<li>
+<a href="/display/ADDON/tpl.Loginza.profile">tpl.Loginza.profile</a>
+</li>
+</ol>

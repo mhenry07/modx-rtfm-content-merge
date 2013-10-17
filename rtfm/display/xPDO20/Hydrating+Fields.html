@@ -1,183 +1,122 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#HydratingFields-Whatishydration%3F'>What is hydration?</a>
+<a href="#HydratingFields-Whatishydration%3F">What is hydration?</a>
 </li>
 
 <li>
-<a href='#HydratingFields-HydratingFields'>Hydrating Fields</a>
+<a href="#HydratingFields-HydratingFields">Hydrating Fields</a>
 </li>
 
 <li>
-<a href='#HydratingFields-HydratingAdHocFields'>Hydrating Ad Hoc Fields</a>
+<a href="#HydratingFields-HydratingAdHocFields">Hydrating Ad Hoc Fields</a>
 </li>
 
 <li>
-<a href='#HydratingFields-HydratingRelatedObjects'>Hydrating Related Objects</a>
+<a href="#HydratingFields-HydratingRelatedObjects">Hydrating Related Objects</a>
 </li>
 
 <li>
-<a href='#HydratingFields-SeeAlso'>See Also</a>
+<a href="#HydratingFields-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="HydratingFields-Whatishydration%3F"></a>What is hydration?
+<h2 id="HydratingFields-Whatishydration?">
+What is hydration?
 </h2>
 
 <p>
-Hydration is the process in which fields and related objects represented by an xPDOObject are populated with values. By default, these fields are <b>only</b> accessible using the get(), getOne() and getMany() methods of xPDOObject, and must be defined with appropriate metadata in the map for the object. However, there are a number of options you can use to extend how xPDO hydrates fields and related objects.
+Hydration is the process in which fields and related objects represented by an xPDOObject are populated with values. By default, these fields are <strong>only</strong> accessible using the get(), getOne() and getMany() methods of xPDOObject, and must be defined with appropriate metadata in the map for the object. However, there are a number of options you can use to extend how xPDO hydrates fields and related objects.
 </p>
 
 <p>
-The options are available by passing any of the following configuration options into the <tt>$config</tt> parameter of the <a href="/display/xPDO20/The+xPDO+Constructor" title="The xPDO Constructor">xPDO constructor</a>:
+The options are available by passing any of the following configuration options into the <code>$config</code> parameter of the <a href="/display/xPDO20/The+xPDO+Constructor" title="The xPDO Constructor">xPDO constructor</a>:
 </p>
 
 <ul>
 <li>
-<b>xPDO::OPT_HYDRATE_FIELDS</b> - If true, fields will be hydrated as public member variables of the object.
+<strong>xPDO::OPT_HYDRATE_FIELDS</strong> - If true, fields will be hydrated as public member variables of the object.
 </li>
 
 <li>
-<b>xPDO::OPT_HYDRATE_RELATED_OBJECTS</b> - If true, related objects will be hydrated as public member variables of the object.
+<strong>xPDO::OPT_HYDRATE_RELATED_OBJECTS</strong> - If true, related objects will be hydrated as public member variables of the object.
 </li>
 
 <li>
-<b>xPDO::OPT_HYDRATE_ADHOC_FIELDS</b> - If true, ad-hoc fields will be allowed and hydrated on the object (respects xPDO::OPT_HYDRATE_FIELDS setting as well).
+<strong>xPDO::OPT_HYDRATE_ADHOC_FIELDS</strong> - If true, ad-hoc fields will be allowed and hydrated on the object (respects xPDO::OPT_HYDRATE_FIELDS setting as well).
 </li>
 </ul>
 
-<h2>
-<a name="HydratingFields-HydratingFields"></a>Hydrating Fields
+<h2 id="HydratingFields-HydratingFields">
+Hydrating Fields
 </h2>
 
 <p>
 If the xPDO::OPT_HYDRATE_FIELDS option is set to true, in addition to accessing fields via the xPDOObject::get() method, all object fields will be made accessible for reading directly as public member variables of the object. An example of this is such:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;set('name',$name);
 echo $object-&gt;name;
 </pre>
-</div>
-</div>
-
 <p>
 This would output the 'name' field of the object, assuming that the 'name' field is defined in the object's schema.
 </p>
 
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>These are "raw" values</b>
+<div class="warning">
+<strong>These are "raw" values</strong>
 <br />
 Please note that accessing fields of the object directly provides only the "raw" value as loaded from the database, ignoring the metadata that is defined for the field, and avoiding any logic applied by the get() method of your xPDOObject class (or any of it's parent classes). It is recommended that you always use the get() method to access object fields unless you need the raw value or to avoid the get() logic for a specific reason.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="HydratingFields-HydratingAdHocFields"></a>Hydrating Ad Hoc Fields
+<h2 id="HydratingFields-HydratingAdHocFields">
+Hydrating Ad Hoc Fields
 </h2>
 
 <p>
 If the xPDO::OPT_HYDRATE_ADHOC_FIELDS option is set to true, field hydration will be enabled for arbitrary fields not defined in the class map. It takes one step further the idea of hydrating fields, and now hydrates all <em>ad hoc</em> fields; or rather, any field that is not defined in the schema. Say we want to set an arbitrary field called 'puns' to a Person object:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;set('name','Arthur Dent');
 $object-&gt;set('puns',42);
 echo $object-&gt;get('name') .' has '. $object-&gt;get('puns') . ' puns.';
 </pre>
-</div>
-</div>
-
 <p>
 This would echo the appropriate value, even if the field 'puns' isn't defined in the schema.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 The option respects the xPDO::OPT_HYDRATE_FIELDS option with respect to making the <em>ad hoc</em> fields available directly as public member variables of the object.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="HydratingFields-HydratingRelatedObjects"></a>Hydrating Related Objects
+<h2 id="HydratingFields-HydratingRelatedObjects">
+Hydrating Related Objects
 </h2>
 
 <p>
 If the xPDO::OPT_HYDRATE_RELATED_OBJECTS option is set to true, all related objects will be made available as public member variables of the object. By default, related objects are only accessible via the <a href="/display/xPDO20/getOne" title="getOne">getOne</a> or <a href="/display/xPDO20/getMany" title="getMany">getMany</a> methods of xPDOObject, but this option (similar to xPDO::OPT_HYDRATE_FIELDS) makes any related objects already loaded by those methods accessible directly as variables. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $fordPrefect-&gt;getMany('Beers');
 foreach ($fordPrefect-&gt;Beers as $beer) {
    echo $beer-&gt;get('name').'&lt;br /&gt;';
 }
 </pre>
-</div>
-</div>
-
 <p>
 This would echo a list of all the Beers associated to the $fordPrefect object loaded by the <a href="/display/xPDO20/getMany" title="getMany">getMany</a> method.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>One vs. Many</b>
+<div class="note">
+<strong>One vs. Many</strong>
 <br />
 Objects loaded with <a href="/display/xPDO20/getOne" title="getOne">getOne</a> are available directly as an object of that class, while those with <a href="/display/xPDO20/getMany" title="getMany">getMany</a> are available as an array of objects of the class.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="HydratingFields-SeeAlso"></a>See Also
+<h2 id="HydratingFields-SeeAlso">
+See Also
 </h2>
 
 <ul>

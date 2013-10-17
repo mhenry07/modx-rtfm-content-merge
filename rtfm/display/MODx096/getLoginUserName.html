@@ -1,125 +1,99 @@
-<h1>
-<a name="getLoginUserName-API%3AgetLoginUserName"></a>API:getLoginUserName
+<h1 id="getLoginUserName-API:getLoginUserName">
+API:getLoginUserName
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Quick reference</b>
+<div class="info">
+<strong>API Quick reference</strong>
 <br />
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable name:
 </td>
-<td class='confluenceTd'>
+<td>
 getLoginUserName
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Modx versions:
 </td>
-<td class='confluenceTd'>
+<td>
 0.9.x + Evolution
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Input parameters:
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return if successful:
 </td>
-<td class='confluenceTd'>
+<td>
 Logged in user ID
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return type:
 </td>
-<td class='confluenceTd'>
+<td>
 mixed
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return on failure:
 </td>
-<td class='confluenceTd'>
+<td>
 null
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Object parent:
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/MODx096/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
-<h2>
-<a name="getLoginUserName-Description%2FUsage"></a>Description / Usage
+<h2 id="getLoginUserName-Description/Usage">
+Description / Usage
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 mixed getLoginUserName();
 </pre>
-</div>
-</div>
-
 <p>
 Determines if user is logged in, be it via Manager Interface, or Web Interface, and returns an string with the User Name of the current user. If no user is logged in, null is returned.
 </p>
 
-<h2>
-<a name="getLoginUserName-Examples"></a>Examples
+<h2 id="getLoginUserName-Examples">
+Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-echo ($modx-&gt;getLoginUserName)?<span class="code-quote">"Hello, "</span>.$modx-&gt;getLoginUserName().<span class="code-quote">"!"</span>:<span class="code-quote">"Hello, Guest!"</span>;
+<pre class="brush: php">
+echo ($modx-&gt;getLoginUserName)?"Hello, ".$modx-&gt;getLoginUserName()."!":"Hello, Guest!";
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="getLoginUserName-Related"></a>Related
+<h2 id="getLoginUserName-Related">
+Related
 </h2>
 
 <ul>
@@ -140,16 +114,16 @@ echo ($modx-&gt;getLoginUserName)?<span class="code-quote">"Hello, "</span>.$mod
 </li>
 </ul>
 
-<h2>
-<a name="getLoginUserName-Notes"></a>Notes
+<h2 id="getLoginUserName-Notes">
+Notes
 </h2>
 
 <p>
 In the manager, the value returned will be the manager user's username.
 </p>
 
-<h2>
-<a name="getLoginUserName-FunctionSource"></a>Function Source
+<h2 id="getLoginUserName-FunctionSource">
+Function Source
 </h2>
 
 <p>
@@ -158,17 +132,13 @@ File: manager/includes/document.parser.class.inc.php
 Line: 2028
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 function getLoginUserName() {
-        <span class="code-keyword">if</span> ($<span class="code-keyword">this</span>-&gt;isFrontend() &amp;&amp; isset ($_SESSION['webValidated'])) {
-            <span class="code-keyword">return</span> $_SESSION['webShortname'];
+        if ($this-&gt;isFrontend() &amp;&amp; isset ($_SESSION['webValidated'])) {
+            return $_SESSION['webShortname'];
         }
-        elseif ($<span class="code-keyword">this</span>-&gt;isBackend() &amp;&amp; isset ($_SESSION['mgrValidated'])) {
-            <span class="code-keyword">return</span> $_SESSION['mgrShortname'];
+        elseif ($this-&gt;isBackend() &amp;&amp; isset ($_SESSION['mgrValidated'])) {
+            return $_SESSION['mgrShortname'];
         }
     }
 </pre>
-</div>
-</div>

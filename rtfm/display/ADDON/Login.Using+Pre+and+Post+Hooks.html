@@ -1,13 +1,13 @@
-<h2>
-<a name="Login.UsingPreandPostHooks-HookingitUpwithLogin" id="Login.UsingPreandPostHooks-HookingitUpwithLogin"></a>Hooking it Up with Login
+<h2 id="Login.UsingPreandPostHooks-HookingitUpwithLogin">
+Hooking it Up with Login
 </h2>
 
 <p>
 The <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a>, <a href="/display/ADDON/Login.UpdateProfile" title="Login.UpdateProfile">UpdateProfile</a> and <a href="/display/ADDON/Login.Login" title="Login.Login">Login</a> snippets have properties named 'preHooks' and 'postHooks'. These properties allow you to attach custom functionality to both before and after each one of those Snippets executes its main actions.
 </p>
 
-<h2>
-<a name="Login.UsingPreandPostHooks-UsingHooks" id="Login.UsingPreandPostHooks-UsingHooks"></a>Using Hooks
+<h2 id="Login.UsingPreandPostHooks-UsingHooks">
+Using Hooks
 </h2>
 
 <p>
@@ -22,87 +22,67 @@ Hooks are basically Snippets that run after the form is validated. Hooks can be 
 </li>
 </ul>
 
-<h2>
-<a name="Login.UsingPreandPostHooks-CodingHooks" id="Login.UsingPreandPostHooks-CodingHooks"></a>Coding Hooks
+<h2 id="Login.UsingPreandPostHooks-CodingHooks">
+Coding Hooks
 </h2>
 
 <p>
 Developing a hook is quite simple; just create a Snippet, and pass in the name of that Snippet to the &amp;preHooks or &amp;postHooks property in the Register and/or UpdateProfile snippets.
 </p>
 
-<h3>
-<a name="Login.UsingPreandPostHooks-Accessingthefieldsinthehook" id="Login.UsingPreandPostHooks-Accessingthefieldsinthehook"></a>Accessing the fields in the hook
+<h3 id="Login.UsingPreandPostHooks-Accessingthefieldsinthehook">
+Accessing the fields in the hook
 </h3>
 
 <p>
 The fields in the form are available in the snippet in the 'fields' via the Hooks API. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $email = $hook-&gt;getValue('email');
 </pre>
-</div>
-</div>
-
 <p>
 You can also grab all the values of the form:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $formFields = $hook-&gt;getValues();
 $email = $formFields['email'];
 </pre>
-</div>
-</div>
-
 <p>
 Post-Hooks have special fields in addition to the ones passed in the form that can be accessed for each Snippet:
 </p>
 
-<h4>
-<a name="Login.UsingPreandPostHooks-Register" id="Login.UsingPreandPostHooks-Register"></a>Register
+<h4 id="Login.UsingPreandPostHooks-Register">
+Register
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// A reference to the modUser object
-</span>$user = $hook-&gt;getValue('register.user');
+<pre class="brush: php">
+// A reference to the modUser object
+$user = $hook-&gt;getValue('register.user');
 
-<span class="code-comment">// A reference to the modUserProfile object
-</span>$profile = $hook-&gt;getValue('register.profile');
+// A reference to the modUserProfile object
+$profile = $hook-&gt;getValue('register.profile');
 
-<span class="code-comment">// An array of usergroup names that the User joined
-</span>$usergroups = $hook-&gt;getValue('register.usergroups');
+// An array of usergroup names that the User joined
+$usergroups = $hook-&gt;getValue('register.usergroups');
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="Login.UsingPreandPostHooks-UpdateProfile" id="Login.UsingPreandPostHooks-UpdateProfile"></a>UpdateProfile
+<h4 id="Login.UsingPreandPostHooks-UpdateProfile">
+UpdateProfile
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// A reference to the modUser object
-</span>$user = $hook-&gt;getValue('updateprofile.user');
+<pre class="brush: php">
+// A reference to the modUser object
+$user = $hook-&gt;getValue('updateprofile.user');
 
-<span class="code-comment">// A reference to the modUserProfile object
-</span>$profile = $hook-&gt;getValue('updateprofile.profile');
+// A reference to the modUserProfile object
+$profile = $hook-&gt;getValue('updateprofile.profile');
 
-<span class="code-comment">// A <span class="code-object">boolean</span> stating <span class="code-keyword">if</span> the username was changed
-</span>$changed = $hook-&gt;getValue('updateprofile.usernameChanged');
+// A boolean stating if the username was changed
+$changed = $hook-&gt;getValue('updateprofile.usernameChanged');
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="Login.UsingPreandPostHooks-CustompreHookreturnvalues" id="Login.UsingPreandPostHooks-CustompreHookreturnvalues"></a>Custom preHook return values
+<h3 id="Login.UsingPreandPostHooks-CustompreHookreturnvalues">
+Custom preHook return values
 </h3>
 
 <p>
@@ -113,26 +93,21 @@ Snippets should return true on success. On failure, the snippet can set error me
 The $hook object is available in the snippet in the 'hook' member of the $scriptProperties array. It can be used to return generic error messages to the preHook from the snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $errorMsg = 'User not found';
 $hook-&gt;addError('user',$errorMsg);
-<span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+return false;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Login.UsingPreandPostHooks-Examples" id="Login.UsingPreandPostHooks-Examples"></a>Examples
+<h2 id="Login.UsingPreandPostHooks-Examples">
+Examples
 </h2>
 
 <p>
 This is a list of Examples of hooks:
 </p>
 
-<h3>
-<a name="Login.UsingPreandPostHooks-RegistercustomemailpostHook" id="Login.UsingPreandPostHooks-RegistercustomemailpostHook"></a>Register custom email postHook
+<h3 id="Login.UsingPreandPostHooks-RegistercustomemailpostHook">
+Register custom email postHook
 </h3>
 
 <p>
@@ -143,10 +118,8 @@ Say we want to send a custom email to communitymanager@jerrys.com every time a u
 We'd create a snippet named 'hookComEmail', and use this code:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$message = 'Hi, a <span class="code-keyword">new</span> User signed up: '.$hook-&gt;getValue('username')
+<pre class="brush: php">
+$message = 'Hi, a new User signed up: '.$hook-&gt;getValue('username')
  . ' with email '.$hook-&gt;getValue('email').'.';
 
 $modx-&gt;getService('mail', 'mail.modPHPMailer');
@@ -156,47 +129,97 @@ $modx-&gt;mail-&gt;set(modMail::MAIL_FROM_NAME,'Jerrys Site');
 $modx-&gt;mail-&gt;set(modMail::MAIL_SENDER,'Jerrys Site');
 $modx-&gt;mail-&gt;set(modMail::MAIL_SUBJECT,'New User Signed Up');
 $modx-&gt;mail-&gt;address('to','communitymanager@jerrys.com');
-$modx-&gt;mail-&gt;setHTML(<span class="code-keyword">true</span>);
-<span class="code-keyword">if</span> (!$modx-&gt;mail-&gt;send()) {
-    $modx-&gt;log(modX::LOG_LEVEL_ERROR,'An error occurred <span class="code-keyword">while</span> trying to send the email: '.$err);
+$modx-&gt;mail-&gt;setHTML(true);
+if (!$modx-&gt;mail-&gt;send()) {
+    $modx-&gt;log(modX::LOG_LEVEL_ERROR,'An error occurred while trying to send the email: '.$err);
 }
 $modx-&gt;mail-&gt;reset();
-/* tell our snippet we're good and can <span class="code-keyword">continue</span> */
-<span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+/* tell our snippet we're good and can continue */
+return true;
 </pre>
-</div>
-</div>
-
 <p>
 Then we'd adjust our Register snippet call to load the postHook:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Register? &amp;postHooks=`hookComEmail`]]
 </pre>
-</div>
-</div>
-
 <p>
 And we're done!
 </p>
 
-<h2>
-<a name="Login.UsingPreandPostHooks-SeeAlso" id="Login.UsingPreandPostHooks-SeeAlso"></a>See Also
+<h2 id="Login.UsingPreandPostHooks-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Login.Login">Login.Login</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="21135407" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042888" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FLogin.Using%2BPre%2Band%2BPost%2BHooks" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="33227183" /> <input type="hidden" name="ancestorId" value="11042888" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Login.Profile">Login.Profile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.UpdateProfile">Login.UpdateProfile</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Register">Login.Register</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Register.Example+Form+1">Register.Example Form 1</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ConfirmRegister">Login.ConfirmRegister</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ForgotPassword">Login.ForgotPassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ResetPassword">Login.ResetPassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.ChangePassword">Login.ChangePassword</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Tutorials">Login.Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Login.Basic+Setup">Login.Basic Setup</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Extended+User+Profiles">Login.Extended User Profiles</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Request+Membership">Login.Request Membership</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.User+Profiles">Login.User Profiles</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Using+Custom+Fields">Login.Using Custom Fields</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Using+Pre+and+Post+Hooks">Login.Using Pre and Post Hooks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Login.Roadmap">Login.Roadmap</a>
+</li>
+</ol>

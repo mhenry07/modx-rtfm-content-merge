@@ -5,23 +5,17 @@ CamperManagement was created for a specific website, and with that it has some q
 <div>
 <ul>
 <li>
-<span class='TOCOutline'>1</span> <a href='#CamperManagement.CustomizingtheComponent-ChangingComponentterminologyandfields'>Changing Component terminology and fields</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<span class="TOCOutline">1</span> <a href="#CamperManagement.CustomizingtheComponent-ChangingComponentterminologyandfields">Changing Component terminology and fields</a>
 <ul>
 <li>
-<span class='TOCOutline'>1.1</span> <a href='#CamperManagement.CustomizingtheComponent-FirstlookatusingLexiconManagement'>First look at using Lexicon Management</a>
+<span class="TOCOutline">1.1</span> <a href="#CamperManagement.CustomizingtheComponent-FirstlookatusingLexiconManagement">First look at using Lexicon Management</a>
 </li>
 
 <li>
-<span class='TOCOutline'>1.2</span> <a href='#CamperManagement.CustomizingtheComponent-ChangingsomeStrings'>Changing some Strings</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<span class="TOCOutline">1.2</span> <a href="#CamperManagement.CustomizingtheComponent-ChangingsomeStrings">Changing some Strings</a>
 <ul>
 <li>
-<span class='TOCOutline'>1.2.1</span> <a href='#CamperManagement.CustomizingtheComponent-Statusnames'>Status names</a>
+<span class="TOCOutline">1.2.1</span> <a href="#CamperManagement.CustomizingtheComponent-Statusnames">Status names</a>
 </li>
 </ul>
 </li>
@@ -29,17 +23,17 @@ CamperManagement was created for a specific website, and with that it has some q
 </li>
 
 <li>
-<span class='TOCOutline'>2</span> <a href='#CamperManagement.CustomizingtheComponent-CustombuttonontopoftheCampersgrid'>Custom button on top of the Campers grid</a>
+<span class="TOCOutline">2</span> <a href="#CamperManagement.CustomizingtheComponent-CustombuttonontopoftheCampersgrid">Custom button on top of the Campers grid</a>
 </li>
 
 <li>
-<span class='TOCOutline'>3</span> <a href='#CamperManagement.CustomizingtheComponent-CustomContextMenuitems'>Custom Context Menu items</a>
+<span class="TOCOutline">3</span> <a href="#CamperManagement.CustomizingtheComponent-CustomContextMenuitems">Custom Context Menu items</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="CamperManagement.CustomizingtheComponent-ChangingComponentterminologyandfields" id="CamperManagement.CustomizingtheComponent-ChangingComponentterminologyandfields"></a>Changing Component terminology and fields
+<h2 id="CamperManagement.CustomizingtheComponent-ChangingComponentterminologyandfields">
+Changing Component terminology and fields
 </h2>
 
 <p>
@@ -50,18 +44,18 @@ The addon uses terms like "Campers", "Brands" etc. All of these have been made t
 In this example we will change the title of the component ("CamperManagement") and the labels of a few fields, to bring it in context of used Earth Moving Equipment.
 </p>
 
-<h3>
-<a name="CamperManagement.CustomizingtheComponent-FirstlookatusingLexiconManagement" id="CamperManagement.CustomizingtheComponent-FirstlookatusingLexiconManagement"></a>First look at using Lexicon Management
+<h3 id="CamperManagement.CustomizingtheComponent-FirstlookatusingLexiconManagement">
+First look at using Lexicon Management
 </h3>
 
 <p>
-We will first need to move to the "campermanagement" <a href="/display/revolution20/Namespaces" title="Namespaces">namespace</a>. When you're in the Lexicon Management screen, you should see a dropdown that defaults to "core". Open that and choose the campermanagement one. <span class="image-wrap" style=""><img src="/download/attachments/35586669/screenlexmgmt.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" /></span>
+We will first need to move to the "campermanagement" <a href="/display/revolution20/Namespaces" title="Namespaces">namespace</a>. When you're in the Lexicon Management screen, you should see a dropdown that defaults to "core". Open that and choose the campermanagement one. <img src="/download/attachments/35586669/screenlexmgmt.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" />
 <br />
 Every string has a name (also called the key) which is being called from the code to display certain text. These names are usually quite recognizable and make sense. The button that says "Back to Overview" (on a camper listing page in the top right) has a key of "campermgmt.button.backtooverview", and the title of the "Options" tab has a key of "campermgmt.tab.options". If you can't find the right one, just enter the text you are seeing in the search box to the right of the screen.
 </p>
 
-<h3>
-<a name="CamperManagement.CustomizingtheComponent-ChangingsomeStrings" id="CamperManagement.CustomizingtheComponent-ChangingsomeStrings"></a>Changing some Strings
+<h3 id="CamperManagement.CustomizingtheComponent-ChangingsomeStrings">
+Changing some Strings
 </h3>
 
 <p>
@@ -69,29 +63,29 @@ We will change the title of the addon to "Used Equipment Management". The title 
 </p>
 
 <p>
-If you were to refresh the grid (there's a refresh button at the bottom) you will see it is now listed in green, and has a "Last modifed on" date set. <span class="image-wrap" style=""><img src="/download/attachments/35586669/screenlexmgmt2.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" /></span>
+If you were to refresh the grid (there's a refresh button at the bottom) you will see it is now listed in green, and has a "Last modifed on" date set. <img src="/download/attachments/35586669/screenlexmgmt2.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" />
 <br />
 The good thing about Lexicon Management is that your overrides are saved in the database. That means that even if you update your addon or MODX itself, the lexicon overrides should remain the same and are not being discarded in the process. Changing the lexicon files which are shipped with the component would be discarded when updating that.
 </p>
 
 <p>
-Now you may get overly excited and check out the result, but <b>you will first have to clear the cache</b>. Lexicons are cached by default and a cache refresh is needed to make anything appear. So go to Site &gt; Clear Cache and then refresh your component page. If you changed anything to the menu item (either key campermgmt or campermgmt.description) you will also need to force that to refresh, which doesn't always seem to be refreshed by a regular cache refresh. Simple remove the file in core/cache/menu/mgr/menus/ and that will be updated when you refresh the page again.
+Now you may get overly excited and check out the result, but <strong>you will first have to clear the cache</strong>. Lexicons are cached by default and a cache refresh is needed to make anything appear. So go to Site &gt; Clear Cache and then refresh your component page. If you changed anything to the menu item (either key campermgmt or campermgmt.description) you will also need to force that to refresh, which doesn't always seem to be refreshed by a regular cache refresh. Simple remove the file in core/cache/menu/mgr/menus/ and that will be updated when you refresh the page again.
 </p>
 
 <p>
 Now you can go ahead and change other strings. If you don't have a "Plate" field, but could use a "Capacity" field, you can change the "Place" lexicon to "Capacity" to change that in the component. The actual field name to use in setting up the front-end do not change (that will stay [[+plate]]) but nobody will look at that after development anyway.
 </p>
 
-<h4>
-<a name="CamperManagement.CustomizingtheComponent-Statusnames" id="CamperManagement.CustomizingtheComponent-Statusnames"></a>Status names
+<h4 id="CamperManagement.CustomizingtheComponent-Statusnames">
+Status names
 </h4>
 
 <p>
 You can also use different names for the different statuses through changing the lexicon strings. They are campermgmt.status0 through campermgmt.status5.
 </p>
 
-<h2>
-<a name="CamperManagement.CustomizingtheComponent-CustombuttonontopoftheCampersgrid" id="CamperManagement.CustomizingtheComponent-CustombuttonontopoftheCampersgrid"></a>Custom button on top of the Campers grid
+<h2 id="CamperManagement.CustomizingtheComponent-CustombuttonontopoftheCampersgrid">
+Custom button on top of the Campers grid
 </h2>
 
 <p>
@@ -114,73 +108,58 @@ When the user clicks the button, they will be sent to the resource you specified
 This is an example of what you could use:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!cmCampers? &amp;limit=`0` &amp;sort=`keynr` &amp;dir=`asc` &amp;includeImages=`<span class="code-keyword">false</span>` &amp;status=`1,2,3,4` &amp;tplOuter=`cmVoorraadOuter` &amp;tplItem=`cmVoorraadItem` &amp;optionsSeparator=` / `]]
+<pre class="brush: php">
+[[!cmCampers? &amp;limit=`0` &amp;sort=`keynr` &amp;dir=`asc` &amp;includeImages=`false` &amp;status=`1,2,3,4` &amp;tplOuter=`cmVoorraadOuter` &amp;tplItem=`cmVoorraadItem` &amp;optionsSeparator=` / `]]
 </pre>
-</div>
-</div>
-
 <p>
 cmVoorradOuter chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;table id=<span class="code-quote">"voorraadPrint"</span>&gt;
+<pre class="brush: php">
+&lt;table id="voorraadPrint"&gt;
    [[+items]]
 &lt;/table&gt;
 </pre>
-</div>
-</div>
-
 <p>
 cmVoorraadItem chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;tr&gt;
-  &lt;td rowspan=<span class="code-quote">"2"</span>&gt;
+  &lt;td rowspan="2"&gt;
     &lt;strong&gt;[[+keynr:notempty=`Nr. [[+keynr]]`]]
       [[+plate:notempty=`&lt;br /&gt;[[+plate]]`]]&lt;/strong&gt;
   &lt;/td&gt;
  
-  &lt;td rowspan=<span class="code-quote">"2"</span>&gt;
-    [[+brand]] / [[+type]] / [[+car:notempty=`[[+car]] /`]] [[+engine:notempty=`[[+engine]] /`]] Bouwjaar [[+manufactured:eq=`0`:then=`onbekend`:<span class="code-keyword">else</span>=`[[+manufactured]]`]] / Gewicht [[+weight:eq=`0`:then=`onbekend`:<span class="code-keyword">else</span>=`[[+weight]]`]] /
-    [[+beds]] Slaapplaatsen / Kilometerstand [[+mileage:eq=`0`:then=`onbekend`:<span class="code-keyword">else</span>=`[[+mileage]]`]] / APK tot [[+periodiccheck:eq=`0`:then=`onbekend`:<span class="code-keyword">else</span>=`[[+periodiccheck]]`]] /
+  &lt;td rowspan="2"&gt;
+    [[+brand]] / [[+type]] / [[+car:notempty=`[[+car]] /`]] [[+engine:notempty=`[[+engine]] /`]] Bouwjaar [[+manufactured:eq=`0`:then=`onbekend`:else=`[[+manufactured]]`]] / Gewicht [[+weight:eq=`0`:then=`onbekend`:else=`[[+weight]]`]] /
+    [[+beds]] Slaapplaatsen / Kilometerstand [[+mileage:eq=`0`:then=`onbekend`:else=`[[+mileage]]`]] / APK tot [[+periodiccheck:eq=`0`:then=`onbekend`:else=`[[+periodiccheck]]`]] /
     [[+options]]
     [[+remarks]]
-  &lt;/td rowspan=<span class="code-quote">"2"</span>&gt;
+  &lt;/td rowspan="2"&gt;
  
   &lt;td&gt;
 
 [[+status:eq=`2`:then=`
-&lt;img src=<span class="code-quote">"/assets/templates/lighthouse/cmimg/banner_topper_sm.png"</span> alt=<span class="code-quote">"Topper"</span> /&gt;`]]
-[[+status:eq=`3`:then=`&lt;img src=<span class="code-quote">"/assets/templates/lighthouse/cmimg/banner_optie_sm.png"</span> alt=<span class="code-quote">"In optie"</span> /&gt;
+&lt;img src="/assets/templates/lighthouse/cmimg/banner_topper_sm.png" alt="Topper" /&gt;`]]
+[[+status:eq=`3`:then=`&lt;img src="/assets/templates/lighthouse/cmimg/banner_optie_sm.png" alt="In optie" /&gt;
 `]]
 [[+status:eq=`4`:then=`
-&lt;img src=<span class="code-quote">"/assets/templates/lighthouse/cmimg/banner_verkocht_sm.png"</span> alt=<span class="code-quote">"Verkocht"</span> /&gt;
+&lt;img src="/assets/templates/lighthouse/cmimg/banner_verkocht_sm.png" alt="Verkocht" /&gt;
 `]]
 &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;
     &lt;strong&gt;&amp;euro; [[+price]]&lt;/strong&gt;
   &lt;/td&gt;
 &lt;/tr&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Which results (with some css applied) in:
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/35586669/overview.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/35586669/overview.PNG?version=1&amp;modificationDate=1316005628000" style="border: 1px solid black" />
 </p>
 
-<h2>
-<a name="CamperManagement.CustomizingtheComponent-CustomContextMenuitems" id="CamperManagement.CustomizingtheComponent-CustomContextMenuitems"></a>Custom Context Menu items
+<h2 id="CamperManagement.CustomizingtheComponent-CustomContextMenuitems">
+Custom Context Menu items
 </h2>
 
 <p>

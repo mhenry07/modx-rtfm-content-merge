@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modX.getChunk-modX%3A%3AgetChunk"></a>modX::getChunk
+<h2 id="modX.getChunk-modX::getChunk">
+modX::getChunk
 </h2>
 
 <p>
@@ -11,196 +7,135 @@ Processes and returns the output from an HTML chunk by name.
 </p>
 
 <p>
-<b>getChunk</b> actually sets the properties you pass (and that are picked up from default properties and/or a property set) as placeholders (preserving any with the same key and restoring those after processing is complete) and allows the modChunk class to process() them (along with any other tags, filters, etc.).
+<strong>getChunk</strong> actually sets the properties you pass (and that are picked up from default properties and/or a property set) as placeholders (preserving any with the same key and restoring those after processing is complete) and allows the modChunk class to process() them (along with any other tags, filters, etc.).
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>getChunk</b> will execute the MODX parser, so you can use output filters and the $properties array can be multi-dimenstional (i.e. more than just simple key/value pairs). If this is more horsepower than you need, use <a href="/display/revolution20/modX.parseChunk" title="modX.parseChunk">modX.parseChunk</a> instead.
-</td>
-</tr>
-</table>
+<div class="info">
+<strong>getChunk</strong> will execute the MODX parser, so you can use output filters and the $properties array can be multi-dimenstional (i.e. more than just simple key/value pairs). If this is more horsepower than you need, use <a href="/display/revolution20/modX.parseChunk" title="modX.parseChunk">modX.parseChunk</a> instead.
 </div>
 
-<h2>
-<a name="modX.getChunk-Syntax"></a>Syntax
+<h2 id="modX.getChunk-Syntax">
+Syntax
 </h2>
 
 <p>
-API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::getChunk()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::getChunk()</a>
+API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::getChunk()">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::getChunk()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 string getChunk (string $chunkName, [array $properties = array ()])
 </pre>
-</div>
-</div>
-
 <p>
-<b>$properties</b> is usually a standard associative array, e.g.
+<strong>$properties</strong> is usually a standard associative array, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $properties = array('key' =&gt; 'value');
 </pre>
-</div>
-</div>
-
 <p>
 Which would cause the [[+key]] placeholders to be replaced by the 'value'.
 </p>
 
 <p>
-However, <b>$properties</b> can also be a more deeply nested array such as the kind that might be returned from certain getObject or getCollection queries, e.g.
+However, <strong>$properties</strong> can also be a more deeply nested array such as the kind that might be returned from certain getObject or getCollection queries, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $properties = array(
     'user' =&gt; array('id' =&gt; 1),
     'document' =&gt; array('id' =&gt; 27)
 );
-<span class="code-comment">// or:
-</span>$properties['user']['id'] = 1;
+// or:
+$properties['user']['id'] = 1;
 $properties['document']['id'] = 27;
 
-<span class="code-comment">// Corresponds to the following placeholders:
-</span><span class="code-comment">// [[+user.id]]
-</span><span class="code-comment">// [[+document.id]]</span>
+// Corresponds to the following placeholders:
+// [[+user.id]]
+// [[+document.id]]
 </pre>
-</div>
-</div>
-
 <p>
 In cases where a multi-dimensional array is used, the placeholder syntax changes to use a dot for each node in the array, e.g. [[+user.id]] and [[+document.id]]
 </p>
 
-<h2>
-<a name="modX.getChunk-Examples"></a>Examples
+<h2 id="modX.getChunk-Examples">
+Examples
 </h2>
 
-<h3>
-<a name="modX.getChunk-SimpleExample"></a>Simple Example
+<h3 id="modX.getChunk-SimpleExample">
+Simple Example
 </h3>
 
 <p>
 Lets process this chunk and output its value. We have this Chunk, called "WelcomeChunk":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;p&gt;Welcome [[+name]]!&lt;/p&gt;
 </pre>
-</div>
-</div>
-
 <p>
 We'll put this in our Snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $output = $modx-&gt;getChunk('WelcomeChunk',array(
    'name' =&gt; 'John',
 ));
-<span class="code-keyword">return</span> $output;
+return $output;
 </pre>
-</div>
-</div>
-
 <p>
-So every key in the associative array passed to the <b>getChunk</b> method corresponds to an available placeholder inside the chunk, e.g. [[+name]]
+So every key in the associative array passed to the <strong>getChunk</strong> method corresponds to an available placeholder inside the chunk, e.g. [[+name]]
 </p>
 
 <p>
 This code outputs this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;p&gt;Welcome John!&lt;/p&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="modX.getChunk-Nested%24properties"></a>Nested $properties
+<h3 id="modX.getChunk-Nested$properties">
+Nested $properties
 </h3>
 
 <p>
 In our Chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a href=<span class="code-quote">"http:<span class="code-comment">//site.com/profile?user_id=[[+user.id]]!"</span>&gt;User Details&lt;/a&gt;</span>
+<pre class="brush: php">
+&lt;a href="http://site.com/profile?user_id=[[+user.id]]!"&gt;User Details&lt;/a&gt;
 </pre>
-</div>
-</div>
-
 <p>
 In our Snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $output = $modx-&gt;getChunk('UserLink',array(
    'user' =&gt; array('id' =&gt; 123)
 );
-<span class="code-keyword">return</span> $output;
+return $output;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="modX.getChunk-UsedinaSnippet"></a>Used in a Snippet
+<h3 id="modX.getChunk-UsedinaSnippet">
+Used in a Snippet
 </h3>
 
 <p>
-Often, MODX Chunks are used as <a href="http://php.net/manual/en/function.sprintf.php" class="external-link" rel="nofollow">formatting string</a> by Snippets. To that end, you can make good use of xPDO's <a href="/display/xPDO20/toArray" title="toArray">toArray()</a> method.
+Often, MODX Chunks are used as <a href="http://php.net/manual/en/function.sprintf.php">formatting string</a> by Snippets. To that end, you can make good use of xPDO's <a href="/display/xPDO20/toArray" title="toArray">toArray()</a> method.
 </p>
 
 <p>
-Imagine a Chunk named <b>single_user</b>:
+Imagine a Chunk named <strong>single_user</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Username: [[+username]]&lt;br/&gt;
 Active?:  [[+active]]&lt;br/&gt;
 &lt;hr/&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Then in your Snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $userlist = $modx-&gt;getCollection('modUser');
 
 $output = '';
@@ -208,40 +143,32 @@ foreach ($userlist as $user) {
     $output .= $modx-&gt;getChunk('single_user', $user-&gt;toArray() );
 }
 
-<span class="code-keyword">return</span> $output;
+return $output;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="modX.getChunk-ParsingaString"></a>Parsing a String
+<h3 id="modX.getChunk-ParsingaString">
+Parsing a String
 </h3>
 
 <p>
-Sometimes you need to parse a string using the MODX parser – this does not use getChunk, but it is related. Using the MODX parser is a bit slower than using a simple str_replace function, but it does let you use complex placeholders (e.g. to include another Chunk) and output filters etc. The trick is to create a temporary Chunk object, then run the <b>process</b> method on it.
+Sometimes you need to parse a string using the MODX parser – this does not use getChunk, but it is related. Using the MODX parser is a bit slower than using a simple str_replace function, but it does let you use complex placeholders (e.g. to include another Chunk) and output filters etc. The trick is to create a temporary Chunk object, then run the <strong>process</strong> method on it.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// The formatting <span class="code-object">String</span>
-</span>$tpl = 'Hello, my name is [[+name]]';
+<pre class="brush: php">
+// The formatting String
+$tpl = 'Hello, my name is [[+name]]';
 
-<span class="code-comment">// Properties
-</span>$props = array('name' =&gt; 'Bob');
+// Properties
+$props = array('name' =&gt; 'Bob');
 
-<span class="code-comment">// Create the temporary chunk
-</span>$uniqid = uniqid();
-$chunk = $modx-&gt;newObject('modChunk', array('name' =&gt; <span class="code-quote">"{tmp}-{$uniqid}"</span>));
-$chunk-&gt;setCacheable(<span class="code-keyword">false</span>);
+// Create the temporary chunk
+$uniqid = uniqid();
+$chunk = $modx-&gt;newObject('modChunk', array('name' =&gt; "{tmp}-{$uniqid}"));
+$chunk-&gt;setCacheable(false);
 
 $output = $chunk-&gt;process($props, $tpl);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.getChunk-SeeAlso"></a>See Also
+<h2 id="modX.getChunk-SeeAlso">
+See Also
 </h2>
 
 <ul>

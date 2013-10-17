@@ -1,49 +1,45 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#MODxPHPCodingStandards-General'>General</a>
+<a href="#MODxPHPCodingStandards-General">General</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Parenthesis'>Parenthesis</a>
+<a href="#MODxPHPCodingStandards-Parenthesis">Parenthesis</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Classes'>Classes</a>
+<a href="#MODxPHPCodingStandards-Classes">Classes</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Variables'>Variables</a>
+<a href="#MODxPHPCodingStandards-Variables">Variables</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-FunctionArgumentsandClassVariables'>Function Arguments and Class Variables</a>
+<a href="#MODxPHPCodingStandards-FunctionArgumentsandClassVariables">Function Arguments and Class Variables</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Arrays'>Arrays</a>
+<a href="#MODxPHPCodingStandards-Arrays">Arrays</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Constants'>Constants</a>
+<a href="#MODxPHPCodingStandards-Constants">Constants</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-FileStructure'>File Structure</a>
+<a href="#MODxPHPCodingStandards-FileStructure">File Structure</a>
 </li>
 
 <li>
-<a href='#MODxPHPCodingStandards-Prefixing'>Prefixing</a>
+<a href="#MODxPHPCodingStandards-Prefixing">Prefixing</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="MODxPHPCodingStandards-General" id="MODxPHPCodingStandards-General"></a>General
+<h2 id="MODxPHPCodingStandards-General">
+General
 </h2>
 
 <ul>
@@ -68,8 +64,8 @@ null, true and false should always be lowercase.
 </li>
 </ul>
 
-<h2>
-<a name="MODxPHPCodingStandards-Parenthesis" id="MODxPHPCodingStandards-Parenthesis"></a>Parenthesis
+<h2 id="MODxPHPCodingStandards-Parenthesis">
+Parenthesis
 </h2>
 
 <ul>
@@ -80,26 +76,23 @@ null, true and false should always be lowercase.
 </li>
 
 <li>Do not use parenthesis in return statements when it's not necessary. Example:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> ($test) {
+
+<pre class="brush: php">
+if ($test) {
 }
-<span class="code-keyword">while</span> ($test == $other) {
+while ($test == $other) {
 }
 array_push($one,$two);
-<span class="code-keyword">return</span> $test;
+return $test;
 </pre>
-</div>
-</div>
 </li>
 
-<li>Do <b>not</b> use parenthesis when using include, require, include_once, and require_once.
+<li>Do <strong>not</strong> use parenthesis when using include, require, include_once, and require_once.
 </li>
 </ul>
 
-<h2>
-<a name="MODxPHPCodingStandards-Classes" id="MODxPHPCodingStandards-Classes"></a>Classes
+<h2 id="MODxPHPCodingStandards-Classes">
+Classes
 </h2>
 
 <ul>
@@ -110,23 +103,20 @@ array_push($one,$two);
 </li>
 
 <li>All private methods and variables must be prefixed with the underscore _ character.
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 class modFactor {
-    <span class="code-keyword">public</span> $publicVar;
-    <span class="code-keyword">private</span> $_privateVar;
-    <span class="code-keyword">private</span> function _privateFunc() { }
-    <span class="code-keyword">public</span> function publicFunc() { }
+    public $publicVar;
+    private $_privateVar;
+    private function _privateFunc() { }
+    public function publicFunc() { }
 }
 </pre>
-</div>
-</div>
 </li>
 </ul>
 
-<h2>
-<a name="MODxPHPCodingStandards-Variables" id="MODxPHPCodingStandards-Variables"></a>Variables
+<h2 id="MODxPHPCodingStandards-Variables">
+Variables
 </h2>
 
 <p>
@@ -141,29 +131,26 @@ Note these are not function arguments.
 </li>
 </ul>
 
-<h2>
-<a name="MODxPHPCodingStandards-FunctionArgumentsandClassVariables" id="MODxPHPCodingStandards-FunctionArgumentsandClassVariables"></a>Function Arguments and Class Variables
+<h2 id="MODxPHPCodingStandards-FunctionArgumentsandClassVariables">
+Function Arguments and Class Variables
 </h2>
 
 <ul>
 <li>The first letter is lowercase, rest are camelCase. Example:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 class modFactor {
-    <span class="code-keyword">public</span> function testFunc($testVar, array &amp;$anotherTest = array()) {
-        $<span class="code-keyword">this</span>-&gt;_privateVar = $testVar;
+    public function testFunc($testVar, array &amp;$anotherTest = array()) {
+        $this-&gt;_privateVar = $testVar;
         $local_variable =&amp; $anotherTest;
     }
 }
 </pre>
-</div>
-</div>
 </li>
 </ul>
 
-<h2>
-<a name="MODxPHPCodingStandards-Arrays" id="MODxPHPCodingStandards-Arrays"></a>Arrays
+<h2 id="MODxPHPCodingStandards-Arrays">
+Arrays
 </h2>
 
 <ul>
@@ -176,18 +163,15 @@ class modFactor {
 <li>Array index names are always encapsulated with single quotes.
 <br />
 Example:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 $_lang['chunk_create_text'] = 'Test';
 </pre>
-</div>
-</div>
 </li>
 </ul>
 
-<h2>
-<a name="MODxPHPCodingStandards-Constants" id="MODxPHPCodingStandards-Constants"></a>Constants
+<h2 id="MODxPHPCodingStandards-Constants">
+Constants
 </h2>
 
 <ul>
@@ -198,8 +182,8 @@ $_lang['chunk_create_text'] = 'Test';
 </li>
 </ul>
 
-<h2>
-<a name="MODxPHPCodingStandards-FileStructure" id="MODxPHPCodingStandards-FileStructure"></a>File Structure
+<h2 id="MODxPHPCodingStandards-FileStructure">
+File Structure
 </h2>
 
 <ul>
@@ -207,8 +191,8 @@ $_lang['chunk_create_text'] = 'Test';
 </li>
 </ul>
 
-<h2>
-<a name="MODxPHPCodingStandards-Prefixing" id="MODxPHPCodingStandards-Prefixing"></a>Prefixing
+<h2 id="MODxPHPCodingStandards-Prefixing">
+Prefixing
 </h2>
 
 <ul>
@@ -216,14 +200,9 @@ $_lang['chunk_create_text'] = 'Test';
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $_lang['mycomponent.welcome_message'] = 'Welcome!';
 </pre>
-</div>
-</div>
-
 <ul>
 <li>Always prefix class names; eg: 'finBank', 'finTransaction', etc.
 </li>

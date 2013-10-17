@@ -1,49 +1,36 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="isDirty-xPDOObject%3A%3AisDirty%28%29"></a>xPDOObject::isDirty()
+<h2 id="isDirty-xPDOObject::isDirty()">
+xPDOObject::isDirty()
 </h2>
 
 <p>
 Indicates if an object field has been modified (or never saved).
 </p>
 
-<h2>
-<a name="isDirty-Syntax" id="isDirty-Syntax"></a>Syntax
+<h2 id="isDirty-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#isDirty" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#isDirty</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#isDirty">http://api.modxcms.com/xpdo/om/xPDOObject.html#isDirty</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> isDirty (string $key)
+<pre class="brush: php">
+boolean isDirty (string $key)
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="isDirty-Examples" id="isDirty-Examples"></a>Examples
+<h2 id="isDirty-Examples">
+Examples
 </h2>
 
 <p>
 Test if a Skrewt object has been modified.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $skrewt = $xpdo-&gt;getObject('Skrewt',1);
 
-echo $skrewt-&gt;isDirty() ? 1 : 0; <span class="code-comment">// prints 0
-</span>
-$skrewt-&gt;set('poisonous',<span class="code-keyword">false</span>);
+echo $skrewt-&gt;isDirty() ? 1 : 0; // prints 0
 
-echo $skrewt-&gt;isDirty() ? 1 : 0; <span class="code-comment">// prints 1</span>
+$skrewt-&gt;set('poisonous',false);
+
+echo $skrewt-&gt;isDirty() ? 1 : 0; // prints 1
 </pre>
-</div>
-</div>

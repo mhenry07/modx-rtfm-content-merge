@@ -1,45 +1,45 @@
 <div>
 <ul>
 <li>
-<a href='#MIGX.sortableresourcelist-SortableResourcelistwithMIGX'>Sortable Resourcelist with MIGX</a>
+<a href="#MIGX.sortableresourcelist-SortableResourcelistwithMIGX">Sortable Resourcelist with MIGX</a>
 </li>
 
 <li>
-<a href='#MIGX.sortableresourcelist-Requirements'>Requirements</a>
+<a href="#MIGX.sortableresourcelist-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#MIGX.sortableresourcelist-CreatetheResourceoptionschunk'>Create the Resourceoptions - chunk</a>
+<a href="#MIGX.sortableresourcelist-CreatetheResourceoptionschunk">Create the Resourceoptions - chunk</a>
 </li>
 
 <li>
-<a href='#MIGX.sortableresourcelist-CreatetheConfigurationfortheMIGXTV'>Create the Configuration for the MIGX-TV</a>
+<a href="#MIGX.sortableresourcelist-CreatetheConfigurationfortheMIGXTV">Create the Configuration for the MIGX-TV</a>
 </li>
 
 <li>
-<a href='#MIGX.sortableresourcelist-CreatetheMIGXTV'>Create the MIGX - TV</a>
+<a href="#MIGX.sortableresourcelist-CreatetheMIGXTV">Create the MIGX - TV</a>
 </li>
 
 <li>
-<a href='#MIGX.sortableresourcelist-SelectandsortResources'>Select and sort Resources</a>
+<a href="#MIGX.sortableresourcelist-SelectandsortResources">Select and sort Resources</a>
 </li>
 
 <li>
-<a href='#MIGX.sortableresourcelist-GettheSortedandfilteredResourcelistatfrontend'>Get the Sorted and filtered Resourcelist at frontend</a>
+<a href="#MIGX.sortableresourcelist-GettheSortedandfilteredResourcelistatfrontend">Get the Sorted and filtered Resourcelist at frontend</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="MIGX.sortableresourcelist-SortableResourcelistwithMIGX" id="MIGX.sortableresourcelist-SortableResourcelistwithMIGX"></a>Sortable Resourcelist with MIGX
+<h2 id="MIGX.sortableresourcelist-SortableResourcelistwithMIGX">
+Sortable Resourcelist with MIGX
 </h2>
 
 <p>
 In this Tutorial we will learn how we can use MIGX to select a set of Resources from a given parent and sort the ouput-order.
 </p>
 
-<h2>
-<a name="MIGX.sortableresourcelist-Requirements" id="MIGX.sortableresourcelist-Requirements"></a>Requirements
+<h2 id="MIGX.sortableresourcelist-Requirements">
+Requirements
 </h2>
 
 <p>
@@ -48,8 +48,8 @@ First off we will need to install <a href="/display/ADDON/MIGX" title="MIGX">MIG
 Version required: 2.5.2 +
 </p>
 
-<h2>
-<a name="MIGX.sortableresourcelist-CreatetheResourceoptionschunk" id="MIGX.sortableresourcelist-CreatetheResourceoptionschunk"></a>Create the Resourceoptions - chunk
+<h2 id="MIGX.sortableresourcelist-CreatetheResourceoptionschunk">
+Create the Resourceoptions - chunk
 </h2>
 
 <ol>
@@ -59,19 +59,16 @@ Version required: 2.5.2 +
 </li>
 
 <li>content:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 [[migxLoopCollection? 
     &amp;classname=`modResource`
     &amp;selectfields=`id,pagetitle`
-    &amp;where=`{<span class="code-quote">"parent"</span>:<span class="code-quote">"3"</span>}`
+    &amp;where=`{"parent":"3"}`
     &amp;toJsonPlaceholder=`json` 
   ]]
 [[+json]]
 </pre>
-</div>
-</div>
 </li>
 </ul>
 </li>
@@ -81,8 +78,8 @@ Version required: 2.5.2 +
 Change the parent to the ID where you want to get the resourcelist from
 </p>
 
-<h2>
-<a name="MIGX.sortableresourcelist-CreatetheConfigurationfortheMIGXTV" id="MIGX.sortableresourcelist-CreatetheConfigurationfortheMIGXTV"></a>Create the Configuration for the MIGX-TV
+<h2 id="MIGX.sortableresourcelist-CreatetheConfigurationfortheMIGXTV">
+Create the Configuration for the MIGX-TV
 </h2>
 
 <ol>
@@ -103,197 +100,194 @@ Change the parent to the ID where you want to get the resourcelist from
 </li>
 
 <li>copy/paste this code into the textarea:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 {
-  <span class="code-quote">"formtabs"</span>:[
+  "formtabs":[
     {
-      <span class="code-quote">"MIGX_id"</span>:1,
-      <span class="code-quote">"caption"</span>:<span class="code-quote">"main"</span>,
-      <span class="code-quote">"print_before_tabs"</span>:<span class="code-quote">"0"</span>,
-      <span class="code-quote">"fields"</span>:[
+      "MIGX_id":1,
+      "caption":"main",
+      "print_before_tabs":"0",
+      "fields":[
         {
-          <span class="code-quote">"MIGX_id"</span>:1,
-          <span class="code-quote">"field"</span>:<span class="code-quote">"active"</span>,
-          <span class="code-quote">"caption"</span>:<span class="code-quote">"Active"</span>,
-          <span class="code-quote">"description"</span>:"",
-          <span class="code-quote">"description_is_code"</span>:<span class="code-quote">"0"</span>,
-          <span class="code-quote">"inputTV"</span>:"",
-          <span class="code-quote">"inputTVtype"</span>:<span class="code-quote">"listbox"</span>,
-          <span class="code-quote">"configs"</span>:"",
-          <span class="code-quote">"sourceFrom"</span>:<span class="code-quote">"config"</span>,
-          <span class="code-quote">"sources"</span>:<span class="code-quote">"[]"</span>,
-          <span class="code-quote">"inputOptionValues"</span>:<span class="code-quote">"yes==1||no==0"</span>,
-          <span class="code-quote">"<span class="code-keyword">default</span>"</span>:<span class="code-quote">"0"</span>
+          "MIGX_id":1,
+          "field":"active",
+          "caption":"Active",
+          "description":"",
+          "description_is_code":"0",
+          "inputTV":"",
+          "inputTVtype":"listbox",
+          "configs":"",
+          "sourceFrom":"config",
+          "sources":"[]",
+          "inputOptionValues":"yes==1||no==0",
+          "default":"0"
         },
         {
-          <span class="code-quote">"MIGX_id"</span>:2,
-          <span class="code-quote">"field"</span>:<span class="code-quote">"comment"</span>,
-          <span class="code-quote">"caption"</span>:<span class="code-quote">"Comment"</span>,
-          <span class="code-quote">"description"</span>:"",
-          <span class="code-quote">"description_is_code"</span>:<span class="code-quote">"0"</span>,
-          <span class="code-quote">"inputTV"</span>:"",
-          <span class="code-quote">"inputTVtype"</span>:<span class="code-quote">"textarea"</span>,
-          <span class="code-quote">"configs"</span>:"",
-          <span class="code-quote">"sourceFrom"</span>:<span class="code-quote">"config"</span>,
-          <span class="code-quote">"sources"</span>:<span class="code-quote">"[]"</span>,
-          <span class="code-quote">"inputOptionValues"</span>:"",
-          <span class="code-quote">"<span class="code-keyword">default</span>"</span>:""
+          "MIGX_id":2,
+          "field":"comment",
+          "caption":"Comment",
+          "description":"",
+          "description_is_code":"0",
+          "inputTV":"",
+          "inputTVtype":"textarea",
+          "configs":"",
+          "sourceFrom":"config",
+          "sources":"[]",
+          "inputOptionValues":"",
+          "default":""
         },
         {
-          <span class="code-quote">"MIGX_id"</span>:3,
-          <span class="code-quote">"field"</span>:<span class="code-quote">"pagetitle"</span>,
-          <span class="code-quote">"caption"</span>:"",
-          <span class="code-quote">"description"</span>:"",
-          <span class="code-quote">"description_is_code"</span>:<span class="code-quote">"0"</span>,
-          <span class="code-quote">"inputTV"</span>:"",
-          <span class="code-quote">"inputTVtype"</span>:<span class="code-quote">"hidden"</span>,
-          <span class="code-quote">"configs"</span>:"",
-          <span class="code-quote">"sourceFrom"</span>:<span class="code-quote">"config"</span>,
-          <span class="code-quote">"sources"</span>:<span class="code-quote">"[]"</span>,
-          <span class="code-quote">"inputOptionValues"</span>:"",
-          <span class="code-quote">"<span class="code-keyword">default</span>"</span>:""
+          "MIGX_id":3,
+          "field":"pagetitle",
+          "caption":"",
+          "description":"",
+          "description_is_code":"0",
+          "inputTV":"",
+          "inputTVtype":"hidden",
+          "configs":"",
+          "sourceFrom":"config",
+          "sources":"[]",
+          "inputOptionValues":"",
+          "default":""
         },
         {
-          <span class="code-quote">"MIGX_id"</span>:4,
-          <span class="code-quote">"field"</span>:<span class="code-quote">"id"</span>,
-          <span class="code-quote">"caption"</span>:"",
-          <span class="code-quote">"description"</span>:"",
-          <span class="code-quote">"description_is_code"</span>:<span class="code-quote">"0"</span>,
-          <span class="code-quote">"inputTV"</span>:"",
-          <span class="code-quote">"inputTVtype"</span>:<span class="code-quote">"hidden"</span>,
-          <span class="code-quote">"configs"</span>:"",
-          <span class="code-quote">"sourceFrom"</span>:<span class="code-quote">"config"</span>,
-          <span class="code-quote">"sources"</span>:<span class="code-quote">"[]"</span>,
-          <span class="code-quote">"inputOptionValues"</span>:"",
-          <span class="code-quote">"<span class="code-keyword">default</span>"</span>:""
+          "MIGX_id":4,
+          "field":"id",
+          "caption":"",
+          "description":"",
+          "description_is_code":"0",
+          "inputTV":"",
+          "inputTVtype":"hidden",
+          "configs":"",
+          "sourceFrom":"config",
+          "sources":"[]",
+          "inputOptionValues":"",
+          "default":""
         }
       ]
     }
   ],
-  <span class="code-quote">"contextmenus"</span>:"",
-  <span class="code-quote">"actionbuttons"</span>:"",
-  <span class="code-quote">"columnbuttons"</span>:"",
-  <span class="code-quote">"filters"</span>:<span class="code-quote">"[]"</span>,
-  <span class="code-quote">"extended"</span>:{
-    <span class="code-quote">"migx_add"</span>:"",
-    <span class="code-quote">"formcaption"</span>:"",
-    <span class="code-quote">"update_win_title"</span>:"",
-    <span class="code-quote">"win_id"</span>:<span class="code-quote">"migx_input_options"</span>,
-    <span class="code-quote">"maxRecords"</span>:"",
-    <span class="code-quote">"multiple_formtabs"</span>:"",
-    <span class="code-quote">"extrahandlers"</span>:<span class="code-quote">"<span class="code-keyword">this</span>.handleColumnSwitch"</span>,
-    <span class="code-quote">"packageName"</span>:"",
-    <span class="code-quote">"classname"</span>:"",
-    <span class="code-quote">"task"</span>:"",
-    <span class="code-quote">"getlistsort"</span>:"",
-    <span class="code-quote">"getlistsortdir"</span>:"",
-    <span class="code-quote">"use_custom_prefix"</span>:<span class="code-quote">"0"</span>,
-    <span class="code-quote">"prefix"</span>:"",
-    <span class="code-quote">"grid"</span>:"",
-    <span class="code-quote">"gridload_mode"</span>:1,
-    <span class="code-quote">"check_resid"</span>:1,
-    <span class="code-quote">"check_resid_TV"</span>:"",
-    <span class="code-quote">"join_alias"</span>:"",
-    <span class="code-quote">"getlistwhere"</span>:"",
-    <span class="code-quote">"joins"</span>:"",
-    <span class="code-quote">"cmpmaincaption"</span>:"",
-    <span class="code-quote">"cmptabcaption"</span>:"",
-    <span class="code-quote">"cmptabdescription"</span>:"",
-    <span class="code-quote">"cmptabcontroller"</span>:"",
-    <span class="code-quote">"winbuttons"</span>:"",
-    <span class="code-quote">"onsubmitsuccess"</span>:"",
-    <span class="code-quote">"submitparams"</span>:""
+  "contextmenus":"",
+  "actionbuttons":"",
+  "columnbuttons":"",
+  "filters":"[]",
+  "extended":{
+    "migx_add":"",
+    "formcaption":"",
+    "update_win_title":"",
+    "win_id":"migx_input_options",
+    "maxRecords":"",
+    "multiple_formtabs":"",
+    "extrahandlers":"this.handleColumnSwitch",
+    "packageName":"",
+    "classname":"",
+    "task":"",
+    "getlistsort":"",
+    "getlistsortdir":"",
+    "use_custom_prefix":"0",
+    "prefix":"",
+    "grid":"",
+    "gridload_mode":1,
+    "check_resid":1,
+    "check_resid_TV":"",
+    "join_alias":"",
+    "getlistwhere":"",
+    "joins":"",
+    "cmpmaincaption":"",
+    "cmptabcaption":"",
+    "cmptabdescription":"",
+    "cmptabcontroller":"",
+    "winbuttons":"",
+    "onsubmitsuccess":"",
+    "submitparams":""
   },
-  <span class="code-quote">"columns"</span>:[
+  "columns":[
     {
-      <span class="code-quote">"MIGX_id"</span>:1,
-      <span class="code-quote">"header"</span>:<span class="code-quote">"Pagetitle"</span>,
-      <span class="code-quote">"dataIndex"</span>:<span class="code-quote">"pagetitle"</span>,
-      <span class="code-quote">"width"</span>:"",
-      <span class="code-quote">"sortable"</span>:<span class="code-quote">"<span class="code-keyword">false</span>"</span>,
-      <span class="code-quote">"show_in_grid"</span>:1,
-      <span class="code-quote">"renderer"</span>:"",
-      <span class="code-quote">"clickaction"</span>:"",
-      <span class="code-quote">"selectorconfig"</span>:"",
-      <span class="code-quote">"renderoptions"</span>:<span class="code-quote">"[]"</span>
+      "MIGX_id":1,
+      "header":"Pagetitle",
+      "dataIndex":"pagetitle",
+      "width":"",
+      "sortable":"false",
+      "show_in_grid":1,
+      "renderer":"",
+      "clickaction":"",
+      "selectorconfig":"",
+      "renderoptions":"[]"
     },
     {
-      <span class="code-quote">"MIGX_id"</span>:2,
-      <span class="code-quote">"header"</span>:<span class="code-quote">"Active"</span>,
-      <span class="code-quote">"dataIndex"</span>:<span class="code-quote">"active"</span>,
-      <span class="code-quote">"width"</span>:"",
-      <span class="code-quote">"sortable"</span>:<span class="code-quote">"<span class="code-keyword">false</span>"</span>,
-      <span class="code-quote">"show_in_grid"</span>:1,
-      <span class="code-quote">"renderer"</span>:<span class="code-quote">"<span class="code-keyword">this</span>.renderSwitchStatusOptions"</span>,
-      <span class="code-quote">"clickaction"</span>:<span class="code-quote">"switchOption"</span>,
-      <span class="code-quote">"selectorconfig"</span>:"",
-      <span class="code-quote">"renderoptions"</span>:[
+      "MIGX_id":2,
+      "header":"Active",
+      "dataIndex":"active",
+      "width":"",
+      "sortable":"false",
+      "show_in_grid":1,
+      "renderer":"this.renderSwitchStatusOptions",
+      "clickaction":"switchOption",
+      "selectorconfig":"",
+      "renderoptions":[
         {
-          <span class="code-quote">"MIGX_id"</span>:1,
-          <span class="code-quote">"name"</span>:<span class="code-quote">"published"</span>,
-          <span class="code-quote">"value"</span>:1,
-          <span class="code-quote">"clickaction"</span>:"",
-          <span class="code-quote">"handler"</span>:"",
-          <span class="code-quote">"image"</span>:<span class="code-quote">"assets\/components\/migx\/style\/images\/tick.png"</span>
+          "MIGX_id":1,
+          "name":"published",
+          "value":1,
+          "clickaction":"",
+          "handler":"",
+          "image":"assets\/components\/migx\/style\/images\/tick.png"
         },
         {
-          <span class="code-quote">"MIGX_id"</span>:2,
-          <span class="code-quote">"name"</span>:<span class="code-quote">"unpublished"</span>,
-          <span class="code-quote">"value"</span>:<span class="code-quote">"0"</span>,
-          <span class="code-quote">"clickaction"</span>:"",
-          <span class="code-quote">"handler"</span>:"",
-          <span class="code-quote">"image"</span>:<span class="code-quote">"assets\/components\/migx\/style\/images\/cross.png"</span>
+          "MIGX_id":2,
+          "name":"unpublished",
+          "value":"0",
+          "clickaction":"",
+          "handler":"",
+          "image":"assets\/components\/migx\/style\/images\/cross.png"
         }
       ]
     },
     {
-      <span class="code-quote">"MIGX_id"</span>:3,
-      <span class="code-quote">"header"</span>:<span class="code-quote">"Comment"</span>,
-      <span class="code-quote">"dataIndex"</span>:<span class="code-quote">"comment"</span>,
-      <span class="code-quote">"width"</span>:"",
-      <span class="code-quote">"sortable"</span>:<span class="code-quote">"<span class="code-keyword">false</span>"</span>,
-      <span class="code-quote">"show_in_grid"</span>:1,
-      <span class="code-quote">"renderer"</span>:"",
-      <span class="code-quote">"clickaction"</span>:"",
-      <span class="code-quote">"selectorconfig"</span>:"",
-      <span class="code-quote">"renderoptions"</span>:<span class="code-quote">"[]"</span>
+      "MIGX_id":3,
+      "header":"Comment",
+      "dataIndex":"comment",
+      "width":"",
+      "sortable":"false",
+      "show_in_grid":1,
+      "renderer":"",
+      "clickaction":"",
+      "selectorconfig":"",
+      "renderoptions":"[]"
     },
     {
-      <span class="code-quote">"MIGX_id"</span>:4,
-      <span class="code-quote">"header"</span>:"",
-      <span class="code-quote">"dataIndex"</span>:<span class="code-quote">"x"</span>,
-      <span class="code-quote">"width"</span>:"",
-      <span class="code-quote">"sortable"</span>:<span class="code-quote">"<span class="code-keyword">false</span>"</span>,
-      <span class="code-quote">"show_in_grid"</span>:<span class="code-quote">"0"</span>,
-      <span class="code-quote">"renderer"</span>:<span class="code-quote">"<span class="code-keyword">this</span>.renderChunk"</span>,
-      <span class="code-quote">"clickaction"</span>:"",
-      <span class="code-quote">"selectorconfig"</span>:"",
-      <span class="code-quote">"renderoptions"</span>:<span class="code-quote">"[]"</span>
+      "MIGX_id":4,
+      "header":"",
+      "dataIndex":"x",
+      "width":"",
+      "sortable":"false",
+      "show_in_grid":"0",
+      "renderer":"this.renderChunk",
+      "clickaction":"",
+      "selectorconfig":"",
+      "renderoptions":"[]"
     },
     {
-      <span class="code-quote">"MIGX_id"</span>:5,
-      <span class="code-quote">"header"</span>:<span class="code-quote">"ID"</span>,
-      <span class="code-quote">"dataIndex"</span>:<span class="code-quote">"id"</span>,
-      <span class="code-quote">"width"</span>:"",
-      <span class="code-quote">"sortable"</span>:<span class="code-quote">"<span class="code-keyword">false</span>"</span>,
-      <span class="code-quote">"show_in_grid"</span>:1,
-      <span class="code-quote">"renderer"</span>:"",
-      <span class="code-quote">"clickaction"</span>:"",
-      <span class="code-quote">"selectorconfig"</span>:"",
-      <span class="code-quote">"renderoptions"</span>:<span class="code-quote">"[]"</span>
+      "MIGX_id":5,
+      "header":"ID",
+      "dataIndex":"id",
+      "width":"",
+      "sortable":"false",
+      "show_in_grid":1,
+      "renderer":"",
+      "clickaction":"",
+      "selectorconfig":"",
+      "renderoptions":"[]"
     }
   ]
 }
 </pre>
-</div>
-</div>
 </li>
 </ol>
 
-<h2>
-<a name="MIGX.sortableresourcelist-CreatetheMIGXTV" id="MIGX.sortableresourcelist-CreatetheMIGXTV"></a>Create the MIGX - TV
+<h2 id="MIGX.sortableresourcelist-CreatetheMIGXTV">
+Create the MIGX - TV
 </h2>
 
 <p>
@@ -329,31 +323,27 @@ Create a new TV
 </li>
 </ol>
 
-<h2>
-<a name="MIGX.sortableresourcelist-SelectandsortResources" id="MIGX.sortableresourcelist-SelectandsortResources"></a>Select and sort Resources
+<h2 id="MIGX.sortableresourcelist-SelectandsortResources">
+Select and sort Resources
 </h2>
 
 <p>
 Now you should be able to select Resources and sort them by drag/drop them to a new position. You can also add additional infos, like a comment.
 </p>
 
-<h2>
-<a name="MIGX.sortableresourcelist-GettheSortedandfilteredResourcelistatfrontend" id="MIGX.sortableresourcelist-GettheSortedandfilteredResourcelistatfrontend"></a>Get the Sorted and filtered Resourcelist at frontend
+<h2 id="MIGX.sortableresourcelist-GettheSortedandfilteredResourcelistatfrontend">
+Get the Sorted and filtered Resourcelist at frontend
 </h2>
 
 <p>
 Add this snippet-tag to your template/resource-content:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[getImageList? 
   &amp;tvname=`migx_input_options` 
   &amp;outputSeparator=`,` 
   &amp;tpl=`@CODE:[[+id]]`
-  &amp;where=`{<span class="code-quote">"active:="</span>:<span class="code-quote">"1"</span>}`
+  &amp;where=`{"active:=":"1"}`
 ]]
 </pre>
-</div>
-</div>

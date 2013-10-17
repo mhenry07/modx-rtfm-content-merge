@@ -1,154 +1,121 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#FormIt.FormItRetriever-WhatisFormItRetriever%3F'>What is FormItRetriever?</a>
+<a href="#FormIt.FormItRetriever-WhatisFormItRetriever%3F">What is FormItRetriever?</a>
 </li>
 
 <li>
-<a href='#FormIt.FormItRetriever-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FormIt.FormItRetriever-Usage">Usage</a>
 <ul>
 <li>
-<a href='#FormIt.FormItRetriever-FormItRetrieverProperties'>FormItRetriever Properties</a>
+<a href="#FormIt.FormItRetriever-FormItRetrieverProperties">FormItRetriever Properties</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FormIt.FormItRetriever-Example'>Example</a>
+<a href="#FormIt.FormItRetriever-Example">Example</a>
 </li>
 
 <li>
-<a href='#FormIt.FormItRetriever-SeeAlso'>See Also</a>
+<a href="#FormIt.FormItRetriever-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="FormIt.FormItRetriever-WhatisFormItRetriever%3F"></a>What is FormItRetriever?
+<h2 id="FormIt.FormItRetriever-WhatisFormItRetriever?">
+What is FormItRetriever?
 </h2>
 
 <p>
 FormItRetriever is an assistance snippet for <a href="/display/ADDON/FormIt" title="FormIt">FormIt</a> that will grab the data of a user's last form submission via FormIt. This is useful for "Thank You" pages where a user is sent after submitting a form.
 </p>
 
-<h2>
-<a name="FormIt.FormItRetriever-Usage"></a>Usage
+<h2 id="FormIt.FormItRetriever-Usage">
+Usage
 </h2>
 
 <p>
 Simply add this Snippet to whatever page you are redirecting from using FormIt's &amp;redirectTo property, and set &amp;store=`1` in the FormIt call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormItRetriever]]
 </pre>
-</div>
-</div>
-
 <p>
 And then display your form data with placeholders relating to the names of your form fields like such:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;p&gt;Thanks [[!+fi.name]] <span class="code-keyword">for</span> submitting. An email will be sent to you at [[!+fi.email]].&lt;/p&gt;
+<pre class="brush: php">
+&lt;p&gt;Thanks [[!+fi.name]] for submitting. An email will be sent to you at [[!+fi.email]].&lt;/p&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Remember to set &amp;store=`1` in your FormIt call, so FormIt knows to store the value.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Make sure to call the placeholders uncached. This data changes on every request, so therefore the placeholders need to change every request too.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="FormIt.FormItRetriever-FormItRetrieverProperties"></a>FormItRetriever Properties
+<h3 id="FormIt.FormItRetriever-FormItRetrieverProperties">
+FormItRetriever Properties
 </h3>
 
 <p>
 FormItRetriever comes with some default properties you can override. They are:
 </p>
 
-<div class='table-wrap'>
-<table id='TBL1376497247098' class='confluenceTable'>
+<table id="TBL1376497247012">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 placeholderPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 A string to prefix all placeholders for form fields that will be set by this Snippet.
 </td>
-<td class='confluenceTd'>
+<td>
 fi.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 redirectToOnNotFound
 </td>
-<td class='confluenceTd'>
+<td>
 If the data is not found and if this is set, redirect to the Resource with this ID.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 eraseOnLoad
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will erase the stored form data on load. Strongly recommended to leave to false unless you only want the data to load once.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="FormIt.FormItRetriever-Example"></a>Example
+<h2 id="FormIt.FormItRetriever-Example">
+Example
 </h2>
 
 <p>
@@ -159,9 +126,7 @@ Submit a form with auto-response and anti-spam protection, then redirect to a Th
 On your form page:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?
    &amp;submitVar=`go`
    &amp;hooks=`spam,FormItAutoResponder,redirect`
@@ -169,55 +134,105 @@ On your form page:
    &amp;store=`1`
    &amp;redirectTo=`123`
 ]]
-&lt;form action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span>&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"nospam"</span> value="" /&gt;
+&lt;form action="[[~[[*id]]]]" method="post"&gt;
+    &lt;input type="hidden" name="nospam" value="" /&gt;
 
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"name"</span>&gt;Name: [[!+fi.error.name]]&lt;/label&gt;
-    &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"name:required"</span> id=<span class="code-quote">"name"</span> value=<span class="code-quote">"[[!+fi.name]]"</span> /&gt;
+    &lt;label for="name"&gt;Name: [[!+fi.error.name]]&lt;/label&gt;
+    &lt;input type="text" name="name:required" id="name" value="[[!+fi.name]]" /&gt;
 
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"email"</span>&gt;Email: [[!+fi.error.email]]&lt;/label&gt;
-    &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"email:email:required"</span> id=<span class="code-quote">"email"</span> value=<span class="code-quote">"[[!+fi.email]]"</span> /&gt;
+    &lt;label for="email"&gt;Email: [[!+fi.error.email]]&lt;/label&gt;
+    &lt;input type="text" name="email:email:required" id="email" value="[[!+fi.email]]" /&gt;
 
-    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"message"</span>&gt;Message: [[!+fi.error.message]]&lt;/label&gt;
-    &lt;textarea name=<span class="code-quote">"message:stripTags"</span> id=<span class="code-quote">"message"</span> cols=<span class="code-quote">"55"</span> rows=<span class="code-quote">"7"</span>&gt;[[!+fi.message]]&lt;/textarea&gt;
+    &lt;label for="message"&gt;Message: [[!+fi.error.message]]&lt;/label&gt;
+    &lt;textarea name="message:stripTags" id="message" cols="55" rows="7"&gt;[[!+fi.message]]&lt;/textarea&gt;
 
     &lt;br /&gt;
-    &lt;input type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"go"</span> value=<span class="code-quote">"Send Contact Inquiry"</span> /&gt;
+    &lt;input type="submit" name="go" value="Send Contact Inquiry" /&gt;
 &lt;/form&gt;
 </pre>
-</div>
-</div>
-
 <p>
 On your Thank You page (Resource ID 123):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormItRetriever? &amp;redirectToOnNotFound=`444`]]
 
-&lt;p&gt;Thanks [[!+fi.name]] <span class="code-keyword">for</span> submitting. An auto-response email will be sent to you at [[!+fi.email]]. Here's a copy of your message:&lt;/p&gt;
+&lt;p&gt;Thanks [[!+fi.name]] for submitting. An auto-response email will be sent to you at [[!+fi.email]]. Here's a copy of your message:&lt;/p&gt;
 
 &lt;pre&gt;[[!+fi.message]]&lt;/pre&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="FormIt.FormItRetriever-SeeAlso"></a>See Also
+<h2 id="FormIt.FormItRetriever-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/FormIt.Hooks">FormIt.Hooks</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/FormIt.Hooks.email">FormIt.Hooks.email</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="28966917" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11698177" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FFormIt.FormItRetriever" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11698177" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/FormIt.Hooks.FormItAutoResponder">FormIt.Hooks.FormItAutoResponder</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.math">FormIt.Hooks.math</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.recaptcha">FormIt.Hooks.recaptcha</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.redirect">FormIt.Hooks.redirect</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Hooks.spam">FormIt.Hooks.spam</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Validators">FormIt.Validators</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.FormItRetriever">FormIt.FormItRetriever</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Tutorials+and+Examples">FormIt.Tutorials and Examples</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/FormIt.Examples.Custom+Hook">FormIt.Examples.Custom Hook</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Examples.Simple+Contact+Page">FormIt.Examples.Simple Contact Page</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Handling+Selects%2C+Checkboxes+and+Radios">FormIt.Handling Selects, Checkboxes and Radios</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Using+a+Blank+NoSpam+Field">FormIt.Using a Blank NoSpam Field</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Roadmap">FormIt.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.FormItCountryOptions">FormIt.FormItCountryOptions</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.FormItStateOptions">FormIt.FormItStateOptions</a>
+</li>
+</ol>

@@ -1,112 +1,99 @@
-<h2>
-<a name="Plugins-WhatisaPlugin%3F%26nbsp%3B"></a>What is a Plugin?&nbsp;
+<h2 id="Plugins-WhatisaPlugin?&amp;nbsp;">
+What is a Plugin?&nbsp;
 </h2>
 
 <p>
 Plugins are similar to snippets in that they are snippets of code that have access to the MODx API - however the big difference is that plugins are associated to specific system events. For example, in an average MODx page request, several events happen at certain points within the page parsing process and plugins can be attached to any of these events to fulfill a desired function. Plugins aren't just limited to front-end processing though, there are many events that are available in the MODx Manager.
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<h2>
-<a name="Plugins-PluginExamples%26nbsp%3B"></a>Plugin Examples&nbsp;
+<h2 id="Plugins-PluginExamples&amp;nbsp;">
+Plugin Examples&nbsp;
 </h2>
 
 <p>
 Plugins can be used for a variety of different applications, below are a couple of examples:
 </p>
 
-<h3>
-<a name="Plugins-WordFilter" id="Plugins-WordFilter"></a>Word Filter
+<h3 id="Plugins-WordFilter">
+Word Filter
 </h3>
 
 <p>
-<b>Description:</b> Filter words from a document before it's displayed on the web
+<strong>Description:</strong> Filter words from a document before it's displayed on the web
 <br />
-<b>System Events:</b> OnWebPagePrerender
+<strong>System Events:</strong> OnWebPagePrerender
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeHeader panelHeader" style="border-bottom-width: 1px;">
-<b>Plugin Code</b>
-</div>
+<figure class="code">
+<figcaption>
+<strong>Plugin Code</strong>
+</figcaption>
 
-<div class="codeContent panelContent">
-<pre class="code-java">
-$words = array(<span class="code-quote">"snippet"</span>, <span class="code-quote">"template"</span>); <span class="code-comment">// words to filter
-</span>
+<pre class="brush: php">
+$words = array("snippet", "template"); // words to filter
+
 $e = &amp;$modx-&gt;Event;
-<span class="code-keyword">switch</span> ($e-&gt;name) {
-<span class="code-keyword">case</span> <span class="code-quote">"OnWebPagePrerender"</span>:
-$o = &amp;$modx-&gt;documentOutput; <span class="code-comment">// get a reference of the output
-</span>$o = str_replace($words,<span class="code-quote">"&lt;b&gt;[filtered]&lt;/b&gt;"</span>,$o);
- <span class="code-keyword">break</span>;
-<span class="code-keyword">default</span> :
-<span class="code-keyword">return</span>; <span class="code-comment">// stop here - <span class="code-keyword">this</span> is very important.
-</span> <span class="code-keyword">break</span>;
+switch ($e-&gt;name) {
+case "OnWebPagePrerender":
+$o = &amp;$modx-&gt;documentOutput; // get a reference of the output
+$o = str_replace($words,"&lt;b&gt;[filtered]&lt;/b&gt;",$o);
+ break;
+default :
+return; // stop here - this is very important.
+ break;
 }
 </pre>
-</div>
-</div>
+</figure>
 
 <p>
-<br class="atl-forced-newline" />
+<br />
 </p>
 
 <hr />
 
-<h3>
-<a name="Plugins-PageNotFoundRedirector%3A"></a>Page-Not-Found Redirector:
+<h3 id="Plugins-PageNotFoundRedirector:">
+Page-Not-Found Redirector:
 </h3>
 
 <p>
-<b>Description:</b> Redirects a user to selected document and sends a message
+<strong>Description:</strong> Redirects a user to selected document and sends a message
 <br />
-<b>System Events:</b> OnPageNotFound
+<strong>System Events:</strong> OnPageNotFound
 <br />
-<b>Config:</b> String:
+<strong>Config:</strong> String:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&amp;pg=Error Page;<span class="code-object">int</span>; &amp;rep=Mail To;string;
+<pre class="brush: php">
+&amp;pg=Error Page;int; &amp;rep=Mail To;string;
 </pre>
-</div>
-</div>
+<figure class="code">
+<figcaption>
+<strong>Plugin Code</strong>
+</figcaption>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeHeader panelHeader" style="border-bottom-width: 1px;">
-<b>Plugin Code</b>
-</div>
-
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $e = &amp;$modx-&gt;Event;
-<span class="code-keyword">switch</span> ($e-&gt;name) {
-<span class="code-keyword">case</span> <span class="code-quote">"OnPageNotFound"</span>:
-<span class="code-keyword">if</span>(!$pg) $modx-&gt;sendErrorPage();
-<span class="code-keyword">else</span> {
-<span class="code-keyword">if</span> ($mid) {
-<span class="code-comment">// send a message to a local account
-</span>$docid = $modx-&gt;documentIdentifier;
-$subject = <span class="code-quote">"Page not found"</span>;
-$msg = <span class="code-quote">"Someone tried to access document id $docid"</span>;
-$modx-&gt;sendAlert(<span class="code-quote">"Error"</span>,$mid,0,$subject,$msg,0);
+switch ($e-&gt;name) {
+case "OnPageNotFound":
+if(!$pg) $modx-&gt;sendErrorPage();
+else {
+if ($mid) {
+// send a message to a local account
+$docid = $modx-&gt;documentIdentifier;
+$subject = "Page not found";
+$msg = "Someone tried to access document id $docid";
+$modx-&gt;sendAlert("Error",$mid,0,$subject,$msg,0);
 }
-$url=$<span class="code-keyword">this</span>-&gt;makeUrl($pg);
-$<span class="code-keyword">this</span>-&gt;sendRedirect($url, 1);
+$url=$this-&gt;makeUrl($pg);
+$this-&gt;sendRedirect($url, 1);
 exit;
 }
-<span class="code-keyword">break</span>;
+break;
 
-<span class="code-keyword">default</span> :
-<span class="code-keyword">return</span>; <span class="code-comment">// stop here
-</span><span class="code-keyword">break</span>;
+default :
+return; // stop here
+break;
 }
 </pre>
-</div>
-</div>
-
-<p>
-<br class="atl-forced-newline" />
-</p>
+</figure>

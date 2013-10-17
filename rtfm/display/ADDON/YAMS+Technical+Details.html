@@ -1,47 +1,27 @@
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Warning</b>
+<div class="warning">
+<strong>Warning</strong>
 <br />
 This is an unfinished first draft...
-</td>
-</tr>
-</table>
 </div>
 
 <div>
 <ul>
 <li>
-<a href='#YAMSTechnicalDetails-YAMSTechnicalDetails'>YAMS Technical Details</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#YAMSTechnicalDetails-YAMSTechnicalDetails">YAMS Technical Details</a>
 <ul>
 <li>
-<a href='#YAMSTechnicalDetails-YAMSConstructs'>YAMS Constructs</a>
+<a href="#YAMSTechnicalDetails-YAMSConstructs">YAMS Constructs</a>
 </li>
 
 <li>
-<a href='#YAMSTechnicalDetails-YAMSParser'>YAMS Parser</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#YAMSTechnicalDetails-YAMSParser">YAMS Parser</a>
 <ul>
 <li>
-<a href='#YAMSTechnicalDetails-PreParse'>Pre-Parse</a>
+<a href="#YAMSTechnicalDetails-PreParse">Pre-Parse</a>
 </li>
 
 <li>
-<a href='#YAMSTechnicalDetails-PostParse'>Post-Parse</a>
+<a href="#YAMSTechnicalDetails-PostParse">Post-Parse</a>
 </li>
 </ul>
 </li>
@@ -50,8 +30,8 @@ This is an unfinished first draft...
 </ul>
 </div>
 
-<h1>
-<a name="YAMSTechnicalDetails-YAMSTechnicalDetails"></a>YAMS Technical Details
+<h1 id="YAMSTechnicalDetails-YAMSTechnicalDetails">
+YAMS Technical Details
 </h1>
 
 <p>
@@ -81,110 +61,108 @@ Once all multilingual content has been expanded out into constructs, the end res
 For cacheable documents containing only cacheable snippet calls or uncacheable snippet calls that don't contain multilingual content then there is virtually no performance hit due to YAMS processing after first page access.
 </p>
 
-<h2>
-<a name="YAMSTechnicalDetails-YAMSConstructs"></a>YAMS Constructs
+<h2 id="YAMSTechnicalDetails-YAMSConstructs">
+YAMS Constructs
 </h2>
 
 <p>
-These constructs are used internally by YAMS, which also generates and manages the <tt><em>yamsId</em></tt> parameter to avoid clashes. The constructs are provided here for reference only. Under normal circumstances these constructs do not need to be used. Instead a YAMS snippet call should be used, which will automatically generate the correct constructs.
+These constructs are used internally by YAMS, which also generates and manages the <code><em>yamsId</em></code> parameter to avoid clashes. The constructs are provided here for reference only. Under normal circumstances these constructs do not need to be used. Instead a YAMS snippet call should be used, which will automatically generate the correct constructs.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 YAMS Constructs Construct
 </th>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<tt>(yams-in:<em>yamsId</em>:<em>langId</em>)<em>...content...</em>(/yams-in:<em>yamsId</em>)</tt>
+<td>
+<code>(yams-in:<em>yamsId</em>:<em>langId</em>)<em>...content...</em>(/yams-in:<em>yamsId</em>)</code>
 </td>
-<th class='confluenceTh'>
+<th>
 YAMS In Language Block
 </th>
-<td class='confluenceTd'>
-Forces the content of the <tt>yams-in</tt> block to be displayed as if the current language is that specified by the language group identifier <tt><em>langId</em></tt>.
-<br class="atl-forced-newline" />
-Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block. This allows blocks to be nested. <em>langId</em> is a language group id.
+<td>
+Forces the content of the <code>yams-in</code> block to be displayed as if the current language is that specified by the language group identifier <code><em>langId</em></code>.
+<br />
+Here <code><em>yamsId</em></code> is a positive integer identifier that should be unique to this block. This allows blocks to be nested. <em>langId</em> is a language group id.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<tt>(yams-select:<em>yamsId</em>)(lang:<em>yamsId</em>:<em>langId1</em>)<em>...content1...</em>(lang:<em>yamsId</em>:<em>langId2</em>)<em>...content2...</em>(/yams-select:<em>yamsId</em>)</tt>
+<td>
+<code>(yams-select:<em>yamsId</em>)(lang:<em>yamsId</em>:<em>langId1</em>)<em>...content1...</em>(lang:<em>yamsId</em>:<em>langId2</em>)<em>...content2...</em>(/yams-select:<em>yamsId</em>)</code>
 </td>
-<th class='confluenceTh'>
+<th>
 YAMS Select Language Block
 </th>
-<td class='confluenceTd'>
-This includes multiple language versions of content in the page. Only the current language version is displayed (except if it is within a <tt>yams-repeat</tt> block – see below.) The <tt>pagetitle</tt>, <tt>longtitle</tt>, <tt>description</tt>, <tt>introtext</tt>, <tt>menutitle</tt> and <tt>content</tt> document variables are automatically expanded into this form for the currently defined active languages. For any other content (chunks, tvs, etc.) that need to be expanded into multi-language form a YAMS snippet call can be used to generate the relevant construct.
-<br class="atl-forced-newline" />
+<td>
+This includes multiple language versions of content in the page. Only the current language version is displayed (except if it is within a <code>yams-repeat</code> block – see below.) The <code>pagetitle</code>, <code>longtitle</code>, <code>description</code>, <code>introtext</code>, <code>menutitle</code> and <code>content</code> document variables are automatically expanded into this form for the currently defined active languages. For any other content (chunks, tvs, etc.) that need to be expanded into multi-language form a YAMS snippet call can be used to generate the relevant construct.
+<br />
 When a Yams Select block is being parsed to select the correct language content the current language is taken to be context dependent. Within Yams In blocks (and branches of Yams Repeat blocks which ultimately resolve to Yams In blocks) the current language switches to the specified language.
-<br class="atl-forced-newline" />
-Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block. This allows blocks to be nested. <tt><em>langId</em></tt> is a language group id.
+<br />
+Here <code><em>yamsId</em></code> is a positive integer identifier that should be unique to this block. This allows blocks to be nested. <code><em>langId</em></code> is a language group id.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<tt>(yams-select+:<em>yamsId</em>)(lang:<em>yamsId</em>:<em>langId1</em>)<em>...content1...</em>(lang:<em>yamsId</em>:<em>langId2</em>)<em>...content2...</em>(/yams-select+:<em>yamsId</em>)</tt>
+<td>
+<code>(yams-select+:<em>yamsId</em>)(lang:<em>yamsId</em>:<em>langId1</em>)<em>...content1...</em>(lang:<em>yamsId</em>:<em>langId2</em>)<em>...content2...</em>(/yams-select+:<em>yamsId</em>)</code>
 </td>
-<th class='confluenceTh'>
+<th>
 YAMS Select Plus Language Block
 </th>
-<td class='confluenceTd'>
+<td>
 This is the same as the Yams Select block, except that the current language is not context sensitive. So, the current language will always be the language in which the page is being viewed.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<tt>(yams-repeat:<em>yamsId</em>)<em>...content...</em>(current:<em>yamsId</em>)<em>...current language content...</em>(/yams-repeat:<em>yamsId</em>)</tt>
+<td>
+<code>(yams-repeat:<em>yamsId</em>)<em>...content...</em>(current:<em>yamsId</em>)<em>...current language content...</em>(/yams-repeat:<em>yamsId</em>)</code>
 </td>
-<th class='confluenceTh'>
+<th>
 YAMS Repeat Language Block 1
 </th>
-<td class='confluenceTd'>
-The <tt>yams-repeat</tt> block will repeat any content once for each active language and is similar to specifying one <tt>yams-in</tt> block for each active language. The current sub-block is optional and is to allow an alternative template to be used with the current language content.
-<br class="atl-forced-newline" />
-Here <tt><em>yamsId</em></tt> is a positive integer identifier that should be unique to this block.
+<td>
+The <code>yams-repeat</code> block will repeat any content once for each active language and is similar to specifying one <code>yams-in</code> block for each active language. The current sub-block is optional and is to allow an alternative template to be used with the current language content.
+<br />
+Here <code><em>yamsId</em></code> is a positive integer identifier that should be unique to this block.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<tt>(yams-repeat:<em>yamsId</em>:<em>langId1</em>,<em>langId2</em>,<em>...</em>)<em>...content...</em>(/yams-repeat:<em>yamsId</em>)</tt>
+<td>
+<code>(yams-repeat:<em>yamsId</em>:<em>langId1</em>,<em>langId2</em>,<em>...</em>)<em>...content...</em>(/yams-repeat:<em>yamsId</em>)</code>
 </td>
-<th class='confluenceTh'>
+<th>
 YAMS Repeat Language Block 2
 </th>
-<td class='confluenceTd'>
+<td>
 This variation on the YAMS Multi-Language Block will only repeat for the specified language groups. This functionality is not currently accessible via a YAMS Snippet call.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="YAMSTechnicalDetails-YAMSParser"></a>YAMS Parser
+<h2 id="YAMSTechnicalDetails-YAMSParser">
+YAMS Parser
 </h2>
 
 <p>
 The YAMS parser has two phases. It does pre-parsing, which does the expansion of constructs, evaluation of placeholders and reorganisation of the document. It does a final post-parse each time the document is requested just before it is send out. Post-parsing selects a single language variant.
 </p>
 
-<h3>
-<a name="YAMSTechnicalDetails-PreParse"></a>Pre-Parse
+<h3 id="YAMSTechnicalDetails-PreParse">
+Pre-Parse
 </h3>
 
 <p>
@@ -195,22 +173,22 @@ The pre-parse step does the following:
 <li>If the document hasn't changed since the last pre-parse, exit.
 </li>
 
-<li>Evaluate all chunks. The normal YAMS chunk parser removes chunks from the document if it doesn't recognise them. However, at this stage the chunk names could contain YAMS placholders, like {{<tt>myname_(yams_id)</tt>}}. Since we don't want MODx to remove this, a custom chunk parser is used that leaves these intact (<tt>YAMS::MergeChunkContent</tt>). If the document has changed as a result of this processing the pre-parse restarts.
+<li>Evaluate all chunks. The normal YAMS chunk parser removes chunks from the document if it doesn't recognise them. However, at this stage the chunk names could contain YAMS placholders, like {{<code>myname_(yams_id)</code>}}. Since we don't want MODx to remove this, a custom chunk parser is used that leaves these intact (<code>YAMS::MergeChunkContent</code>). If the document has changed as a result of this processing the pre-parse restarts.
 </li>
 
-<li>For multilingual documents, the standard document variables are expanded out into constructs containing <tt>(yams_data)</tt> placeholders that will pull in the multilingual template variable content later in the parse process.
+<li>For multilingual documents, the standard document variables are expanded out into constructs containing <code>(yams_data)</code> placeholders that will pull in the multilingual template variable content later in the parse process.
 </li>
 
-<li>The document variables and template variables belonging to the current document are evaluated. Once again, a custom parser is used (<tt>YAMS::MergeDocumentContent</tt>) rather than the standard MODx method. The custom method doesn't delete unrecognised document variables or template variables so that names that include YAMS placeholders persist until later in the parse process. If the document has changed as a result of this processing the pre-parse restarts.
+<li>The document variables and template variables belonging to the current document are evaluated. Once again, a custom parser is used (<code>YAMS::MergeDocumentContent</code>) rather than the standard MODx method. The custom method doesn't delete unrecognised document variables or template variables so that names that include YAMS placeholders persist until later in the parse process. If the document has changed as a result of this processing the pre-parse restarts.
 </li>
 
-<li>Next, the document is searched for all <tt>(yams_data)</tt> placeholders in the document (<tt>YAMS::MergeOtherDocumentContent</tt>). These placeholders request data from template variables on different documents. Having worked out what data is needed, YAMS will grab the data from the database, <tt>YAMS_DOC_LIMIT</tt> items at a time. <tt>YAMS_DOC_LIMIT</tt> is defined as 50 by default. The <tt>(yams_data)</tt> placeholders are then replaced by their content. If the document has changed as a result of this processing the pre-parse restarts.
+<li>Next, the document is searched for all <code>(yams_data)</code> placeholders in the document (<code>YAMS::MergeOtherDocumentContent</code>). These placeholders request data from template variables on different documents. Having worked out what data is needed, YAMS will grab the data from the database, <code>YAMS_DOC_LIMIT</code> items at a time. <code>YAMS_DOC_LIMIT</code> is defined as 50 by default. The <code>(yams_data)</code> placeholders are then replaced by their content. If the document has changed as a result of this processing the pre-parse restarts.
 </li>
 
-<li>All MODx URL placeholders enclosed in quotes, like <tt>"[~...~]"</tt>, <tt>"[(site_url)][~...~]"</tt> or <tt>"[(base_url)][~...~]"</tt> are now replaced by YAMS multilingual URL placeholders <tt>(yams_doc)</tt> or <tt>(yams_docr)</tt>, depending on how YAMS has been configured.
+<li>All MODx URL placeholders enclosed in quotes, like <code>"[~...~]"</code>, <code>"[(site_url)][~...~]"</code> or <code>"[(base_url)][~...~]"</code> are now replaced by YAMS multilingual URL placeholders <code>(yams_doc)</code> or <code>(yams_docr)</code>, depending on how YAMS has been configured.
 </li>
 
-<li>All YAMS settings placeholders are evaluated using the standard MODx function (<tt>modx::mergeSettingsContent</tt>).
+<li>All YAMS settings placeholders are evaluated using the standard MODx function (<code>modx::mergeSettingsContent</code>).
 </li>
 
 <li>All YAMS placeholders are evaluated for each language and expanded out using YAMS constructs.
@@ -222,7 +200,7 @@ The pre-parse step does the following:
 <li>The evaluation and expansion of YAMS placeholders into constructs and reorganisation of those constructs may have made more chunks and template variables which previously had YAMS placheholders in their name possible to evaluate now. Steps 2, 4 and 7 are repeated.
 </li>
 
-<li>Snippets are evaluated using the standard MODx function (<tt>modx::evalSnippets</tt>). If the document has changed as a result of this processing the pre-parse restarts.
+<li>Snippets are evaluated using the standard MODx function (<code>modx::evalSnippets</code>). If the document has changed as a result of this processing the pre-parse restarts.
 </li>
 </ol>
 
@@ -230,8 +208,8 @@ The pre-parse step does the following:
 Once the parser has arrived here it hands control back to the standard MODx parser, which will first call the other plugins. If PHx has been installed and has been placed after YAMS in the plugin execution order, it will do its evaluation next... but by now all YAMS constructs and placeholders have been evaluated and tidied up, so it should be pretty safe to do so. MODx will then do its standard parsing ... but there is very little left for it to do. Most chunks, document variables, template variables and snippets have already been evaluated during the YAMS preparse step.
 </p>
 
-<h3>
-<a name="YAMSTechnicalDetails-PostParse"></a>Post-Parse
+<h3 id="YAMSTechnicalDetails-PostParse">
+Post-Parse
 </h3>
 
 <p>

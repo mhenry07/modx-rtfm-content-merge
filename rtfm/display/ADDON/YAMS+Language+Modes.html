@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,8 +13,8 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMSLanguageModes-LanguageModes"></a>Language Modes
+<h1 id="YAMSLanguageModes-LanguageModes">
+Language Modes
 </h1>
 
 <p>
@@ -25,8 +25,8 @@ YAMS needs to know which language variant of each document to display. It determ
 YAMS allows aliases with &gt;7bit (multibyte even) characters to be used. YAMS will automatically encode the URLs for HTML output and decode them when it is analysing requests from the server. The encoding procedure for each part of the URL is as follows: First convert to UTF-8 (if necessary) and then rawurlencode.
 </p>
 
-<h2>
-<a name="YAMSLanguageModes-UniqueMultilingualAliasesmode"></a>Unique Multilingual Aliases mode
+<h2 id="YAMSLanguageModes-UniqueMultilingualAliasesmode">
+Unique Multilingual Aliases mode
 </h2>
 
 <p>
@@ -41,8 +41,8 @@ When this mode is activated it is possible for YAMS to determine the required do
 It is possible to use multilingual aliases with or without enforcing uniqueness and they can also be used in conjunction with server and root name modes discussed below.
 </p>
 
-<h3>
-<a name="YAMSLanguageModes-ExampleURLS"></a>Example URLS
+<h3 id="YAMSLanguageModes-ExampleURLS">
+Example URLS
 </h3>
 
 <p>
@@ -51,22 +51,22 @@ It is possible to access different language variants of the same document via di
 
 <ul>
 <li>
-<a href="http://server_name/my-doc-en.html" class="external-link" rel="nofollow">http://server_name/my-doc-en.html</a>
+<a href="http://server_name/my-doc-en.html">http://server_name/my-doc-en.html</a>
 </li>
 
 <li>
-<a href="http://server_name/mon-doc-fr.html" class="external-link" rel="nofollow">http://server_name/mon-doc-fr.html</a>
+<a href="http://server_name/mon-doc-fr.html">http://server_name/mon-doc-fr.html</a>
 </li>
 </ul>
 
-<h2>
-<a name="YAMSLanguageModes-ServerNameandRootNamemodes"></a>Server Name and Root Name modes
+<h2 id="YAMSLanguageModes-ServerNameandRootNamemodes">
+Server Name and Root Name modes
 </h2>
 
 <p>
-<b>Server Name</b> mode and <b>Root Name</b> mode can be used simultaneously or independently. The general format of the URL when using these modes is:
-<br class="atl-forced-newline" />
-<a href="http://(server_name)/(subfolder/)(root_name/)(path/)(filename" class="external-link" rel="nofollow">http://(server_name)/(subfolder/)(root_name/)(path/)(filename</a>)
+<strong>Server Name</strong> mode and <strong>Root Name</strong> mode can be used simultaneously or independently. The general format of the URL when using these modes is:
+<br />
+<a href="http://(server_name)/(subfolder/)(root_name/)(path/)(filename">http://(server_name)/(subfolder/)(root_name/)(path/)(filename</a>)
 <br />
 where there is only a (subfolder/) if it has been configured on the 'Other Params' tab, and there is only a (path/) if friendly alias paths have been configured.
 </p>
@@ -87,8 +87,8 @@ To enable root name mode, it is necessary to specify at least one root name on t
 With any of unique multilingual alias mode, server name mode and root name mode it is possible to change the language of a page by sending a request back to the current page with the id of the new language group specified with a GET or POST variable. By default this variable is called yams_new_lang, but it can be configured otherwise on the 'Other Params' tab. A placeholder that accesses this name and snippet calls that generate a list or drop down boxes to enable changing the language are all available. See the YAMS <a href="/display/ADDON/YAMS+Placeholders" title="YAMS Placeholders">Placeholders</a> and <a href="/display/ADDON/YAMS+Snippet" title="YAMS Snippet">Snippet</a> documentation.
 </p>
 
-<h3>
-<a name="YAMSLanguageModes-ExampleURLS"></a>Example URLS
+<h3 id="YAMSLanguageModes-ExampleURLS">
+Example URLS
 </h3>
 
 <p>
@@ -97,11 +97,11 @@ Server name mode only. Eg:
 
 <ul>
 <li>
-<a href="http://en.server_name.com/mydoc.html" class="external-link" rel="nofollow">http://en.server_name.com/mydoc.html</a>
+<a href="http://en.server_name.com/mydoc.html">http://en.server_name.com/mydoc.html</a>
 </li>
 
 <li>
-<a href="http://fr.server_name.com/mydoc.html" class="external-link" rel="nofollow">http://fr.server_name.com/mydoc.html</a>
+<a href="http://fr.server_name.com/mydoc.html">http://fr.server_name.com/mydoc.html</a>
 </li>
 </ul>
 
@@ -111,11 +111,11 @@ Root name mode only. Eg:
 
 <ul>
 <li>
-<a href="http://server_name.com/en/mydoc.html" class="external-link" rel="nofollow">http://server_name.com/en/mydoc.html</a>
+<a href="http://server_name.com/en/mydoc.html">http://server_name.com/en/mydoc.html</a>
 </li>
 
 <li>
-<a href="http://server_name.com/fr/mydoc.html" class="external-link" rel="nofollow">http://server_name.com/fr/mydoc.html</a>
+<a href="http://server_name.com/fr/mydoc.html">http://server_name.com/fr/mydoc.html</a>
 </li>
 </ul>
 
@@ -125,11 +125,11 @@ Root name mode only, with one language at root. Eg:
 
 <ul>
 <li>
-<a href="http://server_name.com/mydoc.html" class="external-link" rel="nofollow">http://server_name.com/mydoc.html</a>
+<a href="http://server_name.com/mydoc.html">http://server_name.com/mydoc.html</a>
 </li>
 
 <li>
-<a href="http://server_name.com/fr/mydoc.html" class="external-link" rel="nofollow">http://server_name.com/fr/mydoc.html</a>
+<a href="http://server_name.com/fr/mydoc.html">http://server_name.com/fr/mydoc.html</a>
 </li>
 </ul>
 
@@ -139,20 +139,20 @@ Server name mode, root name mode, friendly alias paths, multilingual aliases and
 
 <ul>
 <li>
-<a href="http://en.server_name.com/england/folder/mydoc.html" class="external-link" rel="nofollow">http://en.server_name.com/england/folder/mydoc.html</a>
+<a href="http://en.server_name.com/england/folder/mydoc.html">http://en.server_name.com/england/folder/mydoc.html</a>
 </li>
 
 <li>
-<a href="http://fr.server_name.com/la-france/r" class="external-link" rel="nofollow">http://fr.server_name.com/la-france/r</a>épertoire/mon-doc.html
+<a href="http://fr.server_name.com/la-france/r">http://fr.server_name.com/la-france/r</a>épertoire/mon-doc.html
 </li>
 </ul>
 
-<h2>
-<a name="YAMSLanguageModes-QueryParammode"></a>Query Param mode
+<h2 id="YAMSLanguageModes-QueryParammode">
+Query Param mode
 </h2>
 
 <p>
-<b>Query Param</b> mode is provided primarily for compatibility with EasyLingual and cannot be used in conjunction with the other modes. To access this mode unique multilingual aliases must not be active, no root names must be specified and the server name must be unspecified or identical for all language groups and for monolingual pages. So, to distinguish one language from another a query parameter is appended to all URLs: <a href="http://server_name/(subfolder/)(path/)filename?yams_lang=id" class="external-link" rel="nofollow">http://server_name/(subfolder/)(path/)filename?yams_lang=id</a>
+<strong>Query Param</strong> mode is provided primarily for compatibility with EasyLingual and cannot be used in conjunction with the other modes. To access this mode unique multilingual aliases must not be active, no root names must be specified and the server name must be unspecified or identical for all language groups and for monolingual pages. So, to distinguish one language from another a query parameter is appended to all URLs: <a href="http://server_name/(subfolder/)(path/)filename?yams_lang=id">http://server_name/(subfolder/)(path/)filename?yams_lang=id</a>
 </p>
 
 <p>

@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDO.getObject-xPDO%3A%3AgetObject"></a>xPDO::getObject
+<h2 id="xPDO.getObject-xPDO::getObject">
+xPDO::getObject
 </h2>
 
 <p>
@@ -14,155 +10,129 @@ Retrieves a single object instance by the specified criteria.
 The criteria can be a primary key value, an array of primary key values (for multiple primary key objects) or an xPDOCriteria object. If no $criteria parameter is specified, no class is found, or an object cannot be located by the supplied criteria, null is returned.
 </p>
 
-<h2>
-<a name="xPDO.getObject-Syntax"></a>Syntax
+<h2 id="xPDO.getObject-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modx.com/xpdo/xPDO.html#getObject" class="external-link" rel="nofollow">http://api.modx.com/xpdo/xPDO.html#getObject</a>
+API Docs: <a href="http://api.modx.com/xpdo/xPDO.html#getObject">http://api.modx.com/xpdo/xPDO.html#getObject</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOObject|<span class="code-keyword">null</span> getObject (string $className, [xPDOCriteria|array|str|<span class="code-object">int</span> $criteria = <span class="code-keyword">null</span>], [bool|<span class="code-object">int</span> $cacheFlag = <span class="code-keyword">true</span>])
+<pre class="brush: php">
+xPDOObject|null getObject (string $className, [xPDOCriteria|array|str|int $criteria = null], [bool|int $cacheFlag = true])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.getObject-Example"></a>Example
+<h2 id="xPDO.getObject-Example">
+Example
 </h2>
 
-<h3>
-<a name="xPDO.getObject-SimplestExample%28BuiltinObjects%29"></a>Simplest Example (Built-in Objects)
+<h3 id="xPDO.getObject-SimplestExample(BuiltinObjects)">
+Simplest Example (Built-in Objects)
 </h3>
 
 <p>
-You can use <b>getObject</b> to retrieve MODX resources (e.g. a page) by its page ID:
+You can use <strong>getObject</strong> to retrieve MODX resources (e.g. a page) by its page ID:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $page = $modx-&gt;getObject('modResource', 555);
 $output = $page-&gt;get('pagetitle');
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>xPDO vs. MODX</b>
+<div class="note">
+<strong>xPDO vs. MODX</strong>
 <br />
-The <b>$modx</b> object extends xPDO, so for many situations (e.g. inside your Snippets), you can use the <b>$modx</b> object, even though most examples on this page use the <b>$xpdo</b> object.
-</td>
-</tr>
-</table>
+The <strong>$modx</strong> object extends xPDO, so for many situations (e.g. inside your Snippets), you can use the <strong>$modx</strong> object, even though most examples on this page use the <strong>$xpdo</strong> object.
 </div>
 
 <p>
 You can retrieve any MODX object this way, just by knowing its object name – usually that's simply a matter of prepending "mod" to the object's familiar name:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Common Name
 </th>
-<th class='confluenceTh'>
+<th>
 Object Name
 </th>
-<th class='confluenceTh'>
+<th>
 Notes
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Page
 </td>
-<td class='confluenceTd'>
+<td>
 modResource
 </td>
-<td class='confluenceTd'>
+<td>
 Pages are just one manifestation of modResource – you can also use this to retrieve Weblinks, Symlinks, and Static Resources
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Chunk
 </td>
-<td class='confluenceTd'>
+<td>
 modChunk
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 User
 </td>
-<td class='confluenceTd'>
+<td>
 modUser
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Template
 </td>
-<td class='confluenceTd'>
+<td>
 modTemplate
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Snippet
 </td>
-<td class='confluenceTd'>
+<td>
 modSnippet
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
-See <b>core/model/schema/modx.mysql.schema.xml</b> file for a full definition of all MODX objects.
+See <strong>core/model/schema/modx.mysql.schema.xml</strong> file for a full definition of all MODX objects.
 </p>
 
 <p>
 If you need to retrieve other attributes for these objects (e.g. TVs for a page), then you may need to look at <a href="/display/xPDO20/xPDO.getObjectGraph" title="xPDO.getObjectGraph">getObjectGraph</a>
 </p>
 
-<h3>
-<a name="xPDO.getObject-SimplestExample%28CustomObjects%29"></a>Simplest Example (Custom Objects)
+<h3 id="xPDO.getObject-SimplestExample(CustomObjects)">
+Simplest Example (Custom Objects)
 </h3>
 
 <p>
@@ -173,96 +143,66 @@ The simplest example is when you retrieve an object by its primary key.
 E.g. get a Box object with ID 134.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $box = $xpdo-&gt;getObject('Box', 134);
 </pre>
-</div>
-</div>
-
 <p>
 Back in your XML schema, if your object extends <em>xPDOSimpleObject</em>, the primary key column is assumed to be named "id".
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;object class=<span class="code-quote">"modPropertySet"</span> table=<span class="code-quote">"property_set"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
+<pre class="brush: php">
+&lt;object class="modPropertySet" table="property_set" extends="xPDOSimpleObject"&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Otherwise, your XML schema will tell you which column is the primary key via the <em>index alias="PRIMARY"</em> node, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- &lt;object class=<span class="code-quote">"MyObject"</span> table=<span class="code-quote">"my_object"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOObject"</span>&gt;
-                &lt;field key=<span class="code-quote">"object_id"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"11"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> index=<span class="code-quote">"pk"</span>  generated=<span class="code-quote">"<span class="code-keyword">native</span>"</span> /&gt;
+<pre class="brush: php">
+        &lt;object class="MyObject" table="my_object" extends="xPDOObject"&gt;
+                &lt;field key="object_id" dbtype="int" precision="11" phptype="integer" null="false" index="pk"  generated="native" /&gt;
                 &lt;!-- ... stuff here ... --&gt;
-                &lt;index alias=<span class="code-quote">"PRIMARY"</span> name=<span class="code-quote">"PRIMARY"</span> primary=<span class="code-quote">"<span class="code-keyword">true</span>"</span> unique=<span class="code-quote">"<span class="code-keyword">true</span>"</span>&gt;
-                        &lt;column key=<span class="code-quote">"object_id"</span> collation=<span class="code-quote">"A"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> /&gt;
+                &lt;index alias="PRIMARY" name="PRIMARY" primary="true" unique="true"&gt;
+                        &lt;column key="object_id" collation="A" null="false" /&gt;
                 &lt;/index&gt;
         &lt;/object&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="xPDO.getObject-MoreVerboseSimpleExample"></a>More Verbose Simple Example
+<h3 id="xPDO.getObject-MoreVerboseSimpleExample">
+More Verbose Simple Example
 </h3>
 
 <p>
 You can also provide more verbose criteria to the 2nd parameter, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $box = $xpdo-&gt;getObject('Box', array('id'=&gt;134));
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="xPDO.getObject-OtherColumns"></a>Other Columns
+<h3 id="xPDO.getObject-OtherColumns">
+Other Columns
 </h3>
 
 <p>
 You don't have to retrieve based on just the primary key, you can also search on other columns:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $box = $xpdo-&gt;getObject('Box', array('color'=&gt;'blue'));
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="xPDO.getObject-ComplexCriteria"></a>Complex Criteria
+<h3 id="xPDO.getObject-ComplexCriteria">
+Complex Criteria
 </h3>
 
 <p>
 You can specify more complex selection criteria using an <a href="/display/xPDO20/xPDO.newQuery" title="xPDO.newQuery">xPDO query</a>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $modx-&gt;newQuery('MyObject');
 $query-&gt;where( array('wheels:&gt;=' =&gt; 3) );
 $myobj = $xpdo-&gt;getObject('MyObject', $query);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.getObject-SeeAlso"></a>See Also
+<h2 id="xPDO.getObject-SeeAlso">
+See Also
 </h2>
 
 <ul>

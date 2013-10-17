@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Security-SecurityinMODxRevolution"></a>Security in MODx Revolution
+<h2 id="Security-SecurityinMODxRevolution">
+Security in MODx Revolution
 </h2>
 
 <p>
@@ -20,42 +16,28 @@ ACLs usually have the following:
 
 <ul>
 <li>
-<b>Principal</b> - The object that is getting the access permissions. This is in MODx, by default, a User Group.
+<strong>Principal</strong> - The object that is getting the access permissions. This is in MODx, by default, a User Group.
 </li>
 
 <li>
-<b>Target</b> - The object they apply to, for example, a Context or Resource Group.
+<strong>Target</strong> - The object they apply to, for example, a Context or Resource Group.
 </li>
 
 <li>
-<b>Access Policy</b> - The list of Permissions that is gained by this ACL.
+<strong>Access Policy</strong> - The list of Permissions that is gained by this ACL.
 </li>
 
 <li>
-<b>Authority</b> - The minimum Authority level required to use this ACL (see <a href="/display/revolution20/Roles" title="Roles">Roles</a>).
+<strong>Authority</strong> - The minimum Authority level required to use this ACL (see <a href="/display/revolution20/Roles" title="Roles">Roles</a>).
 </li>
 </ul>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-Access is <b>allow/deny</b> in MODx, meaning that access is "open" by default. Once an ACL is applied to an object, such as a Context or Resource Group, those Contexts or Resource Groups will now only be accessible to the objects with appropriate Permissions.
-</td>
-</tr>
-</table>
+<div class="note">
+Access is <strong>allow/deny</strong> in MODx, meaning that access is "open" by default. Once an ACL is applied to an object, such as a Context or Resource Group, those Contexts or Resource Groups will now only be accessible to the objects with appropriate Permissions.
 </div>
 
-<h3>
-<a name="Security-SecurityTutorialVideo"></a>Security Tutorial Video
+<h3 id="Security-SecurityTutorialVideo">
+Security Tutorial Video
 </h3>
 <object width="780" height="500">
 <param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=13856994&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" />
@@ -82,11 +64,11 @@ Demonstrates by applying concepts to the MODx Sample Site to:
 </ul>
 
 <p>
-<span class="image-wrap" style=""><img src="http://assets.modx.com/docs/understanding-revo-acls.jpg" style="border: 0px solid black" /></span>
+<img src="http://assets.modx.com/docs/understanding-revo-acls.jpg" />
 </p>
 
-<h3>
-<a name="Security-Example%3AContextAccess"></a>Example: Context Access
+<h3 id="Security-Example:ContextAccess">
+Example: Context Access
 </h3>
 
 <p>
@@ -94,27 +76,99 @@ A good example is creating a Context named 'test', and assigning an ACL to it. T
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678085/sec-ugctx1.png?version=1&amp;modificationDate=1280173915000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678085/sec-ugctx1.png?version=1&amp;modificationDate=1280173915000" />
 </p>
 
 <p>
 This will restrict the 'test' Context to users who are a Member (or <a href="/display/revolution20/Roles" title="Roles">Role</a> with more authority) of the 'HR Dept' User Group.
 </p>
 
-<h2>
-<a name="Security-SeeAlso"></a>See Also
+<h2 id="Security-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Users">Users</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678085" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678085" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FSecurity" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678085" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/User+Groups">User Groups</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Resource+Groups">Resource Groups</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Roles">Roles</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Policies">Policies</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Permissions">Permissions</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Permissions+-+Administrator+Policy">Permissions - Administrator Policy</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Permissions+-+Resource+Policy">Permissions - Resource Policy</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/ACLs">ACLs</a>
+</li>
+
+<li>
+<a href="/display/revolution20/PolicyTemplates">PolicyTemplates</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Security+Tutorials">Security Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Giving+a+User+Manager+Access">Giving a User Manager Access</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Making+Member-Only+Pages">Making Member-Only Pages</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Creating+a+Second+Super+Admin+User">Creating a Second Super Admin User</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Restricting+an+Element+from+Users">Restricting an Element from Users</a>
+</li>
+
+<li>
+<a href="/display/revolution20/More+on+the+Anonymous+User+Group">More on the Anonymous User Group</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Hardening+MODX+Revolution">Hardening MODX Revolution</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Security+Standards">Security Standards</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Troubleshooting+Security">Troubleshooting Security</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Resetting+a+User+Password+Manually">Resetting a User Password Manually</a>
+</li>
+</ol>
+</li>
+</ol>

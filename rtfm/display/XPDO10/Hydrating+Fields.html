@@ -1,33 +1,29 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#HydratingFields-Whatishydration%3F'>What is hydration?</a>
+<a href="#HydratingFields-Whatishydration%3F">What is hydration?</a>
 </li>
 
 <li>
-<a href='#HydratingFields-HydratingFields'>Hydrating Fields</a>
+<a href="#HydratingFields-HydratingFields">Hydrating Fields</a>
 </li>
 
 <li>
-<a href='#HydratingFields-HydratingAdHocFields'>Hydrating Ad Hoc Fields</a>
+<a href="#HydratingFields-HydratingAdHocFields">Hydrating Ad Hoc Fields</a>
 </li>
 
 <li>
-<a href='#HydratingFields-HydratingRelatedObjects'>Hydrating Related Objects</a>
+<a href="#HydratingFields-HydratingRelatedObjects">Hydrating Related Objects</a>
 </li>
 
 <li>
-<a href='#HydratingFields-SeeAlso'>See Also</a>
+<a href="#HydratingFields-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="HydratingFields-Whatishydration%3F"></a>What is hydration?
+<h2 id="HydratingFields-Whatishydration?">
+What is hydration?
 </h2>
 
 <p>
@@ -40,86 +36,71 @@ In xPDO, this option is available by passing either of the following configurati
 
 <ul>
 <li>
-<b>XPDO_OPT_HYDRATE_FIELDS</b> - If true, fields will be hydrated.
+<strong>XPDO_OPT_HYDRATE_FIELDS</strong> - If true, fields will be hydrated.
 </li>
 
 <li>
-<b>XPDO_OPT_HYDRATE_RELATED_OBJECTS</b> - If true, related objects will be hydrated.
+<strong>XPDO_OPT_HYDRATE_RELATED_OBJECTS</strong> - If true, related objects will be hydrated.
 </li>
 
 <li>
-<b>XPDO_OPT_HYDRATE_ADHOC_FIELDS</b> - If true, ad-hoc fields will be hydrated.
+<strong>XPDO_OPT_HYDRATE_ADHOC_FIELDS</strong> - If true, ad-hoc fields will be hydrated.
 </li>
 </ul>
 
-<h2>
-<a name="HydratingFields-HydratingFields" id="HydratingFields-HydratingFields"></a>Hydrating Fields
+<h2 id="HydratingFields-HydratingFields">
+Hydrating Fields
 </h2>
 
 <p>
 If the XPDO_OPT_HYDRATE_FIELDS option is set to true, this ability will be available. This makes all object fields accessible for reading directly on the object. An example of this is such:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;set('name',$name);
 echo $object-&gt;name;
 </pre>
-</div>
-</div>
-
 <p>
 This would output the 'name' field of the object, assuming that the 'name' field is defined in the object's schema.
 </p>
 
-<h2>
-<a name="HydratingFields-HydratingAdHocFields" id="HydratingFields-HydratingAdHocFields"></a>Hydrating Ad Hoc Fields
+<h2 id="HydratingFields-HydratingAdHocFields">
+Hydrating Ad Hoc Fields
 </h2>
 
 <p>
 If the XPDO_OPT_HYDRATE_ADHOC_FIELDS option is set to true, this ability will be available. It takes one step further the idea of hydrating fields, and now hydrates all <em>ad hoc</em> fields; or rather, any field that is not defined in the schema. Say we want to set an arbitrary field called 'puns' to a Person object:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;set('name','Arthur Dent');
 $object-&gt;set('puns',42);
 echo $object-&gt;name.' has '.$object-&gt;puns.' puns.';
 </pre>
-</div>
-</div>
-
 <p>
 This would echo the appropriate value, even if the field 'puns' isn't defined in the schema.
 </p>
 
-<h2>
-<a name="HydratingFields-HydratingRelatedObjects" id="HydratingFields-HydratingRelatedObjects"></a>Hydrating Related Objects
+<h2 id="HydratingFields-HydratingRelatedObjects">
+Hydrating Related Objects
 </h2>
 
 <p>
 if the XPDO_OPT_HYDRATE_RELATED_OBJECTS option is set to true, this ability will be available. This hydrates all related objects to public vars when <a href="/display/XPDO10/getOne" title="getOne">getOne</a> or <a href="/display/XPDO10/getMany" title="getMany">getMany</a> is used. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $fordPrefect-&gt;getMany('Beers');
 foreach ($fordPrefect-&gt;Beers as $beer) {
    echo $beer-&gt;get('name').'&lt;br /&gt;';
 }
 </pre>
-</div>
-</div>
-
 <p>
 This would echo a list of all the Beers associated to the $fordPrefect object.
 </p>
 
-<h2>
-<a name="HydratingFields-SeeAlso" id="HydratingFields-SeeAlso"></a>See Also
+<h2 id="HydratingFields-SeeAlso">
+See Also
 </h2>
 
 <ul>

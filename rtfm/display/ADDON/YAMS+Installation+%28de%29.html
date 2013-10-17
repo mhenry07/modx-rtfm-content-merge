@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -25,30 +25,16 @@
 </table>
 </div>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 In the process of being translated
-</td>
-</tr>
-</table>
 </div>
 
-<h1>
-<a name="YAMSInstallation%28de%29-Installation%2FAktualisierungvonYAMS"></a>Installation / Aktualisierung von YAMS
+<h1 id="YAMSInstallation(de)-Installation/AktualisierungvonYAMS">
+Installation / Aktualisierung von YAMS
 </h1>
 
-<h2>
-<a name="YAMSInstallation%28de%29-Voraussetzungen"></a>Voraussetzungen
+<h2 id="YAMSInstallation(de)-Voraussetzungen">
+Voraussetzungen
 </h2>
 
 <p>
@@ -59,8 +45,8 @@ YAMS kann ab MODx v0.9.6.3 und PHP &gt;= 5.2.6-3 eingesetzt werden, es läuft ni
 ManagerManager ist für die Funktion von YAMS nicht erforderlich, wird aber empfohlen. YAMS setzt ManagerManager u.a. dazu ein, redundante Felder von Dokumentvariablen (z.B. Menu Title) auszublenden, außerdem ermöglicht ManagerManager in der Dokumentenansicht die Anzeige von Registerkarten (Tabs) mit einem Tab pro Sprache.
 </p>
 
-<h2>
-<a name="YAMSInstallation%28de%29-Aktualisierung"></a>Aktualisierung
+<h2 id="YAMSInstallation(de)-Aktualisierung">
+Aktualisierung
 </h2>
 
 <p>
@@ -90,8 +76,8 @@ Aktualisieren einer älteren Version:
 </li>
 </ol>
 
-<h2>
-<a name="YAMSInstallation%28de%29-Installation"></a>Installation
+<h2 id="YAMSInstallation(de)-Installation">
+Installation
 </h2>
 
 <ol>
@@ -103,53 +89,44 @@ Aktualisieren einer älteren Version:
 
 <li>Erstellen Sie in MODx ein neues Plugin unter Ressourcen &gt; Ressourcen-Verwaltung &gt; Plugins:
 <br />
-<b>Plugin Name:</b> YAMS
+<strong>Plugin Name:</strong> YAMS
 <br />
-<b>Beschreibung:</b> Yet Another Multilingual Solution
+<strong>Beschreibung:</strong> Yet Another Multilingual Solution
 <br />
-<b>Systemereignisse:</b> Bitte lesen Sie hierzu die im entsprechenden YAMS-Download enthaltene readme.txt (s. auch Ressourcen &gt; Ressourcen-Verwaltung &gt; Plugins &gt; YAMS: Systemereignisse).
+<strong>Systemereignisse:</strong> Bitte lesen Sie hierzu die im entsprechenden YAMS-Download enthaltene readme.txt (s. auch Ressourcen &gt; Ressourcen-Verwaltung &gt; Plugins &gt; YAMS: Systemereignisse).
 <br />
-<b>Plugin-Code:</b>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<strong>Plugin-Code:</strong>
+
+<pre class="brush: php">
 require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.plugin.inc.php' );
 </pre>
-</div>
-</div>
 </li>
 
 <li>Erstellen Sie in MODx ein neues Snippet unter Ressourcen &gt; Ressourcen-Verwaltung &gt; Snippets:
 <br />
-<b>Snippet Name:</b> YAMS
+<strong>Snippet Name:</strong> YAMS
 <br />
-<b>Beschreibung:</b> Für mehrsprachigen Inhalt
+<strong>Beschreibung:</strong> Für mehrsprachigen Inhalt
 <br />
-<b>Snippet-Code:</b>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// Die folgende Zeile muss zwischen die php-Tags gesetzt werden.
-</span>require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.snippet.inc.php' );
+<strong>Snippet-Code:</strong>
+
+<pre class="brush: php">
+// Die folgende Zeile muss zwischen die php-Tags gesetzt werden.
+require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.snippet.inc.php' );
 </pre>
-</div>
-</div>
 </li>
 
 <li>Erstellen Sie in MODx ein neues Modul unter Module &gt; Modul-Verwaltung:
 <br />
-<b>Modulname:</b> YAMS
+<strong>Modulname:</strong> YAMS
 <br />
-<b>Beschreibung:</b> Yet Another Multilingual Solution
+<strong>Beschreibung:</strong> Yet Another Multilingual Solution
 <br />
-<b>Modul-Code:</b>
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<strong>Modul-Code:</strong>
+
+<pre class="brush: php">
 require_once( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.module.inc.php' );
 </pre>
-</div>
-</div>
 </li>
 
 <li>Laden Sie die Seite neu, um die Manageransicht zu aktualisieren. Falls Sie beabsichtigen, ManagerManager für die Anzeige von Registerkarten (Tabs) in der Dokumentenansicht zu verwenden, lesen Sie bitte untenstehende <a href="#YAMSInstallation%28de%29-ManagerManagerSetup">Anleitung</a>.
@@ -159,8 +136,8 @@ require_once( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.module.i
 </li>
 </ol>
 
-<h2>
-<a name="YAMSInstallation%28de%29-EinrichtenvonManagerManager"></a><a name="YAMSInstallation%28de%29-ManagerManagerSetup"></a>Einrichten von ManagerManager
+<h2 id="YAMSInstallation(de)-EinrichtenvonManagerManager">
+<a name="YAMSInstallation%28de%29-ManagerManagerSetup"></a>Einrichten von ManagerManager
 </h2>
 
 <p>
@@ -168,53 +145,41 @@ Um ManagerManager für die Anzeige von Registerkarten (Tabs) in der Dokumentenan
 </p>
 
 <ol>
-<li>Vergewissern Sie sich, dass das ManagerManager-Plugin unter Ressourcen &gt; Ressourcen-Verwaltung &gt; Plugins installiert ist. Falls nicht, können Sie es im <a href="http://modxcms.com/extras/package/?package=255" class="external-link" rel="nofollow">MODx repository</a> downloaden. Es wird grundsätzlich die neueste Version empfohlen, halten Sie sich bzgl. etwaiger Problemberichte in den Foren auf dem laufenden.
+<li>Vergewissern Sie sich, dass das ManagerManager-Plugin unter Ressourcen &gt; Ressourcen-Verwaltung &gt; Plugins installiert ist. Falls nicht, können Sie es im <a href="http://modxcms.com/extras/package/?package=255">MODx repository</a> downloaden. Es wird grundsätzlich die neueste Version empfohlen, halten Sie sich bzgl. etwaiger Problemberichte in den Foren auf dem laufenden.
 </li>
 
 <li>Richten Sie in der ManagerManager-Konfiguration das Plugin so ein, dass es zusätzliche Regeln in einem Chunk namens mm_rules vorfindet. In neueren Versionen kann dies über die Registerkarte (Tab) Konfiguration vorgenommen werden. In älteren Versionen muss der Plugin-Code um folgende Zeile ergänzt werden:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 $config_chunk = 'mm_rules';
 </pre>
-</div>
-</div>
 </li>
 
 <li>Erstellen Sie unter Ressourcen &gt; Ressourcen-Verwaltung &gt; Chunks einen neuen Chunk namens mm_rules und fügen folgende Zeile ein:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.mm_rules.inc.php' );
 </pre>
-</div>
-</div>
-
 <p>
 Sollten Sie schon eigene ManagerManager-Regeln im Einsatz haben, ist es ratsam, die YAMS require Zeile an letzter Stelle zu plazieren.
 </p>
 </li>
 </ol>
 
-<h2>
-<a name="YAMSInstallation%28de%29-EinrichtenvonPHx"></a>Einrichten von PHx
+<h2 id="YAMSInstallation(de)-EinrichtenvonPHx">
+Einrichten von PHx
 </h2>
 
 <p>
 Bei Verwendung des PHx-Snippets beachten Sie bitte folgendes: Eine Datei, welche die Anweisung include_once beinhaltet wird fälschlicherweise abermals berücksichtigt, was dazu führt, dass die PHxParser-Klasse neu definiert wird, was wiederum zu einem 'PHP parse error' führt. Dies kann dadurch verhindert werden, dass die Anweisung include_once im PHx-Snippet dahingehend modifiziert wird, dass sie die Datei nur dann berücksichtigt, wenn die Klasse nicht bereits definiert worden ist:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> ( ! class_exists( 'PHxParser' ) )
+<pre class="brush: php">
+if ( ! class_exists( 'PHxParser' ) )
 {
- include_once $modx-&gt;config['rb_base_dir'] . <span class="code-quote">"plugins/phx/phx.parser.class.inc.php"</span>;
+ include_once $modx-&gt;config['rb_base_dir'] . "plugins/phx/phx.parser.class.inc.php";
 }
 </pre>
-</div>
-</div>
-
 <p>
 Bedenken Sie bitte außerdem, dass YAMS hinsichtlich der Ausführungsreihenfolge der Plugins bei allen zugehörigen Systemereignissen - insbesondere vor PHx - an die jeweils oberste Position zu setzen ist (s. Ressourcen &gt; Ressourcen-Verwaltung &gt; Plugins: Ausführungsreihenfolge festlegen).
 </p>

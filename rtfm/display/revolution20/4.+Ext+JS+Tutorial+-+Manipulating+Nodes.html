@@ -2,15 +2,13 @@
 A common thing for Javascript to do is to manipulate sections of the page. We include our standard Ext JS stuff and styling and let's consider a page with a div that we want to remove:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;html&gt;
     &lt;title&gt;My Ext JS Test Page&lt;/title&gt;
-    &lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+    &lt;link  rel="stylesheet" type="text/css" href="manager/assets/ext3/resources/css/ext-all.css" /&gt;
+    &lt;script type="text/javascript" src="manager/assets/ext3/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="manager/assets/ext3/ext-all.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
         Ext.onReady(function() {
             Ext.get('div2').remove();
         });        
@@ -19,90 +17,75 @@ A common thing for Javascript to do is to manipulate sections of the page. We in
     &lt;body&gt;
         &lt;h1&gt;Handling Elements&lt;/h1&gt;
 
-        &lt;div id=<span class="code-quote">"div1"</span> class=<span class="code-quote">"myDiv"</span>&gt;I am here to stay&lt;/div&gt;    
+        &lt;div id="div1" class="myDiv"&gt;I am here to stay&lt;/div&gt;    
         
-        &lt;div id=<span class="code-quote">"div2"</span> class=<span class="code-quote">"myDiv"</span>&gt;I will get deleted&lt;/div&gt;    
+        &lt;div id="div2" class="myDiv"&gt;I will get deleted&lt;/div&gt;    
 
-        &lt;div class=<span class="code-quote">"myclass"</span>&gt;One&lt;/div&gt;   
-        &lt;div class=<span class="code-quote">"myclass"</span>&gt;Two&lt;/div&gt;
-        &lt;div class=<span class="code-quote">"myclass"</span>&gt;Three&lt;/div&gt;
+        &lt;div class="myclass"&gt;One&lt;/div&gt;   
+        &lt;div class="myclass"&gt;Two&lt;/div&gt;
+        &lt;div class="myclass"&gt;Three&lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-</div>
-</div>
-
 <p>
 When you load this in a browser, you should see that only the div1 remains: div2 gets deleted. Note how the Ext JS selector does <em>not</em> use the hashtag (#) like jQuery does.
 </p>
 
-<h2>
-<a name="4.ExtJSTutorial-ManipulatingNodes-ExtJSSelect"></a>Ext JS Select
+<h2 id="4.ExtJSTutorial-ManipulatingNodes-ExtJSSelect">
+Ext JS Select
 </h2>
 
 <p>
-So how does Ext JS do selections like jQuery? It has a couple ways. One option is its <b>select()</b> method, which <em>does</em> use notation similar to jQuery.
+So how does Ext JS do selections like jQuery? It has a couple ways. One option is its <strong>select()</strong> method, which <em>does</em> use notation similar to jQuery.
 </p>
 
 <p>
 Consider the following code that would delete all three divs where class="myclass":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
         Ext.onReady(function() {
             Ext.select('.myclass').each(function(el){
                 el.remove();
             });
         });
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="4.ExtJSTutorial-ManipulatingNodes-AppendingContent"></a>Appending Content
+<h2 id="4.ExtJSTutorial-ManipulatingNodes-AppendingContent">
+Appending Content
 </h2>
 
 <p>
 Consider the following two variations of code that produce the same result:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
         Ext.onReady(function() {
-            <span class="code-keyword">var</span> myDiv1 = Ext.get('div1');
+            var myDiv1 = Ext.get('div1');
             myDiv1.createChild('&lt;div&gt;My baby goes here.&lt;/div&gt;');
 
-            <span class="code-comment">// OR a bit more verbose and self-documenting
-</span>
+            // OR a bit more verbose and self-documenting
+
             myDiv1.createChild({
                 tag: 'div',
                 html: 'My baby goes here.'
             });
         });
 </pre>
-</div>
-</div>
-
 <p>
-The <b>createChild</b> method is similar to jQuery's <b>append()</b> method.
+The <strong>createChild</strong> method is similar to jQuery's <strong>append()</strong> method.
 </p>
 
-<h2>
-<a name="4.ExtJSTutorial-ManipulatingNodes-PrependingContent"></a>Prepending Content
+<h2 id="4.ExtJSTutorial-ManipulatingNodes-PrependingContent">
+Prepending Content
 </h2>
 
 <p>
-Ext JS can also put stuff at the beginning of an element. Consider the <b>insertFirst</b> method:
+Ext JS can also put stuff at the beginning of an element. Consider the <strong>insertFirst</strong> method:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
         Ext.onReady(function() {
-            <span class="code-keyword">var</span> myDiv1 = Ext.get('div1');
+            var myDiv1 = Ext.get('div1');
 
             myDiv1.insertFirst({
                 tag  : 'div',
@@ -110,19 +93,32 @@ Ext JS can also put stuff at the beginning of an element. Consider the <b>insert
             });
         });
 </pre>
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/revolution20/1.+Ext+JS+Tutorial+-+Message+Boxes">1. Ext JS Tutorial - Message Boxes</a>
+</li>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<li>
+<a href="/display/revolution20/2.+Ext+JS+Tutorial+-+Ajax+Include">2. Ext JS Tutorial - Ajax Include</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="46465039" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="46137364" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2F4.%2BExt%2BJS%2BTutorial%2B-%2BManipulating%2BNodes" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="46137364" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/3.+Ext+JS+Tutorial+-+Animation">3. Ext JS Tutorial - Animation</a>
+</li>
+
+<li>
+<a href="/display/revolution20/4.+Ext+JS+Tutorial+-+Manipulating+Nodes">4. Ext JS Tutorial - Manipulating Nodes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/5.+Ext+JS+Tutorial+-+Panels">5. Ext JS Tutorial - Panels</a>
+</li>
+
+<li>
+<a href="/display/revolution20/7.+Ext+JS+Tutoral+-+Advanced+Grid">7. Ext JS Tutoral - Advanced Grid</a>
+</li>
+
+<li>
+<a href="/display/revolution20/8.+Ext+JS+Tutorial+-+Inside+a+CMP">8. Ext JS Tutorial - Inside a CMP</a>
+</li>
+</ol>

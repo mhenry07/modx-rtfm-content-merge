@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,8 +13,8 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMSMime-typeDependentAliasSuffixes-HowcanIgetYAMStousethe.xmlsuffixforxmldocuments%2C.rssforrssdocuments%2Cetc."></a>How can I get YAMS to use the .xml suffix for xml documents, .rss for rss documents, etc.
+<h1 id="YAMSMime-typeDependentAliasSuffixes-HowcanIgetYAMStousethe.xmlsuffixforxmldocuments,.rssforrssdocuments,etc.">
+How can I get YAMS to use the .xml suffix for xml documents, .rss for rss documents, etc.
 </h1>
 
 <p>
@@ -33,10 +33,8 @@ to yes. Then clear the cache so that document URLs get regenerated.
 The default mime-type =&gt; suffix mapping is as follows:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$<span class="code-keyword">this</span>-&gt;itsMimeSuffixMap = array(
+<pre class="brush: php">
+$this-&gt;itsMimeSuffixMap = array(
     'application/xhtml+xml' =&gt; '.xhtml'
     , 'application/javascript' =&gt; '.js'
     , 'text/javascript' =&gt; '.js'
@@ -48,13 +46,10 @@ $<span class="code-keyword">this</span>-&gt;itsMimeSuffixMap = array(
     , 'text/plain' =&gt; '.txt'
     );
 </pre>
-</div>
-</div>
-
 <p>
 This can be changed by editing the assets/modules/yams/yams.config.inc.php file directly.
 </p>
 
 <p>
-<b>WARNING</b> It is not necessary to use the <a href="http://modxcms.com/extras/package/395" class="external-link" rel="nofollow">SEO Strict URLs plugin</a> in combination with YAMS since YAMS has SEO friendly behaviour built in. Furthermore, the plugin is not compatible with YAMS.
+<strong>WARNING</strong> It is not necessary to use the <a href="http://modxcms.com/extras/package/395">SEO Strict URLs plugin</a> in combination with YAMS since YAMS has SEO friendly behaviour built in. Furthermore, the plugin is not compatible with YAMS.
 </p>

@@ -1,8 +1,4 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 In addition to PDO, xPDO can wrap other objects you may want to work with alongside your model.
 </p>
 
@@ -10,32 +6,22 @@ In addition to PDO, xPDO can wrap other objects you may want to work with alongs
 For example, you could manually load smarty as an object that you can call directly from your xPDO instance:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> ($className= $xpdo-&gt;loadClass('Smarty','/path/to/smarty/smarty.class.php', <span class="code-keyword">false</span>, <span class="code-keyword">true</span>)) {
-    $xpdo-&gt;smarty= &amp; <span class="code-keyword">new</span> $className ($xpdo);
+<pre class="brush: php">
+if ($className= $xpdo-&gt;loadClass('Smarty','/path/to/smarty/smarty.class.php', false, true)) {
+    $xpdo-&gt;smarty= &amp; new $className ($xpdo);
 }
 
 $xpdo-&gt;smarty-&gt;someFunc();
 </pre>
-</div>
-</div>
-
 <p>
 But xPDO provides a convenience method for doing this in a single line:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> ($xpdo-&gt;getService('myService', 'myServiceClass', '/path/to/model/root/', array('param1' =&gt; $param1, 'param2' =&gt; $param2)) {
+<pre class="brush: php">
+if ($xpdo-&gt;getService('myService', 'myServiceClass', '/path/to/model/root/', array('param1' =&gt; $param1, 'param2' =&gt; $param2)) {
     $xpdo-&gt;myService-&gt;doSomething();
 }
 </pre>
-</div>
-</div>
-
 <p>
 If the service instance has already been loaded in the current request, it will not be loaded again, but simply returned. This creates a simple way to provide reusable service objects for common tasks.
 </p>

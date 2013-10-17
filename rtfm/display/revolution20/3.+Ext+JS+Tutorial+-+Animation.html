@@ -1,46 +1,34 @@
-<h2>
-<a name="3.ExtJSTutorial-Animation-Animations"></a>Animations
+<h2 id="3.ExtJSTutorial-Animation-Animations">
+Animations
 </h2>
 
 <p>
 Once again, we include the required JS and CSS:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-&lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-&lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;
+<pre class="brush: php">
+&lt;link  rel="stylesheet" type="text/css" href="manager/assets/ext3/resources/css/ext-all.css" /&gt;
+&lt;script type="text/javascript" src="manager/assets/ext3/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="manager/assets/ext3/ext-all.js"&gt;&lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
 And then we add some controls that will perform a simple animation that will resize a div:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-    &lt;script type=<span class="code-quote">"text/javascript"</span>&gt;        
+<pre class="brush: php">
+    &lt;script type="text/javascript"&gt;        
         Ext.onReady(function() {
-            <span class="code-keyword">var</span> myDiv1 = Ext.get('div1');
+            var myDiv1 = Ext.get('div1');
             myDiv1.setSize(350,350, {duration: 1, easing:'bounceOut'});
         });        
     &lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
 To get the div ready and make our animation easier to see, we need to provide some styling:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-    &lt;style type=<span class="code-quote">"text/css"</span>&gt;
+<pre class="brush: php">
+    &lt;style type="text/css"&gt;
         .myDiv {
             border: 1px solid #AAAAAA;
             background: yellow;
@@ -49,43 +37,33 @@ To get the div ready and make our animation easier to see, we need to provide so
         }
     &lt;/style&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Finally, actually create the div down in your HTML body:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div id=<span class="code-quote">"div1"</span> class=<span class="code-quote">"myDiv"</span>&gt;&lt;/div&gt;
+<pre class="brush: php">
+&lt;div id="div1" class="myDiv"&gt;&lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 When your finished, this page should look something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;html&gt;
     &lt;title&gt;My Ext JS Test Page : Animations&lt;/title&gt;
-    &lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+    &lt;link  rel="stylesheet" type="text/css" href="manager/assets/ext3/resources/css/ext-all.css" /&gt;
+    &lt;script type="text/javascript" src="manager/assets/ext3/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="manager/assets/ext3/ext-all.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
         
         Ext.onReady(function() {
-            <span class="code-keyword">var</span> myDiv1 = Ext.get('div1');
+            var myDiv1 = Ext.get('div1');
             myDiv1.setHeight(200);
             myDiv1.setSize(350,350, {duration: 1, easing:'bounceOut'});
         });        
     &lt;/script&gt;
     
-    &lt;style type=<span class="code-quote">"text/css"</span>&gt;
+    &lt;style type="text/css"&gt;
         .myDiv {
             border: 1px solid #AAAAAA;
             background: yellow;
@@ -96,212 +74,218 @@ When your finished, this page should look something like this:
     &lt;body&gt;
         &lt;h1&gt;Animations&lt;/h1&gt;
 
-        &lt;div id=<span class="code-quote">"div1"</span> class=<span class="code-quote">"myDiv"</span>&gt;&lt;/div&gt;    
+        &lt;div id="div1" class="myDiv"&gt;&lt;/div&gt;    
        
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-</div>
-</div>
-
 <p>
 When you view this in a browser, you should see your div grow in size to become a square.
 </p>
 
-<h3>
-<a name="3.ExtJSTutorial-Animation-OtherCommands"></a>Other Commands
+<h3 id="3.ExtJSTutorial-Animation-OtherCommands">
+Other Commands
 </h3>
 
 <p>
-You can also use the <b>setHeight</b> or <b>setWidth</b> methods, e.g.:
+You can also use the <strong>setHeight</strong> or <strong>setWidth</strong> methods, e.g.:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  
 myDiv1.setHeight(200);
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="3.ExtJSTutorial-Animation-Easing"></a>Easing
+<h3 id="3.ExtJSTutorial-Animation-Easing">
+Easing
 </h3>
 
 <p>
 One of the keys to this trick is the "easing" property. The available easing options depend on which library is loaded, but here is a short list of easing options that are available
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Easing Type
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>easeNone</b>
+<td>
+<strong>easeNone</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Uniform speed between points.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>easeIn</b>
+<td>
+<strong>easeIn</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Begins slowly and accelerates towards end. (quadratic)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>easeOut</b>
+<td>
+<strong>easeOut</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Begins quickly and decelerates towards end. (quadratic)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>easeBoth</b>
+<td>
+<strong>easeBoth</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Begins slowly and decelerates towards end. (quadratic)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>easeInStrong</b>
+<td>
+<strong>easeInStrong</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Begins slowly and accelerates towards end. (quartic)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>easeOutStrong</b>
+<td>
+<strong>easeOutStrong</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Begins quickly and decelerates towards end. (quartic)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>easeBothStrong</b>
+<td>
+<strong>easeBothStrong</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Begins slowly and decelerates towards end. (quartic)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>elasticIn</b>
+<td>
+<strong>elasticIn</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Snap in elastic effect.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>elasticOut</b>
+<td>
+<strong>elasticOut</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Snap out elastic effect.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>elasticBoth</b>
+<td>
+<strong>elasticBoth</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Snap both elastic effect.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>backIn</b>
+<td>
+<strong>backIn</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Backtracks slightly, then reverses direction and moves to end.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>backOut</b>
+<td>
+<strong>backOut</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Overshoots end, then reverses and comes back to end.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>backBoth</b>
+<td>
+<strong>backBoth</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Backtracks slightly, then reverses direction, overshoots end, then reverses and comes back to end.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>bounceIn</b>
+<td>
+<strong>bounceIn</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Bounce off of start.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>bounceOut</b>
+<td>
+<strong>bounceOut</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Bounces off end.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>bounceBoth</b>
+<td>
+<strong>bounceBoth</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 Bounces off start and end.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/revolution20/1.+Ext+JS+Tutorial+-+Message+Boxes">1. Ext JS Tutorial - Message Boxes</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="46465033" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="46137364" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2F3.%2BExt%2BJS%2BTutorial%2B-%2BAnimation" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="46137364" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/2.+Ext+JS+Tutorial+-+Ajax+Include">2. Ext JS Tutorial - Ajax Include</a>
+</li>
+
+<li>
+<a href="/display/revolution20/3.+Ext+JS+Tutorial+-+Animation">3. Ext JS Tutorial - Animation</a>
+</li>
+
+<li>
+<a href="/display/revolution20/4.+Ext+JS+Tutorial+-+Manipulating+Nodes">4. Ext JS Tutorial - Manipulating Nodes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/5.+Ext+JS+Tutorial+-+Panels">5. Ext JS Tutorial - Panels</a>
+</li>
+
+<li>
+<a href="/display/revolution20/7.+Ext+JS+Tutoral+-+Advanced+Grid">7. Ext JS Tutoral - Advanced Grid</a>
+</li>
+
+<li>
+<a href="/display/revolution20/8.+Ext+JS+Tutorial+-+Inside+a+CMP">8. Ext JS Tutorial - Inside a CMP</a>
+</li>
+</ol>

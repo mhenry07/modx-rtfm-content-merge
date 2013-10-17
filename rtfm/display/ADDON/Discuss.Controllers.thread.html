@@ -5,336 +5,327 @@ The Thread (thread/index) controller is the one that shows an entire thread of p
 <div>
 <ul>
 <li>
-<a href='#Discuss.Controllers.thread-BasicInformation'>Basic Information</a>
+<a href="#Discuss.Controllers.thread-BasicInformation">Basic Information</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.thread-Options'>Options</a>
+<a href="#Discuss.Controllers.thread-Options">Options</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.thread-ControllerTemplate'>Controller Template</a>
+<a href="#Discuss.Controllers.thread-ControllerTemplate">Controller Template</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.thread-SystemEvents'>System Events</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Discuss.Controllers.thread-SystemEvents">System Events</a>
 <ul>
 <li>
-<a href='#Discuss.Controllers.thread-OnDiscussRenderThread'>OnDiscussRenderThread</a>
+<a href="#Discuss.Controllers.thread-OnDiscussRenderThread">OnDiscussRenderThread</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Discuss.Controllers.thread-BasicInformation" id="Discuss.Controllers.thread-BasicInformation"></a>Basic Information
+<h2 id="Discuss.Controllers.thread-BasicInformation">
+Basic Information
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Since Version
 </td>
-<td class='confluenceTd'>
+<td>
 1.0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller File
 </td>
-<td class='confluenceTd'>
+<td>
 controllers/web/thread/index.class.php
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller Class Name
 </td>
-<td class='confluenceTd'>
+<td>
 DiscussThreadController
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller Template
 </td>
-<td class='confluenceTd'>
+<td>
 pages/thread/index.tpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Manifest Name
 </td>
-<td class='confluenceTd'>
+<td>
 thread/index
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Discuss.Controllers.thread-Options" id="Discuss.Controllers.thread-Options"></a>Options
+<h2 id="Discuss.Controllers.thread-Options">
+Options
 </h2>
 
 <p>
 If you don't know what the manifest is, please go back to the <a href="/display/ADDON/Discuss.Getting+Started" title="Discuss.Getting Started">Getting Started</a> document. The options below need to go into the "board" options array of the manifest.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Key
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showPosts
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
-<td class='confluenceTd'>
+<td>
 To show posts.. you'll want this enabled. Posts go into [<span class="error">[+posts]</span>]
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 10
 </td>
-<td class='confluenceTd'>
+<td>
 Amount of posts per page
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 discuss.post_sort_dir
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 ASC
 </td>
-<td class='confluenceTd'>
+<td>
 The sort order for posts: ASC or DESC
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortAnswerFirst
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
-<td class='confluenceTd'>
+<td>
 If enabled, Q&amp;A threads will sort posts marked as answer on top.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 postAttachmentRowTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 post/disPostAttachment
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk to wrap each attachment in.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 postTpl
 </td>
-<td class='confluenceTd'>
+<td>
 post/disThreadPost
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk to wrap individual posts in.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rowCls
 </td>
-<td class='confluenceTd'>
+<td>
 dis-post
 </td>
-<td class='confluenceTd'>
+<td>
 A class to add to the post row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 childrenCls
 </td>
-<td class='confluenceTd'>
+<td>
 dis-board-post
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 actionLinkTpl
 </td>
-<td class='confluenceTd'>
+<td>
 disActionLink
 </td>
-<td class='confluenceTd'>
+<td>
 Tpl chunk for the action links.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rowSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 line break
 </td>
-<td class='confluenceTd'>
+<td>
 separator to use between rows
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showViewing
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 Show the readers based on sessions. Makes the [<span class="error">[+readers]</span>] placeholder available.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showBreadcrumbs
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 Show breadcrumbs on this controller.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showTitleInBreadcrumbs
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showPaginationIfOnePage
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
-<td class='confluenceTd'>
+<td>
 Wether 1 page pagination should show up or not.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Discuss.Controllers.thread-ControllerTemplate" id="Discuss.Controllers.thread-ControllerTemplate"></a>Controller Template
+<h2 id="Discuss.Controllers.thread-ControllerTemplate">
+Controller Template
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;!-- thread/index.html --&gt;
 [[+top]]
 
 [[+aboveThread]]
-&lt;div class=<span class="code-quote">"status [[+locked:is=`1`:then=`locked`:<span class="code-keyword">else</span>=`unlocked`]]"</span>&gt;
-    &lt;div class=<span class="code-quote">"f1-f12 h-group [[+answered:notempty=`answered`]]"</span>&gt;
-        &lt;h1 class=<span class="code-quote">"Category"</span> post=<span class="code-quote">"[[+id]]"</span>&gt;
-            [[+answered:notempty=`&lt;span class=<span class="code-quote">"tag solved"</span>&gt;[[%discuss.solved]]&lt;/span&gt;`:<span class="code-keyword">default</span>=``]]
-            &lt;a href=<span class="code-quote">"[[+url]]"</span> title=<span class="code-quote">"[[+title]]"</span>&gt;[[+title]]&lt;/a&gt;
+&lt;div class="status [[+locked:is=`1`:then=`locked`:else=`unlocked`]]"&gt;
+    &lt;div class="f1-f12 h-group [[+answered:notempty=`answered`]]"&gt;
+        &lt;h1 class="Category" post="[[+id]]"&gt;
+            [[+answered:notempty=`&lt;span class="tag solved"&gt;[[%discuss.solved]]&lt;/span&gt;`:default=``]]
+            &lt;a href="[[+url]]" title="[[+title]]"&gt;[[+title]]&lt;/a&gt;
         &lt;/h1&gt;
     &lt;/div&gt;
-    &lt;div class=<span class="code-quote">"f1-f9"</span>&gt;
-        &lt;div class=<span class="code-quote">"a-dis-actionbuttons h-group"</span>&gt;
-            Subscribe: &lt;a href=<span class="code-quote">"[[~[[*id]]]]thread/feed.xml?thread=[[+id]]"</span>&gt;RSS&lt;/a&gt;
+    &lt;div class="f1-f9"&gt;
+        &lt;div class="a-dis-actionbuttons h-group"&gt;
+            Subscribe: &lt;a href="[[~[[*id]]]]thread/feed.xml?thread=[[+id]]"&gt;RSS&lt;/a&gt;
                     [[+actionlink_subscribe:notempty=`
-                    &lt;a href=<span class="code-quote">"[[+actionlink_subscribe]]"</span>&gt;By email&lt;/a&gt;`]]
+                    &lt;a href="[[+actionlink_subscribe]]"&gt;By email&lt;/a&gt;`]]
                     [[+actionlink_unsubscribe:notempty=`
-                    &lt;a href=<span class="code-quote">"[[+actionlink_unsubscribe]]"</span>&gt;Stop emails&lt;/a&gt;`]]
+                    &lt;a href="[[+actionlink_unsubscribe]]"&gt;Stop emails&lt;/a&gt;`]]
         &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class=<span class="code-quote">"f1-f9"</span>&gt;
-        &lt;header class=<span class="code-quote">"dis-cat-header dark-gradient h-group sticky-bar top"</span>&gt;
-            [[+pagination:<span class="code-keyword">default</span>=``]]
+    &lt;div class="f1-f9"&gt;
+        &lt;header class="dis-cat-header dark-gradient h-group sticky-bar top"&gt;
+            [[+pagination:default=``]]
             [[- USER LOGGED IN ]]
             [[!+discuss.user.id:notempty=`
-            &lt;div class=<span class="code-quote">"post-box"</span>&gt;
-                [[+locked:is=`1`:then=``:<span class="code-keyword">else</span>=`&lt;a class=<span class="code-quote">"dis-action-reply Button"</span> href=<span class="code-quote">"[[+actionlink_reply]]"</span>&gt;Reply to thread&lt;/a&gt;`]]
-                &lt;a class=<span class="code-quote">"Button"</span> href=<span class="code-quote">"[[+actionlink_unread]]"</span>&gt;Mark as unread&lt;/a&gt;
+            &lt;div class="post-box"&gt;
+                [[+locked:is=`1`:then=``:else=`&lt;a class="dis-action-reply Button" href="[[+actionlink_reply]]"&gt;Reply to thread&lt;/a&gt;`]]
+                &lt;a class="Button" href="[[+actionlink_unread]]"&gt;Mark as unread&lt;/a&gt;
                 [[+moderators]]
             &lt;/div&gt;`]]
             [[- USER NOT LOGGED IN ]]
             [[!+discuss.user.id:is=``:then=`
-            &lt;div class=<span class="code-quote">"post-box"</span>&gt;
-                &lt;a href=<span class="code-quote">"[[~[[*id]]]]login"</span> class=<span class="code-quote">"Button dis-action-login"</span> &gt;Login to Post&lt;/a&gt;
+            &lt;div class="post-box"&gt;
+                &lt;a href="[[~[[*id]]]]login" class="Button dis-action-login" &gt;Login to Post&lt;/a&gt;
             &lt;/div&gt;`]]
         &lt;/header&gt;
-        &lt;ul class=<span class="code-quote">"dis-list h-group"</span>&gt;
+        &lt;ul class="dis-list h-group"&gt;
             [[+posts]]
         &lt;/ul&gt;
         [[+pagination:notempty=`
-        &lt;div class=<span class="code-quote">"paginate stand-alone bottom horiz-list"</span>&gt;[[+pagination]]&lt;/div&gt;`]]
+        &lt;div class="paginate stand-alone bottom horiz-list"&gt;[[+pagination]]&lt;/div&gt;`]]
         [[$thread-login-post]]
-        [[+locked:notempty=`&lt;p class=<span class="code-quote">"m-notice"</span>&gt;[[%discuss.thread_locked]]&lt;/p&gt;`:<span class="code-keyword">default</span>=`[[+quick_reply_form]]`]]
+        [[+locked:notempty=`&lt;p class="m-notice"&gt;[[%discuss.thread_locked]]&lt;/p&gt;`:default=`[[+quick_reply_form]]`]]
         [[+belowThread]]
         [[+discuss.error_panel]]
     &lt;/div&gt;&lt;!-- Close Content From Wrapper --&gt;
@@ -346,15 +337,12 @@ Wether 1 page pagination should show up or not.
 &lt;!--close thread/index.html --&gt;
 
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Discuss.Controllers.thread-SystemEvents" id="Discuss.Controllers.thread-SystemEvents"></a>System Events
+<h2 id="Discuss.Controllers.thread-SystemEvents">
+System Events
 </h2>
 
-<h3>
-<a name="Discuss.Controllers.thread-OnDiscussRenderThread" id="Discuss.Controllers.thread-OnDiscussRenderThread"></a>OnDiscussRenderThread
+<h3 id="Discuss.Controllers.thread-OnDiscussRenderThread">
+OnDiscussRenderThread
 </h3>
 
 <p>

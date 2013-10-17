@@ -1,75 +1,63 @@
 <div>
 <ul>
 <li>
-<a href='#ExtendingmodUser-IntendedAudience'>Intended Audience</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#ExtendingmodUser-IntendedAudience">Intended Audience</a>
 <ul>
 <li>
-<a href='#ExtendingmodUser-SeeAlso'>See Also</a>
+<a href="#ExtendingmodUser-SeeAlso">See Also</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-Overview'>Overview</a>
+<a href="#ExtendingmodUser-Overview">Overview</a>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-Purpose'>Purpose</a>
+<a href="#ExtendingmodUser-Purpose">Purpose</a>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-TheRules'>The Rules</a>
+<a href="#ExtendingmodUser-TheRules">The Rules</a>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-StepstoextendingmodUser'>Steps to extending modUser</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#ExtendingmodUser-StepstoextendingmodUser">Steps to extending modUser</a>
 <ul>
 <li>
-<a href='#ExtendingmodUser-1.%29Createtheschemaandgenerateamodel'>1. ) Create the schema and generate a model</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#ExtendingmodUser-1.%29Createtheschemaandgenerateamodel">1. ) Create the schema and generate a model</a>
 <ul>
 <li>
-<a href='#ExtendingmodUser-SimpleExample'>Simple Example</a>
+<a href="#ExtendingmodUser-SimpleExample">Simple Example</a>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-MoreInvolvedExample'>More Involved Example</a>
+<a href="#ExtendingmodUser-MoreInvolvedExample">More Involved Example</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-2.%29Edittheextuser.class.php'>2.) Edit the extuser.class.php</a>
+<a href="#ExtendingmodUser-2.%29Edittheextuser.class.php">2.) Edit the extuser.class.php</a>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-3.%29Create%28oredit%29extensionpackagesinSystemSettings'>3.) Create (or edit) <em>extension_packages in System Settings</em></a>
+<a href="#ExtendingmodUser-3.%29Create%28oredit%29extensionpackagesinSystemSettings">3.) Create (or edit) <em>extension_packages in System Settings</em></a>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-4.%29FinalStepCreateaclasstoaccessandutilizeyourextendedclass'>4.) Final Step Create a class to access and utilize your extended class</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#ExtendingmodUser-4.%29FinalStepCreateaclasstoaccessandutilizeyourextendedclass">4.) Final Step Create a class to access and utilize your extended class</a>
 <ul>
 <li>
-<a href='#ExtendingmodUser-SimpleExample'>Simple Example</a>
+<a href="#ExtendingmodUser-SimpleExample">Simple Example</a>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-Morecomplexexample'>More complex example</a>
+<a href="#ExtendingmodUser-Morecomplexexample">More complex example</a>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-5.%29Accessingtheclass'>5.) Accessing the class</a>
+<a href="#ExtendingmodUser-5.%29Accessingtheclass">5.) Accessing the class</a>
 </li>
 </ul>
 </li>
@@ -77,29 +65,29 @@
 </li>
 
 <li>
-<a href='#ExtendingmodUser-Noteworthyitems'>Noteworthy items</a>
+<a href="#ExtendingmodUser-Noteworthyitems">Noteworthy items</a>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-Suggestedadditionalconsiderations'>Suggested additional considerations</a>
+<a href="#ExtendingmodUser-Suggestedadditionalconsiderations">Suggested additional considerations</a>
 </li>
 
 <li>
-<a href='#ExtendingmodUser-ExtendedmodUserClassescurrentlyAvailable'>Extended modUser Classes currently Available</a>
+<a href="#ExtendingmodUser-ExtendedmodUserClassescurrentlyAvailable">Extended modUser Classes currently Available</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="ExtendingmodUser-IntendedAudience" id="ExtendingmodUser-IntendedAudience"></a>Intended Audience
+<h2 id="ExtendingmodUser-IntendedAudience">
+Intended Audience
 </h2>
 
 <p>
 This article is for developers who are looking to add additional data to their MODX users and functionality to the related classes. Although this is possible via a less integrated approach by simply adding a database table that includes a foreign key relation back to the original MODX users table, the approach outlined here is for a more thorough integration via extending the core modUser class. The steps here are highly technical and they rely on MODX's underlying xPDO framework. You should have some familiarity with xPDO's objects and methods (e.g. <a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a>) before attempting this tutorial.
 </p>
 
-<h3>
-<a name="ExtendingmodUser-SeeAlso" id="ExtendingmodUser-SeeAlso"></a>See Also
+<h3 id="ExtendingmodUser-SeeAlso">
+See Also
 </h3>
 
 <ul>
@@ -116,24 +104,24 @@ This article is for developers who are looking to add additional data to their M
 </li>
 </ul>
 
-<h2>
-<a name="ExtendingmodUser-Overview" id="ExtendingmodUser-Overview"></a>Overview
+<h2 id="ExtendingmodUser-Overview">
+Overview
 </h2>
 
 <p>
 By extending the MODx Revolution authentication layer we can build very complex and varied user subsystems, e.g. for social networking, user management systems, or other applications not yet conceptualized. This ability to extend the modUser class is just one example of how to extend a core class – a similar approach could be used to extend any MODX core class.
 </p>
 
-<h2>
-<a name="ExtendingmodUser-Purpose" id="ExtendingmodUser-Purpose"></a>Purpose
+<h2 id="ExtendingmodUser-Purpose">
+Purpose
 </h2>
 
 <p>
 Extending modUser is for those situations when user authentication or user interaction need to be extended or enhanced, e.g. for easier custom authentication.
 </p>
 
-<h2>
-<a name="ExtendingmodUser-TheRules" id="ExtendingmodUser-TheRules"></a>The Rules
+<h2 id="ExtendingmodUser-TheRules">
+The Rules
 </h2>
 
 <p>
@@ -141,7 +129,7 @@ Extending modUser does <em>not</em> mean we are adding anything to the <em>modx<
 </p>
 
 <p>
-Your extension should be used to access <b>your extension</b>. If the user (object) has not been extended, do not allow your extension to interact with them -- hence: let your extension die.
+Your extension should be used to access <strong>your extension</strong>. If the user (object) has not been extended, do not allow your extension to interact with them -- hence: let your extension die.
 </p>
 
 <p>
@@ -152,97 +140,87 @@ MODx Revolution already handles users and probably does not need much help. Whil
 Lastly, get familiar with <a href="/display/revolution20/modUser" title="modUser">modUser</a>, before you begin to code.&nbsp; Some methods are not one-to-one as you might assume, such as attributes, which can be assigned per context, resource, etc. Typically use the modUser suggestions to access modUser methods.
 </p>
 
-<h2>
-<a name="ExtendingmodUser-StepstoextendingmodUser" id="ExtendingmodUser-StepstoextendingmodUser"></a>Steps to extending modUser
+<h2 id="ExtendingmodUser-StepstoextendingmodUser">
+Steps to extending modUser
 </h2>
 
-<h3>
-<a name="ExtendingmodUser-1.%29Createtheschemaandgenerateamodel"></a>1. ) Create the schema and generate a model
+<h3 id="ExtendingmodUser-1.)Createtheschemaandgenerateamodel">
+1. ) Create the schema and generate a model
 </h3>
 
 <p>
 The first thing we need to accomplish, is to create an extended user schema which extends modUser.&nbsp; Please note that there is no aggregate relation upwards from your "main" class which is extending modUser.
 </p>
 
-<h4>
-<a name="ExtendingmodUser-SimpleExample" id="ExtendingmodUser-SimpleExample"></a>Simple Example
+<h4 id="ExtendingmodUser-SimpleExample">
+Simple Example
 </h4>
 
 <p>
-The simplest example we could imagine is that we want to add a single extra attribute to the user data – so in the database, this would mean we have a separate table with 2 columns: one for the foreign key relation back to the <b>modx_users</b> table, and the other column containing our new "extra" attribute, e.g. a <em>fackbook_url</em>:
+The simplest example we could imagine is that we want to add a single extra attribute to the user data – so in the database, this would mean we have a separate table with 2 columns: one for the foreign key relation back to the <strong>modx_users</strong> table, and the other column containing our new "extra" attribute, e.g. a <em>fackbook_url</em>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
-&lt;model <span class="code-keyword">package</span>=<span class="code-quote">"extendeduser"</span> baseClass=<span class="code-quote">"xPDOObject"</span> platform=<span class="code-quote">"mysql"</span> defaultEngine=<span class="code-quote">"MyISAM"</span> tablePrefix=<span class="code-quote">"ext_"</span>&gt;
+<pre class="brush: php">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;model package="extendeduser" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" tablePrefix="ext_"&gt;
         &lt;!-- extend the modUser class --&gt;
-        &lt;object class=<span class="code-quote">"extUser"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"modUser"</span>&gt;
-                &lt;composite alias=<span class="code-quote">"Data"</span> local=<span class="code-quote">"id"</span> class=<span class="code-quote">"Userdata"</span> foreign=<span class="code-quote">"userdata_id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"local"</span> /&gt;
+        &lt;object class="extUser" extends="modUser"&gt;
+                &lt;composite alias="Data" local="id" class="Userdata" foreign="userdata_id" cardinality="one" owner="local" /&gt;
         &lt;/object&gt;
 
-        &lt;object class=<span class="code-quote">"Userdata"</span> table=<span class="code-quote">"data"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-                &lt;field key=<span class="code-quote">"userdata_id"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> precision=<span class="code-quote">"11"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> attributes=<span class="code-quote">"unsigned"</span>/&gt;
-                &lt;field key=<span class="code-quote">"facebook_url"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"100"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
-                &lt;index alias=<span class="code-quote">"userdata_id"</span> name=<span class="code-quote">"userdata_id"</span> primary=<span class="code-quote">"<span class="code-keyword">false</span>"</span> unique=<span class="code-quote">"<span class="code-keyword">true</span>"</span> type=<span class="code-quote">"BTREE"</span>&gt;
-                    &lt;column key=<span class="code-quote">"userdata_id"</span> length=<span class="code-quote">"" collation="</span>A<span class="code-quote">" <span class="code-keyword">null</span>="</span><span class="code-keyword">false</span>" /&gt;
+        &lt;object class="Userdata" table="data" extends="xPDOSimpleObject"&gt;
+                &lt;field key="userdata_id" dbtype="int" precision="11" phptype="integer" null="false" attributes="unsigned"/&gt;
+                &lt;field key="facebook_url" dbtype="varchar" precision="100" phptype="string" null="true" /&gt;
+                &lt;index alias="userdata_id" name="userdata_id" primary="false" unique="true" type="BTREE"&gt;
+                    &lt;column key="userdata_id" length="" collation="A" null="false" /&gt;
                 &lt;/index&gt;
-                &lt;aggregate alias=<span class="code-quote">"extUser"</span> local=<span class="code-quote">"userdata_id"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
+                &lt;aggregate alias="extUser" local="userdata_id" foreign="id" cardinality="one" owner="foreign" /&gt;
         &lt;/object&gt;
  &lt;/model&gt;
 </pre>
-</div>
-</div>
-
 <p>
-Note that the extending of modUser class happens all within that single <em>object</em> node. Also notice that we specify the prefix for our ancillary table in the <em>model</em> node: <b>ext_</b>
+Note that the extending of modUser class happens all within that single <em>object</em> node. Also notice that we specify the prefix for our ancillary table in the <em>model</em> node: <strong>ext_</strong>
 </p>
 
-<h4>
-<a name="ExtendingmodUser-MoreInvolvedExample" id="ExtendingmodUser-MoreInvolvedExample"></a>More Involved Example
+<h4 id="ExtendingmodUser-MoreInvolvedExample">
+More Involved Example
 </h4>
 
 <p>
 Note that the <em>index="unique"</em> bit has been deprecated – the index declaration should go into its own node as in the example above.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
-&lt;model <span class="code-keyword">package</span>=<span class="code-quote">"extendeduser"</span> baseClass=<span class="code-quote">"xPDOObject"</span> platform=<span class="code-quote">"mysql"</span> defaultEngine=<span class="code-quote">"MyISAM"</span> tablePrefix=<span class="code-quote">"ext_"</span>&gt;
+<pre class="brush: php">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;model package="extendeduser" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" tablePrefix="ext_"&gt;
     &lt;!-- inherit the modx user and extend it --&gt;
-    &lt;object class=<span class="code-quote">"extUser"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"modUser"</span>&gt;
-        &lt;composite alias=<span class="code-quote">"Phones"</span> local=<span class="code-quote">"id"</span> foreign=<span class="code-quote">"user"</span> cardinality=<span class="code-quote">"many"</span> owner=<span class="code-quote">"local"</span> /&gt;
-        &lt;composite alias=<span class="code-quote">"Table2"</span> local=<span class="code-quote">"id"</span> foreign=<span class="code-quote">"user"</span> cardinality=<span class="code-quote">"many"</span> owner=<span class="code-quote">"local"</span> /&gt;
+    &lt;object class="extUser" extends="modUser"&gt;
+        &lt;composite alias="Phones" local="id" foreign="user" cardinality="many" owner="local" /&gt;
+        &lt;composite alias="Table2" local="id" foreign="user" cardinality="many" owner="local" /&gt;
     &lt;/object&gt;
 
     &lt;!-- track all user phone numbers --&gt;
-    &lt;object table=<span class="code-quote">"phone_numbers"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-        &lt;field key=<span class="code-quote">"user"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"0"</span> index=<span class="code-quote">"index"</span> /&gt;
-        &lt;field key=<span class="code-quote">"areacode"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"3"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>="" /&gt;
-        &lt;field key=<span class="code-quote">"number"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"7"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>="" /&gt;
-        &lt;aggregate alias=<span class="code-quote">"extUser"</span> local=<span class="code-quote">"user"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
+    &lt;object table="phone_numbers" extends="xPDOSimpleObject"&gt;
+        &lt;field key="user" dbtype="int" phptype="integer" null="false" default="0" index="index" /&gt;
+        &lt;field key="areacode" dbtype="varchar" precision="3" phptype="string" null="false" default="" /&gt;
+        &lt;field key="number" dbtype="varchar" precision="7" phptype="string" null="false" default="" /&gt;
+        &lt;aggregate alias="extUser" local="user" foreign="id" cardinality="one" owner="foreign" /&gt;
     &lt;/object&gt;
 
     &lt;!-- user extension --&gt;
-    &lt;object table=<span class="code-quote">"table2"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOSimpleObject"</span>&gt;
-        &lt;field key=<span class="code-quote">"user"</span> dbtype=<span class="code-quote">"<span class="code-object">int</span>"</span> phptype=<span class="code-quote">"integer"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> <span class="code-keyword">default</span>=<span class="code-quote">"0"</span> index=<span class="code-quote">"index"</span> /&gt;
-        &lt;field key=<span class="code-quote">"myspaceurl"</span> dbtype=<span class="code-quote">"varchar"</span> precision=<span class="code-quote">"255"</span> phptype=<span class="code-quote">"string"</span> <span class="code-keyword">null</span>=<span class="code-quote">"<span class="code-keyword">false</span>"</span> /&gt;        
-        &lt;aggregate alias=<span class="code-quote">"extUser"</span> local=<span class="code-quote">"user"</span> foreign=<span class="code-quote">"id"</span> cardinality=<span class="code-quote">"one"</span> owner=<span class="code-quote">"foreign"</span> /&gt;
+    &lt;object table="table2" extends="xPDOSimpleObject"&gt;
+        &lt;field key="user" dbtype="int" phptype="integer" null="false" default="0" index="index" /&gt;
+        &lt;field key="myspaceurl" dbtype="varchar" precision="255" phptype="string" null="false" /&gt;        
+        &lt;aggregate alias="extUser" local="user" foreign="id" cardinality="one" owner="foreign" /&gt;
     &lt;/object&gt;
 &lt;/model&gt;
 </pre>
-</div>
-</div>
-
 <p>
 You will need to parse and create the model map associated with this schema. As this process is out of the scope of this topic, please refer to <a href="/display/revolution20/Using+Custom+Database+Tables+in+your+3rd+Party+Components" title="Using Custom Database Tables in your 3rd Party Components">Using Custom Database Tables in your 3rd Party Components</a> for further information.
 </p>
 
-<h3>
-<a name="ExtendingmodUser-2.%29Edittheextuser.class.php"></a>2.) Edit the extuser.class.php
+<h3 id="ExtendingmodUser-2.)Edittheextuser.class.php">
+2.) Edit the extuser.class.php
 </h3>
 
 <p>
@@ -253,27 +231,22 @@ To access the extended class, we have to inform modUser that the user in questio
 Edit the extuser.class.php file created when you generated the model. The specific file is the one found in the top of the model tree (you should see a mysql directory) in this same folder. Edit the file to resemble the following:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  &lt;?php
 /**
- * @<span class="code-keyword">package</span> extendeduser
+ * @package extendeduser
  * @subpackage user.mysql
  */
-class extUser <span class="code-keyword">extends</span> modUser {
+class extUser extends modUser {
     function __construct(xPDO &amp; $xpdo) {
         parent::__construct($xpdo);
-        $<span class="code-keyword">this</span>-&gt;set('class_key','extUser');
+        $this-&gt;set('class_key','extUser');
     }
 }
 ?&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="ExtendingmodUser-3.%29Create%28oredit%29extensionpackagesinSystemSettings"></a>3.) Create (or edit) <em>extension_packages in System Settings</em>
+<h3 id="ExtendingmodUser-3.)Create(oredit)extensionpackagesinSystemSettings">
+3.) Create (or edit) <em>extension_packages in System Settings</em>
 </h3>
 
 <p>
@@ -281,19 +254,14 @@ Access the System settings found in the System menu of the manager, and search f
 </p>
 
 <p>
-<b>If the key already exists</b>, add inside the json array
+<strong>If the key already exists</strong>, add inside the json array
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-,{<span class="code-quote">"extendeduser"</span>:{<span class="code-quote">"path"</span>:<span class="code-quote">"[[++core_path]]components/extendeduser/model/"</span>}}
+<pre class="brush: php">
+,{"extendeduser":{"path":"[[++core_path]]components/extendeduser/model/"}}
 </pre>
-</div>
-</div>
-
 <p>
-<b>If the key does not exists</b>
+<strong>If the key does not exists</strong>
 </p>
 
 <ul>
@@ -307,155 +275,137 @@ Access the System settings found in the System menu of the manager, and search f
 </li>
 
 <li>value&nbsp;
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[{<span class="code-quote">"extendeduser"</span>:{<span class="code-quote">"path"</span>:<span class="code-quote">"[[++core_path]]components/extendeduser/model/"</span>}}]
+
+<pre class="brush: php">
+[{"extendeduser":{"path":"[[++core_path]]components/extendeduser/model/"}}]
 </pre>
-</div>
-</div>
 </li>
 </ul>
 
-<h3>
-<a name="ExtendingmodUser-4.%29FinalStepCreateaclasstoaccessandutilizeyourextendedclass"></a>4.) Final Step Create a class to access and utilize your extended class
+<h3 id="ExtendingmodUser-4.)FinalStepCreateaclasstoaccessandutilizeyourextendedclass">
+4.) Final Step Create a class to access and utilize your extended class
 </h3>
 
 <p>
 The whole reason for extending a core class is so you could interact with your extended data more easily. So at some point in a Snippet or Plugin or CMP, you'd be working with your new data.
 </p>
 
-<h4>
-<a name="ExtendingmodUser-SimpleExample" id="ExtendingmodUser-SimpleExample"></a>Simple Example
+<h4 id="ExtendingmodUser-SimpleExample">
+Simple Example
 </h4>
 
 <p>
 Here's how you might interact with your extended data in a Snippet:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;addPackage('extendeduser', MODX_CORE_PATH . 'components/extendeduser/model/', 'ext_');
-$user = $modx-&gt;getObject('extUser', 123); <span class="code-comment">// where 123 is the id of a user
-</span>$data = $user-&gt;getOne('Data'); <span class="code-comment">// use the alias from the schema
-</span><span class="code-comment">// toArray will print all the extra data, e.g. facebook_url
-</span><span class="code-keyword">return</span> print_r($data-&gt;toArray(), <span class="code-keyword">true</span>);  
+$user = $modx-&gt;getObject('extUser', 123); // where 123 is the id of a user
+$data = $user-&gt;getOne('Data'); // use the alias from the schema
+// toArray will print all the extra data, e.g. facebook_url
+return print_r($data-&gt;toArray(), true);  
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="ExtendingmodUser-Morecomplexexample" id="ExtendingmodUser-Morecomplexexample"></a>More complex example
+<h4 id="ExtendingmodUser-Morecomplexexample">
+More complex example
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  &lt;?php
 /**
  *  File        sample.class.php (requires MODx Revolution 2.x)
  * Created on    Aug 18, 2010
  * Project        shawn_wilkerson
- * @<span class="code-keyword">package</span>     extendedUser
+ * @package     extendedUser
  * @version    1.0
  * @category    User Extension
  * @author        W. Shawn Wilkerson
- * @link        http:<span class="code-comment">//www.shawnWilkerson.com
-</span> * @copyright  Copyright (c) 2010, W. Shawn Wilkerson.  All rights reserved.
+ * @link        http://www.shawnWilkerson.com
+ * @copyright  Copyright (c) 2010, W. Shawn Wilkerson.  All rights reserved.
  * @license      GPL
  *
  */
-<span class="code-keyword">if</span> (!class_exists('Sampleclass')) {
+if (!class_exists('Sampleclass')) {
     class Sampleclass
     {
         function __construct(modX &amp; $modx, array $config= array ()) {
 
             /* Import modx as a reference */
-            $<span class="code-keyword">this</span>-&gt;modx= &amp; $modx;
+            $this-&gt;modx= &amp; $modx;
 
             /* Establish the environment */
-            $<span class="code-keyword">this</span>-&gt;extPath= $modx-&gt;getOption('core_path',<span class="code-keyword">null</span>, MODX_CORE_PATH).'components/extendeduser/';
-            $<span class="code-keyword">this</span>-&gt;modx-&gt;addPackage('extendeduser', $<span class="code-keyword">this</span>-&gt;extPath .'model/', 'ut_');
-            $<span class="code-keyword">this</span>-&gt;_config= array_merge(array (
-                'userID' =&gt; $<span class="code-keyword">this</span>-&gt;modx-&gt;user-&gt;get('id'),
+            $this-&gt;extPath= $modx-&gt;getOption('core_path',null, MODX_CORE_PATH).'components/extendeduser/';
+            $this-&gt;modx-&gt;addPackage('extendeduser', $this-&gt;extPath .'model/', 'ut_');
+            $this-&gt;_config= array_merge(array (
+                'userID' =&gt; $this-&gt;modx-&gt;user-&gt;get('id'),
             ), $config);
 
             /* Define the user */
-            $<span class="code-keyword">this</span>-&gt;userObj = $<span class="code-keyword">this</span>-&gt;setUser($<span class="code-keyword">this</span>-&gt;_config['userID']);
-            $<span class="code-keyword">this</span>-&gt;userID = $<span class="code-keyword">this</span>-&gt;userObj-&gt;get('id');
+            $this-&gt;userObj = $this-&gt;setUser($this-&gt;_config['userID']);
+            $this-&gt;userID = $this-&gt;userObj-&gt;get('id');
         }
 
         function __destruct() {
-            unset ($<span class="code-keyword">this</span>-&gt;extPath, $<span class="code-keyword">this</span>-&gt;userObj, $<span class="code-keyword">this</span>-&gt;userID, $<span class="code-keyword">this</span>-&gt;_config);
+            unset ($this-&gt;extPath, $this-&gt;userObj, $this-&gt;userID, $this-&gt;_config);
         }
 
         /**
          * Returns object of type Phone.
          */
-        <span class="code-keyword">public</span> function getPhoneObj() {
-            $<span class="code-keyword">this</span>-&gt;userObj-&gt;getOne('Phones');
-            <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;userObj-&gt;Phones;
+        public function getPhoneObj() {
+            $this-&gt;userObj-&gt;getOne('Phones');
+            return $this-&gt;userObj-&gt;Phones;
         }
 
         /**
          * Returns object utUser instance of modUser Defaults to current user.
          * @param $userID
          */
-        <span class="code-keyword">public</span> function getUserObj($userID) {
-            <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;modx-&gt;getObject('modUser', $userID);
+        public function getUserObj($userID) {
+            return $this-&gt;modx-&gt;getObject('modUser', $userID);
         }
 
         /**
          * Establishes the user.
-         * @param <span class="code-object">int</span> $userID
+         * @param int $userID
          */
-        <span class="code-keyword">public</span> function setUser($userID){
-            <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;getUserObj($userID);
+        public function setUser($userID){
+            return $this-&gt;getUserObj($userID);
         }
     }
 }
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="ExtendingmodUser-5.%29Accessingtheclass"></a>5.) Accessing the class
+<h4 id="ExtendingmodUser-5.)Accessingtheclass">
+5.) Accessing the class
 </h4>
 
 <p>
 In our example we will be accessing our extended user throughout our site, therefore we load it as a service as shown in the following example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  &lt;?php
-$x = $modx-&gt;getService('extendeduser','Sampleclass',$modx-&gt;getOption('core_path',<span class="code-keyword">null</span>, MODX_CORE_PATH).'components/extendeduser/',$scriptProperties);
-<span class="code-keyword">if</span> (!($x <span class="code-keyword">instanceof</span> Extendeduser)) {
+$x = $modx-&gt;getService('extendeduser','Sampleclass',$modx-&gt;getOption('core_path',null, MODX_CORE_PATH).'components/extendeduser/',$scriptProperties);
+if (!($x instanceof Extendeduser)) {
     $modx-&gt;log(modX::LOG_LEVEL_ERROR,'[Extendeduser] Could not load Extendeduser class.');
-    $modx-&gt;event-&gt;output(<span class="code-keyword">true</span>);
+    $modx-&gt;event-&gt;output(true);
 }
-<span class="code-keyword">return</span>;
+return;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="ExtendingmodUser-Noteworthyitems" id="ExtendingmodUser-Noteworthyitems"></a>Noteworthy items
+<h2 id="ExtendingmodUser-Noteworthyitems">
+Noteworthy items
 </h2>
 
 <ol>
-<li>Any pre existing user, will still have modUser as the class_key and therefore will <b>not</b> be extended or produce user objects of type extUser unless you change it
+<li>Any pre existing user, will still have modUser as the class_key and therefore will <strong>not</strong> be extended or produce user objects of type extUser unless you change it
 </li>
 
 <li>Double check the modx.mysql.schema.xml file to make sure you are not using classes or alias it is already using, as yours will supersede the default moduser prohibiting you access to items such as the user attributes (with alias Profile)
 </li>
 
-<li>The extUser will <b>not</b> have a table created in the database, but the attached relations will
+<li>The extUser will <strong>not</strong> have a table created in the database, but the attached relations will
 </li>
 
-<li>The extended class table(s) <b>must</b> be in the same database as the regular <em>modx</em>_users table
+<li>The extended class table(s) <strong>must</strong> be in the same database as the regular <em>modx</em>_users table
 </li>
 
 <li>Symptoms of step 3 (extension_packages path) not being correct:
@@ -469,14 +419,11 @@ $x = $modx-&gt;getService('extendeduser','Sampleclass',$modx-&gt;getOption('core
 </li>
 
 <li>To get counts from your data (i.e. how many phone numbers does this person have) use either (any criteria can be added):
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$<span class="code-keyword">this</span>-&gt;modx-&gt;getCount('extPhones', array('user' =&gt; $<span class="code-keyword">this</span>-&gt;userID));
-$<span class="code-keyword">this</span>-&gt;modx-&gt;getCount('extPhones');
+
+<pre class="brush: php">
+$this-&gt;modx-&gt;getCount('extPhones', array('user' =&gt; $this-&gt;userID));
+$this-&gt;modx-&gt;getCount('extPhones');
 </pre>
-</div>
-</div>
 </li>
 </ol>
 
@@ -484,8 +431,8 @@ $<span class="code-keyword">this</span>-&gt;modx-&gt;getCount('extPhones');
 It is completely possible to have multiple extended modUser systems active at the same time.&nbsp; It would even be feasible to extend Jason Coward's rpx extension into a hybrid system utilizing the benefits of both systems.&nbsp; It is also completely possible to have multiple extended modUser applications running autonomously.&nbsp; This is simply done by following this process for each of your extensions, changing only the "class_key" field to reflect the extended class belonging to each respective user.
 </p>
 
-<h2>
-<a name="ExtendingmodUser-Suggestedadditionalconsiderations" id="ExtendingmodUser-Suggestedadditionalconsiderations"></a>Suggested additional considerations
+<h2 id="ExtendingmodUser-Suggestedadditionalconsiderations">
+Suggested additional considerations
 </h2>
 
 <p>
@@ -497,25 +444,25 @@ This process can be automated and captured upon user login. For the sake of brev
 </p>
 
 <p>
-The plugins:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/plugins/plugin.activedirectory.php" class="external-link" rel="nofollow">http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/plugins/plugin.activedirectory.php</a>
+The plugins:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/plugins/plugin.activedirectory.php">http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/plugins/plugin.activedirectory.php</a>
 </p>
 
 <p>
-The events:<a href="http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onauthentication.php" class="external-link" rel="nofollow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onauthentication.php</a>
+The events:<a href="http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onauthentication.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onauthentication.php</a>
 </p>
 
 <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onusernotfound.php" class="external-link" rel="nofollow">http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onusernotfound.php</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onusernotfound.php">http://github.com/splittingred/modActiveDirectory/blob/master/core/components/activedirectory/elements/events/onusernotfound.php</a>
 </p>
 
-<h2>
-<a name="ExtendingmodUser-ExtendedmodUserClassescurrentlyAvailable" id="ExtendingmodUser-ExtendedmodUserClassescurrentlyAvailable"></a>Extended modUser Classes currently Available
+<h2 id="ExtendingmodUser-ExtendedmodUserClassescurrentlyAvailable">
+Extended modUser Classes currently Available
 </h2>
 
 <p>
-<a href="http://github.com/splittingred/modActiveDirectory" class="external-link" rel="nofollow">modActiveDirectory</a> an application which provides interaction with a Microsoft Domain Controller
+<a href="http://github.com/splittingred/modActiveDirectory">modActiveDirectory</a> an application which provides interaction with a Microsoft Domain Controller
 </p>
 
 <p>
-<a href="http://github.com/opengeek/engaged" class="external-link" rel="nofollow">rpx extension</a> allows people to login via Facebook and other social networking medium
+<a href="http://github.com/opengeek/engaged">rpx extension</a> allows people to login via Facebook and other social networking medium
 </p>

@@ -1,90 +1,69 @@
-<h1>
-<a name="getAllChildren-API%3AgetAllChildren"></a>API:getAllChildren
+<h1 id="getAllChildren-API:getAllChildren">
+API:getAllChildren
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Quick reference</b>
+<div class="info">
+<strong>API Quick reference</strong>
 <br />
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable name:
 </td>
-<td class='confluenceTd'>
+<td>
 getAllChildren
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Modx versions:
 </td>
-<td class='confluenceTd'>
+<td>
 Evolution
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable type:
 </td>
-<td class='confluenceTd'>
+<td>
 array
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Object parent:
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
-<h2>
-<a name="getAllChildren-Description"></a>Description
+<h2 id="getAllChildren-Description">
+Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 array getAllChildren(mixed $id[, string $sort[, string $dir[, string $fields]]]);
 </pre>
-</div>
-</div>
-
 <p>
 Gets all child documents of the specified document, including those which are unpublished or deleted.
 </p>
 
-<h2>
-<a name="getAllChildren-Usage%2FExamples"></a>Usage / Examples
+<h2 id="getAllChildren-Usage/Examples">
+Usage / Examples
 </h2>
 
-<h2>
-<a name="getAllChildren-Related"></a>Related
+<h2 id="getAllChildren-Related">
+Related
 </h2>
 
 <p>
@@ -93,40 +72,36 @@ getActiveChildren
 getDocumentChildren
 </p>
 
-<h2>
-<a name="getAllChildren-Notes"></a>Notes
+<h2 id="getAllChildren-Notes">
+Notes
 </h2>
 
-<h2>
-<a name="getAllChildren-FunctionSource"></a>Function Source
+<h2 id="getAllChildren-FunctionSource">
+Function Source
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
     function getAllChildren($id= 0, $sort= 'menuindex', $dir= 'ASC', $fields= 'id, pagetitle, description, parent, alias, menutitle') {
-        $tblsc= $<span class="code-keyword">this</span>-&gt;getFullTableName(<span class="code-quote">"site_content"</span>);
-        $tbldg= $<span class="code-keyword">this</span>-&gt;getFullTableName(<span class="code-quote">"document_groups"</span>);
-        <span class="code-comment">// modify field names to use sc. table reference
-</span>        $fields= 'sc.' . implode(',sc.', preg_replace(<span class="code-quote">"/^\s/i"</span>, "", explode(',', $fields)));
-        $sort= 'sc.' . implode(',sc.', preg_replace(<span class="code-quote">"/^\s/i"</span>, "", explode(',', $sort)));
-        <span class="code-comment">// get document groups <span class="code-keyword">for</span> current user
-</span>        <span class="code-keyword">if</span> ($docgrp= $<span class="code-keyword">this</span>-&gt;getUserDocGroups())
-        $access= ($<span class="code-keyword">this</span>-&gt;isFrontend() ? <span class="code-quote">"sc.privateweb=0"</span> : <span class="code-quote">"1='"</span> . $_SESSION['mgrRole'] . <span class="code-quote">"' OR sc.privatemgr=0"</span>) .
-        (!$docgrp ? <span class="code-quote">"" : "</span> OR dg.document_group IN ($docgrp)");
+        $tblsc= $this-&gt;getFullTableName("site_content");
+        $tbldg= $this-&gt;getFullTableName("document_groups");
+        // modify field names to use sc. table reference
+        $fields= 'sc.' . implode(',sc.', preg_replace("/^\s/i", "", explode(',', $fields)));
+        $sort= 'sc.' . implode(',sc.', preg_replace("/^\s/i", "", explode(',', $sort)));
+        // get document groups for current user
+        if ($docgrp= $this-&gt;getUserDocGroups())
+        $access= ($this-&gt;isFrontend() ? "sc.privateweb=0" : "1='" . $_SESSION['mgrRole'] . "' OR sc.privatemgr=0") .
+        (!$docgrp ? "" : " OR dg.document_group IN ($docgrp)");
         $sql= "SELECT DISTINCT $fields FROM $tblsc sc
             LEFT JOIN $tbldg dg on dg.document = sc.id
             WHERE sc.parent = '$id'
             AND ($access)
             GROUP BY sc.id
             ORDER BY $sort $dir;";
-        $result= $<span class="code-keyword">this</span>-&gt;db-&gt;query($sql);
+        $result= $this-&gt;db-&gt;query($sql);
         $resourceArray= array ();
-        <span class="code-keyword">for</span> ($i= 0; $i &lt; @ $<span class="code-keyword">this</span>-&gt;db-&gt;getRecordCount($result); $i++) {
-            array_push($resourceArray, @ $<span class="code-keyword">this</span>-&gt;db-&gt;getRow($result));
+        for ($i= 0; $i &lt; @ $this-&gt;db-&gt;getRecordCount($result); $i++) {
+            array_push($resourceArray, @ $this-&gt;db-&gt;getRow($result));
         }
-        <span class="code-keyword">return</span> $resourceArray;
+        return $resourceArray;
     }
 </pre>
-</div>
-</div>

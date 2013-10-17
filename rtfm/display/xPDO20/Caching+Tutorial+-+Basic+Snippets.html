@@ -2,29 +2,24 @@
 This page is designed to demonstrate some basic principles about the MODX cache manager and how it can be used to help you write more effective Snippets.
 </p>
 
-<h2>
-<a name="CachingTutorial-BasicSnippets-CreateOurSnippets" id="CachingTutorial-BasicSnippets-CreateOurSnippets"></a>Create Our Snippets
+<h2 id="CachingTutorial-BasicSnippets-CreateOurSnippets">
+Create Our Snippets
 </h2>
 
-<h3>
-<a name="CachingTutorial-BasicSnippets-SnippetOne%3AWritetoCache"></a>Snippet One: Write to Cache
+<h3 id="CachingTutorial-BasicSnippets-SnippetOne:WritetoCache">
+Snippet One: Write to Cache
 </h3>
 
 <p>
-Here's our first Snippet, named <b>cacheWrite</b>:
+Here's our first Snippet, named <strong>cacheWrite</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $cacheManager = $modx-&gt;getCacheManager();
 $x = date('H:i:s');
 $cacheManager-&gt;set('my_cache_key',$x);
-<span class="code-keyword">return</span> $x;
+return $x;
 </pre>
-</div>
-</div>
-
 <p>
 Remember that we need to use the $x variable as an intermediary because the cacheManager relies on variable references. You can't simply pass it a static value.
 </p>
@@ -33,45 +28,30 @@ Remember that we need to use the $x variable as an intermediary because the cach
 This snippet simple stores the current timestamp to a cache key named "my_cache_key". Put this Snippet on a page in your site (CACHED), e.g. on "Page One":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[writeCache]]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="CachingTutorial-BasicSnippets-SnippetTwo%3AReadfromCache"></a>Snippet Two: Read from Cache
+<h3 id="CachingTutorial-BasicSnippets-SnippetTwo:ReadfromCache">
+Snippet Two: Read from Cache
 </h3>
 
 <p>
-Next, we will create simple snippet that will <em>read</em> values from the cache, named <b>readCache</b>:
+Next, we will create simple snippet that will <em>read</em> values from the cache, named <strong>readCache</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $cacheManager = $modx-&gt;getCacheManager();
-<span class="code-keyword">return</span> $cacheManager-&gt;get('my_cache_key');
+return $cacheManager-&gt;get('my_cache_key');
 </pre>
-</div>
-</div>
-
 <p>
 And put this Snippet onto a different page on your site (UNCACHED), e.g. on "Page Two":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!readCache]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="CachingTutorial-BasicSnippets-ObservingourSnippets" id="CachingTutorial-BasicSnippets-ObservingourSnippets"></a>Observing our Snippets
+<h2 id="CachingTutorial-BasicSnippets-ObservingourSnippets">
+Observing our Snippets
 </h2>
 
 <p>
@@ -100,7 +80,7 @@ Try this:
 </p>
 
 <p>
-You should notice that Page Two and the <tt>readCache</tt> Snippet returns nothing when the cache is empty and the <tt>writeCache</tt> snippet hasn't written anything to the cache.
+You should notice that Page Two and the <code>readCache</code> Snippet returns nothing when the cache is empty and the <code>writeCache</code> snippet hasn't written anything to the cache.
 </p>
 
 <p>
@@ -108,17 +88,12 @@ Next, try this:
 </p>
 
 <p>
-1. Edit "Page One" so that it calls <tt>writeCache</tt> uncached:
+1. Edit "Page One" so that it calls <code>writeCache</code> uncached:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!writeCache]]
 </pre>
-</div>
-</div>
-
 <p>
 2. Visit "Page One" in a browser. Notice the timestamp.
 <br />
@@ -131,8 +106,8 @@ Next, try this:
 You'll see that "Page Two" in this scenario will always show the timestamp from the last time "Page One" was accessed.
 </p>
 
-<h2>
-<a name="CachingTutorial-BasicSnippets-Summary" id="CachingTutorial-BasicSnippets-Summary"></a>Summary
+<h2 id="CachingTutorial-BasicSnippets-Summary">
+Summary
 </h2>
 
 <p>

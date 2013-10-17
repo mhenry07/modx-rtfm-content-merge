@@ -1,25 +1,21 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modMail-WhatismodMail%3F"></a>What is modMail?
+<h2 id="modMail-WhatismodMail?">
+What is modMail?
 </h2>
 
 <p>
 modMail is an abstract class that can be extended to provide mail services for Revolution. It cannot be run by itself, but must be extended with an implementation class (such as PHPMailer).
 </p>
 
-<h3>
-<a name="modMail-WhatismodPHPMailer%3F"></a>What is modPHPMailer?
+<h3 id="modMail-WhatismodPHPMailer?">
+What is modPHPMailer?
 </h3>
 
 <p>
 modPHPMailer is a class that extends modMail to provide an implementation for the open source PHPMailer class.
 </p>
 
-<h3>
-<a name="modMail-OthermodMailImplementations" id="modMail-OthermodMailImplementations"></a>Other modMail Implementations
+<h3 id="modMail-OthermodMailImplementations">
+Other modMail Implementations
 </h3>
 
 <ul>
@@ -28,8 +24,8 @@ modPHPMailer is a class that extends modMail to provide an implementation for th
 </li>
 </ul>
 
-<h2>
-<a name="modMail-Usage" id="modMail-Usage"></a>Usage
+<h2 id="modMail-Usage">
+Usage
 </h2>
 
 <p>
@@ -40,27 +36,22 @@ The following example is based on the <ins>native</ins> modPHPMailer which comes
 Let's say we have an email template in the Chunk 'myEmailTemplate'. We want to send it via mail to user@example.com, with the From address being 'me@example.org'. We also want it to be an HTML email. Here's how we'd do it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $message = $modx-&gt;getChunk('myEmailTemplate');
 
 $modx-&gt;getService('mail', 'mail.modPHPMailer');
 $modx-&gt;mail-&gt;set(modMail::MAIL_BODY,$message);
 $modx-&gt;mail-&gt;set(modMail::MAIL_FROM,'me@example.org');
 $modx-&gt;mail-&gt;set(modMail::MAIL_FROM_NAME,'Johnny Tester');
-$modx-&gt;mail-&gt;set(modMail::MAIL_SUBJECT,'Check out my <span class="code-keyword">new</span> email template!');
+$modx-&gt;mail-&gt;set(modMail::MAIL_SUBJECT,'Check out my new email template!');
 $modx-&gt;mail-&gt;address('to','user@example.com');
 $modx-&gt;mail-&gt;address('reply-to','me@xexample.org');
-$modx-&gt;mail-&gt;setHTML(<span class="code-keyword">true</span>);
-<span class="code-keyword">if</span> (!$modx-&gt;mail-&gt;send()) {
-    $modx-&gt;log(modX::LOG_LEVEL_ERROR,'An error occurred <span class="code-keyword">while</span> trying to send the email: '.$modx-&gt;mail-&gt;mailer-&gt;ErrorInfo);
+$modx-&gt;mail-&gt;setHTML(true);
+if (!$modx-&gt;mail-&gt;send()) {
+    $modx-&gt;log(modX::LOG_LEVEL_ERROR,'An error occurred while trying to send the email: '.$modx-&gt;mail-&gt;mailer-&gt;ErrorInfo);
 }
 $modx-&gt;mail-&gt;reset();
 </pre>
-</div>
-</div>
-
 <p>
 Simple, no?
 </p>
@@ -73,37 +64,32 @@ Note that we have to reset() if we want to send mail again; this resets all the 
 Also, if you want to send the email to multiple addresses, you can simply call address('to') again, like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;mail-&gt;address('to','user@example.com');
 $modx-&gt;mail-&gt;address('to','mom@example.org');
 </pre>
-</div>
-</div>
-
 <p>
 And finally, the example code above will send a message to our error.log if the mail isn't sent for some reason (usually a server misconfiguration).
 </p>
 
-<h2>
-<a name="modMail-PlaceholdersinyourChunk" id="modMail-PlaceholdersinyourChunk"></a>Placeholders in your Chunk
+<h2 id="modMail-PlaceholdersinyourChunk">
+Placeholders in your Chunk
 </h2>
 
 <p>
-In the example above, <a href="/display/revolution20/modX.getChunk" title="modX.getChunk">modX.getChunk</a> was used as the mail message. See the documentation on that function for how to use its optional second argument. As far as modMail is concerned, the placeholders used are entirely up to you; you don't even have to use getChunk at all. You could just as easily pass the <b>modMail::MAIL_BODY</b> setting a static string.
+In the example above, <a href="/display/revolution20/modX.getChunk" title="modX.getChunk">modX.getChunk</a> was used as the mail message. See the documentation on that function for how to use its optional second argument. As far as modMail is concerned, the placeholders used are entirely up to you; you don't even have to use getChunk at all. You could just as easily pass the <strong>modMail::MAIL_BODY</strong> setting a static string.
 </p>
 
-<h2>
-<a name="modMail-WhatifIwanttouseanotheremailclass%3F"></a>What if I want to use another email class?
+<h2 id="modMail-WhatifIwanttouseanotheremailclass?">
+What if I want to use another email class?
 </h2>
 
 <p>
 Simple - just extend modMail with that class, then load your class via <a href="/display/revolution20/modX.getService" title="modX.getService">getService</a>. You'll get all the modMail functionality, but you will have to provide the wrapper class (like modPHPMailer) to do so.
 </p>
 
-<h2>
-<a name="modMail-SeeAlso" id="modMail-SeeAlso"></a>See Also
+<h2 id="modMail-SeeAlso">
+See Also
 </h2>
 
 <ul>

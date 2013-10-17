@@ -1,35 +1,17 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modFileHandler-WhatismodFileHandler%3F"></a>What is modFileHandler?
+<h2 id="modFileHandler-WhatismodFileHandler?">
+What is modFileHandler?
 </h2>
 
 <p>
 modFileHandler is a service class used in MODx Revolution for handling files. It abstracts basic file management actions to provide helper methods for file management.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 modFileHandler, modFile and modDirectory are still in their infancy stages. Many more methods will be added to them in Revolution 2.2.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="modFileHandler-UsingmodFileHandler"></a>Using modFileHandler
+<h2 id="modFileHandler-UsingmodFileHandler">
+Using modFileHandler
 </h2>
 
 <p>
@@ -40,35 +22,26 @@ The basic idea behind modFileHandler is its "make" method. When passed a path in
 For example, a simple snippet that makes a modDirectory object out of the passed "path" property (defaulting to "/www/test/") and then removes the directory:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> (!isset($path)) $path = '/www/test/';
+<pre class="brush: php">
+if (!isset($path)) $path = '/www/test/';
 
 $modx-&gt;getService('fileHandler','modFileHandler');
 $directory = $modx-&gt;fileHandler-&gt;make($path);
-<span class="code-keyword">if</span> (!is_object($directory) || !($directory <span class="code-keyword">instanceof</span> modDirectory)) <span class="code-keyword">return</span> 'Not a directory!';
+if (!is_object($directory) || !($directory instanceof modDirectory)) return 'Not a directory!';
 
-<span class="code-keyword">if</span> (!$directory-&gt;remove()) {
-   <span class="code-keyword">return</span> 'Could not remove directory.';
+if (!$directory-&gt;remove()) {
+   return 'Could not remove directory.';
 }
 </pre>
-</div>
-</div>
-
 <p>
 You can also create modDirectory or modFile objects from non-existent paths. This will allow you to run -&gt;create() on them, allowing you to make new directories or files. For example, to create a new file with the content of 'Hello!' at the path "/www/test/test.txt":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;getService('fileHandler','modFileHandler');
 $file = $modx-&gt;fileHandler-&gt;make('/www/test/test.txt');
-<span class="code-keyword">if</span> (!$file-&gt;create('Hello!')) {
-   <span class="code-keyword">return</span> 'File not written.';
+if (!$file-&gt;create('Hello!')) {
+   return 'File not written.';
 }
-<span class="code-keyword">return</span> 'File written.';
+return 'File written.';
 </pre>
-</div>
-</div>

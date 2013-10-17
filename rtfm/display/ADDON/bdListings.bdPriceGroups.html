@@ -2,128 +2,122 @@
 bdPriceGroups is a simple snippet to output your price groups.
 </p>
 
-<h2>
-<a name="bdListings.bdPriceGroups-SnippetProperties" id="bdListings.bdPriceGroups-SnippetProperties"></a>Snippet Properties
+<h2 id="bdListings.bdPriceGroups-SnippetProperties">
+Snippet Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Property Name
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Limit the amount of results.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 offset
 </td>
-<td class='confluenceTd'>
+<td>
 Offset to start at.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortby
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Field to sort on. Can be sortorder, id or name.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 sortorder
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortdir
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Direction to sort on. Either asc or desc.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 asc
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rowSeparator
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 String to use between rowTpl items.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 \n
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname to wrap the complete result set in.
-<br class="atl-forced-newline" />
+<br />
 Default:
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h2&gt;Price Groups&lt;/h2&gt;
 &lt;ul&gt;
     [[+wrapper]]
 &lt;/ul&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Placeholders to use:
-<br class="atl-forced-newline" />
+<br />
 </p>
 
 <ul>
@@ -131,34 +125,29 @@ Placeholders to use:
 </li>
 </ul>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplRow
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunk name to wrap individual target groups in.
-<br class="atl-forced-newline" />
+<br />
 Default:
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;li&gt;[[+display]]&lt;/li&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Placeholders to use:
-<br class="atl-forced-newline" />
+<br />
 </p>
 
 <ul>
@@ -172,37 +161,29 @@ Placeholders to use:
 </li>
 </ul>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="bdListings.bdPriceGroups-Examples" id="bdListings.bdPriceGroups-Examples"></a>Examples
+<h2 id="bdListings.bdPriceGroups-Examples">
+Examples
 </h2>
 
 <p>
 Minimum call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!bdPriceGroups]]
 </pre>
-</div>
-</div>
-
 <p>
 Result (depending on your price group data):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h2&gt;Price Groups&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Cheap&lt;/li&gt;
@@ -211,49 +192,32 @@ Result (depending on your price group data):
   &lt;li&gt;Too frick'n expensive&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="bdListings.bdPriceGroups-DisplayasSelectbox" id="bdListings.bdPriceGroups-DisplayasSelectbox"></a>Display as Select box
+<h3 id="bdListings.bdPriceGroups-DisplayasSelectbox">
+Display as Select box
 </h3>
 
 <p>
 Snippet call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;label <span class="code-keyword">for</span>=<span class="code-quote">"pricegroup"</span>&gt;Price Group&lt;/label&gt;
-[[!bdTargets? &amp;tplRow=`bdl.pricegroup.row` &amp;tplOuter=`bdl.pricegroup.<span class="code-keyword">outer</span>`]]
+<pre class="brush: php">
+&lt;label for="pricegroup"&gt;Price Group&lt;/label&gt;
+[[!bdTargets? &amp;tplRow=`bdl.pricegroup.row` &amp;tplOuter=`bdl.pricegroup.outer`]]
 </pre>
-</div>
-</div>
-
 <p>
 bdl.pricegroup.row:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;option value=<span class="code-quote">"[[+id]]"</span>&gt;[[+display]]&lt;/option&gt;
+<pre class="brush: php">
+&lt;option value="[[+id]]"&gt;[[+display]]&lt;/option&gt;
 </pre>
-</div>
-</div>
-
 <p>
 bdl.pricegroup.outer:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;select name=<span class="code-quote">"pricegroup"</span>&gt;
-  &lt;option value=<span class="code-quote">"0"</span>&gt;Choose a Price Group&lt;/option&gt;
+<pre class="brush: php">
+&lt;select name="pricegroup"&gt;
+  &lt;option value="0"&gt;Choose a Price Group&lt;/option&gt;
   [[+wrapper]]
 &lt;/select&gt;
 </pre>
-</div>
-</div>

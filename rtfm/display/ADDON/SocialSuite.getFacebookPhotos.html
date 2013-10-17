@@ -1,390 +1,382 @@
 <p>
-The getFacebookPhotos snippet can be used to generate listings of albums and photos on a facebook profile (user or page). In the current version, it only works for <b>public</b> data. All data is extensively cached to save performance - if you need more to-the-minute accurate stuff you can play with the cache properties.&nbsp;
+The getFacebookPhotos snippet can be used to generate listings of albums and photos on a facebook profile (user or page). In the current version, it only works for <strong>public</strong> data. All data is extensively cached to save performance - if you need more to-the-minute accurate stuff you can play with the cache properties.&nbsp;
 </p>
 
 <p>
-As getFacebookPhotos uses its own caching mechanisms, you can call getFacebookPhotos <b>uncached</b>.
+As getFacebookPhotos uses its own caching mechanisms, you can call getFacebookPhotos <strong>uncached</strong>.
 </p>
 
 <div>
 <ul>
 <li>
-<a href='#SocialSuite.getFacebookPhotos-AvailableProperties'>Available Properties</a>
+<a href="#SocialSuite.getFacebookPhotos-AvailableProperties">Available Properties</a>
 </li>
 
 <li>
-<a href='#SocialSuite.getFacebookPhotos-Templating'>Templating</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#SocialSuite.getFacebookPhotos-Templating">Templating</a>
 <ul>
 <li>
-<a href='#SocialSuite.getFacebookPhotos-photoTpl'>photoTpl</a>
+<a href="#SocialSuite.getFacebookPhotos-photoTpl">photoTpl</a>
 </li>
 
 <li>
-<a href='#SocialSuite.getFacebookPhotos-albumTpl'>albumTpl</a>
+<a href="#SocialSuite.getFacebookPhotos-albumTpl">albumTpl</a>
 </li>
 
 <li>
-<a href='#SocialSuite.getFacebookPhotos-outerTpl'>outerTpl</a>
+<a href="#SocialSuite.getFacebookPhotos-outerTpl">outerTpl</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SocialSuite.getFacebookPhotos-Examples'>Examples</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#SocialSuite.getFacebookPhotos-Examples">Examples</a>
 <ul>
 <li>
-<a href='#SocialSuite.getFacebookPhotos-SimpleExample%2Cgroupingallphotosperalbumwithdefaulttpls'>Simple Example, grouping all photos per album with default tpls</a>
+<a href="#SocialSuite.getFacebookPhotos-SimpleExample%2Cgroupingallphotosperalbumwithdefaulttpls">Simple Example, grouping all photos per album with default tpls</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="SocialSuite.getFacebookPhotos-AvailableProperties" id="SocialSuite.getFacebookPhotos-AvailableProperties"></a>Available Properties
+<h2 id="SocialSuite.getFacebookPhotos-AvailableProperties">
+Available Properties
 </h2>
 
 <p>
-This list of properties is current as of version 1.0.0. Required properties are in <b>bold</b>.
+This list of properties is current as of version 1.0.0. Required properties are in <strong>bold</strong>.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Property
 </th>
-<th class='confluenceTh'>
+<th>
 Accepted Values
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
-<b>user</b>
+<td>
+<strong>user</strong>
 </td>
-<td class='confluenceTd'>
+<td>
 ID or name
 </td>
-<td class='confluenceTd'>
-The name or ID of the user or page you want to retrieve photos from. For example "modxcms" for the <a href="https://www.facebook.com/modxcms" class="external-link" rel="nofollow">MODX facebook page</a>.
+<td>
+The name or ID of the user or page you want to retrieve photos from. For example "modxcms" for the <a href="https://www.facebook.com/modxcms">MODX facebook page</a>.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 albums
 </td>
-<td class='confluenceTd'>
+<td>
 comma separated list of IDs or names
 </td>
-<td class='confluenceTd'>
+<td>
 If you want to show only a selection of albums, you can fill in either the name or the IDs of the albums here as a comma separated list. As it's possible to change the name of an album, you'll want to use the ID if you can.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 perAlbum
 </td>
-<td class='confluenceTd'>
+<td>
 1 or 0
 </td>
-<td class='confluenceTd'>
-Group images per album. This enables use of the <b>albumTpl</b> property, which is used as wrapper for each album.
+<td>
+Group images per album. This enables use of the <strong>albumTpl</strong> property, which is used as wrapper for each album.
 </td>
-<td class='confluenceTd'>
+<td>
 1 (true)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-<b>Templates &amp; Output</b>
-</td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+<strong>Templates &amp; Output</strong>
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
 albumTpl
 </td>
-<td class='confluenceTd'>
+<td>
 name of a chunk
 </td>
-<td class='confluenceTd'>
-The chunk to use as wrapper for the collection of images from a specific album. Is only used when <b>perAlbum</b> is enabled.
+<td>
+The chunk to use as wrapper for the collection of images from a specific album. Is only used when <strong>perAlbum</strong> is enabled.
 </td>
-<td class='confluenceTd'>
+<td>
 See Templating - albumTpl below.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 albumSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 anything
 </td>
-<td class='confluenceTd'>
+<td>
 String to use as glue between albums.
 </td>
-<td class='confluenceTd'>
+<td>
 &lt;br /&gt;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 outerTpl
 </td>
-<td class='confluenceTd'>
+<td>
 name of a chunk
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk to use as wrapper for the entire result including albums and their images.
 </td>
-<td class='confluenceTd'>
+<td>
 See Templating - outerTpl below.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 photoTpl
 </td>
-<td class='confluenceTd'>
+<td>
 name of a chunk
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk to use for individual images.
 </td>
-<td class='confluenceTd'>
+<td>
 See Templating - photoTpl below.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 photoSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 anything
 </td>
-<td class='confluenceTd'>
+<td>
 String to use as glue between images.
 </td>
-<td class='confluenceTd'>
+<td>
 \n (linebreak)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-<b>Pagination</b>
-</td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+<strong>Pagination</strong>
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
 offset
 </td>
-<td class='confluenceTd'>
+<td>
 number
 </td>
-<td class='confluenceTd'>
+<td>
 Where to start in the result set for getPage pagination or if you want to skip some of the first items.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 number
 </td>
-<td class='confluenceTd'>
+<td>
 Amount of items per page for getPage pagination or to show in total when not paginating.
 </td>
-<td class='confluenceTd'>
+<td>
 20
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-<b>Caching</b>
-</td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+<strong>Caching</strong>
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
 cacheOutput
 </td>
-<td class='confluenceTd'>
+<td>
 1 or 0
 </td>
-<td class='confluenceTd'>
+<td>
 When enabled, the output (including chunk contents) will be cached for even better performance. Note that in this case you will need to specifically set a different option on the snippet, empty the core/cache/socialsuite/_processed/facebook/photos/ directory manually or wait for the image or album cache to expire before seeing changes to tpl chunks. Disabled by default.
 </td>
-<td class='confluenceTd'>
+<td>
 0 (false)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cacheExpires
 </td>
-<td class='confluenceTd'>
+<td>
 number (seconds)
 </td>
-<td class='confluenceTd'>
+<td>
 The time in seconds the album cache is valid for. The album cache contains a list of album names and their IDs as well as the raw data returned from facebook's Graph API. When albums are requested, all of their images are also requested in one big query instead of a number of smaller ones - this resulted in much better performance overall.
 </td>
-<td class='confluenceTd'>
+<td>
 172800 (= 2 days)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cacheExpiresPhotos
 </td>
-<td class='confluenceTd'>
+<td>
 number (seconds)
 </td>
-<td class='confluenceTd'>
+<td>
 The time in seconds the photos cache is valid for. Also see the cacheExpiresPhotosVariation, below. Photos are cached per album and the cache contains the raw data returned from Facebook's Graph API using FQL. This time can not be bigger than the time in cacheExpires, as whenever we fetch the albums, all photos for that album are also retrieved and will be refreshed. So yes, if you are paying attention: the default value here indeed doesn't make much sense :P
 </td>
-<td class='confluenceTd'>
+<td>
 345600 (= 4 days)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cacheExpiresPhotosVariation
 </td>
-<td class='confluenceTd'>
+<td>
 number (seconds)
 </td>
-<td class='confluenceTd'>
+<td>
 When the cacheExpiresPhotos time is smaller than the cacheExpires time, this means the cache of images in specific albums will be refreshed before the complete album cache is refreshed. This means we may see photos added to specific albums *before* new albums are visible.&nbsp;
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 As the album cache retrieves all albums and all their photos in one big optimized query, we can see a performance hit when all of a sudden just the photos cache has expired and all visible albums suddenly start making small queries to facebook. This cacheExpiresPhotosVariation properties negates that effect by spreading out the time the photos cache expires. &nbsp;
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 So if you have getFacebookPhotos configured to show three albums with a cacheExpires time of 2 days, and a cacheExpiresPhotos of 12 hours, we will see that every 12 hours there are 3 requests to facebook for the photos in those specific albums. If we wouldn't have cacheExpiresPhotosVariation, the expiry time for each album would be equal, and one poor visitor would have to wait for 3 requests to come back from Facebook (which isn't neccessarily fast with this kind of thing).
-<br class="atl-forced-newline" />
+<br />
 Now enter cacheExpiresPhotosVariation. If it's set to 1 hour (the default), this means that the photo cache for each album gets a cache expiry time which is within 1 hour from what is set on cacheExpiresPhotos: so in our example anything (randomly) between 11 and 13 hours. This means there's no one poor visitor waiting for 3 requests to facebook to come back, but there's 3 visitors each only taking a small hit. Win-win-win-win!
 </td>
-<td class='confluenceTd'>
+<td>
 3600 ( = 1 hour)
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="SocialSuite.getFacebookPhotos-Templating" id="SocialSuite.getFacebookPhotos-Templating"></a>Templating
+<h2 id="SocialSuite.getFacebookPhotos-Templating">
+Templating
 </h2>
 
 <p>
@@ -395,753 +387,724 @@ For templating your Facebook photo feed, we can use three different template chu
 This section will give you information on defaults and available placeholders for you to use.
 </p>
 
-<h3>
-<a name="SocialSuite.getFacebookPhotos-photoTpl" id="SocialSuite.getFacebookPhotos-photoTpl"></a>photoTpl
+<h3 id="SocialSuite.getFacebookPhotos-photoTpl">
+photoTpl
 </h3>
 
 <p>
 The default chunk is as follows:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;li&gt;
-    &lt;img src=<span class="code-quote">"[[+src_small]]"</span> width=<span class="code-quote">"[[+src_small_width]]"</span> height=<span class="code-quote">"[[+src_small_height]]"</span> /&gt;
+    &lt;img src="[[+src_small]]" width="[[+src_small_width]]" height="[[+src_small_height]]" /&gt;
 &lt;/li&gt;
 </pre>
-</div>
-</div>
-
 <p>
 These are all the placeholders to use in the photoTpl chunk. Some may not be available due to permissions.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
 </th>
-<th class='confluenceTh'>
+<th>
 Type
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 object_id
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 The object_id of the photo.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pid
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the photo being queried. The pid cannot be longer than 50 characters.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 aid
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the album containing the photo being queried. The&nbsp;aid&nbsp;cannot be longer than 50 characters.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 owner
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The user ID of the owner of the photo being queried.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 src_small
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to the thumbnail version of the photo being queried. The image can have a maximum width of 75px and a maximum height of 225px. This URL may be blank.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 src_small_width
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 Width of the thumbnail version, in px. This field may be blank.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 src_small_height
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 Height of the thumbnail version, in px. This field may be blank.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 src_big
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to the full-sized version of the photo being queried. The image can have a maximum width or height of 960px
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 src_big_width
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 Width of the full-sized version, in px. This field may be blank.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 src_big_height
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 Height of the full-sized version, in px. This field may be blank.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 src
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to the album view version of the photo being queried. The image can have a maximum width or height of 130px. This URL may be blank
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 src_width
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 Width of the album view version, in px. This field may be blank.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 src_height
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 Height of the album view version, in px. This field may be blank.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 link
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to the page on facebook containing the photo being queried.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 caption
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The caption for the photo being queried.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 created
 </td>
-<td class='confluenceTd'>
+<td>
 time (unix)
 </td>
-<td class='confluenceTd'>
+<td>
 The date when the photo being queried was added. Format with the "date" output filter.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modified
 </td>
-<td class='confluenceTd'>
+<td>
 time (unix)
 </td>
-<td class='confluenceTd'>
+<td>
 The date when the photo being queried was last modified. Format with the "date" output filter.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 position
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 The position of the photo in the album.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 album_object_id
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 The object_id of the album the photo belongs to.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 place_id
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 Facebook ID of the place associated with the photo, if any.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 images
 </td>
-<td class='confluenceTd'>
+<td>
 array
 </td>
-<td class='confluenceTd'>
+<td>
 An array of objects containing width, height, source each representing the various photo sizes.&nbsp;&nbsp;Use as&nbsp;[[+images.2.source]].
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 like_info
 </td>
-<td class='confluenceTd'>
+<td>
 object
 </td>
-<td class='confluenceTd'>
+<td>
 The like information of the photo being queried. This is an object containing&nbsp;can_like,&nbsp;like_count, and&nbsp;user_likes
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 comment_info
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 object
 </td>
-<td class='confluenceTd'>
+<td>
 The comment information of the photo being queried. This is an object containing&nbsp;can_comment&nbsp;and&nbsp;comment_count
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 can_delete
 </td>
-<td class='confluenceTd'>
+<td>
 bool
 </td>
-<td class='confluenceTd'>
+<td>
 true&nbsp;if the viewer is able to delete the photo
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="SocialSuite.getFacebookPhotos-albumTpl" id="SocialSuite.getFacebookPhotos-albumTpl"></a>albumTpl
+<h3 id="SocialSuite.getFacebookPhotos-albumTpl">
+albumTpl
 </h3>
 
 <p>
 The default albumTpl chunk is as follows; please keep in mind you need to have perAlbum enabled in order to use this.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- &lt;h2&gt;&lt;a href=<span class="code-quote">"[[+link]]"</span>&gt;[[+name]]&lt;/a&gt; &lt;span&gt;([[+photo_count]] photos, created on [[+created:date=`%d/%m/%Y`]])&lt;/span&gt;&lt;/h2&gt;
+<pre class="brush: php">
+ &lt;h2&gt;&lt;a href="[[+link]]"&gt;[[+name]]&lt;/a&gt; &lt;span&gt;([[+photo_count]] photos, created on [[+created:date=`%d/%m/%Y`]])&lt;/span&gt;&lt;/h2&gt;
 &lt;div&gt;
     &lt;ul&gt;
         [[+photos]]
     &lt;/ul&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 You have access to the following placeholders; some may not be available due to permissions:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
 </th>
-<th class='confluenceTh'>
+<th>
 Type
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 photos
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 The photos in this album, as parsed through the photoTpl chunk.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 aid
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The album ID
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 object_id
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 The object_id of the album on Facebook. This is used to identify the equivalentAlbum&nbsp;object in the Graph API. You can also use the object_id to let users comment on an album with the Graph API&nbsp;Comments
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 owner
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 The user ID of the owner of the album
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cover_pid
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The album cover photo ID string
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cover_object_id
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 The album cover photo object_id
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The title of the album
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 created
 </td>
-<td class='confluenceTd'>
+<td>
 time (unix)
 </td>
-<td class='confluenceTd'>
+<td>
 The time the photo album was initially created expressed as a unix time.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modified
 </td>
-<td class='confluenceTd'>
+<td>
 time (unix)
 </td>
-<td class='confluenceTd'>
+<td>
 The last time the photo album was updated expressed as a unix time.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 description
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The description of the album
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 location
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The location of the album
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 size
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 link
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 A link to this album on Facebook
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 visible
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 Visible only to the album owner. Indicates who can see the album.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 modified_major
 </td>
-<td class='confluenceTd'>
+<td>
 time (unix)
 </td>
-<td class='confluenceTd'>
+<td>
 Indicates the time a major update (like addition of photos) was last made to the album expressed as a unix time.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 edit_link
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The URL for editing the album
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 type
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The type of photo album, can be profile, mobile, wall or normal.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 can_upload
 </td>
-<td class='confluenceTd'>
+<td>
 bool
 </td>
-<td class='confluenceTd'>
+<td>
 Determines whether a given UID can upload to the album.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 photo_count
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 The number of photos in this album
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 video_count
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 The number of videos in the album
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 like_info
 </td>
-<td class='confluenceTd'>
+<td>
 object
 </td>
-<td class='confluenceTd'>
+<td>
 The like information of the album being queried. This is an object containingcan_like,&nbsp;like_count, and&nbsp;user_likes
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 comment_info
 </td>
-<td class='confluenceTd'>
+<td>
 object
 </td>
-<td class='confluenceTd'>
+<td>
 The comment information of the album being queried. This is an object containing&nbsp;can_comment&nbsp;and&nbsp;comment_count
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="SocialSuite.getFacebookPhotos-outerTpl" id="SocialSuite.getFacebookPhotos-outerTpl"></a>outerTpl
+<h3 id="SocialSuite.getFacebookPhotos-outerTpl">
+outerTpl
 </h3>
 
 <p>
 The default outerTpl is the following:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  &lt;ul&gt;
     [[+photos]]
 &lt;/ul&gt;
 </pre>
-</div>
-</div>
-
 <p>
 and you can only use the "photos" placeholder in this template.&nbsp;
 </p>
 
-<h2>
-<a name="SocialSuite.getFacebookPhotos-Examples" id="SocialSuite.getFacebookPhotos-Examples"></a>Examples
+<h2 id="SocialSuite.getFacebookPhotos-Examples">
+Examples
 </h2>
 
 <p>
 Man, so many possibilities!
 </p>
 
-<h3>
-<a name="SocialSuite.getFacebookPhotos-SimpleExample%2Cgroupingallphotosperalbumwithdefaulttpls"></a>Simple Example, grouping all photos per album with default tpls
+<h3 id="SocialSuite.getFacebookPhotos-SimpleExample,groupingallphotosperalbumwithdefaulttpls">
+Simple Example, grouping all photos per album with default tpls
 </h3>
 
 <p>
 Snippet call:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getFacebookPhotos?
   &amp;user=`modxcms` 
   &amp;perAlbum=`1`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 which without any customization results in the following output:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;h2&gt;&lt;a href=<span class="code-quote">"http:<span class="code-comment">//www.facebook.com/album.php?fbid=437577137979&amp;id=19110642979&amp;aid=235059"</span>&gt;Profile Pictures&lt;/a&gt; &lt;span class=<span class="code-quote">"smalldate"</span>&gt;(1 photos, created on 12/09/2010)&lt;/span&gt;&lt;/h2&gt;
-</span>&lt;div class=<span class="code-quote">"gfp-photos-wrapper"</span>&gt;
+<pre class="brush: php">
+&lt;h2&gt;&lt;a href="http://www.facebook.com/album.php?fbid=437577137979&amp;id=19110642979&amp;aid=235059"&gt;Profile Pictures&lt;/a&gt; &lt;span class="smalldate"&gt;(1 photos, created on 12/09/2010)&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="gfp-photos-wrapper"&gt;
     &lt;ul&gt;
-        &lt;li class=<span class="code-quote">"gfp-photo"</span>&gt;
-    &lt;img src=<span class="code-quote">"http:<span class="code-comment">//photos-a.ak.fbcdn.net/hphotos-ak-snc6/179529_10150898281902980_465676445_t.jpg"</span> width=<span class="code-quote">"75"</span> height=<span class="code-quote">"75"</span> /&gt;
-</span>&lt;/li&gt;
+        &lt;li class="gfp-photo"&gt;
+    &lt;img src="http://photos-a.ak.fbcdn.net/hphotos-ak-snc6/179529_10150898281902980_465676445_t.jpg" width="75" height="75" /&gt;
+&lt;/li&gt;
 
     &lt;/ul&gt;
 &lt;/div&gt;
 &lt;br /&gt;
 
 
-&lt;h2&gt;&lt;a href=<span class="code-quote">"http:<span class="code-comment">//www.facebook.com/album.php?fbid=10150883337702980&amp;id=19110642979&amp;aid=434455"</span>&gt;CMS Expo 2012&lt;/a&gt; &lt;span class=<span class="code-quote">"smalldate"</span>&gt;(33 photos, created on 12/05/2012)&lt;/span&gt;&lt;/h2&gt;
-</span>&lt;div class=<span class="code-quote">"gfp-photos-wrapper"</span>&gt;
+&lt;h2&gt;&lt;a href="http://www.facebook.com/album.php?fbid=10150883337702980&amp;id=19110642979&amp;aid=434455"&gt;CMS Expo 2012&lt;/a&gt; &lt;span class="smalldate"&gt;(33 photos, created on 12/05/2012)&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="gfp-photos-wrapper"&gt;
     &lt;ul&gt;
-        &lt;li class=<span class="code-quote">"gfp-photo"</span>&gt;
-    &lt;img src=<span class="code-quote">"http:<span class="code-comment">//photos-c.ak.fbcdn.net/hphotos-ak-ash3/529915_10150883341757980_1041537877_t.jpg"</span> width=<span class="code-quote">"75"</span> height=<span class="code-quote">"56"</span> /&gt;
-</span>&lt;/li&gt;
+        &lt;li class="gfp-photo"&gt;
+    &lt;img src="http://photos-c.ak.fbcdn.net/hphotos-ak-ash3/529915_10150883341757980_1041537877_t.jpg" width="75" height="56" /&gt;
+&lt;/li&gt;
 
-&lt;li class=<span class="code-quote">"gfp-photo"</span>&gt;
-    &lt;img src=<span class="code-quote">"http:<span class="code-comment">//photos-d.ak.fbcdn.net/hphotos-ak-ash3/537753_10150883341637980_1323647473_t.jpg"</span> width=<span class="code-quote">"75"</span> height=<span class="code-quote">"56"</span> /&gt;
-</span>&lt;/li&gt;
+&lt;li class="gfp-photo"&gt;
+    &lt;img src="http://photos-d.ak.fbcdn.net/hphotos-ak-ash3/537753_10150883341637980_1323647473_t.jpg" width="75" height="56" /&gt;
+&lt;/li&gt;
 &lt;!-- ... --&gt;
-&lt;li class=<span class="code-quote">"gfp-photo"</span>&gt;
-    &lt;img src=<span class="code-quote">"http:<span class="code-comment">//photos-c.ak.fbcdn.net/hphotos-ak-ash3/534903_10150883337842980_1414876671_t.jpg"</span> width=<span class="code-quote">"75"</span> height=<span class="code-quote">"50"</span> /&gt;
-</span>&lt;/li&gt;
+&lt;li class="gfp-photo"&gt;
+    &lt;img src="http://photos-c.ak.fbcdn.net/hphotos-ak-ash3/534903_10150883337842980_1414876671_t.jpg" width="75" height="50" /&gt;
+&lt;/li&gt;
 
     &lt;/ul&gt;
 &lt;/div&gt;
 &lt;!-- ... --&gt;
 </pre>
-</div>
-</div>
-
 <p>
 ... which then looks like something like this:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="http://markh.nl/s/q3/juB.png" style="border: 1px solid black" /></span>
+<img src="http://markh.nl/s/q3/juB.png" style="border: 1px solid black" />
 </p>

@@ -1,107 +1,86 @@
-<h1>
-<a name="update-API%3ADB%3Aupdate"></a>API:DB:update
+<h1 id="update-API:DB:update">
+API:DB:update
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Quick reference</b>
+<div class="info">
+<strong>API Quick reference</strong>
 <br />
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable name:
 </td>
-<td class='confluenceTd'>
+<td>
 update
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Modx versions:
 </td>
-<td class='confluenceTd'>
+<td>
 0.9.x + Evolution
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Input parameters:
 </td>
-<td class='confluenceTd'>
+<td>
 (String $fields, String $table, String $where)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return if successful:
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return type:
 </td>
-<td class='confluenceTd'>
+<td>
 bool
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return on failure:
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Object parent:
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/MODx096/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a> -&gt; <a href="/display/MODx096/DBAPI" title="DBAPI">DBAPI</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
-<h2>
-<a name="update-Description"></a>Description
+<h2 id="update-Description">
+Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> update(<span class="code-object">String</span> $fields, <span class="code-object">String</span> $table, <span class="code-object">String</span> $where)
+<pre class="brush: php">
+boolean update(String $fields, String $table, String $where)
 </pre>
-</div>
-</div>
-
 <p>
 Updating a value or a group of values in a table is very easy using the DBAPI update function.
 </p>
@@ -110,104 +89,77 @@ Updating a value or a group of values in a table is very easy using the DBAPI up
 This function allows you to update fields in a MySQL database. $fields may be either a simple String, if you're only updating one field in a table, or an associative array consisting of field =&gt; new_value to update multiple fields. The $table argument is the actual table in the database you're going to be updating, and if this is empty, the function will return false. The $where argument is the condition under which the table should be updated, and if it's left blank it will update all rows in the table. On failure, this function returns false, and on success, it returns true.
 </p>
 
-<h2>
-<a name="update-Usage"></a>Usage
+<h2 id="update-Usage">
+Usage
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$rows_affected = $modx-&gt;db-&gt;update(<span class="code-quote">"fields"</span>, <span class="code-quote">"table_name"</span> [, <span class="code-quote">"where value"</span>]);
+<pre class="brush: php">
+$rows_affected = $modx-&gt;db-&gt;update("fields", "table_name" [, "where value"]);
 </pre>
-</div>
-</div>
-
 <p>
-<b>The "fields" argument</b>
+<strong>The "fields" argument</strong>
 </p>
 
 <p>
 The "fields" argument can be an (associative) array if more than one field is to be updated. ie:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $fields = array(
-     <span class="code-quote">"field1"</span> =&gt; 1,
-     <span class="code-quote">"field2"</span> =&gt; 2,
-     <span class="code-quote">"field3"</span> =&gt; <span class="code-quote">"three"</span>
+     "field1" =&gt; 1,
+     "field2" =&gt; 2,
+     "field3" =&gt; "three"
      )
-$rows_affected = $modx-&gt;db-&gt;update($fields, <span class="code-quote">"table_name"</span>, <span class="code-quote">"where value"</span>);
+$rows_affected = $modx-&gt;db-&gt;update($fields, "table_name", "where value");
 </pre>
-</div>
-</div>
-
 <p>
 Otherwise, it can simply be the field and value you want to update:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$rows_affected = $modx-&gt;db-&gt;update(<span class="code-quote">"field=value"</span> <span class="code-quote">"table_name"</span>, <span class="code-quote">"where value"</span>);
+<pre class="brush: php">
+$rows_affected = $modx-&gt;db-&gt;update("field=value" "table_name", "where value");
 </pre>
-</div>
-</div>
-
 <p>
-<b>The "table" argument</b>
+<strong>The "table" argument</strong>
 </p>
 
 <p>
 The "table" argument is the table to update. You can use the MODx function to return the full tablename; this is probably the best way, since you won't have to remember to include the prefix of the table names for your site:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$table_name = $modx-&gt;getFullTableName(<span class="code-quote">"table"</span>);
-$rows_affected = $modx-&gt;db-&gt;update($fields, $table_name, <span class="code-quote">"where value"</span>);
-The <span class="code-quote">"where"</span> argument
+<pre class="brush: php">
+$table_name = $modx-&gt;getFullTableName("table");
+$rows_affected = $modx-&gt;db-&gt;update($fields, $table_name, "where value");
+The "where" argument
 </pre>
-</div>
-</div>
-
 <p>
 The "where" argument tells the database the specific record to update:
 <br />
 $rows_affected = $modx-&gt;db-&gt;update($fields, "table_name", "field = value");
 </p>
 
-<h2>
-<a name="update-Examples"></a>Examples
+<h2 id="update-Examples">
+Examples
 </h2>
 
 <p>
 The following function takes an id and username as parameters and updates the database with a new username, based on the id passed to the function:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 function update_username( $id, $username ) {
         global $modx;
         $table = $modx-&gt;getFullTableName( 'user_table' );
         
-        $result = $modx-&gt;db-&gt;update( 'username = <span class="code-quote">"' . $username . '"</span>', $table, 'userid = <span class="code-quote">"' . $id . '"</span>' );
-        <span class="code-keyword">return</span> $result;               <span class="code-comment">// Returns '<span class="code-keyword">true</span>' on success, '<span class="code-keyword">false</span>' on failure.
-</span>}
+        $result = $modx-&gt;db-&gt;update( 'username = "' . $username . '"', $table, 'userid = "' . $id . '"' );
+        return $result;         // Returns 'true' on success, 'false' on failure.
+}
 </pre>
-</div>
-</div>
-
 <p>
 This snippet uses an array to update multiple fields in a database:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $table = $modx-&gt;getFullTableName( 'cars_table' );
 $fields = array('make'  =&gt; $new_make,
                 'model' =&gt; $new_model,
@@ -215,75 +167,62 @@ $fields = array('make'  =&gt; $new_make,
                 'year'  =&gt; $new_year,
                 'updated'=&gt; time()
                 );
-$result = $modx-&gt;db-&gt;update( $fields, $table, 'id = <span class="code-quote">"' . $id . '"</span>' );
-<span class="code-keyword">if</span>( $result ) {
+$result = $modx-&gt;db-&gt;update( $fields, $table, 'id = "' . $id . '"' );
+if( $result ) {
         echo 'Table updated.';
 }
-<span class="code-keyword">else</span> {
+else {
         echo 'Query Failed!';
 }
 </pre>
-</div>
-</div>
-
 <p>
-<b>Example 3</b>
+<strong>Example 3</strong>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$table = $modx-&gt;getFullTableName(<span class="code-quote">"site_content"</span>);
+<pre class="brush: php">
+$table = $modx-&gt;getFullTableName("site_content");
 $fields = array(
-     <span class="code-quote">"pagetitle"</span> =&gt; <span class="code-quote">"New Title"</span>,
-     <span class="code-quote">"alias"</span> =&gt; <span class="code-quote">"<span class="code-keyword">new</span>-alias"</span>,
-     <span class="code-quote">"menuindex"</span> =&gt; 2,
-     <span class="code-quote">"published"</span> =&gt; 1
+     "pagetitle" =&gt; "New Title",
+     "alias" =&gt; "new-alias",
+     "menuindex" =&gt; 2,
+     "published" =&gt; 1
      )
-$rows_affected = $modx-&gt;db-&gt;update($fields, $table, <span class="code-quote">"id = 45"</span>);
+$rows_affected = $modx-&gt;db-&gt;update($fields, $table, "id = 45");
 </pre>
-</div>
-</div>
-
 <p>
 will change document 45's title to "New Title", its alias to "new-alias", make it the second item in the menu, and publish it.
 </p>
 
 <p>
-<b>Example 4</b>
+<strong>Example 4</strong>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$table = $modx-&gt;getFullTableName(<span class="code-quote">"system_settings"</span>);
-$rows_affected = $modx-&gt;db-&gt;update(<span class="code-quote">"setting_value = '5'"</span>, $table, <span class="code-quote">"setting_name='default_template'"</span>);
+<pre class="brush: php">
+$table = $modx-&gt;getFullTableName("system_settings");
+$rows_affected = $modx-&gt;db-&gt;update("setting_value = '5'", $table, "setting_name='default_template'");
 </pre>
-</div>
-</div>
-
 <p>
 will change the site's default template to template 5.
 </p>
 
-<h2>
-<a name="update-Related"></a>Related
+<h2 id="update-Related">
+Related
 </h2>
 
 <p>
 <a href="/display/MODx096/query" title="query">query</a>(), <span class="error">[getAffectedRows]</span>(), <a href="/display/MODx096/escape" title="escape">escape</a>()
 </p>
 
-<h2>
-<a name="update-Notes"></a>Notes
+<h2 id="update-Notes">
+Notes
 </h2>
 
 <p>
 It's important to note that, if taking any user-inputted data (ie. via a $_GET request), you should always first sanitize the data before using it in a MySQL query. Using the <a href="/display/MODx096/escape" title="escape">$modx-&gt;db-&gt;escape</a>() function will escape all potentially harmful characters that could be used to inject an arbitrary command.
 </p>
 
-<h2>
-<a name="update-FunctionSource"></a>Function Source
+<h2 id="update-FunctionSource">
+Function Source
 </h2>
 
 <p>
@@ -292,28 +231,24 @@ File: manager/includes/extenders/dbapi.class.inc.php
 Line: 185
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 function update($fields, $table, $where = "") {
-      <span class="code-keyword">if</span> (!$table)
-         <span class="code-keyword">return</span> <span class="code-keyword">false</span>;
-      <span class="code-keyword">else</span> {
-         <span class="code-keyword">if</span> (!is_array($fields))
+      if (!$table)
+         return false;
+      else {
+         if (!is_array($fields))
             $flds = $fields;
-         <span class="code-keyword">else</span> {
+         else {
             $flds = '';
             foreach ($fields as $key =&gt; $value) {
-               <span class="code-keyword">if</span> (!empty ($flds))
-                  $flds .= <span class="code-quote">","</span>;
-               $flds .= $key . <span class="code-quote">"="</span>;
-               $flds .= <span class="code-quote">"'"</span> . $value . <span class="code-quote">"'"</span>;
+               if (!empty ($flds))
+                  $flds .= ",";
+               $flds .= $key . "=";
+               $flds .= "'" . $value . "'";
             }
          }
-         $where = ($where != <span class="code-quote">"") ? "</span>WHERE $where<span class="code-quote">" : "</span>";
-         <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;query(<span class="code-quote">"UPDATE $table SET $flds $where"</span>);
+         $where = ($where != "") ? "WHERE $where" : "";
+         return $this-&gt;query("UPDATE $table SET $flds $where");
       }
    }
 </pre>
-</div>
-</div>

@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="UsingCustomObjectLoaders-ChangetheWayxPDOLoadsData"></a>Change the Way xPDO Loads Data
+<h2 id="UsingCustomObjectLoaders-ChangetheWayxPDOLoadsData">
+Change the Way xPDO Loads Data
 </h2>
 
 <p>
@@ -38,29 +34,12 @@ This is done with the help of the <span class="error">[xPDO::call()]</span> meth
 Overriding these methods allows you to implement additional behavior or completely change the behavior of loading your table objects via the object and collection methods provided by <a href="/display/xPDO20/xPDO" title="xPDO">xPDO</a> and <a href="/display/xPDO20/xPDOObject" title="xPDOObject">xPDOObject</a>. For instance, it can be used to perform security checks or to add i18n processing before allowing a row to be loaded.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Prior to 2.0.0-pl, you can specify custom loader classes that extend or override the behavior of the default object loaders by specifying these classes in the xPDO options array when instantiating an xPDO instance.
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$xpdo = <span class="code-keyword">new</span> xPDO($dsn, $username, $password, array(
+
+<pre class="brush: php">
+$xpdo = new xPDO($dsn, $username, $password, array(
     xPDO::OPT_LOADER_CLASSES =&gt; array('myCustomLoaderClass')
 ));
 </pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
 </div>

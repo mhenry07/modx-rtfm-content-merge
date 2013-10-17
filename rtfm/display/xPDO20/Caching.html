@@ -1,33 +1,29 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Caching-GlobalConfiguration'>Global Configuration</a>
+<a href="#Caching-GlobalConfiguration">Global Configuration</a>
 </li>
 
 <li>
-<a href='#Caching-CachingProvidersandPartitions'>Caching Providers and Partitions</a>
+<a href="#Caching-CachingProvidersandPartitions">Caching Providers and Partitions</a>
 </li>
 
 <li>
-<a href='#Caching-ManipulationoftheCache'>Manipulation of the Cache</a>
+<a href="#Caching-ManipulationoftheCache">Manipulation of the Cache</a>
 </li>
 
 <li>
-<a href='#Caching-UtilizingSpecificCachePartitions'>Utilizing Specific Cache Partitions</a>
+<a href="#Caching-UtilizingSpecificCachePartitions">Utilizing Specific Cache Partitions</a>
 </li>
 
 <li>
-<a href='#Caching-SeeAlso'>See Also</a>
+<a href="#Caching-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Caching-GlobalConfiguration"></a>Global Configuration
+<h2 id="Caching-GlobalConfiguration">
+Global Configuration
 </h2>
 
 <p>
@@ -40,15 +36,15 @@ There are several additional global options that can be set if you wish to use s
 
 <ul>
 <li>
-<b>xPDO::OPT_CACHE_HANDLER</b> - This defines a cache provider, or xPDOCache derivative class which implements xPDO caching methods. (default=cache.xPDOFileCache)
+<strong>xPDO::OPT_CACHE_HANDLER</strong> - This defines a cache provider, or xPDOCache derivative class which implements xPDO caching methods. (default=cache.xPDOFileCache)
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_KEY</b> - This defines a cache partition, or an instance of the xPDOCache derivative class defined as the cache handler or <em>provider</em>. (default=default)
+<strong>xPDO::OPT_CACHE_KEY</strong> - This defines a cache partition, or an instance of the xPDOCache derivative class defined as the cache handler or <em>provider</em>. (default=default)
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_EXPIRES</b> - This defines a default cache expiration time in seconds for all cache partitions to use if not specifically configured themselves.(default=0)
+<strong>xPDO::OPT_CACHE_EXPIRES</strong> - This defines a default cache expiration time in seconds for all cache partitions to use if not specifically configured themselves.(default=0)
 </li>
 </ul>
 
@@ -56,8 +52,8 @@ There are several additional global options that can be set if you wish to use s
 Additional options are defined for specific cache providers.
 </p>
 
-<h2>
-<a name="Caching-CachingProvidersandPartitions"></a>Caching Providers and Partitions
+<h2 id="Caching-CachingProvidersandPartitions">
+Caching Providers and Partitions
 </h2>
 
 <p>
@@ -68,26 +64,12 @@ xPDO supports extending the caching mechanism to different 'caching providers'. 
 The base class, xPDOCache, can be extended to create different cache providers, and users can configure xPDO via the xPDO::OPT_CACHE_HANDLER option to use a specific derived class.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 A derived xPDOCache implementation must be in a package that is loaded by the constructor. You can use xPDO::OPT_BASE_PACKAGES to define such packages to preload or load it in your overridden constructor when extending the xPDO class.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="Caching-ManipulationoftheCache"></a>Manipulation of the Cache
+<h2 id="Caching-ManipulationoftheCache">
+Manipulation of the Cache
 </h2>
 
 <p>
@@ -98,26 +80,21 @@ The $xpdo-&gt;cacheManager object, built from the <a href="/display/xPDO20/xPDOC
 A simple example script of setting data into a cache partition, then getting it, and deleting it, is as follows:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $str = 'My cached data.';
 $xpdo-&gt;cacheManager-&gt;set('testdata', $str);
 
 echo $xpdo-&gt;cacheManager-&gt;get('testdata');
-<span class="code-comment">// outputs: My cached data.
-</span>
+// outputs: My cached data.
+
 $xpdo-&gt;cacheManager-&gt;delete('testdata');
 </pre>
-</div>
-</div>
-
 <p>
 This uses the global cache configuration to set, retrieve, and remove a cache entry. This would be the default cache partition used by the xPDOCacheManager.
 </p>
 
-<h2>
-<a name="Caching-UtilizingSpecificCachePartitions"></a>Utilizing Specific Cache Partitions
+<h2 id="Caching-UtilizingSpecificCachePartitions">
+Utilizing Specific Cache Partitions
 </h2>
 
 <p>
@@ -128,9 +105,7 @@ To target cache data in a specific partition, you will need to either pass a con
 An example of passing the configuration to the xPDOCacheManager methods:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $cacheOptions = array(
     xPDO::OPT_CACHE_KEY =&gt; 'myCache',
     xPDO::OPT_CACHE_HANDLER =&gt; 'cache.xPDOAPCCache',
@@ -139,13 +114,10 @@ $cacheOptions = array(
 $xpdo-&gt;cacheManager-&gt;set('testdata', 'My cached data.', 0, $cacheOptions);
 
 echo $xpdo-&gt;cacheManager-&gt;get('testdata', $cacheOptions);
-<span class="code-comment">// outputs: My cached data.
-</span>
+// outputs: My cached data.
+
 $xpdo-&gt;cacheManager-&gt;delete('testdata', $cacheOptions);
 </pre>
-</div>
-</div>
-
 <p>
 This would use an instance of xPDOAPCCache and prefix all entries with cacheMe since APC does not allow multiple instances and in order to use it the entries must be partitioned per xPDOCache instance by their key.
 </p>
@@ -154,9 +126,7 @@ This would use an instance of xPDOAPCCache and prefix all entries with cacheMe s
 An alternative approach is to get the specific cache partition itself and use it's methods directly:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $myCache = $xpdo-&gt;cacheManager-&gt;getCacheProvider('myCache', array(
     xPDO::OPT_CACHE_KEY =&gt; 'myCache',
     xPDO::OPT_CACHE_HANDLER =&gt; 'cache.xPDOAPCCache',
@@ -165,15 +135,12 @@ $myCache = $xpdo-&gt;cacheManager-&gt;getCacheProvider('myCache', array(
 $myCache-&gt;set('testdata', 'My cached data.');
 
 echo $myCache-&gt;get('testdata');
-<span class="code-comment">// outputs: My cached data.
-</span>
+// outputs: My cached data.
+
 $myCache-&gt;delete('testdata');
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Caching-SeeAlso"></a>See Also
+<h2 id="Caching-SeeAlso">
+See Also
 </h2>
 
 <ul>
@@ -182,16 +149,12 @@ $myCache-&gt;delete('testdata');
 </li>
 </ul>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/xPDO20/Caching+Tutorial+-+Basic+Snippets">Caching Tutorial - Basic Snippets</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="12615760" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="12615760" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="xPDO20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FxPDO20%2FCaching" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="12615760" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/xPDO20/Caching+Tutorial+-+Lifetimes">Caching Tutorial - Lifetimes</a>
+</li>
+</ol>

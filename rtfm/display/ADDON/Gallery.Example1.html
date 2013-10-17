@@ -1,8 +1,4 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 This is an example usage of Gallery. This page will first show a list of Gallery Albums, then once clicked, will load all the photos from that album. When a photo is clicked, it will show in large-form.
 </p>
 
@@ -10,14 +6,12 @@ This is an example usage of Gallery. This page will first show a list of Gallery
 Simply paste this code into your Resource.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Gallery? &amp;toPlaceholder=`gallery`]]
 [[!GalleryItem]]
 [[!GalleryAlbums? &amp;toPlaceholder=`galleries`]]
 
-&lt;div style=<span class="code-quote">"<span class="code-object">float</span>: right"</span>&gt;
+&lt;div style="float: right"&gt;
 &lt;h2&gt;Galleries&lt;/h2&gt;
 &lt;ul&gt;
 [[+galleries]]
@@ -27,8 +21,8 @@ Simply paste this code into your Resource.
 &lt;h2&gt;Item&lt;/h2&gt;
 
 [[!+galitem.image:notempty=`
-&lt;div class=<span class="code-quote">"image"</span>&gt;
-  &lt;a href=<span class="code-quote">"[[+galitem.image]]"</span>&gt;&lt;img class=<span class="code-quote">"[[+galitem.imgCls]]"</span> src=<span class="code-quote">"[[+galitem.image]]"</span> alt=<span class="code-quote">"[[+galitem.name]]"</span> /&gt;&lt;/a&gt;
+&lt;div class="image"&gt;
+  &lt;a href="[[+galitem.image]]"&gt;&lt;img class="[[+galitem.imgCls]]" src="[[+galitem.image]]" alt="[[+galitem.name]]" /&gt;&lt;/a&gt;
   &lt;br /&gt;Albums: [[+galitem.albums]]
   &lt;br /&gt;Tags: [[+galitem.tags]]
 &lt;/div&gt;
@@ -38,11 +32,9 @@ Simply paste this code into your Resource.
 &lt;hr /&gt;
 
 [[!+gallery:notempty=`
-&lt;h1&gt;&lt;a href=<span class="code-quote">"[[~[[*id]]]]"</span>&gt;[[+gallery.name]]&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="[[~[[*id]]]]"&gt;[[+gallery.name]]&lt;/a&gt;&lt;/h1&gt;
 &lt;h2&gt;[[+gallery.description]]&lt;/h2&gt;
 
 [[+gallery]]
 `]]
 </pre>
-</div>
-</div>

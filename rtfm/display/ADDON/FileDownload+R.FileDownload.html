@@ -1,35 +1,29 @@
 <div>
 <ul>
 <li>
-<a href='#FileDownloadR.FileDownload-Main'>Main</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FileDownloadR.FileDownload-Main">Main</a>
 <ul>
 <li>
-<a href='#FileDownloadR.FileDownload-downloadByOther'>downloadByOther</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FileDownloadR.FileDownload-downloadByOther">downloadByOther</a>
 <ul>
 <li>
-<a href='#FileDownloadR.FileDownload-FileChunk'>File Chunk</a>
+<a href="#FileDownloadR.FileDownload-FileChunk">File Chunk</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownload-HTML'>HTML</a>
+<a href="#FileDownloadR.FileDownload-HTML">HTML</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownload-javascript'>javascript</a>
+<a href="#FileDownloadR.FileDownload-javascript">javascript</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownload-connector'>connector</a>
+<a href="#FileDownloadR.FileDownload-connector">connector</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownload-processors'>processors</a>
+<a href="#FileDownloadR.FileDownload-processors">processors</a>
 </li>
 </ul>
 </li>
@@ -37,43 +31,37 @@
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownload-Saltforhash'>Salt for hash</a>
+<a href="#FileDownloadR.FileDownload-Saltforhash">Salt for hash</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownload-Additional'>Additional</a>
+<a href="#FileDownloadR.FileDownload-Additional">Additional</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownload-Sorting'>Sorting</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FileDownloadR.FileDownload-Sorting">Sorting</a>
 <ul>
 <li>
-<a href='#FileDownloadR.FileDownload-Example'>Example</a>
+<a href="#FileDownloadR.FileDownload-Example">Example</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownload-Template'>Template</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FileDownloadR.FileDownload-Template">Template</a>
 <ul>
 <li>
-<a href='#FileDownloadR.FileDownload-Example'>Example</a>
+<a href="#FileDownloadR.FileDownload-Example">Example</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownload-Headers'>Headers</a>
+<a href="#FileDownloadR.FileDownload-Headers">Headers</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownload-Style'>Style</a>
+<a href="#FileDownloadR.FileDownload-Style">Style</a>
 </li>
 </ul>
 </div>
@@ -86,256 +74,240 @@ The parameters are adopted from the evolution's with several changes, so the pre
 Basic usage is [[!FileDownload?]]
 </p>
 
-<h1>
-<a name="FileDownloadR.FileDownload-Main"></a>Main
+<h1 id="FileDownloadR.FileDownload-Main">
+Main
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 getDir
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated of directories to display
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;getDir=`[[<ins>++core_path]]downloads,[[</ins>++base_path]]assets/downloads, assets/files`
 </td>
-<td class='confluenceTd'>
+<td>
 empty
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 getFile
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated of files to display
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;getFile=`assets/files/readme.txt,[[<ins>++core_path]]downloads/readyou.doc,[[</ins>++base_path]]assets/downloads/book1.xlsx`
 </td>
-<td class='confluenceTd'>
+<td>
 empty
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 userGroups
 </td>
-<td class='confluenceTd'>
+<td>
 This will make the download link active for users that belong to the specified groups. Multiple groups can be specified by using a comma delimited list.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;userGroups=`Administrator, Registered Member`
 </td>
-<td class='confluenceTd'>
+<td>
 empty
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 extShown
 </td>
-<td class='confluenceTd'>
+<td>
 Comma delimited extension of files to display with those extensions.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;extShown=`zip,php,txt`
 </td>
-<td class='confluenceTd'>
+<td>
 empty
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 extHidden
 </td>
-<td class='confluenceTd'>
+<td>
 Comma delimited extension of files to be hid with those extensions. This will overide &amp;extShown values.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;extHidden=`zip,php,txt`
 </td>
-<td class='confluenceTd'>
+<td>
 empty
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toArray
 </td>
-<td class='confluenceTd'>
+<td>
 Returns the result as an array instead, not parsed in the templates.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;toArray=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 downloadByOther
 </td>
-<td class='confluenceTd'>
+<td>
 Disable the downloading action by this snippet, to use different way
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;downloadByOther=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 directLink
 </td>
-<td class='confluenceTd'>
+<td>
 Use file's direct path, rather than the hashed link. Make sure it is web accessible
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;directLink=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fdlid
 </td>
-<td class='confluenceTd'>
+<td>
 Set an ID to each of the snippet calls if there are more than once.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;fdlid=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 null
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 plugins
 </td>
-<td class='confluenceTd'>
-<a href="http://rtfm.modx.com/display/ADDON/FileDownload+R.Plugins" class="external-link" rel="nofollow">Read the doc.</a>
+<td>
+<a href="http://rtfm.modx.com/display/ADDON/FileDownload+R.Plugins">Read the doc.</a>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 prefix
 </td>
-<td class='confluenceTd'>
+<td>
 prefix for the placeholders
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 'fd.'
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="FileDownloadR.FileDownload-downloadByOther"></a>downloadByOther
+<h2 id="FileDownloadR.FileDownload-downloadByOther">
+downloadByOther
 </h2>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 available since v.1.0.0-pl
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-Note for <b>&amp;downloadByOther</b>:
+Note for <strong>&amp;downloadByOther</strong>:
 <br />
 Example:
 <br />
@@ -346,8 +318,8 @@ Then through AJAX, you submit the form, and expect results with conditions.
 If the result, for instance, returns true, the AJAX calls the download's API to start the download.
 </p>
 
-<h3>
-<a name="FileDownloadR.FileDownload-FileChunk"></a>File Chunk
+<h3 id="FileDownloadR.FileDownload-FileChunk">
+File Chunk
 </h3>
 
 <p>
@@ -356,39 +328,34 @@ You need to create chunk for the file's rows.
 Eg: jsDownload chunk
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
-    <span class="code-tag">&lt;tr[[+fd.class]]&gt;</span>
-        <span class="code-tag">&lt;td style=<span class="code-quote">"width:16px;"</span>&gt;</span><span class="code-tag">&lt;img src=<span class="code-quote">"[[+fd.image]]"</span> alt=<span class="code-quote">"[[+fd.image]]"</span> /&gt;</span><span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>
-            &lt;a href=<span class="code-quote">"javascript:void(0);"</span>
-               rel=<span class="code-quote">"#formLink"</span>
-               id=<span class="code-quote">"[[+fd.hash]]"</span>
+<pre class="brush: html">
+    &lt;tr[[+fd.class]]&gt;
+        &lt;td style="width:16px;"&gt;&lt;img src="[[+fd.image]]" alt="[[+fd.image]]" /&gt;&lt;/td&gt;
+        &lt;td&gt;
+            &lt;a href="javascript:void(0);"
+               rel="#formLink"
+               id="[[+fd.hash]]"
                &gt;[[+fd.filename]]
-            <span class="code-tag">&lt;/a&gt;</span>
-            <span class="code-tag">&lt;span style=<span class="code-quote">"font-size:80%"</span>&gt;</span>([[+fd.count]] downloads)<span class="code-tag">&lt;/span&gt;</span>
-        <span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>[[+fd.sizeText]]<span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>[[+fd.date]]<span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>
+            &lt;/a&gt;
+            &lt;span style="font-size:80%"&gt;([[+fd.count]] downloads)&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td&gt;[[+fd.sizeText]]&lt;/td&gt;
+        &lt;td&gt;[[+fd.date]]&lt;/td&gt;
+    &lt;/tr&gt;
     [[-- This is the description row if the &amp;chkDesc=`chunkName` is provided --]]
-    [[+fd.description:notempty=`<span class="code-tag">&lt;tr&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span><span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td colspan=<span class="code-quote">"3"</span>&gt;</span>[[+fd.description]]<span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>`:default=``]]
+    [[+fd.description:notempty=`&lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td colspan="3"&gt;[[+fd.description]]&lt;/td&gt;
+    &lt;/tr&gt;`:default=``]]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="FileDownloadR.FileDownload-HTML"></a>HTML
+<h3 id="FileDownloadR.FileDownload-HTML">
+HTML
 </h3>
 
 <p>
 #downloaderForm is the basic HTML form with fields.
 <br />
-In this example, I'm also using <a href="http://jquerytools.org/" class="external-link" rel="nofollow">jQuerytools</a>'s overlay and validator.
+In this example, I'm also using <a href="http://jquerytools.org/">jQuerytools</a>'s overlay and validator.
 <br />
 The for is placed directly under the snippet call.
 <br />
@@ -399,69 +366,62 @@ It's hidden by CSS.
 So the snippet call would be like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
+<pre class="brush: html">
 [[!FileDownload?
 &amp;getDir=`assets/downloads`
 &amp;tplFile=`jsDownload`
 &amp;downloadByOther=`1`
 ]]
-<span class="code-tag">&lt;div class=<span class="code-quote">"form_overlay"</span> id=<span class="code-quote">"formLink"</span>&gt;</span>
-    <span class="code-tag">&lt;h2&gt;</span>Contact Form<span class="code-tag">&lt;/h2&gt;</span>
-    <span class="code-tag">&lt;form action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span> class=<span class="code-quote">"form"</span> id=<span class="code-quote">"downloaderForm"</span>&gt;</span>
-        <span class="code-tag">&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"nospam:blank"</span> value="" /&gt;</span>
-        <span class="code-tag">&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"link"</span> value="" /&gt;</span>
-        <span class="code-tag">&lt;label for=<span class="code-quote">"name"</span>&gt;</span>Name:<span class="code-tag">&lt;/label&gt;</span>
-        <span class="code-tag">&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"name"</span> id=<span class="code-quote">"name"</span> value=<span class="code-quote">"" required="</span>required" /&gt;</span>
-        <span class="code-tag">&lt;br /&gt;</span>
+&lt;div class="form_overlay" id="formLink"&gt;
+    &lt;h2&gt;Contact Form&lt;/h2&gt;
+    &lt;form action="[[~[[*id]]]]" method="post" class="form" id="downloaderForm"&gt;
+        &lt;input type="hidden" name="nospam:blank" value="" /&gt;
+        &lt;input type="hidden" name="link" value="" /&gt;
+        &lt;label for="name"&gt;Name:&lt;/label&gt;
+        &lt;input type="text" name="name" id="name" value="" required="required" /&gt;
+        &lt;br /&gt;
 
-        <span class="code-tag">&lt;label for=<span class="code-quote">"email"</span>&gt;</span>Email:<span class="code-tag">&lt;/label&gt;</span>
-        <span class="code-tag">&lt;input type=<span class="code-quote">"email"</span> name=<span class="code-quote">"email"</span> id=<span class="code-quote">"email"</span> value=<span class="code-quote">"" required="</span>required" /&gt;</span>
-        <span class="code-tag">&lt;br /&gt;</span>
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="email" name="email" id="email" value="" required="required" /&gt;
+        &lt;br /&gt;
 
-        <span class="code-tag">&lt;label for=<span class="code-quote">"phone"</span>&gt;</span>Phone:<span class="code-tag">&lt;/label&gt;</span>
-        <span class="code-tag">&lt;input type=<span class="code-quote">"number"</span> name=<span class="code-quote">"phone"</span> id=<span class="code-quote">"phone"</span> value=<span class="code-quote">"" required="</span>required" /&gt;</span>
-        <span class="code-tag">&lt;br /&gt;</span>
+        &lt;label for="phone"&gt;Phone:&lt;/label&gt;
+        &lt;input type="number" name="phone" id="phone" value="" required="required" /&gt;
+        &lt;br /&gt;
 
-        <span class="code-tag">&lt;label for=<span class="code-quote">"country"</span>&gt;</span>Country:<span class="code-tag">&lt;/label&gt;</span>
-        <span class="code-tag">&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"country"</span> id=<span class="code-quote">"country"</span> value=<span class="code-quote">"" required="</span>required" /&gt;</span>
-        <span class="code-tag">&lt;br /&gt;</span>
+        &lt;label for="country"&gt;Country:&lt;/label&gt;
+        &lt;input type="text" name="country" id="country" value="" required="required" /&gt;
+        &lt;br /&gt;
 
-        <span class="code-tag">&lt;div class=<span class="code-quote">"form-buttons"</span>&gt;</span>
-            <span class="code-tag">&lt;button type=<span class="code-quote">"submit"</span>&gt;</span>Send Contact Inquiry<span class="code-tag">&lt;/button&gt;</span>
-            <span class="code-tag">&lt;button type=<span class="code-quote">"reset"</span>&gt;</span>Reset<span class="code-tag">&lt;/button&gt;</span>
-        <span class="code-tag">&lt;/div&gt;</span>
-    <span class="code-tag">&lt;/form&gt;</span>
-<span class="code-tag">&lt;/div&gt;</span>
+        &lt;div class="form-buttons"&gt;
+            &lt;button type="submit"&gt;Send Contact Inquiry&lt;/button&gt;
+            &lt;button type="reset"&gt;Reset&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="FileDownloadR.FileDownload-javascript"></a>javascript
+<h3 id="FileDownloadR.FileDownload-javascript">
+javascript
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-javascript">
-$(<span class="code-keyword">function</span>(){
-    <span class="code-keyword">var</span> c = 'assets/components/yourpackage/c.php?';
+<pre class="brush: javascript">
+$(function(){
+    var c = 'assets/components/yourpackage/c.php?';
     createForm();
 
-    <span class="code-keyword">function</span> createForm() {
-        $(".fd-file a[rel]").each(<span class="code-keyword">function</span>(i) {
-            <span class="code-keyword">var</span> self = $(<span class="code-keyword">this</span>);
+    function createForm() {
+        $(".fd-file a[rel]").each(function(i) {
+            var self = $(this);
             self.overlay({
                 effect: 'apple',
-                onLoad: <span class="code-keyword">function</span>() {
-                    <span class="code-keyword">var</span> id = self.attr('id');
+                onLoad: function() {
+                    var id = self.attr('id');
                     $("#downloaderForm input[name=link]").val(id);
                 },
-                onBeforeClose: <span class="code-keyword">function</span>(){
+                onBeforeClose: function(){
                     $(".error").hide();
-                    $("#downloaderForm input").each(<span class="code-keyword">function</span>(){
-                        $(<span class="code-keyword">this</span>).removeClass('invalid');
+                    $("#downloaderForm input").each(function(){
+                        $(this).removeClass('invalid');
                     });
                     $("#downloaderForm input[name=link]").val('');
                     clearForm($("#downloaderForm"));
@@ -469,24 +429,24 @@ $(<span class="code-keyword">function</span>(){
             });
         });
 
-        $("#downloaderForm").validator().submit(<span class="code-keyword">function</span>(e){
-            <span class="code-keyword">var</span> form = $(<span class="code-keyword">this</span>);
-            <span class="code-keyword">if</span> (!e.isDefaultPrevented()) {
-                $.post(c + 'action=web/form/add&amp;ctx=web&amp;' + form.serialize(), <span class="code-keyword">function</span>(data) {
-                    <span class="code-keyword">if</span> (data &amp;&amp; data.success === <span class="code-keyword">true</span>)  {
+        $("#downloaderForm").validator().submit(function(e){
+            var form = $(this);
+            if (!e.isDefaultPrevented()) {
+                $.post(c + 'action=web/form/add&amp;ctx=web&amp;' + form.serialize(), function(data) {
+                    if (data &amp;&amp; data.success === true)  {
                         clearForm(form);
-                        $(".fd-file a[rel]").each(<span class="code-keyword">function</span>(i) {
-                            $(<span class="code-keyword">this</span>).overlay().close();
+                        $(".fd-file a[rel]").each(function(i) {
+                            $(this).overlay().close();
                         });
                         fileDownload(c + 'action=web/file/get&amp;ctx=web&amp;link=' + data.link);
-                        $(".fd-file a[rel]").each(<span class="code-keyword">function</span>(i) {
-                            <span class="code-keyword">var</span> self = $(<span class="code-keyword">this</span>);
+                        $(".fd-file a[rel]").each(function(i) {
+                            var self = $(this);
                             self.off();
-                            <span class="code-keyword">var</span> link = self.attr('id');
+                            var link = self.attr('id');
                             self.attr('onclick', 'fileDownload("' + c + 'action=web/file/get&amp;ctx=web&amp;link=' + link+'")');
                         });
 
-                    } <span class="code-keyword">else</span> {
+                    } else {
                         form.data("validator").invalidate(data);
                     }
                 }, "json");
@@ -495,50 +455,41 @@ $(<span class="code-keyword">function</span>(){
         });
     }
 
-    <span class="code-keyword">function</span> clearForm(form) {
-        form.find(':input').each(<span class="code-keyword">function</span>() {
-            <span class="code-keyword">switch</span>(<span class="code-keyword">this</span>.type) {
-                <span class="code-keyword">case</span> 'password':
-                <span class="code-keyword">case</span> 'select-multiple':
-                <span class="code-keyword">case</span> 'select-one':
-                <span class="code-keyword">case</span> 'text':
-                <span class="code-keyword">case</span> 'email':
-                <span class="code-keyword">case</span> 'number':
-                <span class="code-keyword">case</span> 'textarea':
-                    $(<span class="code-keyword">this</span>).val('');
-                    <span class="code-keyword">break</span>;
-                <span class="code-keyword">case</span> 'checkbox':
-                <span class="code-keyword">case</span> 'radio':
-                    <span class="code-keyword">this</span>.checked = <span class="code-keyword">false</span>;
+    function clearForm(form) {
+        form.find(':input').each(function() {
+            switch(this.type) {
+                case 'password':
+                case 'select-multiple':
+                case 'select-one':
+                case 'text':
+                case 'email':
+                case 'number':
+                case 'textarea':
+                    $(this).val('');
+                    break;
+                case 'checkbox':
+                case 'radio':
+                    this.checked = false;
             }
         });
     }
 });
 
-<span class="code-keyword">function</span> fileDownload(link) {
+function fileDownload(link) {
     $('&lt;iframe/&gt;',{
         src: link
     }).hide().appendTo($('body'));
 }
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="FileDownloadR.FileDownload-connector"></a>connector
+<h3 id="FileDownloadR.FileDownload-connector">
+connector
 </h3>
 
 <p>
 And the connector would be like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<div class="error">
-<span class="error">Unable to find source-code formatter for language: php.</span> Available languages are: actionscript, html, java, javascript, none, sql, xhtml, xml
-</div>
-
-<pre class="code-php">
+<pre class="brush: php">
 &lt;?php
 /**
  * FileDownload R's AJAX connector file
@@ -547,30 +498,30 @@ $validActions = array(
     'web/file/get',
     'web/form/add'
 );
-<span class="code-keyword">if</span> (!empty($_REQUEST['action']) &amp;&amp; in_array($_REQUEST['action'], $validActions)) {
-    @session_cache_limiter('<span class="code-keyword">public</span>');
-    define('MODX_REQP', <span class="code-keyword">false</span>);
+if (!empty($_REQUEST['action']) &amp;&amp; in_array($_REQUEST['action'], $validActions)) {
+    @session_cache_limiter('public');
+    define('MODX_REQP', false);
 }
 require_once dirname(dirname(dirname(dirname(__FILE__)))) . '/config.core.php';
 require_once MODX_CORE_PATH . 'config/' . MODX_CONFIG_KEY . '.inc.php';
 require_once MODX_CONNECTORS_PATH . 'index.php';
 
-$corePath = $modx-&gt;getOption('filedownload.core_path', <span class="code-keyword">null</span>, $modx-&gt;getOption('core_path') . 'components/filedownload/');
+$corePath = $modx-&gt;getOption('filedownload.core_path', null, $modx-&gt;getOption('core_path') . 'components/filedownload/');
 require_once $corePath . 'models/filedownload/filedownload.class.php';
-$modx-&gt;filedownload = <span class="code-keyword">new</span> FileDownload($modx);
+$modx-&gt;filedownload = new FileDownload($modx);
 
-$modx-&gt;lexicon-&gt;load('filedownload:<span class="code-keyword">default</span>');
+$modx-&gt;lexicon-&gt;load('filedownload:default');
 
-<span class="code-keyword">if</span> (in_array($_REQUEST['action'], $validActions)) {
+if (in_array($_REQUEST['action'], $validActions)) {
     $version = $modx-&gt;getVersionData();
-    <span class="code-keyword">if</span> (version_compare($version['full_version'], '2.1.1-pl') &gt;= 0) {
-        <span class="code-keyword">if</span> ($modx-&gt;user-&gt;hasSessionContext($modx-&gt;context-&gt;get('key'))) {
-            $_SERVER['HTTP_MODAUTH'] = $_SESSION[<span class="code-quote">"modx.{$modx-&gt;context-&gt;get('key')}.user.token"</span>];
-        } <span class="code-keyword">else</span> {
-            $_SESSION[<span class="code-quote">"modx.{$modx-&gt;context-&gt;get('key')}.user.token"</span>] = 0;
+    if (version_compare($version['full_version'], '2.1.1-pl') &gt;= 0) {
+        if ($modx-&gt;user-&gt;hasSessionContext($modx-&gt;context-&gt;get('key'))) {
+            $_SERVER['HTTP_MODAUTH'] = $_SESSION["modx.{$modx-&gt;context-&gt;get('key')}.user.token"];
+        } else {
+            $_SESSION["modx.{$modx-&gt;context-&gt;get('key')}.user.token"] = 0;
             $_SERVER['HTTP_MODAUTH'] = 0;
         }
-    } <span class="code-keyword">else</span> {
+    } else {
         $_SERVER['HTTP_MODAUTH'] = $modx-&gt;site_id;
     }
     $_REQUEST['HTTP_MODAUTH'] = $_SERVER['HTTP_MODAUTH'];
@@ -583,11 +534,8 @@ $modx-&gt;request-&gt;handleRequest(array(
     'location' =&gt; '',
 ));
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="FileDownloadR.FileDownload-processors"></a>processors
+<h3 id="FileDownloadR.FileDownload-processors">
+processors
 </h3>
 
 <p>
@@ -596,18 +544,12 @@ core/components/yourpackage/processors/web/file/get/
 example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<div class="error">
-<span class="error">Unable to find source-code formatter for language: php.</span> Available languages are: actionscript, html, java, javascript, none, sql, xhtml, xml
-</div>
-
-<pre class="code-php">
+<pre class="brush: php">
 &lt;?php
 
-<span class="code-keyword">if</span> (!$modx-&gt;loadClass('FileDownload', $modx-&gt;getOption('core_path') . 'components/filedownload/models/', <span class="code-keyword">true</span>, <span class="code-keyword">true</span>)) {
+if (!$modx-&gt;loadClass('FileDownload', $modx-&gt;getOption('core_path') . 'components/filedownload/models/', true, true)) {
     $modx-&gt;log(modX::LOG_LEVEL_ERROR, '[FileDownload] Could not load FileDownload class.');
-    <span class="code-keyword">return</span> '';
+    return '';
 }
 
 $fdl = $modx-&gt;getService('fdl'
@@ -616,60 +558,55 @@ $fdl = $modx-&gt;getService('fdl'
 );
 
 $configs = array();
-$configs['countDownloads'] = <span class="code-keyword">true</span>;
+$configs['countDownloads'] = true;
 
 $fdl-&gt;setConfigs($configs);
 
-$downloadFile = $fdl-&gt;downloadFile($scriptProperties['link']);    <span class="code-comment">// &lt;== THIS IS WHERE YOU DOWNLOAD THE FILE
-</span><span class="code-keyword">if</span> (!$downloadFile) {
+$downloadFile = $fdl-&gt;downloadFile($scriptProperties['link']);    // &lt;== THIS IS WHERE YOU DOWNLOAD THE FILE
+if (!$downloadFile) {
     $output = array('success' =&gt; FALSE);
-} <span class="code-keyword">else</span> {
+} else {
     $output = array('success' =&gt; TRUE);
 }
-<span class="code-keyword">return</span> json_encode($output);
+return json_encode($output);
 </pre>
-</div>
-</div>
-
-<h1>
-<a name="FileDownloadR.FileDownload-Saltforhash"></a>Salt for hash
+<h1 id="FileDownloadR.FileDownload-Saltforhash">
+Salt for hash
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 saltText
 </td>
-<td class='confluenceTd'>
+<td>
 This text will be added to the file's hashed link to disguise the direct path
 </td>
-<td class='confluenceTd'>
+<td>
 FileDownload
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 The link is a hashed text of the saltText, context, and filename/dirname combination.
@@ -677,281 +614,277 @@ The link is a hashed text of the saltText, context, and filename/dirname combina
 So if you change the saltText value after a while, it will not block the content's appearance from the page, but the database will start the counter from zero again since it will not find the same hashed value.
 </p>
 
-<h1>
-<a name="FileDownloadR.FileDownload-Additional"></a>Additional
+<h1 id="FileDownloadR.FileDownload-Additional">
+Additional
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 noDownload
 </td>
-<td class='confluenceTd'>
+<td>
 This property will make the list only displays files without their download links.
-<br class="atl-forced-newline" />
+<br />
 note: this is different from the Evo's version
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;noDownload=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 browseDirectories
 </td>
-<td class='confluenceTd'>
+<td>
 Allows users to view subdirectories of the directory specified with the &amp;getDir parameter.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;browseDirectories=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool:0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 chkDesc
 </td>
-<td class='confluenceTd'>
+<td>
 Allows descriptions to be added to the file listing included in a chunk.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;chkDesc=`fileDesc`
 </td>
-<td class='confluenceTd'>
+<td>
 fileDescription
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dateFormat
 </td>
-<td class='confluenceTd'>
+<td>
 PHP's date formatting for the list
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;dateFormat=`m/d/Y`
 </td>
-<td class='confluenceTd'>
+<td>
 Y-m-d
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 countDownloads
 </td>
-<td class='confluenceTd'>
+<td>
 Tracking the downloading
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;countDownloads=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imgTypes
 </td>
-<td class='confluenceTd'>
+<td>
 A chunk name to define the associations between file extension and image
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;imgTypes=`fdImages`
 </td>
-<td class='confluenceTd'>
+<td>
 fdImages
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imgLocat
 </td>
-<td class='confluenceTd'>
+<td>
 Path to the images to associate with each file extension.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;imgLocat=`assets/filetypes`
 </td>
-<td class='confluenceTd'>
+<td>
 assets/components/filedownload/img/filetype
 </td>
-<td class='confluenceTd'>
+<td>
 web accessible path
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h1>
-<a name="FileDownloadR.FileDownload-Sorting"></a>Sorting
+<h1 id="FileDownloadR.FileDownload-Sorting">
+Sorting
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortBy
 </td>
-<td class='confluenceTd'>
+<td>
 Sort ordering.
-<br class="atl-forced-newline" />
+<br />
 Options:filename | extension | path | size | sizetext | type | date | unixdate (1.1.4-pl) | description | count
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;sortBy=`path`
 </td>
-<td class='confluenceTd'>
+<td>
 filename
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortByCaseSensitive
 </td>
-<td class='confluenceTd'>
+<td>
 Case sensitive option for sorting
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;sortByCaseSensitive=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortOrder
 </td>
-<td class='confluenceTd'>
+<td>
 Sort files in ascending or descending order.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;sortOrder=`desc`
 </td>
-<td class='confluenceTd'>
+<td>
 asc
 </td>
-<td class='confluenceTd'>
+<td>
 asc/desc
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortOrderNatural
 </td>
-<td class='confluenceTd'>
+<td>
 Sort order option by a natural order
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;sortOrderNatural=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 groupByDirectory
 </td>
-<td class='confluenceTd'>
+<td>
 If multiple directories are specified in the getDir parameter, this property will group the files by each directory.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;groupByDirectory=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 Multiple sorting orders are applied as these orders:
@@ -968,247 +901,240 @@ Multiple sorting orders are applied as these orders:
 </li>
 </ul>
 
-<h2>
-<a name="FileDownloadR.FileDownload-Example"></a>Example
+<h2 id="FileDownloadR.FileDownload-Example">
+Example
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
+<pre class="brush: html">
 [[!FileDownload?
 &amp;getDir=`[[++core_path]]downloads-from-core/land rover, assets/downloads`
 &amp;browseDirectories=`1`
 &amp;groupByDirectory=`1`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35586636/browsedirectories-groupbydirectory.jpg?version=1&amp;modificationDate=1345838638000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/35586636/browsedirectories-groupbydirectory.jpg?version=1&amp;modificationDate=1345838638000" />
 </p>
 
-<h1>
-<a name="FileDownloadR.FileDownload-Template"></a>Template
+<h1 id="FileDownloadR.FileDownload-Template">
+Template
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplDir
 </td>
-<td class='confluenceTd'>
+<td>
 directory row template
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tplDir=`tpl-dir`
 </td>
-<td class='confluenceTd'>
+<td>
 tpl-dir
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name/ @Bindings
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplFile
 </td>
-<td class='confluenceTd'>
+<td>
 file row template
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tplFile=`tpl-file`
 </td>
-<td class='confluenceTd'>
+<td>
 tpl-file
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name/ @Bindings
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplGroupDir
 </td>
-<td class='confluenceTd'>
+<td>
 This is the template of the directory path if the &amp;groupByDirectory is enabled
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tplGroupDir=`tpl-group`
 </td>
-<td class='confluenceTd'>
+<td>
 tpl-group-dirchunk's name
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name/ @Bindings
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplWrapper
 </td>
-<td class='confluenceTd'>
+<td>
 This is the container template of all of the snippet's results
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tplWrapper=`tplWrapper`
 </td>
-<td class='confluenceTd'>
+<td>
 tpl-wrapper
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name/ @Bindings
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplWrapperDir
 </td>
-<td class='confluenceTd'>
+<td>
 This is the container template for folders (optional)
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tplWrapperDir=`tplWrapperDir`
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name/ @Bindings
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplWrapperFile
 </td>
-<td class='confluenceTd'>
+<td>
 This is the container template for files (optional)
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tplWrapperFile=`tplWrapperFile`
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name/ @Bindings
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplIndex
 </td>
-<td class='confluenceTd'>
+<td>
 A generated index.html file to cover up the directory from direct web access
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tplIndex=`tpl-index`
 </td>
-<td class='confluenceTd'>
+<td>
 tpl-index
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name/ @Bindings
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplNotAllowed
 </td>
-<td class='confluenceTd'>
+<td>
 Template for forbidden access. [[!Login]] can be used in here.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tplNotAllowed=`tpl-notAllowed`
 </td>
-<td class='confluenceTd'>
+<td>
 @FILE: [[++core_path]]components/filedownload/elements/chunks/tpl-notallowed.chunk.tpl
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name/ @Bindings
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplBreadcrumb
 </td>
-<td class='confluenceTd'>
+<td>
 Template for breadcrumb
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tplBreadcrumb =`tpl-breadcrumb`
 </td>
-<td class='confluenceTd'>
+<td>
 tpl-breadcrumb
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name/ @Bindings
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 breadcrumbSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 separator character for the breadcrumb
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;breadcrumbSeparator=` / `
 </td>
-<td class='confluenceTd'>
+<td>
 /
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 <em>tplWrapperDir</em> &amp; <em>tplWrapperFile</em> (1.0.0-rc.5) are used to provide different wrappers between folders and files.
 <br />
-That means that they might have different headers. There are the default chunks inside <b>{core_path}components/filedownload/elements/chunks/</b>, which are <b>tpl-wrapper-dir</b>.chunk.tpl and <b>tpl-wrapper file</b>.chunk.tpl, respectively.
+That means that they might have different headers. There are the default chunks inside <strong>{core_path}components/filedownload/elements/chunks/</strong>, which are <strong>tpl-wrapper-dir</strong>.chunk.tpl and <strong>tpl-wrapper file</strong>.chunk.tpl, respectively.
 <br />
 To use them, <em>tplWrapper</em> must be changed too or set it empty instead.
 </p>
 
 <p>
-FileDownload R has <a href="http://rtfm.modx.com/display/MODx096/What+are+%28at%29+Bindings" class="external-link" rel="nofollow">@BINDING</a> directives for the template:
+FileDownload R has <a href="http://rtfm.modx.com/display/MODx096/What+are+%28at%29+Bindings">@BINDING</a> directives for the template:
 </p>
 
 <ul>
@@ -1218,38 +1144,31 @@ FileDownload R has <a href="http://rtfm.modx.com/display/MODx096/What+are+%28at%
 <li>@FILE
 </li>
 
-<li>@CHUNK (or not at all) - <b>default</b>
+<li>@CHUNK (or not at all) - <strong>default</strong>
 </li>
 </ul>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
+<pre class="brush: html">
 [[!FileDownload?
 &amp;getDir=`assets/downloads`
-&amp;tplFile=`@CODE:    <span class="code-tag">&lt;tr[[+fd.class]]&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>
-            <span class="code-tag">&lt;span class=<span class="code-quote">"fd-icon"</span>&gt;</span>
-                <span class="code-tag">&lt;img src=<span class="code-quote">"[[+fd.image]]"</span> alt="" /&gt;</span>
-            <span class="code-tag">&lt;/span&gt;</span>
-            <span class="code-tag">&lt;a href=<span class="code-quote">"[[+fd.url]]"</span>&gt;</span>[[+fd.filename]]<span class="code-tag">&lt;/a&gt;</span>
-            <span class="code-tag">&lt;span style=<span class="code-quote">"font-size:80%"</span>&gt;</span>([[+fd.count]] downloads)<span class="code-tag">&lt;/span&gt;</span>
-        <span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>[[+fd.sizeText]]<span class="code-tag">&lt;/td&gt;</span>
-        <span class="code-tag">&lt;td&gt;</span>[[+fd.date]]<span class="code-tag">&lt;/td&gt;</span>
-    <span class="code-tag">&lt;/tr&gt;</span>`
+&amp;tplFile=`@CODE:    &lt;tr[[+fd.class]]&gt;
+        &lt;td&gt;
+            &lt;span class="fd-icon"&gt;
+                &lt;img src="[[+fd.image]]" alt="" /&gt;
+            &lt;/span&gt;
+            &lt;a href="[[+fd.url]]"&gt;[[+fd.filename]]&lt;/a&gt;
+            &lt;span style="font-size:80%"&gt;([[+fd.count]] downloads)&lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td&gt;[[+fd.sizeText]]&lt;/td&gt;
+        &lt;td&gt;[[+fd.date]]&lt;/td&gt;
+    &lt;/tr&gt;`
 ]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="FileDownloadR.FileDownload-Example"></a>Example
+<h2 id="FileDownloadR.FileDownload-Example">
+Example
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-html">
+<pre class="brush: html">
 [[!FileDownload?
 &amp;getDir=`assets/downloads`
 &amp;browseDirectories=`1`
@@ -1258,305 +1177,298 @@ FileDownload R has <a href="http://rtfm.modx.com/display/MODx096/What+are+%28at%
 &amp;tplWrapperFile=`tpl-wrapper-file`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35586636/separate-wrappers.jpg?version=1&amp;modificationDate=1345838225000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/35586636/separate-wrappers.jpg?version=1&amp;modificationDate=1345838225000" />
 </p>
 
-<h1>
-<a name="FileDownloadR.FileDownload-Headers"></a>Headers
+<h1 id="FileDownloadR.FileDownload-Headers">
+Headers
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fileCss
 </td>
-<td class='confluenceTd'>
+<td>
 FileDownload's Cascading Style Sheet file for the page header
 </td>
-<td class='confluenceTd'>
+<td>
 assets/components/filedownload/css/fd.css
 </td>
-<td class='confluenceTd'>
+<td>
 web path
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fileJs
 </td>
-<td class='confluenceTd'>
+<td>
 FileDownload's Javascript file for the page header
 </td>
-<td class='confluenceTd'>
+<td>
 assets/components/filedownload/js/fd.js
 </td>
-<td class='confluenceTd'>
+<td>
 web path
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h1>
-<a name="FileDownloadR.FileDownload-Style"></a>Style
+<h1 id="FileDownloadR.FileDownload-Style">
+Style
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssAltRow
 </td>
-<td class='confluenceTd'>
+<td>
 This specifies the class that will be applied to every other file/directory so a ledger look can be styled.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 fd-altRow
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssDir
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for all directories
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 fd-dir
 </td>
-<td class='confluenceTd'>
+<td>
 css class name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssExtension
 </td>
-<td class='confluenceTd'>
+<td>
 With this parameter set to 1, a class will be added to each file according to the file's extension.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;cssExtension=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssExtensionPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 Prefix to the above cssExtension class name
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 fd-
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssExtensionSuffix
 </td>
-<td class='confluenceTd'>
+<td>
 Suffix to the above cssExtension class name
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 null
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssFile
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for all files
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;cssFile=`files`
 </td>
-<td class='confluenceTd'>
+<td>
 fd-file
 </td>
-<td class='confluenceTd'>
+<td>
 class name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssFirstDir
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for the first directory
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 fd-firstDir
 </td>
-<td class='confluenceTd'>
+<td>
 css class name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssFirstFile
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for the first file
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 fd-firstFile
 </td>
-<td class='confluenceTd'>
+<td>
 css class name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssGroupDir
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for the the directory for multi-directory grouping.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 fd-group-dir
 </td>
-<td class='confluenceTd'>
+<td>
 css class name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssLastDir
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for the last directory
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 fd-lastDir
 </td>
-<td class='confluenceTd'>
+<td>
 css class name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssLastFile
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for the last file
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 fd-lastFile
 </td>
-<td class='confluenceTd'>
+<td>
 css class name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssPath
 </td>
-<td class='confluenceTd'>
+<td>
 This specifies the class that will be applied to the path when using directory browsing.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 fd-path
 </td>
-<td class='confluenceTd'>
+<td>
 css class name
 </td>
 </tr>
 </tbody>
 </table>
-</div>

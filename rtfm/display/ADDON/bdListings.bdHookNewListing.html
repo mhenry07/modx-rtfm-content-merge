@@ -2,90 +2,72 @@
 The bdHookNewListing snippet is to be used as a hook in a formit snippet call, which can be used to allow front-end users to create new listings.
 </p>
 
-<h2>
-<a name="bdListings.bdHookNewListing-FormFields" id="bdListings.bdHookNewListing-FormFields"></a>Form Fields
+<h2 id="bdListings.bdHookNewListing-FormFields">
+Form Fields
 </h2>
 
 <p>
-You will want to cover every field the user needs to enter into the database. These are the expected field names you will want in the form (you can also checkout <a href="https://github.com/Mark-H/bdListings/blob/master/_build/schema/bdlistings.mysql.schema.xml" class="external-link" rel="nofollow">the schema on Github</a>).
+You will want to cover every field the user needs to enter into the database. These are the expected field names you will want in the form (you can also checkout <a href="https://github.com/Mark-H/bdListings/blob/master/_build/schema/bdlistings.mysql.schema.xml">the schema on Github</a>).
 </p>
 
 <ul>
-<li>
-<font color="#000000">title</font>
+<li>title
 </li>
 
-<li>
-<font color="#000000">description</font>
+<li>description
 </li>
 
-<li>
-<font color="#000000">keywords</font>
+<li>keywords
 </li>
 
-<li>
-<font color="#000000">price (saved with 2 decimals)</font>
+<li>price (saved with 2 decimals)
 </li>
 
-<li>
-<font color="#000000">pricegroup (integer ID of price group)</font>
+<li>pricegroup (integer ID of price group)
 </li>
 
-<li>
-<font color="#000000">category&nbsp;</font><font color="#000000">(integer ID of category)</font>
+<li>category&nbsp;(integer ID of category)
 </li>
 
-<li>
-<font color="#000000">subcategory&nbsp;</font><font color="#000000">(integer ID of subcategory)</font>
+<li>subcategory&nbsp;(integer ID of subcategory)
 </li>
 
-<li>
-<font color="#000000">target&nbsp;</font><font color="#000000">(integer ID of target group (ages))</font>
+<li>target&nbsp;(integer ID of target group (ages))
 </li>
 
-<li>
-<font color="#000000">publishedon - date / timestamp, recognizes most formats.</font>
+<li>publishedon - date / timestamp, recognizes most formats.
 </li>
 
-<li>
-<font color="#000000">companyname</font>
+<li>companyname
 </li>
 
-<li>
-<font color="#000000">contactinfo</font>
+<li>contactinfo
 </li>
 
-<li>
-<font color="#000000">address</font>
+<li>address
 </li>
 
-<li>
-<font color="#000000">neighborhood</font>
+<li>neighborhood
 </li>
 
-<li>
-<font color="#000000">zip</font>
+<li>zip
 </li>
 
-<li>
-<font color="#000000">city</font>
+<li>city
 </li>
 
-<li>
-<font color="#000000">country</font>
+<li>country
 </li>
 
-<li>
-<font color="#000000">website</font>
+<li>website
 </li>
 
-<li>
-<font color="#000000">latitude and longitude. If both are empty it will retrieve it automatically based on address/zip/city/country values entered. If you don't need the country, add it as a hidden field to make sure enough data is available to retrieve the lat/long pair from the Google Maps API.</font>
+<li>latitude and longitude. If both are empty it will retrieve it automatically based on address/zip/city/country values entered. If you don't need the country, add it as a hidden field to make sure enough data is available to retrieve the lat/long pair from the Google Maps API.
 </li>
 </ul>
 
-<h2>
-<a name="bdListings.bdHookNewListing-FormExample" id="bdListings.bdHookNewListing-FormExample"></a>Form Example
+<h2 id="bdListings.bdHookNewListing-FormExample">
+Form Example
 </h2>
 
 <p>

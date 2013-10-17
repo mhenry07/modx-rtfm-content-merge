@@ -1,50 +1,37 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="isNew-xPDOObject%3A%3AisNew%28%29"></a>xPDOObject::isNew()
+<h2 id="isNew-xPDOObject::isNew()">
+xPDOObject::isNew()
 </h2>
 
 <p>
 Indicates if the instance is new, and has not yet been persisted.
 </p>
 
-<h2>
-<a name="isNew-Syntax" id="isNew-Syntax"></a>Syntax
+<h2 id="isNew-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#isNew" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#isNew</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#isNew">http://api.modxcms.com/xpdo/om/xPDOObject.html#isNew</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> isNew ()
+<pre class="brush: php">
+boolean isNew ()
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="isNew-Examples" id="isNew-Examples"></a>Examples
+<h2 id="isNew-Examples">
+Examples
 </h2>
 
 <p>
 State if the Broom has been saved.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $broom = $xpdo-&gt;newObject('Broom');
 $broom-&gt;set('name','Firebolt');
 
-echo $broom-&gt;isNew() ? 1 : 0; <span class="code-comment">// prints 1
-</span>
+echo $broom-&gt;isNew() ? 1 : 0; // prints 1
+
 $broom-&gt;save();
 
-echo $broom-&gt;isNew() ? 1 : 0; <span class="code-comment">// prints 0</span>
+echo $broom-&gt;isNew() ? 1 : 0; // prints 0
 </pre>
-</div>
-</div>

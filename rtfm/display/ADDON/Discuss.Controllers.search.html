@@ -9,314 +9,303 @@ The actual searching is done by the search class. This is configured with the di
 <div>
 <ul>
 <li>
-<a href='#Discuss.Controllers.search-BasicInformation'>Basic Information</a>
+<a href="#Discuss.Controllers.search-BasicInformation">Basic Information</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.search-Options'>Options</a>
+<a href="#Discuss.Controllers.search-Options">Options</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.search-ControllerTemplate'>Controller Template</a>
+<a href="#Discuss.Controllers.search-ControllerTemplate">Controller Template</a>
 </li>
 
 <li>
-<a href='#Discuss.Controllers.search-SystemEvents'>System Events</a>
+<a href="#Discuss.Controllers.search-SystemEvents">System Events</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Discuss.Controllers.search-BasicInformation" id="Discuss.Controllers.search-BasicInformation"></a>Basic Information
+<h2 id="Discuss.Controllers.search-BasicInformation">
+Basic Information
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Since Version
 </td>
-<td class='confluenceTd'>
+<td>
 1.0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller File
 </td>
-<td class='confluenceTd'>
+<td>
 controllers/web/search.class.php
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller Class Name
 </td>
-<td class='confluenceTd'>
+<td>
 DiscussSearchController
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Controller Template
 </td>
-<td class='confluenceTd'>
+<td>
 pages/search.tpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Manifest Name
 </td>
-<td class='confluenceTd'>
+<td>
 search
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Discuss.Controllers.search-Options" id="Discuss.Controllers.search-Options"></a>Options
+<h2 id="Discuss.Controllers.search-Options">
+Options
 </h2>
 
 <p>
 If you don't know what the manifest is, please go back to the <a href="/display/ADDON/Discuss.Getting+Started" title="Discuss.Getting Started">Getting Started</a> document. The options below need to go into the "search" options array of the manifest.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Key
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resultRowTpl
 </td>
-<td class='confluenceTd'>
+<td>
 disSearchResult
 </td>
-<td class='confluenceTd'>
+<td>
 The name of a (file based) chunk to wrap each result in. Placeholders include all <span class="error">[Discuss.Database+Model]</span> fields, as well as [<span class="error">[+username]</span>], [<span class="error">[\+board_name]</span>], [<span class="error">[+replies]</span>], [<span class="error">[+relevancy]</span>], [<span class="error">[+cls]</span>], [<span class="error">[+toggle]</span>].
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toggle
 </td>
-<td class='confluenceTd'>
+<td>
 +
 </td>
-<td class='confluenceTd'>
+<td>
 A string to show as toggle button
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 value of discuss.threads_per_page or 20
 </td>
-<td class='confluenceTd'>
+<td>
 Amount of results per page
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Discuss.Controllers.search-ControllerTemplate" id="Discuss.Controllers.search-ControllerTemplate"></a>Controller Template
+<h2 id="Discuss.Controllers.search-ControllerTemplate">
+Controller Template
 </h2>
 
 <p>
 This controller template has the following placeholders you can use, on top of the placeholders mentioned in the options above:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
-<a href="http://rtfm.modx.com/display/ADDON/Discuss.Database+Model#Discuss.DatabaseModel-disBoardBoards" class="external-link" rel="nofollow">All fields of the disBoard object.</a>
+<td>
+<a href="http://rtfm.modx.com/display/ADDON/Discuss.Database+Model#Discuss.DatabaseModel-disBoardBoards">All fields of the disBoard object.</a>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 results
 </td>
-<td class='confluenceTd'>
+<td>
 The search results or an error message.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 total
 </td>
-<td class='confluenceTd'>
+<td>
 Amount of results.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 start
 </td>
-<td class='confluenceTd'>
+<td>
 Number of results this page starts on.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 end
 </td>
-<td class='confluenceTd'>
+<td>
 Either the number of the last result on this page, or the total amount of results.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pagination
 </td>
-<td class='confluenceTd'>
+<td>
 Generated pagination bits.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 search
 </td>
-<td class='confluenceTd'>
+<td>
 The search term.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;form class=<span class="code-quote">"m-fullw-form m-styled-form h-group m-search"</span> action=<span class="code-quote">"[[~[[*id]]]]search/"</span> method=<span class="code-quote">"get"</span>&gt;
+<pre class="brush: php">
+&lt;form class="m-fullw-form m-styled-form h-group m-search" action="[[~[[*id]]]]search/" method="get"&gt;
     &lt;h1&gt;[[%discuss.search? &amp;namespace=`discuss` &amp;topic=`web`]]&lt;/h1&gt;
-    &lt;div class=<span class="code-quote">"m-panel f1-f8"</span>&gt;
-        &lt;div class=<span class="code-quote">"f1-f5 f-pad h-group"</span>&gt;
-            &lt;label class=<span class="code-quote">"search"</span> <span class="code-keyword">for</span>=<span class="code-quote">"dis-search"</span>&gt;[[%discuss.search]]:&lt;/label&gt;
-            &lt;input class=<span class="code-quote">"search"</span> type=<span class="code-quote">"text"</span> id=<span class="code-quote">"dis-search"</span> name=<span class="code-quote">"s"</span> value=<span class="code-quote">"[[+search]]"</span> /&gt;
+    &lt;div class="m-panel f1-f8"&gt;
+        &lt;div class="f1-f5 f-pad h-group"&gt;
+            &lt;label class="search" for="dis-search"&gt;[[%discuss.search]]:&lt;/label&gt;
+            &lt;input class="search" type="text" id="dis-search" name="s" value="[[+search]]" /&gt;
         &lt;/div&gt;
-        &lt;div class=<span class="code-quote">"f-all f-pad  h-group"</span>&gt;
-            &lt;a id=<span class="code-quote">"dis-search-advanced-toggle"</span> href=<span class="code-quote">"a-search-adavnaced"</span>&gt;[[%discuss.search_advanced_options]]&lt;/a&gt;
+        &lt;div class="f-all f-pad  h-group"&gt;
+            &lt;a id="dis-search-advanced-toggle" href="a-search-adavnaced"&gt;[[%discuss.search_advanced_options]]&lt;/a&gt;
         &lt;/div&gt;
-        &lt;div id=<span class="code-quote">"dis-search-advanced"</span> class=<span class="code-quote">"f-all m-grouped-content"</span>&gt;
-            &lt;div class=<span class="code-quote">"f-full"</span>&gt;
-                &lt;div class=<span class="code-quote">"f1-f4 f-pad"</span>&gt;
-                    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-search-board"</span>&gt;Post type:
-                        &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.board]]&lt;/span&gt;
+        &lt;div id="dis-search-advanced" class="f-all m-grouped-content"&gt;
+            &lt;div class="f-full"&gt;
+                &lt;div class="f1-f4 f-pad"&gt;
+                    &lt;label for="dis-search-board"&gt;Post type:
+                        &lt;span class="error"&gt;[[+error.board]]&lt;/span&gt;
                     &lt;/label&gt;
-                    &lt;select name=<span class="code-quote">"board"</span> id=<span class="code-quote">"dis-search-qa"</span>&gt;
-                        &lt;option value=<span class="code-quote">"1"</span>&gt;(All Posts)&lt;/option&gt;
-                        &lt;option value=<span class="code-quote">"2"</span>&gt;Discussions&lt;/option&gt;
-                        &lt;option value=<span class="code-quote">"3"</span> id=<span class="code-quote">"QA"</span>&gt;Questions&lt;/option&gt;
+                    &lt;select name="board" id="dis-search-qa"&gt;
+                        &lt;option value="1"&gt;(All Posts)&lt;/option&gt;
+                        &lt;option value="2"&gt;Discussions&lt;/option&gt;
+                        &lt;option value="3" id="QA"&gt;Questions&lt;/option&gt;
                     &lt;/select&gt;
                 &lt;/div&gt;
-                &lt;div id=<span class="code-quote">"SubOptions"</span> class=<span class="code-quote">"f5-f8 sub-options"</span>&gt;
-                    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-search-board"</span>&gt;Question options:
-                        &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.board]]&lt;/span&gt;
+                &lt;div id="SubOptions" class="f5-f8 sub-options"&gt;
+                    &lt;label for="dis-search-board"&gt;Question options:
+                        &lt;span class="error"&gt;[[+error.board]]&lt;/span&gt;
                     &lt;/label&gt;
-                    &lt;input type=<span class="code-quote">"radio"</span> name=<span class="code-quote">"qa-options"</span> value=<span class="code-quote">"Both"</span> checked&gt;All Questions
-                    &lt;input type=<span class="code-quote">"radio"</span> name=<span class="code-quote">"qa-options"</span> value=<span class="code-quote">"Solved"</span>&gt;Answered
-                    &lt;input type=<span class="code-quote">"radio"</span> name=<span class="code-quote">"qa-options"</span> value=<span class="code-quote">"Unsolved"</span>&gt;Without Answer
+                    &lt;input type="radio" name="qa-options" value="Both" checked&gt;All Questions
+                    &lt;input type="radio" name="qa-options" value="Solved"&gt;Answered
+                    &lt;input type="radio" name="qa-options" value="Unsolved"&gt;Without Answer
                 &lt;/div&gt;
             &lt;/div&gt;
 
-            &lt;div class=<span class="code-quote">"f-full"</span>&gt;
-                &lt;div class=<span class="code-quote">"f1-f4 f-pad"</span>&gt;
-                    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-search-board"</span>&gt;[[%discuss.board]]:
-                        &lt;span class=<span class="code-quote">"error"</span>&gt;[[+error.board]]&lt;/span&gt;
+            &lt;div class="f-full"&gt;
+                &lt;div class="f1-f4 f-pad"&gt;
+                    &lt;label for="dis-search-board"&gt;[[%discuss.board]]:
+                        &lt;span class="error"&gt;[[+error.board]]&lt;/span&gt;
                     &lt;/label&gt;
-                    &lt;select name=<span class="code-quote">"board"</span> id=<span class="code-quote">"dis-search-board"</span>&gt;[[+boards]]&lt;/select&gt;
+                    &lt;select name="board" id="dis-search-board"&gt;[[+boards]]&lt;/select&gt;
                 &lt;/div&gt;
-                &lt;div class=<span class="code-quote">"f5-f8 f-pad"</span>&gt;
-                    &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-author"</span>&gt;[[%discuss.author]]:&lt;/label&gt;
-                    &lt;input type=<span class="code-quote">"text"</span> id=<span class="code-quote">"dis-author"</span> name=<span class="code-quote">"user"</span> value=<span class="code-quote">"[[+user]]"</span> class=<span class="code-quote">"autocomplete"</span> data-autocomplete-action=<span class="code-quote">"<span class="code-keyword">rest</span>/find_user"</span> data-autocomplete-single=<span class="code-quote">"<span class="code-keyword">true</span>"</span> /&gt;
+                &lt;div class="f5-f8 f-pad"&gt;
+                    &lt;label for="dis-author"&gt;[[%discuss.author]]:&lt;/label&gt;
+                    &lt;input type="text" id="dis-author" name="user" value="[[+user]]" class="autocomplete" data-autocomplete-action="rest/find_user" data-autocomplete-single="true" /&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
 
-            &lt;div class=<span class="code-quote">"f1-f4 f-pad"</span>&gt;
-                &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-date-start"</span>&gt;[[%discuss.date_start]]:&lt;/label&gt;
-                &lt;input type=<span class="code-quote">"text"</span> id=<span class="code-quote">"dis-date-start"</span> class=<span class="code-quote">"m-datepicker"</span> name=<span class="code-quote">"date_start"</span> value=<span class="code-quote">"[[+date_start]]"</span>/&gt;
+            &lt;div class="f1-f4 f-pad"&gt;
+                &lt;label for="dis-date-start"&gt;[[%discuss.date_start]]:&lt;/label&gt;
+                &lt;input type="text" id="dis-date-start" class="m-datepicker" name="date_start" value="[[+date_start]]"/&gt;
             &lt;/div&gt;
 
-            &lt;div class=<span class="code-quote">"f5-f8 f-pad"</span>&gt;
-                &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"dis-date-end"</span>&gt;[[%discuss.date_end]]:&lt;/label&gt;
-                &lt;input type=<span class="code-quote">"text"</span> id=<span class="code-quote">"dis-date-end"</span> class=<span class="code-quote">"m-datepicker"</span> name=<span class="code-quote">"date_end"</span> value=<span class="code-quote">"[[+date_end]]"</span>/&gt;
+            &lt;div class="f5-f8 f-pad"&gt;
+                &lt;label for="dis-date-end"&gt;[[%discuss.date_end]]:&lt;/label&gt;
+                &lt;input type="text" id="dis-date-end" class="m-datepicker" name="date_end" value="[[+date_end]]"/&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=<span class="code-quote">"f1-f8 f-pad"</span>&gt;
-            &lt;input type=<span class="code-quote">"submit"</span> value=<span class="code-quote">"[[%discuss.search]]"</span> /&gt;
+        &lt;div class="f1-f8 f-pad"&gt;
+            &lt;input type="submit" value="[[%discuss.search]]" /&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/form&gt;
 
 [[+search:notempty=`
-&lt;header class=<span class="code-quote">"dis-cat-header dark-gradient h-group sticky-bar top"</span>&gt;
+&lt;header class="dis-cat-header dark-gradient h-group sticky-bar top"&gt;
     [[+results:notempty=`&lt;h1&gt;Displaying [[+start]]-[[+end]] of [[+total]] Results&lt;/h1&gt;`]]
     [[+pagination]]
 &lt;/header&gt;
 
-&lt;div class=<span class="code-quote">"dis-threads"</span>&gt;
-    &lt;ul class=<span class="code-quote">"dis-list search-results"</span>&gt;`]]
+&lt;div class="dis-threads"&gt;
+    &lt;ul class="dis-list search-results"&gt;`]]
         [[+results]]
     [[+search:notempty=`&lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class=<span class="code-quote">"paginate stand-alone bottom horiz-list"</span>&gt;
+&lt;div class="paginate stand-alone bottom horiz-list"&gt;
 [[+pagination]]
 &lt;/div&gt;
 `]]
 [[+bottom]]
 
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Discuss.Controllers.search-SystemEvents" id="Discuss.Controllers.search-SystemEvents"></a>System Events
+<h2 id="Discuss.Controllers.search-SystemEvents">
+System Events
 </h2>
 
 <p>

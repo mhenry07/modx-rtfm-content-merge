@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,8 +13,8 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMSXMLSitemap-HowtocreateasinglemultilingualsitemapwithYAMS"></a>How to create a single multilingual sitemap with YAMS
+<h1 id="YAMSXMLSitemap-HowtocreateasinglemultilingualsitemapwithYAMS">
+How to create a single multilingual sitemap with YAMS
 </h1>
 
 <p>
@@ -26,71 +26,62 @@ This creates a single XML sitemap listing all documents in all languages. It ass
 </li>
 
 <li>Include the following in your XMLSitemap template:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"[(modx_charset)]"</span> ?&gt;
-&lt;urlset xmlns=<span class="code-quote">"http:<span class="code-comment">//www.sitemaps.org/schemas/sitemap/0.9"</span> &gt;
-</span>[*content*]
+
+<pre class="brush: php">
+&lt;?xml version="1.0" encoding="[(modx_charset)]" ?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" &gt;
+[*content*]
 &lt;/urlset&gt;
 </pre>
-</div>
-</div>
 </li>
 
 <li>Go to the Modules &gt; YAMS &gt; Multilingual Templates. Select "no" for XMLSitemap and submit.
 </li>
 
 <li>Create a new template variable.
-<br class="atl-forced-newline" />
-<b>Name:</b> UrlsetChangeFreq
-<br class="atl-forced-newline" />
-<b>Caption:</b> Change Frequency
-<br class="atl-forced-newline" />
-<b>Description:</b> Specify how often this page is likely to be updated. Be honest!
-<br class="atl-forced-newline" />
-<b>Input type:</b> DropDown List Menu
-<br class="atl-forced-newline" />
-<b>Input option values:</b> always||hourly||daily||weekly||monthly||yearly||never
-<br class="atl-forced-newline" />
-<b>Default value:</b> yearly (or monthly, or whatever)
-<br class="atl-forced-newline" />
+<br />
+<strong>Name:</strong> UrlsetChangeFreq
+<br />
+<strong>Caption:</strong> Change Frequency
+<br />
+<strong>Description:</strong> Specify how often this page is likely to be updated. Be honest!
+<br />
+<strong>Input type:</strong> DropDown List Menu
+<br />
+<strong>Input option values:</strong> always||hourly||daily||weekly||monthly||yearly||never
+<br />
+<strong>Default value:</strong> yearly (or monthly, or whatever)
+<br />
 Associate the template variable with all your templates except XMLSitemap.
 </li>
 
 <li>Create another new template variable
 <br />
-<b>Name:</b> UrlsetPriority
-<br class="atl-forced-newline" />
-<b>Caption:</b> Priority
-<br class="atl-forced-newline" />
-<b>Description:</b> If it is more/less important that google scans this page than other pages, give it a value higher/lower than 0.5. (Range 0...1)
-<br class="atl-forced-newline" />
-<b>Input type:</b> Number
-<br class="atl-forced-newline" />
-<b>Input option values:</b> (leave blank)
-<br class="atl-forced-newline" />
-<b>Default value:</b> 0.5
-<br class="atl-forced-newline" />
+<strong>Name:</strong> UrlsetPriority
+<br />
+<strong>Caption:</strong> Priority
+<br />
+<strong>Description:</strong> If it is more/less important that google scans this page than other pages, give it a value higher/lower than 0.5. (Range 0...1)
+<br />
+<strong>Input type:</strong> Number
+<br />
+<strong>Input option values:</strong> (leave blank)
+<br />
+<strong>Default value:</strong> 0.5
+<br />
 Associate the template variable with all your templates except XMLSitemap.
 </li>
 
 <li>Create a new chunk called SitemapRepeatTpl with your ditto call in it that generates the &lt;url&gt; blocks for all your documents. Ideally, all your web documents should be in a single folder, and &amp;parents should be set to the id of that folder. The snippet call might look something like this:
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 [!Ditto? &amp;language=`(yams_mname)` &amp;parents=`1` &amp;tpl=`UrlsetURL` &amp;depth=`5` &amp;dateSource=`editedon` &amp;dateFormat=`%Y-%m-%d` &amp;display=`all` &amp;showInMenuOnly=`0` &amp;seeThroughUnpub=`1` &amp;filter=`type,reference,2|searchable,1,1`!]
 </pre>
-</div>
-</div>
-
 <p>
 where UrlsetURL is another chunk with the following contents
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;url&gt;
 &lt;loc&gt;(yams_doc:[+id+])&lt;/loc&gt;
 &lt;lastmod&gt;[+date+]&lt;/lastmod&gt;
@@ -98,22 +89,16 @@ where UrlsetURL is another chunk with the following contents
 &lt;priority&gt;[+UrlsetPriority+]&lt;/priority&gt;
 &lt;/url&gt;
 </pre>
-</div>
-</div>
-
 <p>
 This ditto call specifies that there are maximum of 5 levels of folders - which can make the ditto call significantly more efficient in my experience, and excludes weblinks and un-searchable documents from the sitemap.
 </p>
 </li>
 
 <li>Create a new document with the alias sitemap.xml that lives outside your web root folder. Select the XMLSitemap template. Set the content type to text/xml. For the content, use
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+
+<pre class="brush: php">
 [[YAMS? &amp;get=`repeat` &amp;repeattpl=`SitemapRepeatTpl`]]
 </pre>
-</div>
-</div>
 </li>
 </ol>
 

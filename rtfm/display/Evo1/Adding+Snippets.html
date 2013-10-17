@@ -4,11 +4,11 @@ Snippets are one of the most useful features of the MODx system. Snippets add fu
 
 <p>
 This document discusses the use of snippets. To find out more about how to create snippets and how they work, see the Snippets documentation.
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<h3>
-<a name="AddingSnippets-InstallingSnippets" id="AddingSnippets-InstallingSnippets"></a>Installing Snippets
+<h3 id="AddingSnippets-InstallingSnippets">
+Installing Snippets
 </h3>
 
 <p>
@@ -31,8 +31,8 @@ To install a new snippet, log in to the Manager and go to Manage resources and o
 When uploading any auxiliary files the snippet may have, it is usual to put them in a folder with the original name of the snippet in lower case, such as assets/snippets/weblogin.
 </p>
 
-<h3>
-<a name="AddingSnippets-UsingAMenuSnippet" id="AddingSnippets-UsingAMenuSnippet"></a>Using A Menu Snippet
+<h3 id="AddingSnippets-UsingAMenuSnippet">
+Using A Menu Snippet
 </h3>
 
 <p>
@@ -43,21 +43,16 @@ In our template so far, we have some personalized bits of information, and some 
 Now, there are two ways this can be done. We could code the menu by hand.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a href=<span class="code-quote">"http:<span class="code-comment">//www.mysite.com/index.php?id=1"</span> &gt;Home&lt;/a&gt;
-</span>
-&lt;a href=<span class="code-quote">"http:<span class="code-comment">//www.mysite.com/index.php?id=2"</span> &gt;News&lt;/a&gt;
-</span>
-&lt;a href=<span class="code-quote">"http:<span class="code-comment">//www.mysite.com/index.php?id=3"</span> &gt;About Us&lt;/a&gt;</span>
-</pre>
-</div>
-</div>
+<pre class="brush: php">
+&lt;a href="http://www.mysite.com/index.php?id=1" &gt;Home&lt;/a&gt;
 
+&lt;a href="http://www.mysite.com/index.php?id=2" &gt;News&lt;/a&gt;
+
+&lt;a href="http://www.mysite.com/index.php?id=3" &gt;About Us&lt;/a&gt;
+</pre>
 <p>
 There are a number of problems with this approach. First, you have to know the document ID of the pages you are linking to. Second, what if you want to use Search Engine Friendly URLs? Now you have to know the alias of every page you link to, as well as how your site was configured to handle that feature. And finally, imagine having to edit the menu every time you add a page or two...or twenty!
-<br class="atl-forced-newline" />
+<br />
 </p>
 
 <p>
@@ -68,10 +63,8 @@ This is where MODx snippets come in. There are a number of menu generating snipp
 Menu snippets get a list of documents from the database, starting with a folder that you specify within the snippet tags as the root of the menu. Let's add a menu to our template, and see how that works.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div id=<span class="code-quote">"sidebar"</span>&gt;
+<pre class="brush: php">
+&lt;div id="sidebar"&gt;
 
     &lt;!-- menu and other blocks goes here --&gt;
 
@@ -79,22 +72,19 @@ Menu snippets get a list of documents from the database, starting with a folder 
 
   &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 A little CSS styling of the list and the links, and we have a nice, dynamic menu that you never have to worry about again!
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="http://modxcms.com/assets/images/docs_img/template_menu.jpg" style="border: 0px solid black" /></span>
+<img src="http://modxcms.com/assets/images/docs_img/template_menu.jpg" />
 <br />
 &nbsp;
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<h3>
-<a name="AddingSnippets-ConfiguringSnippetTags" id="AddingSnippets-ConfiguringSnippetTags"></a>Configuring Snippet Tags
+<h3 id="AddingSnippets-ConfiguringSnippetTags">
+Configuring Snippet Tags
 </h3>
 
 <p>

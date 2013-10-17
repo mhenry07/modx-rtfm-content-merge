@@ -1,15 +1,11 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#SuccessfulInstallation%2CNowWhatDoIDo%3F-Creatingthefirstpage'>Creating the first page</a>
+<a href="#SuccessfulInstallation%2CNowWhatDoIDo%3F-Creatingthefirstpage">Creating the first page</a>
 </li>
 
 <li>
-<a href='#SuccessfulInstallation%2CNowWhatDoIDo%3F-CreatingaTemplate'>Creating a Template</a>
+<a href="#SuccessfulInstallation%2CNowWhatDoIDo%3F-CreatingaTemplate">Creating a Template</a>
 </li>
 </ul>
 </div>
@@ -19,15 +15,15 @@ After a successful installation, you'll be presented with the Manager login page
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678051/first_login.png?version=1&amp;modificationDate=1269279047000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678051/first_login.png?version=1&amp;modificationDate=1269279047000" />
 </p>
 
 <p>
 Since Revolution RC1 doesn't come with any default content, there aren't any pages, which is why this list of error messages. Therefore, the first thing to do is create a page to make these errors go away.
 </p>
 
-<h2>
-<a name="SuccessfulInstallation%2CNowWhatDoIDo%3F-Creatingthefirstpage"></a>Creating the first page
+<h2 id="SuccessfulInstallation,NowWhatDoIDo?-Creatingthefirstpage">
+Creating the first page
 </h2>
 
 <p>
@@ -39,15 +35,15 @@ The New Document window will appear. On the right, taking up most of the page, w
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678051/first_document.png?version=1&amp;modificationDate=1269279147000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678051/first_document.png?version=1&amp;modificationDate=1269279147000" />
 </p>
 
 <p>
 And now, if you view the tree on the left, you'll see your new document listed. Go to the main Site menu, click the Preview menu item, and view your page in all its glory!
 </p>
 
-<h2>
-<a name="SuccessfulInstallation%2CNowWhatDoIDo%3F-CreatingaTemplate"></a>Creating a Template
+<h2 id="SuccessfulInstallation,NowWhatDoIDo?-CreatingaTemplate">
+Creating a Template
 </h2>
 
 <p>
@@ -66,31 +62,26 @@ Obviously, the page alone is missing something. We need to create a template to 
 In either case, give the template a name, My Template, a description, First Revolution Template, and then the HTML code for the template. MODx templates are basically just HTML pages, with the content parts replaced with MODx tags. So to begin with, let's just create a really simple template.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;!DOCTYPE html PUBLIC <span class="code-quote">"-<span class="code-comment">//W3C//DTD XHTML 1.1//EN"</span>  
-</span><span class="code-quote">"http:<span class="code-comment">//www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"</span>&gt;
-</span>&lt;html xmlns=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/1999/xhtml"</span> xml:lang=<span class="code-quote">"en"</span>&gt;
-</span>&lt;head&gt;
+<pre class="brush: php">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"  
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
+&lt;head&gt;
     &lt;title&gt;My First Revolutionary Page&lt;/title&gt;
-    &lt;meta http-equiv=<span class="code-quote">"Content-Type"</span> content=<span class="code-quote">"text/html; charset=utf-8"</span> /&gt;
-    &lt;style type=<span class="code-quote">"text/css"</span> media=<span class="code-quote">"screen"</span>&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+    &lt;style type="text/css" media="screen"&gt;
         #content{width:80%;margin:auto;border:5px groove #a484ce;}
         #content h1{color:#a484ce;padding:10px 20px;text-align:center;}
         #content p{padding:20px;text-align:center;}
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;div id=<span class="code-quote">"content"</span>&gt;
+    &lt;div id="content"&gt;
         [[*content]]
     &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Save the new template. Now if you open your first document for editing, you'll see that it's been assigned the template (since it's the only one, and the document didn't have one). Go back to the site and refresh the page. And now, if you click the main Home menu, you'll get the Manager home page without that long list of errors!
 </p>

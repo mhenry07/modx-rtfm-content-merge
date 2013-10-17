@@ -1,217 +1,257 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Quip.QuipReply.tplAddComment-QuipReply%27stplAddCommentChunk"></a>QuipReply's tplAddComment Chunk
+<h2 id="Quip.QuipReply.tplAddComment-QuipReply'stplAddCommentChunk">
+QuipReply's tplAddComment Chunk
 </h2>
 
 <p>
 This is the Chunk displayed with the &amp;tplAddComment property on the <a href="/display/ADDON/Quip.QuipReply" title="Quip.QuipReply">Quip.QuipReply</a> snippet.
 </p>
 
-<h2>
-<a name="Quip.QuipReply.tplAddComment-DefaultValue" id="Quip.QuipReply.tplAddComment-DefaultValue"></a>Default Value
+<h2 id="Quip.QuipReply.tplAddComment-DefaultValue">
+Default Value
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+preview]]
-&lt;span class=<span class="code-quote">"quip-success"</span> id=<span class="code-quote">"quip-success-[[+idprefix]]"</span>&gt;[[+successMsg]]&lt;/span&gt;
+&lt;span class="quip-success" id="quip-success-[[+idprefix]]"&gt;[[+successMsg]]&lt;/span&gt;
 
-&lt;form id=<span class="code-quote">"quip-add-comment-[[+idprefix]]"</span> action=<span class="code-quote">"[[+url]]#quip-comment-preview-box-[[+idprefix]]"</span> method=<span class="code-quote">"post"</span>&gt;
-&lt;div class=<span class="code-quote">"quip-comment quip-add-comment"</span>&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"nospam"</span> value="" /&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"thread"</span> value=<span class="code-quote">"[[+thread]]"</span> /&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"parent"</span> value=<span class="code-quote">"[[+parent]]"</span> /&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"auth_nonce"</span> value=<span class="code-quote">"[[+auth_nonce]]"</span> /&gt;
-    &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"preview_mode"</span> value=<span class="code-quote">"[[+preview_mode]]"</span> /&gt;
+&lt;form id="quip-add-comment-[[+idprefix]]" action="[[+url]]#quip-comment-preview-box-[[+idprefix]]" method="post"&gt;
+&lt;div class="quip-comment quip-add-comment"&gt;
+    &lt;input type="hidden" name="nospam" value="" /&gt;
+    &lt;input type="hidden" name="thread" value="[[+thread]]" /&gt;
+    &lt;input type="hidden" name="parent" value="[[+parent]]" /&gt;
+    &lt;input type="hidden" name="auth_nonce" value="[[+auth_nonce]]" /&gt;
+    &lt;input type="hidden" name="preview_mode" value="[[+preview_mode]]" /&gt;
 
-     &lt;div class=<span class="code-quote">"quip-fld"</span>&gt;
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"quip-comment-name-[[+idprefix]]"</span>&gt;[[%quip.name? &amp;namespace=`quip` &amp;topic=`<span class="code-keyword">default</span>`]]:&lt;span class=<span class="code-quote">"quip-error"</span>&gt;[[+error.name]]&lt;/span&gt;&lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"name"</span> id=<span class="code-quote">"quip-comment-name-[[+idprefix]]"</span> value=<span class="code-quote">"[[+name]]"</span> /&gt;
+     &lt;div class="quip-fld"&gt;
+        &lt;label for="quip-comment-name-[[+idprefix]]"&gt;[[%quip.name? &amp;namespace=`quip` &amp;topic=`default`]]:&lt;span class="quip-error"&gt;[[+error.name]]&lt;/span&gt;&lt;/label&gt;
+        &lt;input type="text" name="name" id="quip-comment-name-[[+idprefix]]" value="[[+name]]" /&gt;
         &lt;br /&gt;
     &lt;/div&gt;
     
-    &lt;div class=<span class="code-quote">"quip-fld"</span>&gt;
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"quip-comment-email-[[+idprefix]]"</span>&gt;[[%quip.email]]:&lt;span class=<span class="code-quote">"quip-error"</span>&gt;[[+error.email]]&lt;/span&gt;&lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"email"</span> id=<span class="code-quote">"quip-comment-email-[[+idprefix]]"</span> value=<span class="code-quote">"[[+email]]"</span> /&gt;
+    &lt;div class="quip-fld"&gt;
+        &lt;label for="quip-comment-email-[[+idprefix]]"&gt;[[%quip.email]]:&lt;span class="quip-error"&gt;[[+error.email]]&lt;/span&gt;&lt;/label&gt;
+        &lt;input type="text" name="email" id="quip-comment-email-[[+idprefix]]" value="[[+email]]" /&gt;
         &lt;br /&gt;
     &lt;/div&gt;
     
-    &lt;div class=<span class="code-quote">"quip-fld"</span>&gt;
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"quip-comment-website-[[+idprefix]]"</span>&gt;[[%quip.website]]:&lt;span class=<span class="code-quote">"quip-error"</span>&gt;[[+error.website]]&lt;/span&gt;&lt;/label&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"website"</span> id=<span class="code-quote">"quip-comment-website-[[+idprefix]]"</span> value=<span class="code-quote">"[[+website]]"</span> /&gt;
+    &lt;div class="quip-fld"&gt;
+        &lt;label for="quip-comment-website-[[+idprefix]]"&gt;[[%quip.website]]:&lt;span class="quip-error"&gt;[[+error.website]]&lt;/span&gt;&lt;/label&gt;
+        &lt;input type="text" name="website" id="quip-comment-website-[[+idprefix]]" value="[[+website]]" /&gt;
         &lt;br /&gt;
     &lt;/div&gt;
 
-    &lt;div class=<span class="code-quote">"quip-fld"</span>&gt;
-        &lt;label <span class="code-keyword">for</span>=<span class="code-quote">"quip-comment-notify-[[+idprefix]]"</span>&gt;[[%quip.notify_me]]:&lt;span class=<span class="code-quote">"quip-error"</span>&gt;[[+error.notify]]&lt;/span&gt;&lt;/label&gt;
-        &lt;input type=<span class="code-quote">"checkbox"</span> value=<span class="code-quote">"1"</span> name=<span class="code-quote">"notify"</span> id=<span class="code-quote">"quip-comment-notify-[[+idprefix]]"</span> [[+notify:<span class="code-keyword">if</span>=`[[+notify]]`:eq=`1`:then=`checked=<span class="code-quote">"checked"</span>`]] /&gt;
+    &lt;div class="quip-fld"&gt;
+        &lt;label for="quip-comment-notify-[[+idprefix]]"&gt;[[%quip.notify_me]]:&lt;span class="quip-error"&gt;[[+error.notify]]&lt;/span&gt;&lt;/label&gt;
+        &lt;input type="checkbox" value="1" name="notify" id="quip-comment-notify-[[+idprefix]]" [[+notify:if=`[[+notify]]`:eq=`1`:then=`checked="checked"`]] /&gt;
         &lt;br /&gt;
     &lt;/div&gt;
 
-    &lt;div class=<span class="code-quote">"quip-fld recaptcha"</span>&gt;
+    &lt;div class="quip-fld recaptcha"&gt;
     [[+quip.recaptcha_html]]
-    &lt;span class=<span class="code-quote">"quip-error"</span>&gt;[[+error.recaptcha]]&lt;/span&gt;
+    &lt;span class="quip-error"&gt;[[+error.recaptcha]]&lt;/span&gt;
     &lt;/div&gt;
     
     
-    &lt;p&gt;&lt;span class=<span class="code-quote">"quip-allowed-tags"</span>&gt;[[%quip.allowed_tags? &amp;tags=`[[++quip.allowed_tags:htmlent]]`]]&lt;/span&gt;[[%quip.comment_add_new]]&lt;span class=<span class="code-quote">"quip-error"</span>&gt;[[+error.comment]]&lt;/span&gt;&lt;/p&gt;
-    &lt;textarea name=<span class="code-quote">"comment"</span> id=<span class="code-quote">"quip-comment-box-[[+idprefix]]"</span> rows=<span class="code-quote">"5"</span>&gt;[[+comment]]&lt;/textarea&gt;
+    &lt;p&gt;&lt;span class="quip-allowed-tags"&gt;[[%quip.allowed_tags? &amp;tags=`[[++quip.allowed_tags:htmlent]]`]]&lt;/span&gt;[[%quip.comment_add_new]]&lt;span class="quip-error"&gt;[[+error.comment]]&lt;/span&gt;&lt;/p&gt;
+    &lt;textarea name="comment" id="quip-comment-box-[[+idprefix]]" rows="5"&gt;[[+comment]]&lt;/textarea&gt;
     
-    &lt;button type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"[[+preview_action]]"</span> value=<span class="code-quote">"1"</span>&gt;[[%quip.preview]]&lt;/button&gt;
-    [[+can_post:is=`1`:then=`&lt;button type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"[[+post_action]]"</span> value=<span class="code-quote">"1"</span>&gt;[[%quip.post]]&lt;/button&gt;`]]
+    &lt;button type="submit" name="[[+preview_action]]" value="1"&gt;[[%quip.preview]]&lt;/button&gt;
+    [[+can_post:is=`1`:then=`&lt;button type="submit" name="[[+post_action]]" value="1"&gt;[[%quip.post]]&lt;/button&gt;`]]
     
-    &lt;br class=<span class="code-quote">"clear"</span> /&gt;
+    &lt;br class="clear" /&gt;
 &lt;/div&gt;
 &lt;/form&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Quip.QuipReply.tplAddComment-AvailablePlaceholders" id="Quip.QuipReply.tplAddComment-AvailablePlaceholders"></a>Available Placeholders
+<h2 id="Quip.QuipReply.tplAddComment-AvailablePlaceholders">
+Available Placeholders
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thread
 </td>
-<td class='confluenceTd'>
+<td>
 The comment thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parent
 </td>
-<td class='confluenceTd'>
+<td>
 The parent comment this comment is being posted in reply to. Defaults to 0.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 url
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to post to.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 preview
 </td>
-<td class='confluenceTd'>
+<td>
 The preview form.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 idprefix
 </td>
-<td class='confluenceTd'>
+<td>
 The ID prefix for this thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the poster.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 email
 </td>
-<td class='confluenceTd'>
+<td>
 The email of the poster.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 website
 </td>
-<td class='confluenceTd'>
+<td>
 The website of the poster.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 notify
 </td>
-<td class='confluenceTd'>
+<td>
 If the poster checked Notify or not.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 comment
 </td>
-<td class='confluenceTd'>
+<td>
 The posted comment.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 error
 </td>
-<td class='confluenceTd'>
+<td>
 If a general error, will show here.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 quip.recaptcha_html
 </td>
-<td class='confluenceTd'>
+<td>
 If recaptcha is on, the HTML for reCaptcha's form.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Quip.QuipReply.tplAddComment-SeeAlso" id="Quip.QuipReply.tplAddComment-SeeAlso"></a>See Also
+<h2 id="Quip.QuipReply.tplAddComment-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Quip.Quip">Quip.Quip</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComment">Quip.Quip.tplComment</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="16646334" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042879" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FQuip.QuipReply.tplAddComment" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="16646300" /> <input type="hidden" name="ancestorId" value="11042879" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Quip.Quip.tplCommentOptions">Quip.Quip.tplCommentOptions</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComments">Quip.Quip.tplComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplReport">Quip.Quip.tplReport</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipCount">Quip.QuipCount</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipLatestComments">Quip.QuipLatestComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply">Quip.QuipReply</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplAddComment">Quip.QuipReply.tplAddComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplLoginToComment">Quip.QuipReply.tplLoginToComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplPreview">Quip.QuipReply.tplPreview</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipRss">Quip.QuipRss</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Roadmap">Quip.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Upgrading">Quip.Upgrading</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Upgrading+to+1.0.1">Quip.Upgrading to 1.0.1</a>
+</li>
+</ol>
+</li>
+</ol>

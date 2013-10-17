@@ -1,73 +1,54 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDO.addPackage-xPDO%3A%3AaddPackage"></a>xPDO::addPackage
+<h2 id="xPDO.addPackage-xPDO::addPackage">
+xPDO::addPackage
 </h2>
 
 <p>
 Adds a model package and base class path for including classes and/or maps from.
 </p>
 
-<h2>
-<a name="xPDO.addPackage-Syntax" id="xPDO.addPackage-Syntax"></a>Syntax
+<h2 id="xPDO.addPackage-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modx.com/xpdo/xPDO.html#addPackage" class="external-link" rel="nofollow">http://api.modx.com/xpdo/xPDO.html#addPackage</a>
+API Docs: <a href="http://api.modx.com/xpdo/xPDO.html#addPackage">http://api.modx.com/xpdo/xPDO.html#addPackage</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> addPackage ([string $pkg = ''], [string $path = ''], [string $tablePrefix = ''])
+<pre class="brush: php">
+boolean addPackage ([string $pkg = ''], [string $path = ''], [string $tablePrefix = ''])
 </pre>
-</div>
-</div>
-
 <p>
-<b>$pkg</b> corresponds to the name of a sub-folder. The sub-folder contains the myriad <em>your_table.class.php</em> files and most often a <em>mysql</em> sub-folder which contains additional map and class files, e.g. <em>your_table.class.php</em> and <em>your_table.map.inc.php</em>
+<strong>$pkg</strong> corresponds to the name of a sub-folder. The sub-folder contains the myriad <em>your_table.class.php</em> files and most often a <em>mysql</em> sub-folder which contains additional map and class files, e.g. <em>your_table.class.php</em> and <em>your_table.map.inc.php</em>
 <br />
-<b>$path</b> is the full path to the folder containing the packages, including the package name you referenced in the first argument.
+<strong>$path</strong> is the full path to the folder containing the packages, including the package name you referenced in the first argument.
 <br />
-<b>$tablePrefix</b> is the table prefix for your package. You MUST include contain the correct prefix when <b>addPackage</b> is called (i.e. at runtime), otherwise your package will not load correctly!
+<strong>$tablePrefix</strong> is the table prefix for your package. You MUST include contain the correct prefix when <strong>addPackage</strong> is called (i.e. at runtime), otherwise your package will not load correctly!
 </p>
 
 <p>
-This function returns <b>true</b> on success and <b>false</b> on error. Check the logs on error.
+This function returns <strong>true</strong> on success and <strong>false</strong> on error. Check the logs on error.
 </p>
 
-<h2>
-<a name="xPDO.addPackage-Example" id="xPDO.addPackage-Example"></a>Example
+<h2 id="xPDO.addPackage-Example">
+Example
 </h2>
 
 <p>
 Adds package 'mypackage' with a path of '/path/to/mypackage/model/' and a table prefix of 'mp_' to the xPDO runtime model.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $xpdo-&gt;addPackage('mypackage','/path/to/mypackage/model/','mp_');
 </pre>
-</div>
-</div>
-
 <p>
 Or consider a more practical example using MODX constants:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;addPackage('mypkg',MODX_CORE_PATH.'components/mypkg/model/','mypkg_');
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.addPackage-AnotherExample" id="xPDO.addPackage-AnotherExample"></a>Another Example
+<h2 id="xPDO.addPackage-AnotherExample">
+Another Example
 </h2>
 
 <p>
@@ -75,59 +56,49 @@ Pictured is the file structure of the FormIt Snippet.
 </p>
 
 <p>
-<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/12615848/Path_to_models.jpg?version=1&amp;modificationDate=1282514633000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/12615848/Path_to_models.jpg?version=1&amp;modificationDate=1282514633000" /></span>
 </p>
 
 <p>
 If you were to load one of its packages using the addPackage() method, you could use one of the three available packages (formit, recaptcha, or stopforumspam) as the first argument, and the path to the containing folder as the second argument:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $xpdo-&gt;addPackage('recaptcha','/path/to/docroot/core/components/formit/model/');
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.addPackage-Testing" id="xPDO.addPackage-Testing"></a>Testing
+<h2 id="xPDO.addPackage-Testing">
+Testing
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $xpdo-&gt;setLogLevel(xPDO::LOG_LEVEL_INFO);
 $xpdo-&gt;setLogTarget('ECHO');
-<span class="code-keyword">if</span> (!$xpdo-&gt;addPackage('my_package','/path/to/docroot/core/components/my_package/model/','pkg_')) {
-    print 'There was a problem adding your <span class="code-keyword">package</span>.';
+if (!$xpdo-&gt;addPackage('my_package','/path/to/docroot/core/components/my_package/model/','pkg_')) {
+    print 'There was a problem adding your package.';
 }
 </pre>
-</div>
-</div>
-
 <p>
 On fail, this function will write verbose error messages to the log.
 </p>
 
-<h2>
-<a name="xPDO.addPackage-AddingPackagesfromotherDatabases" id="xPDO.addPackage-AddingPackagesfromotherDatabases"></a>Adding Packages from other Databases
+<h2 id="xPDO.addPackage-AddingPackagesfromotherDatabases">
+Adding Packages from other Databases
 </h2>
 
 <p>
 The addPackage() method works on any instantiated xPDO object that has valid class and map files. If you need to connect to a different database, simply instantiate a new instance of xPDO using valid login criteria, e.g. as described here: <a href="/display/xPDO20/Database+Connections+and+xPDO" title="Database Connections and xPDO">Database Connections and xPDO</a>
 </p>
 
-<h2>
-<a name="xPDO.addPackage-CreatingTables" id="xPDO.addPackage-CreatingTables"></a>Creating Tables
+<h2 id="xPDO.addPackage-CreatingTables">
+Creating Tables
 </h2>
 
 <p>
 It's not enough to just load up the package and its PHP classes. If your package defines database tables, you may have to create the tables. This is normally done for you when you install a package, but if you're doing things manually, you'll want to look at the <a href="/display/xPDO20/xPDOManager.createObjectContainer" title="xPDOManager.createObjectContainer">xPDOManager.createObjectContainer</a> function.
 </p>
 
-<h2>
-<a name="xPDO.addPackage-SeeAlso" id="xPDO.addPackage-SeeAlso"></a>See Also
+<h2 id="xPDO.addPackage-SeeAlso">
+See Also
 </h2>
 
 <ul>

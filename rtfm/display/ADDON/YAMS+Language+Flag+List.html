@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,46 +13,31 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMSLanguageFlagList-HowcanIcreatealinkedlistofflagspointingtodifferentlanguageversions%3F"></a>How can I create a linked list of flags pointing to different language versions?
+<h1 id="YAMSLanguageFlagList-HowcanIcreatealinkedlistofflagspointingtodifferentlanguageversions?">
+How can I create a linked list of flags pointing to different language versions?
 </h1>
 
 <p>
 Use a YAMS repeat call to loop over all languages and output the flag list:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[YAMS? &amp;get=`repeat` &amp;beforetpl=`@CODE:&lt;ul&gt;` &amp;repeattpl=`otherFlagItemTpl` &amp;currenttpl=`currentFlagItemTpl` &amp;aftertpl=`@CODE:&lt;/ul&gt;`]]
 </pre>
-</div>
-</div>
-
 <p>
 Here otherFlagItemTpl is a chunk that contains a linked flag image:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li class=<span class="code-quote">"yams_lang_(yams_id)"</span>&gt;&lt;a href=<span class="code-quote">"(yams_docr)"</span> lang=<span class="code-quote">"(yams_tag)"</span> xml:lang=<span class="code-quote">"(yams_tag)"</span> dir=<span class="code-quote">"(yams_dir)"</span> title=<span class="code-quote">"(yams_name_in_(yams_id+))"</span>&gt;&lt;img alt=<span class="code-quote">"(yams_name)"</span> src=<span class="code-quote">"[(site_url)]assets/images/flags/(yams_id).png"</span>/&gt;&lt;/a&gt;&lt;/li&gt;
+<pre class="brush: php">
+&lt;li class="yams_lang_(yams_id)"&gt;&lt;a href="(yams_docr)" lang="(yams_tag)" xml:lang="(yams_tag)" dir="(yams_dir)" title="(yams_name_in_(yams_id+))"&gt;&lt;img alt="(yams_name)" src="[(site_url)]assets/images/flags/(yams_id).png"/&gt;&lt;/a&gt;&lt;/li&gt;
 </pre>
-</div>
-</div>
-
 <p>
 and currentFlagItemTpl is a chunk that contains an unlinked flag image:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li class=<span class="code-quote">"yams_lang_(yams_id) yams_current"</span>&gt;&lt;img alt=<span class="code-quote">"(yams_name)"</span> src=<span class="code-quote">"[(site_url)]assets/images/flags/(yams_id).png"</span>/&gt;&lt;/li&gt;
+<pre class="brush: php">
+&lt;li class="yams_lang_(yams_id) yams_current"&gt;&lt;img alt="(yams_name)" src="[(site_url)]assets/images/flags/(yams_id).png"/&gt;&lt;/li&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Flag images with the filename format (yams_id).png should be placed in the directory assets/images/flags/.
 </p>

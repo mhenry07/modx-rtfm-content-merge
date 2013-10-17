@@ -1,17 +1,13 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="LoadingPackages-WhatarexPDOPackages%3F"></a>What are xPDO Packages?
+<h2 id="LoadingPackages-WhatarexPDOPackages?">
+What are xPDO Packages?
 </h2>
 
 <p>
 Packages are collections of maps and classes that represent tables in a database.
 </p>
 
-<h2>
-<a name="LoadingPackages-Howaretheyused%3F"></a>How are they used?
+<h2 id="LoadingPackages-Howaretheyused?">
+How are they used?
 </h2>
 
 <p>
@@ -28,38 +24,19 @@ Packages are loaded in xPDO via the addPackage method. This method takes 3 param
 And our table prefix is 'myapp_'. So, we'll pass the first parameter as the package name - in this case 'boxpackage' - and the model path as the 2nd parameter:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $xpdo-&gt;addPackage('boxpackage','/myapp/core/model/','myapp_');
 </pre>
-</div>
-</div>
-
 <p>
 From then on out, any of our classes in our Package can be loaded via xPDO's retrieval methods.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Using the table_prefix is not recommended unless you have a good reason to specifically set the table prefix.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="LoadingPackages-Conclusion"></a>Conclusion
+<h2 id="LoadingPackages-Conclusion">
+Conclusion
 </h2>
 
 <p>

@@ -1,21 +1,485 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="ClassReference-xPDOClassReference" id="ClassReference-xPDOClassReference"></a>xPDO Class Reference
+<h2 id="ClassReference-xPDOClassReference">
+xPDO Class Reference
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/xPDO20/xPDOObject">xPDOObject</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/Static+Object+Loaders">Static Object Loaders</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/_loadRows">_loadRows</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="12615765" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="12615765" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="2" /> <input type="hidden" name="spaceKey" value="xPDO20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FxPDO20%2FClass%2BReference" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="12615765" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/xPDO20/_loadInstance">_loadInstance</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/_loadCollectionInstance">_loadCollectionInstance</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/load">load</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/loadCollection">loadCollection</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/loadCollectionGraph">loadCollectionGraph</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/Using+Custom+Loader+Classes">Using Custom Loader Classes</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/Configuration+Accessors">Configuration Accessors</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/getOption">getOption</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/setOption">setOption</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/Field+Accessors">Field Accessors</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/get">get</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/set">set</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/toArray">toArray</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/fromArray">fromArray</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/toJSON">toJSON</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/fromJSON">fromJSON</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/Related+Object+Accessors">Related Object Accessors</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/getOne">getOne</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/getMany">getMany</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/addOne">addOne</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/addMany">addMany</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/Persistence+Methods">Persistence Methods</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/save">save</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/remove">remove</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/Metadata+Accessors">Metadata Accessors</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/getSelectColumns">getSelectColumns</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/getPK">getPK</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/getPKType">getPKType</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/getFKClass">getFKClass</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/getFKDefinition">getFKDefinition</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/getFieldName">getFieldName</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/Validation">Validation</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/addValidationRule">addValidationRule</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/removeValidationRules">removeValidationRules</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/getValidator">getValidator</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/validate">validate</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/isValidated">isValidated</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/State+Accessors">State Accessors</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/isLazy">isLazy</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/isDirty">isDirty</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/isNew">isNew</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery">xPDOQuery</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/xPDOQuery.andCondition">xPDOQuery.andCondition</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.groupby">xPDOQuery.groupby</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.innerJoin">xPDOQuery.innerJoin</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.leftJoin">xPDOQuery.leftJoin</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.limit">xPDOQuery.limit</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.orCondition">xPDOQuery.orCondition</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.rightJoin">xPDOQuery.rightJoin</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.select">xPDOQuery.select</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.setClassAlias">xPDOQuery.setClassAlias</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.sortby">xPDOQuery.sortby</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOQuery.where">xPDOQuery.where</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOGenerator">xPDOGenerator</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/xPDOGenerator.writeSchema">xPDOGenerator.writeSchema</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOGenerator.parseSchema">xPDOGenerator.parseSchema</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOManager">xPDOManager</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/xPDOManager.createSourceContainer">xPDOManager.createSourceContainer</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOManager.createObjectContainer">xPDOManager.createObjectContainer</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOManager.removeSourceContainer">xPDOManager.removeSourceContainer</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOManager.removeObjectContainer">xPDOManager.removeObjectContainer</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager">xPDOCacheManager</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.copyFile">xPDOCacheManager.copyFile</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.copyTree">xPDOCacheManager.copyTree</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.delete">xPDOCacheManager.delete</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.deleteTree">xPDOCacheManager.deleteTree</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.endsWith">xPDOCacheManager.endsWith</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.escapeSingleQuotes">xPDOCacheManager.escapeSingleQuotes</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.get">xPDOCacheManager.get</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.getCachePath">xPDOCacheManager.getCachePath</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.getCacheProvider">xPDOCacheManager.getCacheProvider</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.matches">xPDOCacheManager.matches</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.replace">xPDOCacheManager.replace</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.writeFile">xPDOCacheManager.writeFile</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.set">xPDOCacheManager.set</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOCacheManager.writeTree">xPDOCacheManager.writeTree</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOTransport">xPDOTransport</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/xPDOTransport.install">xPDOTransport.install</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOTransport.pack">xPDOTransport.pack</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOTransport.uninstall">xPDOTransport.uninstall</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDORevisionControl">xPDORevisionControl</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO">xPDO</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/xPDO.addPackage">xPDO.addPackage</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.beginTransaction">xPDO.beginTransaction</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.commit">xPDO.commit</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.connect">xPDO.connect</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.fromJSON">xPDO.fromJSON</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getCollection">xPDO.getCollection</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getCollectionGraph">xPDO.getCollectionGraph</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getCount">xPDO.getCount</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getDebug">xPDO.getDebug</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getFields">xPDO.getFields</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getIterator">xPDO.getIterator</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getManager">xPDO.getManager</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getObject">xPDO.getObject</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getObjectGraph">xPDO.getObjectGraph</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getOption">xPDO.getOption</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.getTableName">xPDO.getTableName</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.loadClass">xPDO.loadClass</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.log">xPDO.log</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.newObject">xPDO.newObject</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.newQuery">xPDO.newQuery</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.query">xPDO.query</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.setDebug">xPDO.setDebug</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.setLogLevel">xPDO.setLogLevel</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.setLogTarget">xPDO.setLogTarget</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.setOption">xPDO.setOption</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDO.toJSON">xPDO.toJSON</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOValidator">xPDOValidator</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/xPDO20/xPDOValidator.addMessage">xPDOValidator.addMessage</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOValidator.getMessages">xPDOValidator.getMessages</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOValidator.hasMessages">xPDOValidator.hasMessages</a>
+</li>
+
+<li>
+<a href="/display/xPDO20/xPDOValidator.validate">xPDOValidator.validate</a>
+</li>
+</ol>
+</li>
+</ol>

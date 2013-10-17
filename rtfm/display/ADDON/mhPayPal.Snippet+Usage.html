@@ -2,8 +2,8 @@
 <em>This document provides information on the mhPayPal snippet, its properties and some example usages. If looking for more information about the mhPayPal package in which the snippet is included, please visit ?</em><em><a href="/display/ADDON/mhPayPal" title="mhPayPal">mhPayPal</a></em> instead.
 </p>
 
-<h2>
-<a name="mhPayPal.SnippetUsage-Introduction" id="mhPayPal.SnippetUsage-Introduction"></a>Introduction
+<h2 id="mhPayPal.SnippetUsage-Introduction">
+Introduction
 </h2>
 
 <p>
@@ -11,568 +11,559 @@ The mhPayPal snippet is the core of the mhPayPal package. It outputs your form, 
 </p>
 
 <p>
-Since the result of the mhPayPal snippet depends on the user, URL parameters etc, <b>the mhPayPal snippet always needs to be called uncached!</b>
+Since the result of the mhPayPal snippet depends on the user, URL parameters etc, <strong>the mhPayPal snippet always needs to be called uncached!</strong>
 </p>
 
-<h2>
-<a name="mhPayPal.SnippetUsage-SnippetProperties" id="mhPayPal.SnippetUsage-SnippetProperties"></a>Snippet Properties
+<h2 id="mhPayPal.SnippetUsage-SnippetProperties">
+Snippet Properties
 </h2>
 
 <p>
 The list below is a list of all the properties you may use with mhPayPal. Please refer to the ?<a href="/display/revolution20/Tag+Syntax" title="Tag Syntax">Tag Syntax</a> if you are unsure on how to use these properties.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 &amp;property
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default value
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Version
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 currencies
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-A comma separated list of currency codes which you will want your visitors to be able of paying with. See the list of <a href="https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&amp;content_ID=developer/e_howto_api_nvp_currency_codes" class="external-link" rel="nofollow">Currency Codes on PayPal</a>.
-<br class="atl-forced-newline" />
+<td>
+A comma separated list of currency codes which you will want your visitors to be able of paying with. See the list of <a href="https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&amp;content_ID=developer/e_howto_api_nvp_currency_codes">Currency Codes on PayPal</a>.
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 EUR,USD,GBP
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 amount
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-[float] If you are using mhPayPal for <b>fixed price payments</b>, make sure to set the amount to a numeric value larger than 0. See the examples on using mhPayPal for payments elsewhere.
-<br class="atl-forced-newline" />
+<td>
+[float] If you are using mhPayPal for <strong>fixed price payments</strong>, make sure to set the amount to a numeric value larger than 0. See the examples on using mhPayPal for payments elsewhere.
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 amountTax
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [float] Amount of taxes to add to the payment/donation.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 amountFees
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [float] Amount of fees to add to the payment/donation.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 amountHandling
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [float] Amount of handling costs to add to the payment/donation.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 minAmount
 </td>
-<td class='confluenceTd'>
-[float] When using mhPayPal for <b>donations where users choose the price</b>, you can force a minimum amount with this property.
-<br class="atl-forced-newline" />
+<td>
+[float] When using mhPayPal for <strong>donations where users choose the price</strong>, you can force a minimum amount with this property.
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 5.00
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 decimals
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [integer] Amount of decimals to show.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 2
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 description
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] The text to use as description. Can contain placeholders of any fields like currency and amount.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Your [[+currency]][[+amount]] Donation
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 outputSeparator
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] Text/markup to place between bits of output. The form is one piece of output, and so is the collection of error messages and anything hooks may have added.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 \n
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-<b>Form Handling</b>
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
+&nbsp;
+</td>
+<td>
+<strong>Form Handling</strong>
+<br />
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
 formTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] Name of a chunk to use. See Templating elsewhere in these docs for more information on how to use your own form. Defaults to a form with a currency selector and an amount input box.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 mhPayPalTpl (file-based)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 formTplAnonymous
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] Name of a chunk to use when there is no user logged in. Could be used to display a message or login box if you only want users with an account to make a payment or donation. When left empty (default), it will use the chunk as specified with the formTpl property.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 errorTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] Name of ac hunk to use for individual error messages.See templating for more information on how to customize this.
 </td>
-<td class='confluenceTd'>
+<td>
 mhPayPalErrorTpl (file-based)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 successTpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] Name of a chunk to use to display a success message. See templating for more information on how to customize this.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 mhPayPalSuccess (file-based)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 errorSeparator
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 ?[string] String/text/markup to use in between individual error messages.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &lt;br /&gt;
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 extraRequiredFields
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] Comma separated list of field names that are required and cannot be left empty, can be used to collect extra data about the user for use in a custom hook or the likes.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 method
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [GET|POST] Either GET or POST, indicating if the form should use URL parameters or a POST request.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 POST
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 submitVar
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] The name of a field that needs to exist in the GET or POST (depending on &amp;method) in order for this snippet to start processing.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 makeDonation
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 id
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] Can be used when you have multiple forms on one page, to ensure there are no ID conflicts.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 pp
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showFormOnSuccess
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [1|0] Indicates if the snippet needs to show the form when the payment was successful.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 shipping
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [1|0] Tells PayPal if the user needs to confirm shipping details or not.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
-<b>Hooks</b> (though inspired by FormIt, do note that FormIt hooks are not compatible with mhPayPal)
-<br class="atl-forced-newline" />
-</td>
-<td class='confluenceTd'>
-&nbsp;
-</td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
+&nbsp;
+</td>
+<td>
+<strong>Hooks</strong> (though inspired by FormIt, do note that FormIt hooks are not compatible with mhPayPal)
+<br />
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
 preHooks
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] Comma separated list of hooks to be executed before viewing the form. This only triggers when the form has not yet been submitted.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 postHooks
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] Comma separated list of hooks to be executed after succesfully submitting the form, but before connecting with PayPal to set up the payment. Could be used to (for example) calculate taxes before it is registered with PayPal, or to further validate the data.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 postPaymentHooks
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [string] Comma separated list of hooks to be executed after making a successful payment and receiving details about the payer from PayPal. Can be used to notify users via email (see the email hook) or to add data about the payment to a custom table.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 1.1.0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="mhPayPal.SnippetUsage-ExampleUsage" id="mhPayPal.SnippetUsage-ExampleUsage"></a>Example Usage
+<h2 id="mhPayPal.SnippetUsage-ExampleUsage">
+Example Usage
 </h2>
 
 <p>
 Please also see the specific pages for hooks and templating for more detail about those. Please note that this assumes a correct installation and configured PayPal API access.
 </p>
 
-<h3>
-<a name="mhPayPal.SnippetUsage-MinimumSnippetCall" id="mhPayPal.SnippetUsage-MinimumSnippetCall"></a>Minimum Snippet Call
+<h3 id="mhPayPal.SnippetUsage-MinimumSnippetCall">
+Minimum Snippet Call
 </h3>
 
 <p>
 Displays the default form with all default options, meaning it will allow users to fill in their desired donation with a minimum of 5 EUR/USD/GBP.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!mhPayPal]]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="mhPayPal.SnippetUsage-UsingmhPayPaltomakeaoneproductfixedpricepayments" id="mhPayPal.SnippetUsage-UsingmhPayPaltomakeaoneproductfixedpricepayments"></a>Using mhPayPal to make a one-product fixed price payments
+<h3 id="mhPayPal.SnippetUsage-UsingmhPayPaltomakeaoneproductfixedpricepayments">
+Using mhPayPal to make a one-product fixed price payments
 </h3>
 
 <p>
 This example still uses the default form (you probably don't want that in this case), but ignores what the user choses and forces the USD currency at an amount of 15 bucks + 2.85 taxes. This also sets a description. This could be a great starting point, along with a custom chunk tpl and a hook or two, for allowing super quick check out of products.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!mhPayPal?
   &amp;amount=`15`
   &amp;amountTax=`2.85`
@@ -580,11 +571,8 @@ This example still uses the default form (you probably don't want that in this c
   &amp;currencies=`USD`
   ]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="mhPayPal.SnippetUsage-MoremhPayPaldocumentation" id="mhPayPal.SnippetUsage-MoremhPayPaldocumentation"></a>More mhPayPal documentation
+<h2 id="mhPayPal.SnippetUsage-MoremhPayPaldocumentation">
+More mhPayPal documentation
 </h2>
 
 <ul>

@@ -1,19 +1,15 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="MODx.combo.ComboBox-MODx.combo.ComboBox" id="MODx.combo.ComboBox-MODx.combo.ComboBox"></a>MODx.combo.ComboBox
+<h2 id="MODx.combo.ComboBox-MODx.combo.ComboBox">
+MODx.combo.ComboBox
 </h2>
 
 <p>
-<b>Extends:</b><a href="http://extjs.cachefly.net/ext-3.3.0/docs/?class=Ext.form.ComboBox" class="external-link" rel="nofollow">Ext.form.ComboBox</a>
+<strong>Extends:</strong><a href="http://extjs.cachefly.net/ext-3.3.0/docs/?class=Ext.form.ComboBox">Ext.form.ComboBox</a>
 <br />
-<b>Key Features:</b> Remote and local data stores; grid renderer.
+<strong>Key Features:</strong> Remote and local data stores; grid renderer.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678077/modext_combobox.png?version=1&amp;modificationDate=1250517993000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678077/modext_combobox.png?version=1&amp;modificationDate=1250517993000" />
 </p>
 
 <p>
@@ -25,92 +21,166 @@ One unique feature of the MODx ComboBox class is the built-in renderer for grids
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678077/modext_combobox_grid.png?version=1&amp;modificationDate=1250518045000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678077/modext_combobox_grid.png?version=1&amp;modificationDate=1250518045000" />
 </p>
 
-<h2>
-<a name="MODx.combo.ComboBox-UniqueParameters" id="MODx.combo.ComboBox-UniqueParameters"></a>Unique Parameters
+<h2 id="MODx.combo.ComboBox-UniqueParameters">
+Unique Parameters
 </h2>
 
 <p>
 The unique parameters for the class are simply pass-thru parameters to the data store for the combo:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 url
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to the connector.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 baseParams
 </td>
-<td class='confluenceTd'>
+<td>
 Any other parameters to always send to the connector.
 </td>
-<td class='confluenceTd'>
+<td>
 {}
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fields
 </td>
-<td class='confluenceTd'>
+<td>
 The fields, in array format, you expect from the connector response.
 </td>
-<td class='confluenceTd'>
+<td>
 []
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
-The class also inherits all <a href="http://extjs.cachefly.net/ext-3.3.0/docs/?class=Ext.form.ComboBox" class="external-link" rel="nofollow">Ext.form.ComboBox</a> properties.
+The class also inherits all <a href="http://extjs.cachefly.net/ext-3.3.0/docs/?class=Ext.form.ComboBox">Ext.form.ComboBox</a> properties.
 </p>
 
-<h2>
-<a name="MODx.combo.ComboBox-UsingtheGridRenderer" id="MODx.combo.ComboBox-UsingtheGridRenderer"></a>Using the Grid Renderer
+<h2 id="MODx.combo.ComboBox-UsingtheGridRenderer">
+Using the Grid Renderer
 </h2>
 
 <p>
 MODx.combo.ComboBox also comes with a built-in renderer for usage in grids. To use in, in your grid's column model defintion, simply specify renderer: true in the editor definition, like so:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 {
   header: _('usergroup')
   ,dataIndex: 'usergroup'
   ,width: 140
-  ,editor: { xtype: 'modx-combo-usergroup' ,renderer: <span class="code-keyword">true</span>}
+  ,editor: { xtype: 'modx-combo-usergroup' ,renderer: true}
 }
 </pre>
-</div>
-</div>
+<p>
+An example of a local data combo box would be:
+</p>
+
+<figure class="code">
+<figcaption>
+<strong>Units Combo Box</strong>
+</figcaption>
+
+<pre class="brush: php">
+Doodles.combo.Units = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        store: new Ext.data.ArrayStore({
+            id: 0
+            ,fields: ['unit','display']
+            ,data: [
+                ['MB','Megabyte']
+                ,['GB','Gigabyte']
+                ,['TB','Terabyte']
+                ,['PB','Petabyte']
+                ,['EB','Exabyte']
+                ,['ZB','Zettabyte']
+                ,['YB','Yottabyte']
+            ]
+        })
+        ,mode: 'local'
+        ,displayField: 'display'
+        ,valueField: 'unit'
+    });
+    Doodles.combo.Units.superclass.constructor.call(this,config);
+};
+Ext.extend(Doodles.combo.Units,MODx.combo.ComboBox);
+Ext.reg('doodle-combo-units',Doodles.combo.Units);
+</pre>
+</figure>
+
+<p>
+'store' is used to create your 'fields' and 'data', the optional 'mode' must be set to 'local' for this method.
+</p>
+
+<p>
+And to view that combo box:
+</p>
+
+<figure class="code">
+<figcaption>
+<strong>Combo Call From Grid</strong>
+</figcaption>
+
+<pre class="brush: php">
+       {
+            header: _('unit')
+            ,dataIndex: 'unit'
+            ,sortable: false
+            ,width: 50
+            ,editor: { xtype: 'doodle-combo-units', renderer: true }
+        }
+</pre>
+</figure>
+
+<figure class="code">
+<figcaption>
+<strong>Combo Call From Window</strong>
+</figcaption>
+
+<pre class="brush: php">
+       {
+            xtype: 'doodle-combo-units'
+            ,fieldLabel: _('unit')
+            ,name: 'unit'
+            ,hiddenName: 'unit'
+            ,anchor: '100%'
+        }
+</pre>
+</figure>
+
+<p>
+hiddenName must be set when calling from a create or update window to save the value, but is not needed in the grid view.
+</p>

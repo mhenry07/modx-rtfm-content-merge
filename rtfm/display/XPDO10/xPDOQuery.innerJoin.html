@@ -1,42 +1,31 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDOQuery.innerJoin-xPDOQuery%3A%3AinnerJoin"></a>xPDOQuery::innerJoin
+<h2 id="xPDOQuery.innerJoin-xPDOQuery::innerJoin">
+xPDOQuery::innerJoin
 </h2>
 
 <p>
 Add an INNER JOIN clause to the query.
 </p>
 
-<h2>
-<a name="xPDOQuery.innerJoin-Syntax" id="xPDOQuery.innerJoin-Syntax"></a>Syntax
+<h2 id="xPDOQuery.innerJoin-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#innerJoin" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOQuery.html#innerJoin</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#innerJoin">http://api.modxcms.com/xpdo/om/xPDOQuery.html#innerJoin</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-void innerJoin ( $class, [ $alias = ''], [ $conditions = array ()], [ $conjunction = XPDO_SQL_AND], [ $binding = <span class="code-keyword">null</span>], [ $condGroup = 0])
+<pre class="brush: php">
+void innerJoin ( $class, [ $alias = ''], [ $conditions = array ()], [ $conjunction = XPDO_SQL_AND], [ $binding = null], [ $condGroup = 0])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.innerJoin-Example" id="xPDOQuery.innerJoin-Example"></a>Example
+<h2 id="xPDOQuery.innerJoin-Example">
+Example
 </h2>
 
 <p>
 Grab only Boxes with an Owner named Mark.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;innerJoin('Owner','Owner');
 $query-&gt;where(array(
@@ -44,11 +33,8 @@ $query-&gt;where(array(
 ));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.innerJoin-SeeAlso" id="xPDOQuery.innerJoin-SeeAlso"></a>See Also
+<h2 id="xPDOQuery.innerJoin-SeeAlso">
+See Also
 </h2>
 
 <ul>

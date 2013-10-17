@@ -1,42 +1,31 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="getFKDefinition-xPDOObject%3A%3AgetFKDefinition%28%29"></a>xPDOObject::getFKDefinition()
+<h2 id="getFKDefinition-xPDOObject::getFKDefinition()">
+xPDOObject::getFKDefinition()
 </h2>
 
 <p>
 Get a foreign key definition for a specific classname. This is generally used to lookup classes in a one-to-many relationship with the current object.
 </p>
 
-<h2>
-<a name="getFKDefinition-Syntax" id="getFKDefinition-Syntax"></a>Syntax
+<h2 id="getFKDefinition-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#getFKDefinition" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#getFKDefinition</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#getFKDefinition">http://api.modxcms.com/xpdo/om/xPDOObject.html#getFKDefinition</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 array getFKDefinition (string $alias)
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="getFKDefinition-Examples" id="getFKDefinition-Examples"></a>Examples
+<h2 id="getFKDefinition-Examples">
+Examples
 </h2>
 
 <p>
 Get the FK definition of a User who just edited the Document.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $document = $xpdo-&gt;getObject('Document',1);
 $fkdef = $document-&gt;getFKDefinition('EditedBy');
 print_r($fkdef);
@@ -52,5 +41,3 @@ Array (
   [type] =&gt; aggregate 
 ) */
 </pre>
-</div>
-</div>

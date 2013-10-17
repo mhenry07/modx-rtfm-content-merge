@@ -1,9 +1,9 @@
 <p>
-<a href="http://modx.com/extras/package/cookielist" class="external-link" rel="nofollow">CookieList</a> is a generic addon that can be used for keeping wishlists, user favorites and other similar content. It allows you to define the value that needs to be saved which means it is not restricted to Resources, but may also be used to provide wishlist functionality for custom components. As the name indicates, it stores data in a Cookie.
+<a href="http://modx.com/extras/package/cookielist">CookieList</a> is a generic addon that can be used for keeping wishlists, user favorites and other similar content. It allows you to define the value that needs to be saved which means it is not restricted to Resources, but may also be used to provide wishlist functionality for custom components. As the name indicates, it stores data in a Cookie.
 </p>
 
-<h2>
-<a name="CookieList-Credits%2CLinks%26More"></a>Credits, Links &amp; More
+<h2 id="CookieList-Credits,Links&amp;More">
+Credits, Links &amp; More
 </h2>
 
 <p>
@@ -11,11 +11,11 @@ CookieList was developed by Romain Tripault of Melting Media, for Mark Hamstra, 
 </p>
 
 <p>
-The source is on Github: <a href="https://github.com/Mark-H/CookieList" class="external-link" rel="nofollow">https://github.com/Mark-H/CookieList</a>
+The source is on Github: <a href="https://github.com/Mark-H/CookieList">https://github.com/Mark-H/CookieList</a>
 <br />
-Github is also where you can file bugs / feature requests: <a href="https://github.com/Mark-H/CookieList/issues" class="external-link" rel="nofollow">https://github.com/Mark-H/CookieList/issues</a>
+Github is also where you can file bugs / feature requests: <a href="https://github.com/Mark-H/CookieList/issues">https://github.com/Mark-H/CookieList/issues</a>
 <br />
-There is a general forum topic for this addon at <a href="http://forums.modx.com/thread/71914/cookielist---wishlist-favorites-addon-for-revolution-using-lovely-cookies" class="external-link" rel="nofollow">http://forums.modx.com/thread/71914/cookielist---wishlist-favorites-addon-for-revolution-using-lovely-cookies</a>
+There is a general forum topic for this addon at <a href="http://forums.modx.com/thread/71914/cookielist---wishlist-favorites-addon-for-revolution-using-lovely-cookies">http://forums.modx.com/thread/71914/cookielist---wishlist-favorites-addon-for-revolution-using-lovely-cookies</a>
 </p>
 
 <p>
@@ -23,47 +23,45 @@ Feel free to fork it and add further functionality if you need it - a pull reque
 </p>
 
 <p>
-CookieList is installable via the Package Manager or <a href="http://modx.com/extras/package/cookielist" class="external-link" rel="nofollow">on the MODX site</a> and was developed for MODX Revolution. Though not extensively tested on lower versions it should work from 2.0 up.
+CookieList is installable via the Package Manager or <a href="http://modx.com/extras/package/cookielist">on the MODX site</a> and was developed for MODX Revolution. Though not extensively tested on lower versions it should work from 2.0 up.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Version
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Released On
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Notes
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 1.0.0-pl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 November 18th, 2011
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 First public release.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="CookieList-Usage"></a>Usage
+<h2 id="CookieList-Usage">
+Usage
 </h2>
 
 <p>
@@ -71,175 +69,145 @@ CookieList comes with two snippets.
 </p>
 
 <p>
-The first, <b>addToCookieList</b>, allows you to generate a link (or anything else, you can override the template easily) that either allows the user to add or to remove an item from the CookieList.
+The first, <strong>addToCookieList</strong>, allows you to generate a link (or anything else, you can override the template easily) that either allows the user to add or to remove an item from the CookieList.
 </p>
 
 <p>
-The second, <b>getCookieList</b>, simply fetches the cookie and returns the comma separated list of values which were stored. You would use this to generate an overview of what stored in the wishlist/favorites etc.
+The second, <strong>getCookieList</strong>, simply fetches the cookie and returns the comma separated list of values which were stored. You would use this to generate an overview of what stored in the wishlist/favorites etc.
 </p>
 
-<h3>
-<a name="CookieList-addToCookieList"></a>addToCookieList
+<h3 id="CookieList-addToCookieList">
+addToCookieList
 </h3>
 
 <p>
 The minimum call below creates a link that either says "Add to your CookieList" or "Remove from your CookieList". You'll probably want to change those labels, and you can (look at the addText and removeText properties below).
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!addToCookieList]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You will *always* need to call the addToCookieList and getCookieList snippets uncached, as every request could be a different user and it is very likely to change before the resource cache is removed. If using with getPage make sure to pass &amp;cache=0 to that to prevent getPage from caching as well.
-</td>
-</tr>
-</table>
 </div>
 
-<h4>
-<a name="CookieList-SnippetProperties"></a>Snippet Properties
+<h4 id="CookieList-SnippetProperties">
+Snippet Properties
 </h4>
 
 <p>
 You can use the following properties:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Property
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default value
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 value
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 What to store in the cookie. You'll probably want to store the unique ID of an object so you can use the getCookieList snippet to generate an overview of those objects with a snippet.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Current Resource ID
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 addText
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Override the language-specific default "add" label.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 "Add to your CookieList"
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 removeText
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Override the language-specific default "remove" label.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 "Remove from your CookieList"
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Allows you to override the default chunk template. You can use <ins>link</ins>, <ins>value</ins> and <ins>label</ins> in your chunk tpl. The default (filebased) chunk looks like this:
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
+<br />
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a href=<span class="code-quote">"[[+link]]"</span> title=<span class="code-quote">"[[+label]]"</span>&gt;[[+label]]&lt;/a&gt;
+<pre class="brush: php">
+&lt;a href="[[+link]]" title="[[+label]]"&gt;[[+label]]&lt;/a&gt;
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h4>
-<a name="CookieList-Examples"></a>Examples
+<h4 id="CookieList-Examples">
+Examples
 </h4>
 
 <p>
 The minimum call can be used to save the current resource ID to a cookie, which you can then use with the getResources snippet to generate an overview of the resources.
 </p>
 
-<h3>
-<a name="CookieList-getCookieList"></a>getCookieList
+<h3 id="CookieList-getCookieList">
+getCookieList
 </h3>
 
 <p>
 This snippet either returns an empty string, or a comma delimited list of values stored for the user. This is a real simple snippet as there's only one way to call it..:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getCookieList]]
 </pre>
-</div>
-</div>
-
 <p>
 There are no properties you can use to change the behavior of the snippet.
 </p>
 
-<h2>
-<a name="CookieList-SystemSettings"></a>System Settings
+<h2 id="CookieList-SystemSettings">
+System Settings
 </h2>
 
 <p>

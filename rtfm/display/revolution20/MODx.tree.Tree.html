@@ -1,306 +1,300 @@
 <div>
 <ul>
 <li>
-<a href='#MODx.tree.Tree-MODx.tree.Tree'>MODx.tree.Tree</a>
+<a href="#MODx.tree.Tree-MODx.tree.Tree">MODx.tree.Tree</a>
 </li>
 
 <li>
-<a href='#MODx.tree.Tree-UniqueParameters'>Unique Parameters</a>
+<a href="#MODx.tree.Tree-UniqueParameters">Unique Parameters</a>
 </li>
 
 <li>
-<a href='#MODx.tree.Tree-CustomEvents'>Custom Events</a>
+<a href="#MODx.tree.Tree-CustomEvents">Custom Events</a>
 </li>
 
 <li>
-<a href='#MODx.tree.Tree-OtherUniqueFeatures'>Other Unique Features</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#MODx.tree.Tree-OtherUniqueFeatures">Other Unique Features</a>
 <ul>
 <li>
-<a href='#MODx.tree.Tree-Sorting'>Sorting</a>
+<a href="#MODx.tree.Tree-Sorting">Sorting</a>
 </li>
 
 <li>
-<a href='#MODx.tree.Tree-RemoteToolbarLoading'>Remote Toolbar Loading</a>
+<a href="#MODx.tree.Tree-RemoteToolbarLoading">Remote Toolbar Loading</a>
 </li>
 
 <li>
-<a href='#MODx.tree.Tree-Drag%2FDroptoMODx.FormPanelFields'>Drag/Drop to MODx.FormPanel Fields</a>
+<a href="#MODx.tree.Tree-Drag%2FDroptoMODx.FormPanelFields">Drag/Drop to MODx.FormPanel Fields</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#MODx.tree.Tree-SeeAlso'>See Also</a>
+<a href="#MODx.tree.Tree-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="MODx.tree.Tree-MODx.tree.Tree" id="MODx.tree.Tree-MODx.tree.Tree"></a>MODx.tree.Tree
+<h2 id="MODx.tree.Tree-MODx.tree.Tree">
+MODx.tree.Tree
 </h2>
 
 <p>
-<b>Extends:</b> Ext.tree.TreePanel
+<strong>Extends:</strong> Ext.tree.TreePanel
 <br />
-<b>Key Features:</b> Remotely-loaded toolbars; drag-and-drop to form fields functionality; connector functionality for removing and dragging/sorting.
+<strong>Key Features:</strong> Remotely-loaded toolbars; drag-and-drop to form fields functionality; connector functionality for removing and dragging/sorting.
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/18678081/modext_tree.png?version=1&amp;modificationDate=1250518279000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/18678081/modext_tree.png?version=1&amp;modificationDate=1250518279000" />
 </p>
 
 <p>
 Trees provide a quick and easy way to display multiple levels of objects which have a parent-child relationship, such as users or resources.
 </p>
 
-<h2>
-<a name="MODx.tree.Tree-UniqueParameters" id="MODx.tree.Tree-UniqueParameters"></a>Unique Parameters
+<h2 id="MODx.tree.Tree-UniqueParameters">
+Unique Parameters
 </h2>
 
 <p>
 MODx.tree.Tree has a few extra parameters not found in Ext.tree.TreePanel objects:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 url
 </td>
-<td class='confluenceTd'>
+<td>
 The URL to point the tree loader at. Optional if you pass in the data parameter.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rootName
 </td>
-<td class='confluenceTd'>
+<td>
 The text of the root node, if rootVisible is set to true.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rootId
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the root node.
 </td>
-<td class='confluenceTd'>
+<td>
 root
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 data
 </td>
-<td class='confluenceTd'>
+<td>
 Optional; if url is not set, data must be loaded in through here.
 </td>
-<td class='confluenceTd'>
+<td>
 []
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 remoteToolbar
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will load the tree's toolbar via data loaded remotely.
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 remoteToolbarUrl*
 </td>
-<td class='confluenceTd'>
+<td>
 The connector URL to load the toolbar from. Defaults to the tree's URL.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 remoteToolbarAction*
 </td>
-<td class='confluenceTd'>
+<td>
 The processor action to load the toolbar from.
 </td>
-<td class='confluenceTd'>
+<td>
 getToolbar
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useDefaultToolbar
 </td>
-<td class='confluenceTd'>
+<td>
 If remoteToolbar is false, this will load the default toolbar, which contains expand all, contract all, and refresh. Items passed to tbar property will be added after.
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 menuConfig
 </td>
-<td class='confluenceTd'>
+<td>
 The config object to pass to the context menu loaded for this tree.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 expandFirst
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will expand the first level nodes on render.
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 removeAction*
 </td>
-<td class='confluenceTd'>
+<td>
 The processor action to take when removing a node.
 </td>
-<td class='confluenceTd'>
+<td>
 remove
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 removeTitle*
 </td>
-<td class='confluenceTd'>
+<td>
 The title for the remove dialog when removing a node.
 </td>
-<td class='confluenceTd'>
+<td>
 Warning!
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 primaryKey
 </td>
-<td class='confluenceTd'>
+<td>
 The primary key for the node. Usually is id.
 </td>
-<td class='confluenceTd'>
+<td>
 id
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortAction
 </td>
-<td class='confluenceTd'>
+<td>
 The processor action to take when sorting nodes via drag/drop.
 </td>
-<td class='confluenceTd'>
+<td>
 sort
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toolbarItemCls*
 </td>
-<td class='confluenceTd'>
+<td>
 The CSS class to add to remoteToolbar loaded items.
 </td>
-<td class='confluenceTd'>
+<td>
 x-btn-icon
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <ul>
 <li>= MODX Revolution 2.1+ Only
 </li>
 </ul>
 
-<h2>
-<a name="MODx.tree.Tree-CustomEvents" id="MODx.tree.Tree-CustomEvents"></a>Custom Events
+<h2 id="MODx.tree.Tree-CustomEvents">
+Custom Events
 </h2>
 
 <p>
 The custom events fired by MODx.tree.Tree are:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 beforeSort
 </td>
-<td class='confluenceTd'>
+<td>
 Fired before the tree sends off the sorted nodes to the sort processor. Passed the sorted nodes, encoded.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 afterSort
 </td>
-<td class='confluenceTd'>
+<td>
 Fired after the tree node sorting happens. Passes:
 <ul>
 <li>event - The drop event
@@ -313,63 +307,114 @@ Fired after the tree node sorting happens. Passes:
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="MODx.tree.Tree-OtherUniqueFeatures" id="MODx.tree.Tree-OtherUniqueFeatures"></a>Other Unique Features
+<h2 id="MODx.tree.Tree-OtherUniqueFeatures">
+Other Unique Features
 </h2>
 
-<h4>
-<a name="MODx.tree.Tree-Sorting" id="MODx.tree.Tree-Sorting"></a>Sorting
+<h4 id="MODx.tree.Tree-Sorting">
+Sorting
 </h4>
 
 <p>
 Sorting is automatically enabled by default in MODx.tree.Tree objects. To disable, set enableDD to false in your config. After a drag/drop, the tree will fire off the encoded nodes to a sort processor, with the same connector as the tree URL.
 </p>
 
-<h4>
-<a name="MODx.tree.Tree-RemoteToolbarLoading" id="MODx.tree.Tree-RemoteToolbarLoading"></a>Remote Toolbar Loading
+<h4 id="MODx.tree.Tree-RemoteToolbarLoading">
+Remote Toolbar Loading
 </h4>
 
 <p>
 Toolbars can be loaded remotely, using the remoteToolbar config parameter. This will load the data from a processor loaded by the remoteToolbarAction config var, which defaults to "getToolbar".
 </p>
 
-<h4>
-<a name="MODx.tree.Tree-Drag%2FDroptoMODx.FormPanelFields"></a>Drag/Drop to MODx.FormPanel Fields
+<h4 id="MODx.tree.Tree-Drag/DroptoMODx.FormPanelFields">
+Drag/Drop to MODx.FormPanel Fields
 </h4>
 
 <p>
 Nodes can be dragged into MODx.FormPanel fields, assuming that the following is passed into the config var:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-,enableDD: <span class="code-keyword">true</span>
+<pre class="brush: php">
+,enableDD: true
 ,ddGroup: 'modx-treedrop-dd'
 </pre>
-</div>
-</div>
-
 <p>
 and that the node has an attribute of 'type', which is one of the following values: modResource,snippet,chunk,tv,file.
 </p>
 
-<h2>
-<a name="MODx.tree.Tree-SeeAlso" id="MODx.tree.Tree-SeeAlso"></a>See Also
+<h2 id="MODx.tree.Tree-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/MODExt+MODx+Object">MODExt MODx Object</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678081" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678078" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FMODx.tree.Tree" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678078" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/MODExt+Tutorials">MODExt Tutorials</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/1.+Ext+JS+Tutorial+-+Message+Boxes">1. Ext JS Tutorial - Message Boxes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/2.+Ext+JS+Tutorial+-+Ajax+Include">2. Ext JS Tutorial - Ajax Include</a>
+</li>
+
+<li>
+<a href="/display/revolution20/3.+Ext+JS+Tutorial+-+Animation">3. Ext JS Tutorial - Animation</a>
+</li>
+
+<li>
+<a href="/display/revolution20/4.+Ext+JS+Tutorial+-+Manipulating+Nodes">4. Ext JS Tutorial - Manipulating Nodes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/5.+Ext+JS+Tutorial+-+Panels">5. Ext JS Tutorial - Panels</a>
+</li>
+
+<li>
+<a href="/display/revolution20/7.+Ext+JS+Tutoral+-+Advanced+Grid">7. Ext JS Tutoral - Advanced Grid</a>
+</li>
+
+<li>
+<a href="/display/revolution20/8.+Ext+JS+Tutorial+-+Inside+a+CMP">8. Ext JS Tutorial - Inside a CMP</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.combo.ComboBox">MODx.combo.ComboBox</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.Console">MODx.Console</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.FormPanel">MODx.FormPanel</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.grid.Grid">MODx.grid.Grid</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.grid.LocalGrid">MODx.grid.LocalGrid</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.msg">MODx.msg</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.tree.Tree">MODx.tree.Tree</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODx.Window">MODx.Window</a>
+</li>
+</ol>

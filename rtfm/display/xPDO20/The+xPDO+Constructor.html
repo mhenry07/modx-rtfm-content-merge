@@ -1,65 +1,57 @@
 <div>
 <ul>
 <li>
-<a href='#ThexPDOConstructor-Parameters'>Parameters</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#ThexPDOConstructor-Parameters">Parameters</a>
 <ul>
 <li>
-<a href='#ThexPDOConstructor-%24dsn'>$dsn</a>
+<a href="#ThexPDOConstructor-%24dsn">$dsn</a>
 </li>
 
 <li>
-<a href='#ThexPDOConstructor-%24usernameand%24password'>$username and $password</a>
+<a href="#ThexPDOConstructor-%24usernameand%24password">$username and $password</a>
 </li>
 
 <li>
-<a href='#ThexPDOConstructor-%24options'>$options</a>
+<a href="#ThexPDOConstructor-%24options">$options</a>
 </li>
 
 <li>
-<a href='#ThexPDOConstructor-%24driverOptions'>$driverOptions</a>
+<a href="#ThexPDOConstructor-%24driverOptions">$driverOptions</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#ThexPDOConstructor-SeeAlso'>See Also</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#ThexPDOConstructor-SeeAlso">See Also</a>
 <ul>
 <li>
-<a href='#ThexPDOConstructor-Moreinformationaboutoptions'>More information about options</a>
+<a href="#ThexPDOConstructor-Moreinformationaboutoptions">More information about options</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeHeader panelHeader" style="border-bottom-width: 1px;">
-<b>default xPDO connection constructor</b>
-</div>
+<figure class="code">
+<figcaption>
+<strong>default xPDO connection constructor</strong>
+</figcaption>
 
-<div class="codeContent panelContent">
-<pre class="code-java">
-$xpdo= <span class="code-keyword">new</span> xPDO($dsn, $username= '', $password= '', $options= array(), $driverOptions= <span class="code-keyword">null</span>) 
+<pre class="brush: php">
+$xpdo= new xPDO($dsn, $username= '', $password= '', $options= array(), $driverOptions= null) 
 </pre>
-</div>
-</div>
+</figure>
 
-<h2>
-<a name="ThexPDOConstructor-Parameters" id="ThexPDOConstructor-Parameters"></a>Parameters
+<h2 id="ThexPDOConstructor-Parameters">
+Parameters
 </h2>
 
 <p>
 As you can see, there are 5 parameters available in the constructor; the only necessary one is the first:
 </p>
 
-<h3>
-<a name="ThexPDOConstructor-%24dsn"></a>$dsn
+<h3 id="ThexPDOConstructor-$dsn">
+$dsn
 </h3>
 
 <p>
@@ -73,19 +65,19 @@ mysql:host=MYHOSTNAME;dbname=MYDBNAME;charset=MYCHARSET
 </blockquote>
 
 <p>
-You'll simply have to change the values of the hostname, database name, and charset to set up the parameter. More info can be found at <a href="http://php.net/manual/en/pdo.construct.php" class="external-link" rel="nofollow">PHP.net's PDO</a> page.
+You'll simply have to change the values of the hostname, database name, and charset to set up the parameter. More info can be found at <a href="http://php.net/manual/en/pdo.construct.php">PHP.net's PDO</a> page.
 </p>
 
-<h3>
-<a name="ThexPDOConstructor-%24usernameand%24password"></a>$username and $password
+<h3 id="ThexPDOConstructor-$usernameand$password">
+$username and $password
 </h3>
 
 <p>
 This is the username and password to the database. Simply specify the database login information you'd like to use for xPDO's connections.
 </p>
 
-<h3>
-<a name="ThexPDOConstructor-%24options"></a>$options
+<h3 id="ThexPDOConstructor-$options">
+$options
 </h3>
 
 <p>
@@ -98,121 +90,121 @@ Some of the xPDO-specific parameters use custom defines that you can use, such a
 
 <ul>
 <li>
-<b>xPDO::OPT_BASE_CLASSES</b> — An array of classes to load upon instantiation.
+<strong>xPDO::OPT_BASE_CLASSES</strong> — An array of classes to load upon instantiation.
 </li>
 
 <li>
-<b>xPDO::OPT_BASE_PACKAGES</b> — A comma-separated string of package names/paths (separated by a colon) to be loaded upon instantiation.
+<strong>xPDO::OPT_BASE_PACKAGES</strong> — A comma-separated string of package names/paths (separated by a colon) to be loaded upon instantiation.
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_COMPRESS</b> — If set, any xPDOCache instances using providers that support compressing data will use that option by default.
+<strong>xPDO::OPT_CACHE_COMPRESS</strong> — If set, any xPDOCache instances using providers that support compressing data will use that option by default.
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_DB</b> — If set, database result set caching will be enabled.
+<strong>xPDO::OPT_CACHE_DB</strong> — If set, database result set caching will be enabled.
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_DB_COLLECTIONS</b> — If set, database result set caching will attempt to cache entire collections.
+<strong>xPDO::OPT_CACHE_DB_COLLECTIONS</strong> — If set, database result set caching will attempt to cache entire collections.
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_DB_OBJECTS_BY_PK</b> — If set, database result set caching will create cache entries by primary key in addition to the query signature used.
+<strong>xPDO::OPT_CACHE_DB_OBJECTS_BY_PK</strong> — If set, database result set caching will create cache entries by primary key in addition to the query signature used.
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_DB_EXPIRES</b> — If set, defines the number of seconds a database result set cache entry is valid in the cache; 0 means it does not expire.
+<strong>xPDO::OPT_CACHE_DB_EXPIRES</strong> — If set, defines the number of seconds a database result set cache entry is valid in the cache; 0 means it does not expire.
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_DB_HANDLER</b> — If set, defines an xPDOCache derivative to handle database result set caching.
+<strong>xPDO::OPT_CACHE_DB_HANDLER</strong> — If set, defines an xPDOCache derivative to handle database result set caching.
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_EXPIRES</b> — If set, defines the number of seconds a cache entry is valid in any cache provider by default; 0 means it does not expire.
+<strong>xPDO::OPT_CACHE_EXPIRES</strong> — If set, defines the number of seconds a cache entry is valid in any cache provider by default; 0 means it does not expire.
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_FORMAT</b> — If set, defines the format cache files are stored in when using xPDOFileCache; the default is PHP, but JSON and serialized are available. <em>(2.1 only)</em>
+<strong>xPDO::OPT_CACHE_FORMAT</strong> — If set, defines the format cache files are stored in when using xPDOFileCache; the default is PHP, but JSON and serialized are available. <em>(2.1 only)</em>
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_KEY</b> — If set, defines the key of the default cache instance; the default value is <em>default</em>.
+<strong>xPDO::OPT_CACHE_KEY</strong> — If set, defines the key of the default cache instance; the default value is <em>default</em>.
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_PATH</b> — If set, will set a custom cachePath class variable to the xPDO object that can be used in caching.
+<strong>xPDO::OPT_CACHE_PATH</strong> — If set, will set a custom cachePath class variable to the xPDO object that can be used in caching.
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_ATTEMPTS</b> — If set, defines the number attempts xPDOFileCache will attempt to lock an existing cache entry for writing; default is 1. <em>(2.1 only)</em>
+<strong>xPDO::OPT_CACHE_ATTEMPTS</strong> — If set, defines the number attempts xPDOFileCache will attempt to lock an existing cache entry for writing; default is 1. <em>(2.1 only)</em>
 </li>
 
 <li>
-<b>xPDO::OPT_CACHE_ATTEMPT_DELAY</b> — If set, defines the number microseconds to delay each attempt to lock existing cache entries for writing; default is 10000. <em>(2.1 only)</em>
+<strong>xPDO::OPT_CACHE_ATTEMPT_DELAY</strong> — If set, defines the number microseconds to delay each attempt to lock existing cache entries for writing; default is 10000. <em>(2.1 only)</em>
 </li>
 
 <li>
-<b>xPDO::OPT_CONNECTIONS</b> — Optionally defines a pool of <a href="http://rtfm.modx.com/display/xPDO20/Database+Connections+and+xPDO#DatabaseConnectionsandxPDO-DefiningMultipleConnections%28xPDO2.2%29" class="external-link" rel="nofollow">additional connections</a> to select from when instantiating xPDO. <em>(2.2 only)</em>
+<strong>xPDO::OPT_CONNECTIONS</strong> — Optionally defines a pool of <a href="http://rtfm.modx.com/display/xPDO20/Database+Connections+and+xPDO#DatabaseConnectionsandxPDO-DefiningMultipleConnections%28xPDO2.2%29">additional connections</a> to select from when instantiating xPDO. <em>(2.2 only)</em>
 </li>
 
 <li>
-<b>xPDO::OPT_CONN_INIT</b> — Defines options a connection must have to be selected as the initial connection; applicable when multiple connections are defined. <em>(2.2 only)</em>
+<strong>xPDO::OPT_CONN_INIT</strong> — Defines options a connection must have to be selected as the initial connection; applicable when multiple connections are defined. <em>(2.2 only)</em>
 </li>
 
 <li>
-<b>xPDO::OPT_CONN_MUTABLE</b> — Defines if data from a connection can be changed, i.e. is writable. <em>(2.2 only)</em>
+<strong>xPDO::OPT_CONN_MUTABLE</strong> — Defines if data from a connection can be changed, i.e. is writable. <em>(2.2 only)</em>
 </li>
 
 <li>
-<b>xPDO::OPT_HYDRATE_FIELDS</b> — If true, fields will be <a href="/display/xPDO20/Hydrating+Fields" title="Hydrating Fields">hydrated</a>.
+<strong>xPDO::OPT_HYDRATE_FIELDS</strong> — If true, fields will be <a href="/display/xPDO20/Hydrating+Fields" title="Hydrating Fields">hydrated</a>.
 </li>
 
 <li>
-<b>xPDO::OPT_HYDRATE_RELATED_OBJECTS</b> — If true, related objects will be <a href="/display/xPDO20/Hydrating+Fields" title="Hydrating Fields">hydrated</a>.
+<strong>xPDO::OPT_HYDRATE_RELATED_OBJECTS</strong> — If true, related objects will be <a href="/display/xPDO20/Hydrating+Fields" title="Hydrating Fields">hydrated</a>.
 </li>
 
 <li>
-<b>xPDO::OPT_HYDRATE_ADHOC_FIELDS</b> — If true, ad-hoc fields will be <a href="/display/xPDO20/Hydrating+Fields" title="Hydrating Fields">hydrated</a>.
+<strong>xPDO::OPT_HYDRATE_ADHOC_FIELDS</strong> — If true, ad-hoc fields will be <a href="/display/xPDO20/Hydrating+Fields" title="Hydrating Fields">hydrated</a>.
 </li>
 
 <li>
-<b>xPDO::OPT_LOADER_CLASSES</b> — Can be an array of class names to load upon instantiation of the xPDO object. <em>(deprecated in 2.0.0-pl)</em>
+<strong>xPDO::OPT_LOADER_CLASSES</strong> — Can be an array of class names to load upon instantiation of the xPDO object. <em>(deprecated in 2.0.0-pl)</em>
 </li>
 
 <li>
-<b>xPDO::OPT_ON_SET_STRIPSLASHES</b> — If set, stripslashes() is applied to values being set() on xPDOObject instances.
+<strong>xPDO::OPT_ON_SET_STRIPSLASHES</strong> — If set, stripslashes() is applied to values being set() on xPDOObject instances.
 </li>
 
 <li>
-<b>xPDO::OPT_TABLE_PREFIX</b> — If set, all database class references will be prefixed with this prefix.
+<strong>xPDO::OPT_TABLE_PREFIX</strong> — If set, all database class references will be prefixed with this prefix.
 </li>
 
 <li>
-<b>xPDO::OPT_VALIDATOR_CLASS</b> — If set, will use a custom class specified that derives from xPDOValidator <em>(the default)</em>
+<strong>xPDO::OPT_VALIDATOR_CLASS</strong> — If set, will use a custom class specified that derives from xPDOValidator <em>(the default)</em>
 </li>
 
 <li>
-<b>xPDO::OPT_VALIDATE_ON_SAVE</b> — If true, xPDOObjects will be validated against their Validators before saving.
+<strong>xPDO::OPT_VALIDATE_ON_SAVE</strong> — If true, xPDOObjects will be validated against their Validators before saving.
 </li>
 </ul>
 
-<h3>
-<a name="ThexPDOConstructor-%24driverOptions"></a>$driverOptions
+<h3 id="ThexPDOConstructor-$driverOptions">
+$driverOptions
 </h3>
 
 <p>
-An optional array of driver-specific PDO options. More info can be found <a href="http://us.php.net/manual/en/pdo.drivers.php" class="external-link" rel="nofollow">here</a>.
+An optional array of driver-specific PDO options. More info can be found <a href="http://us.php.net/manual/en/pdo.drivers.php">here</a>.
 </p>
 
-<h2>
-<a name="ThexPDOConstructor-SeeAlso" id="ThexPDOConstructor-SeeAlso"></a>See Also
+<h2 id="ThexPDOConstructor-SeeAlso">
+See Also
 </h2>
 
 <ul>
 <li>
-<a href="http://php.net/manual/en/pdo.construct.php" class="external-link" rel="nofollow">PDO::__construct()</a>
+<a href="http://php.net/manual/en/pdo.construct.php">PDO::__construct()</a>
 </li>
 
 <li>
@@ -236,20 +228,12 @@ An optional array of driver-specific PDO options. More info can be found <a href
 </li>
 </ul>
 
-<h3>
-<a name="ThexPDOConstructor-Moreinformationaboutoptions" id="ThexPDOConstructor-Moreinformationaboutoptions"></a>More information about options
+<h3 id="ThexPDOConstructor-Moreinformationaboutoptions">
+More information about options
 </h3>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="12615727" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="12615727" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="xPDO20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FxPDO20%2FThe%2BxPDO%2BConstructor" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="12615727" />
-</fieldset>
-</fieldset>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/xPDO20/Hydrating+Fields">Hydrating Fields</a>
+</li>
+</ol>

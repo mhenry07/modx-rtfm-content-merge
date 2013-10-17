@@ -1,69 +1,56 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#Resources-WhatisaResource%3F'>What is a Resource?</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Resources-WhatisaResource%3F">What is a Resource?</a>
 <ul>
 <li>
-<a href='#Resources-ManagingResources'>Managing Resources</a>
+<a href="#Resources-ManagingResources">Managing Resources</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Resources-ResourceFields'>Resource Fields</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Resources-ResourceFields">Resource Fields</a>
 <ul>
 <li>
-<a href='#Resources-GeneralResourceFields'>General Resource Fields</a>
+<a href="#Resources-GeneralResourceFields">General Resource Fields</a>
 </li>
 
 <li>
-<a href='#Resources-SettingsResourceFields'>Settings Resource Fields</a>
+<a href="#Resources-SettingsResourceFields">Settings Resource Fields</a>
 </li>
 
 <li>
-<a href='#Resources-UsingResourceFields'>Using Resource Fields</a>
+<a href="#Resources-UsingResourceFields">Using Resource Fields</a>
 </li>
 
 <li>
-<a href='#Resources-AccessingResourceFieldsinaSnippet'>Accessing Resource Fields in a Snippet</a>
+<a href="#Resources-AccessingResourceFieldsinaSnippet">Accessing Resource Fields in a Snippet</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Resources-LinkingtoaResource'>Linking to a Resource</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#Resources-LinkingtoaResource">Linking to a Resource</a>
 <ul>
 <li>
-<a href='#Resources-URLParametersforResourceTags'>URL Parameters for Resource Tags</a>
+<a href="#Resources-URLParametersforResourceTags">URL Parameters for Resource Tags</a>
 </li>
 
 <li>
-<a href='#Resources-URLSchemesinResourceTags'>URL Schemes in Resource Tags</a>
+<a href="#Resources-URLSchemesinResourceTags">URL Schemes in Resource Tags</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#Resources-SeeAlso'>See Also</a>
+<a href="#Resources-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Resources-WhatisaResource%3F"></a>What is a Resource?
+<h2 id="Resources-WhatisaResource?">
+What is a Resource?
 </h2>
 
 <p>
@@ -78,8 +65,8 @@ There are 4 total types of Resources, and they are Documents, <a href="/display/
 Each Resource also has a unique ID, or "Resource Identifier". This lets MODx know what Resource to fetch when you are loading a webpage. Also, when you're wanting to link between Resources, you should always use the ID to do so. That way MODx will generate the link and you will not have to worry about changed aliases, content types or anything - MODx will change your links also. Please see the Linking to Resources section below for more information on how to do this.
 </p>
 
-<h3>
-<a name="Resources-ManagingResources"></a>Managing Resources
+<h3 id="Resources-ManagingResources">
+Managing Resources
 </h3>
 
 <p>
@@ -87,416 +74,373 @@ Resources are shown in the Resources tree in the left-hand navigation of the man
 </p>
 
 <p>
-<span class="image-wrap" style=""><a class="confluence-thumbnail-link 845x703" href='http://oldrtfm.modx.com/download/attachments/18678067/resource-edit1.png'><img src="/download/thumbnails/18678067/resource-edit1.png" style="border: 0px solid black" /></a></span>
+<a class="confluence-thumbnail-link 845x703" href="/download/attachments/18678067/resource-edit1.png"><img src="/download/thumbnails/18678067/resource-edit1.png" /></a>
 </p>
 
 <p>
 The content of the Resource can then be edited in the large content field in the bottom area. Other fields related to each Resource can also be edited via the tabs on the top of the page.
 </p>
 
-<h2>
-<a name="Resources-ResourceFields"></a>Resource Fields
+<h2 id="Resources-ResourceFields">
+Resource Fields
 </h2>
 
 <p>
 Resources come packaged with a list of predetermined fields by default. They are:
 </p>
 
-<h3>
-<a name="Resources-GeneralResourceFields"></a>General Resource Fields
+<h3 id="Resources-GeneralResourceFields">
+General Resource Fields
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 id
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the Resource.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 template
 </td>
-<td class='confluenceTd'>
+<td>
 A reference to the <a href="/display/revolution20/Templates" title="Templates">Template</a> that this Resource is using
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 published
 </td>
-<td class='confluenceTd'>
+<td>
 If the Resource is Published, or viewable on the front-end.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pagetitle
 </td>
-<td class='confluenceTd'>
+<td>
 The title of the Resource.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 longtitle
 </td>
-<td class='confluenceTd'>
+<td>
 A longer title of the Resource.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 description
 </td>
-<td class='confluenceTd'>
+<td>
 An extended description of the Resource.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 introtext
 </td>
-<td class='confluenceTd'>
+<td>
 Also called 'Summary', an introductory excerpt of the Resource's content. Useful for blogs or searching.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 alias
 </td>
-<td class='confluenceTd'>
+<td>
 The URL alias to use, if your site is using Friendly URLs. A Resource with alias 'home' and Content Type 'html' would render 'home.html' if it isn't a Container.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parent
 </td>
-<td class='confluenceTd'>
+<td>
 The Parent Resource's ID.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 link_attributes
 </td>
-<td class='confluenceTd'>
+<td>
 Used with menu building snippets to add attributes to links, etc. Can be repurposed for other needs.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 menutitle
 </td>
-<td class='confluenceTd'>
+<td>
 The title to show for the Resource when displayed in a menu.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 menuindex
 </td>
-<td class='confluenceTd'>
+<td>
 The order index of the Resource in a menu. Higher order means later.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 hidemenu
 </td>
-<td class='confluenceTd'>
+<td>
 Also called 'Hide from Menus', if set, this Resource will not show in most Menu or Navigation snippets.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 content
 </td>
-<td class='confluenceTd'>
+<td>
 The actual content of the Resource.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="Resources-SettingsResourceFields"></a>Settings Resource Fields
+<h3 id="Resources-SettingsResourceFields">
+Settings Resource Fields
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 isfolder
 </td>
-<td class='confluenceTd'>
+<td>
 Labeled as 'Container', this specifies whether or not the Resource renders with a / in Friendly URLs instead of its suffix.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 searchable
 </td>
-<td class='confluenceTd'>
+<td>
 If the Resource is searchable.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cacheable
 </td>
-<td class='confluenceTd'>
+<td>
 If the Resource is cacheable.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 createdby
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the user who created the Resource.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 editedby
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the last user to edit the Resource.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 deleted
 </td>
-<td class='confluenceTd'>
+<td>
 If the Resource is deleted or not.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 deletedby
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the user who deleted the Resource.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 publishedby
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the user who last published the Resource.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 createdon
 </td>
-<td class='confluenceTd'>
+<td>
 The date the Resource was created.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 publishedon
 </td>
-<td class='confluenceTd'>
+<td>
 The date the Resource was published.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 editedon
 </td>
-<td class='confluenceTd'>
+<td>
 The date the Resource was last edited.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pub_date
 </td>
-<td class='confluenceTd'>
+<td>
 The scheduled date for a Resource to be published.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 unpub_date
 </td>
-<td class='confluenceTd'>
+<td>
 The scheduled date for a Resource to be unpublished.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="Resources-UsingResourceFields"></a>Using Resource Fields
+<h3 id="Resources-UsingResourceFields">
+Using Resource Fields
 </h3>
 
 <p>
 Resource fields can be accessed from anywhere by using the <a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variable</a> syntax, ie:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[*pagetitle]] <span class="code-comment">// renders the pagetitle.
-</span>[[*id]] <span class="code-comment">// renders the Resource's ID
-</span>[[*createdby]] <span class="code-comment">// renders the ID of the user who created <span class="code-keyword">this</span> Resource</span>
+<pre class="brush: php">
+[[*pagetitle]] // renders the pagetitle.
+[[*id]] // renders the Resource's ID
+[[*createdby]] // renders the ID of the user who created this Resource
 </pre>
-</div>
-</div>
-
 <p>
 They can also have <a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">Output Filters</a> applied to them:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// Renders a limited version of the introtext field.
-</span><span class="code-comment">// If it is longer than 100 chars, adds an ...
-</span>[[*introtext:ellipsis=`100`]]
+<pre class="brush: php">
+// Renders a limited version of the introtext field.
+// If it is longer than 100 chars, adds an ...
+[[*introtext:ellipsis=`100`]]
 
-<span class="code-comment">// Grabs the user who last edited the Resource's username
-</span>[[*editedby:userinfo=`username`]]
+// Grabs the user who last edited the Resource's username
+[[*editedby:userinfo=`username`]]
 
-<span class="code-comment">// Grabs the user who published the Resource's email
-</span>[[*publishedby:userinfo=`email`]]
+// Grabs the user who published the Resource's email
+[[*publishedby:userinfo=`email`]]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="Resources-AccessingResourceFieldsinaSnippet"></a>Accessing Resource Fields in a Snippet
+<h3 id="Resources-AccessingResourceFieldsinaSnippet">
+Accessing Resource Fields in a Snippet
 </h3>
 
 <p>
 Grabbing the Resource Fields in a <a href="/display/revolution20/Snippets" title="Snippets">Snippet</a> is quite easy; MODx provides you with the Resource object in any Snippet, via the $modx-&gt;resource reference. For example, this example Snippet will return the current page's pagetitle reversed:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 /* output the current Resource's pagetitle */
 $output = $modx-&gt;resource-&gt;get('pagetitle');
-<span class="code-keyword">return</span> strrev($output);
+return strrev($output);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Resources-LinkingtoaResource"></a>Linking to a Resource
+<h2 id="Resources-LinkingtoaResource">
+Linking to a Resource
 </h2>
 
 <p>
 In MODx, links to Resources are dynamically managed via "Resource Tags". They look like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[~123]]
 </pre>
-</div>
-</div>
-
 <p>
 where '123' is the ID of the Resource to link to. You can put these tags anywhere, and MODx will dynamically render the URL for the Resource.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You can also get the Resource Tag by dragging a Resource from the left tree into the content panel.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Also see <a href="/display/revolution20/Named+Anchor" title="Named Anchor">Named Anchor</a>.
 </p>
 
-<h3>
-<a name="Resources-URLParametersforResourceTags"></a>URL Parameters for Resource Tags
+<h3 id="Resources-URLParametersforResourceTags">
+URL Parameters for Resource Tags
 </h3>
 
 <p>
 Adding URL parameters in your Resource Tag is quite simple in Revolution. Let's say we have Resource ID 42 that resolves to a URL of 'store/items.html'. We want to add a 'tag' parameter to the URL, with a value of 'Snacks' and a 'sort' parameter of 'Taste'. Here's how you'd do it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[~42? &amp;tag=`Snacks` &amp;sort=`Taste`]]
 </pre>
-</div>
-</div>
-
 <p>
 This would render as:
 </p>
@@ -508,25 +452,20 @@ store/items.html?tag=Snacks&amp;sort=Taste
 </blockquote>
 
 <p>
-Note that those are <b>backticks</b> instead of apostrophes.
+Note that those are <strong>backticks</strong> instead of apostrophes.
 </p>
 
-<h3>
-<a name="Resources-URLSchemesinResourceTags"></a>URL Schemes in Resource Tags
+<h3 id="Resources-URLSchemesinResourceTags">
+URL Schemes in Resource Tags
 </h3>
 
 <p>
 You can specify the scheme for a Resource in your tag:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[~123? &amp;scheme=`https`]]
 </pre>
-</div>
-</div>
-
 <p>
 Would render the URL using 'https' instead of the scheme indicated by the current settings (i.e. system or context settings).
 </p>
@@ -535,98 +474,109 @@ Would render the URL using 'https' instead of the scheme indicated by the curren
 The available schemes are:
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 -1
 </td>
-<td class='confluenceTd'>
+<td>
 (default) URL is relative to site_url
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 see http
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 1
 </td>
-<td class='confluenceTd'>
+<td>
 see https
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 full
 </td>
-<td class='confluenceTd'>
+<td>
 Renders the link as an absolute URL, prepended with site_url
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 abs
 </td>
-<td class='confluenceTd'>
+<td>
 Renders the link as an absolute URL, prepended with base_url
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 http
 </td>
-<td class='confluenceTd'>
+<td>
 Renders the link as an absolute URL, forced to http scheme
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 https
 </td>
-<td class='confluenceTd'>
+<td>
 Renders the link as an absolute URL, force to https scheme
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Resources-SeeAlso"></a>See Also
+<h2 id="Resources-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Content+Types">Content Types</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678067" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678067" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FResources" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678067" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Named+Anchor">Named Anchor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Static+Resource">Static Resource</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Symlink">Symlink</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Using+Resource+Symlinks">Using Resource Symlinks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Weblink">Weblink</a>
+</li>
+</ol>

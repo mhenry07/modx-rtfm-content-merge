@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="UpgradingtoRevolution2.0.0-rc-2-UpgradingtoRevolution2.0.0rc2" id="UpgradingtoRevolution2.0.0-rc-2-UpgradingtoRevolution2.0.0rc2"></a>Upgrading to Revolution 2.0.0-rc-2
+<h2 id="UpgradingtoRevolution2.0.0-rc-2-UpgradingtoRevolution2.0.0rc2">
+Upgrading to Revolution 2.0.0-rc-2
 </h2>
 
 <p>
@@ -22,8 +18,8 @@ There are a few changes that have occurred in 2.0.0 RC-2 that will only apply to
 then you do not have to read this document.
 </p>
 
-<h2>
-<a name="UpgradingtoRevolution2.0.0-rc-2-LexiconChanges" id="UpgradingtoRevolution2.0.0-rc-2-LexiconChanges"></a>Lexicon Changes
+<h2 id="UpgradingtoRevolution2.0.0-rc-2-LexiconChanges">
+Lexicon Changes
 </h2>
 
 <p>
@@ -37,10 +33,10 @@ First off, you might ask, "Why such a big change so late in the game?" Well, for
 <li>Changed the 'topic' field on modLexiconEntry to be a varchar of the topic name.
 </li>
 
-<li>Refactored the entire modLexiconEntry logic so that now DB records of modLexiconEntry are <b>only</b> for overridden entries. Otherwise, they are cached from the lexicon topic files (the .inc.php files.)
+<li>Refactored the entire modLexiconEntry logic so that now DB records of modLexiconEntry are <strong>only</strong> for overridden entries. Otherwise, they are cached from the lexicon topic files (the .inc.php files.)
 </li>
 
-<li>Redid the entire Lexicon Management section to now be a grid that only allows overriding of Entries. In other words, you can only edit existing entries, and when you edit them, they show up in <font color="green">green</font>, signifying they have been overridden.
+<li>Redid the entire Lexicon Management section to now be a grid that only allows overriding of Entries. In other words, you can only edit existing entries, and when you edit them, they show up in green, signifying they have been overridden.
 </li>
 </ul>
 
@@ -65,7 +61,7 @@ There are some real benefits to the new approach:
 <li>Cuts down on the size of the core.transport.zip and massively decreases build and setup times.
 </li>
 
-<li>Much easier development. Just put a 'lexicon/' directory in your root of your Namespace's path (like most current Extras do) and build it in this format: 'lexicon/[language]/[topic].inc.php'. MODx will automatically parse that directory and browse it in Lexicon Management for you. You no longer need to 'buildLexicon' in your Extra's build scripts. However, this means that <b>all packages using lexicons will need to be rebuilt for 2.0.0 RC-2</b>. All that needs to be changed is that they no longer need to call 'modPackageBuilder::buildLexicon' in their build scripts, and their lexicon directories must be under the namespace path with the directory name 'lexicon' (similar to <a href="http://svn.modxcms.com/svn/modx-components/doodles/trunk/" class="external-link" rel="nofollow">this component</a>). We apologize for the inconvience, but we promise that you'll find the change much, much easier to develop in.
+<li>Much easier development. Just put a 'lexicon/' directory in your root of your Namespace's path (like most current Extras do) and build it in this format: 'lexicon/[language]/[topic].inc.php'. MODx will automatically parse that directory and browse it in Lexicon Management for you. You no longer need to 'buildLexicon' in your Extra's build scripts. However, this means that <strong>all packages using lexicons will need to be rebuilt for 2.0.0 RC-2</strong>. All that needs to be changed is that they no longer need to call 'modPackageBuilder::buildLexicon' in their build scripts, and their lexicon directories must be under the namespace path with the directory name 'lexicon' (similar to <a href="http://svn.modxcms.com/svn/modx-components/doodles/trunk/">this component</a>). We apologize for the inconvience, but we promise that you'll find the change much, much easier to develop in.
 </li>
 </ul>
 
@@ -73,12 +69,12 @@ There are some real benefits to the new approach:
 This also means that we will be packaging in core translations into SVN. All core translations will be committed there, similar to Evolution.
 </p>
 
-<h2>
-<a name="UpgradingtoRevolution2.0.0-rc-2-PluginChanges" id="UpgradingtoRevolution2.0.0-rc-2-PluginChanges"></a>Plugin Changes
+<h2 id="UpgradingtoRevolution2.0.0-rc-2-PluginChanges">
+Plugin Changes
 </h2>
 
 <p>
-Deprecated Plugin Events have been removed in RC-2, and a few new events have been introduced. Please view the in-progress documentation on these events on the <a href="/display/revolution20/System+Events" title="System Events">System Events</a> page, or view an exhaustive list via the <a href="http://svn.modxcms.com/svn/tattoo/tattoo/branches/2.0/_build/data/transport.core.events.php" class="external-link" rel="nofollow">code here</a>.
+Deprecated Plugin Events have been removed in RC-2, and a few new events have been introduced. Please view the in-progress documentation on these events on the <a href="/display/revolution20/System+Events" title="System Events">System Events</a> page, or view an exhaustive list via the <a href="http://svn.modxcms.com/svn/tattoo/tattoo/branches/2.0/_build/data/transport.core.events.php">code here</a>.
 </p>
 
 <p>
@@ -103,20 +99,66 @@ Note that some of these events are model-centric. This means they are executed f
 This means they will fire regardless of where they are executed. This allows you to fire events even when 3rd Party Components modify those objects, such as when a 3PC creates a user. Please see the documentation on each respective event for more information.
 </p>
 
-<h2>
-<a name="UpgradingtoRevolution2.0.0-rc-2-SeeAlso" id="UpgradingtoRevolution2.0.0-rc-2-SeeAlso"></a>See Also
+<h2 id="UpgradingtoRevolution2.0.0-rc-2-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Basic+Installation">Basic Installation</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/MODx+Revolution+on+Debian">MODx Revolution on Debian</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678123" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678541" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FUpgrading%2Bto%2BRevolution%2B2.0.0-rc-2" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678122" /> <input type="hidden" name="ancestorId" value="18678453" /> <input type="hidden" name="ancestorId" value="18678050" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Lighttpd+Guide">Lighttpd Guide</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Problems+with+WAMPServer+2.0i">Problems with WAMPServer 2.0i</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Installation+on+a+server+running+ModSecurity">Installation on a server running ModSecurity</a>
+</li>
+
+<li>
+<a href="/display/revolution20/MODX+and+Suhosin">MODX and Suhosin</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Nginx+Server+Config">Nginx Server Config</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Advanced+Installation">Advanced Installation</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Git+Installation">Git Installation</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Command+Line+Installation">Command Line Installation</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/The+Setup+Config+Xml+File">The Setup Config Xml File</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Troubleshooting+Installation">Troubleshooting Installation</a>
+</li>
+
+<li>
+<a href="/pages/viewpage.action?pageId=18678051">Successful Installation, Now What Do I Do?</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Using+MODx+Revolution+from+SVN">Using MODx Revolution from SVN</a>
+</li>
+</ol>

@@ -2,9 +2,7 @@
 Here is an example config for a MODX installation on an nginx server (php-fpm is required for nginx servers). This example enables MODX FURLs as well.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 server {
         listen 80;
         server_name example.com www.example.com;
@@ -13,7 +11,7 @@ server {
         client_max_body_size 30M;
         location / {
                 root /home/sites/example.com;
-                <span class="code-keyword">if</span> (!-e $request_filename) {
+                if (!-e $request_filename) {
                         rewrite ^/(.*)$ /index.php?q=$1 last;
                 }
         }
@@ -33,9 +31,20 @@ server {
         }
 }
 </pre>
-</div>
-</div>
+<p>
+An alternative server configuration was suggested <a href="http://forums.modx.com/thread/70163/furls-not-working-after-upgrade-2-1-3-pl?page=2#dis-post-394442">in this forum topic</a>.
+</p>
 
 <p>
-An alternative server configuration was suggested <a href="http://forums.modx.com/thread/70163/furls-not-working-after-upgrade-2-1-3-pl?page=2#dis-post-394442" class="external-link" rel="nofollow">in this forum topic</a>.
+Thanks for posting this, complete with FURL support :)
+</p>
+
+<p>
+Question: With <strong>root /home/sites/example.com;</strong> defined at the server level, is it necessary to include again in the first location block?
+<br />
+My understanding is that nginx configs are inherited from the top down, and therefore it could be removed in this case...
+</p>
+
+<p>
+In some cases (my guts say older versions of nginx) you might need to comment out the fastcgi_split_path_info directive.
 </p>

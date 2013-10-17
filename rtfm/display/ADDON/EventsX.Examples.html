@@ -1,45 +1,38 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#EventsX.Examples-ExamplesforEventsX'>Examples for EventsX</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#EventsX.Examples-ExamplesforEventsX">Examples for EventsX</a>
 <ul>
 <li>
-<a href='#EventsX.Examples-Displayalistofupcomingevents'>Display a list of upcoming events</a>
+<a href="#EventsX.Examples-Displayalistofupcomingevents">Display a list of upcoming events</a>
 </li>
 
 <li>
-<a href='#EventsX.Examples-createyourchunk%22upcomingEvents%22%3A'>create your chunk "upcomingEvents":</a>
+<a href="#EventsX.Examples-createyourchunk%22upcomingEvents%22%3A">create your chunk "upcomingEvents":</a>
 </li>
 
 <li>
-<a href='#EventsX.Examples-createsnippetcall'>create snippet call</a>
+<a href="#EventsX.Examples-createsnippetcall">create snippet call</a>
 </li>
 
 <li>
-<a href='#EventsX.Examples-screenshot'>screenshot</a>
+<a href="#EventsX.Examples-screenshot">screenshot</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#EventsX.Examples-SeeAlso'>See Also</a>
+<a href="#EventsX.Examples-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="EventsX.Examples-ExamplesforEventsX" id="EventsX.Examples-ExamplesforEventsX"></a>Examples for EventsX
+<h2 id="EventsX.Examples-ExamplesforEventsX">
+Examples for EventsX
 </h2>
 
-<h3>
-<a name="EventsX.Examples-Displayalistofupcomingevents" id="EventsX.Examples-Displayalistofupcomingevents"></a>Display a list of upcoming events
+<h3 id="EventsX.Examples-Displayalistofupcomingevents">
+Display a list of upcoming events
 </h3>
 
 <p>
@@ -50,39 +43,29 @@ Go to components -&gt; EventsX and create some events
 (make sure they are active)
 </p>
 
-<h3>
-<a name="EventsX.Examples-createyourchunk%22upcomingEvents%22%3A"></a>create your chunk "upcomingEvents":
+<h3 id='EventsX.Examples-createyourchunk"upcomingEvents":'>
+create your chunk "upcomingEvents":
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-        &lt;li&gt;[[+location:htmlentities]]: &lt;a href=<span class="code-quote">"[[+url]]"</span> title=<span class="code-quote">"[[+name:htmlentities]]"</span>&gt;[[+name:htmlentities]]&lt;/a&gt; &lt;time datetime=<span class="code-quote">"[[+startdate:strtotime:date=`%Y-%m-%d`]]"</span> title=<span class="code-quote">"event is scheduled on [[+startdate:strtotime:date=`%d.%m.%Y`]]"</span>&gt;[[+startdate:strtotime:date=%d.%m.%Y`]]&lt;/time&gt;&lt;/li&gt;
+<pre class="brush: php">
+        &lt;li&gt;[[+location:htmlentities]]: &lt;a href="[[+url]]" title="[[+name:htmlentities]]"&gt;[[+name:htmlentities]]&lt;/a&gt; &lt;time datetime="[[+startdate:strtotime:date=`%Y-%m-%d`]]" title="event is scheduled on [[+startdate:strtotime:date=`%d.%m.%Y`]]"&gt;[[+startdate:strtotime:date=%d.%m.%Y`]]&lt;/time&gt;&lt;/li&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="EventsX.Examples-createsnippetcall" id="EventsX.Examples-createsnippetcall"></a>create snippet call
+<h3 id="EventsX.Examples-createsnippetcall">
+create snippet call
 </h3>
 
 <p>
 Add this snippet call on your template or resource where you would like to display the list of events.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
         &lt;h2&gt;next events:&lt;/h2&gt;
-        &lt;ol id=<span class="code-quote">"eventcal"</span>&gt;
+        &lt;ol id="eventcal"&gt;
                 [[!EventsX? &amp;tpl=`upcomingEvents` &amp;limit=`10`]]
         &lt;/ol&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="EventsX.Examples-screenshot" id="EventsX.Examples-screenshot"></a>screenshot
+<h3 id="EventsX.Examples-screenshot">
+screenshot
 </h3>
 
 <p>
@@ -90,23 +73,15 @@ A screenshot could look like this. Note that I've styled the time element indivi
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/37683422/eventsx.png?version=1&amp;modificationDate=1326443860000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/37683422/eventsx.png?version=1&amp;modificationDate=1326443860000" style="border: 1px solid black" />
 </p>
 
-<h2>
-<a name="EventsX.Examples-SeeAlso" id="EventsX.Examples-SeeAlso"></a>See Also
+<h2 id="EventsX.Examples-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="37683422" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="37683340" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FEventsX.Examples" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="37683340" />
-</fieldset>
-</fieldset>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/EventsX.Examples">EventsX.Examples</a>
+</li>
+</ol>

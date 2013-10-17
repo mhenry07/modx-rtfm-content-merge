@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,48 +13,38 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMS%2BDitto%2BPHx-HowcanIusePHxandYAMSplaceholderswithinDittotemplates%3F"></a>How can I use PHx and YAMS placeholders within Ditto templates?
+<h1 id="YAMS+Ditto+PHx-HowcanIusePHxandYAMSplaceholderswithinDittotemplates?">
+How can I use PHx and YAMS placeholders within Ditto templates?
 </h1>
 
 <p>
-First make sure that you have the PHx plugin installed and that its events are set to activate AFTER YAMS. Then, following <a href="http://modxcms.com/forums/index.php/topic,44801.msg278694.html#msg278694" class="external-link" rel="nofollow">thomasd's instructions</a>, we do the following:
+First make sure that you have the PHx plugin installed and that its events are set to activate AFTER YAMS. Then, following <a href="http://modxcms.com/forums/index.php/topic,44801.msg278694.html#msg278694">thomasd's instructions</a>, we do the following:
 </p>
 
 <p>
-Turn off Ditto PHx-Substitution via <tt>&amp;phx=`0`</tt>. Now no PHx is done so you have to modify your PHx-tags.
+Turn off Ditto PHx-Substitution via <code>&amp;phx=`0`</code>. Now no PHx is done so you have to modify your PHx-tags.
 </p>
 
 <p>
 For Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [+content:striptags+]
 </pre>
-</div>
-</div>
-
 <p>
 should be changed to:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [*phx:input=`((yams_data:[+id+]:content_(yams_id)))`:striptags*]
 </pre>
-</div>
-</div>
-
 <p>
 Now the parsing order is correct:
 <br />
-1. Ditto replaces the <tt>[+id+]</tt>-placeholder with the current id
+1. Ditto replaces the <code>[+id+]</code>-placeholder with the current id
 <br />
-2. YAMS replaces the <tt>((..))</tt>-construct with the actual content
+2. YAMS replaces the <code>((..))</code>-construct with the actual content
 <br />
 3. PHx executes the striptags-function and outputs the modified content
 </p>
@@ -63,14 +53,9 @@ Now the parsing order is correct:
 For non-multilingual fields like an image-field use:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [*phx:input=`[+image+]`:phpthumb=`73x110`*]
 </pre>
-</div>
-</div>
-
 <p>
 That forces PHx to parse the Ditto-Placeholder.
 </p>
@@ -79,10 +64,6 @@ That forces PHx to parse the Ditto-Placeholder.
 The final Ditto call may look like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[Ditto? &amp;parents=`[*id*]` &amp;tpl=`@FILE:assets/templates/list-item.html` &amp;noResults=`Keine Einträge vorhanden` &amp;phx=`0`]]
 </pre>
-</div>
-</div>

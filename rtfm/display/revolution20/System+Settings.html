@@ -1,65 +1,55 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#SystemSettings-CreatingnewSystemSettings%28viatheGUI%29'>Creating new System Settings (via the GUI)</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#SystemSettings-CreatingnewSystemSettings%28viatheGUI%29">Creating new System Settings (via the GUI)</a>
 <ul>
 <li>
-<a href='#SystemSettings-Parameters'>Parameters</a>
+<a href="#SystemSettings-Parameters">Parameters</a>
 </li>
 
 <li>
-<a href='#SystemSettings-Localization'>Localization</a>
+<a href="#SystemSettings-Localization">Localization</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SystemSettings-UsingSystemSettingsinyourCode'>Using System Settings in your Code</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#SystemSettings-UsingSystemSettingsinyourCode">Using System Settings in your Code</a>
 <ul>
 <li>
-<a href='#SystemSettings-GettingaSystemSetting%28programmatically%29'>Getting a System Setting (programmatically)</a>
+<a href="#SystemSettings-GettingaSystemSetting%28programmatically%29">Getting a System Setting (programmatically)</a>
 </li>
 
 <li>
-<a href='#SystemSettings-SavingaSystemSetting%28programmatically%29'>Saving a System Setting (programmatically)</a>
+<a href="#SystemSettings-SavingaSystemSetting%28programmatically%29">Saving a System Setting (programmatically)</a>
 </li>
 
 <li>
-<a href='#SystemSettings-RetrievingaSetting%27sMetaData'>Retrieving a Setting's Meta Data</a>
+<a href="#SystemSettings-RetrievingaSetting%27sMetaData">Retrieving a Setting's Meta Data</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SystemSettings-RetrievingalistofRelatedSettings'>Retrieving a list of Related Settings</a>
+<a href="#SystemSettings-RetrievingalistofRelatedSettings">Retrieving a list of Related Settings</a>
 </li>
 
 <li>
-<a href='#SystemSettings-CreatingaSystemSettingProgrammatically'>Creating a System Setting Programmatically</a>
+<a href="#SystemSettings-CreatingaSystemSettingProgrammatically">Creating a System Setting Programmatically</a>
 </li>
 
 <li>
-<a href='#SystemSettings-TypesofSystemSettings'>Types of System Settings</a>
+<a href="#SystemSettings-TypesofSystemSettings">Types of System Settings</a>
 </li>
 
 <li>
-<a href='#SystemSettings-SettingsList'>Settings List</a>
+<a href="#SystemSettings-SettingsList">Settings List</a>
 </li>
 </ul>
 </div>
 
 <p>
-MODx comes with a flexible amount of system settings. They are found in System -&gt; System Settings, and can easily be edited and changed. All system settings are available in your templates by using the [[++placeholder]] notation. See <a href="http://rtfm.modx.com/display/revolution20/Commonly+Used+Template+Tags" class="external-link" rel="nofollow">Template Tags</a> for more information.
+MODx comes with a flexible amount of system settings. They are found in System -&gt; System Settings, and can easily be edited and changed. All system settings are available in your templates by using the [[++placeholder]] notation. See <a href="http://rtfm.modx.com/display/revolution20/Commonly+Used+Template+Tags">Template Tags</a> for more information.
 </p>
 <object width="780" height="500">
 <param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" />
@@ -67,8 +57,8 @@ MODx comes with a flexible amount of system settings. They are found in System -
 <param name="allowscriptaccess" value="always" />
 <embed src="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="780" height="500" flashvars="$flashVars" />
 </object>
-<h2>
-<a name="SystemSettings-CreatingnewSystemSettings%28viatheGUI%29"></a>Creating new System Settings (via the GUI)
+<h2 id="SystemSettings-CreatingnewSystemSettings(viatheGUI)">
+Creating new System Settings (via the GUI)
 </h2>
 
 <p>
@@ -76,11 +66,11 @@ To create a new system setting, click the "Create New Settings" link under Syste
 </p>
 
 <p>
-<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/18678127/system+settings+annotated.png?version=1&amp;modificationDate=1303174387000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/18678127/system+settings+annotated.png?version=1&amp;modificationDate=1303174387000" /></span>
 </p>
 
-<h3>
-<a name="SystemSettings-Parameters"></a>Parameters
+<h3 id="SystemSettings-Parameters">
+Parameters
 </h3>
 
 <ul>
@@ -106,8 +96,8 @@ To create a new system setting, click the "Create New Settings" link under Syste
 </li>
 </ul>
 
-<h3>
-<a name="SystemSettings-Localization"></a>Localization
+<h3 id="SystemSettings-Localization">
+Localization
 </h3>
 
 <p>
@@ -115,82 +105,58 @@ The values used to describe system settings can be optionally localized (i.e. tr
 </p>
 
 <ul>
-<li>Name: <tt>setting_</tt> + <em>Key</em>
+<li>Name: <code>setting_</code> + <em>Key</em>
 </li>
 
-<li>Description: <tt>setting_</tt> + <em>Key</em> + <tt>_desc</tt>
+<li>Description: <code>setting_</code> + <em>Key</em> + <code>_desc</code>
 </li>
 </ul>
 
 <p>
-For example, if we look at Quip's [[++quip.emailsFrom]] setting, we see that it uses the the <b>quip</b> namespace. The expected folder structure is to look for localization files in the namespace's folder, then in a "lexicon" folder, then in folders divided by language codes, and then in the <b>default.inc.php</b> file, for example <b>core/components/quip/lexicon/en/default.inc.php</b>
+For example, if we look at Quip's [[++quip.emailsFrom]] setting, we see that it uses the the <strong>quip</strong> namespace. The expected folder structure is to look for localization files in the namespace's folder, then in a "lexicon" folder, then in folders divided by language codes, and then in the <strong>default.inc.php</strong> file, for example <strong>core/components/quip/lexicon/en/default.inc.php</strong>
 </p>
 
 <p>
-In our Quip example, we see a name of <em>setting_quip.emailsFrom</em> and a description of <em>setting_quip.emailsFrom_desc</em>. These two values correspond to keys in the <b>$_lang</b> array inside of <b>default.inc.php</b>:
+In our Quip example, we see a name of <em>setting_quip.emailsFrom</em> and a description of <em>setting_quip.emailsFrom_desc</em>. These two values correspond to keys in the <strong>$_lang</strong> array inside of <strong>default.inc.php</strong>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $_lang['setting_quip.emailsFrom'] = 'From Email';
 $_lang['setting_quip.emailsFrom_desc'] = 'The email address to send system emails from.';
 </pre>
-</div>
-</div>
-
 <p>
 We encourage you to right-click an existing system setting and choose to "Update System Setting" to get an idea of how this works.
 </p>
 
-<h2>
-<a name="SystemSettings-UsingSystemSettingsinyourCode"></a>Using System Settings in your Code
+<h2 id="SystemSettings-UsingSystemSettingsinyourCode">
+Using System Settings in your Code
 </h2>
 
 <p>
 Frequently, you'll want to be able to retrieve the values for your system settings in your Snippets or Plugins. There's more information <a href="/display/revolution20/Settings" title="Settings">on this page</a>.
 </p>
 
-<h3>
-<a name="SystemSettings-GettingaSystemSetting%28programmatically%29"></a>Getting a System Setting (programmatically)
+<h3 id="SystemSettings-GettingaSystemSetting(programmatically)">
+Getting a System Setting (programmatically)
 </h3>
 
 <p>
 In a nutshell, you do it using the <a href="/display/xPDO20/getOption" title="getOption">getOption</a> function and passing it the unique key for the option, for example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $siteStartId = $modx-&gt;getOption('site_start');
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-In WordPress, the comparable API function is <b>get_option()</b>.
-</td>
-</tr>
-</table>
+<div class="note">
+In WordPress, the comparable API function is <strong>get_option()</strong>.
 </div>
 
 <p>
 This function retrieves the value from the settings cache.
 </p>
 
-<h3>
-<a name="SystemSettings-SavingaSystemSetting%28programmatically%29"></a>Saving a System Setting (programmatically)
+<h3 id="SystemSettings-SavingaSystemSetting(programmatically)">
+Saving a System Setting (programmatically)
 </h3>
 
 <p>
@@ -198,104 +164,68 @@ Here's where things get a little bit more complicated: when we retrieve the valu
 </p>
 
 <p>
-This is for architectural reasons: the system settings are meant to defined as <em>configurations</em>, <b>NOT runtime dynamic values</b>. They are typically set at the time of install and then not often updated. However, there may be legitimate times when you need to update system settings programmatically, e.g. perhaps you have written a <a href="/display/revolution20/Custom+Manager+Pages+Tutorial" title="Custom Manager Pages Tutorial">Custom Manager Page</a> that offers a customized form to your users for its system settings.
+This is for architectural reasons: the system settings are meant to defined as <em>configurations</em>, <strong>NOT runtime dynamic values</strong>. They are typically set at the time of install and then not often updated. However, there may be legitimate times when you need to update system settings programmatically, e.g. perhaps you have written a <a href="/display/revolution20/Custom+Manager+Pages+Tutorial" title="Custom Manager Pages Tutorial">Custom Manager Page</a> that offers a customized form to your users for its system settings.
 </p>
 
 <p>
 If we want to update a system setting, we default to the powerful xPDO <a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> function. So let's revisit our retrieval of a simple site setting and compare it side by side with the more verbose (and more flexible) xPDO counterpart:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 print $modx-&gt;getOption('site_name');
 
-<span class="code-comment">// prints the same thing as <span class="code-keyword">this</span>:
-</span>
+// prints the same thing as this:
+
 $Setting = $modx-&gt;getObject('modSystemSetting', 'site_name');
 print $Setting-&gt;get('value');
 </pre>
-</div>
-</div>
-
 <p>
-The difference is that using <b>getObject</b> retrieves the object from the database uncached, and we can do far more things with an object, including saving that object. So here's how we would retrieve and save a system setting:
+The difference is that using <strong>getObject</strong> retrieves the object from the database uncached, and we can do far more things with an object, including saving that object. So here's how we would retrieve and save a system setting:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $Setting = $modx-&gt;getObject('modSystemSetting', 'site_name');
 $Setting-&gt;set('value', 'My New Site Name');
 $Setting-&gt;save();
 </pre>
-</div>
-</div>
-
 <p>
-However, note that this does not clear the settings cache, so any subsequent calls to <b>getOption</b> will still return the older cached version of the setting.
+However, note that this does not clear the settings cache, so any subsequent calls to <strong>getOption</strong> will still return the older cached version of the setting.
 </p>
 
 <p>
 To rectify this in MODx 2.0.x, you have to clear the <em>entire</em> cache, including your page cache. Clearing your entire cache frequently could slow down your system because it would keep having to rebuild it:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// clear cache in MODx 2.0.x
-</span>$modx-&gt;cacheManager-&gt;clearCache();
+<pre class="brush: php">
+// clear cache in MODx 2.0.x
+$modx-&gt;cacheManager-&gt;clearCache();
 </pre>
-</div>
-</div>
-
 <p>
 MODx 2.1.x offers more granular caching, which helps us in this case:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-comment">// clear cache in MODx 2.1.x
-</span>$cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
+<pre class="brush: php">
+// clear cache in MODx 2.1.x
+$cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
 $modx-&gt;cacheManager-&gt; refresh($cacheRefreshOptions);
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-In WordPress, the comparable API function is <b>update_option()</b>.
-</td>
-</tr>
-</table>
+<div class="note">
+In WordPress, the comparable API function is <strong>update_option()</strong>.
 </div>
 
-<h3>
-<a name="SystemSettings-RetrievingaSetting%27sMetaData"></a>Retrieving a Setting's Meta Data
+<h3 id="SystemSettings-RetrievingaSetting'sMetaData">
+Retrieving a Setting's Meta Data
 </h3>
 
 <p>
 Once we start retrieving the <em>Objects</em> that represent the system settings instead of just their value, we can see all of the meta data for any given setting (i.e. all of the attributes). Look at this code as an example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $Setting = $modx-&gt;getObject('modSystemSetting', 'site_name');
 print_r( $Setting-&gt;toArray() );
 /* 
-prints out something like <span class="code-keyword">this</span>:
+prints out something like this:
 Array ( 
         [key] =&gt; site_name 
         [value] =&gt; My Skiphop Site 
@@ -306,43 +236,33 @@ Array (
 )
 */
 </pre>
-</div>
-</div>
-
 <p>
 Once you understand how to manipulate objects using MODx and xPDO, you'll be able to retrieve and modify just about everything inside of MODx, because just about everything is an object.
 </p>
 
-<h2>
-<a name="SystemSettings-RetrievingalistofRelatedSettings"></a>Retrieving a list of Related Settings
+<h2 id="SystemSettings-RetrievingalistofRelatedSettings">
+Retrieving a list of Related Settings
 </h2>
 
 <p>
-If you have noticed in the GUI above, MODx allows for some very logical grouping of system settings. The most useful groupings are <b>area</b> and by the prefix of the <b>key</b>. Using xPDO's <a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getCollection</a> method, we can easily supply some search criteria to get the settings that we want.
+If you have noticed in the GUI above, MODx allows for some very logical grouping of system settings. The most useful groupings are <strong>area</strong> and by the prefix of the <strong>key</strong>. Using xPDO's <a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getCollection</a> method, we can easily supply some search criteria to get the settings that we want.
 </p>
 
 <p>
 Here's how we would pull up all settings from the 'Mail' area:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $relatedSettings = $modx-&gt;getCollection('modSystemSetting', array('area'=&gt;'Mail'));
 foreach ( $relatedSettings as $Setting ) {
         print $Setting-&gt;get('value');
 }
 </pre>
-</div>
-</div>
-
 <p>
-This leads us naturally to one of xPDO's other features: the <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">Query</a> object. We can use it to pass more complex criteria to our <b>getCollection call</b>. Here's how we would pull up all settings that used the prefix of "quip.":
+This leads us naturally to one of xPDO's other features: the <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">Query</a> object. We can use it to pass more complex criteria to our <strong>getCollection call</strong>. Here's how we would pull up all settings that used the prefix of "quip.":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $modx-&gt;newQuery('modSystemSetting');
 $query-&gt;where(array('key:LIKE' =&gt; 'quip.%') );
 $relatedSettings = $modx-&gt;getCollection('modSystemSetting', $query);
@@ -350,24 +270,19 @@ foreach ( $relatedSettings as $Setting ) {
         print $Setting-&gt;get('value');
 }
 </pre>
-</div>
-</div>
-
 <p>
 You may not have been expecting an introduction to xPDO while you were simply trying to retrieve and set system settings, but it's in there.
 </p>
 
-<h2>
-<a name="SystemSettings-CreatingaSystemSettingProgrammatically"></a>Creating a System Setting Programmatically
+<h2 id="SystemSettings-CreatingaSystemSettingProgrammatically">
+Creating a System Setting Programmatically
 </h2>
 
 <p>
 You may desire to create a System Setting programmatically in order to provide your users with a cleaner UX/UI. In your code, you can put something like the following:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $MySetting = $modx-&gt;newObject('modSystemSetting');
 $MySetting-&gt;set('key', 'mykey');
 $MySetting-&gt;set('value', 'my_value');
@@ -377,22 +292,19 @@ $MySetting-&gt;set('area', 'MyArea');
 
 $MySetting-&gt;save();
 
-<span class="code-comment">// Clear the cache:
-</span>$cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
+// Clear the cache:
+$cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
 $modx-&gt;cacheManager-&gt; refresh($cacheRefreshOptions);
 </pre>
-</div>
-</div>
-
 <p>
 Note that you must create lexicon entries that match your key name (see the section above on Localization):
 </p>
 
 <ul>
-<li>Name: <tt>setting_</tt> + <em>Key</em>
+<li>Name: <code>setting_</code> + <em>Key</em>
 </li>
 
-<li>Description: <tt>setting_</tt> + <em>Key</em> + <tt>_desc</tt>
+<li>Description: <code>setting_</code> + <em>Key</em> + <code>_desc</code>
 </li>
 </ul>
 
@@ -400,95 +312,770 @@ Note that you must create lexicon entries that match your key name (see the sect
 So in this example, you would need to add the following lexicon entries to a lexicon that you have loaded:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $_lang['setting_mykey'] = 'Name of My Setting';
 $_lang['setting_mykey_desc'] = 'Description of my key';
 </pre>
-</div>
-</div>
-
 <p>
 MODX will populate the values for the name and description based on those lexicon entries.
 </p>
 
-<h2>
-<a name="SystemSettings-TypesofSystemSettings"></a>Types of System Settings
+<h2 id="SystemSettings-TypesofSystemSettings">
+Types of System Settings
 </h2>
 
 <p>
-The <b>xtype</b> attribute defines what type of field the GUI will use when rendering the interface for this field:
+The <strong>xtype</strong> attribute defines what type of field the GUI will use when rendering the interface for this field:
 </p>
 
 <ul>
 <li>
-<b>combo-boolean</b> : stored values are 1 and 0; the GUI will display "Yes" and "No"
+<strong>combo-boolean</strong> : stored values are 1 and 0; the GUI will display "Yes" and "No"
 </li>
 
 <li>
-<b>textfield</b> : standard text field
+<strong>textfield</strong> : standard text field
 </li>
 
 <li>
-<b>textarea</b> : standard textearea
+<strong>textarea</strong> : standard textearea
 </li>
 
 <li>
-<b>text-password</b> : standard password field (input is masked)
+<strong>text-password</strong> : standard password field (input is masked)
 </li>
 
 <li>
-<b>numberfield</b> : used for entering numbers
+<strong>numberfield</strong> : used for entering numbers
 </li>
 
 <li>
-<b>modx-combo-language</b> : allows user to select a language
+<strong>modx-combo-language</strong> : allows user to select a language
 </li>
 
 <li>
-<b>modx-combo-source</b> :
+<strong>modx-combo-source</strong> :
 </li>
 
 <li>
-<b>modx-combo-template</b> : allows user to select a template
+<strong>modx-combo-template</strong> : allows user to select a template
 </li>
 
 <li>
-<b>modx-combo-content-type</b> : allows user to select a content type
+<strong>modx-combo-content-type</strong> : allows user to select a content type
 </li>
 
 <li>
-<b>modx-combo-charset</b> : allows user to select a character set
+<strong>modx-combo-charset</strong> : allows user to select a character set
 </li>
 
 <li>
-<b>modx-combo-rte</b> : like the textarea, but with formatting controls
+<strong>modx-combo-rte</strong> : like the textarea, but with formatting controls
 </li>
 
 <li>
-<b>modx-combo-context</b> : allows user to select a context
+<strong>modx-combo-context</strong> : allows user to select a context
 </li>
 </ul>
 
-<h2>
-<a name="SystemSettings-SettingsList"></a>Settings List
+<h2 id="SystemSettings-SettingsList">
+Settings List
 </h2>
 
 <p>
 A description of each setting follows:
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/revolution20/access_category_enabled">access_category_enabled</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=alpha&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18678127" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678127" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="4" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FSystem%2BSettings" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678127" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/access_context_enabled">access_context_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/access_resource_group_enabled">access_resource_group_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/allow_duplicate_alias">allow_duplicate_alias</a>
+</li>
+
+<li>
+<a href="/display/revolution20/allow_forward_across_contexts">allow_forward_across_contexts</a>
+</li>
+
+<li>
+<a href="/display/revolution20/allow_multiple_emails">allow_multiple_emails</a>
+</li>
+
+<li>
+<a href="/display/revolution20/allow_tags_in_post">allow_tags_in_post</a>
+</li>
+
+<li>
+<a href="/display/revolution20/archive_with">archive_with</a>
+</li>
+
+<li>
+<a href="/display/revolution20/auto_check_pkg_updates">auto_check_pkg_updates</a>
+</li>
+
+<li>
+<a href="/display/revolution20/auto_check_pkg_updates_cache_expire">auto_check_pkg_updates_cache_expire</a>
+</li>
+
+<li>
+<a href="/display/revolution20/auto_menuindex">auto_menuindex</a>
+</li>
+
+<li>
+<a href="/display/revolution20/automatic_alias">automatic_alias</a>
+</li>
+
+<li>
+<a href="/display/revolution20/base_help_url">base_help_url</a>
+</li>
+
+<li>
+<a href="/display/revolution20/blocked_minutes">blocked_minutes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_action_map">cache_action_map</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_context_settings">cache_context_settings</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_db">cache_db</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_db_expires">cache_db_expires</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_db_session">cache_db_session</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_default">cache_default</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_disabled">cache_disabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_format">cache_format</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_handler">cache_handler</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_json">cache_json</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_json_expires">cache_json_expires</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_lang_js">cache_lang_js</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_lexicon_topics">cache_lexicon_topics</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_noncore_lexicon_topics">cache_noncore_lexicon_topics</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_resource">cache_resource</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_resource_expires">cache_resource_expires</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_scripts">cache_scripts</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cache_system_settings">cache_system_settings</a>
+</li>
+
+<li>
+<a href="/display/revolution20/clear_cache_refresh_trees">clear_cache_refresh_trees</a>
+</li>
+
+<li>
+<a href="/display/revolution20/compress_css">compress_css</a>
+</li>
+
+<li>
+<a href="/display/revolution20/compress_js">compress_js</a>
+</li>
+
+<li>
+<a href="/display/revolution20/concat_js">concat_js</a>
+</li>
+
+<li>
+<a href="/display/revolution20/container_suffix">container_suffix</a>
+</li>
+
+<li>
+<a href="/display/revolution20/cultureKey">cultureKey</a>
+</li>
+
+<li>
+<a href="/display/revolution20/custom_resource_classes">custom_resource_classes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/default_per_page">default_per_page</a>
+</li>
+
+<li>
+<a href="/display/revolution20/default_template">default_template</a>
+</li>
+
+<li>
+<a href="/display/revolution20/editor_css_path">editor_css_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/editor_css_selectors">editor_css_selectors</a>
+</li>
+
+<li>
+<a href="/display/revolution20/emailsender">emailsender</a>
+</li>
+
+<li>
+<a href="/display/revolution20/emailsubject">emailsubject</a>
+</li>
+
+<li>
+<a href="/display/revolution20/enable_dragdrop">enable_dragdrop</a>
+</li>
+
+<li>
+<a href="/display/revolution20/error_page">error_page</a>
+</li>
+
+<li>
+<a href="/display/revolution20/extension_packages">extension_packages</a>
+</li>
+
+<li>
+<a href="/display/revolution20/failed_login_attempts">failed_login_attempts</a>
+</li>
+
+<li>
+<a href="/display/revolution20/fe_editor_lang">fe_editor_lang</a>
+</li>
+
+<li>
+<a href="/display/revolution20/feed_modx_news">feed_modx_news</a>
+</li>
+
+<li>
+<a href="/display/revolution20/feed_modx_news_enabled">feed_modx_news_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/feed_modx_security">feed_modx_security</a>
+</li>
+
+<li>
+<a href="/display/revolution20/feed_modx_security_enabled">feed_modx_security_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/filemanager_path">filemanager_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/filemanager_path_relative">filemanager_path_relative</a>
+</li>
+
+<li>
+<a href="/display/revolution20/filemanager_url">filemanager_url</a>
+</li>
+
+<li>
+<a href="/display/revolution20/filemanager_url_relative">filemanager_url_relative</a>
+</li>
+
+<li>
+<a href="/display/revolution20/forgot_login_email">forgot_login_email</a>
+</li>
+
+<li>
+<a href="/display/revolution20/forward_merge_excludes">forward_merge_excludes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_lowercase_only">friendly_alias_lowercase_only</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_max_length">friendly_alias_max_length</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_restrict_chars">friendly_alias_restrict_chars</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_restrict_chars_pattern">friendly_alias_restrict_chars_pattern</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_strip_element_tags">friendly_alias_strip_element_tags</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_translit">friendly_alias_translit</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_translit_class">friendly_alias_translit_class</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_translit_class_path">friendly_alias_translit_class_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_trim_chars">friendly_alias_trim_chars</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_urls">friendly_alias_urls</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_word_delimiter">friendly_alias_word_delimiter</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_alias_word_delimiters">friendly_alias_word_delimiters</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_url_prefix">friendly_url_prefix</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_url_suffix">friendly_url_suffix</a>
+</li>
+
+<li>
+<a href="/display/revolution20/friendly_urls">friendly_urls</a>
+</li>
+
+<li>
+<a href="/display/revolution20/global_duplicate_uri_check">global_duplicate_uri_check</a>
+</li>
+
+<li>
+<a href="/display/revolution20/hidemenu_default">hidemenu_default</a>
+</li>
+
+<li>
+<a href="/display/revolution20/link_tag_scheme">link_tag_scheme</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_charset">mail_charset</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_encoding">mail_encoding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_auth">mail_smtp_auth</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_helo">mail_smtp_helo</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_hosts">mail_smtp_hosts</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_keepalive">mail_smtp_keepalive</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_pass">mail_smtp_pass</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_port">mail_smtp_port</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_prefix">mail_smtp_prefix</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_single_to">mail_smtp_single_to</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_timeout">mail_smtp_timeout</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_smtp_user">mail_smtp_user</a>
+</li>
+
+<li>
+<a href="/display/revolution20/mail_use_smtp">mail_use_smtp</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_date_format">manager_date_format</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_direction">manager_direction</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_favicon_url">manager_favicon_url</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_lang_attribute">manager_lang_attribute</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_language">manager_language</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_theme">manager_theme</a>
+</li>
+
+<li>
+<a href="/display/revolution20/manager_time_format">manager_time_format</a>
+</li>
+
+<li>
+<a href="/display/revolution20/modx_charset">modx_charset</a>
+</li>
+
+<li>
+<a href="/display/revolution20/new_file_permissions">new_file_permissions</a>
+</li>
+
+<li>
+<a href="/display/revolution20/new_folder_permissions">new_folder_permissions</a>
+</li>
+
+<li>
+<a href="/display/revolution20/password_generated_length">password_generated_length</a>
+</li>
+
+<li>
+<a href="/display/revolution20/password_min_length">password_min_length</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_allow_src_above_docroot">phpthumb_allow_src_above_docroot</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_cache_maxage">phpthumb_cache_maxage</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_cache_maxfiles">phpthumb_cache_maxfiles</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_cache_maxsize">phpthumb_cache_maxsize</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_cache_source_enabled">phpthumb_cache_source_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_document_root">phpthumb_document_root</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_error_bgcolor">phpthumb_error_bgcolor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_error_fontsize">phpthumb_error_fontsize</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_error_textcolor">phpthumb_error_textcolor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_far">phpthumb_far</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_imagemagick_path">phpthumb_imagemagick_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nohotlink_enabled">phpthumb_nohotlink_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nohotlink_erase_image">phpthumb_nohotlink_erase_image</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nohotlink_text_message">phpthumb_nohotlink_text_message</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nohotlink_valid_domains">phpthumb_nohotlink_valid_domains</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_enabled">phpthumb_nooffsitelink_enabled</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_erase_image">phpthumb_nooffsitelink_erase_image</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_require_refer">phpthumb_nooffsitelink_require_refer</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_text_message">phpthumb_nooffsitelink_text_message</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_valid_domains">phpthumb_nooffsitelink_valid_domains</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_nooffsitelink_watermark_src">phpthumb_nooffsitelink_watermark_src</a>
+</li>
+
+<li>
+<a href="/display/revolution20/phpthumb_zoomcrop">phpthumb_zoomcrop</a>
+</li>
+
+<li>
+<a href="/display/revolution20/principal_targets">principal_targets</a>
+</li>
+
+<li>
+<a href="/display/revolution20/proxy_auth_type">proxy_auth_type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/proxy_host">proxy_host</a>
+</li>
+
+<li>
+<a href="/display/revolution20/proxy_password">proxy_password</a>
+</li>
+
+<li>
+<a href="/display/revolution20/proxy_port">proxy_port</a>
+</li>
+
+<li>
+<a href="/display/revolution20/proxy_username">proxy_username</a>
+</li>
+
+<li>
+<a href="/display/revolution20/publish_default">publish_default</a>
+</li>
+
+<li>
+<a href="/display/revolution20/rb_base_dir">rb_base_dir</a>
+</li>
+
+<li>
+<a href="/display/revolution20/rb_base_url">rb_base_url</a>
+</li>
+
+<li>
+<a href="/display/revolution20/request_controller">request_controller</a>
+</li>
+
+<li>
+<a href="/display/revolution20/request_param_alias">request_param_alias</a>
+</li>
+
+<li>
+<a href="/display/revolution20/request_param_id">request_param_id</a>
+</li>
+
+<li>
+<a href="/display/revolution20/resource_tree_node_name">resource_tree_node_name</a>
+</li>
+
+<li>
+<a href="/display/revolution20/resource_tree_node_tooltip">resource_tree_node_tooltip</a>
+</li>
+
+<li>
+<a href="/display/revolution20/richtext_default">richtext_default</a>
+</li>
+
+<li>
+<a href="/display/revolution20/search_default">search_default</a>
+</li>
+
+<li>
+<a href="/display/revolution20/server_offset_time">server_offset_time</a>
+</li>
+
+<li>
+<a href="/display/revolution20/server_protocol">server_protocol</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_cookie_domain">session_cookie_domain</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_cookie_lifetime">session_cookie_lifetime</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_cookie_path">session_cookie_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_cookie_secure">session_cookie_secure</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_handler_class">session_handler_class</a>
+</li>
+
+<li>
+<a href="/display/revolution20/session_name">session_name</a>
+</li>
+
+<li>
+<a href="/display/revolution20/settings_version">settings_version</a>
+</li>
+
+<li>
+<a href="/display/revolution20/signupemail_message">signupemail_message</a>
+</li>
+
+<li>
+<a href="/display/revolution20/site_name">site_name</a>
+</li>
+
+<li>
+<a href="/display/revolution20/site_start">site_start</a>
+</li>
+
+<li>
+<a href="/display/revolution20/site_status">site_status</a>
+</li>
+
+<li>
+<a href="/display/revolution20/site_unavailable_message">site_unavailable_message</a>
+</li>
+
+<li>
+<a href="/display/revolution20/site_unavailable_page">site_unavailable_page</a>
+</li>
+
+<li>
+<a href="/display/revolution20/strip_image_paths">strip_image_paths</a>
+</li>
+
+<li>
+<a href="/display/revolution20/symlink_merge_fields">symlink_merge_fields</a>
+</li>
+
+<li>
+<a href="/display/revolution20/tree_default_sort">tree_default_sort</a>
+</li>
+
+<li>
+<a href="/display/revolution20/tree_root_id">tree_root_id</a>
+</li>
+
+<li>
+<a href="/display/revolution20/tvs_below_content">tvs_below_content</a>
+</li>
+
+<li>
+<a href="/display/revolution20/udperms_allowroot">udperms_allowroot</a>
+</li>
+
+<li>
+<a href="/display/revolution20/ui_debug_mode">ui_debug_mode</a>
+</li>
+
+<li>
+<a href="/display/revolution20/unauthorized_page">unauthorized_page</a>
+</li>
+
+<li>
+<a href="/display/revolution20/upload_maxsize">upload_maxsize</a>
+</li>
+
+<li>
+<a href="/display/revolution20/use_alias_path">use_alias_path</a>
+</li>
+
+<li>
+<a href="/display/revolution20/use_browser">use_browser</a>
+</li>
+
+<li>
+<a href="/display/revolution20/use_editor">use_editor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/use_multibyte">use_multibyte</a>
+</li>
+
+<li>
+<a href="/display/revolution20/welcome_screen">welcome_screen</a>
+</li>
+
+<li>
+<a href="/display/revolution20/which_editor">which_editor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/which_element_editor">which_element_editor</a>
+</li>
+
+<li>
+<a href="/display/revolution20/xhtml_urls">xhtml_urls</a>
+</li>
+</ol>

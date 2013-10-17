@@ -1,8 +1,4 @@
 <p>
-<br class="atl-forced-newline" />
-</p>
-
-<p>
 Packages are loaded in xPDO via the addPackage method. This method takes 3 parameters: 'name', 'path' and 'table_prefix'. Name is the name of the model package, whereas path is an absolute path to that model directory. The table_prefix states what the table prefix for the tables of the classes will be. If it's not set, it will default to the xPDO connection default. Let's say we have a xPDO model package already built (with all the maps and classes) in:
 </p>
 
@@ -16,14 +12,9 @@ Packages are loaded in xPDO via the addPackage method. This method takes 3 param
 And our table prefix is 'myapp_'. So, we'll pass the first parameter as the package name - in this case 'boxpackage' - and the model path as the 2nd parameter:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $xpdo-&gt;addPackage('boxpackage','/myapp/core/model/','myapp_');
 </pre>
-</div>
-</div>
-
 <p>
 From then on out, any of our classes in our Package can be loaded via xPDO's retrieval methods.
 </p>

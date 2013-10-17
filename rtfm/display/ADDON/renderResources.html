@@ -1,51 +1,38 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#renderResources-WhatisrenderResources%3F'>What is renderResources?</a>
+<a href="#renderResources-WhatisrenderResources%3F">What is renderResources?</a>
 </li>
 
 <li>
-<a href='#renderResources-Requirements'>Requirements</a>
+<a href="#renderResources-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#renderResources-History'>History</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#renderResources-History">History</a>
 <ul>
 <li>
-<a href='#renderResources-Download'>Download</a>
+<a href="#renderResources-Download">Download</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#renderResources-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#renderResources-Usage">Usage</a>
 <ul>
 <li>
-<a href='#renderResources-AvailableProperties'>Available Properties</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#renderResources-AvailableProperties">Available Properties</a>
 <ul>
 <li>
-<a href='#renderResources-TemplatingProperties'>Templating Properties</a>
+<a href="#renderResources-TemplatingProperties">Templating Properties</a>
 </li>
 
 <li>
-<a href='#renderResources-SelectionProperties'>Selection Properties</a>
+<a href="#renderResources-SelectionProperties">Selection Properties</a>
 </li>
 
 <li>
-<a href='#renderResources-OtherProperties'>Other Properties</a>
+<a href="#renderResources-OtherProperties">Other Properties</a>
 </li>
 </ul>
 </li>
@@ -53,41 +40,38 @@
 </li>
 
 <li>
-<a href='#renderResources-Examples'>Examples</a>
+<a href="#renderResources-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#renderResources-UsinggetPageforPagination'>Using getPage for Pagination</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#renderResources-UsinggetPageforPagination">Using getPage for Pagination</a>
 <ul>
 <li>
-<a href='#renderResources-Examples'>Examples</a>
+<a href="#renderResources-Examples">Examples</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#renderResources-Troubleshooting'>Troubleshooting</a>
+<a href="#renderResources-Troubleshooting">Troubleshooting</a>
 </li>
 
 <li>
-<a href='#renderResources-SeeAlso'>See Also</a>
+<a href="#renderResources-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="renderResources-WhatisrenderResources%3F"></a>What is renderResources?
+<h2 id="renderResources-WhatisrenderResources?">
+What is renderResources?
 </h2>
 
 <p>
 A general purpose snippet for rendering the output of a collection of Resources.
 </p>
 
-<h2>
-<a name="renderResources-Requirements"></a>Requirements
+<h2 id="renderResources-Requirements">
+Requirements
 </h2>
 
 <ul>
@@ -98,365 +82,314 @@ A general purpose snippet for rendering the output of a collection of Resources.
 </li>
 </ul>
 
-<h2>
-<a name="renderResources-History"></a>History
+<h2 id="renderResources-History">
+History
 </h2>
 
 <p>
-renderResources was first written by Jason Coward (opengeek) and released on March 19th, 2012. <a href="https://github.com/opengeek/renderResources" class="external-link" rel="nofollow">Development and bug reports are on Github</a>.
+renderResources was first written by Jason Coward (opengeek) and released on March 19th, 2012. <a href="https://github.com/opengeek/renderResources">Development and bug reports are on Github</a>.
 </p>
 
-<h3>
-<a name="renderResources-Download"></a>Download
+<h3 id="renderResources-Download">
+Download
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modx.com/extras/package/renderresources" class="external-link" rel="nofollow">http://modx.com/extras/package/renderresources</a>
+It can be downloaded from within the MODx Revolution manager via <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here: <a href="http://modx.com/extras/package/renderresources">http://modx.com/extras/package/renderresources</a>
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 It is NOT a replacement for Ditto, but rather an alternative component that can accomplish some of the things that the more specialized components do, i.e. Ditto, Wayfinder, Breadcrumbs; basically anything that output the properties for a list of Resources (formerly Documents in MODx Evolution).
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="renderResources-Usage"></a>Usage
+<h2 id="renderResources-Usage">
+Usage
 </h2>
 
 <p>
 The renderResources snippet can be called using the tag:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[renderResources]]
 </pre>
-</div>
-</div>
-
 <p>
 Calls without a &amp;tpl property specified simply return the output from each Resource.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 renderResources cannot be used with binary Content Types, or with modSymLink or modWebLink Resources. These Resources will be excluded from the selection criteria automatically.
-</td>
-</tr>
-</table>
 </div>
 
-<h3>
-<a name="renderResources-AvailableProperties"></a>Available Properties
+<h3 id="renderResources-AvailableProperties">
+Available Properties
 </h3>
 
-<h4>
-<a name="renderResources-TemplatingProperties"></a>Templating Properties
+<h4 id="renderResources-TemplatingProperties">
+Templating Properties
 </h4>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Added in version
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk serving as a wrapper template for the Resource output. If not provided, the output of the Resource is returned directly.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOdd
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk serving as a wrapper template for resources with an odd idx value (see idx property)
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplFirst
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk serving as a wrapper template for the first resource
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplLast
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk serving as a wrapper template for the last resource
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl_N
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk serving as a wrapper template for the Nth resource, for example &amp;tpl_4=`tpl4th`
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl_nN
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk serving as a wrapper template for every Nth resource, for example &amp;tpl_n4=`tpl4th` would apply to any item divisible by 4
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 outputSeparator
 </td>
-<td class='confluenceTd'>
+<td>
 An optional string to separate each tpl instance
 </td>
-<td class='confluenceTd'>
+<td>
 "\n"
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will assign the result to this placeholder instead of outputting it directly.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toSeparatePlaceholders
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will assign EACH result to a separate placeholder named by this param suffixed with a sequential number (starting from 0).
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h4>
-<a name="renderResources-SelectionProperties"></a>Selection Properties
+<h4 id="renderResources-SelectionProperties">
+Selection Properties
 </h4>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Added in version
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parents
 </td>
-<td class='confluenceTd'>
+<td>
 Comma-delimited list of ids serving as parents. Use -1 to ignore parents when specifying <em>resources</em> to include.
 </td>
-<td class='confluenceTd'>
+<td>
 current Resource id
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 resources
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Comma-delimited list of ids to include in the results. Prefix an id with a dash to exclude the resource from the result.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 depth
 </td>
-<td class='confluenceTd'>
+<td>
 Integer value indicating depth to search for resources from each parent
 </td>
-<td class='confluenceTd'>
+<td>
 10
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tvFilters
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to filter resources by certain TV values. These are entered as [(<em>tvname</em>)(<em>operator</em>)](<em>value</em>). There are two delimiters you can use to combine filter conditions.
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 You can have "OR" filters using two pipe symbols. An OR filter fetches resources that has one of the listed TV values.
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 mytv==somevalue||mytv==othervalue
 </pre>
-</div>
-</div>
-
 <p>
 You can also use an "and" filter using a comma. This will make sure that all the conditions are met.
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 mytv==somevalue,othertv==othervalue
 </pre>
-</div>
-</div>
-
 <p>
 For advanced filtering you can also group these. It is important to know that conditions are first seperated based on the OR (||) delimiter, and after that on the AND (,) delimiter. So let's take this hypothetical example:
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 mytv==foo||mytv==bar,bartv==3||bartv==1
 </pre>
-</div>
-</div>
-
 <p>
 This will filter resources to meet one of the following conditions:
-<br class="atl-forced-newline" />
+<br />
 </p>
 
 <ul>
@@ -467,806 +400,697 @@ This will filter resources to meet one of the following conditions:
 </li>
 
 <li>bartv is LIKE 1
-<br class="atl-forced-newline" />
+<br />
 The examples above search for exact values. If you want, you can also use the percentage sign (%) as a wildcard. For example:
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 mytv==%a%
 </pre>
-</div>
-</div>
-
 <p>
 Matches any resources that has an "a" in the mytv value.
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
+<br />
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 mytv==a%
 </pre>
-</div>
-</div>
-
 <p>
 Matches any resources that have a mytv value that starts with an a, and anything after that.
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
+<br />
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 mytv==%a
 </pre>
-</div>
-</div>
-
 <p>
 Matches any resources that have a mytv value that ends with an a, but can have anything in front of it.
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 Of course you can also combine this with the OR (||) and AND (,) delimiters explained above.
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<br class="atl-forced-newline" />
-It is important to know that this function <b>looks at the raw value of a template variable</b> for a specific resource. This means that <b>the value has been explicitly set for the resource</b>, and that it has not been <b>processed by a template variable output type</b>. So if you have an "autotag" tv, this means the raw value is a comma delimited list, and it is not split up in tags like you see it in the manager.
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-</td>
-</tr>
-</table>
+<div class="note">
+<br />
+It is important to know that this function <strong>looks at the raw value of a template variable</strong> for a specific resource. This means that <strong>the value has been explicitly set for the resource</strong>, and that it has not been <strong>processed by a template variable output type</strong>. So if you have an "autotag" tv, this means the raw value is a comma delimited list, and it is not split up in tags like you see it in the manager.
+<br />
+<br />
+<br />
+<br />
 </div>
 
 <p>
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Available filter operators</b>
+<div class="info">
+<strong>Available filter operators</strong>
 <br />
-<br class="atl-forced-newline" />
+<br />
 There are a number of comparison operators for use when creating filter conditions. In addition, when using many of these operators, numeric comparison values are automatically CAST TV values to numeric before comparison. Here is a list of the valid operators:
-<br class="atl-forced-newline" />
+<br />
 || Filter Operator || SQL Operator || CASTs numerics || Notes ||| &lt;=&gt; | &lt;=&gt; | Yes | <em>NULL safe equals</em> |
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 ===
 </td>
-<td class='confluenceTd'>
+<td>
 =
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 !==
 </td>
-<td class='confluenceTd'>
+<td>
 !=
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &lt;&gt;
 </td>
-<td class='confluenceTd'>
+<td>
 &lt;&gt;
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ==
 </td>
-<td class='confluenceTd'>
+<td>
 LIKE
 </td>
-<td class='confluenceTd'>
+<td>
 No
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 !=
 </td>
-<td class='confluenceTd'>
+<td>
 NOT LIKE
 </td>
-<td class='confluenceTd'>
+<td>
 No
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &lt;&lt;
 </td>
-<td class='confluenceTd'>
+<td>
 &lt;
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &lt;=
 </td>
-<td class='confluenceTd'>
+<td>
 &lt;=
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 =&lt;
 </td>
-<td class='confluenceTd'>
+<td>
 =&lt;
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &gt;&gt;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &gt;=
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;=
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 =&gt;
 </td>
-<td class='confluenceTd'>
+<td>
 =&gt;
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<td>
+<br />
+<br />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
 <p>
-<br class="atl-forced-newline" />
+<br />
 </p>
 </li>
 </ul>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortby
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/revolution20/Resources#Resources-ResourcesResourceFields">Any Resource Field</a> (excluding Template Variables) to sort by. Some common fields to sort on are publishedon, menuindex, pagetitle etc, but see the Resources documentation for all fields. Specify fields with the name only, not using the tag syntax. Note that when using fields like template, publishedby and the likes for sorting, it will be sorted on the raw values, so the template or user ID, and NOT their names.
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 You can also sort randomly by specifying RAND(), like so:
-<br class="atl-forced-newline" />
+<br />
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &amp;sortby=`RAND()`
 </pre>
-</div>
-</div>
-
 <p>
-<br class="atl-forced-newline" />
-This can also be a&nbsp;<a href="http://json-schema.org/" class="external-link" rel="nofollow">JSON</a>&nbsp;array to sort on multiple fields,&nbsp;e.g.&nbsp;
+<br />
+This can also be a&nbsp;<a href="http://json-schema.org/">JSON</a>&nbsp;array to sort on multiple fields,&nbsp;e.g.&nbsp;
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&amp;sortby=`{<span class="code-quote">"publishedon"</span>:<span class="code-quote">"ASC"</span>,<span class="code-quote">"createdon"</span>:<span class="code-quote">"DESC"</span>}`
+<pre class="brush: php">
+&amp;sortby=`{"publishedon":"ASC","createdon":"DESC"}`
 </pre>
-</div>
-</div>
-
 <p>
-<br class="atl-forced-newline" />
+<br />
 If you want to to sort in a specific order, you can do so by specifying a resource id-list like this:
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &amp;sortby=`FIELD(modResource.id, 4,7,2,5,1 )`
 </pre>
-</div>
-</div>
-
 <p>
 The same thing is possible if you put the sorted IDs in a template variable, like this:
-<br class="atl-forced-newline" />
+<br />
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &amp;sortby=`FIELD(modResource.id,[[*templateVariable]])`
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 publishedon
 </td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
+<td>
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortbyAlias
 </td>
-<td class='confluenceTd'>
+<td>
 Query alias for sortby field
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortbyEscaped
 </td>
-<td class='confluenceTd'>
+<td>
 Escapes the field name specified in sortby
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortdir
 </td>
-<td class='confluenceTd'>
+<td>
 Order which to sort by
 </td>
-<td class='confluenceTd'>
+<td>
 DESC
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortbyTV
 </td>
-<td class='confluenceTd'>
+<td>
 Template Variable to sort by
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortdirTV
 </td>
-<td class='confluenceTd'>
+<td>
 Order which to sort by when using sortbyTV
 </td>
-<td class='confluenceTd'>
+<td>
 DESC
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortbyTVType
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Specify the data type of the sortby TV. Possible values are string, integer, decimal, datetime
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 Limits the number of resources returned
 </td>
-<td class='confluenceTd'>
+<td>
 5
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 offset
 </td>
-<td class='confluenceTd'>
+<td>
 An offset of resources returned by the criteria to skip
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 where
 </td>
-<td class='confluenceTd'>
-A JSON-style expression of criteria to build any additional where clauses from. See below for an example. See <a href="http://rtfm.modx.com/display/xPDO20/xPDOQuery.where" class="external-link" rel="nofollow">http://rtfm.modx.com/display/xPDO20/xPDOQuery.where</a>
+<td>
+A JSON-style expression of criteria to build any additional where clauses from. See below for an example. See <a href="http://rtfm.modx.com/display/xPDO20/xPDOQuery.where">http://rtfm.modx.com/display/xPDO20/xPDOQuery.where</a>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 context
 </td>
-<td class='confluenceTd'>
+<td>
 Which Context should be searched in. Defaults to the current Context.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h4>
-<a name="renderResources-OtherProperties"></a>Other Properties
+<h4 id="renderResources-OtherProperties">
+Other Properties
 </h4>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Added in version
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showUnpublished
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will also show Resources if they are unpublished.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showDeleted
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will also show Resources regardless if they are deleted.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showHidden
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will show Resources regardless if they are hidden from the menus.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 hideContainers
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will not show any Resources marked as a container (is_folder).
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 idx
 </td>
-<td class='confluenceTd'>
+<td>
 You can define the starting idx of the resources, which is an property that is incremented as each resource is rendered
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 first
 </td>
-<td class='confluenceTd'>
+<td>
 Define the idx which represents the first resource
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 last
 </td>
-<td class='confluenceTd'>
+<td>
 Define the idx which represents the last resource. Default is # of resources being summarized + first - 1
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 totalVar
 </td>
-<td class='confluenceTd'>
-Define the key of a placeholder set by renderResources indicating the total number of Resources that would be selected <b>not</b> considering the <em>limit</em> value.
+<td>
+Define the key of a placeholder set by renderResources indicating the total number of Resources that would be selected <strong>not</strong> considering the <em>limit</em> value.
 </td>
-<td class='confluenceTd'>
+<td>
 total
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 debug
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will send the SQL query to the MODx log.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="renderResources-Examples"></a>Examples
+<h2 id="renderResources-Examples">
+Examples
 </h2>
 
 <p>
 Output a list of child Resources of the current Resource, using the 'myRowTpl' chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!renderResources? &amp;parents=`[[*id]]` &amp;tpl=`myRowTpl`]]
 </pre>
-</div>
-</div>
-
 <p>
 Output all resources beneath the Resource with ID '5', with the exception of resource 10, using the 'myRowTpl' chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!renderResources? &amp;parents=`5` &amp;resources=`-10` &amp;tpl=`myRowTpl`]]
 </pre>
-</div>
-</div>
-
 <p>
 Output only the resources specified, using the 'myRowTpl' chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!renderResources? &amp;parents=`-1` &amp;resources=`10,11,12` &amp;tpl=`myRowTpl`]]
 </pre>
-</div>
-</div>
-
 <p>
 Output the top 5 latest published Resources beneath the Resource with ID '5', with tpl 'blogPost':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!renderResources? &amp;parents=`5` &amp;limit=`5` &amp;tpl=`blogPost` &amp;includeContent=`1`]]
 </pre>
-</div>
-</div>
-
 <p>
 Output a list of child Resources of the current Resource, based on the Resource-template:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!renderResources? &amp;parents=`[[*id]]` &amp;where=`{<span class="code-quote">"template:="</span>:8}` &amp;tpl=`myRowTpl`]]
+<pre class="brush: php">
+[[!renderResources? &amp;parents=`[[*id]]` &amp;where=`{"template:=":8}` &amp;tpl=`myRowTpl`]]
 </pre>
-</div>
-</div>
-
 <p>
 Output a list of child Resources of the current Resource, where the Resource-template ID is 1 or 2:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!renderResources? &amp;parents=`[[*id]]` &amp;where=`{<span class="code-quote">"template:="</span>:1, <span class="code-quote">"OR:template:="</span>:2}` &amp;tpl=`myRowTpl`]]
+<pre class="brush: php">
+[[!renderResources? &amp;parents=`[[*id]]` &amp;where=`{"template:=":1, "OR:template:=":2}` &amp;tpl=`myRowTpl`]]
 </pre>
-</div>
-</div>
-
 <p>
 Output a list of child Resources of the current Resource, where the Resource-template ID is 1, 2 or 3 (you cannot use the same key name more than once):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!renderResources? &amp;parents=`[[*id]]` &amp;where=`{<span class="code-quote">"template:IN"</span>:[1,2,3]}` &amp;tpl=`myRowTpl`]]
+<pre class="brush: php">
+[[!renderResources? &amp;parents=`[[*id]]` &amp;where=`{"template:IN":[1,2,3]}` &amp;tpl=`myRowTpl`]]
 </pre>
-</div>
-</div>
-
 <p>
 Display a message when no results found (equivalent of "empty" parameter in Ditto):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!renderResources:<span class="code-keyword">default</span>=`No results found`? &amp;parents=`[[*id]]` &amp;tpl=`myRowTpl`]]
+<pre class="brush: php">
+[[!renderResources:default=`No results found`? &amp;parents=`[[*id]]` &amp;tpl=`myRowTpl`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="renderResources-UsinggetPageforPagination"></a>Using getPage for Pagination
+<h2 id="renderResources-UsinggetPageforPagination">
+Using getPage for Pagination
 </h2>
 
 <p>
 When combined with <a href="/display/ADDON/getPage" title="getPage">getPage</a>, renderResources allows you to do powerful and flexible pagination on your pages.
 </p>
 
-<h3>
-<a name="renderResources-Examples"></a>Examples
+<h3 id="renderResources-Examples">
+Examples
 </h3>
 
 <p>
 Grab first 10 Resources - sorted by publishedon - below the Resource ID 17, no more than 2 levels deep, with the tpl 'blogListPost', including the TVs and content:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getPage?
    &amp;elementClass=`modSnippet`
    &amp;element=`renderResources`
@@ -1278,41 +1102,33 @@ Grab first 10 Resources - sorted by publishedon - below the Resource ID 17, no m
 
    &amp;tpl=`blogListPost`
 ]]
-&lt;div class=<span class="code-quote">"paging"</span>&gt;
-&lt;ul class=<span class="code-quote">"pageList"</span>&gt;
+&lt;div class="paging"&gt;
+&lt;ul class="pageList"&gt;
   [[!+page.nav]]
 &lt;/ul&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 and the chunk blogListPost:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"blogPost"</span>&gt;
+<pre class="brush: php">
+&lt;div class="blogPost"&gt;
   [[+output]]
-  &lt;div class=<span class="code-quote">"clear"</span>&gt;&lt;/div&gt;
+  &lt;div class="clear"&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;hr/&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="renderResources-Troubleshooting"></a>Troubleshooting
+<h2 id="renderResources-Troubleshooting">
+Troubleshooting
 </h2>
 
 <p>
-<b>Nothing comes up!</b> Just to be sure, is <b>renderResources</b> installed?
+<strong>Nothing comes up!</strong> Just to be sure, is <strong>renderResources</strong> installed?
 </p>
 
-<h2>
-<a name="renderResources-SeeAlso"></a>See Also
+<h2 id="renderResources-SeeAlso">
+See Also
 </h2>
 
 <p>

@@ -1,713 +1,690 @@
 <div>
 <ul>
 <li>
-<a href='#eventsCalendar2.eventsCalendar2-Usage'>Usage</a>
+<a href="#eventsCalendar2.eventsCalendar2-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#eventsCalendar2.eventsCalendar2-AvailableProperties'>Available Properties</a>
+<a href="#eventsCalendar2.eventsCalendar2-AvailableProperties">Available Properties</a>
 </li>
 
 <li>
-<a href='#eventsCalendar2.eventsCalendar2-Sourcecode'>Source code</a>
+<a href="#eventsCalendar2.eventsCalendar2-Sourcecode">Source code</a>
 </li>
 
 <li>
-<a href='#eventsCalendar2.eventsCalendar2-SeeAlso'>See Also</a>
+<a href="#eventsCalendar2.eventsCalendar2-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="eventsCalendar2.eventsCalendar2-Usage"></a>Usage
+<h2 id="eventsCalendar2.eventsCalendar2-Usage">
+Usage
 </h2>
 
 <p>
 Simply displays a calendar with events that are childrens of the current resource.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!eventsCalendar2]]
 </pre>
-</div>
-</div>
-
 <p>
 Display events from resources 5 and 11. Search for date in TV "date_of_event".
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!eventsCalendar2
   &amp;parents=`4,11`
   &amp;dateSource=`date_of_event`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
 Display <a href="/display/ADDON/eventsCalendar2.Generating+events" title="eventsCalendar2.Generating events">custom events</a>, independent from resources.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!eventsCalendar2
-  &amp;events=`[{<span class="code-quote">"id"</span>: <span class="code-quote">"1"</span>,<span class="code-quote">"date"</span>: <span class="code-quote">"2012-01-01 00:00:00"</span>,<span class="code-quote">"pagetitle"</span>: <span class="code-quote">"Test page"</span>},{<span class="code-quote">"id"</span>: <span class="code-quote">"2"</span>,<span class="code-quote">"date"</span>: <span class="code-quote">"2012-01-02 12:05:00"</span>,<span class="code-quote">"pagetitle"</span>: <span class="code-quote">"Test page 2"</span>}]`
+  &amp;events=`[{"id": "1","date": "2012-01-01 00:00:00","pagetitle": "Test page"},{"id": "2","date": "2012-01-02 12:05:00","pagetitle": "Test page 2"}]`
 ]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="warning">
 Snippet always must be called uncached.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="eventsCalendar2.eventsCalendar2-AvailableProperties"></a>Available Properties
+<h2 id="eventsCalendar2.eventsCalendar2-AvailableProperties">
+Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table id='TBL1376497247096' class='confluenceTable'>
+<table id="TBL1376497247009">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parents
 </td>
-<td class='confluenceTd'>
+<td>
 The ids of an comm-separated list of existing containers.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 ?urrent resource
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 events
 </td>
-<td class='confluenceTd'>
+<td>
 An json-array of events. Overrides all settings. Allows you to display random events from any source. Required date parameter in an array of events to date in the format "Ymd H:i:s".
 </td>
-<td class='confluenceTd'>
+<td>
 none
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 month
 </td>
-<td class='confluenceTd'>
+<td>
 A month to display events.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 date('m')
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 year
 </td>
-<td class='confluenceTd'>
+<td>
 A year&nbsp;to display events.
 </td>
-<td class='confluenceTd'>
+<td>
 date('Y')
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dateSource
 </td>
-<td class='confluenceTd'>
+<td>
 Field for search the events date. It can be a TV.
 </td>
-<td class='confluenceTd'>
+<td>
 createdon
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dateFormat
 </td>
-<td class='confluenceTd'>
-Date format. Used <a href="http://docs.php.net/manual/en/function.strftime.php" class="external-link" rel="nofollow">strftime()</a>.
+<td>
+Date format. Used <a href="http://docs.php.net/manual/en/function.strftime.php">strftime()</a>.
 </td>
-<td class='confluenceTd'>
+<td>
 %d %b %Y %H:%M
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 hideContainers
 </td>
-<td class='confluenceTd'>
+<td>
 Hide containers?
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showHidden
 </td>
-<td class='confluenceTd'>
+<td>
 Show hidden in menu resources?
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeContent
 </td>
-<td class='confluenceTd'>
+<td>
 Include content field? Disabling may increase perfomance.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeTVs
 </td>
-<td class='confluenceTd'>
+<td>
 Include template variables?
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeTVList
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 List of comma-separated template variables for including.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 none
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 processTVs
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Process template variables according to its type?
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 processTVList
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 List of comma-separated template variables for processing of &nbsp;events.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 none
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplMain
 </td>
-<td class='confluenceTd'>
+<td>
 Name of existing chunk for templating calendar container.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 tplCalendar2
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplEvent
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Name of existing chunk for template events.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 tplEvent2
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplHead
 </td>
-<td class='confluenceTd'>
+<td>
 Name of existing chunk for template events.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 tplHead2
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplCell
 </td>
-<td class='confluenceTd'>
+<td>
 Name of existing chunk for template events.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 tplCell2
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 theme
 </td>
-<td class='confluenceTd'>
-CSS theme for calendar. File must be in /core/assets/components/eventscalendar2/css/<b>%themename%</b>/theme.css.
-<br class="atl-forced-newline" />
-<em>For example theme bootstrap, included in package is in /core/assets/components/eventscalendar2/css/</em><b><em>bootstrap</em></b><em>/theme.css</em>
-<br class="atl-forced-newline" />
+<td>
+CSS theme for calendar. File must be in /core/assets/components/eventscalendar2/css/<strong>%themename%</strong>/theme.css.
+<br />
+<em>For example theme bootstrap, included in package is in /core/assets/components/eventscalendar2/css/</em><strong><em>bootstrap</em></strong><em>/theme.css</em>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 default
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 regCss
 </td>
-<td class='confluenceTd'>
+<td>
 Load built-in CSS (or theme) for calendar?
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 regJs
 </td>
-<td class='confluenceTd'>
+<td>
 Load built-in javascript for calendar?
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 plPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 Placeholders prefix.
 </td>
-<td class='confluenceTd'>
+<td>
 ec.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 calendar_id
 </td>
-<td class='confluenceTd'>
+<td>
 Unique id of calendar table on page.
 </td>
-<td class='confluenceTd'>
+<td>
 Calendar
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_calendar
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for calendar table.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 calendar
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_dow
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for day of week.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 dow
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_month
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for month and year.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 month
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_workday
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for workday.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 workday
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_weekend
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for weekend.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 weekend
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_today
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for today.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 today
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_event
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for div container with event.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 event
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_isevent
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for cell with event.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 isevent
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_noevent
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for cell with no event.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 noevent
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_date
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for date of event.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 date
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_emptyday
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for empty day, with no date.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 emptyday
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_prev
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for previous month button.
 </td>
-<td class='confluenceTd'>
+<td>
 prev
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_next
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 CSS classname for&nbsp;next month button.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 next
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 btn_prev
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Text for the button of previuos month.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 «
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 btn_next
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Text for the button of next month.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 »
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 show_errors
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Show calendar errors on the webpage.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 first_day
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 - first day of week is a sunday. 1 - first day of week is a monday.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 time_shift
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Time shift from the server in seconds. Maybe positive or negative.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="eventsCalendar2.eventsCalendar2-Sourcecode"></a>Source code
+<h2 id="eventsCalendar2.eventsCalendar2-Sourcecode">
+Source code
 </h2>
 
 <p>
-Here is this&nbsp;<a href="https://github.com/bezumkin/eventsCalendar2/blob/master/core/components/eventscalendar2/elements/snippets/snippet.eventscalendar2.php" class="external-link" rel="nofollow">snippet on Github</a>.
+Here is this&nbsp;<a href="https://github.com/bezumkin/eventsCalendar2/blob/master/core/components/eventscalendar2/elements/snippets/snippet.eventscalendar2.php">snippet on Github</a>.
 </p>
 
-<h2>
-<a name="eventsCalendar2.eventsCalendar2-SeeAlso"></a>See Also
+<h2 id="eventsCalendar2.eventsCalendar2-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/eventsCalendar2.eventsCalendar2">eventsCalendar2.eventsCalendar2</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="39354647" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="39354637" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FeventsCalendar2.eventsCalendar2" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="39354637" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/eventsCalendar2.Generating+events">eventsCalendar2.Generating events</a>
+</li>
 
-<p>
-<br class="atl-forced-newline" />
-</p>
+<li>
+<a href="/display/ADDON/eventsCalendar2.tplCalendar2">eventsCalendar2.tplCalendar2</a>
+</li>
+
+<li>
+<a href="/display/ADDON/eventsCalendar2.tplCell2">eventsCalendar2.tplCell2</a>
+</li>
+
+<li>
+<a href="/display/ADDON/eventsCalendar2.tplEvent2">eventsCalendar2.tplEvent2</a>
+</li>
+
+<li>
+<a href="/display/ADDON/eventsCalendar2.tplHead2">eventsCalendar2.tplHead2</a>
+</li>
+</ol>

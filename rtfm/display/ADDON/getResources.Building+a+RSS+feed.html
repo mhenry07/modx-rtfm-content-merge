@@ -5,25 +5,25 @@ Sites which publish new articles, blogs or news items will probably want to give
 <div>
 <ul>
 <li>
-<a href='#getResources.BuildingaRSSfeed-CreatingtheRSSResource'>Creating the RSS Resource</a>
+<a href="#getResources.BuildingaRSSfeed-CreatingtheRSSResource">Creating the RSS Resource</a>
 </li>
 
 <li>
-<a href='#getResources.BuildingaRSSfeed-SetupthegetResourcestplfortheitems'>Set up the getResources tpl for the items</a>
+<a href="#getResources.BuildingaRSSfeed-SetupthegetResourcestplfortheitems">Set up the getResources tpl for the items</a>
 </li>
 
 <li>
-<a href='#getResources.BuildingaRSSfeed-Nowwhat...'>Now what...</a>
+<a href="#getResources.BuildingaRSSfeed-Nowwhat...">Now what...</a>
 </li>
 
 <li>
-<a href='#getResources.BuildingaRSSfeed-Troubleshooting'>Troubleshooting</a>
+<a href="#getResources.BuildingaRSSfeed-Troubleshooting">Troubleshooting</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="getResources.BuildingaRSSfeed-CreatingtheRSSResource"></a>Creating the RSS Resource
+<h2 id="getResources.BuildingaRSSfeed-CreatingtheRSSResource">
+Creating the RSS Resource
 </h2>
 
 <p>
@@ -47,18 +47,16 @@ In your MODX Manager, create a new resource.
 </li>
 </ol>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;
-&lt;rss version=<span class="code-quote">"2.0"</span> xmlns:atom=<span class="code-quote">"http:<span class="code-comment">//www.w3.org/2005/Atom"</span> xmlns:dc=<span class="code-quote">"http://purl.org/dc/elements/1.1/"</span>&gt;
-</span>&lt;channel&gt;
+<pre class="brush: php">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"&gt;
+&lt;channel&gt;
     &lt;title&gt;[[*pagetitle]]&lt;/title&gt;
     &lt;link&gt;[[~[[*id]]? &amp;scheme=`full`]]&lt;/link&gt;
     &lt;description&gt;[[*introtext:cdata]]&lt;/description&gt;
     &lt;language&gt;[[++cultureKey]]&lt;/language&gt;
     &lt;ttl&gt;120&lt;/ttl&gt;
-    &lt;atom:link href=<span class="code-quote">"[[~[[*id]]? &amp;scheme=`full`]]"</span> rel=<span class="code-quote">"self"</span> type=<span class="code-quote">"application/rss+xml"</span> /&gt;
+    &lt;atom:link href="[[~[[*id]]? &amp;scheme=`full`]]" rel="self" type="application/rss+xml" /&gt;
 [[getResources?
   &amp;tpl=`rssItem`
   &amp;parents=`29,41`
@@ -72,27 +70,10 @@ In your MODX Manager, create a new resource.
 &lt;/channel&gt;
 &lt;/rss&gt;
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Warning for Articles</b>
+<div class="warning">
+<strong>Warning for Articles</strong>
 <br />
-If you are using getResources to summarize blog posts from the <a href="http://rtfm.modx.com/display/ADDON/Articles" class="external-link" rel="nofollow">Articles</a> Extra, you must set <b>&amp;showHidden=`1`</b> – Articles are considered hidden.
-</td>
-</tr>
-</table>
+If you are using getResources to summarize blog posts from the <a href="http://rtfm.modx.com/display/ADDON/Articles">Articles</a> Extra, you must set <strong>&amp;showHidden=`1`</strong> – Articles are considered hidden.
 </div>
 
 <p>
@@ -131,33 +112,28 @@ Save your resource.
 If you would visit your feed now, it wont work properly yet as we did not yet create the template to use for the feed items.
 </p>
 
-<h2>
-<a name="getResources.BuildingaRSSfeed-SetupthegetResourcestplfortheitems"></a>Set up the getResources tpl for the items
+<h2 id="getResources.BuildingaRSSfeed-SetupthegetResourcestplfortheitems">
+Set up the getResources tpl for the items
 </h2>
 
 <p>
 In the getResources snippets we referenced a chunk called "rssItem", so let's create it now.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;item&gt;
   &lt;title&gt;[[+pagetitle:htmlent]]&lt;/title&gt;
   &lt;link&gt;[[~[[+id]]? &amp;scheme=`full`]]&lt;/link&gt;
   &lt;description&gt;
-    [[+introtext:<span class="code-keyword">default</span>=`[[+content:ellipsis=`600`]]`:cdata]]
+    [[+introtext:default=`[[+content:ellipsis=`600`]]`:cdata]]
   &lt;/description&gt;
   &lt;pubDate&gt;[[+publishedon:strtotime:date=`%a, %d %b %Y %H:%M:%S %z`]]&lt;/pubDate&gt;
-  &lt;guid isPermaLink=<span class="code-quote">"<span class="code-keyword">false</span>"</span>&gt;[[~[[+id]]? &amp;scheme=`full`]]&lt;/guid&gt;
+  &lt;guid isPermaLink="false"&gt;[[~[[+id]]? &amp;scheme=`full`]]&lt;/guid&gt;
   &lt;dc:creator&gt;
       [[+createdby:userinfo=`fullname`]]
   &lt;/dc:creator&gt;
 &lt;/item&gt;
 </pre>
-</div>
-</div>
-
 <p>
 You can modify this chunk to suit your needs and include that information you want to include (or not). This item template includes:
 </p>
@@ -186,20 +162,15 @@ You can modify this chunk to suit your needs and include that information you wa
 When you save the chunk, and go back to your feed, you should see it has loaded in the content and you're good to go. Make sure to put a link to your RSS feed on your site somewhere, and also stick it in the header with a link tag:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- &lt;link rel=<span class="code-quote">"alternate"</span> type=<span class="code-quote">"application/rss+xml"</span> title=<span class="code-quote">"Follow <span class="code-keyword">this</span> website with RSS"</span> href=<span class="code-quote">"[[~52]]"</span> /&gt;
+<pre class="brush: php">
+ &lt;link rel="alternate" type="application/rss+xml" title="Follow this website with RSS" href="[[~52]]" /&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Be sure to replace 52 with the ID of your RSS resource. This will make the browser recognize the feed, and put the shiny icon in the navigation bar.
 </p>
 
-<h2>
-<a name="getResources.BuildingaRSSfeed-Nowwhat..."></a>Now what...
+<h2 id="getResources.BuildingaRSSfeed-Nowwhat...">
+Now what...
 </h2>
 
 <p>
@@ -213,12 +184,12 @@ Of course you can further customize this. Some ideas to get you started:
 <li>Right now, the feed fetches every resource within the parents.. which can also include categories, placeholder pages or other pages you would rather not include. You can filter these out by using a Template Variable and the &amp;tvFilter parameter on the getResources call.
 </li>
 
-<li>Have a look at <a href="http://cyber.law.harvard.edu/rss/rss.html" class="external-link" rel="nofollow">this RSS specification</a> and see if there is more information you want to include in your feed.
+<li>Have a look at <a href="http://cyber.law.harvard.edu/rss/rss.html">this RSS specification</a> and see if there is more information you want to include in your feed.
 </li>
 </ul>
 
-<h2>
-<a name="getResources.BuildingaRSSfeed-Troubleshooting"></a>Troubleshooting
+<h2 id="getResources.BuildingaRSSfeed-Troubleshooting">
+Troubleshooting
 </h2>
 
 <p>
@@ -226,5 +197,5 @@ Is your feed not showing anything? Try viewing the page source. If there is cont
 </p>
 
 <p>
-This page has been partly based on <a href="http://modxcms.com/forums/index.php/topic,59632.msg339285.html#msg339285" class="external-link" rel="nofollow">this forum post by Ryan Thrash</a>.
+This page has been partly based on <a href="http://modxcms.com/forums/index.php/topic,59632.msg339285.html#msg339285">this forum post by Ryan Thrash</a>.
 </p>

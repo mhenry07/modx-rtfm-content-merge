@@ -1,17 +1,17 @@
 <p>
-BxrExtra is base template for creating a new Extra for MODx Revolution. It's based on&nbsp;<a href="https://github.com/splittingred/modExtra" class="external-link" rel="nofollow">modExtra</a>&nbsp;from&nbsp;<a href="https://github.com/splittingred" class="external-link" rel="nofollow">Shaun McCormick</a>.
+BxrExtra is base template for creating a new Extra for MODx Revolution. It's based on&nbsp;<a href="https://github.com/splittingred/modExtra">modExtra</a>&nbsp;from&nbsp;<a href="https://github.com/splittingred">Shaun McCormick</a>.
 </p>
 
-<h2>
-<a name="BxrExtra-Setup" id="BxrExtra-Setup"></a>Setup
+<h2 id="BxrExtra-Setup">
+Setup
 </h2>
 
 <p>
-<b>Directions</b>&nbsp;how to create component with name&nbsp;<b>YourComponent</b>&nbsp;using BxrExtra.
+<strong>Directions</strong>&nbsp;how to create component with name&nbsp;<strong>YourComponent</strong>&nbsp;using BxrExtra.
 </p>
 
 <p>
-Create directory 'yourcomponent'. Clone BxrExtra to yourcomponent directory by running 'git clone git://github.com/TheBoxer/BxrExtra.git .'&nbsp;<b>from yourcomponent folder</b>.
+Create directory 'yourcomponent'. Clone BxrExtra to yourcomponent directory by running 'git clone git://github.com/TheBoxer/BxrExtra.git .'&nbsp;<strong>from yourcomponent folder</strong>.
 </p>
 
 <p>
@@ -19,11 +19,11 @@ You can delete '.git' folder now.
 </p>
 
 <p>
-Edit 'config.core.php' file and point 'MODX_CORE_PATH' constant&nbsp;<b>to your</b>&nbsp;MODx core location.
+Edit 'config.core.php' file and point 'MODX_CORE_PATH' constant&nbsp;<strong>to your</strong>&nbsp;MODx core location.
 </p>
 
 <p>
-Now you want to&nbsp;<b>rename BxrExtra to YourComponent</b>, co first of all edit 'rename_it.sh' and set 'repl1' to 'YourComponent', 'repl2' to 'yourcomponent' and 'path' to './yourcomponent'.
+Now you want to&nbsp;<strong>rename BxrExtra to YourComponent</strong>, co first of all edit 'rename_it.sh' and set 'repl1' to 'YourComponent', 'repl2' to 'yourcomponent' and 'path' to './yourcomponent'.
 </p>
 
 <p>
@@ -35,7 +35,7 @@ Edit 'yourcomponent/core/components/yourcomponent/templates/home.tpl' and change
 </p>
 
 <p>
-After this changes&nbsp;<b>add two settings</b>&nbsp;in your System Settings (in manager):
+After this changes&nbsp;<strong>add two settings</strong>&nbsp;in your System Settings (in manager):
 </p>
 
 <ul>
@@ -47,37 +47,37 @@ After this changes&nbsp;<b>add two settings</b>&nbsp;in your System Settings (in
 </ul>
 
 <p>
-Assets url must be&nbsp;<b>visible</b>&nbsp;from web.
+Assets url must be&nbsp;<strong>visible</strong>&nbsp;from web.
 </p>
 
 <p>
-Next step is creating&nbsp;<b>namespace</b>&nbsp;with name 'YourComponent',&nbsp;
+Next step is creating&nbsp;<strong>namespace</strong>&nbsp;with name 'YourComponent',&nbsp;
 <br />
-<b>core path</b>&nbsp;'Point to /yourcomponent/core/components/yourcomponent/' and&nbsp;
+<strong>core path</strong>&nbsp;'Point to /yourcomponent/core/components/yourcomponent/' and&nbsp;
 <br />
-<b>assets path</b>&nbsp;'Point to /yourcomponent/assets/components/yourcomponent/'.
+<strong>assets path</strong>&nbsp;'Point to /yourcomponent/assets/components/yourcomponent/'.
 </p>
 
 <p>
-After you created namespace,&nbsp;<b>add new action</b>&nbsp;under YourComponent namespace with&nbsp;<b>index controller</b>&nbsp;and without parent controller.
+After you created namespace,&nbsp;<strong>add new action</strong>&nbsp;under YourComponent namespace with&nbsp;<strong>index controller</strong>&nbsp;and without parent controller.
 </p>
 
 <p>
-<b>Place just created action</b>&nbsp;under Component menu (or where ever you want) with lexicon key 'yourcomponent' and description 'yourcomponent.menu_desc'.
+<strong>Place just created action</strong>&nbsp;under Component menu (or where ever you want) with lexicon key 'yourcomponent' and description 'yourcomponent.menu_desc'.
 <br />
 Then clear the cache and refresh manager page.
 </p>
 
 <p>
-If you want to&nbsp;<b>create default database table</b>&nbsp;provided in BxrExtra add new snippet in your manager, call it createDBTable and set it as&nbsp;<b>static</b>. Set media sources for Static files to '(None)' and Static file to '[[++yourcomponent.core_path]]/elements/snippets/snippet.yourcomponentCreateDB.php'. Use 'createDBTable' snippet in any of your resources and run it. You shoud get&nbsp;<b>'Table created.'</b>&nbsp;message.
+If you want to&nbsp;<strong>create default database table</strong>&nbsp;provided in BxrExtra add new snippet in your manager, call it createDBTable and set it as&nbsp;<strong>static</strong>. Set media sources for Static files to '(None)' and Static file to '[[++yourcomponent.core_path]]/elements/snippets/snippet.yourcomponentCreateDB.php'. Use 'createDBTable' snippet in any of your resources and run it. You shoud get&nbsp;<strong>'Table created.'</strong>&nbsp;message.
 </p>
 
 <p>
 Now you should have fully working extra with functions described below.
 </p>
 
-<h2>
-<a name="BxrExtra-Functionality" id="BxrExtra-Functionality"></a>Functionality
+<h2 id="BxrExtra-Functionality">
+Functionality
 </h2>
 
 <ul>
@@ -104,8 +104,8 @@ Now you should have fully working extra with functions described below.
 If you do not require all of this functionality, simply remove it and change the appropriate code.
 </p>
 
-<h3>
-<a name="BxrExtra-RemovingDrag%26Drop"></a>Removing Drag&amp;Drop
+<h3 id="BxrExtra-RemovingDrag&amp;Drop">
+Removing Drag&amp;Drop
 </h3>
 
 <ul>
@@ -136,8 +136,8 @@ If you do not require all of this functionality, simply remove it and change the
 </li>
 </ul>
 
-<h4>
-<a name="BxrExtra-Removingpositionfromdatabase%28positionisusedforsort%29"></a>Removing position from database (position is used for sort)
+<h4 id="BxrExtra-Removingpositionfromdatabase(positionisusedforsort)">
+Removing position from database (position is used for sort)
 </h4>
 
 <ul>
@@ -175,10 +175,10 @@ If you do not require all of this functionality, simply remove it and change the
 </li>
 </ul>
 
-<h2>
-<a name="BxrExtra-Others" id="BxrExtra-Others"></a>Others
+<h2 id="BxrExtra-Others">
+Others
 </h2>
 
 <p>
-Fell free to open pull requests or add&nbsp;<a href="https://github.com/TheBoxer/BxrExtra/issues" class="external-link" rel="nofollow">issues</a>.
+Fell free to open pull requests or add&nbsp;<a href="https://github.com/TheBoxer/BxrExtra/issues">issues</a>.
 </p>

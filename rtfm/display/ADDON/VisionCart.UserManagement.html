@@ -2,97 +2,88 @@
 To be able to complete the order process people need to login, for that we made example resources that contains the <a href="/display/ADDON/Login" title="Login">Login</a> snippet and we use <a href="/display/ADDON/FormIt" title="FormIt">FormIt</a> to be able to change your profile. (so you need to install these snippets also for it to work)
 </p>
 
-<h2>
-<a name="VisionCart.UserManagement-Account" id="VisionCart.UserManagement-Account"></a>Account
+<h2 id="VisionCart.UserManagement-Account">
+Account
 </h2>
 
 <p>
 Create a resource called 'Account' , this will be the container for the following resources.
 </p>
 
-<h2>
-<a name="VisionCart.UserManagement-Login" id="VisionCart.UserManagement-Login"></a>Login
+<h2 id="VisionCart.UserManagement-Login">
+Login
 </h2>
 
 <p>
 Create a resource called 'Login' and place this in the content field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Login]]
 </pre>
-</div>
-</div>
-
 <p>
 And set this page to be the unauthorized resource (this could also be you own login page).
 </p>
 
-<h2>
-<a name="VisionCart.UserManagement-Profile" id="VisionCart.UserManagement-Profile"></a>Profile
+<h2 id="VisionCart.UserManagement-Profile">
+Profile
 </h2>
 
 <p>
 Create a resource called 'Profile' and place this in the content field:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt?preHooks=`vcFormItGetUser`&amp;hooks=`vcFormItSaveUser`&amp;submitVar=`vc_user_form`&amp;validate=`fullname:required,address:required,zip:required,state:required,country:required,city:required`&amp;clearFieldsOnSuccess=`1`&amp;store=`1`]]
-&lt;form action=<span class="code-quote">"[[~[[*id]]]]"</span> method=<span class="code-quote">"post"</span>&gt;
+&lt;form action="[[~[[*id]]]]" method="post"&gt;
         &lt;table&gt;
                 &lt;tr&gt;
-                        &lt;td colspan=<span class="code-quote">"2"</span>&gt;&lt;strong&gt;Shipping address&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td colspan=<span class="code-quote">"2"</span>&gt;&lt;strong&gt;Billing address&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td colspan="2"&gt;&lt;strong&gt;Shipping address&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td colspan="2"&gt;&lt;strong&gt;Billing address&lt;/strong&gt;&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;Full name&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"shipping_fullname"</span> value=<span class="code-quote">"[[!+fi.shipping_fullname]]"</span> /&gt; [[+fi.error.shipping_fullname]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_fullname" value="[[!+fi.shipping_fullname]]" /&gt; [[+fi.error.shipping_fullname]]&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;Full name&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"billing_fullname"</span> value=<span class="code-quote">"[[!+fi.billing_fullname]]"</span> /&gt; [[+fi.error.billing_fullname]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_fullname" value="[[!+fi.billing_fullname]]" /&gt; [[+fi.error.billing_fullname]]&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;Adres&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"shipping_address"</span> value=<span class="code-quote">"[[!+fi.shipping_address]]"</span> /&gt; [[+fi.error.shipping_address]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_address" value="[[!+fi.shipping_address]]" /&gt; [[+fi.error.shipping_address]]&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;Adres&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"billing_address"</span> value=<span class="code-quote">"[[!+fi.billing_address]]"</span> /&gt; [[+fi.error.billing_address]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_address" value="[[!+fi.billing_address]]" /&gt; [[+fi.error.billing_address]]&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;Zip code&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"shipping_zip"</span> value=<span class="code-quote">"[[!+fi.shipping_zip]]"</span> /&gt; [[+fi.error.shipping_zip]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_zip" value="[[!+fi.shipping_zip]]" /&gt; [[+fi.error.shipping_zip]]&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;Zip code&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"billing_zip"</span> value=<span class="code-quote">"[[!+fi.billing_zip]]"</span> /&gt; [[+fi.error.billing_zip]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_zip" value="[[!+fi.billing_zip]]" /&gt; [[+fi.error.billing_zip]]&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;City&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"shipping_city"</span> value=<span class="code-quote">"[[!+fi.shipping_city]]"</span> /&gt; [[+fi.error.shipping_city]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_city" value="[[!+fi.shipping_city]]" /&gt; [[+fi.error.shipping_city]]&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;City&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"billing_city"</span> value=<span class="code-quote">"[[!+fi.billing_city]]"</span> /&gt; [[+fi.error.billing_city]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_city" value="[[!+fi.billing_city]]" /&gt; [[+fi.error.billing_city]]&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;State&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"shipping_state"</span> value=<span class="code-quote">"[[!+fi.shipping_state]]"</span> /&gt; [[+fi.error.shipping_state]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_state" value="[[!+fi.shipping_state]]" /&gt; [[+fi.error.shipping_state]]&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;State&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"billing_state"</span> value=<span class="code-quote">"[[!+fi.billing_state]]"</span> /&gt; [[+fi.error.billing_state]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_state" value="[[!+fi.billing_state]]" /&gt; [[+fi.error.billing_state]]&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;Country&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"shipping_country"</span> value=<span class="code-quote">"[[!+fi.shipping_country]]"</span> /&gt; [[+fi.error.shipping_country]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_country" value="[[!+fi.shipping_country]]" /&gt; [[+fi.error.shipping_country]]&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;Country&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"billing_country"</span> value=<span class="code-quote">"[[!+fi.billing_country]]"</span> /&gt; [[+fi.error.billing_country]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_country" value="[[!+fi.billing_country]]" /&gt; [[+fi.error.billing_country]]&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
-                        &lt;td colspan=<span class="code-quote">"2"</span>&gt;&lt;strong&gt;Billing address same as shipping address&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td colspan=<span class="code-quote">"2"</span>&gt;&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"billing_as_shipping"</span> value=<span class="code-quote">"1"</span> [[!+fi.billing_as_shipping:FormItIsChecked=`1`]] /&gt; (toggle)&lt;/td&gt;
+                        &lt;td colspan="2"&gt;&lt;strong&gt;Billing address same as shipping address&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td colspan="2"&gt;&lt;input type="checkbox" name="billing_as_shipping" value="1" [[!+fi.billing_as_shipping:FormItIsChecked=`1`]] /&gt; (toggle)&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
-                        &lt;td colspan=<span class="code-quote">"4"</span>&gt;&lt;input type=<span class="code-quote">"submit"</span> name=<span class="code-quote">"vc_user_form"</span> value=<span class="code-quote">"Save"</span> /&gt;
+                        &lt;td colspan="4"&gt;&lt;input type="submit" name="vc_user_form" value="Save" /&gt;
                 &lt;/tr&gt;
         &lt;/table&gt;
 &lt;/form&gt;
 </pre>
-</div>
-</div>

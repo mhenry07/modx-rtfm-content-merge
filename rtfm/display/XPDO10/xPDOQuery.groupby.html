@@ -1,42 +1,31 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDOQuery.groupby-xPDOQuery%3A%3Agroupby"></a>xPDOQuery::groupby
+<h2 id="xPDOQuery.groupby-xPDOQuery::groupby">
+xPDOQuery::groupby
 </h2>
 
 <p>
 Add a GROUP BY clause to the query.
 </p>
 
-<h2>
-<a name="xPDOQuery.groupby-Syntax" id="xPDOQuery.groupby-Syntax"></a>Syntax
+<h2 id="xPDOQuery.groupby-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#groupby" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOQuery.html#groupby</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOQuery.html#groupby">http://api.modxcms.com/xpdo/om/xPDOQuery.html#groupby</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 xPDOQuery groupby (string $column, [string $direction = ''])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.groupby-Example" id="xPDOQuery.groupby-Example"></a>Example
+<h2 id="xPDOQuery.groupby-Example">
+Example
 </h2>
 
 <p>
 Grab the different 'type's of Boxes with at least one Box of width 15.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;where(array(
    'width' =&gt; 15,
@@ -44,11 +33,8 @@ $query-&gt;where(array(
 $query-&gt;groupby('type');
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.groupby-SeeAlso" id="xPDOQuery.groupby-SeeAlso"></a>See Also
+<h2 id="xPDOQuery.groupby-SeeAlso">
+See Also
 </h2>
 
 <ul>

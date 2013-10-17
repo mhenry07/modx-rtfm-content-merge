@@ -2,25 +2,11 @@
 Both the cmCampers and cmCamperDetail snippets work with the same data and allow you to include/exclude certain objects with properties. This page will give you an overview of the different placeholders you can use. In some chunks (eg tplImageItem)&nbsp; you should be able to use any of the parent chunks as well, for example camper details.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 When using cmCampers, you should use the placeholders in your chunks CACHED to prevent weird behaviour. Example: [[+brand]]
 <p>
 When using cmCamperDetails, you should use the placeholders prefixed with cm. (don't forget the dot), and make sure you are calling them UNCACHED. Example: [[!+cm.brand]]
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -30,39 +16,36 @@ Table of Contents:
 <div>
 <ul>
 <li>
-<a href='#CamperManagement.Placeholdersyoucanuse-Snippetspecific%3AcmCamper'>Snippet specific: cmCamper</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#CamperManagement.Placeholdersyoucanuse-Snippetspecific%3AcmCamper">Snippet specific: cmCamper</a>
 <ul>
 <li>
-<a href='#CamperManagement.Placeholdersyoucanuse-tplItemChunk'>tplItem Chunk</a>
+<a href="#CamperManagement.Placeholdersyoucanuse-tplItemChunk">tplItem Chunk</a>
 </li>
 
 <li>
-<a href='#CamperManagement.Placeholdersyoucanuse-tplOuterChunks%28aswellasplaceholderssetbycmCamperDetails%5C%21%29'>tpl*Outer Chunks (as well as placeholders set by cmCamperDetails!)</a>
+<a href="#CamperManagement.Placeholdersyoucanuse-tplOuterChunks%28aswellasplaceholderssetbycmCamperDetails%5C%21%29">tpl*Outer Chunks (as well as placeholders set by cmCamperDetails!)</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#CamperManagement.Placeholdersyoucanuse-Campers%28Class%3AcmCamper%29'>Campers (Class: cmCamper)</a>
+<a href="#CamperManagement.Placeholdersyoucanuse-Campers%28Class%3AcmCamper%29">Campers (Class: cmCamper)</a>
 </li>
 
 <li>
-<a href='#CamperManagement.Placeholdersyoucanuse-Options%28Class%3AcmOption%2Cmanytomanyclass%3AcmCamperOptions%29'>Options (Class: cmOption, many-to-many class: cmCamperOptions)</a>
+<a href="#CamperManagement.Placeholdersyoucanuse-Options%28Class%3AcmOption%2Cmanytomanyclass%3AcmCamperOptions%29">Options (Class: cmOption, many-to-many class: cmCamperOptions)</a>
 </li>
 
 <li>
-<a href='#CamperManagement.Placeholdersyoucanuse-Brand%28Class%3AcmBrand%29'>Brand (Class: cmBrand)</a>
+<a href="#CamperManagement.Placeholdersyoucanuse-Brand%28Class%3AcmBrand%29">Brand (Class: cmBrand)</a>
 </li>
 
 <li>
-<a href='#CamperManagement.Placeholdersyoucanuse-Owner%28Class%3AcmOwner%29'>Owner (Class: cmOwner)</a>
+<a href="#CamperManagement.Placeholdersyoucanuse-Owner%28Class%3AcmOwner%29">Owner (Class: cmOwner)</a>
 </li>
 
 <li>
-<a href='#CamperManagement.Placeholdersyoucanuse-Images%28Class%3AcmImages%29'>Images (Class: cmImages)</a>
+<a href="#CamperManagement.Placeholdersyoucanuse-Images%28Class%3AcmImages%29">Images (Class: cmImages)</a>
 </li>
 </ul>
 </div>
@@ -73,618 +56,606 @@ Also see:
 ?
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/ADDON/CamperManagement.cmCamperDetails+Snippet">CamperManagement.cmCamperDetails Snippet</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="35586680" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="35586673" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FCamperManagement.Placeholders%2Byou%2Bcan%2Buse" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="35586673" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/CamperManagement.cmCampers+Snippet">CamperManagement.cmCampers Snippet</a>
+</li>
 
-<h2>
-<a name="CamperManagement.Placeholdersyoucanuse-Snippetspecific%3AcmCamper"></a>Snippet specific: cmCamper
+<li>
+<a href="/display/ADDON/CamperManagement.Placeholders+you+can+use">CamperManagement.Placeholders you can use</a>
+</li>
+</ol>
+
+<h2 id="CamperManagement.Placeholdersyoucanuse-Snippetspecific:cmCamper">
+Snippet specific: cmCamper
 </h2>
 
 <p>
 These are specific placeholders for the cmCamper snippet. Besides these, look at the object placeholders mentioned further down below to see what you can use from each object retrieved.
 </p>
 
-<h3>
-<a name="CamperManagement.Placeholdersyoucanuse-tplItemChunk"></a>tplItem Chunk
+<h3 id="CamperManagement.Placeholdersyoucanuse-tplItemChunk">
+tplItem Chunk
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 url
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The href part of the link to the resource identified with the &amp;target property. Will contain an url parameter "cid" with the camper ID as value.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 owner
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Depends on your includeOwner property. When 1 it will output the result of the tplOwner property chunk, if not it will return the owner ID.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 images
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Depending on the includeImages and numImages (&gt;0) property this will be filled with the contents of the tplImageOuter property chunk, which in turn was filled with the contents of the tplImageItem property chunk for each image item.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 options
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Depending on the includeOptions property, this will return your options as formatted by the tplOptionsOuter and within that the tplOptionsItem chunks.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="CamperManagement.Placeholdersyoucanuse-tplOuterChunks%28aswellasplaceholderssetbycmCamperDetails%5C%21%29"></a>tpl*Outer Chunks (as well as placeholders set by cmCamperDetails!)
+<h3 id="CamperManagement.Placeholdersyoucanuse-tplOuterChunks(aswellasplaceholderssetbycmCamperDetails\!)">
+tpl*Outer Chunks (as well as placeholders set by cmCamperDetails!)
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 tpl*Outer
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Placeholder
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 items
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Contents of all tplItem chunks, separated by a linebreak. (\n)
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplImageOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 images
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Contents of all tplImageItem chunks, separated by a linebreak (\n).
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOptionsOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 options
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Contetns of all tplOptionsItem chunks, separated by the separater specified in the &amp;optionsSeparator property of the cmCamper snippet.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="CamperManagement.Placeholdersyoucanuse-Campers%28Class%3AcmCamper%29"></a>Campers (Class: cmCamper)
+<h2 id="CamperManagement.Placeholdersyoucanuse-Campers(Class:cmCamper)">
+Campers (Class: cmCamper)
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
 </th>
-<th class='confluenceTh'>
+<th>
 Notes
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 brand
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 When not including the brand object (&amp;includeBrand=`0`) this will only output the ID of the related brand object. Else it will be the brand name.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 type
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 place
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 car
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 engine
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 manufactured
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Will be formatted d/m/Y using strftime.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 beds
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 weight
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 mileage
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 periodiccheck
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Will be formatted d/m/Y using strftime.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 remarks
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Stored plain, so no HTML tags. If using line ends in the remarks textarea, you may want to apply the nl2br output modifier.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 price
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Formatted using money_format (is included if not present on your machine) using options: %!.2n
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 status
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Status ID (0-5 inclusive), representing:
-<br class="atl-forced-newline" />
+<br />
 0. Unconfirmed
-<br class="atl-forced-newline" />
+<br />
 1. Active
-<br class="atl-forced-newline" />
+<br />
 2. Favorite
-<br class="atl-forced-newline" />
+<br />
 3. Conditionally sold
-<br class="atl-forced-newline" />
+<br />
 4. Sold
-<br class="atl-forced-newline" />
+<br />
 5. Inactive
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 statusname
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The translated string related to your status ID.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 keynr
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 owner
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Owner object relational ID, not further information.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 id
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Camper object unique ID
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 added
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 d/m/Y formatted timestamp the object was added.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 archived
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 d/m/Y formatted timestamp the object was archived.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="CamperManagement.Placeholdersyoucanuse-Options%28Class%3AcmOption%2Cmanytomanyclass%3AcmCamperOptions%29"></a>Options (Class: cmOption, many-to-many class: cmCamperOptions)
+<h2 id="CamperManagement.Placeholdersyoucanuse-Options(Class:cmOption,manytomanyclass:cmCamperOptions)">
+Options (Class: cmOption, many-to-many class: cmCamperOptions)
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Notes
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 id
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="CamperManagement.Placeholdersyoucanuse-Brand%28Class%3AcmBrand%29"></a>Brand (Class: cmBrand)
+<h2 id="CamperManagement.Placeholdersyoucanuse-Brand(Class:cmBrand)">
+Brand (Class: cmBrand)
 </h2>
 
 <p>
 Typically not accessed directly, but replaces the camper brand placeholder with the brand name from this object.
 </p>
 
-<h2>
-<a name="CamperManagement.Placeholdersyoucanuse-Owner%28Class%3AcmOwner%29"></a>Owner (Class: cmOwner)
+<h2 id="CamperManagement.Placeholdersyoucanuse-Owner(Class:cmOwner)">
+Owner (Class: cmOwner)
 </h2>
 
 <p>
 The owner object could be used as a very rudimentary customer relationships system. Unless you have build some kind of classifieds system, you will probably NOT show any of this info to the site visitor anywhere.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Notes
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 firstname
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 lastname
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 email
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Suggest not to use this in a publicly accessible place.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 bank
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Suggest not to use this in a publicly accessible place.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 phone1
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Suggest not to use this in a publicly accessible place.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 phone2
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Suggest not to use this in a publicly accessible place.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 address
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Suggest not to use this in a publicly accessible place.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 postal
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Suggest not to use this in a publicly accessible place.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 city
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Suggest not to use this in a publicly accessible place.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 country
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Suggest not to use this in a publicly accessible place.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="CamperManagement.Placeholdersyoucanuse-Images%28Class%3AcmImages%29"></a>Images (Class: cmImages)
+<h2 id="CamperManagement.Placeholdersyoucanuse-Images(Class:cmImages)">
+Images (Class: cmImages)
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Placeholder
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Notes
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 camper
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Camper ID reference
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rank
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 image
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Relative URL, can be used with phpthumbof to resize.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>

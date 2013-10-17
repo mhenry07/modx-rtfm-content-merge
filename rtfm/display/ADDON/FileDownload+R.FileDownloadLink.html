@@ -1,27 +1,27 @@
 <div>
 <ul>
 <li>
-<a href='#FileDownloadR.FileDownloadLink-Main'>Main</a>
+<a href="#FileDownloadR.FileDownloadLink-Main">Main</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownloadLink-Saltforhash'>Salt for hash</a>
+<a href="#FileDownloadR.FileDownloadLink-Saltforhash">Salt for hash</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownloadLink-Additional'>Additional</a>
+<a href="#FileDownloadR.FileDownloadLink-Additional">Additional</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownloadLink-Template'>Template</a>
+<a href="#FileDownloadR.FileDownloadLink-Template">Template</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownloadLink-Headers'>Headers</a>
+<a href="#FileDownloadR.FileDownloadLink-Headers">Headers</a>
 </li>
 
 <li>
-<a href='#FileDownloadR.FileDownloadLink-Example'>Example</a>
+<a href="#FileDownloadR.FileDownloadLink-Example">Example</a>
 </li>
 </ul>
 </div>
@@ -38,131 +38,127 @@ But in this case, FileDownloadLink will hide the real path of the file with the 
 Basic usage is [[!FileDownloadLink?]]
 </p>
 
-<h1>
-<a name="FileDownloadR.FileDownloadLink-Main" id="FileDownloadR.FileDownloadLink-Main"></a>Main
+<h1 id="FileDownloadR.FileDownloadLink-Main">
+Main
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 getFile
 </td>
-<td class='confluenceTd'>
+<td>
 You may only have ONE file path on this parameter
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;getFile=`assets/files/readme.txt`
 </td>
-<td class='confluenceTd'>
+<td>
 empty
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 userGroups
 </td>
-<td class='confluenceTd'>
+<td>
 This will make the download link active for users that belong to the specified groups. Multiple groups can be specified by using a comma delimited list.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;userGroups=`Administrator, Registered Member`
 </td>
-<td class='confluenceTd'>
+<td>
 empty
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toArray
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Returns the result as an array instead, not parsed in the templates.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;toArray=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h1>
-<a name="FileDownloadR.FileDownloadLink-Saltforhash" id="FileDownloadR.FileDownloadLink-Saltforhash"></a>Salt for hash
+<h1 id="FileDownloadR.FileDownloadLink-Saltforhash">
+Salt for hash
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 saltText
 </td>
-<td class='confluenceTd'>
+<td>
 This text will be added to the file's hashed link to disguise the direct path
 </td>
-<td class='confluenceTd'>
+<td>
 FileDownload
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 The link is a hashed text of the saltText, context, and filename/dirname combination.
@@ -170,146 +166,144 @@ The link is a hashed text of the saltText, context, and filename/dirname combina
 So if you change the saltText value after a while, it will not block the content's appearance from the page, but the database will start the counter from zero again since it will not find the same hashed value.
 </p>
 
-<h1>
-<a name="FileDownloadR.FileDownloadLink-Additional" id="FileDownloadR.FileDownloadLink-Additional"></a>Additional
+<h1 id="FileDownloadR.FileDownloadLink-Additional">
+Additional
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 noDownload
 </td>
-<td class='confluenceTd'>
+<td>
 This property will make the list only displays files without their download links.
-<br class="atl-forced-newline" />
+<br />
 note: this is different from the Evo's version
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;noDownload=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 chkDesc
 </td>
-<td class='confluenceTd'>
+<td>
 Allows descriptions to be added to the file listing included in a chunk.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;chkDesc=`fileDesc`
 </td>
-<td class='confluenceTd'>
+<td>
 fileDescription
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dateFormat
 </td>
-<td class='confluenceTd'>
+<td>
 PHP's date formatting for the list
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;dateFormat=`m/d/Y`
 </td>
-<td class='confluenceTd'>
+<td>
 Y-m-d
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 countDownloads
 </td>
-<td class='confluenceTd'>
+<td>
 Tracking the downloading
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;countDownloads=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
-<td class='confluenceTd'>
+<td>
 bool: 0/1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imgTypes
 </td>
-<td class='confluenceTd'>
+<td>
 A chunk name to define the associations between file extension and image
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;imgTypes=`fdImages`
 </td>
-<td class='confluenceTd'>
+<td>
 fdImages
 </td>
-<td class='confluenceTd'>
+<td>
 chunk's name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imgLocat
 </td>
-<td class='confluenceTd'>
+<td>
 Path to the images to associate with each file extension.
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;imgLocat=`assets/filetypes`
 </td>
-<td class='confluenceTd'>
+<td>
 assets/components/filedownload/img/filetype
 </td>
-<td class='confluenceTd'>
+<td>
 web accessible path
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h1>
-<a name="FileDownloadR.FileDownloadLink-Template" id="FileDownloadR.FileDownloadLink-Template"></a>Template
+<h1 id="FileDownloadR.FileDownloadLink-Template">
+Template
 </h1>
 
 <p>
@@ -318,116 +312,110 @@ The template for this snippet is a plain href link with FileDownloadLink's place
 If you like to see the available placeholders, just initiate the &amp;toArray=`1` parameter.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Example
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplCode
 </td>
-<td class='confluenceTd'>
+<td>
 file template
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tplCode=`&lt;a href="[[+link]]"&gt;[[+filename]]&lt;/a&gt;`
 </td>
-<td class='confluenceTd'>
+<td>
 &lt;a href="[[+link]]"&gt;[[+filename]]&lt;/a&gt;
 </td>
-<td class='confluenceTd'>
+<td>
 HTML code
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h1>
-<a name="FileDownloadR.FileDownloadLink-Headers" id="FileDownloadR.FileDownloadLink-Headers"></a>Headers
+<h1 id="FileDownloadR.FileDownloadLink-Headers">
+Headers
 </h1>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fileCss
 </td>
-<td class='confluenceTd'>
+<td>
 FileDownload's Cascading Style Sheet file for the page header
 </td>
-<td class='confluenceTd'>
+<td>
 assets/components/filedownload/css/fd.css
 </td>
-<td class='confluenceTd'>
+<td>
 web path
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 fileJs
 </td>
-<td class='confluenceTd'>
+<td>
 ileDownload's Javascript file for the page header
 </td>
-<td class='confluenceTd'>
+<td>
 assets/components/filedownload/js/fd.js
 </td>
-<td class='confluenceTd'>
+<td>
 web path
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h1>
-<a name="FileDownloadR.FileDownloadLink-Example" id="FileDownloadR.FileDownloadLink-Example"></a>Example
+<h1 id="FileDownloadR.FileDownloadLink-Example">
+Example
 </h1>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FileDownloadLink?
 &amp;getFile=`[[++core_path]]downloads/Document1.doc`
 &amp;tplCode=`
-&lt;a href=<span class="code-quote">"[[+link]]"</span> title=<span class="code-quote">"[[+filename]]"</span>&gt;
-    &lt;span class=<span class="code-quote">"gradient curve-four"</span> style=<span class="code-quote">"display: block; text-align: center;"</span>&gt;
-        &lt;img src=<span class="code-quote">"[[+image]]"</span> alt="" /&gt;Download <span class="code-keyword">this</span> Document1.doc&lt;hr /&gt;
+&lt;a href="[[+link]]" title="[[+filename]]"&gt;
+    &lt;span class="gradient curve-four" style="display: block; text-align: center;"&gt;
+        &lt;img src="[[+image]]" alt="" /&gt;Download this Document1.doc&lt;hr /&gt;
         [[+date]]&lt;br /&gt;([[+count]] downloads)
     &lt;/span&gt;
 &lt;/a&gt;`
@@ -435,9 +423,6 @@ web path
 &amp;toArray=`0`
 ]]
 </pre>
-</div>
-</div>
-
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/35586646/filedownloadlink.jpg?version=1&amp;modificationDate=1315759899000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/35586646/filedownloadlink.jpg?version=1&amp;modificationDate=1315759899000" />
 </p>

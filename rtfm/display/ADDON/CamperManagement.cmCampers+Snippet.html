@@ -1,29 +1,26 @@
 <div>
 <ul>
 <li>
-<a href='#CamperManagement.cmCampersSnippet-SnippetProperties'>Snippet Properties</a>
+<a href="#CamperManagement.cmCampersSnippet-SnippetProperties">Snippet Properties</a>
 </li>
 
 <li>
-<a href='#CamperManagement.cmCampersSnippet-Exampleusage'>Example usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#CamperManagement.cmCampersSnippet-Exampleusage">Example usage</a>
 <ul>
 <li>
-<a href='#CamperManagement.cmCampersSnippet-Example1%3ASimpleoverviewoflatestadditions'>Example 1: Simple overview of latest additions</a>
+<a href="#CamperManagement.cmCampersSnippet-Example1%3ASimpleoverviewoflatestadditions">Example 1: Simple overview of latest additions</a>
 </li>
 
 <li>
-<a href='#CamperManagement.cmCampersSnippet-Example2%3ASlideshowwithvehiclesmarkedasfavorite'>Example 2: Slideshow with vehicles marked as favorite</a>
+<a href="#CamperManagement.cmCampersSnippet-Example2%3ASlideshowwithvehiclesmarkedasfavorite">Example 2: Slideshow with vehicles marked as favorite</a>
 </li>
 
 <li>
-<a href='#CamperManagement.cmCampersSnippet-Example3%3AHorizontalrowstyleoverview'>Example 3: Horizontal row style overview</a>
+<a href="#CamperManagement.cmCampersSnippet-Example3%3AHorizontalrowstyleoverview">Example 3: Horizontal row style overview</a>
 </li>
 
 <li>
-<a href='#CamperManagement.cmCampersSnippet-Suggestion%3ASlideshowofimagespervehicle'>Suggestion: Slideshow of images per vehicle</a>
+<a href="#CamperManagement.cmCampersSnippet-Suggestion%3ASlideshowofimagespervehicle">Suggestion: Slideshow of images per vehicle</a>
 </li>
 </ul>
 </li>
@@ -34,386 +31,377 @@
 cmCampers can be used to aggregate data on the different vehicles in the database.
 </p>
 
-<h2>
-<a name="CamperManagement.cmCampersSnippet-SnippetProperties" id="CamperManagement.cmCampersSnippet-SnippetProperties"></a>Snippet Properties
+<h2 id="CamperManagement.cmCampersSnippet-SnippetProperties">
+Snippet Properties
 </h2>
 
 <p>
 You can use the following properties in cmCampers to adjust its behaviour and to make it your own. Some of them overlap with the cmCamperDetails snippet.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 &amp;property
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 start
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Possible offset to ignore the first N vehicles.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Number of results to return from the snippet. Set to 0 or a real high number for infinite.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 4
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sort
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Field to sort on. Accepts any field in the cmCamper object but not all of them would make sense. Note that when sorting on related items (Brand, Owner) it will sort on their ID and *not* the name. When searchFromRequest is set to 1 the sort can be determined by the sort url parameter.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 added
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dir
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 asc | desc. Direction to sort on. When searchFromRequest is set to 1 the sort can be determined by the sortdir url parameter.
 </td>
-<td class='confluenceTd'>
+<td>
 desc
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeBrand
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1 | 0. Determines if the related brand object should be retrieved. Can save some processing time when not needed.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeOwner
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1 | 0. Determines if the related owner object should be retrieved. Can save some processing time when not needed.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeImages
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1 | 0. Determines if the related images should be retrieved. Can save some processing time when not needed.
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 includeOptions
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1 | 0. Determines if the related options should be retrieved. Can save some processing time when not needed.
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 status
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Comma seperated list of status IDs that should be included in the results. The IDs are:
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 0. Unconfirmed
-<br class="atl-forced-newline" />
+<br />
 1. Active
-<br class="atl-forced-newline" />
+<br />
 2. Favorite
-<br class="atl-forced-newline" />
+<br />
 3. Conditionally sold
-<br class="atl-forced-newline" />
+<br />
 4. Sold
-<br class="atl-forced-newline" />
+<br />
 5. Inactive
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1,2,3,4
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 numimages
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Integer indicating how many images should be retrieved.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 target
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Integer resource ID for the camper details page. Will be used with makeUrl to create a link following friendly url settings, passing "cid" in the URL with the camper ID.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 2
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Outer template to wrap the entire result set. <a href="/display/ADDON/CamperManagement.Placeholders+you+can+use" title="CamperManagement.Placeholders you can use">Placeholders</a>
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplItem
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Template for one item. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplItem
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplImageOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Outer template to wrap the entire image result set, called for every vehicle item. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplImageOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplImageItem
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Template for one image item. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplImageItem
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOptionsOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Outer template to wrap the entire options result set, called for every vehicle item. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplOptionsOuter
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOptionsItem
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Template for one option item. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplOptionsItem
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplOwner
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Chunkname. Template to use for displaying owner information. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
 </td>
-<td class='confluenceTd'>
+<td>
 cmDefaultTplOwner
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 searchFromRequest
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1 | 0. When 1, this will also check POST and GET requests for the status to filter on, the sort field and the sort direction. Fields it looks out for and overrides the snippet properties with if found are: status, sort, dir.
-<br class="atl-forced-newline" />
+<br />
 When it finds a status filter, it will set a placeholder "statusfilter" you could use in your template.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 locale
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Locale used for the money_format function which formats the price.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 it_IT
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 When set it will set a placeholder, the key being what you pass to &amp;toPlaceholder, with the result of the function.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="CamperManagement.cmCampersSnippet-Exampleusage" id="CamperManagement.cmCampersSnippet-Exampleusage"></a>Example usage
+<h2 id="CamperManagement.cmCampersSnippet-Exampleusage">
+Example usage
 </h2>
 
-<h3>
-<a name="CamperManagement.cmCampersSnippet-Example1%3ASimpleoverviewoflatestadditions"></a>Example 1: Simple overview of latest additions
+<h3 id="CamperManagement.cmCampersSnippet-Example1:Simpleoverviewoflatestadditions">
+Example 1: Simple overview of latest additions
 </h3>
 
 <p>
 Override the item chunk and image item chunk, getting the last 4 added vehicles and linking to the details page with ID 12.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!cmCampers? &amp;tplItem=`cmTplItem` &amp;tplImageItem=`cmTplImage` &amp;limit=`4` &amp;target=`12`]]
 </pre>
-</div>
-</div>
-
 <p>
 cmTplItem chunk:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;li onclick=<span class="code-quote">"location.href='[[+url]]'"</span>&gt;
-    &lt;div class=<span class="code-quote">"status[[+status]]"</span>&gt;&lt;/div&gt;
-    [[+images:<span class="code-keyword">default</span>=`&lt;img src=<span class="code-quote">"/assets/templates/lighthouse/cmimg/ph.png"</span> /&gt;`]]
-    &lt;h4&gt;&lt;a href=<span class="code-quote">"[[+url]]"</span> title=<span class="code-quote">"[[+brand]] [[+type]]"</span>&gt;[[+brand]] [[+type]]&lt;/a&gt;&lt;/h4&gt;
+<pre class="brush: php">
+&lt;li onclick="location.href='[[+url]]'"&gt;
+    &lt;div class="status[[+status]]"&gt;&lt;/div&gt;
+    [[+images:default=`&lt;img src="/assets/templates/lighthouse/cmimg/ph.png" /&gt;`]]
+    &lt;h4&gt;&lt;a href="[[+url]]" title="[[+brand]] [[+type]]"&gt;[[+brand]] [[+type]]&lt;/a&gt;&lt;/h4&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;span&gt;Manufactured:&lt;/span&gt; [[+manufactured]]&lt;/li&gt;
         &lt;li&gt;&lt;span&gt;Mileage:&lt;/span&gt; [[+mileage]]&lt;/li&gt;
@@ -422,17 +410,14 @@ cmTplItem chunk:
     &lt;/ul&gt;
 &lt;/li&gt;
 </pre>
-</div>
-</div>
-
 <p>
 With additional CSS styling, this is the result (obviously there are things that could be improved):
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/35586675/ex1.PNG?version=1&amp;modificationDate=1316009636000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/35586675/ex1.PNG?version=1&amp;modificationDate=1316009636000" style="border: 1px solid black" />
 </p>
 
-<h3>
-<a name="CamperManagement.cmCampersSnippet-Example2%3ASlideshowwithvehiclesmarkedasfavorite"></a>Example 2: Slideshow with vehicles marked as favorite
+<h3 id="CamperManagement.cmCampersSnippet-Example2:Slideshowwithvehiclesmarkedasfavorite">
+Example 2: Slideshow with vehicles marked as favorite
 </h3>
 
 <p>
@@ -443,16 +428,11 @@ This slideshow assumes you have a some kind of plugin set up to handle the slide
 We put this is the template (it matches our slideshow script):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div id=<span class="code-quote">"slideshow"</span>&gt;  
+<pre class="brush: php">
+&lt;div id="slideshow"&gt;  
    [[!cmCampers? &amp;status=`2` &amp;tplOuter=`cmHomeOuter` &amp;tplItem=`cmHomeItem` &amp;tplImageItem=`cmHomeImage` &amp;searchFromRequest=`0` &amp;target=`12` ]]
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 We're filtering on status 2 (favorites), and are using a few template chunks:
 </p>
@@ -461,76 +441,56 @@ We're filtering on status 2 (favorites), and are using a few template chunks:
 cmHomeOuter, which only outputs the inner stuff instead of the default of an unordered list. We could actually put the div from the template (part above) in our outer template, too.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+items]]
 </pre>
-</div>
-</div>
-
 <p>
 cmHomeItem, which outputs the images and the caption for one vehicle. Again, this is specific for our slideshow and your scripts may require something different.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;div class=<span class="code-quote">"slide"</span>&gt;
-  &lt;a href=<span class="code-quote">"[[+url]]"</span> title=<span class="code-quote">"[[+brand]] [[+type]]"</span> &gt;[[+images]]&lt;/a&gt;
-  &lt;div class=<span class="code-quote">"slider-infobox"</span>&gt;
-    &lt;p&gt;&lt;a href=<span class="code-quote">"[[+url]]"</span> title=<span class="code-quote">"[[+brand]] [[+type]]"</span> &gt;[[+brand]] [[+type]] - &amp;euro; [[+price]]&lt;/a&gt;&lt;/p&gt;
+<pre class="brush: php">
+&lt;div class="slide"&gt;
+  &lt;a href="[[+url]]" title="[[+brand]] [[+type]]" &gt;[[+images]]&lt;/a&gt;
+  &lt;div class="slider-infobox"&gt;
+    &lt;p&gt;&lt;a href="[[+url]]" title="[[+brand]] [[+type]]" &gt;[[+brand]] [[+type]] - &amp;euro; [[+price]]&lt;/a&gt;&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 cmHomeImage which simply puts in the image tag.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;img src=<span class="code-quote">"[[+image]]"</span> alt=<span class="code-quote">"[[+brand]] [[+type]]"</span> /&gt;
+<pre class="brush: php">
+&lt;img src="[[+image]]" alt="[[+brand]] [[+type]]" /&gt;
 </pre>
-</div>
-</div>
-
 <p>
 All of the above gives us the following output in the front-end for one item:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
- &lt;div class=<span class="code-quote">"cycle"</span>&gt;
-  &lt;a href=<span class="code-quote">"aanbod/details.html?cid=12"</span> title=<span class="code-quote">"TEC Siena Saphir 510 TR"</span> &gt;&lt;img src=<span class="code-quote">"/assets/components/campermanagement/uploads/2011/12/cm25917-723.jpg"</span> alt=<span class="code-quote">"TEC Siena Saphir 510 TR"</span> /&gt;&lt;/a&gt;
-  &lt;div class=<span class="code-quote">"slider-infobox"</span>&gt;
-    &lt;p&gt;&lt;a href=<span class="code-quote">"aanbod/details.html?cid=12"</span> title=<span class="code-quote">"TEC Siena Saphir 510 TR"</span> &gt;TEC Siena Saphir 510 TR - &amp;euro; 5.999,00&lt;/a&gt;&lt;/p&gt;
+<pre class="brush: php">
+ &lt;div class="cycle"&gt;
+  &lt;a href="aanbod/details.html?cid=12" title="TEC Siena Saphir 510 TR" &gt;&lt;img src="/assets/components/campermanagement/uploads/2011/12/cm25917-723.jpg" alt="TEC Siena Saphir 510 TR" /&gt;&lt;/a&gt;
+  &lt;div class="slider-infobox"&gt;
+    &lt;p&gt;&lt;a href="aanbod/details.html?cid=12" title="TEC Siena Saphir 510 TR" &gt;TEC Siena Saphir 510 TR - &amp;euro; 5.999,00&lt;/a&gt;&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Combined with our slideshow script and a bunch of css, we get this result, which fades in/out from vehicle to vehicle.
 <br />
-<span class="image-wrap" style=""><img src="/download/attachments/35586675/ex2.PNG?version=1&amp;modificationDate=1316009636000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/35586675/ex2.PNG?version=1&amp;modificationDate=1316009636000" style="border: 1px solid black" />
 </p>
 
-<h3>
-<a name="CamperManagement.cmCampersSnippet-Example3%3AHorizontalrowstyleoverview"></a>Example 3: Horizontal row style overview
+<h3 id="CamperManagement.cmCampersSnippet-Example3:Horizontalrowstyleoverview">
+Example 3: Horizontal row style overview
 </h3>
 
 <p>
 Coming soon..!
 </p>
 
-<h3>
-<a name="CamperManagement.cmCampersSnippet-Suggestion%3ASlideshowofimagespervehicle"></a>Suggestion: Slideshow of images per vehicle
+<h3 id="CamperManagement.cmCampersSnippet-Suggestion:Slideshowofimagespervehicle">
+Suggestion: Slideshow of images per vehicle
 </h3>
 
 <p>

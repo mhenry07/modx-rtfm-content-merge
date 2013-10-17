@@ -1,43 +1,25 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 This tutorial is for MODX Revolution 2.2 or greater.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="AddingaCustomTVType-MODX2.2-WhatareCustomTVInputTypes%3F"></a>What are Custom TV Input Types?
+<h2 id="AddingaCustomTVType-MODX2.2-WhatareCustomTVInputTypes?">
+What are Custom TV Input Types?
 </h2>
 
 <p>
 MODx Revolution allows you to create your own custom TV input types (similar to the textbox, radio, textarea, richtext, etc types already available) for your <a href="/display/revolution20/Template+Variables" title="Template Variables">Template Variables</a>. This tutorial will show a very simple example by loading a simple Template dropdown for us in the mgr, and then in the frontend will render our Template ID wrapped in a special div. We'll call it "TemplateSelect". We'll also make this an Extra called "OurTVs", meaning that we'll have the files outside of the normal TV input renders directory, and put it in our own Extra's directory in core/components/ourtvs/.
 </p>
 
-<h2>
-<a name="AddingaCustomTVType-MODX2.2-CreateaNamespace"></a>Create a Namespace
+<h2 id="AddingaCustomTVType-MODX2.2-CreateaNamespace">
+Create a Namespace
 </h2>
 
 <p>
 If you haven't already, go ahead and create a Namespace called "ourtvs" with the path "{core_path}components/ourtvs/". This will help us later on.
 </p>
 
-<h2>
-<a name="AddingaCustomTVType-MODX2.2-CreatingthePathingPlugin"></a>Creating the Pathing Plugin
+<h2 id="AddingaCustomTVType-MODX2.2-CreatingthePathingPlugin">
+Creating the Pathing Plugin
 </h2>
 
 <p>
@@ -70,54 +52,35 @@ We'll need a plugin to tell MODX where our custom TV directories are. Go ahead a
 Now put in the Plugin code:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$corePath = $modx-&gt;getOption('core_path',<span class="code-keyword">null</span>,MODX_CORE_PATH).'components/ourtvs/';
-<span class="code-keyword">switch</span> ($modx-&gt;event-&gt;name) {
-    <span class="code-keyword">case</span> 'OnTVInputRenderList':
+<pre class="brush: php">
+$corePath = $modx-&gt;getOption('core_path',null,MODX_CORE_PATH).'components/ourtvs/';
+switch ($modx-&gt;event-&gt;name) {
+    case 'OnTVInputRenderList':
         $modx-&gt;event-&gt;output($corePath.'tv/input/');
-        <span class="code-keyword">break</span>;
-    <span class="code-keyword">case</span> 'OnTVOutputRenderList':
+        break;
+    case 'OnTVOutputRenderList':
         $modx-&gt;event-&gt;output($corePath.'tv/output/');
-        <span class="code-keyword">break</span>;
-    <span class="code-keyword">case</span> 'OnTVInputPropertiesList':
+        break;
+    case 'OnTVInputPropertiesList':
         $modx-&gt;event-&gt;output($corePath.'tv/inputoptions/');
-        <span class="code-keyword">break</span>;
-    <span class="code-keyword">case</span> 'OnTVOutputRenderPropertiesList':
+        break;
+    case 'OnTVOutputRenderPropertiesList':
         $modx-&gt;event-&gt;output($corePath.'tv/properties/');
-        <span class="code-keyword">break</span>;
-    <span class="code-keyword">case</span> 'OnManagerPageBeforeRender':
-        <span class="code-keyword">break</span>;
+        break;
+    case 'OnManagerPageBeforeRender':
+        break;
 }
 </pre>
-</div>
-</div>
-
 <p>
 These event handlers tell MODX to check these directories for our TV files when doing all the rendering and processing. Think of it like adding library or include paths.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-The pathing plugin will not be required in MODX 2.3; the Namespace will handle all the pathing. This is why we told you earlier to make the Namespace. <img class="emoticon" src="/images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0" />
-</td>
-</tr>
-</table>
+<div class="note">
+The pathing plugin will not be required in MODX 2.3; the Namespace will handle all the pathing. This is why we told you earlier to make the Namespace. :)
 </div>
 
-<h2>
-<a name="AddingaCustomTVType-MODX2.2-CreatingtheInputController"></a>Creating the Input Controller
+<h2 id="AddingaCustomTVType-MODX2.2-CreatingtheInputController">
+Creating the Input Controller
 </h2>
 
 <p>
@@ -134,25 +97,20 @@ core/components/ourtvs/tv/input/templateselect.class.php
 And inside, you can put this code:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-<span class="code-keyword">if</span>(!class_exists('TemplateSelectInputRender')) {
-    class TemplateSelectInputRender <span class="code-keyword">extends</span> modTemplateVarInputRender {
-        <span class="code-keyword">public</span> function getTemplate() {
-            <span class="code-keyword">return</span> $<span class="code-keyword">this</span>-&gt;modx-&gt;getOption('core_path').'components/ourtvs/tv/input/tpl/templateselect.tpl';
+if(!class_exists('TemplateSelectInputRender')) {
+    class TemplateSelectInputRender extends modTemplateVarInputRender {
+        public function getTemplate() {
+            return $this-&gt;modx-&gt;getOption('core_path').'components/ourtvs/tv/input/tpl/templateselect.tpl';
         }
-        <span class="code-keyword">public</span> function process($value,array $params = array()) {
+        public function process($value,array $params = array()) {
 
         }
     }
 }
-<span class="code-keyword">return</span> 'TemplateSelectInputRender';
+return 'TemplateSelectInputRender';
 </pre>
-</div>
-</div>
-
 <p>
 Here we tell it where to find our smarty template for rendering the TV, as well as having a process() method to do any business logic we want to do prior to rendering the TV.
 </p>
@@ -171,13 +129,11 @@ core/components/ourtvs/tv/input/tpl/templateselect.tpl
 And make its content:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;select id=<span class="code-quote">"tv{$tv-&gt;id}"</span> name=<span class="code-quote">"tv{$tv-&gt;id}"</span> class=<span class="code-quote">"combobox"</span>&gt;&lt;/select&gt;
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
-<span class="code-comment">// &lt;![CDATA[
-</span>{literal}
+<pre class="brush: php">
+&lt;select id="tv{$tv-&gt;id}" name="tv{$tv-&gt;id}" class="combobox"&gt;&lt;/select&gt;
+&lt;script type="text/javascript"&gt;
+// &lt;![CDATA[
+{literal}
 MODx.load({
 {/literal}
     xtype: 'modx-combo-template'
@@ -188,31 +144,14 @@ MODx.load({
     ,width: 300
     ,value: '{$tv-&gt;value}'
 {literal}
-    ,listeners: { 'select': { fn:MODx.fireResourceFormChange, scope:<span class="code-keyword">this</span>}}
+    ,listeners: { 'select': { fn:MODx.fireResourceFormChange, scope:this}}
 });
 {/literal}
-<span class="code-comment">// ]]&gt;
-</span>&lt;/script&gt;
+// ]]&gt;
+&lt;/script&gt;
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 You don't have to use the ExtJS code as shown here to have a custom input type. It could even just be a straight HTML input. It's really up to you.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -220,11 +159,11 @@ And that should render us a nice template dropdown in the backend:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/39354478/ctv1.png?version=1&amp;modificationDate=1334932146000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/39354478/ctv1.png?version=1&amp;modificationDate=1334932146000" />
 </p>
 
-<h2>
-<a name="AddingaCustomTVType-MODX2.2-CreatingtheOutputController"></a>Creating the Output Controller
+<h2 id="AddingaCustomTVType-MODX2.2-CreatingtheOutputController">
+Creating the Output Controller
 </h2>
 
 <p>
@@ -241,39 +180,108 @@ core/components/ourtvs/tv/output/templateselect.class.php
 And the content:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span>(!class_exists('TemplateSelectOutputRender')) {
-    class TemplateSelectOutputRender <span class="code-keyword">extends</span> modTemplateVarOutputRender {
-        <span class="code-keyword">public</span> function process($value,array $params = array()) {
-            <span class="code-keyword">return</span> '&lt;div class=<span class="code-quote">"template"</span>&gt;'.$value.'&lt;/div&gt;';
+<pre class="brush: php">
+if(!class_exists('TemplateSelectOutputRender')) {
+    class TemplateSelectOutputRender extends modTemplateVarOutputRender {
+        public function process($value,array $params = array()) {
+            return '&lt;div class="template"&gt;'.$value.'&lt;/div&gt;';
         }
     }
 }
-<span class="code-keyword">return</span> 'TemplateSelectOutputRender';
+return 'TemplateSelectOutputRender';
 </pre>
-</div>
-</div>
-
 <p>
 There we go - now when we render this in the front-end, it will display the ID of our selected Template wrapped in a div.
 </p>
 
-<h2>
-<a name="AddingaCustomTVType-MODX2.2-SeeAlso"></a>See Also
+<h2 id="AddingaCustomTVType-MODX2.2-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Creating+a+Template+Variable">Creating a Template Variable</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="39354478" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678062" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FAdding%2Ba%2BCustom%2BTV%2BType%2B-%2BMODX%2B2.2" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678062" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Bindings">Bindings</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/CHUNK+Binding">CHUNK Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/DIRECTORY+Binding">DIRECTORY Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/EVAL+Binding">EVAL Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/FILE+Binding">FILE Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/INHERIT+Binding">INHERIT Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/RESOURCE+Binding">RESOURCE Binding</a>
+</li>
+
+<li>
+<a href="/display/revolution20/SELECT+Binding">SELECT Binding</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Template+Variable+Input+Types">Template Variable Input Types</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Template+Variable+Output+Types">Template Variable Output Types</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Date+TV+Output+Type">Date TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Delimiter+TV+Output+Type">Delimiter TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/HTML+Tag+TV+Output+Type">HTML Tag TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Image+TV+Output+Type">Image TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/URL+TV+Output+Type">URL TV Output Type</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/revolution20/Adding+a+Custom+TV+Type+-+MODX+2.2">Adding a Custom TV Type - MODX 2.2</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Adding+a+Custom+TV+Input+Type">Adding a Custom TV Input Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Adding+a+Custom+TV+Output+Type">Adding a Custom TV Output Type</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Creating+a+multi-select+box+for+related+pages+in+your+template">Creating a multi-select box for related pages in your template</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Accessing+Template+Variable+Values+via+the+API">Accessing Template Variable Values via the API</a>
+</li>
+</ol>

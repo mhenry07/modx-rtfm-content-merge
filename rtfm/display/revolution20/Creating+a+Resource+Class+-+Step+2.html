@@ -27,37 +27,32 @@ This tutorial is part of a Series:
 Now that we've got our class, we want to append our copyright date to it. Let's go ahead:
 </p>
 
-<h2>
-<a name="CreatingaResourceClass-Step2-OverridinggetContent"></a>Overriding getContent
+<h2 id="CreatingaResourceClass-Step2-OverridinggetContent">
+Overriding getContent
 </h2>
 
 <p>
-Go ahead and add this method to your CopyrightedResource class <tt>copyrightedresource.class.php</tt>:
+Go ahead and add this method to your CopyrightedResource class <code>copyrightedresource.class.php</code>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">public</span> function getContent(array $options = array()) {
+<pre class="brush: php">
+public function getContent(array $options = array()) {
    $content = parent::getContent($options);
    $year = date('Y');
-   $content .= '&lt;div class=<span class="code-quote">"copyright"</span>&gt;&amp;copy; '.$year.'. All Rights Reserved.&lt;/div&gt;';
-   <span class="code-keyword">return</span> $content;
+   $content .= '&lt;div class="copyright"&gt;&amp;copy; '.$year.'. All Rights Reserved.&lt;/div&gt;';
+   return $content;
 }
 </pre>
-</div>
-</div>
-
 <p>
 This will automatically append the Copyright to the bottom of every content for the Resource - not the end of the <a href="/display/revolution20/Templates" title="Templates">Template</a>, but the end of the contents of the [[*content]] placeholder.
 </p>
 
-<h2>
-<a name="CreatingaResourceClass-Step2-NextSteps"></a>Next Steps
+<h2 id="CreatingaResourceClass-Step2-NextSteps">
+Next Steps
 </h2>
 
 <p>
-That concludes our additions to our <tt>CopyrightedResource</tt> class. We could do a lot more here by overriding other functions from the parent <tt>modResource</tt> class, but that's beyond the scope of this tutorial.
+That concludes our additions to our <code>CopyrightedResource</code> class. We could do a lot more here by overriding other functions from the parent <code>modResource</code> class, but that's beyond the scope of this tutorial.
 </p>
 
 <p>
@@ -66,62 +61,48 @@ Here's a list of some of the functions you can override (we'll include the funct
 
 <ul>
 <li>
-<b>getContextMenuText</b> – displays the text for the right-click on the tree
+<strong>getContextMenuText</strong> – displays the text for the right-click on the tree
 </li>
 
 <li>
-<b>getResourceTypeName</b> – simple name of the resource type
+<strong>getResourceTypeName</strong> – simple name of the resource type
 </li>
 
 <li>
-<b>prepareTreeNode</b> – Allows you to manipulate the tree node for a Resource before it is sent
+<strong>prepareTreeNode</strong> – Allows you to manipulate the tree node for a Resource before it is sent
 </li>
 
 <li>
-<b>listGroups</b> – Get a sortable, limitable collection (and total count) of Resource Groups for a given Resource.
+<strong>listGroups</strong> – Get a sortable, limitable collection (and total count) of Resource Groups for a given Resource.
 </li>
 
 <li>
-<b>getTemplateVarCollection</b> – Retrieve a collection of Template Variables for a Resource.
+<strong>getTemplateVarCollection</strong> – Retrieve a collection of Template Variables for a Resource.
 </li>
 
 <li>
-<b>process</b> – Process a resource, transforming source content to output.
+<strong>process</strong> – Process a resource, transforming source content to output.
 </li>
 
 <li>
-<b>getContent</b> – Gets the raw, unprocessed source content for a resource.
+<strong>getContent</strong> – Gets the raw, unprocessed source content for a resource.
 </li>
 
 <li>
-<b>setContent</b> – Set the raw source content for this element.
+<strong>setContent</strong> – Set the raw source content for this element.
 </li>
 </ul>
 
 <p>
-At this point, you should be able to log into the manager and right-click the file tree and see our new CRC show up as an option to create. When you create a new "Copyrighted Resource", you should note that the URL changes inside the manager. Whereas normally when you create a page, your URL will be something like <tt><a href="http://yoursite.com/manager/index.php?id=1&amp;a=55&amp;parent=0&amp;context_key=web" class="external-link" rel="nofollow">http://yoursite.com/manager/index.php?id=1&amp;a=55&amp;parent=0&amp;context_key=web</a></tt>, now the URL includes the class_key parameter: <tt><a href="http://yoursite.com/manager/index.php?id=0&amp;a=55&amp;class_key=CopyrightedResource&amp;parent=0&amp;context_key=web" class="external-link" rel="nofollow">http://yoursite.com/manager/index.php?id=0&amp;a=55&amp;class_key=CopyrightedResource&amp;parent=0&amp;context_key=web</a></tt>
+At this point, you should be able to log into the manager and right-click the file tree and see our new CRC show up as an option to create. When you create a new "Copyrighted Resource", you should note that the URL changes inside the manager. Whereas normally when you create a page, your URL will be something like <code><a href="http://yoursite.com/manager/index.php?id=1&amp;a=55&amp;parent=0&amp;context_key=web">http://yoursite.com/manager/index.php?id=1&amp;a=55&amp;parent=0&amp;context_key=web</a></code>, now the URL includes the class_key parameter: <code><a href="http://yoursite.com/manager/index.php?id=0&amp;a=55&amp;class_key=CopyrightedResource&amp;parent=0&amp;context_key=web">http://yoursite.com/manager/index.php?id=0&amp;a=55&amp;class_key=CopyrightedResource&amp;parent=0&amp;context_key=web</a></code>
 </p>
 
 <p>
-When you try to add a new Copyrighted Resource, however, <font color="red">you will only get a white screen!</font> This is normal – we haven't created the controller files yet.
+When you try to add a new Copyrighted Resource, however, you will only get a white screen! This is normal – we haven't created the controller files yet.
 </p>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="tip">
 Don't worry if you get a white screen when trying to create a Copyrighted Resource – we haven't created the controllers yet.
-</td>
-</tr>
-</table>
 </div>
 
 <p>

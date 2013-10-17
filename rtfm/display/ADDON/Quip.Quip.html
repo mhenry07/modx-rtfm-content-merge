@@ -1,535 +1,524 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Quip.Quip-TheQuipSnippet" id="Quip.Quip-TheQuipSnippet"></a>The Quip Snippet
+<h2 id="Quip.Quip-TheQuipSnippet">
+The Quip Snippet
 </h2>
 
 <p>
 This snippet displays all the comments for a given thread.
 </p>
 
-<h2>
-<a name="Quip.Quip-Usage" id="Quip.Quip-Usage"></a>Usage
+<h2 id="Quip.Quip-Usage">
+Usage
 </h2>
 
 <p>
 Simply place the snippet wherever you would like to display a comment thread, and specify what the name of that thread will be.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Quip? &amp;thread=`myThread`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Quip.Quip-AvailableProperties" id="Quip.Quip-AvailableProperties"></a>Available Properties
+<h2 id="Quip.Quip-AvailableProperties">
+Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table id='TBL1376497247113' class='confluenceTable'>
+<table id="TBL1376497247027">
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thread
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the thread you want to reference. This can be anything - and will be the reference point for any related comments.
 </td>
-<td class='confluenceTd'>
+<td>
 n/a
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parent
 </td>
-<td class='confluenceTd'>
+<td>
 The parent to start at when displaying the thread.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 threaded
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not this thread can have threaded comments. Threaded comments allow users to comment on comments, increasing the level of indentation. Non-threaded comments allow users to comment only on the parent article, not on the comments.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 maxDepth
 </td>
-<td class='confluenceTd'>
+<td>
 The maximum depth that replies can be made in a threaded comment thread.
 </td>
-<td class='confluenceTd'>
+<td>
 5
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 replyResourceId
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the Resource where the QuipReply snippet is held, for replying to threaded comments.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 threadedPostMargin
 </td>
-<td class='confluenceTd'>
+<td>
 The margin, in pixels, by which threaded comments are moved right for each depth level that they go.
 </td>
-<td class='confluenceTd'>
+<td>
 15
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useMargins
 </td>
-<td class='confluenceTd'>
+<td>
 Instead of using ol/li tags, do divs with margin styles (old Quip style)
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 closed
 </td>
-<td class='confluenceTd'>
+<td>
 If set to true, the thread will not accept new comments.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 closeAfter
 </td>
-<td class='confluenceTd'>
+<td>
 The number of days at which the thread will automatically close after it was created. Set to 0 to leave open indefinitely.
 </td>
-<td class='confluenceTd'>
+<td>
 14
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dateFormat
 </td>
-<td class='confluenceTd'>
-The format of the date to show for a comment's post date. The syntax is in PHP <a href="http://php.net/strftime" class="external-link" rel="nofollow">strftime</a> format.
+<td>
+The format of the date to show for a comment's post date. The syntax is in PHP <a href="http://php.net/strftime">strftime</a> format.
 </td>
-<td class='confluenceTd'>
+<td>
 %b %d, %Y at %I:%M %p
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 requireAuth
 </td>
-<td class='confluenceTd'>
+<td>
 If set to true, only logged in users will be able to comment on the thread.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useCss
 </td>
-<td class='confluenceTd'>
+<td>
 If true, Quip will provide a basic CSS template for the presentation.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 altRowCss
 </td>
-<td class='confluenceTd'>
+<td>
 The CSS class to put on alternating comments.
 </td>
-<td class='confluenceTd'>
+<td>
 quip-comment-alt
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 nameField
 </td>
-<td class='confluenceTd'>
+<td>
 The field to use for the author name of each comment. Recommended values are "name" or "username".
 </td>
-<td class='confluenceTd'>
+<td>
 username
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showAnonymousName
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will display the value of anonymousName property (defaults to "Anonymous") if the user is not logged in when posting.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 anonymousName
 </td>
-<td class='confluenceTd'>
+<td>
 The name to display for anonymous postings. Defaults to "Anonymous".
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 allowRemove
 </td>
-<td class='confluenceTd'>
+<td>
 Allow logged-in users to remove their own postings.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 removeThreshold
 </td>
-<td class='confluenceTd'>
+<td>
 If allowRemove is true, the number of minutes a user can remove their posting after they have posted it.
 </td>
-<td class='confluenceTd'>
+<td>
 3
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 allowReportAsSpam
 </td>
-<td class='confluenceTd'>
+<td>
 Allow logged-in users to report comments as spam.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useGravatar
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not to show Gravatar icons in comments.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 gravatarIcon
 </td>
-<td class='confluenceTd'>
+<td>
 The type of Gravatar icon to use for a user without a Gravatar.
 </td>
-<td class='confluenceTd'>
+<td>
 identicon
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 gravatarSize
 </td>
-<td class='confluenceTd'>
+<td>
 The size in pixels of the Gravatar.
 </td>
-<td class='confluenceTd'>
+<td>
 50
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortBy
 </td>
-<td class='confluenceTd'>
+<td>
 The field to sort comments by. If threading is on (the default behavior, or set explicitly via &amp;threaded=`1`), then it's best leave this alone.
 </td>
-<td class='confluenceTd'>
+<td>
 rank
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortByAlias
 </td>
-<td class='confluenceTd'>
+<td>
 The alias of classes to use with sort by.
 </td>
-<td class='confluenceTd'>
+<td>
 quipComment
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortDir
 </td>
-<td class='confluenceTd'>
+<td>
 The direction to sort by.
 </td>
-<td class='confluenceTd'>
+<td>
 ASC
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplComment
 </td>
-<td class='confluenceTd'>
+<td>
 A chunk for the comment itself.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplCommentOptions
 </td>
-<td class='confluenceTd'>
+<td>
 A chunk for the options, such as delete, shown to an owner of a comment.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplComments
 </td>
-<td class='confluenceTd'>
+<td>
 The outer wrapper for comments. Can either be a chunk name or value. If set to a value, will override the chunk.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplReport
 </td>
-<td class='confluenceTd'>
+<td>
 The link on a comment to report as spam. Can either be a chunk name or value. If set to a value, will override the chunk.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 removeAction
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the submit field to remove a comment post.
 </td>
-<td class='confluenceTd'>
+<td>
 quip-remove
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 reportAction
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the submit field to report as spam a comment post.
 </td>
-<td class='confluenceTd'>
+<td>
 quip-report
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 idPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 If you want to use multiple Quip instances on a page, change this ID prefix.
 </td>
-<td class='confluenceTd'>
+<td>
 qcom
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 The number of comments to limit per page. Setting this to a non-zero number will enable pagination.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 start
 </td>
-<td class='confluenceTd'>
+<td>
 The default comment index to start on. Recommended to leave at 0.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplPagination
 </td>
-<td class='confluenceTd'>
+<td>
 A chunk for the pagination OL wrapper.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplPaginationItem
 </td>
-<td class='confluenceTd'>
+<td>
 A chunk for each non-current pagination number link.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplPaginationCurrentItem
 </td>
-<td class='confluenceTd'>
+<td>
 A chunk for the current pagination number link.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 paginationCls
 </td>
-<td class='confluenceTd'>
+<td>
 A CSS class to put on the pagination OL wrapper.
 </td>
-<td class='confluenceTd'>
+<td>
 quip-pagination
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pageCls
 </td>
-<td class='confluenceTd'>
+<td>
 A CSS class to put on a non-current pagination number link.
 </td>
-<td class='confluenceTd'>
+<td>
 quip-page-number
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 currentPageCls
 </td>
-<td class='confluenceTd'>
+<td>
 A CSS class to put on the current pagination number.
 </td>
-<td class='confluenceTd'>
+<td>
 quip-page-current
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Quip.Quip-QuipChunks" id="Quip.Quip-QuipChunks"></a>Quip Chunks
+<h2 id="Quip.Quip-QuipChunks">
+Quip Chunks
 </h2>
 
 <p>
@@ -554,72 +543,103 @@ There are 4 chunks that are processed in Quip. Their corresponding parameters ar
 </li>
 </ul>
 
-<h2>
-<a name="Quip.Quip-Examples" id="Quip.Quip-Examples"></a>Examples
+<h2 id="Quip.Quip-Examples">
+Examples
 </h2>
 
 <p>
 A sample code line for a blog post that's on a Resource with no threading:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Quip? &amp;thread=`blog-post-[[*id]]` &amp;threaded=`0`]]
 </pre>
-</div>
-</div>
-
 <p>
 A threaded comment thread, but only allowed to go 3 levels deep, and auto-close after 21 days:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Quip? &amp;thread=`blog-post-[[*id]]` &amp;maxDepth=`3` &amp;closeAfter=`21`]]
 </pre>
-</div>
-</div>
-
 <p>
 A comment thread, with threading, with Gravatars disabled, and only allowing logged-in comments:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Quip? &amp;thread=`blog-post-[[*id]]` &amp;useGravatar=`0` &amp;requireAuth=`1`]]
 </pre>
-</div>
-</div>
-
 <p>
 A comment thread, pagination enabled, having only 5 root comments per page, and a class on each pagination link li tag called 'pageLink':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Quip? &amp;thread=`blog-post-[[*id]]` &amp;limit=`5` &amp;pageCls=`pageLink`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Quip.Quip-SeeAlso" id="Quip.Quip-SeeAlso"></a>See Also
+<h2 id="Quip.Quip-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Quip.Quip">Quip.Quip</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComment">Quip.Quip.tplComment</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="16646297" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042879" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FQuip.Quip" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11042879" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Quip.Quip.tplCommentOptions">Quip.Quip.tplCommentOptions</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComments">Quip.Quip.tplComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplReport">Quip.Quip.tplReport</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipCount">Quip.QuipCount</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipLatestComments">Quip.QuipLatestComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply">Quip.QuipReply</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplAddComment">Quip.QuipReply.tplAddComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplLoginToComment">Quip.QuipReply.tplLoginToComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplPreview">Quip.QuipReply.tplPreview</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipRss">Quip.QuipRss</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Roadmap">Quip.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Upgrading">Quip.Upgrading</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Upgrading+to+1.0.1">Quip.Upgrading to 1.0.1</a>
+</li>
+</ol>
+</li>
+</ol>

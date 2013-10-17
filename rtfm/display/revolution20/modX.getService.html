@@ -1,64 +1,45 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modX.getService-modX%3A%3AgetService"></a>modX::getService
+<h2 id="modX.getService-modX::getService">
+modX::getService
 </h2>
 
 <p>
 Load and return a named service class instance. Returns either a reference to the service class instance or null if it could not be loaded.
 </p>
 
-<h2>
-<a name="modX.getService-Syntax" id="modX.getService-Syntax"></a>Syntax
+<h2 id="modX.getService-Syntax">
+Syntax
 </h2>
 
 <p>
-API Doc:&nbsp;<a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::getService()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#\modX::getService()</a>
+API Doc:&nbsp;<a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::getService()">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#\modX::getService()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 object getService (string $name, [string $class = ''], [string $path = ''], [array $params = array ()])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.getService-Examples" id="modX.getService-Examples"></a>Examples
+<h2 id="modX.getService-Examples">
+Examples
 </h2>
 
 <p>
 Get the modSmarty service.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;getService('smarty','smarty.modSmarty');
 </pre>
-</div>
-</div>
-
 <p>
 Get a custom, user-defined service called 'modTwitter' from a custom path ('/path/to/modtwitter.class.php'), and pass in some custom parameters.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;getService('twitter','modTwitter','/path/to/',array(
   'api_key' =&gt; 3212423,
 ));
 $modx-&gt;twitter-&gt;tweet('Success!');
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.getService-SeeAlso" id="modX.getService-SeeAlso"></a>See Also
+<h2 id="modX.getService-SeeAlso">
+See Also
 </h2>
 
 <ul>

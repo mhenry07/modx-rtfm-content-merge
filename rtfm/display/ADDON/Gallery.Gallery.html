@@ -1,452 +1,446 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Gallery.Gallery-GallerySnippet" id="Gallery.Gallery-GallerySnippet"></a>Gallery Snippet
+<h2 id="Gallery.Gallery-GallerySnippet">
+Gallery Snippet
 </h2>
 
 <p>
 This snippet displays a "gallery" of images from either an album, a tag, or both.
 </p>
 
-<h2>
-<a name="Gallery.Gallery-Properties" id="Gallery.Gallery-Properties"></a>Properties
+<h2 id="Gallery.Gallery-Properties">
+Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 album
 </td>
-<td class='confluenceTd'>
+<td>
 Will load only items from this album. Can be either the name or ID of the Album.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tag
 </td>
-<td class='confluenceTd'>
+<td>
 Will load only items with this tag.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 plugin
 </td>
-<td class='confluenceTd'>
+<td>
 The name of a plugin to use for front-end displaying. See "Plugins" section below.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thumbTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The Chunk to use as a tpl for each thumbnail.
 </td>
-<td class='confluenceTd'>
+<td>
 galItemThumb
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 containerTpl
 </td>
-<td class='confluenceTd'>
+<td>
 An optional chunk to wrap the output in.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will set the output to a placeholder of this value, and the snippet call will output nothing.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 placeholderPrefix
 </td>
-<td class='confluenceTd'>
+<td>
 If no placeholder is set, will prefix properties of the name/id/description/total of the current Album with this prefix.
 </td>
-<td class='confluenceTd'>
+<td>
 gallery.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thumbWidth
 </td>
-<td class='confluenceTd'>
+<td>
 The width of the generated thumbnail, in pixels.
 </td>
-<td class='confluenceTd'>
+<td>
 100
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thumbHeight
 </td>
-<td class='confluenceTd'>
+<td>
 The height of the generated thumbnail, in pixels.
 </td>
-<td class='confluenceTd'>
+<td>
 100
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thumbZoomCrop
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not to use zoom crop on the thumbnail.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thumbFar
 </td>
-<td class='confluenceTd'>
+<td>
 The aspect ratio for phpThumb with the thumbnail. The image is created at size specified by "w" and "h" (which must both be set). Values are the alignment: L=left,R=right,T=top,B=bottom,C=center. Set to BL,BR,TL,TR to specify for landscape or portrait images.
 </td>
-<td class='confluenceTd'>
+<td>
 C
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thumbQuality
 </td>
-<td class='confluenceTd'>
+<td>
 The quality of the generated thumbnail, from 0-100.
 </td>
-<td class='confluenceTd'>
+<td>
 90
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thumbProperties
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON object of parameters to pass to phpThumb as properties for the thumbnail.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imageWidth
 </td>
-<td class='confluenceTd'>
+<td>
 If being used by a plugin, the max width of the currently on-display image.
 </td>
-<td class='confluenceTd'>
+<td>
 500
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imageHeight
 </td>
-<td class='confluenceTd'>
+<td>
 If being used by a plugin, the max height of the currently on-display image.
 </td>
-<td class='confluenceTd'>
+<td>
 500
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imageZoomCrop
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not to use zoom crop on the image.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imageFar
 </td>
-<td class='confluenceTd'>
+<td>
 The aspect ratio for phpThumb with the image.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imageQuality
 </td>
-<td class='confluenceTd'>
+<td>
 If being used by a plugin, the quality of the image, from 0-100.
 </td>
-<td class='confluenceTd'>
+<td>
 90
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imageProperties
 </td>
-<td class='confluenceTd'>
+<td>
 A JSON object of parameters to pass to phpThumb as properties for the image.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sort
 </td>
-<td class='confluenceTd'>
+<td>
 The field to sort images by. You can use "rand" to make a random sort.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 rank
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dir
 </td>
-<td class='confluenceTd'>
+<td>
 The direction to sort images by.
 </td>
-<td class='confluenceTd'>
+<td>
 ASC
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 If set to non-zero, will only show X number of items.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 start
 </td>
-<td class='confluenceTd'>
+<td>
 The index to start grabbing from when limiting the number of items. Similar to an SQL order by start clause.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 showInactive
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will also display inactive images.
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 albumRequestVar
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to define which REQUEST var to look out for to filter on album, used in conjunction with checkForRequestAlbumVar=`true`. This can be used filtered on a gallery name or ID.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 galAlbum
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 checkForRequestAlbumVar
 </td>
-<td class='confluenceTd'>
+<td>
 If true, if a REQUEST var with the value of the albumRequestVar (defaults to galAlbum) property is found, will use that as the album property for the snippet.
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tagRequestVar
 </td>
-<td class='confluenceTd'>
+<td>
 Can be used to define which REQUEST var to look out for to filter on tag, used on conjunction with checkForRequestTagVar=`true`.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 galTag
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 checkForRequestTagVar
 </td>
-<td class='confluenceTd'>
+<td>
 If true, if a REQUEST var with the value of the tagRequestVar (defaults to galTag) is found is found, will use that as the tag property for the snippet.
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useCss
 </td>
-<td class='confluenceTd'>
+<td>
 If true, will use the CSS provided by the Gallery snippet. Set to '0' to not load any Gallery-provided CSS.
 </td>
-<td class='confluenceTd'>
+<td>
 1 (true)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 itemCls
 </td>
-<td class='confluenceTd'>
+<td>
 The CSS class to use for each item.
 </td>
-<td class='confluenceTd'>
+<td>
 gal-item
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activeCls
 </td>
-<td class='confluenceTd'>
+<td>
 The CSS class to add if the item is the "active" item.
 </td>
-<td class='confluenceTd'>
+<td>
 gal-item-active
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 linkToImage
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not to link directly to the image for each thumbnail, or to the GalleryItem-customized URL.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 linkAttributes
 </td>
-<td class='confluenceTd'>
+<td>
 HTML attributes for the A tag in the item tpl.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imageAttributes
 </td>
-<td class='confluenceTd'>
+<td>
 HTML attributes for the img tag in the item tpl.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Gallery.Gallery-GalleryChunks" id="Gallery.Gallery-GalleryChunks"></a>Gallery Chunks
+<h2 id="Gallery.Gallery-GalleryChunks">
+Gallery Chunks
 </h2>
 
 <p>
@@ -463,8 +457,8 @@ There are 2 chunks that are processed in Gallery. Their corresponding Gallery pa
 </li>
 </ul>
 
-<h2>
-<a name="Gallery.Gallery-Plugins" id="Gallery.Gallery-Plugins"></a>Plugins
+<h2 id="Gallery.Gallery-Plugins">
+Plugins
 </h2>
 
 <p>
@@ -485,88 +479,123 @@ Gallery allows you to display your galleries either straight as thumbnail images
 Note that Galleriffic changes the `thumbTpl` property to `gallerifficThumbTpl`, and the `containerTpl` property to `gallerifficContainerTpl`.
 </p>
 
-<h2>
-<a name="Gallery.Gallery-Examples" id="Gallery.Gallery-Examples"></a>Examples
+<h2 id="Gallery.Gallery-Examples">
+Examples
 </h2>
 
 <p>
 Display a gallery of photos in the 'My Album' album:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Gallery? &amp;album=`My Album`]]
 </pre>
-</div>
-</div>
-
 <p>
 Display a gallery of photos in the 'Trucks' album, but use a custom Chunk called 'truckThumb' for the thumbnails:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Gallery? &amp;album=`Trucks` &amp;thumbTpl=`truckThumb`]]
 </pre>
-</div>
-</div>
-
 <p>
 Display a gallery of photos with the tag 'Cool' and use the Galleriffic plugin:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Gallery? &amp;tag=`Cool` &amp;plugin=`Galleriffic`]]
 </pre>
-</div>
-</div>
-
 <p>
 Grab only 3 photos from the 'Cars' album, and set it to the "gallery" placeholder.:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!Gallery? &amp;limit=`3` &amp;album=`Cars` &amp;toPlaceholder=`gallery`]]
 
-&lt;div class=<span class="code-quote">"my-gallery"</span>&gt;
+&lt;div class="my-gallery"&gt;
 [[+gallery]]
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Using &amp;thumbProperties to set the output of the thumbnails to 90% quality jpg instead of png:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!Gallery? &amp;album=`My Album` &amp;thumbProperties=`{<span class="code-quote">"f"</span>:<span class="code-quote">"jpg"</span>,<span class="code-quote">"q"</span>:<span class="code-quote">"90%"</span>}`]]
+<pre class="brush: php">
+[[!Gallery? &amp;album=`My Album` &amp;thumbProperties=`{"f":"jpg","q":"90%"}`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Gallery.Gallery-SeeAlso" id="Gallery.Gallery-SeeAlso"></a>See Also
+<h2 id="Gallery.Gallery-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Gallery.Gallery">Gallery.Gallery</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.Gallery.containerTpl">Gallery.Gallery.containerTpl</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="13664307" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="13664292" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FGallery.Gallery" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="13664292" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Gallery.Gallery.thumbTpl">Gallery.Gallery.thumbTpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryAlbums">Gallery.GalleryAlbums</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.GalleryAlbums.rowTpl">Gallery.GalleryAlbums.rowTpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem">Gallery.GalleryItem</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.albumTpl">Gallery.GalleryItem.albumTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.GalleryItemPagination">Gallery.GalleryItem.GalleryItemPagination</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.tagTpl">Gallery.GalleryItem.tagTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.GalleryItem.tpl">Gallery.GalleryItem.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Plugins">Gallery.Plugins</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Gallery.Plugins.Galleriffic">Gallery.Plugins.Galleriffic</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Plugins.Slimbox">Gallery.Plugins.Slimbox</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Roadmap">Gallery.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Setting+Up+Your+Gallery">Gallery.Setting Up Your Gallery</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Example1">Gallery.Example1</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Gallery.Setting+Up+the+GalleryItem+TV">Gallery.Setting Up the GalleryItem TV</a>
+</li>
+</ol>

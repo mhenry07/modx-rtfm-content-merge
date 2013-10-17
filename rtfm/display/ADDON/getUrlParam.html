@@ -3,61 +3,37 @@ A simple snippet that will return a value passed through a URL parameter. The Pa
 </p>
 
 <p>
-Revolution makes it easy to pass <a href="http://rtfm.modx.com/display/revolution20/Resources#Resources-URLParametersforResourceTags" class="external-link" rel="nofollow">URL parameters</a>. This snippet&nbsp;makes it simple to use that URL parameter.
+Revolution makes it easy to pass <a href="http://rtfm.modx.com/display/revolution20/Resources#Resources-URLParametersforResourceTags">URL parameters</a>. This snippet&nbsp;makes it simple to use that URL parameter.
 </p>
 
-<h4>
-<a name="getUrlParam-OPTIONS"></a>OPTIONS
+<h4 id="getUrlParam-OPTIONS">
+OPTIONS
 </h4>
 
 <p>
-<b>name</b> - The parameter name, defaults to "p"
+<strong>name</strong> - The parameter name, defaults to "p"
 <br />
-<b>int</b> - (Opt) Set as true to only allow integer values
+<strong>int</strong> - (Opt) Set as true to only allow integer values
 <br />
-<b>max</b> - (Opt) The maximum length of the returned value, defaults to 20
+<strong>max</strong> - (Opt) The maximum length of the returned value, defaults to 20
 <br />
-<b>default</b> - (Opt) The value returned if no URL parameter is found
+<strong>default</strong> - (Opt) The value returned if no URL parameter is found
 </p>
 
 <p>
 Send parameter
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[~10? &amp;val=`5`]]
 </pre>
-</div>
-</div>
-
 <p>
 Retrieve the value
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getUrlParam? &amp;name=`val` &amp;<span class="code-object">int</span>=`1`]]
+<pre class="brush: php">
+[[!getUrlParam? &amp;name=`val` &amp;int=`1`]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 This snippet needs to be called uncached to get the current value.
-</td>
-</tr>
-</table>
 </div>

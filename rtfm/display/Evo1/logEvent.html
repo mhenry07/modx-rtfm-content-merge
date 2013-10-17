@@ -1,80 +1,59 @@
-<h1>
-<a name="logEvent-API%3AlogEvent"></a>API:logEvent
+<h1 id="logEvent-API:logEvent">
+API:logEvent
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Quick reference</b>
+<div class="info">
+<strong>API Quick reference</strong>
 <br />
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable name:
 </td>
-<td class='confluenceTd'>
+<td>
 logEvent
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Modx versions:
 </td>
-<td class='confluenceTd'>
+<td>
 0.9.x + Evolution
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable type:
 </td>
-<td class='confluenceTd'>
+<td>
 void
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Object parent:
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
-<h2>
-<a name="logEvent-Description"></a>Description
+<h2 id="logEvent-Description">
+Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-void logEvent(<span class="code-object">int</span> $evtid, <span class="code-object">int</span> $type, string $msg [, $source= 'Parser']);
+<pre class="brush: php">
+void logEvent(int $evtid, int $type, string $msg [, $source= 'Parser']);
 </pre>
-</div>
-</div>
-
 <ul>
 <li>$evtid - Event ID
 </li>
@@ -93,60 +72,51 @@ void logEvent(<span class="code-object">int</span> $evtid, <span class="code-obj
 Displays a javascript alert alert message in the web browser
 </p>
 
-<h2>
-<a name="logEvent-Usage%2FExamples"></a>Usage / Examples
+<h2 id="logEvent-Usage/Examples">
+Usage / Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;logEvent($my_msg_cnt, 3, 'There was an error!', 'MySnippet'); 
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="logEvent-Related"></a>Related
+<h2 id="logEvent-Related">
+Related
 </h2>
 
-<h2>
-<a name="logEvent-Notes"></a>Notes
+<h2 id="logEvent-Notes">
+Notes
 </h2>
 
 <p>
 Compared to other systems, it is a bit odd that the error levels are numbered the way they are.
 </p>
 
-<h2>
-<a name="logEvent-FunctionSource"></a>Function Source
+<h2 id="logEvent-FunctionSource">
+Function Source
 </h2>
 
 <p>
-<tt>API Source File | manager/includes/document.parser.class.inc.php | 1285</tt>
+<code>API Source File | manager/includes/document.parser.class.inc.php | 1285</code>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 # Add an a alert message to the system event log
     function logEvent($evtid, $type, $msg, $source= 'Parser') {
         $msg= mysql_escape_string($msg);
         $source= mysql_escape_string($source);
         $evtid= intval($evtid);
-        <span class="code-keyword">if</span> ($type &lt; 1)
+        if ($type &lt; 1)
             $type= 1;
-        <span class="code-keyword">else</span>
-            <span class="code-keyword">if</span> ($type &gt; 3)
-                $type= 3; <span class="code-comment">// Types: 1 = information, 2 = warning, 3 = error
-</span>        $sql= <span class="code-quote">"INSERT INTO "</span> . $<span class="code-keyword">this</span>-&gt;getFullTableName(<span class="code-quote">"event_log"</span>) . <span class="code-quote">"(eventid,type,createdon,source,description,user) "</span> .
-        <span class="code-quote">"VALUES($evtid,$type,"</span> . time() . <span class="code-quote">",'$source','$msg','"</span> . $<span class="code-keyword">this</span>-&gt;getLoginUserID() . <span class="code-quote">"')"</span>;
-        $ds= $<span class="code-keyword">this</span>-&gt;dbQuery($sql);
-        <span class="code-keyword">if</span> (!$ds) {
-            echo <span class="code-quote">"Error <span class="code-keyword">while</span> inserting event log into database."</span>;
+        else
+            if ($type &gt; 3)
+                $type= 3; // Types: 1 = information, 2 = warning, 3 = error
+        $sql= "INSERT INTO " . $this-&gt;getFullTableName("event_log") . "(eventid,type,createdon,source,description,user) " .
+        "VALUES($evtid,$type," . time() . ",'$source','$msg','" . $this-&gt;getLoginUserID() . "')";
+        $ds= $this-&gt;dbQuery($sql);
+        if (!$ds) {
+            echo "Error while inserting event log into database.";
             exit;
         }
 
     }
 </pre>
-</div>
-</div>

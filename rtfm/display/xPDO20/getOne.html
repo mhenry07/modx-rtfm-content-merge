@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="getOne-xPDOObject%3A%3AgetOne%28%29"></a>xPDOObject::getOne()
+<h2 id="getOne-xPDOObject::getOne()">
+xPDOObject::getOne()
 </h2>
 
 <p>
@@ -14,47 +10,37 @@ Gets an object related to this instance by a foreign key relationship.
 Use this for 1:? (one:zero-or-one) or 1:1 relationships, which you can distinguish by setting the nullability of the field representing the foreign key.
 </p>
 
-<h2>
-<a name="getOne-Syntax" id="getOne-Syntax"></a>Syntax
+<h2 id="getOne-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoobject.class.html#%5CxPDOObject::getOne()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoobject.class.html#%5CxPDOObject::getOne()</a>
+API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoobject.class.html#%5CxPDOObject::getOne()">http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoobject.class.html#%5CxPDOObject::getOne()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-xPDOObject|<span class="code-keyword">null</span> &amp;getOne (
+<pre class="brush: php">
+xPDOObject|null &amp;getOne (
    string $alias,
-   [object $criteria = <span class="code-keyword">null</span>],
-   [<span class="code-object">boolean</span>|integer $cacheFlag = <span class="code-keyword">true</span>]
+   [object $criteria = null],
+   [boolean|integer $cacheFlag = true]
 )
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="getOne-Example" id="getOne-Example"></a>Example
+<h2 id="getOne-Example">
+Example
 </h2>
 
 <p>
 Echo the email of a modUser with ID 1, which has a related object called modUserProfile, that has a field called "email" - set as "a@bc.com" for this user.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $user = $modx-&gt;getObject('modUser',1);
 $profile = $user-&gt;getOne('Profile');
 echo $profile-&gt;get('email');
-<span class="code-comment">// prints <span class="code-quote">"a@bc.com"</span></span>
+// prints "a@bc.com"
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="getOne-SeeAlso" id="getOne-SeeAlso"></a>See Also
+<h2 id="getOne-SeeAlso">
+See Also
 </h2>
 
 <ul>

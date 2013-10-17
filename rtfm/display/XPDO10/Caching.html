@@ -1,17 +1,13 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Caching-Setup"></a>Setup
+<h2 id="Caching-Setup">
+Setup
 </h2>
 
 <p>
 To use xPDO's caching abilities, you'll first need to pass the XPDO_OPT_CACHE_PATH into the $options variable of the <a href="/display/XPDO10/The+xPDO+Constructor" title="The xPDO Constructor">xPDO constructor</a>. You can set it to the absolute path you would like xPDO to write your cache files to.
 </p>
 
-<h2>
-<a name="Caching-CachingProviders"></a>Caching Providers
+<h2 id="Caching-CachingProviders">
+Caching Providers
 </h2>
 
 <p>
@@ -22,52 +18,33 @@ xPDO supports extending the caching mechanism to different 'caching providers'. 
 The base class, xPDOCache, can be extended to provide different caching solutions, and then one can pass in the cache file location into XPDO_OPT_CACHE_HANDLER to properly load the right extension.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 xPDO also supports memcache, by passing in the XPDO_OPT_CACHE_HANDLER parameter to the xPDO constructor as 'cache.xpdomemcache'. This will only work if the system has memcache installed.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 The $xpdo-&gt;cacheManager object, built from the <a href="/display/XPDO10/xPDOCacheManager" title="xPDOCacheManager">xPDOCacheManager</a> class, is accessible after calling $xpdo-&gt;getCacheManager().
 </p>
 
-<h2>
-<a name="Caching-ManipulationoftheCache"></a>Manipulation of the Cache
+<h2 id="Caching-ManipulationoftheCache">
+Manipulation of the Cache
 </h2>
 
 <p>
 A simple example script of setting data, then getting it, and deleting it, is as follows:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $str = 'My cached data.';
 $xpdo-&gt;cacheManager-&gt;set('testdata',$str);
 
 echo $xpdo-&gt;cacheManager-&gt;get('testdata');
-<span class="code-comment">// outputs: My cached data.
-</span>
+// outputs: My cached data.
+
 $xpdo-&gt;cacheManager-&gt;delete('testdata');
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Caching-SeeAlso"></a>See Also
+<h2 id="Caching-SeeAlso">
+See Also
 </h2>
 
 <ul>

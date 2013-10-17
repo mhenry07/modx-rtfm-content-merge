@@ -1,46 +1,43 @@
 <div>
 <ul>
 <li>
-<a href='#spieFeed-Description'>Description</a>
+<a href="#spieFeed-Description">Description</a>
 </li>
 
 <li>
-<a href='#spieFeed-Download'>Download</a>
+<a href="#spieFeed-Download">Download</a>
 </li>
 
 <li>
-<a href='#spieFeed-DevelopmentandBugReporting'>Development and Bug Reporting</a>
+<a href="#spieFeed-DevelopmentandBugReporting">Development and Bug Reporting</a>
 </li>
 
 <li>
-<a href='#spieFeed-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#spieFeed-Usage">Usage</a>
 <ul>
 <li>
-<a href='#spieFeed-AvailableProperties'>Available Properties</a>
+<a href="#spieFeed-AvailableProperties">Available Properties</a>
 </li>
 
 <li>
-<a href='#spieFeed-AvailablePlaceholders'>Available Placeholders</a>
+<a href="#spieFeed-AvailablePlaceholders">Available Placeholders</a>
 </li>
 </ul>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="spieFeed-Description" id="spieFeed-Description"></a>Description
+<h2 id="spieFeed-Description">
+Description
 </h2>
 
 <p>
-The RSS/Atom feeder based on <a href="http://simplepie.org/" class="external-link" rel="nofollow">SimplePie</a> 1.2 which is already included in the package: <a href="http://github.com/rmccue/simplepie/downloads" class="external-link" rel="nofollow">http://github.com/rmccue/simplepie/downloads</a>
+The RSS/Atom feeder based on <a href="http://simplepie.org/">SimplePie</a> 1.2 which is already included in the package: <a href="http://github.com/rmccue/simplepie/downloads">http://github.com/rmccue/simplepie/downloads</a>
 </p>
 
-<h2>
-<a name="spieFeed-Requirements%5C%5C"></a>Requirements
-<br class="atl-forced-newline" />
+<h2 id="spieFeed-Requirements\\">
+Requirements
+<br />
 </h2>
 
 <ul>
@@ -51,592 +48,580 @@ The RSS/Atom feeder based on <a href="http://simplepie.org/" class="external-lin
 </li>
 </ul>
 
-<h2>
-<a name="spieFeed-History%5C%5C"></a>History
-<br class="atl-forced-newline" />
+<h2 id="spieFeed-History\\">
+History
+<br />
 </h2>
 
 <p>
 spieFeed integration was written by <a href="/display/~goldsky" class="confluence-userlink" data-username="goldsky">goldsky</a> as the RSS/Atom feeder, and first released on Oct 18, 2010.
 </p>
 
-<h2>
-<a name="spieFeed-Download" id="spieFeed-Download"></a>Download
+<h2 id="spieFeed-Download">
+Download
 </h2>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via <span class="error">[Package Management]</span>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/738" class="external-link" rel="nofollow">http://modxcms.com/extras/package/738</a> or here: <a href="http://modx.com/extras/package/spiefeed" class="external-link" rel="nofollow">http://modx.com/extras/package/spiefeed</a>
+It can be downloaded from within the MODx Revolution manager via <span class="error">[Package Management]</span>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/738">http://modxcms.com/extras/package/738</a> or here: <a href="http://modx.com/extras/package/spiefeed">http://modx.com/extras/package/spiefeed</a>
 </p>
 
-<h2>
-<a name="spieFeed-DevelopmentandBugReporting" id="spieFeed-DevelopmentandBugReporting"></a>Development and Bug Reporting
+<h2 id="spieFeed-DevelopmentandBugReporting">
+Development and Bug Reporting
 </h2>
 
 <p>
-spieFeed is stored and developed in GitHub, and can be found here:<a href="https://github.com/goldsky/spiefeed" class="external-link" rel="nofollow">https://github.com/goldsky/spiefeed</a>
+spieFeed is stored and developed in GitHub, and can be found here:<a href="https://github.com/goldsky/spiefeed">https://github.com/goldsky/spiefeed</a>
 </p>
 
 <p>
-Bugs can be filed here: <a href="https://github.com/goldsky/spiefeed/issues" class="external-link" rel="nofollow">https://github.com/goldsky/spiefeed/issues</a>
+Bugs can be filed here: <a href="https://github.com/goldsky/spiefeed/issues">https://github.com/goldsky/spiefeed/issues</a>
 </p>
 
-<h2>
-<a name="spieFeed-Usage" id="spieFeed-Usage"></a>Usage
+<h2 id="spieFeed-Usage">
+Usage
 </h2>
 
 <p>
 spieFeed is used by placing the Snippet call into your content and passing a 'url' parameter:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!spieFeed? &amp;setFeedUrl=`http:<span class="code-comment">//path.com/to/my/rss.feed.rss`]]</span>
+<pre class="brush: php">
+[[!spieFeed? &amp;setFeedUrl=`http://path.com/to/my/rss.feed.rss`]]
 </pre>
-</div>
-</div>
-
 <p>
 For multiple sources can call this
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-http:<span class="code-comment">//feeds.feedburner.com/modx-announce | http://www.voanews.com/templates/Articles.rss?sectionPath=/russian/news</span>
+<pre class="brush: php">
+http://feeds.feedburner.com/modx-announce | http://www.voanews.com/templates/Articles.rss?sectionPath=/russian/news
 </pre>
-</div>
-</div>
-
 <p>
 separated by pipe ( | ) symbol(s).
 </p>
 
-<h3>
-<a name="spieFeed-AvailableProperties" id="spieFeed-AvailableProperties"></a>Available Properties
+<h3 id="spieFeed-AvailableProperties">
+Available Properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Options
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setFeedUrl
 </td>
-<td class='confluenceTd'>
+<td>
 URL of the feed to retrieve.
 </td>
-<td class='confluenceTd'>
+<td>
 Any URL
 </td>
-<td class='confluenceTd'>
-<a href="http://feeds.feedburner.com/modx-announce" class="external-link" rel="nofollow">http://feeds.feedburner.com/modx-announce</a> | <a href="http://www.voanews.com/templates/Articles.rss?sectionPath=/russian/news" class="external-link" rel="nofollow">http://www.voanews.com/templates/Articles.rss?sectionPath=/russian/news</a>
+<td>
+<a href="http://feeds.feedburner.com/modx-announce">http://feeds.feedburner.com/modx-announce</a> | <a href="http://www.voanews.com/templates/Articles.rss?sectionPath=/russian/news">http://www.voanews.com/templates/Articles.rss?sectionPath=/russian/news</a>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 enableCache
 </td>
-<td class='confluenceTd'>
+<td>
 This option allows you to disable caching all-together in SimplePie.
-<br class="atl-forced-newline" />
-However, disabling the cache can lead to longer load times. <a href="http://simplepie.org/wiki/reference/simplepie/enable_cache" class="external-link" rel="nofollow">info</a>
+<br />
+However, disabling the cache can lead to longer load times. <a href="http://simplepie.org/wiki/reference/simplepie/enable_cache">info</a>
 </td>
-<td class='confluenceTd'>
+<td>
 0 | 1
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 enableOrderByDate
 </td>
-<td class='confluenceTd'>
+<td>
 Sometimes feeds don't have their items in chronological order.
-<br class="atl-forced-newline" />
+<br />
 By default, SimplePie will re-order them to be in such an order.
-<br class="atl-forced-newline" />
-With this option, you can enable/disable the reordering of items into reverse chronological order if you don't want it. <a href="http://simplepie.org/wiki/reference/simplepie/enable_order_by_date" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<br />
+With this option, you can enable/disable the reordering of items into reverse chronological order if you don't want it. <a href="http://simplepie.org/wiki/reference/simplepie/enable_order_by_date">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 | 1
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setCacheDuration
 </td>
-<td class='confluenceTd'>
-Set the minimum time (in seconds) for which a feed will be cached. <a href="http://simplepie.org/wiki/reference/simplepie/set_cache_duration" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<td>
+Set the minimum time (in seconds) for which a feed will be cached. <a href="http://simplepie.org/wiki/reference/simplepie/set_cache_duration">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 integers in seconds
 </td>
-<td class='confluenceTd'>
+<td>
 3600
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setCacheLocation
 </td>
-<td class='confluenceTd'>
-Set the file system location (not WWW location) where the cache files should be written. The cache folder should be make or error will be returned. <a href="http://simplepie.org/wiki/reference/simplepie/set_cache_location" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<td>
+Set the file system location (not WWW location) where the cache files should be written. The cache folder should be make or error will be returned. <a href="http://simplepie.org/wiki/reference/simplepie/set_cache_location">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 core/components/spiefeed/cache
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setFaviconHandler
 </td>
-<td class='confluenceTd'>
-Set the handler to enable the display of cached favicons. <a href="http://simplepie.org/wiki/reference/simplepie/set_favicon_handler" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<td>
+Set the handler to enable the display of cached favicons. <a href="http://simplepie.org/wiki/reference/simplepie/set_favicon_handler">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [str image handler file], [query]
 </td>
-<td class='confluenceTd'>
+<td>
 false, "i"
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setItemLimit
 </td>
-<td class='confluenceTd'>
+<td>
 Set the maximum number of items to return per feed with Multifeeds.
-<br class="atl-forced-newline" />
+<br />
 This is NOT for limiting the number of items to loop through in a single feed.
-<br class="atl-forced-newline" />
-For that, you want to pass $start and $length parameters to get_items(). <a href="http://simplepie.org/wiki/reference/simplepie/set_item_limit" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<br />
+For that, you want to pass $start and $length parameters to get_items(). <a href="http://simplepie.org/wiki/reference/simplepie/set_item_limit">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 integer
 </td>
-<td class='confluenceTd'>
+<td>
 null
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setJavascript
 </td>
-<td class='confluenceTd'>
-Set the query string that triggers SimplePie to generate the JavaScript code for embedding media files. <a href="http://simplepie.org/wiki/reference/simplepie/set_javascript" class="external-link" rel="nofollow">info</a>
+<td>
+Set the query string that triggers SimplePie to generate the JavaScript code for embedding media files. <a href="http://simplepie.org/wiki/reference/simplepie/set_javascript">info</a>
 </td>
-<td class='confluenceTd'>
+<td>
 javascript query string parameter
 </td>
-<td class='confluenceTd'>
+<td>
 js
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 stripAttributes
 </td>
-<td class='confluenceTd'>
+<td>
 Set which attributes get stripped from an entry's content.
-<br class="atl-forced-newline" />
+<br />
 The default set of attributes is stored in the property SimplePie?strip_attributes,&nbsp; not to be confused with the method SimplePie?strip_attributes().
-<br class="atl-forced-newline" />
-This way, you can modify the existing list without having to create a whole new one. <a href="http://simplepie.org/wiki/reference/simplepie/strip_attributes" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<br />
+This way, you can modify the existing list without having to create a whole new one. <a href="http://simplepie.org/wiki/reference/simplepie/strip_attributes">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 attributes get stripped from an entry"s content
 </td>
-<td class='confluenceTd'>
+<td>
 array("bgsound", "class", "expr", "id", "style", "onclick", "onerror", "onfinish", "onmouseover", "onmouseout", "onfocus", "onblur", "lowsrc", "dynsrc")
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 stripComments
 </td>
-<td class='confluenceTd'>
-Set whether to strip out HTML comments from an entry's content. <a href="http://simplepie.org/wiki/reference/simplepie/strip_comments" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<td>
+Set whether to strip out HTML comments from an entry's content. <a href="http://simplepie.org/wiki/reference/simplepie/strip_comments">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 | 1
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 stripHtmlTags
 </td>
-<td class='confluenceTd'>
+<td>
 Set which HTML tags get stripped from an entry's content.
-<br class="atl-forced-newline" />
+<br />
 The default set of tags is stored in the property SimplePie?strip_htmltags,&nbsp; not to be confused with the method SimplePie?strip_htmltags().
-<br class="atl-forced-newline" />
-This way, you can modify the existing list without having to create a whole new one. <a href="http://simplepie.org/wiki/reference/simplepie/strip_htmltags" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<br />
+This way, you can modify the existing list without having to create a whole new one. <a href="http://simplepie.org/wiki/reference/simplepie/strip_htmltags">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 HTML tags get stripped from an entry"s content
 </td>
-<td class='confluenceTd'>
+<td>
 array("base", "blink", "body", "doctype", "embed", "font", "form", "frame", "frameset", "html", "iframe", "input", "marquee", "meta", "noscript", "object", "param", "script", "style")
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 dateFormat
 </td>
-<td class='confluenceTd'>
-Date format supports anything that works with PHP's date() function. Only supports the English language. <a href="http://simplepie.org/wiki/reference/simplepie_item/get_date" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<td>
+Date format supports anything that works with PHP's date() function. Only supports the English language. <a href="http://simplepie.org/wiki/reference/simplepie_item/get_date">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 PHP"s date()
 </td>
-<td class='confluenceTd'>
+<td>
 "j F Y, g:i a"
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 localDateFormat
 </td>
-<td class='confluenceTd'>
-Returns the date/timestamp of the posting in the localized language.&nbsp; Date format supports anything that works with PHP's strftime() function.&nbsp; To display in other languages, you need to change the locale with PHP's setlocale() function. The available localizations depend on which ones are installed on your web server. <a href="http://simplepie.org/wiki/reference/simplepie_item/get_local_date" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<td>
+Returns the date/timestamp of the posting in the localized language.&nbsp; Date format supports anything that works with PHP's strftime() function.&nbsp; To display in other languages, you need to change the locale with PHP's setlocale() function. The available localizations depend on which ones are installed on your web server. <a href="http://simplepie.org/wiki/reference/simplepie_item/get_local_date">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 PHP"s strftime() of the posting in the localized language. setlocale() matters.
 </td>
-<td class='confluenceTd'>
+<td>
 "%c"
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 getItemStart
 </td>
-<td class='confluenceTd'>
-Returns an array of SimplePie_Item references for each item in the feed, which can be looped through. <a href="http://simplepie.org/wiki/reference/simplepie/get_items" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<td>
+Returns an array of SimplePie_Item references for each item in the feed, which can be looped through. <a href="http://simplepie.org/wiki/reference/simplepie/get_items">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 integers
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 getItemLength
 </td>
-<td class='confluenceTd'>
-Returns an array of SimplePie_Item references for each item in the feed, which can be looped through. <a href="http://simplepie.org/wiki/reference/simplepie/get_items" class="external-link" rel="nofollow">info</a>
+<td>
+Returns an array of SimplePie_Item references for each item in the feed, which can be looped through. <a href="http://simplepie.org/wiki/reference/simplepie/get_items">info</a>
 </td>
-<td class='confluenceTd'>
+<td>
 integers
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 forceFSockopen
 </td>
-<td class='confluenceTd'>
-If cURL is available, SimplePie will use it instead of the built-in fsockopen functions for fetching remote feeds. This config option will force SimplePie to use fsockopen even if cURL is installed. <a href="http://simplepie.org/wiki/reference/simplepie/force_fsockopen" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<td>
+If cURL is available, SimplePie will use it instead of the built-in fsockopen functions for fetching remote feeds. This config option will force SimplePie to use fsockopen even if cURL is installed. <a href="http://simplepie.org/wiki/reference/simplepie/force_fsockopen">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 | 1
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setInputEncoding
 </td>
-<td class='confluenceTd'>
+<td>
 Allows you to override the character encoding of the feed.
-<br class="atl-forced-newline" />
+<br />
 This is only useful for times when the feed is reporting an incorrect character encoding (as per RFC 3023 and Determining the character encoding of a feed).
-<br class="atl-forced-newline" />
+<br />
 This setting is similar to set_output_encoding().
-<br class="atl-forced-newline" />
-The number of supported character encodings depends on whether your web host supports mbstring, iconv, or both.&nbsp; See Supported Character Encodings for more information. <a href="http://simplepie.org/wiki/reference/simplepie/set_input_encoding" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<br />
+The number of supported character encodings depends on whether your web host supports mbstring, iconv, or both.&nbsp; See Supported Character Encodings for more information. <a href="http://simplepie.org/wiki/reference/simplepie/set_input_encoding">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
-<a href="http://simplepie.org/wiki/faq/supported_character_encodings" class="external-link" rel="nofollow">http://simplepie.org/wiki/faq/supported_character_encodings</a>
+<td>
+<a href="http://simplepie.org/wiki/faq/supported_character_encodings">http://simplepie.org/wiki/faq/supported_character_encodings</a>
 </td>
-<td class='confluenceTd'>
+<td>
 false
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 setOutputEncoding
 </td>
-<td class='confluenceTd'>
+<td>
 Allows you to override SimplePie's output to match that of your webpage.
-<br class="atl-forced-newline" />
+<br />
 This is useful for times when your webpages are not being served as UTF-8.
-<br class="atl-forced-newline" />
+<br />
 This setting will be obeyed by handle_content_type(), and is similar to set_input_encoding().
-<br class="atl-forced-newline" />
+<br />
 It should be noted, however, that not all character encodings can support all characters.
-<br class="atl-forced-newline" />
+<br />
 If your page is being served as ISO-8859-1 and you try to display a Japanese feed, you'll likely see garbled characters. Because of this, it is highly recommended to ensure that your webpages are served as UTF-8.
-<br class="atl-forced-newline" />
-The number of supported character encodings depends on whether your web host supports mbstring, iconv, or both. See Supported Character Encodings for more information. <a href="http://simplepie.org/wiki/reference/simplepie/set_output_encoding" class="external-link" rel="nofollow">info</a>
-<br class="atl-forced-newline" />
+<br />
+The number of supported character encodings depends on whether your web host supports mbstring, iconv, or both. See Supported Character Encodings for more information. <a href="http://simplepie.org/wiki/reference/simplepie/set_output_encoding">info</a>
+<br />
 </td>
-<td class='confluenceTd'>
-<a href="http://simplepie.org/wiki/faq/supported_character_encodings" class="external-link" rel="nofollow">http://simplepie.org/wiki/faq/supported_character_encodings</a>
+<td>
+<a href="http://simplepie.org/wiki/faq/supported_character_encodings">http://simplepie.org/wiki/faq/supported_character_encodings</a>
 </td>
-<td class='confluenceTd'>
+<td>
 "UTF-8"
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortBy
 </td>
-<td class='confluenceTd'>
+<td>
 Allow you to sort the result by one of the available placeholders
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 placeholders
 </td>
-<td class='confluenceTd'>
+<td>
 date
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortOrder
 </td>
-<td class='confluenceTd'>
+<td>
 The sorting order
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 ASC | DESC
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 DESC
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 Template
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 chunk name
 </td>
-<td class='confluenceTd'>
+<td>
 defaultSpieFeedTpl
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rowCls
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for each row
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 class name
 </td>
-<td class='confluenceTd'>
+<td>
 spie-row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 firstRowCls
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for the first row
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 class name
 </td>
-<td class='confluenceTd'>
+<td>
 spie-first-row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 lastRowCls
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for the last row
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 class name
 </td>
-<td class='confluenceTd'>
+<td>
 spie-last-row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 oddRowCls
 </td>
-<td class='confluenceTd'>
+<td>
 Class name for the odd row
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 class name
 </td>
-<td class='confluenceTd'>
+<td>
 spie-odd-row
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &amp;debug (1.5-pl)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Debug mode, to return Simple Pie's error
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 | 1
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &amp;toArray (1.5-pl)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Return the result as an array
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0 | 1
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 &amp;emptyMessage (1.5-pl)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Custom message on the empty return
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 anything
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="spieFeed-AvailablePlaceholders" id="spieFeed-AvailablePlaceholders"></a>Available Placeholders
+<h3 id="spieFeed-AvailablePlaceholders">
+Available Placeholders
 </h3>
 
 <ul>

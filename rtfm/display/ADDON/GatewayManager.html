@@ -1,45 +1,42 @@
 <div>
 <ul>
 <li>
-<a href='#GatewayManager-WhatisGatewayManager%3F'>What is GatewayManager?</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#GatewayManager-WhatisGatewayManager%3F">What is GatewayManager?</a>
 <ul>
 <li>
-<a href='#GatewayManager-Requirements'>Requirements</a>
+<a href="#GatewayManager-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#GatewayManager-History'>History</a>
+<a href="#GatewayManager-History">History</a>
 </li>
 
 <li>
-<a href='#GatewayManager-Download'>Download</a>
+<a href="#GatewayManager-Download">Download</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#GatewayManager-DevelopmentandBugReporting'>Development and Bug Reporting</a>
+<a href="#GatewayManager-DevelopmentandBugReporting">Development and Bug Reporting</a>
 </li>
 
 <li>
-<a href='#GatewayManager-Howtouseit'>Howto use it</a>
+<a href="#GatewayManager-Howtouseit">Howto use it</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="GatewayManager-WhatisGatewayManager%3F"></a>What is GatewayManager?
+<h2 id="GatewayManager-WhatisGatewayManager?">
+What is GatewayManager?
 </h2>
 
 <p>
 With the GatewayManager you're able to make your domains available&nbsp;for certain context inside your MODX installation. You even can&nbsp;link a resource as new startpage and the GatewayManager provides a&nbsp;placeholder with the original URL (useful for canonical tags).
 </p>
 
-<h3>
-<a name="GatewayManager-Requirements"></a>Requirements
+<h3 id="GatewayManager-Requirements">
+Requirements
 </h3>
 
 <ul>
@@ -50,58 +47,44 @@ With the GatewayManager you're able to make your domains available&nbsp;for cert
 </li>
 </ul>
 
-<h3>
-<a name="GatewayManager-History"></a>History
+<h3 id="GatewayManager-History">
+History
 </h3>
 
 <p>
-GatewayManager, was written by Bert Oost (<a href="http://www.oostdesign.com" class="external-link" rel="nofollow">www.oostdesign.com</a>), a simple but effective component to handle domains and contexts inside MODX, and first released on November 13th, 2011.
+GatewayManager, was written by Bert Oost (<a href="http://www.oostdesign.com">www.oostdesign.com</a>), a simple but effective component to handle domains and contexts inside MODX, and first released on November 13th, 2011.
 </p>
 
-<h3>
-<a name="GatewayManager-Download"></a>Download
+<h3 id="GatewayManager-Download">
+Download
 </h3>
 
 <p>
 It can be downloaded from within the MODX Revolution manager via&nbsp;<a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODX Extras Repository.
 </p>
 
-<h2>
-<a name="GatewayManager-DevelopmentandBugReporting"></a>Development and Bug Reporting
+<h2 id="GatewayManager-DevelopmentandBugReporting">
+Development and Bug Reporting
 </h2>
 
 <p>
-GatewayManager is stored and developed in GitHub, and can be found here:&nbsp;<a href="https://github.com/bertoost/MODX-GatewayManager" class="external-link" rel="nofollow">https://github.com/bertoost/MODX-GatewayManager</a>
+GatewayManager is stored and developed in GitHub, and can be found here:&nbsp;<a href="https://github.com/bertoost/MODX-GatewayManager">https://github.com/bertoost/MODX-GatewayManager</a>
 </p>
 
 <p>
-Bugs can be filed here:&nbsp;<a href="https://github.com/bertoost/MODX-GatewayManager/issues" class="external-link" rel="nofollow">https://github.com/bertoost/MODX-GatewayManager/issues</a>
+Bugs can be filed here:&nbsp;<a href="https://github.com/bertoost/MODX-GatewayManager/issues">https://github.com/bertoost/MODX-GatewayManager/issues</a>
 </p>
 
-<h2>
-<a name="GatewayManager-Howtouseit"></a>Howto use it
+<h2 id="GatewayManager-Howtouseit">
+Howto use it
 </h2>
 
 <p>
 The GatewayManager for MODX Revolution is configured to be running&nbsp;automatically. When installing it trough the Package Manager you&nbsp;don't need to do anything except setting up the domains. The&nbsp;GatewayManager will be available below the Components menu item. Please setup the next settings for each context.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Note: that these settings are not necessary for the default MODX "web" context, just leave that one blank
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -116,14 +99,9 @@ site_start - The id of the default startpage of the context
 If you wanna use the canonical tag, you can use this tag to create&nbsp;it completely automatic.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!+gateway.canonical:notempty=`&lt;link rel=<span class="code-quote">"canonical"</span> href=<span class="code-quote">"[[+gateway.canonical]]"</span> /&gt;`]]
+<pre class="brush: php">
+[[!+gateway.canonical:notempty=`&lt;link rel="canonical" href="[[+gateway.canonical]]" /&gt;`]]
 </pre>
-</div>
-</div>
-
 <p>
-<b>Notice:</b> to handle multiple domains your domains should point all to the same directory (of where MODX is installed). This is generally done with DNS but within your hosting this could be different. When you're unsure contact your hosting about it. When the domains not all pointing to the same directory the GatewayManager will not work.
+<strong>Notice:</strong> to handle multiple domains your domains should point all to the same directory (of where MODX is installed). This is generally done with DNS but within your hosting this could be different. When you're unsure contact your hosting about it. When the domains not all pointing to the same directory the GatewayManager will not work.
 </p>

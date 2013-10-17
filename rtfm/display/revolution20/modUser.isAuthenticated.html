@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modUser.isAuthenticated-modUser%3A%3AisAuthenticated"></a>modUser::isAuthenticated
+<h2 id="modUser.isAuthenticated-modUser::isAuthenticated">
+modUser::isAuthenticated
 </h2>
 
 <p>
@@ -14,42 +10,32 @@ Determines if this user is authenticated in a specific context.
 Separate session contexts can allow users to login/out of specific sub-sites individually (or in collections).
 </p>
 
-<h2>
-<a name="modUser.isAuthenticated-Syntax" id="modUser.isAuthenticated-Syntax"></a>Syntax
+<h2 id="modUser.isAuthenticated-Syntax">
+Syntax
 </h2>
 
 <p>
-API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_moduser.class.html#%5CmodUser::isAuthenticated()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_moduser.class.html#%5CmodUser::isAuthenticated()</a>
+API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_moduser.class.html#%5CmodUser::isAuthenticated()">http://api.modx.com/revolution/2.2/db_core_model_modx_moduser.class.html#%5CmodUser::isAuthenticated()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> isAuthenticated ([string $sessionContext = 'web'])
+<pre class="brush: php">
+boolean isAuthenticated ([string $sessionContext = 'web'])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modUser.isAuthenticated-Example" id="modUser.isAuthenticated-Example"></a>Example
+<h2 id="modUser.isAuthenticated-Example">
+Example
 </h2>
 
 <p>
 See if the User is logged into the 'web' context. If not, deny access and send to Unauthorized Page.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span> (!$modx-&gt;user-&gt;isAuthenticated('web')) {
+<pre class="brush: php">
+if (!$modx-&gt;user-&gt;isAuthenticated('web')) {
    $modx-&gt;sendUnauthorizedPage();
 }
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modUser.isAuthenticated-SeeAlso" id="modUser.isAuthenticated-SeeAlso"></a>See Also
+<h2 id="modUser.isAuthenticated-SeeAlso">
+See Also
 </h2>
 
 <table class="tableview" width="100%">

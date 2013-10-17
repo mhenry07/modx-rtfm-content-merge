@@ -1,54 +1,40 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="fromJSON-xPDOObject%3A%3AfromJSON%28%29"></a>xPDOObject::fromJSON()
+<h2 id="fromJSON-xPDOObject::fromJSON()">
+xPDOObject::fromJSON()
 </h2>
 
 <p>
 Sets the object fields from a JSON object string.
 </p>
 
-<h2>
-<a name="fromJSON-Syntax" id="fromJSON-Syntax"></a>Syntax
+<h2 id="fromJSON-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#fromJSON" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#fromJSON</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#fromJSON">http://api.modxcms.com/xpdo/om/xPDOObject.html#fromJSON</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 void fromJSON (
    string $jsonSource,
    [string $keyPrefix = ''],
-   [<span class="code-object">boolean</span> $setPrimaryKeys = <span class="code-keyword">false</span>],
-   [<span class="code-object">boolean</span> $rawValues = <span class="code-keyword">false</span>],
-   [<span class="code-object">boolean</span> $adhocValues = <span class="code-keyword">false</span>]
+   [boolean $setPrimaryKeys = false],
+   [boolean $rawValues = false],
+   [boolean $adhocValues = false]
 )
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="fromJSON-Example" id="fromJSON-Example"></a>Example
+<h2 id="fromJSON-Example">
+Example
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$str = '{<span class="code-quote">"name"</span>:<span class="code-quote">"Sirius"</span>,<span class="code-quote">"email"</span>:<span class="code-quote">"Black"</span>}';
+<pre class="brush: php">
+$str = '{"name":"Sirius","email":"Black"}';
 $object-&gt;fromJSON($str);
 echo $object-&gt;get('name').' '.$object-&gt;get('email');
-<span class="code-comment">// prints <span class="code-quote">"Sirius Black"</span></span>
+// prints "Sirius Black"
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="fromJSON-SeeAlso" id="fromJSON-SeeAlso"></a>See Also
+<h2 id="fromJSON-SeeAlso">
+See Also
 </h2>
 
 <ul>

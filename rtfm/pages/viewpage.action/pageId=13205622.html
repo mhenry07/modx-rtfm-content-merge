@@ -1,7 +1,7 @@
 <div class="error">
 <span class="error">Unknown macro: {div}</span>
 <p>
-<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><b>Language Variants</b>
+<img class="emoticon" src="/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0" /><strong>Language Variants</strong>
 </p>
 
 <table class="tableview" width="100%">
@@ -13,8 +13,8 @@
 </table>
 </div>
 
-<h1>
-<a name="YAMS%2BeForm-HowcaneFormbemadetoworkwithYAMS%3F"></a>How can eForm be made to work with YAMS?
+<h1 id="YAMS+eForm-HowcaneFormbemadetoworkwithYAMS?">
+How can eForm be made to work with YAMS?
 </h1>
 
 <p>
@@ -25,10 +25,6 @@ With YAMS multiple language variants of content are embedded in documents during
 Even though it is necessary to use one set of templates for each language, a single snippet can be used that will work with all language variants. This single snippet call can then be placed in a chunk if it is to be hidden from less technical users. To achieve this use the following naming convention for the form id and name of each template chunk: basename_langId. Then use an eForm call similar to the following:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [!eForm? &amp;language=`(yams_mname)` &amp;formid=`contactForm_(yams_id)` &amp;tpl=`eFormContactForm_(yams_id)` &amp;report=`eFormContactReport_(yams_id)` &amp;automessage=`eFormContactAutoMessage_(yams_id)` &amp;thankyou=`eFormContactThankyou_(yams_id)` ... !]
 </pre>
-</div>
-</div>

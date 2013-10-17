@@ -1,77 +1,45 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDOQuery.select-xPDOQuery%3A%3Aselect"></a>xPDOQuery::select
+<h2 id="xPDOQuery.select-xPDOQuery::select">
+xPDOQuery::select
 </h2>
 
 <p>
 Specify columns to return from the SQL query.
 </p>
 
-<h2>
-<a name="xPDOQuery.select-Syntax"></a>Syntax
+<h2 id="xPDOQuery.select-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#xPDOQuery::select()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#\xPDOQuery::select()</a>
+API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#xPDOQuery::select()">http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.class.html#\xPDOQuery::select()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-getSelectColumns($className, $tableAlias= '', $columnPrefix= '', $columns= array (), $exclude= <span class="code-keyword">false</span>)
+<pre class="brush: php">
+getSelectColumns($className, $tableAlias= '', $columnPrefix= '', $columns= array (), $exclude= false)
 </pre>
-</div>
-</div>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 xPDOQuery select ([string $columns = '*'])
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-When selecting fields, <b>always</b> make sure to at least include the Primary Key of the table; otherwise, xPDO will not be able to make an object from it and get lost in recursion with the error that the maximum number of nested functions of 100 has been exceeded.
-</td>
-</tr>
-</table>
+<div class="note">
+When selecting fields, <strong>always</strong> make sure to at least include the Primary Key of the table; otherwise, xPDO will not be able to make an object from it and get lost in recursion with the error that the maximum number of nested functions of 100 has been exceeded.
 </div>
 
-<h2>
-<a name="xPDOQuery.select-Example"></a>Example
+<h2 id="xPDOQuery.select-Example">
+Example
 </h2>
 
 <p>
 Get a collection of Boxes, with only the ID and name fields.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $query = $xpdo-&gt;newQuery('Box');
 $query-&gt;select($xpdo-&gt;getSelectColumns('Box','Box','',array('id','name')));
 $boxes = $xpdo-&gt;getCollection('Box',$query);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDOQuery.select-SeeAlso"></a>See Also
+<h2 id="xPDOQuery.select-SeeAlso">
+See Also
 </h2>
 
 <ul>
@@ -79,3 +47,27 @@ $boxes = $xpdo-&gt;getCollection('Box',$query);
 <a href="/display/xPDO20/xPDOQuery" title="xPDOQuery">xPDOQuery</a>
 </li>
 </ul>
+
+<p>
+Under 'Syntax', it looks like the code was recently changed from
+</p>
+
+<p>
+&nbsp;xPDOQuery select&nbsp;(<span class="error">[string&nbsp;$columns =&nbsp;'*']</span>)&nbsp;
+</p>
+
+<p>
+to&nbsp;
+</p>
+
+<p>
+xPDOQuery select&nbsp;([array&nbsp;$columns =&nbsp;&nbsp;array()])
+</p>
+
+<p>
+But if you follow the link to API docs, there it is still saying to use string $columns.
+</p>
+
+<p>
+Also, under Example, the example shown passes select() the results of getSelectColumns(), which returns a comma-delimited list (a string).
+</p>

@@ -1,272 +1,287 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="Quip.QuipRss-TheQuipRssSnippet" id="Quip.QuipRss-TheQuipRssSnippet"></a>The QuipRss Snippet
+<h2 id="Quip.QuipRss-TheQuipRssSnippet">
+The QuipRss Snippet
 </h2>
 
 <p>
 QuipRss is an assistance snippet for Quip that can be used to quickly show the latest comments on a thread, by user, or across the site in an RSS format.
 </p>
 
-<h2>
-<a name="Quip.QuipRss-Usage" id="Quip.QuipRss-Usage"></a>Usage
+<h2 id="Quip.QuipRss-Usage">
+Usage
 </h2>
 
 <p>
 To grab the latest 5 comments:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!QuipRss]]
 </pre>
-</div>
-</div>
-
 <p>
 To grab the number of comments on a thread:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!QuipRss? &amp;type=`thread` &amp;thread=`mythread`]]
 </pre>
-</div>
-</div>
-
 <p>
 To grab the number of comments by a user with username 'jb2009':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!QuipRss? &amp;type=`user` &amp;user=`jb2009`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Quip.QuipRss-AvailableProperties" id="Quip.QuipRss-AvailableProperties"></a>Available Properties
+<h2 id="Quip.QuipRss-AvailableProperties">
+Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 type
 </td>
-<td class='confluenceTd'>
+<td>
 The type of mode to call QuipCount in. Either "all", "thread", "family" or "user".
 </td>
-<td class='confluenceTd'>
+<td>
 all
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thread
 </td>
-<td class='confluenceTd'>
+<td>
 If in thread mode, the thread to count comments from.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 user
 </td>
-<td class='confluenceTd'>
+<td>
 If in user mode, either the User's ID or username.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 family
 </td>
-<td class='confluenceTd'>
+<td>
 If in family mode, a string contained in the thread's name.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk to use for each comment.
 </td>
-<td class='confluenceTd'>
+<td>
 quipRssComment
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 containerTpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk to use to wrap the comments in.
 </td>
-<td class='confluenceTd'>
+<td>
 quipRssContainer
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 The number of comments to grab.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 start
 </td>
-<td class='confluenceTd'>
+<td>
 The starting index of latest comments.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 stripTags
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not to strip html tags in the comment.
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 bodyLimit
 </td>
-<td class='confluenceTd'>
+<td>
 The number of characters in the comment link before it is truncated and an ellipsis is added.
 </td>
-<td class='confluenceTd'>
+<td>
 30
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rowCss
 </td>
-<td class='confluenceTd'>
+<td>
 The CSS class to put on each row.
 </td>
-<td class='confluenceTd'>
+<td>
 quip-latest-comment
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 altRowCss
 </td>
-<td class='confluenceTd'>
+<td>
 The CSS class to put on alternate rows.
 </td>
-<td class='confluenceTd'>
+<td>
 quip-latest-comment-alt
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Quip.QuipRss-Examples" id="Quip.QuipRss-Examples"></a>Examples
+<h2 id="Quip.QuipRss-Examples">
+Examples
 </h2>
 
 <p>
 Get the latest comments in thread "thread32", with a body limit of 100 characters:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!QuipRss? &amp;type=`thread` &amp;thread=`thread32` &amp;bodyLimit=`100`]]
 </pre>
-</div>
-</div>
-
 <p>
 Get the latest 10 comments for user `mikegeorge`:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!QuipRss? &amp;type=`user` &amp;user=`mikegeorge` &amp;limit=`10`]]
 </pre>
-</div>
-</div>
-
 <p>
 Get the latest 20 comments for all threads beginning with 'blog-post':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!QuipRss? &amp;type=`family` &amp;family=`blog-post` &amp;limit=`10`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="Quip.QuipRss-SeeAlso" id="Quip.QuipRss-SeeAlso"></a>See Also
+<h2 id="Quip.QuipRss-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/Quip.Quip">Quip.Quip</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComment">Quip.Quip.tplComment</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33226777" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="11042879" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FQuip.QuipRss" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="11042879" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/Quip.Quip.tplCommentOptions">Quip.Quip.tplCommentOptions</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplComments">Quip.Quip.tplComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Quip.tplReport">Quip.Quip.tplReport</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipCount">Quip.QuipCount</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipLatestComments">Quip.QuipLatestComments</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply">Quip.QuipReply</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplAddComment">Quip.QuipReply.tplAddComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplLoginToComment">Quip.QuipReply.tplLoginToComment</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipReply.tplPreview">Quip.QuipReply.tplPreview</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.QuipRss">Quip.QuipRss</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Roadmap">Quip.Roadmap</a>
+</li>
+
+<li>
+<a href="/display/ADDON/Quip.Upgrading">Quip.Upgrading</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/Quip.Upgrading+to+1.0.1">Quip.Upgrading to 1.0.1</a>
+</li>
+</ol>
+</li>
+</ol>

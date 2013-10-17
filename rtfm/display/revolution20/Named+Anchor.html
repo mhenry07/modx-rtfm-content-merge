@@ -1,5 +1,5 @@
-<h2>
-<a name="NamedAnchor-WhatisaNamedAnchor%3F"></a>What is a Named Anchor?
+<h2 id="NamedAnchor-WhatisaNamedAnchor?">
+What is a Named Anchor?
 </h2>
 
 <p>
@@ -20,36 +20,26 @@ A typical named anchor will be similar to:
 The problem with using named anchors with MODX and friendly URLs enabled, is that the &lt;base href=""&gt; tag, which is required to maintain relative urls, will confuse browsers, thinking that any anchors point to the base href page which would usually be your homepage. Luckily - nothing is impossible with MODX, and there are (at least) two ways to overcome this issue.
 </p>
 
-<h2>
-<a name="NamedAnchor-AccessingtheNamedAnchorbyaddingtheURLmanually" id="NamedAnchor-AccessingtheNamedAnchorbyaddingtheURLmanually"></a>Accessing the Named Anchor by adding the URL manually
+<h2 id="NamedAnchor-AccessingtheNamedAnchorbyaddingtheURLmanually">
+Accessing the Named Anchor by adding the URL manually
 </h2>
 
 <p>
 To generate a link to the current Resource, while using a named anchor of "prohibited":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a href=<span class="code-quote">"[[~[[*id]]]]#prohibited"</span>&gt;Prohibited Activities&lt;/a&gt;
+<pre class="brush: php">
+&lt;a href="[[~[[*id]]]]#prohibited"&gt;Prohibited Activities&lt;/a&gt;
 </pre>
-</div>
-</div>
-
 <p>
 To generate a link to a Resource with ID 12, while using a named anchor of "prohibited":
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;a href=<span class="code-quote">"[[~12]]#prohibited"</span>&gt;Prohibited Activities&lt;/a&gt;
+<pre class="brush: php">
+&lt;a href="[[~12]]#prohibited"&gt;Prohibited Activities&lt;/a&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="NamedAnchor-UsingaPlugintoautomaticallyaddtheURLwhenusinganchors" id="NamedAnchor-UsingaPlugintoautomaticallyaddtheURLwhenusinganchors"></a>Using a Plugin to automatically add the URL when using anchors
+<h2 id="NamedAnchor-UsingaPlugintoautomaticallyaddtheURLwhenusinganchors">
+Using a Plugin to automatically add the URL when using anchors
 </h2>
 
 <p>
@@ -57,17 +47,12 @@ Alternatively, you could use a plugin to automatically prepend a link to the cur
 </p>
 
 <p>
-Put the following code into a new plugin, and on the System Events tab assign it to the "OnWebPagePrerender" event (based on <a href="http://forums.modx.com/thread/35800/plugin-anchorsaway?page=3#dis-post-199475" class="external-link" rel="nofollow">this post</a>).
+Put the following code into a new plugin, and on the System Events tab assign it to the "OnWebPagePrerender" event (based on <a href="http://forums.modx.com/thread/35800/plugin-anchorsaway?page=3#dis-post-199475">this post</a>).
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-keyword">if</span>($modx-&gt;resource-&gt;get('id') !=$modx-&gt;config['site_start']) {  $modx-&gt;resource-&gt;_output =str_replace('href=<span class="code-quote">"#','href="</span>' .$modx-&gt;makeUrl($modx-&gt;resource-&gt;get('id')) .'#',$modx-&gt;resource-&gt;_output);}
+<pre class="brush: php">
+if($modx-&gt;resource-&gt;get('id') !=$modx-&gt;config['site_start']) {  $modx-&gt;resource-&gt;_output =str_replace('href="#','href="' .$modx-&gt;makeUrl($modx-&gt;resource-&gt;get('id')) .'#',$modx-&gt;resource-&gt;_output);}
 </pre>
-</div>
-</div>
-
 <p>
 The code first makes sure we are not on the homepage (if we are, there is no need to add the url to the page). When we're not it will replace any occurrences of <ins>href="#</ins> with <ins>href="link-to-page.html#</ins>, making sure your anchors will work as intended.
 </p>

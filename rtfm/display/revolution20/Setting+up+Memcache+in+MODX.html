@@ -1,5 +1,5 @@
-<h2>
-<a name="SettingupMemcacheinMODX-Requirements"></a>Requirements
+<h2 id="SettingupMemcacheinMODX-Requirements">
+Requirements
 </h2>
 
 <p>
@@ -10,56 +10,28 @@ First off, you'll need the following:
 <li>A running memcached server, and the address it is running at
 </li>
 
-<li>The <a href="http://php.net/memcached" class="external-link" rel="nofollow">PHP memcached extension</a>, installed on the server running MODX
+<li>The <a href="http://php.net/memcached">PHP memcached extension</a>, installed on the server running MODX
 </li>
 </ul>
 
-<h2>
-<a name="SettingupMemcacheinMODX-SettingupMemcacheinMODX"></a>Setting up Memcache in MODX
+<h2 id="SettingupMemcacheinMODX-SettingupMemcacheinMODX">
+Setting up Memcache in MODX
 </h2>
 
 <p>
 Go to System Settings, and change the "cache_handler" system setting to "cache.xPDOMemCache".
 </p>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 If you have more than one MODX site on your server with cache.xPDOMemCache cache handler, you need to create new system setting "cache_prefix" with a value like "yoursite_" to differentiate cache keys for different sites.
-</td>
-</tr>
-</table>
 </div>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="info">
 If your memcached server is on a separate server, you can set the path to it with the System Setting "resource_memcached_server", with a value like "memcache.tld:121212"
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="SettingupMemcacheinMODX-SeeAlso"></a>See Also
+<h2 id="SettingupMemcacheinMODX-SeeAlso">
+See Also
 </h2>
 
 <ul>

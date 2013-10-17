@@ -1,107 +1,86 @@
-<h1>
-<a name="getInsertId-API%3ADB%3AgetInsertId"></a>API:DB:getInsertId
+<h1 id="getInsertId-API:DB:getInsertId">
+API:DB:getInsertId
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Quick reference</b>
+<div class="info">
+<strong>API Quick reference</strong>
 <br />
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable name:
 </td>
-<td class='confluenceTd'>
+<td>
 getInsertId
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Modx versions:
 </td>
-<td class='confluenceTd'>
+<td>
 0.9.x + Evolution
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Input parameters:
 </td>
-<td class='confluenceTd'>
+<td>
 ([resource conn_identifier])
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return if successful:
 </td>
-<td class='confluenceTd'>
+<td>
 AUTO_INCREMENT value from the last INSERT query.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return type:
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Return on failure:
 </td>
-<td class='confluenceTd'>
+<td>
 0 or false (see below)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Object parent:
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a> -&gt; <a href="/display/Evo1/DBAPI" title="DBAPI">DBAPI</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
-<h2>
-<a name="getInsertId-Description"></a>Description
+<h2 id="getInsertId-Description">
+Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 integer getInsertId([resource conn_identifier $conn])
 </pre>
-</div>
-</div>
-
 <p>
 Get the atuomatically generated ID of the item that was just inserted into the database.
 </p>
@@ -110,64 +89,49 @@ Get the atuomatically generated ID of the item that was just inserted into the d
 This function returns the AUTO_INCREMENT id of the last MySQL INSERT query. It will return 0 if there wasn't an AUTO_INCREMENT id created, and false if there is no link to a MySQL database. Since the returned value will be the id of the last query, you should call this function directly after your insertion query to ensure that the value is correct.
 </p>
 
-<h2>
-<a name="getInsertId-Usage"></a>Usage
+<h2 id="getInsertId-Usage">
+Usage
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $newId = $modx-&gt;db-&gt;getInsertId();
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="getInsertId-Examples"></a>Examples
+<h2 id="getInsertId-Examples">
+Examples
 </h2>
 
 <p>
 This example function is passed two parameters: $fields and $table. The function checks that $fields is an array, and if so it proceeds to insert the data into the database and return the AUTO_INCREMENT value. If the query fals, or if $fields is not an array, it returns false.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 function insert_user( $fields, $table ) {
-        <span class="code-keyword">if</span>( is_array( $fields ) {
-                <span class="code-keyword">if</span>( $modx-&gt;db-&gt;insert( $table, $fields ) ) {
-                        <span class="code-keyword">return</span> $modx-&gt;db-&gt;getInsertId();
+        if( is_array( $fields ) {
+                if( $modx-&gt;db-&gt;insert( $table, $fields ) ) {
+                        return $modx-&gt;db-&gt;getInsertId();
                 }
-                <span class="code-keyword">else</span> {
-                        <span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+                else {
+                        return false;
                 }
         }
-        <span class="code-keyword">else</span> {
-                <span class="code-keyword">return</span> <span class="code-keyword">false</span>;
+        else {
+                return false;
         }
 }
 </pre>
-</div>
-</div>
-
 <p>
-<b>Example 2</b>
+<strong>Example 2</strong>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $email = checkMail($_POST['email']);
 $pass = makePass();
-$sql = <span class="code-quote">"INSERT INTO "</span>.$modx-&gt;getFullTableName('web_users').<span class="code-quote">" (username,password) VALUES ('"</span>.$email.<span class="code-quote">"', '"</span>.$pass.<span class="code-quote">"')"</span>;
+$sql = "INSERT INTO ".$modx-&gt;getFullTableName('web_users')." (username,password) VALUES ('".$email."', '".$pass."')";
 $rs = $modx-&gt;db-&gt;query($sql);
 $id = $modx-&gt;db-&gt;getInsertId();
-$sql = <span class="code-quote">"INSERT INTO "</span>.$modx-&gt;getFullTableName('web_user_attributes').<span class="code-quote">" (internalKey,email) VALUES ("</span>.$id.<span class="code-quote">",'"</span>.$email.<span class="code-quote">"')"</span>;
+$sql = "INSERT INTO ".$modx-&gt;getFullTableName('web_user_attributes')." (internalKey,email) VALUES (".$id.",'".$email."')";
 $rs = $modx-&gt;db-&gt;query($sql);
 </pre>
-</div>
-</div>
-
 <p>
 In this case, we've used a simple registration form to get the email of a new member. First the returned POST value is checked through a function. A password is automatically generated with another function. These values are used as the username and password, and inserted into the web_users table. The automatically generated ID for this new member is retrieved with the getInsertId function. The new member's ID is now used to insert the user's email into the web_user_attributes table.
 </p>
@@ -176,24 +140,24 @@ In this case, we've used a simple registration form to get the email of a new me
 This same value can then be used to insert the new member into a desired web group. This would be useful for registering a member to receive a newsletter, for example.
 </p>
 
-<h2>
-<a name="getInsertId-Related"></a>Related
+<h2 id="getInsertId-Related">
+Related
 </h2>
 
 <p>
 <span class="error">[$modx-&gt;db-&gt;insert]</span>()
 </p>
 
-<h2>
-<a name="getInsertId-Notes"></a>Notes
+<h2 id="getInsertId-Notes">
+Notes
 </h2>
 
 <p>
 It's worth noting that mysql_insert_id() (used by $modx-&gt;db-&gt;getInsertId()) returns an integer, so if you have a value larger than that (for example, a BIGINT), the value returned will be incorrect. In this case, you should use the last_insert_id() function instead.
 </p>
 
-<h2>
-<a name="getInsertId-FunctionSource"></a>Function Source
+<h2 id="getInsertId-FunctionSource">
+Function Source
 </h2>
 
 <p>
@@ -202,13 +166,9 @@ File: manager/includes/extenders/dbapi.mysql.class.inc.php
 Line: 236
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 function getInsertId($conn=NULL) {
-      <span class="code-keyword">if</span>(!is_resource($conn)) { $conn = $<span class="code-keyword">this</span>-&gt;conn; }
-      <span class="code-keyword">return</span> mysql_insert_id($conn);
+      if(!is_resource($conn)) { $conn = $this-&gt;conn; }
+      return mysql_insert_id($conn);
    }
 </pre>
-</div>
-</div>

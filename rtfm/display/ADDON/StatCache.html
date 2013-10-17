@@ -1,13 +1,13 @@
-<h3>
-<a name="StatCache-AStaticCachingPluginforMODXRevolution" id="StatCache-AStaticCachingPluginforMODXRevolution"></a>A Static Caching Plugin for MODX Revolution
+<h3 id="StatCache-AStaticCachingPluginforMODXRevolution">
+A Static Caching Plugin for MODX Revolution
 </h3>
 
 <p>
 The statcache extra is made up of a Plugin for MODX Revolution that writes out static representations of fully cacheable MODX Resources to a configurable location on the filesystem. You can then use your web server's rewrite engine (or equivalent) to serve the static files first, if they exist. This has the advantage of bypassing MODX (and PHP) entirely, allowing you to serve potentially thousands of more requests per second. It has the disadvantage of not allowing any dynamic content to be served.
 </p>
 
-<h3>
-<a name="StatCache-Requirements" id="StatCache-Requirements"></a>Requirements
+<h3 id="StatCache-Requirements">
+Requirements
 </h3>
 
 <ul>
@@ -19,30 +19,28 @@ The statcache extra is made up of a Plugin for MODX Revolution that writes out s
 </ul>
 
 <p>
-GitHub: <a href="https://github.com/opengeek/statcache" class="external-link" rel="nofollow">https://github.com/opengeek/statcache</a>
+GitHub: <a href="https://github.com/opengeek/statcache">https://github.com/opengeek/statcache</a>
 <br />
-Issues:&nbsp;<a href="https://github.com/opengeek/statcache/issues" class="external-link" rel="nofollow">https://github.com/opengeek/statcache/issues</a>
+Issues:&nbsp;<a href="https://github.com/opengeek/statcache/issues">https://github.com/opengeek/statcache/issues</a>
 </p>
 
 <p>
-<b>Install via Package Manager</b>
+<strong>Install via Package Manager</strong>
 </p>
 
-<h3>
-<a name="StatCache-" id="StatCache-"></a><font color="#333333">Web Server Configuration for nginx</font>
+<h3 id="StatCache-">
+Web Server Configuration for nginx
 </h3>
 
 <p>
 Once the extra is installed and the StaticCache plugin is enabled and generating your static files, you can configure nginx to serve those files first by preceding the standard MODX rules for nginx:
 </p>
 
-<h4>
-<a name="StatCache-MODXinDOCUMENTROOT" id="StatCache-MODXinDOCUMENTROOT"></a>MODX in DOCUMENT_ROOT
+<h4 id="StatCache-MODXinDOCUMENTROOT">
+MODX in DOCUMENT_ROOT
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 location / {
     try_files /statcache$uri~index.html /statcache$uri $uri $uri/ @modx-rewrite;
 }
@@ -50,20 +48,15 @@ location @modx-rewrite {
     rewrite ^/(.*)$ /index.php?q=$1 last;
 }
 </pre>
-</div>
-</div>
-
 <p>
 This instructs nginx to look for a static representation of the requested resource within the&nbsp;statcache/&nbsp;directory inside your document root before all the standard MODX checks. The initial version with the&nbsp;~index.html&nbsp;check is there to handle MODX-generated URI's that end with a trailing&nbsp;/. These are written by the plugin as&nbsp;~index.html&nbsp;files so they can be served properly by the web server.
 </p>
 
-<h4>
-<a name="StatCache-MODXinsubdirectoryofDOCUMENTROOT" id="StatCache-MODXinsubdirectoryofDOCUMENTROOT"></a>MODX in subdirectory of DOCUMENT_ROOT
+<h4 id="StatCache-MODXinsubdirectoryofDOCUMENTROOT">
+MODX in subdirectory of DOCUMENT_ROOT
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 location /modx {
     try_files /modx/statcache$uri~index.html /modx/statcache$uri $uri $uri/ @modx-rewrite2;
 }
@@ -71,76 +64,58 @@ location @modx-rewrite2 {
     rewrite ^/(.[^/]*)/(.*)$ /$1/index.php?q=$2 last;
 }
 </pre>
-</div>
-</div>
-
 <p>
 This instructs nginx to look for a static representation of the requested resource within the&nbsp;statcache/&nbsp;directory inside your MODX_BASE_PATH before all the standard MODX checks. The initial version with the&nbsp;~index.html&nbsp;check is there to handle MODX-generated URI's that end with a trailing&nbsp;/. These are written by the plugin as&nbsp;~index.html&nbsp;files so they can be served properly by the web server.
 </p>
 
-<h3>
-<a name="StatCache-" id="StatCache-"></a><font color="#333333">Web Server Configuration for Apache</font>
+<h3 id="StatCache-">
+Web Server Configuration for Apache
 </h3>
 
 <p>
 Once the extra is installed and the StaticCache plugin is enabled and generating your static files, you can configure Apache to serve those files first by preceding the standard MODX rules for Apache .htaccess with:
 </p>
 
-<h4>
-<a name="StatCache-MODXinDOCUMENTROOT" id="StatCache-MODXinDOCUMENTROOT"></a>MODX in DOCUMENT_ROOT
+<h4 id="StatCache-MODXinDOCUMENTROOT">
+MODX in DOCUMENT_ROOT
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 # If MODX is directly in your DOCUMENT_ROOT,
-# add <span class="code-keyword">this</span> before your MODX Friendly URLs RewriteCond's and RewriteRule...
+# add this before your MODX Friendly URLs RewriteCond's and RewriteRule...
 RewriteCond %{DOCUMENT_ROOT}/statcache%{REQUEST_URI}\~index.html \-f
 RewriteRule \^(.*)$ /statcache/$1~index.html [L,QSA]
 
 RewriteCond %{DOCUMENT_ROOT}/statcache%{REQUEST_URI} \-f
 RewriteRule \^(.*)$ /statcache/$1 [L,QSA]
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="StatCache-MODXinsubdirectoryofDOCUMENTROOT" id="StatCache-MODXinsubdirectoryofDOCUMENTROOT"></a>MODX in subdirectory of DOCUMENT_ROOT
+<h4 id="StatCache-MODXinsubdirectoryofDOCUMENTROOT">
+MODX in subdirectory of DOCUMENT_ROOT
 </h4>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 # If MODX is in a subdirectory of your DOCUMENT_ROOT,
-# add <span class="code-keyword">this</span> before your MODX Friendly URLs RewriteCond's and RewriteRule...
+# add this before your MODX Friendly URLs RewriteCond's and RewriteRule...
 RewriteCond %{DOCUMENT_ROOT}/modx/statcache%{REQUEST_URI}\~index.html \-f
 RewriteRule \^(.*)$ /modx/statcache/$1~index.html [L,QSA]
 
 RewriteCond %{DOCUMENT_ROOT}/modx/statcache%{REQUEST_URI} \-f
 RewriteRule \^(.*)$ /modx/statcache/$1 [L,QSA]
 </pre>
-</div>
-</div>
-
 <p>
 You can add an exemption to serve post requests and query strings directly from MODX instead of the static pages, by adding these two lines to your .htaccess
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 RewriteCond %{REQUEST_METHOD} !=POST
 RewriteCond %{QUERY_STRING} !.*=.*
 </pre>
-</div>
-</div>
-
 <p>
 Note: You will need this twice, ones before the first rule set and once before the second rule set.
 </p>
 
-<h3>
-<a name="StatCache-Troubleshooting" id="StatCache-Troubleshooting"></a>Troubleshooting
+<h3 id="StatCache-Troubleshooting">
+Troubleshooting
 </h3>
 
 <ul>

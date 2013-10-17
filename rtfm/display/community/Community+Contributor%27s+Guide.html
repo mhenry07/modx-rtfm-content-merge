@@ -1,25 +1,25 @@
-<h2>
-<a name="CommunityContributor%27sGuide-AGitHubbasedbranchingstrategyforcollaborativedevelopment"></a>A GitHub-based branching strategy for collaborative development
+<h2 id="CommunityContributor'sGuide-AGitHubbasedbranchingstrategyforcollaborativedevelopment">
+A GitHub-based branching strategy for collaborative development
 </h2>
 
 <p>
-In order to facilitate collaborative development on the MODX source code managed at GitHub, a clear and consistent branching strategy has been adopted. This strategy consists of maintaining two permanent branches in each main Git repository: <tt>master</tt>, which represents code that is assumed to be in a production-ready state, and <tt>develop</tt>, which contains work to be incorporated into the "next release". However, there are a number of important supporting branches that will only live for a limited amount of time, including feature branches, production hotfix branches, and specific release branches. Though they are normal Git branches, they differ significantly in the way they are used in the development process.
+In order to facilitate collaborative development on the MODX source code managed at GitHub, a clear and consistent branching strategy has been adopted. This strategy consists of maintaining two permanent branches in each main Git repository: <code>master</code>, which represents code that is assumed to be in a production-ready state, and <code>develop</code>, which contains work to be incorporated into the "next release". However, there are a number of important supporting branches that will only live for a limited amount of time, including feature branches, production hotfix branches, and specific release branches. Though they are normal Git branches, they differ significantly in the way they are used in the development process.
 </p>
 
-<h3>
-<a name="CommunityContributor%27sGuide-Thepermanentbranches"></a>The permanent branches
+<h3 id="CommunityContributor'sGuide-Thepermanentbranches">
+The permanent branches
 </h3>
 
 <p>
-The <tt>master</tt> branch should be familiar to any Git user, representing the stable, production-ready code in the repository. In our process, we maintain another branch with an infinite lifetime, <tt>develop</tt>. You can think of this as the "integration branch" where all changes are delivered for the next release. This is also where nightly builds will originate.
+The <code>master</code> branch should be familiar to any Git user, representing the stable, production-ready code in the repository. In our process, we maintain another branch with an infinite lifetime, <code>develop</code>. You can think of this as the "integration branch" where all changes are delivered for the next release. This is also where nightly builds will originate.
 </p>
 
 <p>
-When the code in <tt>develop</tt> reaches a stable point and is ready to be released, all of the changes will be merged back to the <tt>master</tt> branch and tagged with a release number. Each merge commit back to <tt>master</tt> represents a production release, by definition.
+When the code in <code>develop</code> reaches a stable point and is ready to be released, all of the changes will be merged back to the <code>master</code> branch and tagged with a release number. Each merge commit back to <code>master</code> represents a production release, by definition.
 </p>
 
-<h3>
-<a name="CommunityContributor%27sGuide-Supportingbranches"></a>Supporting branches
+<h3 id="CommunityContributor'sGuide-Supportingbranches">
+Supporting branches
 </h3>
 
 <p>
@@ -28,7 +28,7 @@ There are a number of supporting branches in our process that are used to aid in
 
 <ul>
 <li>
-<b>Feature branches</b> - these are the branches that you will be working with as a community contributor
+<strong>Feature branches</strong> - these are the branches that you will be working with as a community contributor
 </li>
 
 <li>Release branches
@@ -42,99 +42,70 @@ There are a number of supporting branches in our process that are used to aid in
 Each has a special purpose and strict rules governing origination and merge targets, but are otherwise normal Git branches.
 </p>
 
-<h3>
-<a name="CommunityContributor%27sGuide-WorkingwithyourGitHubfork"></a>Working with your GitHub fork
+<h3 id="CommunityContributor'sGuide-WorkingwithyourGitHubfork">
+Working with your GitHub fork
 </h3>
 
 <p>
 MODx contributors must work directly with their private forks on GitHub. Here is the suggested way to prepare your local repository as a developer for contributing back to any MODx project:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $ git clone git@github.com:YourGitUsername/revolution.git
 $ cd revolution
-$ git remote add upstream -f http:<span class="code-comment">//github.com/modxcms/revolution.git</span>
+$ git remote add upstream -f http://github.com/modxcms/revolution.git
 </pre>
-</div>
-</div>
-
 <p>
-This setup makes your fork the standard <tt>origin</tt> remote, and adds/fetches the "blessed" repository as the remote <tt>upstream</tt>. You may want to add other remotes to other developer forks as well, and I would name those remotes appropriately so you can keep track of each one.
+This setup makes your fork the standard <code>origin</code> remote, and adds/fetches the "blessed" repository as the remote <code>upstream</code>. You may want to add other remotes to other developer forks as well, and I would name those remotes appropriately so you can keep track of each one.
 </p>
 
 <p>
-You'll want to go ahead and create local tracking branches for the permanent branches from your fork, a.k.a. <tt>origin</tt>:
+You'll want to go ahead and create local tracking branches for the permanent branches from your fork, a.k.a. <code>origin</code>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $ git checkout -b master origin/master
-Switched to a <span class="code-keyword">new</span> branch <span class="code-quote">"master"</span>
+Switched to a new branch "master"
 $ git checkout -b develop origin/develop
-Switched to a <span class="code-keyword">new</span> branch <span class="code-quote">"develop"</span>
+Switched to a new branch "develop"
 </pre>
-</div>
-</div>
-
 <p>
-To keep your local tracking branches for <tt>develop</tt> and <tt>master</tt> up-to-date from the <tt>upstream</tt> repository:
+To keep your local tracking branches for <code>develop</code> and <code>master</code> up-to-date from the <code>upstream</code> repository:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $ git fetch upstream
 $ git checkout develop
-Switched to branch <span class="code-quote">"develop"</span>
+Switched to branch "develop"
 $ git merge --ff-only upstream/develop
 $ git checkout master
-Switched to branch <span class="code-quote">"master"</span>
+Switched to branch "master"
 $ git merge --ff-only upstream/master
 $ git push origin develop master
 </pre>
-</div>
-</div>
-
 <p>
-Note however, that the push is mainly for show, as the permanent branches should never be a target for contributor commits, even in the forks. IOW, <tt>develop</tt> and <tt>master</tt> in your fork should always match the <tt>upstream</tt> branches of the same name. It is expected that all contributions will be submitted via a feature or hotfix branch originating from the appropriate permanent branch, or a bug fix branch originating from a release branch in the upstream repository.
+Note however, that the push is mainly for show, as the permanent branches should never be a target for contributor commits, even in the forks. IOW, <code>develop</code> and <code>master</code> in your fork should always match the <code>upstream</code> branches of the same name. It is expected that all contributions will be submitted via a feature or hotfix branch originating from the appropriate permanent branch, or a bug fix branch originating from a release branch in the upstream repository.
 </p>
 
 <p>
-Also note the <tt>--ff-only</tt> flag ensures that only fast-forward merges are performed (in case you accidentally do commit to the main branches on your fork without realizing it).
+Also note the <code>--ff-only</code> flag ensures that only fast-forward merges are performed (in case you accidentally do commit to the main branches on your fork without realizing it).
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Important</b>
+<div class="note">
+<strong>Important</strong>
 <br />
-Please make sure you have your autocrlf settings set appropriately before making any commits to your fork. See <a href="http://help.github.com/dealing-with-lineendings/" class="external-link" rel="nofollow">http://help.github.com/dealing-with-lineendings/</a> to determine the setting you need based on the platform you are developing on.
-</td>
-</tr>
-</table>
+Please make sure you have your autocrlf settings set appropriately before making any commits to your fork. See <a href="http://help.github.com/dealing-with-lineendings/">http://help.github.com/dealing-with-lineendings/</a> to determine the setting you need based on the platform you are developing on.
 </div>
 
-<h3>
-<a name="CommunityContributor%27sGuide-Featurebranches"></a>Feature branches
+<h3 id="CommunityContributor'sGuide-Featurebranches">
+Feature branches
 </h3>
 
 <ul>
-<li>May branch from: <tt>develop</tt>
+<li>May branch from: <code>develop</code>
 </li>
 
-<li>Naming convention: anything except <tt>master</tt>, <tt>develop</tt>, <tt>release-</tt><b>, or</b> <tt><b>hotfix-</b></tt>
+<li>Naming convention: anything except <code>master</code>, <code>develop</code>, <code>release-</code><strong>, or</strong> <code><strong>hotfix-</strong></code>
 </li>
 </ul>
 
@@ -143,48 +114,38 @@ Feature branches, also known as topic branches, are used to develop a specific n
 </p>
 
 <p>
-Feature branches typically exist in developer forks, and only for sharing purposes, not in the "blessed", or <tt>upstream</tt> repository.
+Feature branches typically exist in developer forks, and only for sharing purposes, not in the "blessed", or <code>upstream</code> repository.
 </p>
 
-<h4>
-<a name="CommunityContributor%27sGuide-Creatingafeaturebranch"></a>Creating a feature branch
+<h4 id="CommunityContributor'sGuide-Creatingafeaturebranch">
+Creating a feature branch
 </h4>
 
 <p>
-When starting work on a new feature, branch off from the <tt>develop</tt> branch.
+When starting work on a new feature, branch off from the <code>develop</code> branch.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $ git checkout -b myfeature develop
-Switched to a <span class="code-keyword">new</span> branch <span class="code-quote">"myfeature"</span>
+Switched to a new branch "myfeature"
 </pre>
-</div>
-</div>
-
-<h4>
-<a name="CommunityContributor%27sGuide-Submittingapullrequestforafinishedfeature"></a>Submitting a pull request for a finished feature
+<h4 id="CommunityContributor'sGuide-Submittingapullrequestforafinishedfeature">
+Submitting a pull request for a finished feature
 </h4>
 
 <p>
-Once you have completed development of a feature on a branch, you should first make sure your work is replayed over the latest updates from <tt>develop</tt>:
+Once you have completed development of a feature on a branch, you should first make sure your work is replayed over the latest updates from <code>develop</code>:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $ git fetch upstream
 $ git checkout develop
 Switched to branch {{develop}}
 $ git merge --ff-only upstream/develop
 $ git checkout myfeature
-Switched to branch <span class="code-quote">"myfeature"</span>
+Switched to branch "myfeature"
 $ git rebase develop
 </pre>
-</div>
-</div>
-
 <p>
 This will make it easier for integrators to incorporate your work without conflict.
 </p>
@@ -193,24 +154,19 @@ This will make it easier for integrators to incorporate your work without confli
 Now simply push your feature to your fork (you can do this early on if you want to share your feature branch for collaboration):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $ git push origin myfeature:myfeature
 </pre>
-</div>
-</div>
-
 <p>
-And you are ready to <a href="http://help.github.com/pull-requests/" class="external-link" rel="nofollow">submit a pull request</a> for your feature branch.
+And you are ready to <a href="http://help.github.com/pull-requests/">submit a pull request</a> for your feature branch.
 </p>
 
-<h3>
-<a name="CommunityContributor%27sGuide-BugBranches"></a>Bug Branches
+<h3 id="CommunityContributor'sGuide-BugBranches">
+Bug Branches
 </h3>
 
 <p>
-If there's a bug in the MODX <a href="http://tracker.modx.com/" class="external-link" rel="nofollow">Bug Tracker</a> that you would like to fix, here's a simple workflow you can follow.
+If there's a bug in the MODX <a href="http://tracker.modx.com/">Bug Tracker</a> that you would like to fix, here's a simple workflow you can follow.
 </p>
 
 <p>
@@ -221,40 +177,25 @@ First, fork the MODX Git repo on github, then clone your fork (see above).
 You may wish to start clean if you already have a release branch locally. E.g. if you already have a "release-2.2" branch, you can delete it locally and start clean:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 git branch -D release-2.2
 </pre>
-</div>
-</div>
-
 <p>
 Next, you'll want to checkout the branch fresh from upstream:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 git fetch upstream
 git checkout -b release-2.2 upstream/release-2.2
 </pre>
-</div>
-</div>
-
 <p>
 Before you begin work on coding your fix, create a branch devoted to your upstream target (where XXXX is the bug number):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
  
 git checkout -b bug-XXXX release-2.2
 </pre>
-</div>
-</div>
-
 <p>
 Now you're ready to do your changes. Fix the bug!
 </p>
@@ -263,15 +204,10 @@ Now you're ready to do your changes. Fix the bug!
 Once the bug is fixed, you can commit your changes and push your bugfix branch to your fork:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 git commit .
 git push origin bug-XXXX
 </pre>
-</div>
-</div>
-
 <p>
 Then you're ready to issue your pull request from Github.
 </p>
@@ -281,7 +217,7 @@ Log into your Github account, find your MODX fork, then hit the button at the to
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/33948128/github_modx_pull_request.jpg?version=1&amp;modificationDate=1370290791000" style="border: 0px solid black" /></span>
+<img src="/download/attachments/33948128/github_modx_pull_request.jpg?version=1&amp;modificationDate=1370290791000" />
 </p>
 
 <p>

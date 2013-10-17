@@ -1,71 +1,53 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="fromArray-xPDOObject%3A%3AfromArray%28%29"></a>xPDOObject::fromArray()
+<h2 id="fromArray-xPDOObject::fromArray()">
+xPDOObject::fromArray()
 </h2>
 
 <p>
 Sets object fields from an associative array of key =&gt; value pairs.
 </p>
 
-<h2>
-<a name="fromArray-Syntax" id="fromArray-Syntax"></a>Syntax
+<h2 id="fromArray-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#fromArray" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#fromArray</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#fromArray">http://api.modxcms.com/xpdo/om/xPDOObject.html#fromArray</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 void fromArray(
    array $fldarray,
    [string $keyPrefix = ''],
-   [<span class="code-object">boolean</span> $setPrimaryKeys = <span class="code-keyword">false</span>],
-   [<span class="code-object">boolean</span> $rawValues = <span class="code-keyword">false</span>],
-   [<span class="code-object">boolean</span> $adhocValues = <span class="code-keyword">false</span>]
+   [boolean $setPrimaryKeys = false],
+   [boolean $rawValues = false],
+   [boolean $adhocValues = false]
 )
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="fromArray-Examples" id="fromArray-Examples"></a>Examples
+<h2 id="fromArray-Examples">
+Examples
 </h2>
 
 <p>
 Input the name of a person from an array.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;fromArray(array(
     'fname' =&gt; 'Boo',
     'lname' =&gt; 'Ridley',
 ));
 echo $object-&gt;get('fname').' '.$object-&gt;get('lname');
-<span class="code-comment">// prints <span class="code-quote">"Boo Ridley"</span></span>
+// prints "Boo Ridley"
 </pre>
-</div>
-</div>
-
 <p>
 Strip 'ghost_' prefixes from the array provided:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $object-&gt;fromArray(array(
     'ghost_fname' =&gt; 'Nearly Headless',
     'ghost_lname' =&gt; 'Nick',
 ),'ghost_');
 echo $object-&gt;get('fname').' '.$object-&gt;get('lname');
-<span class="code-comment">// prints <span class="code-quote">"Nearly Headless Nick"</span></span>
+// prints "Nearly Headless Nick"
 </pre>
-</div>
-</div>

@@ -1,98 +1,72 @@
-<h1>
-<a name="webAlert-API%3AwebAlert"></a>API:webAlert
+<h1 id="webAlert-API:webAlert">
+API:webAlert
 </h1>
 
-<div class='panelMacro'>
-<table class='infoMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>API Quick reference</b>
+<div class="info">
+<strong>API Quick reference</strong>
 <br />
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable name:
 </td>
-<td class='confluenceTd'>
+<td>
 webAlert
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Modx versions:
 </td>
-<td class='confluenceTd'>
+<td>
 0.9.x + Evolution
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Variable type:
 </td>
-<td class='confluenceTd'>
+<td>
 void
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 Object parent:
 </td>
-<td class='confluenceTd'>
+<td>
 <a href="/display/Evo1/DocumentParser+Object" title="DocumentParser Object">DocumentParser</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-</table>
-</div>
 
-<h2>
-<a name="webAlert-Description"></a>Description
+<h2 id="webAlert-Description">
+Description
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 void webAlert(string $msg[, $url]);
 </pre>
-</div>
-</div>
-
 <p>
 Displays a javascript alert alert message in the web browser
 </p>
 
-<h2>
-<a name="webAlert-Usage%2FExamples"></a>Usage / Examples
+<h2 id="webAlert-Usage/Examples">
+Usage / Examples
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-$modx-&gt;webAlert(<span class="code-quote">"hello world"</span>, <span class="code-quote">"http:<span class="code-comment">//www.google.com"</span>]);</span>
+<pre class="brush: php">
+$modx-&gt;webAlert("hello world", "http://www.google.com"]);
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="webAlert-Related"></a>Related
+<h2 id="webAlert-Related">
+Related
 </h2>
 
 <p>
@@ -101,36 +75,32 @@ $modx-&gt;webAlert(<span class="code-quote">"hello world"</span>, <span class="c
 <span class="error">[sendAlert]</span>
 </p>
 
-<h2>
-<a name="webAlert-Notes"></a>Notes
+<h2 id="webAlert-Notes">
+Notes
 </h2>
 
-<h2>
-<a name="webAlert-FunctionSource"></a>Function Source
+<h2 id="webAlert-FunctionSource">
+Function Source
 </h2>
 
 <p>
-<tt>API Source File | manager/includes/document.parser.class.inc.php | 1259</tt>
+<code>API Source File | manager/includes/document.parser.class.inc.php | 1259</code>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 function webAlert($msg, $url= "") {
         $msg= addslashes(mysql_escape_string($msg));
-        <span class="code-keyword">if</span> (substr(strtolower($url), 0, 11) == <span class="code-quote">"javascript:"</span>) {
-            $act= <span class="code-quote">"__WebAlert();"</span>;
-            $fnc= <span class="code-quote">"function __WebAlert(){"</span> . substr($url, 11) . <span class="code-quote">"};"</span>;
-        } <span class="code-keyword">else</span> {
-            $act= ($url ? <span class="code-quote">"window.location.href='"</span> . addslashes($url) . <span class="code-quote">"';"</span> : "");
+        if (substr(strtolower($url), 0, 11) == "javascript:") {
+            $act= "__WebAlert();";
+            $fnc= "function __WebAlert(){" . substr($url, 11) . "};";
+        } else {
+            $act= ($url ? "window.location.href='" . addslashes($url) . "';" : "");
         }
-        $html= <span class="code-quote">"&lt;script&gt;$fnc window.setTimeout(\"</span>alert('$msg');$act\<span class="code-quote">",100);&lt;/script&gt;"</span>;
-        <span class="code-keyword">if</span> ($<span class="code-keyword">this</span>-&gt;isFrontend($html))
-            $<span class="code-keyword">this</span>-&gt;regClientScript($html);
-        <span class="code-keyword">else</span> {
+        $html= "&lt;script&gt;$fnc window.setTimeout(\"alert('$msg');$act\",100);&lt;/script&gt;";
+        if ($this-&gt;isFrontend($html))
+            $this-&gt;regClientScript($html);
+        else {
             echo $html;
         }
     }
 </pre>
-</div>
-</div>

@@ -1,33 +1,29 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#UpgradingfromVersionsEarlierthan2.0.5-UpgradingtoRevolution2.0.5'>Upgrading to Revolution 2.0.5</a>
+<a href="#UpgradingfromVersionsEarlierthan2.0.5-UpgradingtoRevolution2.0.5">Upgrading to Revolution 2.0.5</a>
 </li>
 
 <li>
-<a href='#UpgradingfromVersionsEarlierthan2.0.5-FormCustomizationUpdates'>Form Customization Updates</a>
+<a href="#UpgradingfromVersionsEarlierthan2.0.5-FormCustomizationUpdates">Form Customization Updates</a>
 </li>
 
 <li>
-<a href='#UpgradingfromVersionsEarlierthan2.0.5-AccessPolicyUpdates'>Access Policy Updates</a>
+<a href="#UpgradingfromVersionsEarlierthan2.0.5-AccessPolicyUpdates">Access Policy Updates</a>
 </li>
 
 <li>
-<a href='#UpgradingfromVersionsEarlierthan2.0.5-extensionpackagesChanges'>extension_packages Changes</a>
+<a href="#UpgradingfromVersionsEarlierthan2.0.5-extensionpackagesChanges">extension_packages Changes</a>
 </li>
 
 <li>
-<a href='#UpgradingfromVersionsEarlierthan2.0.5-SeeAlso'>See Also</a>
+<a href="#UpgradingfromVersionsEarlierthan2.0.5-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="UpgradingfromVersionsEarlierthan2.0.5-UpgradingtoRevolution2.0.5"></a>Upgrading to Revolution 2.0.5
+<h2 id="UpgradingfromVersionsEarlierthan2.0.5-UpgradingtoRevolution2.0.5">
+Upgrading to Revolution 2.0.5
 </h2>
 
 <p>
@@ -54,33 +50,19 @@ If you didn't employ any of the above on your site you don't need to read furthe
 </p>
 
 <p>
-These upgrades should go smoothly; however, if they do not, please <a href="http://modxcms.com/forums" class="external-link" rel="nofollow">post on the forums</a> regarding your issue.
+These upgrades should go smoothly; however, if they do not, please <a href="http://modxcms.com/forums">post on the forums</a> regarding your issue.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 It is always recommended to backup your database before upgrading.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="UpgradingfromVersionsEarlierthan2.0.5-FormCustomizationUpdates"></a>Form Customization Updates
+<h2 id="UpgradingfromVersionsEarlierthan2.0.5-FormCustomizationUpdates">
+Form Customization Updates
 </h2>
 
 <p>
-Form Customization has been completely rewritten. It now <b>only works for Resource pages</b>. If you have FC rules that are not Resource-page targeted, <b>they will be erased</b>. Why did we do this? Well, for one, 95% of FC rules were targeted at the Resource pages. The UI prior to 2.0.5 for managing FC rules, while powerful, was confusing and complex. We decided to simplify the UI; however, this required restricting FC's scope to just the Resource pages. Also, <b>inactive rules will be erased</b>, because there is no such thing as an "Inactive Rule" in 2.0.5. There are only inactive Sets and Profiles.
+Form Customization has been completely rewritten. It now <strong>only works for Resource pages</strong>. If you have FC rules that are not Resource-page targeted, <strong>they will be erased</strong>. Why did we do this? Well, for one, 95% of FC rules were targeted at the Resource pages. The UI prior to 2.0.5 for managing FC rules, while powerful, was confusing and complex. We decided to simplify the UI; however, this required restricting FC's scope to just the Resource pages. Also, <strong>inactive rules will be erased</strong>, because there is no such thing as an "Inactive Rule" in 2.0.5. There are only inactive Sets and Profiles.
 </p>
 
 <p>
@@ -113,8 +95,8 @@ Also, there are now 4 new tables and classes:
 Your old rules will be separated based on their constraints. If they had any UserGroup restrictions, they will be divided into separate Profiles. Within that, they will be separated into Sets based on their page they targeted (create or update) and any constraints they had - since constraints are now set-based. You can then use a point-and-click interface to edit rules within the set.
 </p>
 
-<h2>
-<a name="UpgradingfromVersionsEarlierthan2.0.5-AccessPolicyUpdates"></a>Access Policy Updates
+<h2 id="UpgradingfromVersionsEarlierthan2.0.5-AccessPolicyUpdates">
+Access Policy Updates
 </h2>
 
 <p>
@@ -129,52 +111,59 @@ You can easily create manager policies, for example, by creating a new Access Po
 Your old Policies will be upgraded into the Administrator Template if they used only Administrator policies. If you had custom Access Policies that used custom Permissions, a custom Access Policy Template will be generated for them.
 </p>
 
-<h2>
-<a name="UpgradingfromVersionsEarlierthan2.0.5-extensionpackagesChanges"></a>extension_packages Changes
+<h2 id="UpgradingfromVersionsEarlierthan2.0.5-extensionpackagesChanges">
+extension_packages Changes
 </h2>
 
 <p>
 The setting extension_packages has been changed to a JSON format. The format used to be:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 package_name:package_path,another_package:another_path
 </pre>
-</div>
-</div>
-
 <p>
 And is now:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[{<span class="code-quote">"package_name"</span>:{<span class="code-quote">"path"</span>:<span class="code-quote">"package_path"</span>}},{<span class="code-quote">"another_package"</span>:{<span class="code-quote">"path"</span>:<span class="code-quote">"another_path"</span>}}]
+<pre class="brush: php">
+[{"package_name":{"path":"package_path"}},{"another_package":{"path":"another_path"}}]
 </pre>
-</div>
-</div>
-
 <p>
 This should automatically upgrade without you having to adjust it.
 </p>
 
-<h2>
-<a name="UpgradingfromVersionsEarlierthan2.0.5-SeeAlso"></a>See Also
+<h2 id="UpgradingfromVersionsEarlierthan2.0.5-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/revolution20/Troubleshooting+Upgrades">Troubleshooting Upgrades</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33587218" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="18678122" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FUpgrading%2Bfrom%2BVersions%2BEarlier%2Bthan%2B2.0.5" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="18678122" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/Upgrading+to+2.2.x">Upgrading to 2.2.x</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+from+2.0.x+to+2.1.x">Upgrading from 2.0.x to 2.1.x</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+from+Versions+Earlier+than+2.0.5">Upgrading from Versions Earlier than 2.0.5</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+to+Revolution+2.0.0-rc-2">Upgrading to Revolution 2.0.0-rc-2</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Upgrading+from+MODx+Evolution">Upgrading from MODx Evolution</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/revolution20/Functional+Changes+from+Evolution">Functional Changes from Evolution</a>
+</li>
+</ol>
+</li>
+</ol>

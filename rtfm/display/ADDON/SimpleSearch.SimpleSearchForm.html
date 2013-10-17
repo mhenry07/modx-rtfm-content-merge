@@ -1,163 +1,149 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#SimpleSearch.SimpleSearchForm-SimpleSearchFormSnippet'>SimpleSearchForm Snippet</a>
+<a href="#SimpleSearch.SimpleSearchForm-SimpleSearchFormSnippet">SimpleSearchForm Snippet</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.SimpleSearchForm-Usage'>Usage</a>
+<a href="#SimpleSearch.SimpleSearchForm-Usage">Usage</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.SimpleSearchForm-AvailableProperties'>Available Properties</a>
+<a href="#SimpleSearch.SimpleSearchForm-AvailableProperties">Available Properties</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.SimpleSearchForm-SimpleSearchFormChunks'>SimpleSearchForm Chunks</a>
+<a href="#SimpleSearch.SimpleSearchForm-SimpleSearchFormChunks">SimpleSearchForm Chunks</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.SimpleSearchForm-Examples'>Examples</a>
+<a href="#SimpleSearch.SimpleSearchForm-Examples">Examples</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.SimpleSearchForm-Errors'>Errors</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#SimpleSearch.SimpleSearchForm-Errors">Errors</a>
 <ul>
 <li>
-<a href='#SimpleSearch.SimpleSearchForm-SimpleSearchFormtpl%3A'>SimpleSearchForm tpl:</a>
+<a href="#SimpleSearch.SimpleSearchForm-SimpleSearchFormtpl%3A">SimpleSearchForm tpl:</a>
 </li>
 
 <li>
-<a href='#SimpleSearch.SimpleSearchForm-SimpleSearchSnippetcall%3A'>SimpleSearch Snippet call:</a>
+<a href="#SimpleSearch.SimpleSearchForm-SimpleSearchSnippetcall%3A">SimpleSearch Snippet call:</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#SimpleSearch.SimpleSearchForm-SeeAlso'>See Also</a>
+<a href="#SimpleSearch.SimpleSearchForm-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="SimpleSearch.SimpleSearchForm-SimpleSearchFormSnippet" id="SimpleSearch.SimpleSearchForm-SimpleSearchFormSnippet"></a>SimpleSearchForm Snippet
+<h2 id="SimpleSearch.SimpleSearchForm-SimpleSearchFormSnippet">
+SimpleSearchForm Snippet
 </h2>
 
 <p>
 This snippet displays a search form for SimpleSearch.
 </p>
 
-<h2>
-<a name="SimpleSearch.SimpleSearchForm-Usage" id="SimpleSearch.SimpleSearchForm-Usage"></a>Usage
+<h2 id="SimpleSearch.SimpleSearchForm-Usage">
+Usage
 </h2>
 
 <p>
 Simply place wherever you want a SearchForm to render, and add the 'landing' property to the call to specify the Resource where the <a href="/display/ADDON/SimpleSearch.SimpleSearch" title="SimpleSearch.SimpleSearch">SimpleSearch</a> snippet call is located (which is where the results will display).
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!SimpleSearchForm? &amp;landing=`123`]]
 </pre>
-</div>
-</div>
-
 <p>
 If you'd like the results to show on the same page, simply place the <a href="/display/ADDON/SimpleSearch.SimpleSearch" title="SimpleSearch.SimpleSearch">SimpleSearch</a> snippet call below the SimpleSearchForm call, and don't specify a 'landing' parameter.
 </p>
 
-<h2>
-<a name="SimpleSearch.SimpleSearchForm-AvailableProperties" id="SimpleSearch.SimpleSearchForm-AvailableProperties"></a>Available Properties
+<h2 id="SimpleSearch.SimpleSearchForm-AvailableProperties">
+Available Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 The chunk that will be used to display the search form.
 </td>
-<td class='confluenceTd'>
+<td>
 SearchForm
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 landing
 </td>
-<td class='confluenceTd'>
+<td>
 The Resource that the SimpleSearch snippet is called on, that will display the results of the search.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 searchIndex
 </td>
-<td class='confluenceTd'>
+<td>
 The name of the REQUEST parameter that the search will use.
 </td>
-<td class='confluenceTd'>
+<td>
 search
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 method
 </td>
-<td class='confluenceTd'>
+<td>
 Whether to send the search over POST or GET.
 </td>
-<td class='confluenceTd'>
+<td>
 GET
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 Whether to set the output to directly return, or set to a placeholder with this propertys name.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="SimpleSearch.SimpleSearchForm-SimpleSearchFormChunks" id="SimpleSearch.SimpleSearchForm-SimpleSearchFormChunks"></a>SimpleSearchForm Chunks
+<h2 id="SimpleSearch.SimpleSearchForm-SimpleSearchFormChunks">
+SimpleSearchForm Chunks
 </h2>
 
 <p>
@@ -170,103 +156,108 @@ There is 1 chunk that is processed in SimpleSearchForm. Its corresponding Simple
 </li>
 </ul>
 
-<h2>
-<a name="SimpleSearch.SimpleSearchForm-Examples" id="SimpleSearch.SimpleSearchForm-Examples"></a>Examples
+<h2 id="SimpleSearch.SimpleSearchForm-Examples">
+Examples
 </h2>
 
 <p>
 Display the search form, but search with POST instead of GET:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[SimpleSearchForm? &amp;method=`POST`]]
 </pre>
-</div>
-</div>
-
 <p>
 Set the search form to a 'search.form' placeholder, specify a landing page on Resource 123, and use a custom Chunk called 'MySearchForm' for the form template:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[SimpleSearchForm? &amp;tpl=`MySearchForm` &amp;landing=`123` &amp;toPlaceholder=`search.form`]]
 
 &lt;h2&gt;Search&lt;/h2&gt;
 [[+search.form]]
 </pre>
-</div>
-</div>
-
 <p>
 Note that with current version (1.0.0) there seems to be a bug where if you ACTUALLY have a Chunk named "seachForm", its contents will be ignored in favor of the default search form.
 </p>
 
-<h2>
-<a name="SimpleSearch.SimpleSearchForm-Errors" id="SimpleSearch.SimpleSearchForm-Errors"></a>Errors
+<h2 id="SimpleSearch.SimpleSearchForm-Errors">
+Errors
 </h2>
 
 <p>
 If you get an error like the following after submitting a search:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-There were no search results <span class="code-keyword">for</span> the search "". Please <span class="code-keyword">try</span> using more general terms to get more results.
+<pre class="brush: php">
+There were no search results for the search "". Please try using more general terms to get more results.
 </pre>
-</div>
-</div>
-
 <p>
-Then that probably means that the <b>SimpleSearch</b> isn't looking in the right place in the $<em>POST or $_GET array for your search term. If you created a custom <b>&amp;tpl</b> for your <b>SimpleSearchForm</b> tpl, make sure that the name used for your search term variable is properly identified in your corresponding <b>SimpleSearch</b> Snippet call, e.g. note here how <b>my_custom_search_field</b> is used in the <b>SimpleSearchForm</b> tpl _and</em> it's specified in the <b>&amp;searchIndex</b> parameter of the <b>SimpleSearch</b> call:
+Then that probably means that the <strong>SimpleSearch</strong> isn't looking in the right place in the $<em>POST or $_GET array for your search term. If you created a custom <strong>&amp;tpl</strong> for your <strong>SimpleSearchForm</strong> tpl, make sure that the name used for your search term variable is properly identified in your corresponding <strong>SimpleSearch</strong> Snippet call, e.g. note here how <strong>my_custom_search_field</strong> is used in the <strong>SimpleSearchForm</strong> tpl _and</em> it's specified in the <strong>&amp;searchIndex</strong> parameter of the <strong>SimpleSearch</strong> call:
 </p>
 
-<h3>
-<a name="SimpleSearch.SimpleSearchForm-SimpleSearchFormtpl%3A"></a>SimpleSearchForm tpl:
+<h3 id="SimpleSearch.SimpleSearchForm-SimpleSearchFormtpl:">
+SimpleSearchForm tpl:
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;form id=<span class="code-quote">"my_id"</span> action=<span class="code-quote">"[[~[[+landing:<span class="code-keyword">default</span>=`[[*id]]`]]]]"</span> method=<span class="code-quote">"[[+method:<span class="code-keyword">default</span>=`get`]]"</span>&gt;
-        &lt;input id=<span class="code-quote">"searchField"</span> class=<span class="code-quote">"my_class"</span> type=<span class="code-quote">"text"</span> name=<span class="code-quote">"my_custom_search_field"</span> value=<span class="code-quote">"[[+searchValue:<span class="code-keyword">default</span>=`Search the site`]]"</span>/&gt;
-        &lt;input id=<span class="code-quote">"searchIcon"</span> class=<span class="code-quote">"utilityButton"</span> type=<span class="code-quote">"image"</span> alt=<span class="code-quote">"Search"</span> src=<span class="code-quote">"/assets/templates/my/images/searchButton.png"</span>&gt;
-        &lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"id"</span> value=<span class="code-quote">"[[+landing:<span class="code-keyword">default</span>=[[*id]]]]"</span> /&gt;
+<pre class="brush: php">
+&lt;form id="my_id" action="[[~[[+landing:default=`[[*id]]`]]]]" method="[[+method:default=`get`]]"&gt;
+        &lt;input id="searchField" class="my_class" type="text" name="my_custom_search_field" value="[[+searchValue:default=`Search the site`]]"/&gt;
+        &lt;input id="searchIcon" class="utilityButton" type="image" alt="Search" src="/assets/templates/my/images/searchButton.png"&gt;
+        &lt;input type="hidden" name="id" value="[[+landing:default=[[*id]]]]" /&gt;
 &lt;/form&gt;
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="SimpleSearch.SimpleSearchForm-SimpleSearchSnippetcall%3A"></a>SimpleSearch Snippet call:
+<h3 id="SimpleSearch.SimpleSearchForm-SimpleSearchSnippetcall:">
+SimpleSearch Snippet call:
 </h3>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!SimpleSearch? &amp;searchIndex=`my_custom_search_field`]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="SimpleSearch.SimpleSearchForm-SeeAlso" id="SimpleSearch.SimpleSearchForm-SeeAlso"></a>See Also
+<h2 id="SimpleSearch.SimpleSearchForm-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/SimpleSearch.Roadmap">SimpleSearch.Roadmap</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="16646246" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="16646153" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FSimpleSearch.SimpleSearchForm" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="16646153" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearch">SimpleSearch.SimpleSearch</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearch.containerTpl">SimpleSearch.SimpleSearch.containerTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearch.currentPageTpl">SimpleSearch.SimpleSearch.currentPageTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearch.pageTpl">SimpleSearch.SimpleSearch.pageTpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearch.tpl">SimpleSearch.SimpleSearch.tpl</a>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.Faceted+Search+Through+PostHooks">SimpleSearch.Faceted Search Through PostHooks</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearchForm">SimpleSearch.SimpleSearchForm</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/SimpleSearch.SimpleSearchForm.tpl">SimpleSearch.SimpleSearchForm.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/SimpleSearch.Solr">SimpleSearch.Solr</a>
+</li>
+</ol>

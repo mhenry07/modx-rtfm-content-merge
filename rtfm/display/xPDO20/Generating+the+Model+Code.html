@@ -1,23 +1,19 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#GeneratingtheModelCode-LoadingxPDOManagerandxPDOGenerator'>Loading xPDOManager and xPDOGenerator</a>
+<a href="#GeneratingtheModelCode-LoadingxPDOManagerandxPDOGenerator">Loading xPDOManager and xPDOGenerator</a>
 </li>
 
 <li>
-<a href='#GeneratingtheModelCode-SettingClassandMapTemplates'>Setting Class and Map Templates</a>
+<a href="#GeneratingtheModelCode-SettingClassandMapTemplates">Setting Class and Map Templates</a>
 </li>
 
 <li>
-<a href='#GeneratingtheModelCode-GeneratingtheFiles'>Generating the Files</a>
+<a href="#GeneratingtheModelCode-GeneratingtheFiles">Generating the Files</a>
 </li>
 
 <li>
-<a href='#GeneratingtheModelCode-Conclusion'>Conclusion</a>
+<a href="#GeneratingtheModelCode-Conclusion">Conclusion</a>
 </li>
 </ul>
 </div>
@@ -26,56 +22,32 @@
 To use your newly created XML schema, you'll need to create a PHP script that will parse the XML schema into the xPDO PHP classes and maps.
 </p>
 
-<h2>
-<a name="GeneratingtheModelCode-LoadingxPDOManagerandxPDOGenerator"></a>Loading xPDOManager and xPDOGenerator
+<h2 id="GeneratingtheModelCode-LoadingxPDOManagerandxPDOGenerator">
+Loading xPDOManager and xPDOGenerator
 </h2>
 
 <p>
 Create a PHP file where you have access to an xPDO instance. Then, let's set the Log Target to the browser, and raise it a bit to get more detailed information.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $xpdo-&gt;setLogLevel(xPDO::LOG_LEVEL_INFO);
 $xpdo-&gt;setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
 </pre>
-</div>
-</div>
-
 <p>
 Now, we'll want to load the <a href="/display/xPDO20/xPDOManager" title="xPDOManager">xPDOManager</a> and <a href="/display/xPDO20/xPDOGenerator" title="xPDOGenerator">xPDOGenerator</a> classes, to assist us with the model deployment.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $manager= $xpdo-&gt;getManager();
 $generator= $manager-&gt;getGenerator();
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="GeneratingtheModelCode-SettingClassandMapTemplates"></a>Setting Class and Map Templates
+<h2 id="GeneratingtheModelCode-SettingClassandMapTemplates">
+Setting Class and Map Templates
 </h2>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Setting the Templates is completely optional. xPDO provides you with some basic templates that will work fine.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
@@ -86,64 +58,54 @@ By default, xPDO provides you with default class and map templates. For the purp
 To do so, we'll just override the variables in the $generator object:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $generator-&gt;classTemplate= &lt;&lt;&lt;EOD
 &lt;?php
 /**
- * [+phpdoc-<span class="code-keyword">package</span>+]
+ * [+phpdoc-package+]
  */
-class [+class+] <span class="code-keyword">extends</span> [+<span class="code-keyword">extends</span>+] {}
+class [+class+] extends [+extends+] {}
 ?&gt;
 EOD;
 $generator-&gt;platformTemplate= &lt;&lt;&lt;EOD
 &lt;?php
 /**
- * [+phpdoc-<span class="code-keyword">package</span>+]
+ * [+phpdoc-package+]
  */
 require_once (strtr(realpath(dirname(dirname(__FILE__))), '\\\\', '/') . '/[+class-lowercase+].class.php');
-class [+class+]_[+platform+] <span class="code-keyword">extends</span> [+class+] {}
+class [+class+]_[+platform+] extends [+class+] {}
 ?&gt;
 EOD;
 $generator-&gt;mapHeader= &lt;&lt;&lt;EOD
 &lt;?php
 /**
- * [+phpdoc-<span class="code-keyword">package</span>+]
+ * [+phpdoc-package+]
  */
 EOD;
 </pre>
-</div>
-</div>
-
 <p>
 Note the [<ins>phpdoc-package</ins>] tag that we've built. This is taken from our "model" tag's attribute we defined earlier in the schema. These templates will provide us with the base for our class and map files, with PHPDoc comments.
 </p>
 
-<h2>
-<a name="GeneratingtheModelCode-GeneratingtheFiles"></a>Generating the Files
+<h2 id="GeneratingtheModelCode-GeneratingtheFiles">
+Generating the Files
 </h2>
 
 <p>
 And finally, we want to actually parse this into a file:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $schema = '/path/to/storefinder.mysql.schema.xml';
 $target = '/path/to/storefinder/model/';
 $generator-&gt;parseSchema($schema,$target);
 </pre>
-</div>
-</div>
-
 <p>
 This block of code executes the schema parsing method, and then outputs the total time the script took to execute. Run it, and viola! Our model/ directory now has a storefinder/ subdirectory, which is filled with all of our map and class files.
 </p>
 
-<h2>
-<a name="GeneratingtheModelCode-Conclusion"></a>Conclusion
+<h2 id="GeneratingtheModelCode-Conclusion">
+Conclusion
 </h2>
 
 <p>

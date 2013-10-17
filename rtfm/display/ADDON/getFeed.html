@@ -1,65 +1,55 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
 <div>
 <ul>
 <li>
-<a href='#getFeed-WhatisgetFeed%3F'>What is getFeed?</a>
+<a href="#getFeed-WhatisgetFeed%3F">What is getFeed?</a>
 </li>
 
 <li>
-<a href='#getFeed-Requirements'>Requirements</a>
+<a href="#getFeed-Requirements">Requirements</a>
 </li>
 
 <li>
-<a href='#getFeed-History'>History</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#getFeed-History">History</a>
 <ul>
 <li>
-<a href='#getFeed-Download'>Download</a>
+<a href="#getFeed-Download">Download</a>
 </li>
 
 <li>
-<a href='#getFeed-DevelopmentandBugReporting'>Development and Bug Reporting</a>
+<a href="#getFeed-DevelopmentandBugReporting">Development and Bug Reporting</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#getFeed-Usage'>Usage</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#getFeed-Usage">Usage</a>
 <ul>
 <li>
-<a href='#getFeed-AvailableProperties'>Available Properties</a>
+<a href="#getFeed-AvailableProperties">Available Properties</a>
 </li>
 
 <li>
-<a href='#getFeed-ChunkPlaceholders'>Chunk Placeholders</a>
+<a href="#getFeed-ChunkPlaceholders">Chunk Placeholders</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href='#getFeed-Examples'>Examples</a>
+<a href="#getFeed-Examples">Examples</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="getFeed-WhatisgetFeed%3F"></a>What is getFeed?
+<h2 id="getFeed-WhatisgetFeed?">
+What is getFeed?
 </h2>
 
 <p>
 A simple snippet to retrieve an RSS feed and iterate the feed items using a Chunk.
 </p>
 
-<h2>
-<a name="getFeed-Requirements" id="getFeed-Requirements"></a>Requirements
+<h2 id="getFeed-Requirements">
+Requirements
 </h2>
 
 <ul>
@@ -70,146 +60,139 @@ A simple snippet to retrieve an RSS feed and iterate the feed items using a Chun
 </li>
 </ul>
 
-<h2>
-<a name="getFeed-History" id="getFeed-History"></a>History
+<h2 id="getFeed-History">
+History
 </h2>
 
 <p>
 getFeed was written by <a href="/display/~opengeek" class="confluence-userlink" data-username="opengeek">Jason Coward</a> as a simple feed reading component, and first released on June 11th, 2010.
 </p>
 
-<h3>
-<a name="getFeed-Download" id="getFeed-Download"></a>Download
+<h3 id="getFeed-Download">
+Download
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via <span class="error">[Package Management]</span>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/690" class="external-link" rel="nofollow">http://modxcms.com/extras/package/690</a>
+It can be downloaded from within the MODx Revolution manager via <span class="error">[Package Management]</span>, or from the MODx Extras Repository, here: <a href="http://modxcms.com/extras/package/690">http://modxcms.com/extras/package/690</a>
 </p>
 
-<h3>
-<a name="getFeed-DevelopmentandBugReporting" id="getFeed-DevelopmentandBugReporting"></a>Development and Bug Reporting
+<h3 id="getFeed-DevelopmentandBugReporting">
+Development and Bug Reporting
 </h3>
 
 <p>
-getFeed is stored and developed in GitHub, and can be found here:<a href="http://github.com/splittingred/getFeed" class="external-link" rel="nofollow">http://github.com/splittingred/getFeed</a>
+getFeed is stored and developed in GitHub, and can be found here:<a href="http://github.com/splittingred/getFeed">http://github.com/splittingred/getFeed</a>
 </p>
 
 <p>
-Bugs can be filed here: <a href="http://github.com/splittingred/getFeed/issues" class="external-link" rel="nofollow">http://github.com/splittingred/getFeed/issues</a>
+Bugs can be filed here: <a href="http://github.com/splittingred/getFeed/issues">http://github.com/splittingred/getFeed/issues</a>
 </p>
 
-<h2>
-<a name="getFeed-Usage" id="getFeed-Usage"></a>Usage
+<h2 id="getFeed-Usage">
+Usage
 </h2>
 
 <p>
 getFeed is used by placing the Snippet call into your content and passing a 'url' parameter:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getFeed? &amp;url=`http:<span class="code-comment">//path.com/to/my/rss.feed.rss`]]</span>
+<pre class="brush: php">
+[[!getFeed? &amp;url=`http://path.com/to/my/rss.feed.rss`]]
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="getFeed-AvailableProperties" id="getFeed-AvailableProperties"></a>Available Properties
+<h3 id="getFeed-AvailableProperties">
+Available Properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 url
 </td>
-<td class='confluenceTd'>
+<td>
 URL of the feed to retrieve.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a chunk to serve as an item tpl. If blank, will output the placeholders as arrays.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
 </td>
-<td class='confluenceTd'>
+<td>
 Limit the number of items to return; 0 is no limit.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 offset
 </td>
-<td class='confluenceTd'>
+<td>
 The zero-based index of the item to start at in the feed results.
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 totalVar
 </td>
-<td class='confluenceTd'>
+<td>
 The name of a placeholder where the total number of items in the feed is stored. For getPage compatibility.
 </td>
-<td class='confluenceTd'>
+<td>
 total
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will set the output to this placeholder name. If not set, will output directly the results.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h3>
-<a name="getFeed-ChunkPlaceholders" id="getFeed-ChunkPlaceholders"></a>Chunk Placeholders
+<h3 id="getFeed-ChunkPlaceholders">
+Chunk Placeholders
 </h3>
 
 <p>
@@ -222,44 +205,44 @@ Some common placeholders are:
 
 <ul>
 <li>
-<b>title</b> - The title of the post.
+<strong>title</strong> - The title of the post.
 </li>
 
 <li>
-<b>link</b> - A direct link to the post.
+<strong>link</strong> - A direct link to the post.
 </li>
 
 <li>
-<b>description</b> - The description of the post.
+<strong>description</strong> - The description of the post.
 </li>
 
 <li>
-<b>pubdate</b> - The date the post was published.
+<strong>pubdate</strong> - The date the post was published.
 </li>
 
 <li>
-<b>guid</b> - The GUID of the post.
+<strong>guid</strong> - The GUID of the post.
 </li>
 
 <li>
-<b>author</b> - The name of the author of the post.
+<strong>author</strong> - The name of the author of the post.
 </li>
 
 <li>
-<b>category</b> - Any tags or category associations the post has.
+<strong>category</strong> - Any tags or category associations the post has.
 </li>
 
 <li>
-<b>summary</b> - A short summary of the post.
+<strong>summary</strong> - A short summary of the post.
 </li>
 
 <li>
-<b>date_timestamp</b> - The timestamp of the post.
+<strong>date_timestamp</strong> - The timestamp of the post.
 </li>
 </ul>
 
-<h2>
-<a name="getFeed-Examples" id="getFeed-Examples"></a>Examples
+<h2 id="getFeed-Examples">
+Examples
 </h2>
 
 <ul>

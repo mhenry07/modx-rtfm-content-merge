@@ -1,210 +1,198 @@
-<h2>
-<a name="sekSiteTools.printdiv-Whatisprintdiv%3F"></a>What is printdiv?
+<h2 id="sekSiteTools.printdiv-Whatisprintdiv?">
+What is printdiv?
 </h2>
 
 <p>
 Printdiv will copy the content of the specified div into a popup window that will then open a print dialog box to print a "printer friendly version" of the content. After the print job is sent to the printer the popup window will automatically close.
 </p>
 
-<h2>
-<a name="sekSiteTools.printdiv-Usage" id="sekSiteTools.printdiv-Usage"></a>Usage
+<h2 id="sekSiteTools.printdiv-Usage">
+Usage
 </h2>
 
 <p>
 Example for printdiv:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[printdiv? &amp;divID=`test` &amp;linkText=`link`]]
-&lt;div id=<span class="code-quote">"test"</span>&gt;test data&lt;/div&gt;
+&lt;div id="test"&gt;test data&lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 You can also specify the width and height of the popup:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[printdiv? &amp;divID=`test` &amp;linkText=`link` &amp;width=`200` &amp;height=`300`]]
-&lt;div id=<span class="code-quote">"test"</span>&gt;test data&lt;/div&gt;
+&lt;div id="test"&gt;test data&lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 See the snippet properties for more options.
 </p>
 
-<h2>
-<a name="sekSiteTools.printdiv-Properties" id="sekSiteTools.printdiv-Properties"></a>Properties
+<h2 id="sekSiteTools.printdiv-Properties">
+Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Required
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Version
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 divID
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the div content to be copied into the popup window to be printed.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-<br class="atl-forced-newline" />
+<td>
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 linkText
 </td>
-<td class='confluenceTd'>
+<td>
 Text that will be displayed as a link to the printer friendly pop up.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 Yes
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplPrintDiv
 </td>
-<td class='confluenceTd'>
+<td>
 The template that creates the link to the popup window
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 printdiv
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tplJs
 </td>
-<td class='confluenceTd'>
+<td>
 The template that holds the javascript that creates the pop up starts the printing process.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 printdiv.js
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 width
 </td>
-<td class='confluenceTd'>
+<td>
 Width of the pop up window.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 100
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 height
 </td>
-<td class='confluenceTd'>
+<td>
 Height of the pop up window.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 100
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cssFile
 </td>
-<td class='confluenceTd'>
+<td>
 Specify the location of the css file to use.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &gt;0.0.1
 </td>
 </tr>
 </tbody>
 </table>
-</div>

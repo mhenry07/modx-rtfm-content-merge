@@ -1,233 +1,227 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="tagLister.tolinks-tolinksSnippet"></a>tolinks Snippet
+<h2 id="tagLister.tolinks-tolinksSnippet">
+tolinks Snippet
 </h2>
 
 <p>
-Converts a delimited list into a list of linkable tags: typically, this would be used on a page that has been tagged with various taxonomical tags and you want to link to other pages that have been tagged by those same tags. For an example, see <a href="http://modxcms.com/forums/index.php/topic,61744.0/topicseen.html" class="external-link" rel="nofollow">http://modxcms.com/forums/index.php/topic,61744.0/topicseen.html</a>
+Converts a delimited list into a list of linkable tags: typically, this would be used on a page that has been tagged with various taxonomical tags and you want to link to other pages that have been tagged by those same tags. For an example, see <a href="http://modxcms.com/forums/index.php/topic,61744.0/topicseen.html">http://modxcms.com/forums/index.php/topic,61744.0/topicseen.html</a>
 </p>
 
-<h2>
-<a name="tagLister.tolinks-Usage"></a>Usage
+<h2 id="tagLister.tolinks-Usage">
+Usage
 </h2>
 
 <p>
 tolinks is called with the normal snippet tag, passing in an 'items' property as the list of items to convert; a 'target' property for the Resource to generate links to; and a 'key' property for the name of the GET param being generated on each link.
 </p>
 
-<h2>
-<a name="tagLister.tolinks-Properties"></a>Properties
+<h2 id="tagLister.tolinks-Properties">
+Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Example usage
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 items
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;items=`[[*myTemplateVar]]`
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The items to turn into links.
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tpl
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tpl=`linkTpl`
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a Chunk that will be used for each result.
 </td>
-<td class='confluenceTd'>
+<td>
 link
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 target
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;target=`6`
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 The ID of the Resource that links will point to.
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 inputDelim
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;inputDelim=`,`
 </td>
-<td class='confluenceTd'>
+<td>
 The delimiter that is used on the items property. Defaults to a comma.
 </td>
-<td class='confluenceTd'>
+<td>
 ,
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 outputDelim
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;outputDelim=`,`
 </td>
-<td class='confluenceTd'>
+<td>
 The delimiter that separates the links that are outputted. Defaults to a comma.
 </td>
-<td class='confluenceTd'>
+<td>
 ,
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tagRequestParam
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tagRequestParam=`tag`
 </td>
-<td class='confluenceTd'>
+<td>
 The REQUEST var key that will be used in generating the links.
 </td>
-<td class='confluenceTd'>
+<td>
 tag
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cls
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;cls=`tagStyle`
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Name of a CSS class to add to each result.
 </td>
-<td class='confluenceTd'>
+<td>
 tl-tag
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 toPlaceholder
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;toPlaceholder=`placeholderName`
 </td>
-<td class='confluenceTd'>
+<td>
 If set, will set the output of this snippet to this placeholder rather than output it.
 </td>
-<td class='confluenceTd'>
+<td>
 false
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 useTagsFurl
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;useTagsFurl=`1`
 </td>
-<td class='confluenceTd'>
+<td>
 Is set to 1, this will force full links to each tag.
 </td>
-<td class='confluenceTd'>
+<td>
 false
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tagKey
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tagKey=`articlestags`
 </td>
-<td class='confluenceTd'>
+<td>
 tag group name, used in generating links
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 tags
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tagKeyVar
 </td>
-<td class='confluenceTd'>
+<td>
 &amp;tagKeyVar-`MyCustomVar`
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 sets the GET var key
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 I.e.,
-<br class="atl-forced-newline" />
+<br />
 [[tolinks? &amp;tagKey=`articlestags` &amp;tagKeyVar=`MyCustomVar`]]
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
-outputs <a href="http://f.qdn.com/somepage?MyCustomVar=articlestags&amp;tag=theTag/" class="external-link" rel="nofollow">http://f.qdn.com/somepage?MyCustomVar=articlestags&amp;tag=theTag\\</a>
+<br />
+<br />
+outputs <a href="http://f.qdn.com/somepage?MyCustomVar=articlestags&amp;tag=theTag%5C">http://f.qdn.com/somepage?MyCustomVar=articlestags&amp;tag=theTag\\</a>
 </td>
-<td class='confluenceTd'>
+<td>
 key
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="tagLister.tolinks-tolinksChunks"></a>tolinks Chunks
+<h2 id="tagLister.tolinks-tolinksChunks">
+tolinks Chunks
 </h2>
 
 <p>
@@ -240,56 +234,35 @@ There is 1 chunk that is processed in tolinks. Its corresponding parameters are:
 </li>
 </ul>
 
-<h2>
-<a name="tagLister.tolinks-Examples"></a>Examples
+<h2 id="tagLister.tolinks-Examples">
+Examples
 </h2>
 
 <p>
 Change the TV value of 'tags' into links that point to the URL of Resource 123 with the GET param of 'tag':
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!tolinks? &amp;items=`[[*tags]]` &amp;key=`tag` &amp;target=`123`]]
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='warningMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Be Careful</b>
+<div class="warning">
+<strong>Be Careful</strong>
 <br />
-<b>toLinks</b> will generate <em>relative</em> URLs to the resource indicated by the <b>&amp;target</b> parameter, so if you are having trouble getting the links to point to the correct URL, add a Chunk containing something like the following for use by the <b>&amp;tpl</b> parameter:
+<strong>toLinks</strong> will generate <em>relative</em> URLs to the resource indicated by the <strong>&amp;target</strong> parameter, so if you are having trouble getting the links to point to the correct URL, add a Chunk containing something like the following for use by the <strong>&amp;tpl</strong> parameter:
 <p>
 &lt;a href="[[++site_url]][[+url]]" class="[[+cls]]"&gt;[[+item]]&lt;/a&gt;
 </p>
 
 <p>
-Alternatively, set the <b>&amp;useTagsFurl</b> property.
+Alternatively, set the <strong>&amp;useTagsFurl</strong> property.
 </p>
-</td>
-</tr>
-</table>
 </div>
 
 <p>
-The resource ID referenced by the <b>&amp;target</b> parameter should contain something like the following that lists the posts tagged:
+The resource ID referenced by the <strong>&amp;target</strong> parameter should contain something like the following that lists the posts tagged:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getResourcesTag?
  &amp;element=`getResources`
  &amp;elementClass=`modSnippet`
@@ -303,23 +276,34 @@ The resource ID referenced by the <b>&amp;target</b> parameter should contain so
     [[!+page.nav]]
  `]]
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="tagLister.tolinks-SeeAlso"></a>See Also
+<h2 id="tagLister.tolinks-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/tagLister.getResourcesTag">tagLister.getResourcesTag</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="18677810" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="16646398" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FtagLister.tolinks" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="16646398" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/tagLister.tagLister">tagLister.tagLister</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/tagLister.tagLister.all">tagLister.tagLister.all</a>
+</li>
+
+<li>
+<a href="/display/ADDON/tagLister.tagLister.tpl">tagLister.tagLister.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/tagLister.tolinks">tagLister.tolinks</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/tagLister.tolinks.tpl">tagLister.tolinks.tpl</a>
+</li>
+</ol>
+</li>
+</ol>

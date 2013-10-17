@@ -3,145 +3,119 @@
 </p>
 
 <p>
-getFacebookShares is a <a href="/display/revolution20/Snippets" title="Snippets">snippet</a>, part of SocialSuite, which returns a number indicating the amount of times a certain URL has been <b>shared or commented on</b>&nbsp;using Facebook.
+getFacebookShares is a <a href="/display/revolution20/Snippets" title="Snippets">snippet</a>, part of SocialSuite, which returns a number indicating the amount of times a certain URL has been <strong>shared or commented on</strong>&nbsp;using Facebook.
 </p>
 
-<h2>
-<a name="SocialSuite.getFacebookShares-SnippetProperties" id="SocialSuite.getFacebookShares-SnippetProperties"></a>Snippet Properties
+<h2 id="SocialSuite.getFacebookShares-SnippetProperties">
+Snippet Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Property
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 url
 </td>
-<td class='confluenceTd'>
+<td>
 url of current resource
 </td>
-<td class='confluenceTd'>
+<td>
 The url to find the amount of shares for. Note that this needs to be a full url, so when generating URLs using the&nbsp;[[~]] syntax, make sure to add &amp;scheme=`full`, like this:&nbsp;
-<br class="atl-forced-newline" />
+<br />
 [[~15? &amp;scheme=`full`]]
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cache
 </td>
-<td class='confluenceTd'>
+<td>
 true
 </td>
-<td class='confluenceTd'>
+<td>
 If the result should be cached or not, on by default. Set to 0 to disable (not advised).
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cacheExpires
 </td>
-<td class='confluenceTd'>
+<td>
 3600
 </td>
-<td class='confluenceTd'>
+<td>
 Time (in seconds) the cache is considered valid, and new data is retrieved from facebook.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 node
 </td>
-<td class='confluenceTd'>
+<td>
 shares
 </td>
-<td class='confluenceTd'>
+<td>
 Change to "comments" to get a count of comments for the specific url, usually only available if you have a facebook comment widget on that page, note that this only seems to count root-level comments (so not replies to comments). You can also set this to "id" to see the url that Facebook is checking for.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="SocialSuite.getFacebookShares-ExampleUsages" id="SocialSuite.getFacebookShares-ExampleUsages"></a>Example Usages
+<h2 id="SocialSuite.getFacebookShares-ExampleUsages">
+Example Usages
 </h2>
 
 <p>
 Get the the amount of shares for the current resource:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getFacebookShares]]
 </pre>
-</div>
-</div>
-
 <p>
 Get the amount of facebook comments for the current resource:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!getFacebookShares? &amp;node=`comments`]]
 </pre>
-</div>
-</div>
-
 <p>
 Get the amount of facebook comments for a resource in a getResources tpl:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Comments: [[!getFacebookShares? &amp;node=`comments` &amp;url=`[[~[[+id]]? &amp;scheme=`full`]]`]]
 </pre>
-</div>
-</div>
-
 <p>
 Get the amount of shares for the url "http://google.com/" and format it nicely using the prettyNumbers output filter that comes with SocialSuite:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-[[!getFacebookShares:prettyNumbers? &amp;url=`http:<span class="code-comment">//google.com/`]]</span>
+<pre class="brush: php">
+[[!getFacebookShares:prettyNumbers? &amp;url=`http://google.com/`]]
 </pre>
-</div>
-</div>
-
 <p>
 Run this snippet inside another snippet to get counts of a specific url:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
-$url = 'http:<span class="code-comment">//google.com/';
-</span>$shares = $modx-&gt;runSnippet('getFacebookShares', array('url' =&gt; $url));
-<span class="code-keyword">return</span> <span class="code-quote">"The url {$url} has been shared {$shares} times on Facebook."</span>;
+$url = 'http://google.com/';
+$shares = $modx-&gt;runSnippet('getFacebookShares', array('url' =&gt; $url));
+return "The url {$url} has been shared {$shares} times on Facebook.";
 </pre>
-</div>
-</div>

@@ -1,23 +1,17 @@
 <div>
 <ul>
 <li>
-<a href='#FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingSelects%2CCheckboxesandRadios'>Handling Selects, Checkboxes and Radios</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingSelects%2CCheckboxesandRadios">Handling Selects, Checkboxes and Radios</a>
 <ul>
 <li>
-<a href='#FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingSelectFields'>Handling Select Fields</a>
+<a href="#FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingSelectFields">Handling Select Fields</a>
 </li>
 
 <li>
-<a href='#FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingCheckboxesandRadios'>Handling Checkboxes and Radios</a>
-</li>
-
-<li style="list-style: none; display: inline">
+<a href="#FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingCheckboxesandRadios">Handling Checkboxes and Radios</a>
 <ul>
 <li>
-<a href='#FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingRequiredonCheckboxes'>Handling Required on Checkboxes</a>
+<a href="#FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingRequiredonCheckboxes">Handling Required on Checkboxes</a>
 </li>
 </ul>
 </li>
@@ -25,48 +19,43 @@
 </li>
 
 <li>
-<a href='#FormIt.HandlingSelects%2CCheckboxesandRadios-SeeAlso'>See Also</a>
+<a href="#FormIt.HandlingSelects%2CCheckboxesandRadios-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingSelects%2CCheckboxesandRadios"></a>Handling Selects, Checkboxes and Radios
+<h2 id="FormIt.HandlingSelects,CheckboxesandRadios-HandlingSelects,CheckboxesandRadios">
+Handling Selects, Checkboxes and Radios
 </h2>
 
 <p>
 While FormIt can handle any type of field, special directions are required for selects, radios and checkboxes due to their value nature.
 </p>
 
-<h3>
-<a name="FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingSelectFields"></a>Handling Select Fields
+<h3 id="FormIt.HandlingSelects,CheckboxesandRadios-HandlingSelectFields">
+Handling Select Fields
 </h3>
 
 <p>
 FormIt provides a utility snippet, called FormItIsSelected, which can be used as an <a href="/display/revolution20/Input+and+Output+Filters+%28Output+Modifiers%29" title="Input and Output Filters (Output Modifiers)">Output Filter</a> to handle the selected="selected" part of the option. Example:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;select name=<span class="code-quote">"color"</span>&gt;
-   &lt;option value=<span class="code-quote">"blue"</span> [[!+fi.color:FormItIsSelected=`blue`]] &gt;Blue&lt;/option&gt;
-   &lt;option value=<span class="code-quote">"red"</span> [[!+fi.color:FormItIsSelected=`red`]] &gt;Red&lt;/option&gt;
-   &lt;option value=<span class="code-quote">"green"</span> [[!+fi.color:FormItIsSelected=`green`]] &gt;Green&lt;/option&gt;
+<pre class="brush: php">
+&lt;select name="color"&gt;
+   &lt;option value="blue" [[!+fi.color:FormItIsSelected=`blue`]] &gt;Blue&lt;/option&gt;
+   &lt;option value="red" [[!+fi.color:FormItIsSelected=`red`]] &gt;Red&lt;/option&gt;
+   &lt;option value="green" [[!+fi.color:FormItIsSelected=`green`]] &gt;Green&lt;/option&gt;
 
    &lt;!-- This would also work --&gt;
-   &lt;option value=<span class="code-quote">"yellow"</span> [[!+fi.color:is=`yellow`:then=`selected`]]&gt;Yellow&lt;/option&gt;
+   &lt;option value="yellow" [[!+fi.color:is=`yellow`:then=`selected`]]&gt;Yellow&lt;/option&gt;
 &lt;/select&gt;
 </pre>
-</div>
-</div>
-
 <p>
 This will automatically handle the "selected" part of the option field, persisting it through validation and error handling.
 </p>
 
-<h3>
-<a name="FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingCheckboxesandRadios"></a>Handling Checkboxes and Radios
+<h3 id="FormIt.HandlingSelects,CheckboxesandRadios-HandlingCheckboxesandRadios">
+Handling Checkboxes and Radios
 </h3>
 
 <p>
@@ -77,61 +66,55 @@ Handling checkboxes and radios is very similar to handling selects, with the onl
 This example will handle checkboxes, persisting their values:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;label&gt;Color: [[!+fi.error.color]]&lt;/label&gt;
-&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"color[]"</span> value=<span class="code-quote">"blue"</span> [[!+fi.color:FormItIsChecked=`blue`]] &gt; Blue 
-&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"color[]"</span> value=<span class="code-quote">"red"</span> [[!+fi.color:FormItIsChecked=`red`]] &gt; Red 
-&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"color[]"</span> value=<span class="code-quote">"green"</span> [[!+fi.color:FormItIsChecked=`green`]] &gt; Green 
+&lt;input type="checkbox" name="color[]" value="blue" [[!+fi.color:FormItIsChecked=`blue`]] &gt; Blue 
+&lt;input type="checkbox" name="color[]" value="red" [[!+fi.color:FormItIsChecked=`red`]] &gt; Red 
+&lt;input type="checkbox" name="color[]" value="green" [[!+fi.color:FormItIsChecked=`green`]] &gt; Green 
 </pre>
-</div>
-</div>
-
 <p>
 Note that the [] is stripped when setting the "fi.error.color" placeholder.
 </p>
 
-<h4>
-<a name="FormIt.HandlingSelects%2CCheckboxesandRadios-HandlingRequiredonCheckboxes"></a>Handling Required on Checkboxes
+<h4 id="FormIt.HandlingSelects,CheckboxesandRadios-HandlingRequiredonCheckboxes">
+Handling Required on Checkboxes
 </h4>
 
 <p>
 Since HTML does not send a value if a checkbox is not checked, handling the "required" validation on a checkbox can be tricky. You'll need to add a "hidden" field before so that at least an empty value is sent:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[!FormIt? &amp;validate=`color:required`]]
 ...
 &lt;label&gt;Color: [[!+fi.error.color]]&lt;/label&gt;
-&lt;input type=<span class="code-quote">"hidden"</span> name=<span class="code-quote">"color[]"</span> value="" /&gt;
-&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"color[]"</span> value=<span class="code-quote">"blue"</span> [[!+fi.color:FormItIsChecked=`blue`]] &gt; Blue 
-&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"color[]"</span> value=<span class="code-quote">"red"</span> [[!+fi.color:FormItIsChecked=`red`]] &gt; Red 
-&lt;input type=<span class="code-quote">"checkbox"</span> name=<span class="code-quote">"color[]"</span> value=<span class="code-quote">"green"</span> [[!+fi.color:FormItIsChecked=`green`]] &gt; Green 
+&lt;input type="hidden" name="color[]" value="" /&gt;
+&lt;input type="checkbox" name="color[]" value="blue" [[!+fi.color:FormItIsChecked=`blue`]] &gt; Blue 
+&lt;input type="checkbox" name="color[]" value="red" [[!+fi.color:FormItIsChecked=`red`]] &gt; Red 
+&lt;input type="checkbox" name="color[]" value="green" [[!+fi.color:FormItIsChecked=`green`]] &gt; Green 
 </pre>
-</div>
-</div>
-
 <p>
 This will successfully check to make sure at least one checkbox was selected when submitting the form.
 </p>
 
-<h2>
-<a name="FormIt.HandlingSelects%2CCheckboxesandRadios-SeeAlso"></a>See Also
+<h2 id="FormIt.HandlingSelects,CheckboxesandRadios-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/FormIt.Examples.Custom+Hook">FormIt.Examples.Custom Hook</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="33227107" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="33227098" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FFormIt.Handling%2BSelects%2C%2BCheckboxes%2Band%2BRadios" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="33227098" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/FormIt.Examples.Simple+Contact+Page">FormIt.Examples.Simple Contact Page</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Handling+Selects%2C+Checkboxes+and+Radios">FormIt.Handling Selects, Checkboxes and Radios</a>
+</li>
+
+<li>
+<a href="/display/ADDON/FormIt.Using+a+Blank+NoSpam+Field">FormIt.Using a Blank NoSpam Field</a>
+</li>
+</ol>

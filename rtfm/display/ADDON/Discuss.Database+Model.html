@@ -3,620 +3,614 @@ The Discuss xPDO model can be viewed on Github. This page highlights the most im
 </p>
 
 <p>
-<a href="https://github.com/modxcms/Discuss/blob/develop/_build/schema/discuss.mysql.schema.xml" class="external-link" rel="nofollow">View the entire (XML xPDO) schema on Github</a>.&nbsp;
+<a href="https://github.com/modxcms/Discuss/blob/develop/_build/schema/discuss.mysql.schema.xml">View the entire (XML xPDO) schema on Github</a>.&nbsp;
 </p>
 
 <div>
 <ul>
 <li>
-<a href='#Discuss.DatabaseModel-disCategoryCategories'>disCategory - Categories</a>
+<a href="#Discuss.DatabaseModel-disCategoryCategories">disCategory - Categories</a>
 </li>
 
 <li>
-<a href='#Discuss.DatabaseModel-disBoardBoards'>disBoard - Boards</a>
+<a href="#Discuss.DatabaseModel-disBoardBoards">disBoard - Boards</a>
 </li>
 
 <li>
-<a href='#Discuss.DatabaseModel-disThreadThreads'>disThread - Threads</a>
+<a href="#Discuss.DatabaseModel-disThreadThreads">disThread - Threads</a>
 </li>
 
 <li>
-<a href='#Discuss.DatabaseModel-disPostPosts'>disPost - Posts</a>
+<a href="#Discuss.DatabaseModel-disPostPosts">disPost - Posts</a>
 </li>
 
 <li>
-<a href='#Discuss.DatabaseModel-disPostAttachmentAttachments'>disPostAttachment - Attachments</a>
+<a href="#Discuss.DatabaseModel-disPostAttachmentAttachments">disPostAttachment - Attachments</a>
 </li>
 
 <li>
-<a href='#Discuss.DatabaseModel-disUserUsers'>disUser - Users</a>
+<a href="#Discuss.DatabaseModel-disUserUsers">disUser - Users</a>
 </li>
 </ul>
 </div>
 
-<h2>
-<a name="Discuss.DatabaseModel-disCategoryCategories" id="Discuss.DatabaseModel-disCategoryCategories"></a>disCategory - Categories
+<h2 id="Discuss.DatabaseModel-disCategoryCategories">
+disCategory - Categories
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Field
 </th>
-<th class='confluenceTh'>
+<th>
 Type (length)
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 Name of the category
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 description
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 Description of the category
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 collapsible
 </td>
-<td class='confluenceTd'>
+<td>
 bool (1|0)
 </td>
-<td class='confluenceTd'>
+<td>
 If the category should be allowed to be collapsible or not.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rank
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Sort order for categories
-<br class="atl-forced-newline" />
-<br class="atl-forced-newline" />
+<br />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 default_moderators
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 default_usergroups
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 integrated_id
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Old ID for when data has been imported.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Discuss.DatabaseModel-disBoardBoards" id="Discuss.DatabaseModel-disBoardBoards"></a>disBoard - Boards
+<h2 id="Discuss.DatabaseModel-disBoardBoards">
+disBoard - Boards
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Fieldname
 </th>
-<th class='confluenceTh'>
+<th>
 Type (length)
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 id
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 category
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the category (disCategory) this board belongs to
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parent
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the board this board is a child off
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 Name of the board
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 description
 </td>
-<td class='confluenceTd'>
+<td>
 text
 </td>
-<td class='confluenceTd'>
+<td>
 Description of the board. Can probably contain HTML.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 last_post
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the last post in this board.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 num_topics
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Number of topics that exist in this board.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 num_replies
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Number of the replies that exist in this board.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 total_posts
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Number of posts that exist in this board.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ignorable
 </td>
-<td class='confluenceTd'>
+<td>
 boolean (1|0)
 </td>
-<td class='confluenceTd'>
+<td>
 Wether this board can be ignored by users or not.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rank
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Sort order for boards.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 map
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 ??
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 minimum_post_level
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ?? all, member, moderator or administrator? 0/1/2/3?
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 status
 </td>
-<td class='confluenceTd'>
+<td>
 integer (4)
 </td>
-<td class='confluenceTd'>
+<td>
 Status of the board (active, inactive or archived)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 locked
 </td>
-<td class='confluenceTd'>
+<td>
 boolean (1|0)
 </td>
-<td class='confluenceTd'>
+<td>
 Wether this board is locked for posts or not.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 integrated_id
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ??
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rtl
 </td>
-<td class='confluenceTd'>
+<td>
 boolean (1|0)
 </td>
-<td class='confluenceTd'>
+<td>
 Wether this board should use right to left formatting or not.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Discuss.DatabaseModel-disThreadThreads" id="Discuss.DatabaseModel-disThreadThreads"></a>disThread - Threads
+<h2 id="Discuss.DatabaseModel-disThreadThreads">
+disThread - Threads
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Fieldname
 </th>
-<th class='confluenceTh'>
+<th>
 Type (length)
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 id
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 class_key
 </td>
-<td class='confluenceTd'>
+<td>
 string (120)
 </td>
-<td class='confluenceTd'>
+<td>
 The type of thread, defaults to disThreadDiscussion
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 board
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the board this thread lives in
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 title
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 Name of the board
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 post_first
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the first post in the thread (also the parent for threaded posts)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 post_last
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the last post in the thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 post_last_on
 </td>
-<td class='confluenceTd'>
+<td>
 integer (11)
 </td>
-<td class='confluenceTd'>
+<td>
 UNIX timestamp of when the last post was added.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 author_first
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the user that created the first post in the thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 author_last
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the user that created the last post in the thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 replies
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Amount of replies on the thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 views
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Amount of views on the thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 locked
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ?? Should probably be a boolean indicating a locked thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 answered
 </td>
-<td class='confluenceTd'>
+<td>
 boolean (true/false)
 </td>
-<td class='confluenceTd'>
+<td>
 Wether the thread was answered
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sticky
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ?? Should probably be a boolean indicating a stickied thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 private
 </td>
-<td class='confluenceTd'>
+<td>
 boolean (true/false)
 </td>
-<td class='confluenceTd'>
+<td>
 Wether the thread is private or not
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 users
 </td>
-<td class='confluenceTd'>
+<td>
 mediumtext
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of users involved in the thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 last_view_ip
 </td>
-<td class='confluenceTd'>
+<td>
 string (120)
 </td>
-<td class='confluenceTd'>
+<td>
 Last IP that viewed the thread
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 integrated_id
 </td>
-<td class='confluenceTd'>
+<td>
 integer (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ??
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 participants
 </td>
-<td class='confluenceTd'>
+<td>
 text
 </td>
-<td class='confluenceTd'>
+<td>
 similar to users?
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 This class is extended by:
@@ -630,711 +624,705 @@ This class is extended by:
 </li>
 </ul>
 
-<h2>
-<a name="Discuss.DatabaseModel-disPostPosts" id="Discuss.DatabaseModel-disPostPosts"></a>disPost - Posts
+<h2 id="Discuss.DatabaseModel-disPostPosts">
+disPost - Posts
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Field
 </th>
-<th class='confluenceTh'>
+<th>
 Type (length)
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 board
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the disBoard the post is in
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thread
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the disThread the post belongs to
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parent
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the disPost that is the parent of this object. There is always one root post with a parent of 0 which is the first post in the thread, others are threaded and usually referencing the last post on the thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 title
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 Title of the post, usually "Re: &lt;name of thread&gt;" but can be different depending on reply forms.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 message
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 The posts' content.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 author
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the disUser object who authored the post.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 createdon
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 Unix timestamp of the time this post was created
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 editedon
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 Unix timestampe of the time this post was edited (if it was edited, that is)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 editedby
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the disUser object who edited the post.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 icon
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 ?? Unused
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 allow_replies
 </td>
-<td class='confluenceTd'>
+<td>
 bool (1|0)
 </td>
-<td class='confluenceTd'>
+<td>
 Does not seem to be used.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rank
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 Ranking order within thread.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ip
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 IP of the poster
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 integrated_id
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 Used for keeping IDs from imports.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 depth
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Depth of the current post inside the threaded model.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 answer
 </td>
-<td class='confluenceTd'>
+<td>
 bool (1|0)
 </td>
-<td class='confluenceTd'>
+<td>
 Wether this post is marked as an answer or not.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Discuss.DatabaseModel-disPostAttachmentAttachments" id="Discuss.DatabaseModel-disPostAttachmentAttachments"></a>disPostAttachment - Attachments
+<h2 id="Discuss.DatabaseModel-disPostAttachmentAttachments">
+disPostAttachment - Attachments
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Field
 </th>
-<th class='confluenceTh'>
+<th>
 Type (length)
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 post
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the post this attachment was added to
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 board
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the board the post is in
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 filename
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 Name and path to the file
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 createdon
 </td>
-<td class='confluenceTd'>
+<td>
 date
 </td>
-<td class='confluenceTd'>
+<td>
 When the attachment was added
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 filesize
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Size of the attachment.. guess in bytes.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 downloads
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Amount of downloads
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 integrated_id
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the attachment if imported.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 integrated_data
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 Extra data of an attachment import
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="Discuss.DatabaseModel-disUserUsers" id="Discuss.DatabaseModel-disUserUsers"></a>disUser - Users
+<h2 id="Discuss.DatabaseModel-disUserUsers">
+disUser - Users
 </h2>
 
 <p>
 In sso mode this is automatically synced with your MODX users (modUser).
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Field
 </th>
-<th class='confluenceTh'>
+<th>
 Type (length)
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 user
 </td>
-<td class='confluenceTd'>
+<td>
 int
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the modUser account this user belongs to.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 username
 </td>
-<td class='confluenceTd'>
+<td>
 string (120)
 </td>
-<td class='confluenceTd'>
+<td>
 Username of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 password
 </td>
-<td class='confluenceTd'>
+<td>
 string (120)
 </td>
-<td class='confluenceTd'>
+<td>
 Password of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 email
 </td>
-<td class='confluenceTd'>
+<td>
 string (200)
 </td>
-<td class='confluenceTd'>
+<td>
 Email of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ip
 </td>
-<td class='confluenceTd'>
+<td>
 string (120)
 </td>
-<td class='confluenceTd'>
+<td>
 The IP last used to login to this account.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 createdon
 </td>
-<td class='confluenceTd'>
+<td>
 date string
 </td>
-<td class='confluenceTd'>
+<td>
 The time this user was created (registered / imported)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name_first
 </td>
-<td class='confluenceTd'>
+<td>
 string (100)
 </td>
-<td class='confluenceTd'>
+<td>
 First name of the user
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name_last
 </td>
-<td class='confluenceTd'>
+<td>
 string (100)
 </td>
-<td class='confluenceTd'>
+<td>
 Last name of the user
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 gender
 </td>
-<td class='confluenceTd'>
+<td>
 string (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Gender of the user
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 birthdate
 </td>
-<td class='confluenceTd'>
+<td>
 date string
 </td>
-<td class='confluenceTd'>
+<td>
 The date the user was born
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 website
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 website of the user
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 location
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 Location the user lives
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 status
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Status of the user, one of the following: 0 (INACTIVE), 1 (ACTIVE), 2 (UNCONFIRMED), 3 (BANNED), 4 (AWAITING_MODERATION). Use the Discuss::STATUS_NAME constants when referencing in code.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 confirmed
 </td>
-<td class='confluenceTd'>
+<td>
 bool (1|0)
 </td>
-<td class='confluenceTd'>
+<td>
 If the user is confirmed.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 confirmedon
 </td>
-<td class='confluenceTd'>
+<td>
 date
 </td>
-<td class='confluenceTd'>
+<td>
 When the user was confirmed
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 last_login
 </td>
-<td class='confluenceTd'>
+<td>
 date
 </td>
-<td class='confluenceTd'>
+<td>
 When the user last logged in to the forums
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 last_active
 </td>
-<td class='confluenceTd'>
+<td>
 date
 </td>
-<td class='confluenceTd'>
+<td>
 When the user was last active in the forums
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 ignore_boards
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of boards the user wants to ignore.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 signature
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 Signature of the user.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 title
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 Title.
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 avatar
 </td>
-<td class='confluenceTd'>
+<td>
 string
 </td>
-<td class='confluenceTd'>
+<td>
 Link to avatar
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 avatar_service
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 Name/reference to service used for avatar (gravatar by default)
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 thread_last_visited
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 ID of the thread the user last visited
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 synced
 </td>
-<td class='confluenceTd'>
+<td>
 bool (1|0)
 </td>
-<td class='confluenceTd'>
+<td>
 If the user was synced with the modUser table (or other custom data source).
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 syncedat
 </td>
-<td class='confluenceTd'>
+<td>
 date
 </td>
-<td class='confluenceTd'>
+<td>
 When the user was last synced
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 salt
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 user salt
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 integrated_Id
 </td>
-<td class='confluenceTd'>
+<td>
 int (10)
 </td>
-<td class='confluenceTd'>
+<td>
 Old storage of IDs for importing
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 display_name
 </td>
-<td class='confluenceTd'>
+<td>
 string (255)
 </td>
-<td class='confluenceTd'>
+<td>
 Name the user entered to be used for display
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 use_display_name
 </td>
-<td class='confluenceTd'>
+<td>
 bool (1|0)
 </td>
-<td class='confluenceTd'>
+<td>
 If the display name needs to be used, or if the username should be shown.
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 .

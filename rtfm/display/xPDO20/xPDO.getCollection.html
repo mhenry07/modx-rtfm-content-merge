@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="xPDO.getCollection-xPDO%3A%3AgetCollection"></a>xPDO::getCollection
+<h2 id="xPDO.getCollection-xPDO::getCollection">
+xPDO::getCollection
 </h2>
 
 <p>
@@ -14,88 +10,54 @@ Retrieves a collection of xPDOObjects by the specified xPDOCriteria.
 If none are found, returns an empty array.
 </p>
 
-<h2>
-<a name="xPDO.getCollection-Syntax"></a>Syntax
+<h2 id="xPDO.getCollection-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#getCollection" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/xPDO.html#getCollection</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#getCollection">http://api.modxcms.com/xpdo/xPDO.html#getCollection</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-array getCollection (string $className, [xPDOCriteria|array|str|<span class="code-object">int</span> $criteria = <span class="code-keyword">null</span>], [bool|<span class="code-object">int</span> $cacheFlag = <span class="code-keyword">true</span>])
+<pre class="brush: php">
+array getCollection (string $className, [xPDOCriteria|array|str|int $criteria = null], [bool|int $cacheFlag = true])
 </pre>
-</div>
-</div>
-
 <p>
-Remember, if you are using xPDO map and class files that were generated from XML schema, the classname is <b>not</b> the same as your table name. If in doubt, have a look at the schema XML file, e.g.
+Remember, if you are using xPDO map and class files that were generated from XML schema, the classname is <strong>not</strong> the same as your table name. If in doubt, have a look at the schema XML file, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;object class=<span class="code-quote">"MyClassName"</span> table=<span class="code-quote">"my_class_name"</span> <span class="code-keyword">extends</span>=<span class="code-quote">"xPDOObject"</span>&gt;
+<pre class="brush: php">
+&lt;object class="MyClassName" table="my_class_name" extends="xPDOObject"&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="xPDO.getCollection-Examples"></a>Examples
+<h2 id="xPDO.getCollection-Examples">
+Examples
 </h2>
 
 <p>
 Get a collection of Box objects with a width of 40.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $boxes = $xpdo-&gt;getCollection('Box', array('width' =&gt; 40));
 </pre>
-</div>
-</div>
-
-<h3>
-<a name="xPDO.getCollection-GetPages"></a>Get Pages
+<h3 id="xPDO.getCollection-GetPages">
+Get Pages
 </h3>
 
 <p>
 Often getCollection is used inside MODX Snippets, so you will call it via the $modx object and you will be fetching built-in MODX object collections, such as pages.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $pages = $modx-&gt;getCollection('modResource', array('template' =&gt; 3));
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Know Your Objects!</b>
+<div class="tip">
+<strong>Know Your Objects!</strong>
 <br />
-Remember that you need to call the collection by its object name. You may find it quite handy to keep open your <tt>core/model/schema/modx.mysql.schema.xml</tt> file so you can review your object names, e.g. "modResource" for pages, or "modChunk" for chunks etc.
-</td>
-</tr>
-</table>
+Remember that you need to call the collection by its object name. You may find it quite handy to keep open your <code>core/model/schema/modx.mysql.schema.xml</code> file so you can review your object names, e.g. "modResource" for pages, or "modChunk" for chunks etc.
 </div>
 
-<h2>
-<a name="xPDO.getCollection-SeeAlso"></a>See Also
+<h2 id="xPDO.getCollection-SeeAlso">
+See Also
 </h2>
 
 <ul>

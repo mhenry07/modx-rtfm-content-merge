@@ -1,42 +1,31 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="save-xPDOObject%3A%3Asave%28%29"></a>xPDOObject::save()
+<h2 id="save-xPDOObject::save()">
+xPDOObject::save()
 </h2>
 
 <p>
 Persist new or changed objects to the database container. Will also cascade and save any objects that have been added to it via related object addition methods (addOne, addMany).
 </p>
 
-<h2>
-<a name="save-Syntax" id="save-Syntax"></a>Syntax
+<h2 id="save-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#save" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#save</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#save">http://api.modxcms.com/xpdo/om/xPDOObject.html#save</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> save ([<span class="code-object">boolean</span>|integer $cacheFlag = <span class="code-keyword">null</span>])
+<pre class="brush: php">
+boolean save ([boolean|integer $cacheFlag = null])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="save-Examples" id="save-Examples"></a>Examples
+<h2 id="save-Examples">
+Examples
 </h2>
 
 <p>
 Save a wand, along with its owner and parts.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $owner = $xpdo-&gt;newObject('Wizard');
 $owner-&gt;set('name','Harry Potter');
 
@@ -50,25 +39,17 @@ $wand = $xpdo-&gt;newObject('Wand');
 $wand-&gt;addOne($owner);
 $wand-&gt;addMany($parts);
 
-<span class="code-keyword">if</span> ($wand-&gt;save() == <span class="code-keyword">false</span>) {
+if ($wand-&gt;save() == false) {
    echo 'Oh no, the wand failed to save!';
 }
 </pre>
-</div>
-</div>
-
 <p>
-If the operation did create a new record (instead of updating an existing one), you can tie into the underlying <a href="http://php.net/manual/en/pdo.lastinsertid.php" class="external-link" rel="nofollow">PDO::lastInsertId()</a> method:
+If the operation did create a new record (instead of updating an existing one), you can tie into the underlying <a href="http://php.net/manual/en/pdo.lastinsertid.php">PDO::lastInsertId()</a> method:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $modx-&gt;lastInsertId();
 </pre>
-</div>
-</div>
-
 <p>
 <em>Success may vary depending on the underlying driver.</em>
 </p>

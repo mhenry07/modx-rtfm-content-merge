@@ -1,9 +1,5 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="AddingCustomFieldstoManagerForms-AddingaCustomField"></a>Adding a Custom Field
+<h2 id="AddingCustomFieldstoManagerForms-AddingaCustomField">
+Adding a Custom Field
 </h2>
 
 <p>
@@ -11,57 +7,52 @@ Adding custom fields to manager forms - such as the Create Chunk, Update Resourc
 </p>
 
 <p>
-We want to add a field called 'Home' that puts an address field into the manager interface, and then stores it into the longtitle value (this is not the best place to store it, but let's go along with it for tutorial purposes <img class="emoticon" src="/images/icons/emoticons/smile.gif" height="20" width="20" align="absmiddle" alt="" border="0" /> ).
+We want to add a field called 'Home' that puts an address field into the manager interface, and then stores it into the longtitle value (this is not the best place to store it, but let's go along with it for tutorial purposes :) ).
 </p>
 
 <p>
-To do so, we'd create a <a href="/display/revolution20/Plugins" title="Plugins">Plugin</a> and associate it to the <b>OnDocFormRender</b> and <b>OnDocFormSave</b> events. Our code would look like this:
+To do so, we'd create a <a href="/display/revolution20/Plugins" title="Plugins">Plugin</a> and associate it to the <strong>OnDocFormRender</strong> and <strong>OnDocFormSave</strong> events. Our code would look like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;?php
 /**
  * Register a form field to forms
  */
-<span class="code-keyword">switch</span> ($modx-&gt;event-&gt;name) {
-    <span class="code-keyword">case</span> 'OnDocFormPrerender':
-        /* <span class="code-keyword">if</span> you want to add custom scripts, css, etc, register them here */
-        <span class="code-keyword">break</span>;
-    <span class="code-keyword">case</span> 'OnDocFormRender':
+switch ($modx-&gt;event-&gt;name) {
+    case 'OnDocFormPrerender':
+        /* if you want to add custom scripts, css, etc, register them here */
+        break;
+    case 'OnDocFormRender':
         $v = '';
-        <span class="code-keyword">if</span> (isset($scriptProperties['resource'])) {
+        if (isset($scriptProperties['resource'])) {
             /* on the update screen, so set the value */
             $v = $scriptProperties['resource']-&gt;get('longtitle');
-        } <span class="code-keyword">else</span> {
-            /* on the create screen, so set the <span class="code-keyword">default</span> */
+        } else {
+            /* on the create screen, so set the default */
             $profile = $modx-&gt;user-&gt;getOne('Profile');
             $v = $profile-&gt;get('address');
         }
-        /* now <span class="code-keyword">do</span> the HTML */
+        /* now do the HTML */
         $fields = '
-&lt;div class=<span class="code-quote">"x-form-item x-tab-item"</span>&gt;
-    &lt;label class=<span class="code-quote">"x-form-item-label"</span> style=<span class="code-quote">"width:150px;"</span>&gt;Home&lt;/label&gt;
-    &lt;div class=<span class="code-quote">"x-form-element"</span>&gt;
-        &lt;input type=<span class="code-quote">"text"</span> name=<span class="code-quote">"home"</span> value=<span class="code-quote">"'.$v.'"</span> class=<span class="code-quote">"x-form-text x-form-field"</span> /&gt;
+&lt;div class="x-form-item x-tab-item"&gt;
+    &lt;label class="x-form-item-label" style="width:150px;"&gt;Home&lt;/label&gt;
+    &lt;div class="x-form-element"&gt;
+        &lt;input type="text" name="home" value="'.$v.'" class="x-form-text x-form-field" /&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 ';
         $modx-&gt;event-&gt;output($fields);
-<span class="code-keyword">break</span>;
-    <span class="code-keyword">case</span> 'OnDocFormSave':
-        /* <span class="code-keyword">do</span> processing logic here. */
+break;
+    case 'OnDocFormSave':
+        /* do processing logic here. */
         $resource =&amp; $scriptProperties['resource'];
         $resource-&gt;set('longtitle',$_POST['home']);
         $resource-&gt;save();
-        <span class="code-keyword">break</span>;
+        break;
 }
-<span class="code-keyword">return</span>;
+return;
 </pre>
-</div>
-</div>
-
 <p>
 Note the CSS classes and styling in the form HTML. Those are unnecessary; but will make the form "match" the styling of the rest of the fields.
 </p>

@@ -1,79 +1,46 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modX.lexicon-modX%3A%3Alexicon"></a>modX::lexicon
+<h2 id="modX.lexicon-modX::lexicon">
+modX::lexicon
 </h2>
 
 <p>
 Grabs a processed Lexicon Entry.
 </p>
 
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 This may also be a modLexicon object as well, if the Lexicon has been loaded. PHP supports having objects and methods with the same name.
-</td>
-</tr>
-</table>
 </div>
 
-<h2>
-<a name="modX.lexicon-Syntax"></a>Syntax
+<h2 id="modX.lexicon-Syntax">
+Syntax
 </h2>
 
 <p>
-API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::lexicon()" class="external-link" rel="nofollow">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::lexicon()</a>
+API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::lexicon()">http://api.modx.com/revolution/2.2/db_core_model_modx_modx.class.html#%5CmodX::lexicon()</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 string lexicon (string $key, [array $params = array()])
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.lexicon-Example"></a>Example
+<h2 id="modX.lexicon-Example">
+Example
 </h2>
 
 <p>
 Output the translation of the 'welcome_message' Entry, and sets the 'name' Placeholder in it.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 echo $modx-&gt;lexicon('welcome_message',array('name' =&gt; 'John'));
 </pre>
-</div>
-</div>
-
 <p>
 The above example assumes a message that contains a placeholder for "name", e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $_lang['welcome_message'] = 'Hello [[+name]]!  How are you today?';
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="modX.lexicon-SeeAlso"></a>See Also
+<h2 id="modX.lexicon-SeeAlso">
+See Also
 </h2>
 
 <ul>

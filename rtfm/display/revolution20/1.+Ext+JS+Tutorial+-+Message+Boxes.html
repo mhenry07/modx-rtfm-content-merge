@@ -1,5 +1,5 @@
-<h2>
-<a name="1.ExtJSTutorial-MessageBoxes-YourFirstExtJSScript"></a>Your First Ext JS Script
+<h2 id="1.ExtJSTutorial-MessageBoxes-YourFirstExtJSScript">
+Your First Ext JS Script
 </h2>
 
 <p>
@@ -21,70 +21,60 @@ MODX ships with Ext JS (technically, it ships with MODExt, its own flavor of Ext
 For this example, create a file at the root of your MODX site, named "a.html", and reference the Ext JS components that come included in the MODX manager (you may need to change your manager URL if you've customized the manager path).
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;html&gt;
     &lt;title&gt;My Ext JS Test Page&lt;/title&gt;
-    &lt;link  rel=<span class="code-quote">"stylesheet"</span> type=<span class="code-quote">"text/css"</span> href=<span class="code-quote">"manager/assets/ext3/resources/css/ext-all.css"</span> /&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/adapter/ext/ext-base.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span> src=<span class="code-quote">"manager/assets/ext3/ext-all.js"</span>&gt;&lt;/script&gt;
-    &lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+    &lt;link  rel="stylesheet" type="text/css" href="manager/assets/ext3/resources/css/ext-all.css" /&gt;
+    &lt;script type="text/javascript" src="manager/assets/ext3/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="manager/assets/ext3/ext-all.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
         Ext.onReady(function() {
             Ext.MessageBox.alert('My Title','The DOM is ready...');
         });
     &lt;/script&gt;
     &lt;body&gt;
         &lt;h1&gt;Intro to Ext JS&lt;/h1&gt;
-        &lt;p&gt;I've uploaded <span class="code-keyword">this</span> HTML to the root of my site and I'm including the Ext JS libraries that ship with the MODX manager.&lt;/p&gt;
+        &lt;p&gt;I've uploaded this HTML to the root of my site and I'm including the Ext JS libraries that ship with the MODX manager.&lt;/p&gt;
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Or if you want to call the alert more verbosely, you might want to set variables for the title and message:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 Ext.onReady(function() {
-    <span class="code-keyword">var</span> title = 'My Title';
-    <span class="code-keyword">var</span> msg = 'The DOM is ready...';
+    var title = 'My Title';
+    var msg = 'The DOM is ready...';
     Ext.MessageBox.alert(title,msg);
 });
 </pre>
-</div>
-</div>
-
 <p>
 Either way, the result is the same: when you navigate to this page in a browser, you should get a pop-up window like the one pictured. This test is a tip of the hat to the built-in Javascript alert function and it is a simple way to test for JS functionality.
 </p>
 
 <p>
-<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/46137362/ext_js_dom.jpg?version=1&amp;modificationDate=1370294054000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/46137362/ext_js_dom.jpg?version=1&amp;modificationDate=1370294054000" /></span>
 </p>
 
 <p>
 Congratulations! You have written your first script in MODExt!
 </p>
 
-<h3>
-<a name="1.ExtJSTutorial-MessageBoxes-Debugging"></a>Debugging
+<h3 id="1.ExtJSTutorial-MessageBoxes-Debugging">
+Debugging
 </h3>
 
 <p>
-If you have any problems with this basic test, try installing the <a href="http://getfirebug.com/" class="external-link" rel="nofollow">Firebug</a> plugin inside the Firefox browser. Its console view will print out Javascript errors. Although they are not as precise as PHP errors, being able to see Javascript errors is <em>hugely</em> valuable and it goes a long way in helping you track down what's wrong.
+If you have any problems with this basic test, try installing the <a href="http://getfirebug.com/">Firebug</a> plugin inside the Firefox browser. Its console view will print out Javascript errors. Although they are not as precise as PHP errors, being able to see Javascript errors is <em>hugely</em> valuable and it goes a long way in helping you track down what's wrong.
 </p>
 
 <p>
-<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/46137362/ext_js_firebug.jpg?version=1&amp;modificationDate=1370294054000" style="border: 0px solid black" /></span>
+<span class="image-wrap" style="display: block; text-align: center"><img src="/download/attachments/46137362/ext_js_firebug.jpg?version=1&amp;modificationDate=1370294054000" /></span>
 </p>
 
-<h2>
-<a name="1.ExtJSTutorial-MessageBoxes-Prompting"></a>Prompting
+<h2 id="1.ExtJSTutorial-MessageBoxes-Prompting">
+Prompting
 </h2>
 
 <p>
@@ -95,16 +85,14 @@ The MessageBox object isn't a one-trick pony: you can use it to do some more adv
 Once you prompt a user for input, you'll need a callback function to do something with it. Let's build something like this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+<pre class="brush: php">
+&lt;script type="text/javascript"&gt;
 Ext.onReady(function() {
-    <span class="code-keyword">var</span> title = 'Input Desired';
-    <span class="code-keyword">var</span> msg = 'Please enter some text.';
-    <span class="code-keyword">var</span> myCallback = function(btn, text) {
+    var title = 'Input Desired';
+    var msg = 'Please enter some text.';
+    var myCallback = function(btn, text) {
         console.info('You pressed ' + btn);
-        <span class="code-keyword">if</span> (text) {
+        if (text) {
             console.info('You entered '+ text);
         }
     }
@@ -112,70 +100,60 @@ Ext.onReady(function() {
 });
 &lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
-We're using a lambda function for <b>myCallback</b>, and that might be weird for some of you. You could get the same effect doing it this way:
+We're using a lambda function for <strong>myCallback</strong>, and that might be weird for some of you. You could get the same effect doing it this way:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+<pre class="brush: php">
+&lt;script type="text/javascript"&gt;
 function myCallback(btn, text) {
     console.info('You pressed ' + btn);
-    <span class="code-keyword">if</span> (text) {        
+    if (text) {        
         console.info('You entered '+ text);    
     }
 }
 
 Ext.onReady(function() {
-    <span class="code-keyword">var</span> title = 'Input Desired';
-    <span class="code-keyword">var</span> msg = 'Please enter some text.';
+    var title = 'Input Desired';
+    var msg = 'Please enter some text.';
     Ext.MessageBox.prompt(title,msg,myCallback);
 });
 &lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
 The result should look like this:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/46137362/ExtJS+Prompt.jpg?version=1&amp;modificationDate=1371179583000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/46137362/ExtJS+Prompt.jpg?version=1&amp;modificationDate=1371179583000" style="border: 1px solid black" />
 </p>
 
 <p>
-This is a good time to reinforce the Firebug debugger. Using <b>console.log</b> or <b>console.info</b> prints to the Firebug console. When you activate Firebug and you view the console tab (it's active by default), you can see the output of your calls to the console methods:
+This is a good time to reinforce the Firebug debugger. Using <strong>console.log</strong> or <strong>console.info</strong> prints to the Firebug console. When you activate Firebug and you view the console tab (it's active by default), you can see the output of your calls to the console methods:
 </p>
 
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/46137362/ExtJS+Firebug.jpg?version=1&amp;modificationDate=1371179862000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/46137362/ExtJS+Firebug.jpg?version=1&amp;modificationDate=1371179862000" style="border: 1px solid black" />
 </p>
 
 <p>
-You can see from the picture that the <tt>btn</tt> variable comes through as either <tt>ok</tt> or <tt>cancel</tt> (lowercase). So you could write logic in your callback function to work with those results.
+You can see from the picture that the <code>btn</code> variable comes through as either <code>ok</code> or <code>cancel</code> (lowercase). So you could write logic in your callback function to work with those results.
 </p>
 
-<h2>
-<a name="1.ExtJSTutorial-MessageBoxes-ABetterMessageBox"></a>A Better Message Box
+<h2 id="1.ExtJSTutorial-MessageBoxes-ABetterMessageBox">
+A Better Message Box
 </h2>
 
 <p>
 There's a lot of stuff you can do with the humble message box. Here's an example to give you an idea of the various properties that are available.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+<pre class="brush: php">
+&lt;script type="text/javascript"&gt;
 Ext.onReady(function() {
-    <span class="code-keyword">var</span> myCallback = function(btn, text) {
+    var myCallback = function(btn, text) {
         console.info('You pressed ' + btn);
-        <span class="code-keyword">if</span> (text) {
+        if (text) {
             console.info('You entered '+ text);
         }
     }
@@ -190,23 +168,20 @@ Ext.onReady(function() {
 });
 &lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/46137362/Ext+JS+Question.jpg?version=1&amp;modificationDate=1371181553000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/46137362/Ext+JS+Question.jpg?version=1&amp;modificationDate=1371181553000" style="border: 1px solid black" />
 </p>
 
 <p>
 So notice the "icon" and the "buttons" attributes.
 </p>
 
-<h3>
-<a name="1.ExtJSTutorial-MessageBoxes-Icons"></a>Icons
+<h3 id="1.ExtJSTutorial-MessageBoxes-Icons">
+Icons
 </h3>
 
 <p>
-You can take advantage of the following constants as an argument for the <b>Ext.MessageBox.show()</b> "icon" attribute:
+You can take advantage of the following constants as an argument for the <strong>Ext.MessageBox.show()</strong> "icon" attribute:
 </p>
 
 <ul>
@@ -223,12 +198,12 @@ You can take advantage of the following constants as an argument for the <b>Ext.
 </li>
 </ul>
 
-<h3>
-<a name="1.ExtJSTutorial-MessageBoxes-Buttons"></a>Buttons
+<h3 id="1.ExtJSTutorial-MessageBoxes-Buttons">
+Buttons
 </h3>
 
 <p>
-You can take advantage of the following constants as an argument for the <b>Ext.MessageBox.show()</b> "buttons" attribute:
+You can take advantage of the following constants as an argument for the <strong>Ext.MessageBox.show()</strong> "buttons" attribute:
 </p>
 
 <ul>
@@ -248,42 +223,26 @@ You can take advantage of the following constants as an argument for the <b>Ext.
 </li>
 </ul>
 
-<div class='panelMacro'>
-<table class='tipMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
-<b>Less is More</b>
+<div class="tip">
+<strong>Less is More</strong>
 <br />
-<b>Ext.Msg</b> is a shorthand notation for <b>Ext.MessageBox</b>
-</td>
-</tr>
-</table>
+<strong>Ext.Msg</strong> is a shorthand notation for <strong>Ext.MessageBox</strong>
 </div>
 
-<h2>
-<a name="1.ExtJSTutorial-MessageBoxes-ABetterPrompt"></a>A Better Prompt
+<h2 id="1.ExtJSTutorial-MessageBoxes-ABetterPrompt">
+A Better Prompt
 </h2>
 
 <p>
-The <b>Ext.MessageBox.show()</b> method is your ticket to mastering message boxes (or its shorthand equivalent <b>Ext.Msg</b>), but it may not be immediately obvious how to make it prompt the user. The trick there is to use the <b>multiline</b> attribute.
+The <strong>Ext.MessageBox.show()</strong> method is your ticket to mastering message boxes (or its shorthand equivalent <strong>Ext.Msg</strong>), but it may not be immediately obvious how to make it prompt the user. The trick there is to use the <strong>multiline</strong> attribute.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;script type=<span class="code-quote">"text/javascript"</span>&gt;
+<pre class="brush: php">
+&lt;script type="text/javascript"&gt;
 Ext.onReady(function() {
-    <span class="code-keyword">var</span> myCallback = function(btn, text) {
+    var myCallback = function(btn, text) {
         console.info('You pressed ' + btn);
-        <span class="code-keyword">if</span> (text) {
+        if (text) {
             console.info('You entered '+ text);
         }
     }
@@ -299,11 +258,8 @@ Ext.onReady(function() {
     });});
 &lt;/script&gt;
 </pre>
-</div>
-</div>
-
 <p>
-<span class="image-wrap" style=""><img src="/download/attachments/46137362/Ext+JS+Yodah.jpg?version=1&amp;modificationDate=1371181482000" style="border: 1px solid black" /></span>
+<img src="/download/attachments/46137362/Ext+JS+Yodah.jpg?version=1&amp;modificationDate=1371181482000" style="border: 1px solid black" />
 </p>
 
 <p>
@@ -311,19 +267,35 @@ The value of 20 here represents the height in pixels. You can also set it simply
 </p>
 
 <p>
-See the official docs for more info: <a href="http://docs.sencha.com/extjs/3.4.0/#!/api/Ext.MessageBox" class="external-link" rel="nofollow">http://docs.sencha.com/extjs/3.4.0/#!/api/Ext.MessageBox</a>
+See the official docs for more info: <a href="http://docs.sencha.com/extjs/3.4.0/#!/api/Ext.MessageBox">http://docs.sencha.com/extjs/3.4.0/#!/api/Ext.MessageBox</a>
 </p>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc page-toc">
+<li>
+<a href="/display/revolution20/1.+Ext+JS+Tutorial+-+Message+Boxes">1. Ext JS Tutorial - Message Boxes</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="46137362" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="46137364" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="revolution20" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2F1.%2BExt%2BJS%2BTutorial%2B-%2BMessage%2BBoxes" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="46137364" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/revolution20/2.+Ext+JS+Tutorial+-+Ajax+Include">2. Ext JS Tutorial - Ajax Include</a>
+</li>
+
+<li>
+<a href="/display/revolution20/3.+Ext+JS+Tutorial+-+Animation">3. Ext JS Tutorial - Animation</a>
+</li>
+
+<li>
+<a href="/display/revolution20/4.+Ext+JS+Tutorial+-+Manipulating+Nodes">4. Ext JS Tutorial - Manipulating Nodes</a>
+</li>
+
+<li>
+<a href="/display/revolution20/5.+Ext+JS+Tutorial+-+Panels">5. Ext JS Tutorial - Panels</a>
+</li>
+
+<li>
+<a href="/display/revolution20/7.+Ext+JS+Tutoral+-+Advanced+Grid">7. Ext JS Tutoral - Advanced Grid</a>
+</li>
+
+<li>
+<a href="/display/revolution20/8.+Ext+JS+Tutorial+-+Inside+a+CMP">8. Ext JS Tutorial - Inside a CMP</a>
+</li>
+</ol>

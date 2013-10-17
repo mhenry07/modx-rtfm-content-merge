@@ -2,69 +2,68 @@
 The bdListings snippet can be used to present search results, a generic listing overview and more.
 </p>
 
-<h2>
-<a name="bdListings.bdListings-SnippetProperties" id="bdListings.bdListings-SnippetProperties"></a>Snippet Properties
+<h2 id="bdListings.bdListings-SnippetProperties">
+Snippet Properties
 </h2>
 
-<h3>
-<a name="bdListings.bdListings-GeneralProperties" id="bdListings.bdListings-GeneralProperties"></a>General Properties
+<h3 id="bdListings.bdListings-GeneralProperties">
+General Properties
 </h3>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Property Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 limit
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Maximum number of results, or 0 for all listings.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 offset
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Optional offset (for use with pagination, you can use getPage for that).
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sort
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 JSON string to allow sorting on multiple factors with different directions. Fields you can use in this property and &amp;sortby are:
-<br class="atl-forced-newline" />
+<br />
 
 <ul>
 <li>id
@@ -146,315 +145,308 @@ JSON string to allow sorting on multiple factors with different directions. Fiel
 </li>
 </ul>
 </td>
-<td class='confluenceTd'>
-<div class="preformatted panel" style="border-width: 1px;">
-<div class="preformattedContent panelContent">
+<td>
 <pre>
 {"city": "ASC", "neighborhood": "ASC", "companyname": "ASC" }
 </pre>
-</div>
-</div>
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortby
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 When &amp;sort is empty or not a valid JSON string (hint: use &amp;sort=`` to overrule the default), you can define a property to sort on with this.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 title
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sortdir
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [ASC|DESC] When &amp;sort is empty or not a valid JSON string you can define ascending or descending sort order with this property.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 ASC
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 activeOnly
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [1|0] If 1 (true) will only show active items.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 featuredOnly
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [1|0] If 1 (true) will only show featured items.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 0
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 where
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Optional JSON encoded limits.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 acceptUrlParams
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [1|0] Allow specific url params (see acceptedUrlParams) to override properties you set in the snippet call / default values.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 acceptedUrlParams
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Comma separated list of properties that are allowed to override what's set in the snippet call or default values.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 query, keyword, target, pricegroup, city, category, subcategory, sort, listings
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 redirectResource
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
-<b>Required if using click tracking.</b> The Resource ID to use as redirect resource. See <a href="/display/ADDON/bdListings.bdRedirect" title="bdListings.bdRedirect">bdRedirect</a> as well.
-<br class="atl-forced-newline" />
+<td>
+<strong>Required if using click tracking.</strong> The Resource ID to use as redirect resource. See <a href="/display/ADDON/bdListings.bdRedirect" title="bdListings.bdRedirect">bdRedirect</a> as well.
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 39
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 rowSeparator
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Separator to use between listings.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 a line break (\n)
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 imageSeparator
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Separator to use between images of a listing.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 a line break (\n)
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 emptyValue
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 A value (hint: could be a chunk tag) to display when there are no results.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 &lt;p&gt;No listings found :(&lt;/p&gt; (bdlistings.noresults lexicon key)
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 trackViews
 </td>
-<td class='confluenceTd'>
+<td>
 [1|0] When 1, the snippet will increment the "views" field for listings in the displayed result set. Can be useful if you have certain lists you don't want to influence the view count. Added in 1.1.1-pl.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="bdListings.bdListings-FilteringProperties" id="bdListings.bdListings-FilteringProperties"></a>Filtering Properties
+<h2 id="bdListings.bdListings-FilteringProperties">
+Filtering Properties
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Property Name
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 query
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Full-text search that uses a loose match against the title and description of a listing.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 keyword
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Full-text search that uses a loose match against the keyword field.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 target
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 ID of a target as defined in the component to match against.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pricegroup
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 ID of a price group as defined in the component to match against.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 city
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Loose match against the city field.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 category
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Either the category name (exact match) or ID to filter on. As of 1.1.2 this will also search subcategories (name or ID).
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 subcategory
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Either the subcategory name (exact match) or ID to filter on.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 listings
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 If you want to show only a specific set of listings, this can be a comma separated list of their IDs.
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
 Tip: by default each of these are accepted as URL properties (or POST values) so they are great to offer as filtering options to your site visitor.
 </p>
 
-<h2>
-<a name="bdListings.bdListings-TemplatingChunks" id="bdListings.bdListings-TemplatingChunks"></a>Templating Chunks
+<h2 id="bdListings.bdListings-TemplatingChunks">
+Templating Chunks
 </h2>
 
-<h3>
-<a name="bdListings.bdListings-tplOuter" id="bdListings.bdListings-tplOuter"></a>tplOuter
+<h3 id="bdListings.bdListings-tplOuter">
+tplOuter
 </h3>
 
 <p>
@@ -465,14 +457,9 @@ Wraps around all the individual items.
 Default:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 [[+wrapper]]
 </pre>
-</div>
-</div>
-
 <p>
 Accepted properties:
 </p>
@@ -485,8 +472,8 @@ Accepted properties:
 </li>
 </ul>
 
-<h3>
-<a name="bdListings.bdListings-tplRow" id="bdListings.bdListings-tplRow"></a>tplRow
+<h3 id="bdListings.bdListings-tplRow">
+tplRow
 </h3>
 
 <p>
@@ -497,22 +484,17 @@ Used to output a single listing.
 Default:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;div&gt;
     &lt;h2&gt;
-        [[+redirect_url:notempty=`&lt;a href=<span class="code-quote">"[[+redirect_url]]"</span>&gt;[[+title]]&lt;/a&gt;`:<span class="code-keyword">default</span>=`[[+title]]`]]
+        [[+redirect_url:notempty=`&lt;a href="[[+redirect_url]]"&gt;[[+title]]&lt;/a&gt;`:default=`[[+title]]`]]
     &lt;/h2&gt;
-    [[+images:notempty=`&lt;p&gt;[[+primaryimage:notempty=`&lt;img src=<span class="code-quote">"[[+primaryimage:phpthumbof=`w=300&amp;h=200`]]"</span> alt=<span class="code-quote">"[[+title]]"</span> /&gt;&lt;br /&gt;`]] [[+images]]&lt;/p&gt;`]]
-    &lt;p&gt;In [[+city]] - [[+neighborhood]] - [[+companyname]] - &lt;a href=<span class="code-quote">"[[+redirect_url]]"</span>&gt;[[+companyname]]&lt;/a&gt;&lt;/p&gt;
+    [[+images:notempty=`&lt;p&gt;[[+primaryimage:notempty=`&lt;img src="[[+primaryimage:phpthumbof=`w=300&amp;h=200`]]" alt="[[+title]]" /&gt;&lt;br /&gt;`]] [[+images]]&lt;/p&gt;`]]
+    &lt;p&gt;In [[+city]] - [[+neighborhood]] - [[+companyname]] - &lt;a href="[[+redirect_url]]"&gt;[[+companyname]]&lt;/a&gt;&lt;/p&gt;
     [[+description:notempty=`&lt;p&gt;[[+description:nl2br]]&lt;/p&gt;`]]
-    [[+googlemap_url:notempty=`&lt;a href=<span class="code-quote">"[[+googlemap_url]]"</span> title=<span class="code-quote">"View on Google Maps"</span>&gt;&lt;img src=<span class="code-quote">"[[+googlemap_static]]"</span> alt=<span class="code-quote">"Google Maps"</span>&gt;&lt;/a&gt;`]]
+    [[+googlemap_url:notempty=`&lt;a href="[[+googlemap_url]]" title="View on Google Maps"&gt;&lt;img src="[[+googlemap_static]]" alt="Google Maps"&gt;&lt;/a&gt;`]]
 &lt;/div&gt;
 </pre>
-</div>
-</div>
-
 <p>
 There's a lot of placeholders you can use there, and some properties have a direct influence on their value. Especially think of the redirect_url (which is influenced by &amp;redirectResource) and the googlemap_static placeholder which is a link generated based on the staticMap* properties (see further below).
 </p>
@@ -640,8 +622,8 @@ Placeholders:
 </li>
 </ul>
 
-<h3>
-<a name="bdListings.bdListings-tplImage%28lowerLthenupperi%29"></a>tplImage (lower L then upper i)
+<h3 id="bdListings.bdListings-tplImage(lowerLthenupperi)">
+tplImage (lower L then upper i)
 </h3>
 
 <p>
@@ -652,14 +634,9 @@ Used to wrap around images inside a listing. (not used for the primaryimage prop
 Default:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-&lt;img src=<span class="code-quote">"[[+image:phpthumbof=`w=150&amp;h=150&amp;zc=1`]]"</span> alt=<span class="code-quote">"[[+caption]]"</span> /&gt;
+<pre class="brush: php">
+&lt;img src="[[+image:phpthumbof=`w=150&amp;h=150&amp;zc=1`]]" alt="[[+caption]]" /&gt;
 </pre>
-</div>
-</div>
-
 <p>
 Placeholders:
 </p>
@@ -684,206 +661,191 @@ Placeholders:
 </li>
 </ul>
 
-<h2>
-<a name="bdListings.bdListings-StaticMapProperties" id="bdListings.bdListings-StaticMapProperties"></a>Static Map Properties
+<h2 id="bdListings.bdListings-StaticMapProperties">
+Static Map Properties
 </h2>
 
 <p>
 In the tplRow chunk there's a googlemap_static placeholder. That's a simple image showing a map with the listing centered with a marker. The following properties influence its behavior, and I would suggest reading up on the Google Maps Static API if you are looking for more in-depth explanation of what goes on behind the scenes.
 </p>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Property Name
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Description
-<br class="atl-forced-newline" />
+<br />
 </th>
-<th class='confluenceTh'>
+<th>
 Default Value
-<br class="atl-forced-newline" />
+<br />
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 staticMapWidth
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Width of the image to generate.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 150
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 staticMapHeight
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Height of the image to generate.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 150
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 staticMapZoom
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Zoom level (1-23, depending on location)
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 12
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 staticMapType
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Type of map to show.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 hybrid
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 staticMapMarkerColor
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Color (some textual, otherwise hex) for the marker.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 red
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 staticMapMarkerLabel
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Text on the marker. Limited to 1 upper character or number.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 A
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 staticMapMarkerSize
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 [tiny|mid|small|medium] Size of the marker.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 medium
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 staticMapMarkerIcon
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 Optionally an icon to use instead of the marker. Consult the Google Maps Static API for detailed usage and what you need to encode or not. An example could be:
-<br class="atl-forced-newline" />
+<br />
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-http:<span class="code-comment">//chart.apis.google.com/chart?chst=d_map_pin_icon&amp;chld=cafe%7C996600</span>
+<pre class="brush: php">
+http://chart.apis.google.com/chart?chst=d_map_pin_icon&amp;chld=cafe%7C996600
 </pre>
-</div>
-</div>
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 staticMapMarkerIconShadow
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 ["true" or "false", actual text so NOT 1 or 0] To use shadow or not when using a custom icon.
-<br class="atl-forced-newline" />
+<br />
 </td>
-<td class='confluenceTd'>
+<td>
 true
-<br class="atl-forced-newline" />
+<br />
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="bdListings.bdListings-Examples" id="bdListings.bdListings-Examples"></a>Examples
+<h2 id="bdListings.bdListings-Examples">
+Examples
 </h2>
 
 <p>
 Last 5 listings, simple list format:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;h3&gt;Lastest 5 Ads&lt;/h3&gt;
-&lt;ul id=<span class="code-quote">"latest_ads"</span>&gt;
-[[!bdListings? &amp;sort=`{<span class="code-quote">"createdon"</span>:<span class="code-quote">"DESC"</span>}`  &amp;tplRow=`bdl.listings.list` &amp;limit=`5`]]
+&lt;ul id="latest_ads"&gt;
+[[!bdListings? &amp;sort=`{"createdon":"DESC"}`  &amp;tplRow=`bdl.listings.list` &amp;limit=`5`]]
 &lt;/ul&gt;
 </pre>
-</div>
-</div>
-
 <p>
 bdl.listings.list chunk, pointing to resource 14 (search results page which has an uncached bdListings call on it and accepts URL parameters) with the listing ID as filter, meaning it will only show the one listing.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;li&gt;
-  &lt;a href=<span class="code-quote">"[[~14? &amp;listings=`[[+id]]`]]"</span> title=<span class="code-quote">"[[+title]]"</span>&gt;[[+title]]&lt;/a&gt;
+  &lt;a href="[[~14? &amp;listings=`[[+id]]`]]" title="[[+title]]"&gt;[[+title]]&lt;/a&gt;
 &lt;/li&gt;
 </pre>
-</div>
-</div>

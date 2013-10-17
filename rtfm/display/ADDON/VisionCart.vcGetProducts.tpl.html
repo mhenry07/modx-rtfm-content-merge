@@ -1,432 +1,486 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="VisionCart.vcGetProducts.tpl-VisionCartvcGetProductstplChunk" id="VisionCart.vcGetProducts.tpl-VisionCartvcGetProductstplChunk"></a>VisionCart vcGetProducts tpl Chunk
+<h2 id="VisionCart.vcGetProducts.tpl-VisionCartvcGetProductstplChunk">
+VisionCart vcGetProducts tpl Chunk
 </h2>
 
-<h2>
-<a name="VisionCart.vcGetProducts.tpl-DefaultValue" id="VisionCart.vcGetProducts.tpl-DefaultValue"></a>Default Value
+<h2 id="VisionCart.vcGetProducts.tpl-DefaultValue">
+Default Value
 </h2>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 &lt;tr&gt;
         &lt;td&gt;[[!vcGetProductImages?id=`[[+id]]`&amp;prefix=`100_`&amp;rel=`lightboxdemo[]`&amp;limit=`1`]]&lt;/td&gt;
         &lt;td&gt;
-                &lt;strong&gt;&lt;a href=<span class="code-quote">"[[+url]]"</span> title=<span class="code-quote">"[[+name]]"</span>&gt;[[+name]]&lt;/a&gt; ([[!vcGetProductCustomField?id=`[[+id]]`&amp;field=`Publisher`]])&lt;/strong&gt;
+                &lt;strong&gt;&lt;a href="[[+url]]" title="[[+name]]"&gt;[[+name]]&lt;/a&gt; ([[!vcGetProductCustomField?id=`[[+id]]`&amp;field=`Publisher`]])&lt;/strong&gt;
 &lt;p&gt;[[+vc.category.name]] | [[!vcGetProductCustomField?id=`[[+id]]`&amp;field=`Release year`]] | PEGI [[!vcGetProductCustomField?id=`[[+id]]`&amp;field=`PEGI`]] | Professionele beoordeling: [[!vcGetProductCustomField?id=`[[+id]]`&amp;field=`Rating`]]
                 &lt;p&gt;[[+description:ellipsis=`250`]]&lt;/p&gt;
-                &lt;p&gt;&lt;a href=<span class="code-quote">"[[+url]]"</span> title=<span class="code-quote">"Lees meer"</span>&gt;Lees meer...&lt;/a&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;a href="[[+url]]" title="Lees meer"&gt;Lees meer...&lt;/a&gt;&lt;/p&gt;
 &lt;!--         [[!vcGetProductCustomFields?id=`[[+id]]`]]--&gt;
         &lt;/td&gt;
         &lt;td&gt;
                 &lt;p&gt;Prijs: [[+vc.shop.config.currency]][[+price]]&lt;/p&gt;
-                &lt;p&gt;[[+stock:<span class="code-keyword">if</span>=`[[+stock]]`:gt=`0`:then=`Op werkdagen voor 21:30 besteld, morgen in huis.`:<span class="code-keyword">else</span>=`Levering 1 tot 3 werkdagen.`]]&lt;/p&gt;
+                &lt;p&gt;[[+stock:if=`[[+stock]]`:gt=`0`:then=`Op werkdagen voor 21:30 besteld, morgen in huis.`:else=`Levering 1 tot 3 werkdagen.`]]&lt;/p&gt;
         &lt;/td&gt;
 &lt;/tr&gt;
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="VisionCart.vcGetProducts.tpl-AvailablePlaceholders" id="VisionCart.vcGetProducts.tpl-AvailablePlaceholders"></a>Available Placeholders
+<h2 id="VisionCart.vcGetProducts.tpl-AvailablePlaceholders">
+Available Placeholders
 </h2>
 
-<div class='table-wrap'>
-<table class='confluenceTable'>
+<table>
 <tbody>
 <tr>
-<th class='confluenceTh'>
+<th>
 Name
 </th>
-<th class='confluenceTh'>
+<th>
 Description
 </th>
-<th class='confluenceTh'>
+<th>
 Default
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 id
 </td>
-<td class='confluenceTd'>
+<td>
 Product ID
 </td>
-<td class='confluenceTd'>
+<td>
 Product ID
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 shopid
 </td>
-<td class='confluenceTd'>
+<td>
 Shop ID
 </td>
-<td class='confluenceTd'>
+<td>
 Shop ID
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 parent
 </td>
-<td class='confluenceTd'>
+<td>
 Parent product ID (if this SKU)
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 taxcategory
 </td>
-<td class='confluenceTd'>
+<td>
 Tax category
 </td>
-<td class='confluenceTd'>
+<td>
 2
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 name
 </td>
-<td class='confluenceTd'>
+<td>
 Product name
 </td>
-<td class='confluenceTd'>
+<td>
 Product name
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 alias
 </td>
-<td class='confluenceTd'>
+<td>
 Product alias name
 </td>
-<td class='confluenceTd'>
+<td>
 Product alias
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 description
 </td>
-<td class='confluenceTd'>
+<td>
 Product description
 </td>
-<td class='confluenceTd'>
+<td>
 Product description
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 articlenumber
 </td>
-<td class='confluenceTd'>
+<td>
 Product article number
 </td>
-<td class='confluenceTd'>
+<td>
 Product article number
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 price
 </td>
-<td class='confluenceTd'>
+<td>
 Product price
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 weight
 </td>
-<td class='confluenceTd'>
+<td>
 Product weight
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 shippingprice
 </td>
-<td class='confluenceTd'>
+<td>
 Product shipping price
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 publishdate
 </td>
-<td class='confluenceTd'>
+<td>
 Product publish date
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 unpublishdate
 </td>
-<td class='confluenceTd'>
+<td>
 Product unpublish date
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 stock
 </td>
-<td class='confluenceTd'>
+<td>
 Stock
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 tierprice
 </td>
-<td class='confluenceTd'>
+<td>
 Tier price
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 active
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not this is an active product. Boolean
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 categoryid
 </td>
-<td class='confluenceTd'>
+<td>
 Category ID
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 productid
 </td>
-<td class='confluenceTd'>
+<td>
 Product ID (same as id)
 </td>
-<td class='confluenceTd'>
+<td>
 Product ID
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cacheable
 </td>
-<td class='confluenceTd'>
+<td>
 Whether or not this is an cacheable product. Boolean
 </td>
-<td class='confluenceTd'>
+<td>
 1
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 priceex
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pricein
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
-<td class='confluenceTd'>
+<td>
 0.00
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 url
 </td>
-<td class='confluenceTd'>
+<td>
 The direct URL of the product. Path depends on scheme config.
 </td>
-<td class='confluenceTd'>
+<td>
 category_alias/product_alias/article_number-product_id
 </td>
 </tr>
 
 <tr>
-<th class='confluenceTh'>
+<th>
 Rarely used placeholders
 </th>
-<th class='confluenceTh'>
+<th>
 &nbsp;
 </th>
-<th class='confluenceTh'>
+<th>
 &nbsp;
 </th>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 pictures
 </td>
-<td class='confluenceTd'>
+<td>
 Array with file names of the product
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 customfields
 </td>
-<td class='confluenceTd'>
+<td>
 Array with customfields of the product
 </td>
-<td class='confluenceTd'>
+<td>
 &nbsp;
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 sort
 </td>
-<td class='confluenceTd'>
+<td>
 Index of category sorting
 </td>
-<td class='confluenceTd'>
+<td>
 Integer
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 linkId
 </td>
-<td class='confluenceTd'>
+<td>
 Link identifier number
 </td>
-<td class='confluenceTd'>
+<td>
 Link identifier number
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 cachekey
 </td>
-<td class='confluenceTd'>
+<td>
 Cache key
 </td>
-<td class='confluenceTd'>
+<td>
 Cache key
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 display.price.ex
 </td>
-<td class='confluenceTd'>
+<td>
 Same as priceex
 </td>
-<td class='confluenceTd'>
+<td>
 0
 </td>
 </tr>
 
 <tr>
-<td class='confluenceTd'>
+<td>
 display.price.in
 </td>
-<td class='confluenceTd'>
+<td>
 Same as pricein
 </td>
-<td class='confluenceTd'>
+<td>
 0.00
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<h2>
-<a name="VisionCart.vcGetProducts.tpl-SeeAlso" id="VisionCart.vcGetProducts.tpl-SeeAlso"></a>See Also
+<h2 id="VisionCart.vcGetProducts.tpl-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
+<ol class="ug-toc see-also">
+<li>
+<a href="/display/ADDON/VisionCart.Back-end">VisionCart.Back-end</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/VisionCart.Category+management">VisionCart.Category management</a>
+</li>
 
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="36634720" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="33227011" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FVisionCart.vcGetProducts.tpl" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="33947945" /> <input type="hidden" name="ancestorId" value="33227015" /> <input type="hidden" name="ancestorId" value="33227011" />
-</fieldset>
-</fieldset>
-</div>
+<li>
+<a href="/display/ADDON/VisionCart.Module+management">VisionCart.Module management</a>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.Option+management">VisionCart.Option management</a>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.Order+management">VisionCart.Order management</a>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.Product+management">VisionCart.Product management</a>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.Shop+management">VisionCart.Shop management</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.Front-end">VisionCart.Front-end</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/VisionCart.vcGetCategories">VisionCart.vcGetCategories</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/VisionCart.vcGetCategories.tpl">VisionCart.vcGetCategories.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.vcGetProducts">VisionCart.vcGetProducts</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/VisionCart.vcGetProducts.tpl">VisionCart.vcGetProducts.tpl</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.vcWayfinder">VisionCart.vcWayfinder</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.General">VisionCart.General</a>
+<ol class="ug-toc">
+<li>
+<a href="/display/ADDON/VisionCart.Templating">VisionCart.Templating</a>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.UserManagement">VisionCart.UserManagement</a>
+</li>
+</ol>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.vcGetProductImages">VisionCart.vcGetProductImages</a>
+</li>
+
+<li>
+<a href="/display/ADDON/VisionCart.vcGetProductOptions">VisionCart.vcGetProductOptions</a>
+</li>
+</ol>

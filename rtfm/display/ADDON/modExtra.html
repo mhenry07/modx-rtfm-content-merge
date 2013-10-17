@@ -1,51 +1,37 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="modExtra-WhatismodExtra%3F"></a>What is modExtra?
+<h2 id="modExtra-WhatismodExtra?">
+What is modExtra?
 </h2>
 
 <p>
 modExtra is a base Extra template that is useful when wanting to create a new Extra for MODx Revolution. One can git archive from this repository to start with all the file structure for beginning MODx Extra development pre-setup.
 </p>
 
-<h2>
-<a name="modExtra-Usage"></a>Usage
+<h2 id="modExtra-Usage">
+Usage
 </h2>
 
 <p>
 modExtra is meant to be 'exported' from Git, not used directly, so that you can use it as a base point for your new Extras.
 </p>
 
-<h3>
-<a name="modExtra-ExportingfromGit"></a>Exporting from Git
+<h3 id="modExtra-ExportingfromGit">
+Exporting from Git
 </h3>
 
 <p>
 First, clone this repository somewhere on your development machine:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-git clone http:<span class="code-comment">//github.com/splittingred/modExtra.git ./</span>
+<pre class="brush: php">
+git clone http://github.com/splittingred/modExtra.git ./
 </pre>
-</div>
-</div>
-
 <p>
 In practice, the actual command usually takes a specific folder as an argument, e.g.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-git clone http:<span class="code-comment">//github.com/splittingred/modExtra.git /path/to/my/downloads/modExtra</span>
+<pre class="brush: php">
+git clone http://github.com/splittingred/modExtra.git /path/to/my/downloads/modExtra
 </pre>
-</div>
-</div>
-
 <p>
 Note that the git clone command expects to <em>create</em> the target directory, so the path you specify should indicate a folder that doesn't yet exist.
 </p>
@@ -58,58 +44,34 @@ Next, create the target directory where you want to house your new repo. It's im
 Then, navigate to the directory modExtra is now in, and do this:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-git archive HEAD | (cd /path/where/I/want/my/<span class="code-keyword">new</span>/repo/ &amp;&amp; tar -xvf -)
+<pre class="brush: php">
+git archive HEAD | (cd /path/where/I/want/my/new/repo/ &amp;&amp; tar -xvf -)
 </pre>
-</div>
-</div>
-
-<div class='panelMacro'>
-<table class='noteMacro'>
-<colgroup>
-<col width='24' />
-<col />
-</colgroup>
-
-<tr>
-<td valign='top'>
-<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
-</td>
-<td>
+<div class="note">
 Windows users can just do git archive HEAD and extract the tar file to wherever they want.
-</td>
-</tr>
-</table>
 </div>
 
 <p>
 Then you can git init or whatever in that directory, and your files will be located there!
 </p>
 
-<h3>
-<a name="modExtra-Configuration"></a>Configuration
+<h3 id="modExtra-Configuration">
+Configuration
 </h3>
 
 <p>
-Now, you'll want to change references to modExtra in the files in your new copied-from-modExtra repo to whatever name of your new Extra will be. An immensely useful command to locate instances of a string is <b>grep</b>, e.g. cd into your newly created repo and run this (*nix and Mac systems only):
+Now, you'll want to change references to modExtra in the files in your new copied-from-modExtra repo to whatever name of your new Extra will be. An immensely useful command to locate instances of a string is <strong>grep</strong>, e.g. cd into your newly created repo and run this (*nix and Mac systems only):
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 grep -rl 'modExtra' .
 </pre>
-</div>
-</div>
-
 <p>
 OR, since you'll be replacing instances of this string, it's hugely helpful to have a text editor that allows you to do a find-and-replace across multiple files. Choose as your extra name a single word with no special characters.
 </p>
 
 <p>
-For the record, instances of <b>modExtra</b> appear in the following files:
+For the record, instances of <strong>modExtra</strong> appear in the following files:
 </p>
 
 <ul>
@@ -220,14 +182,9 @@ For the record, instances of <b>modExtra</b> appear in the following files:
 Finally, you'll want to update several filenames that use the name "modextra" in them. Our friendly *nix/Mac bash command for this would be executed in the repo directory:
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 find . -name *modextra*
 </pre>
-</div>
-</div>
-
 <p>
 And for the record, these are the files whose names you should change to reflect the name of your new upcoming component:
 </p>
@@ -290,26 +247,12 @@ Then clear the cache. This will tell the Extra to look for the files located in 
 If you made a mistake in any of that, you can trash the whole repo there and export the git head again.
 </p>
 
-<h2>
-<a name="modExtra-SeeAlso"></a>See Also
+<h2 id="modExtra-SeeAlso">
+See Also
 </h2>
 
-<div class="plugin_pagetree">
-<div style="margin-left: 2em" class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-<div class="plugin_pagetree_children">
-</div>
-</div>
-
-<fieldset class="hidden">
-<input type="hidden" name="treeId" value="" /> <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false" /> <input type="hidden" name="treePageId" value="22806544" /> <input type="hidden" name="noRoot" value="false" /> <input type="hidden" name="rootPageId" value="22806544" /> <input type="hidden" name="rootPage" value="" /> <input type="hidden" name="startDepth" value="0" /> <input type="hidden" name="spaceKey" value="ADDON" /> <input type="hidden" name="i18n-pagetree.loading" value="Loading..." /> <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page." /> <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information." /> <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FmodExtra" />
-<fieldset class="hidden">
-<input type="hidden" name="ancestorId" value="22806544" />
-</fieldset>
-</fieldset>
-</div>
-
-<h3>
-<a name="modExtra-CopyrightInformation"></a>Copyright Information
+<h3 id="modExtra-CopyrightInformation">
+Copyright Information
 </h3>
 
 <p>

@@ -1,64 +1,50 @@
-<p>
-<br class="atl-forced-newline" />
-</p>
-
-<h2>
-<a name="addMany-xPDOObject%3A%3AaddMany%28%29"></a>xPDOObject::addMany()
+<h2 id="addMany-xPDOObject::addMany()">
+xPDOObject::addMany()
 </h2>
 
 <p>
 Adds an object or collection of objects related to this class.
 </p>
 
-<h2>
-<a name="addMany-Syntax" id="addMany-Syntax"></a>Syntax
+<h2 id="addMany-Syntax">
+Syntax
 </h2>
 
 <p>
-API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#addMany" class="external-link" rel="nofollow">http://api.modxcms.com/xpdo/om/xPDOObject.html#addMany</a>
+API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#addMany">http://api.modxcms.com/xpdo/om/xPDOObject.html#addMany</a>
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
-<span class="code-object">boolean</span> addMany (
+<pre class="brush: php">
+boolean addMany (
    mixed &amp;$obj,
    [string $alias = '']
 )
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="addMany-Example" id="addMany-Example"></a>Example
+<h2 id="addMany-Example">
+Example
 </h2>
 
 <p>
 Add golf clubs to a bag and save.
 </p>
 
-<div class="code panel" style="border-width: 1px;">
-<div class="codeContent panelContent">
-<pre class="code-java">
+<pre class="brush: php">
 $bag = $xpdo-&gt;newObject('GolfBag');
-$bag-&gt;set('name',<span class="code-quote">"Chris's Bag"</span>);
+$bag-&gt;set('name',"Chris's Bag");
 $bag-&gt;set('color','blue');
 
 $clubs = array();
-<span class="code-keyword">for</span> ($i=1;$i&lt;10;$i++) {
+for ($i=1;$i&lt;10;$i++) {
    $club = $xpdo-&gt;newObject('GolfClub');
    $club-&gt;set('name',$i.' Iron');
    $clubs[] = $club;
 }
 $bag-&gt;addMany($clubs);
 
-$bag-&gt;save(); <span class="code-comment">// saves both the bag and all the clubs</span>
+$bag-&gt;save(); // saves both the bag and all the clubs
 </pre>
-</div>
-</div>
-
-<h2>
-<a name="addMany-SeeAlso" id="addMany-SeeAlso"></a>See Also
+<h2 id="addMany-SeeAlso">
+See Also
 </h2>
 
 <ul>
