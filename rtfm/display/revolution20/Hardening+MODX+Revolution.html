@@ -1,1320 +1,557 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-            <title>Hardening MODX Revolution - MODx Revolution 2.x - MODX Documentation</title>
-    
-        
-
-                        
-    
-
-            
-<meta id="confluence-context-path" name="confluence-context-path" content="">
-<meta id="atlassian-token" name="atlassian-token" content="Wz9_y9qlqp">
-<meta id="confluence-space-key" name="confluence-space-key" content="revolution20">
-
-<script type="text/javascript">
-    // Deprecated global variables. To be removed in a future version of Confluence.
-    var contextPath = '';
-</script>
-
-    
-
-<!-- include system css resources -->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?media=print" media="print">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
-<![endif]-->
-
-<!-- end system css resources -->
-
-    <link rel="stylesheet" href="/s/1911/69/6/_/styles/combined.css?spaceKey=revolution20" type="text/css">
-
-    <meta name="confluence-request-time" content="1381730882090">
-
-<meta name="loggedInUsername" content="">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/s/1911/69/_/images/logo/confluence_16.png">
-
-<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="MODX Documentation"/>
-
-        <!-- include system javascript resources -->
-                        
-    
-    <script type="text/javascript" src="/s/1911/69/2/_/download/superbatch/js/batch.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
-<script type="text/javascript" src="/s/1911/69/3.3/_/download/batch/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.2/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
-
-    <!-- end system javascript resources -->
-
-    <link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/docs.css" />
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/syntaxhighlighter/css/all.css" />
-<!--<script type="text/javascript" src="http://misc.modx.com/js/jquery-1.3.2.min.js"></script>-->
-<script type="text/javascript" src="http://misc.modx.com/confluence/syntaxhighlighter/js/all.js"></script>
-<script type="text/javascript" src="http://misc.modx.com/confluence/loadcode.js"></script>
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/promo/ad.css" />
-
-    
-    <link rel="canonical" href="http://oldrtfm.modx.com/display/revolution20/Hardening+MODX+Revolution">
-    <link rel="shortlink" href="http://oldrtfm.modx.com/x/BQEvAg">
-    <meta name="wikilink" content="[revolution20:Hardening MODX Revolution]">
-
-</head>
-
-<body             onload="placeFocus()"
-     id="com-atlassian-confluence" class="theme-documentation ">
-<div id="full-height-container">
-<!-- CODE FOR AD THAT SEEMS TO BE INSERTABLE DIRECTLY AFTER OPEN BODY TAG IN CONFLUENCE THEME ADMIN -->
-<!--<a href="https://modxcloud.com/signup/lab-account.html?utm_source=rtfm&utm_medium=banner&utm_campaign=one_percent%2B" class="modx-cloud-link">
-    <div class="modx-cloud-ad-wrap">
-        <div class="modx-cloud-ad">
-            <div class="logo-wrap">
-                <img src="http://misc.modx.com/confluence/promo/modx-cloud-logo.png" alt="MODX Cloud" width="161" height="40">
-            </div>
-            <p>The Most Productive MODX Learning Playground Ever</p>
-            <span class="faux-btn">
-                Claim Free Lab Account
-            </span>
-
-        </div>
-    </div>
-</a>-->
-<!-- END OF AD -->
-
-<div class="editors_note" style="background-color:#ff9a91;border: 1px solid red; padding:5px;color:black;">
-    <strong>Important Note:</strong> This is an archive of the official MODX Documentation. Please do not edit or make changes here.  The current documentation is located at <a href="rtfm.modx.com">rtfm.modx.com</a>.
-</div>
-
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
-    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
-    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
-    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
-    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
-</fieldset>
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
-    <input type="hidden" id="userLocale" value="en_GB">
-    <input type="hidden" id="staticResourceUrlPrefix" value="/s/1911/69/_">
-    <input type="hidden" id="contextPath" value="">
-</fieldset>
-
-    
-<div id="header" class="sectionbottom ">
-        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
-        <fieldset>
-            <legend>Quick Search</legend>
-            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
-            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
-            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
-        </fieldset>
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="quickNavEnabled" value="true" />
-                    </fieldset>
-    </form>
-    <ul id="header-menu-bar" class="ajs-menu-bar">
-                    
-        
-            <li class="normal ajs-menu-item">
-        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
-                                        <li>
-    
-        
-    
-    <a  id="space-pages-link" href="/pages/listpages.action?key=revolution20"  class=""   title="Attachments: 1">
-                   <span>Pages</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=revolution20"  class=""   title="Attachments: 1">
-                   <span>Blog</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=revolution20"  class=""   title="Attachments: 1">
-                   <span>Labels</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=revolution20"  class=""   title="Attachments: 1">
-                   <span>Attachments</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  href="/spaces/space-bookmarks.action?spaceKey=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Bookmarks</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Mail</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Advanced</span></a>        </li>
-                            </ul>
-                        <ul  id="browse-menu-link-global"                 class="section-global">
-                                        <li>
-    
-            
-    
-    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
-                   <span>Confluence Gadgets</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-        
-                                                         <li class="ajs-menu-item normal">
-        
-        
-    
-    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FHardening%2BMODX%2BRevolution"  class="user-item login-link"  >
-                   <span>Log In</span></a>        </li>
-                                <li class="normal ajs-menu-item">
-            <div id="splitter-button" class="hidden" title="Sidebar"></div>
-        </li>
-
-    </ul>
-    
-    
-    <ol id="breadcrumbs">
-                    
-        <li class="first" >
-                                    <span><a href="/dashboard.action">Dashboard</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/revolution20">MODx Revolution 2.x</a></span>
-                </li>
-                                        <li id="ellipsis" title="    &#8230;
-                    Home
-             &gt;         Administering Your Site
-        &#8230;
-"><span><strong>&#8230;</strong></span></li>
-                                    
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/revolution20/Home">Home</a></span>
-                </li>
-                                
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/revolution20/Administering+Your+Site">Administering Your Site</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/revolution20/Security">Security</a></span>
-                </li>
-                    
-        <li>
-                                    <span>Hardening MODX Revolution</span>
-                </li>
-        </ol>
-
-</div>
-
-    <div id="splitter">
-    <div id="splitter-sidebar">
-
-        
-
-                    
-    
-    
-
-<div class="plugin_pagetree">
-
-                <div id="pagetreesearch">
-            <form method="POST" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
-                                    <input type="hidden" name="ancestorId" value="18678050">
-                                <input type="hidden" name="spaceKey" value="revolution20">
-                <input type="text"  size="20" name="queryString">
-                <input type="submit" value="Search">
-            </form>
-        </div>
-    
-        
-    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-        <div class="plugin_pagetree_children">
-        </div>
-    </ul>
-
-    <fieldset class="hidden">
-        <input type="hidden" name="treeId" value="">
-        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
-        <input type="hidden" name="treePageId" value="36634885">
-
-        <input type="hidden" name="noRoot" value="false">
-        <input type="hidden" name="rootPageId" value="18678050">
-
-        <input type="hidden" name="rootPage" value="">
-        <input type="hidden" name="startDepth" value="0">
-        <input type="hidden" name="spaceKey" value="revolution20" >
-
-        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
-        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
-        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
-        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FHardening%2BMODX%2BRevolution">
-
-                <fieldset class="hidden">
-                                                <input type="hidden" name="ancestorId" value="18678085">
-                                    <input type="hidden" name="ancestorId" value="18678453">
-                                    <input type="hidden" name="ancestorId" value="18678050">
-                                    </fieldset>
-    </fieldset>
-</div>
-
-
-
-            </div>
-    <div id="splitter-content">
-
-                    <script type="text/javascript" src="/s/1911/69/2/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
-    
-            
-    
-<div id="main" >
-    
-    
-    <div id="navigation" class="content-navigation view">
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="pageId" value="36634885">
-        </fieldset>
-        <ul class="ajs-menu-bar">
-                                
-                        
-            <li class="normal ajs-menu-item">
-        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="action-menu-link-primary"                 class="section-primary first">
-                                        <li>
-    
-        
-    
-    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=36634885"  class="action-view-attachments"  accessKey="a" >
-                   <span><u>A</u>ttachments (1)</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=36634885"  class="action-view-history"  >
-                   <span>Page History</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="mailPageLink" href="/pages/mailpage/mailpage.action?pageId=36634885"  class=""  >
-                    <span>
-                <img alt="E-mail" src="/images/icons/mail_content_16.gif" height="16" width="16" title="E-mail">
-                E-mail
-            </span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=36634885"  class="action-page-permissions"  >
-                   <span>Restrictions</span></a>        </li>
-                            </ul>
-                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
-                                        <li>
-    
-        
-    
-    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=36634885"  class="action-view-info"  >
-                   <span>Info</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=36634885"  class=""  >
-                   <span>Link to this Page&hellip;</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=revolution20&openId=36634885#selectedPageInHierarchy"  class=""  >
-                   <span>View in Hierarchy</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=36634885"  class="action-view-source popup-link"  >
-                   <span>View Wiki Markup</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-            </ul>
-    </div>
-
-    
-    <h1 id="title-heading" class="pagetitle">
-                    <a href="/display/revolution20"><img class="logo global custom" src="/download/attachments/9109505/global.logo?version=2&modificationDate=1356105314000" alt=""></a>        
-		<span id="title-text">
-					            <a href="/display/revolution20/Hardening+MODX+Revolution">Hardening MODX Revolution</a>
-    				</span>
-    </h1>
-
-    
-
-    
-    
-    
-    <div id="content" class="page view">
-    
-
-
-
-<fieldset id="link-to-page-fields" class="hidden parameters">
-    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
-    <input type="hidden" id="linkToThisPageLink" value="Link">
-    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
-    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
-    <input type="hidden" id="linkToThisPageClose" value="Close">
-</fieldset>
-<fieldset class="hidden parameters">
-    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;Hardening MODX Revolution&#8217;">
-    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
-    <input type="hidden" title="movePageDialogMoveButton" value="Move">
-    <input type="hidden" title="movePageDialogOkButton" value="OK">
-    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
-    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
-    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
-    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
-    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
-    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
-    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
-    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
-    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
-    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
-    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
-    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
-    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
-    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
-    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
-    <input type="hidden" title="pageTitle" value="Hardening MODX Revolution"/>
-    <input type="hidden" title="parentPageTitle" value="Security"/>
-    <input type="hidden" title="fromPageTitle" value=""/>
-    <input type="hidden" title="spaceKey" value="revolution20"/>
-    <input type="hidden" title="spaceName" value="MODx Revolution 2.x"/>
-    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
-    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
-    <input type="hidden" title="movePageDialogBackButton" value="Back"/>
-    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder"/>
-    <input type="hidden" title="movePageDialogNextButton" value="Move"/>    
-</fieldset>
-
-<script type="text/x-template" title="movePageDialog">
-    <div class="row information">
-        Specify the new parent page for this page and its children by space and title.
-    </div>
-    <div class="form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
-            <div class="row">
-                <label for="new-space">New space:</label>
-                <div class="value new-space-value">
-                    <input id="new-space-key" name="new-space-key" type="hidden" value="revolution20">
-                                            <span class="space-input">
-                            <input id="new-space" name="new-space" value="MODx Revolution 2.x" disabled="disabled">
-                        </span>
-                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
-                                        <div class="new-space-dropdown aui-dd-parent"></div>
-                </div>
-            </div>
-            <div class="row">
-                <label for="new-parent-page">New parent page:</label>
-                <div class="value new-parent-page-value">
-                    <span class="page-input">
-                        <input id="new-parent-page" name="new-parent-page" value="Security">
-                    </span>
-                    <span class="description">Start typing a page title to see a list of suggestions.</span>
-                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="location-info">
-        <div class="row">
-            <label>Current location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <label>New location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
-<script type="text/x-template" title="movePageErrors">
-    <div id="move-errors" class="hidden warning"></div>
-</script>
-<script type="text/x-template" title="movePageBreadcrumb">
-    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbLoading">
-    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbError">
-    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
-</script>
-<script type="text/x-template" title="movePageNoMatchingPages">
-    <ol><li><span class="warning">No matching pages found.</span></li></ol>
-</script>
-<script type="text/x-template" title="movePageNoMatchingSpaces">
-    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
-</script>
-
-<script type="text/x-template" title="movePageSearchPanel">
-<div class="row information">
-    Search for and select the new parent page for this page and its children.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
-            
-
-    <label  for="move-page-search-query" class="assistive">Search keywords</label>
-            <input class="search-query" id="move-page-search-query">
-            
-
-    <label  for="move-page-search-space" class="assistive">Search in space</label>
-                            <select id="move-page-search-space" class="search-space" disabled="disabled">
-                    <option value="revolution20" selected="selected">MODx Revolution 2.x</option>
-                </select>
-                        <input type="button" value="Search">
-                            <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
-                    </fieldset>
-    </div>
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageSearchResultsLoading">
-    <div class="searching">Searching…</div>
-</script>
-
-<script type="text/x-template" title="movePageHistoryPanel">
-<div class="row information">
-    Select the new parent page for this page and its children from your history.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageHistoryLoading">
-    <div class="searching">Loading…</div>
-</script>
-<script type="text/x-template" title="movePageBrowsePanel">
-    <div class="row information">
-        Click to select the new parent page for this page and its children.
-    </div>
-    <div class="tree"></div>
-</script>
-<script type="text/x-template" title="movePagePanelLoading">
-    <span>Loading…</span>
-</script>
-<script type="text/x-template" title="movePageBrowsePanelSpace">
-    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
-</script>
-<script type="text/x-template" title="orderingPagePanel">
-<div id="orderingPlaceHolder"></div>
-</script>
-<script type="text/x-template" title="reorderCheckbox">
-<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
-</script>
-<script type="text/x-template" title="move-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Moving+a+Page" target="_blank">Help</a>
-    </div>
-</script>
-<script type="text/x-template" title="searchResultsGrid">
-    <table>
-        <thead>
-            <tr class="header">
-                <th class="search-result-title">Page Title</th>
-                <th class="search-result-space">Space</th>
-                <th class="search-result-date">Updated</th>
-            </tr>
-        </thead>
-    </table>
-</script>
-<script type="text/x-template" title="searchResultsGridCount">
-    <p class="search-result-count">{0}</p>
-</script>
-<script type="text/x-template" title="searchResultsGridRow">
-    <tr class="search-result">
-        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
-        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
-        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
-    </tr>
-</script>
-<!-- Start restrictions section -->
-<fieldset class="hidden parameters i18n">
-        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
-        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
-        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
-        <input type="hidden" id="i18n.cancel.name" value="Cancel">
-        <input type="hidden" id="i18n.close.name" value="Close">
-        <input type="hidden" id="i18n.update.name" value="Save">
-</fieldset>
-
-<script type="text/x-template" title="page-permissions-div">
-<div id="page-permissions-div">
-    <div id="page-permissions-editor-form">
-
-                <div id="page-permissions-error-div" class="hidden">
-            <a href="#" id="permissions-error-div-close">Ok</a>
-            <div></div>
-        </div>
-
-                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
-            <div>
-                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
-                <label for="restrictViewRadio">Restrict viewing of this page</label>
-                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
-                <label for="restrictEditRadio">Restrict editing of this page</label>
-            </div>
-        </div>
-        <div id="page-permissions-input" class="page-permissions-label-rows">
-            <div class="page-permissions-label">To:</div>
-            <div id="page-permissions-chooser-box">
-                                <span id="page-permissions-choose-user" class="ajs-button">
-                    
-
-
-
-    
-
-
-
-<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
-<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
-
-
-                </span>
-                <span id="page-permissions-choose-group" class="ajs-button">
-                    
-
-
-
-    
-
- 
-
-<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
-<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
-
-
-                </span>
-            </div>
-            <div id="page-permissions-input-box">
-                                <span>
-                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
-                </span>
-                <input
-    type="hidden"
-                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1911/69/_/images/border/spacer.gif"/>
-                <input type="button" id="add-typed-names" value="Restrict">
-            </div>
-        </div>
-    </div>
-    <div id="page-permissions-tables">
-        <div id="page-permissions-table-div">
-                        <table id="page-permissions-table" class="page-permissions-table">
-                <tr id="page-permissions-no-views" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
-                </tr>
-                <tr id="page-permissions-no-edits" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
-                </tr>
-            </table>
-        </div>
-        <div id="page-inherited-permissions-table-div" class="hidden">
-            <span id="page-inherited-permissions-table-desc">
-                <a class="icon twisty-closed">Show/Hide</a>
-                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
-            </span>
-            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
-        </div>
-    </div>
-</div>
-</script>
-
-<script type="text/x-template" title="permissions-row-template">
-    <tr class="permission-row">
-                                
-                <td class="page-permissions-marker-cell" width="20%">
-            <span>Viewing restricted to:</span>
-        </td>
-                <td class="permission-entity" nowrap="true" width="40%">
-            <span class="entity-container">
-                <img class="permission-entity-picture"/>
-                <span class="permission-entity-display-name"></span>
-                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
-            </span>
-        </td>
-        <td class="permission-detail-column">
-            <div class="permission-remove-div">
-                <a href="#" class="remove-permission-link">Remove restriction</a>
-            </div>
-        </td>
-    </tr>
-</script>
-<script type="text/x-template" title="permissions-username-no-suggestion-template">
-    <ol>
-        <li><a href="#" class="message"><span>No matches</span></a></li>
-    </ol>
-</script>
-<script type="text/x-template" title="page-inherited-permissions-table-div-template">
-        <div class="page-inherited-permissions-owner-div">
-        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
-        <table class="page-permissions-table"></table>
-    </div>
-</script>
-<script type="text/x-template" title="page-restrictions-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Page+Restrictions" target="_blank">Help</a>
-    </div>
-</script>
-<!-- End restrictions section -->
-
-        
-    
-    
-        <fieldset class="hidden parameters">
-            <input type="hidden" title="parentPageId" value="18678085">
-        </fieldset>
-
-        
-                            
-    
-
-                    
-
-        
-        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
-<div id="page-metadata-start" class="assistive"></div>
-
-    <div class="page-metadata">
-        <ul>
-                            <li class="page-metadata-item noprint">
-    
-            
-    
-    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Page restrictions apply</span></a>        </li>
-                            <li class="page-metadata-item noprint">
-    
-        
-    
-    <a  id="content-metadata-attachments" href="/pages/viewpageattachments.action?pageId=36634885&metadataLink=true"  class="page-metadata-icon action-view-attachments"  accessKey="a"  title="Attachments: 1">
-                   <span><span class="page-metadata-attachments-text">Attachments:</span><span class="page-metadata-attachments-count">1</span></span></a>        </li>
-                        <li class="page-metadata-modification-info">
-                                    Added by <a href="/display/~everettg_99"
-                          class="url fn"
-                   >Everett Griffiths</a>, last edited by <a href="/display/~sottwell"
-                          class="url fn"
-                   >Susan Ottwell</a> on Jul 18, 2013
-                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=36634885&originalId=46694526">view change</a>)</span>
-                                                </li>
-                            <li class="show-hide-comment-link">
-                    <a id="show-version-comment" class="inline-control-link" href="#">show comment</a>
-                    <a id="hide-version-comment" class="inline-control-link" style="display:none;" href="#">hide comment</a>
-                </li>
-                    </ul>
-          <div id="version-comment" class="noteMacro" style="display: none;">
-      <strong>Comment:</strong>
-      Spelling correction<br />
-  </div>
-    </div>
-
-
-<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
-<div id="page-metadata-end" class="assistive"></div>
-        
-        <fieldset class="hidden parameters">
-                        <input type="hidden" title="browsePageTreeMode" value="view">
-        </fieldset>
-
-        <div class="wiki-content">
-           <!-- wiki content -->
-            <p><br class="atl-forced-newline" /></p>
+<p>
+<br class="atl-forced-newline" />
+</p>
 
 <div>
 <ul>
-    <li><a href='#HardeningMODXRevolution-Overview'>Overview</a></li>
-    <li><a href='#HardeningMODXRevolution-EverythingbutMODX'>Everything but MODX</a></li>
+<li>
+<a href='#HardeningMODXRevolution-Overview'>Overview</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-EverythingbutMODX'>Everything but MODX</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#HardeningMODXRevolution-YourComputer'>Your Computer</a></li>
-    <li><a href='#HardeningMODXRevolution-YourConnection'>Your Connection</a></li>
-    <li><a href='#HardeningMODXRevolution-YourServer'>Your Server</a></li>
-    <li><a href='#HardeningMODXRevolution-PasswordsandLogins'>Passwords and Logins</a></li>
-    <li><a href='#HardeningMODXRevolution-KeepitClean'>Keep it Clean</a></li>
-    <li><a href='#HardeningMODXRevolution-Backups'>Backups</a></li>
-    <li><a href='#HardeningMODXRevolution-SocialEngineering'>Social Engineering</a></li>
+<li>
+<a href='#HardeningMODXRevolution-YourComputer'>Your Computer</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-YourConnection'>Your Connection</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-YourServer'>Your Server</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-PasswordsandLogins'>Passwords and Logins</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-KeepitClean'>Keep it Clean</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-Backups'>Backups</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-SocialEngineering'>Social Engineering</a>
+</li>
 </ul>
-    <li><a href='#HardeningMODXRevolution-LockingdownMODX'>Locking down MODX</a></li>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-LockingdownMODX'>Locking down MODX</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#HardeningMODXRevolution-ChangingDefaultPaths'>Changing Default Paths</a></li>
+<li>
+<a href='#HardeningMODXRevolution-ChangingDefaultPaths'>Changing Default Paths</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#HardeningMODXRevolution-core'>core</a></li>
-    <li><a href='#HardeningMODXRevolution-manager'>manager</a></li>
-    <li><a href='#HardeningMODXRevolution-connectors'>connectors</a></li>
-    <li><a href='#HardeningMODXRevolution-assets'>assets</a></li>
+<li>
+<a href='#HardeningMODXRevolution-core'>core</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-manager'>manager</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-connectors'>connectors</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-assets'>assets</a>
+</li>
 </ul>
-    <li><a href='#HardeningMODXRevolution-PathFollowup'>Path Followup</a></li>
-    <li><a href='#HardeningMODXRevolution-ChangeyourLoginPage'>Change your Login Page</a></li>
-    <li><a href='#HardeningMODXRevolution-ChangingDefaultDatabasePrefixes'>Changing Default Database Prefixes</a></li>
-    <li><a href='#HardeningMODXRevolution-UseauniquenamefortheAdminUser'>Use a unique name for the Admin User</a></li>
-    <li><a href='#HardeningMODXRevolution-ForceaPasswordPolicy'>Force a Password Policy</a></li>
-    <li><a href='#HardeningMODXRevolution-Setupadedicated404page'>Set up a dedicated 404 page</a></li>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-PathFollowup'>Path Followup</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-ChangeyourLoginPage'>Change your Login Page</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-ChangingDefaultDatabasePrefixes'>Changing Default Database Prefixes</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-UseauniquenamefortheAdminUser'>Use a unique name for the Admin User</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-ForceaPasswordPolicy'>Force a Password Policy</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-Setupadedicated404page'>Set up a dedicated 404 page</a>
+</li>
 </ul>
-    <li><a href='#HardeningMODXRevolution-ForcingSFTPAccess'>Forcing SFTP Access</a></li>
-    <li><a href='#HardeningMODXRevolution-AddinganSSLCertificatetoyourManager'>Adding an SSL Certificate to your Manager</a></li>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-ForcingSFTPAccess'>Forcing SFTP Access</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-AddinganSSLCertificatetoyourManager'>Adding an SSL Certificate to your Manager</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#HardeningMODXRevolution-UsingasharedCertificate'>Using a shared Certificate</a></li>
-    <li><a href='#HardeningMODXRevolution-UsingaselfsignedCertificate'>Using a self-signed Certificate</a></li>
-    <li><a href='#HardeningMODXRevolution-Installa%22Real%22Certificate'>Install a "Real" Certificate</a></li>
-    <li><a href='#HardeningMODXRevolution-ForcingSSLconnectionstotheManager'>Forcing SSL connections to the Manager</a></li>
+<li>
+<a href='#HardeningMODXRevolution-UsingasharedCertificate'>Using a shared Certificate</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-UsingaselfsignedCertificate'>Using a self-signed Certificate</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-Installa%22Real%22Certificate'>Install a "Real" Certificate</a>
+</li>
+
+<li>
+<a href='#HardeningMODXRevolution-ForcingSSLconnectionstotheManager'>Forcing SSL connections to the Manager</a>
+</li>
 </ul>
-    <li><a href='#HardeningMODXRevolution-MonitoringyourSiteandServer'>Monitoring your Site and Server</a></li>
-</ul></div>
+</li>
 
-<h2><a name="HardeningMODXRevolution-Overview"></a>Overview</h2>
+<li>
+<a href='#HardeningMODXRevolution-MonitoringyourSiteandServer'>Monitoring your Site and Server</a>
+</li>
+</ul>
+</div>
 
-<p>Hardening any web application, including MODx Revolution, involves auditing all layers of your site, including your server, all of its services, and the application itself.  Make no mistake: it's a war out there.  If you're not afraid, then you aren't paying attention.  The simple act of having a website on-line will ensure that you will be targeted by hacks.  Their motives vary, but the weakest link will be sought out and exploited.</p>
+<h2>
+<a name="HardeningMODXRevolution-Overview" id="HardeningMODXRevolution-Overview"></a>Overview
+</h2>
 
-<p>Hardening is a huge topic, so this page seeks to help you identify what might be the most common attack vectors on your site and help you close them.</p>
+<p>
+Hardening any web application, including MODx Revolution, involves auditing all layers of your site, including your server, all of its services, and the application itself. Make no mistake: it's a war out there. If you're not afraid, then you aren't paying attention. The simple act of having a website on-line will ensure that you will be targeted by hacks. Their motives vary, but the weakest link will be sought out and exploited.
+</p>
 
-<h2><a name="HardeningMODXRevolution-EverythingbutMODX"></a>Everything but MODX</h2>
+<p>
+Hardening is a huge topic, so this page seeks to help you identify what might be the most common attack vectors on your site and help you close them.
+</p>
 
-<p>There are <b>many</b> aspects to hardening that have nothing to do with MODX.  We make perfunctory mention of them here, but this page is focused specifically on how to harden MODX.  A thorough security audit will focus on the entire environment, so do not neglect to consider the following aspects:</p>
+<h2>
+<a name="HardeningMODXRevolution-EverythingbutMODX" id="HardeningMODXRevolution-EverythingbutMODX"></a>Everything but MODX
+</h2>
 
-<h3><a name="HardeningMODXRevolution-YourComputer"></a>Your Computer</h3>
+<p>
+There are <b>many</b> aspects to hardening that have nothing to do with MODX. We make perfunctory mention of them here, but this page is focused specifically on how to harden MODX. A thorough security audit will focus on the entire environment, so do not neglect to consider the following aspects:
+</p>
 
-<p>Using any version of Windows prior to Windows Vista is almost a death-wish. This isn't just indiscriminate Microsoft bashing, it's because it literally took MicroSoft <em>twenty-some years</em> to finally build a system whose security policy was "default-deny" instead of "default-permit" (read more <a href="http://en.wikipedia.org/wiki/Security_engineering" class="external-link" rel="nofollow">here</a>), and Windows <em>still</em> does not include a secure shell (SSH).  Hardening older Windows systems is a herculean effort and unless you are <em>extremely</em> skilled and vigilant, your pre-Vista computer will likely contain severe security holes.</p>
+<h3>
+<a name="HardeningMODXRevolution-YourComputer" id="HardeningMODXRevolution-YourComputer"></a>Your Computer
+</h3>
 
-<p>But don't be fooled: <em>ANY</em> operating system can be hacked. Don't think you're impervious if you're on a Mac or pushing the Penguin.  Run as a user with limited permissions and keep your system patched and run dynamic intrusion detection software to protect you from key-loggers or screen-capture viruses.  Never save your passwords or other login info as plain text, use secure software like <a href="https://lastpass.com/" class="external-link" rel="nofollow">LastPass</a> to store your passwords.</p>
+<p>
+Using any version of Windows prior to Windows Vista is almost a death-wish. This isn't just indiscriminate Microsoft bashing, it's because it literally took MicroSoft <em>twenty-some years</em> to finally build a system whose security policy was "default-deny" instead of "default-permit" (read more <a href="http://en.wikipedia.org/wiki/Security_engineering" class="external-link" rel="nofollow">here</a>), and Windows <em>still</em> does not include a secure shell (SSH). Hardening older Windows systems is a herculean effort and unless you are <em>extremely</em> skilled and vigilant, your pre-Vista computer will likely contain severe security holes.
+</p>
 
-<p>NEVER use a public computer: for all you know, that computer is logging every username and password you type.</p>
+<p>
+But don't be fooled: <em>ANY</em> operating system can be hacked. Don't think you're impervious if you're on a Mac or pushing the Penguin. Run as a user with limited permissions and keep your system patched and run dynamic intrusion detection software to protect you from key-loggers or screen-capture viruses. Never save your passwords or other login info as plain text, use secure software like <a href="https://lastpass.com/" class="external-link" rel="nofollow">LastPass</a> to store your passwords.
+</p>
 
-<h3><a name="HardeningMODXRevolution-YourConnection"></a>Your Connection</h3>
+<p>
+NEVER use a public computer: for all you know, that computer is logging every username and password you type.
+</p>
 
-<p>If possible, use <em>only</em> wired connections (no Wifi).  Never use public Wifi, and never use a wireless connection that uses anything less than <a href="http://en.wikipedia.org/wiki/Wpa2#WPA2" class="external-link" rel="nofollow">WPA2</a> encryption. It's far too easy to intercept packets as they travel across a router. With only modest hacking skills, someone can read your usernames and passwords as they travel get beamed around the coffeeshop.</p>
+<h3>
+<a name="HardeningMODXRevolution-YourConnection" id="HardeningMODXRevolution-YourConnection"></a>Your Connection
+</h3>
 
-<h3><a name="HardeningMODXRevolution-YourServer"></a>Your Server</h3>
+<p>
+If possible, use <em>only</em> wired connections (no Wifi). Never use public Wifi, and never use a wireless connection that uses anything less than <a href="http://en.wikipedia.org/wiki/Wpa2#WPA2" class="external-link" rel="nofollow">WPA2</a> encryption. It's far too easy to intercept packets as they travel across a router. With only modest hacking skills, someone can read your usernames and passwords as they travel get beamed around the coffeeshop.
+</p>
 
-<p>No matter how secure all other elements are, it amounts to nothing if your server is not adequately secure.  If your FTP password is cracked, then there's nothing you can do to guarantee the integrity of your site.  Turn off all unnecessary services and if possible, turn off FTP entirely in favor of SFTP.  Consider turning off password authentication entirely in favor of <a href="http://tipsfor.us/2009/06/15/securing-a-linux-server-ssh-and-brute-force-attacks/" class="external-link" rel="nofollow">SSH keyed logins</a>, and if you use an SSH key, make sure you use a complex passphrase.</p>
+<h3>
+<a name="HardeningMODXRevolution-YourServer" id="HardeningMODXRevolution-YourServer"></a>Your Server
+</h3>
 
-<p>Make sure that your server has a good firewall installed and some form of intrusion detection that dynamically detects hacking attempts. <a href="http://rtfm.modx.com/display/revolution20/Installation+on+a+server+running+ModSecurity" class="external-link" rel="nofollow">ModSecurity</a> is a security module for Apache, and it helps deter any number of malicious attacks.</p>
+<p>
+No matter how secure all other elements are, it amounts to nothing if your server is not adequately secure. If your FTP password is cracked, then there's nothing you can do to guarantee the integrity of your site. Turn off all unnecessary services and if possible, turn off FTP entirely in favor of SFTP. Consider turning off password authentication entirely in favor of <a href="http://tipsfor.us/2009/06/15/securing-a-linux-server-ssh-and-brute-force-attacks/" class="external-link" rel="nofollow">SSH keyed logins</a>, and if you use an SSH key, make sure you use a complex passphrase.
+</p>
 
-<p>Update your server and its technologies often&#33;  If any weak link is discovered in any part of your server, it could be the crack in the dam that floods your entire site with a world of hurt.  Keep your server patched&#33;</p>
+<p>
+Make sure that your server has a good firewall installed and some form of intrusion detection that dynamically detects hacking attempts. <a href="http://rtfm.modx.com/display/revolution20/Installation+on+a+server+running+ModSecurity" class="external-link" rel="nofollow">ModSecurity</a> is a security module for Apache, and it helps deter any number of malicious attacks.
+</p>
 
+<p>
+Update your server and its technologies often! If any weak link is discovered in any part of your server, it could be the crack in the dam that floods your entire site with a world of hurt. Keep your server patched!
+</p>
 
-<h3><a name="HardeningMODXRevolution-PasswordsandLogins"></a>Passwords and Logins</h3>
+<h3>
+<a name="HardeningMODXRevolution-PasswordsandLogins" id="HardeningMODXRevolution-PasswordsandLogins"></a>Passwords and Logins
+</h3>
 
-<p>Choose long, randomly generated passwords and update them regularly.  Longer passwords are usually more mathematically complex than shorter passwords, even if your passwords use special characters. <a href="http://en.wikipedia.org/wiki/Salt_(cryptography)" class="external-link" rel="nofollow">Salting</a> your passwords with a easily-remembered phrase to increase the password length is a good technique to reduce the odds of a brute-force attack succeeding.  Again, you <b>MUST</b> store your passwords securely, in some sort of encrypted format.  It's far better to write your passwords in a notebook that you keep in a locked filing cabinet than it is to keep them in a plaintext file on your computer.</p>
+<p>
+Choose long, randomly generated passwords and update them regularly. Longer passwords are usually more mathematically complex than shorter passwords, even if your passwords use special characters. <a href="http://en.wikipedia.org/wiki/Salt_(cryptography)" class="external-link" rel="nofollow">Salting</a> your passwords with a easily-remembered phrase to increase the password length is a good technique to reduce the odds of a brute-force attack succeeding. Again, you <b>MUST</b> store your passwords securely, in some sort of encrypted format. It's far better to write your passwords in a notebook that you keep in a locked filing cabinet than it is to keep them in a plaintext file on your computer.
+</p>
 
-<p>Very important: <b>never use the same password twice.</b> Frequently hacks succeed because one service is compromised and the password deciphered, and a user has ignorantly or lazily used the same password for other sites or services. <b>DO NOT BE LAZY&#33;&#33;&#33;</b></p>
+<p>
+Very important: <b>never use the same password twice.</b> Frequently hacks succeed because one service is compromised and the password deciphered, and a user has ignorantly or lazily used the same password for other sites or services. <b>DO NOT BE LAZY!!!</b>
+</p>
 
-<h3><a name="HardeningMODXRevolution-KeepitClean"></a>Keep it Clean</h3>
+<h3>
+<a name="HardeningMODXRevolution-KeepitClean" id="HardeningMODXRevolution-KeepitClean"></a>Keep it Clean
+</h3>
 
-<p>Delete anything unnecessary from your site.  Delete any unused images or javascript files.  Especially bad are any lingering PHP scripts or god-forbid, any backups or zip files inside of your document root.  Think of your site as a sinking airship: if you don't need it, throw it out before you crash and burn.  If you're not using a particular Plugin, Snippet, or template, for example, then delete its files from your server.  Just because it's not activated doesn't mean it can't be exploited&#33;</p>
+<p>
+Delete anything unnecessary from your site. Delete any unused images or javascript files. Especially bad are any lingering PHP scripts or god-forbid, any backups or zip files inside of your document root. Think of your site as a sinking airship: if you don't need it, throw it out before you crash and burn. If you're not using a particular Plugin, Snippet, or template, for example, then delete its files from your server. Just because it's not activated doesn't mean it can't be exploited!
+</p>
 
-<h3><a name="HardeningMODXRevolution-Backups"></a>Backups</h3>
+<h3>
+<a name="HardeningMODXRevolution-Backups" id="HardeningMODXRevolution-Backups"></a>Backups
+</h3>
 
-<p>One of the most important things you can do for your web site is to set up incremental, off-site backups.  There is never a guarantee that you won't get hacked, so the best thing you can do is to ensure that at a minimum, you have backups to restore your site if and when it gets nuked.</p>
+<p>
+One of the most important things you can do for your web site is to set up incremental, off-site backups. There is never a guarantee that you won't get hacked, so the best thing you can do is to ensure that at a minimum, you have backups to restore your site if and when it gets nuked.
+</p>
 
-<h3><a name="HardeningMODXRevolution-SocialEngineering"></a>Social Engineering</h3>
+<h3>
+<a name="HardeningMODXRevolution-SocialEngineering" id="HardeningMODXRevolution-SocialEngineering"></a>Social Engineering
+</h3>
 
-<p>Many hacks involve some plain old trickery: someone calling or emailing you and asking for information under false pretexts.  Don't be fooled&#33;  Are you SURE it's your client asking you for their password?  Or is it someone who got into their email account?  For a good read, check out Kevin Mitnick's <a href="http://www.amazon.com/Ghost-Wires-Adventures-Worlds-Wanted/dp/0316037702" class="external-link" rel="nofollow">Ghost in the Wires</a>: he was able to get the source code from many LARGE companies merely by placing believable phone-calls to the right person.</p>
+<p>
+Many hacks involve some plain old trickery: someone calling or emailing you and asking for information under false pretexts. Don't be fooled! Are you SURE it's your client asking you for their password? Or is it someone who got into their email account? For a good read, check out Kevin Mitnick's <a href="http://www.amazon.com/Ghost-Wires-Adventures-Worlds-Wanted/dp/0316037702" class="external-link" rel="nofollow">Ghost in the Wires</a>: he was able to get the source code from many LARGE companies merely by placing believable phone-calls to the right person.
+</p>
 
-<h2><a name="HardeningMODXRevolution-LockingdownMODX"></a>Locking down MODX</h2>
+<h2>
+<a name="HardeningMODXRevolution-LockingdownMODX" id="HardeningMODXRevolution-LockingdownMODX"></a>Locking down MODX
+</h2>
 
-<p>You'll notice that this is only one small section of the hardening process.  Remember: MODX is only one aspect of your environment, so do not neglect the previous section&#33;</p>
+<p>
+You'll notice that this is only one small section of the hardening process. Remember: MODX is only one aspect of your environment, so do not neglect the previous section!
+</p>
 
-<h3><a name="HardeningMODXRevolution-ChangingDefaultPaths"></a>Changing Default Paths</h3>
+<h3>
+<a name="HardeningMODXRevolution-ChangingDefaultPaths" id="HardeningMODXRevolution-ChangingDefaultPaths"></a>Changing Default Paths
+</h3>
 
-<p>Unlike Evolution, MODX Revolution makes it fairly easy to change the names of its various folders and move the core outside the web root. Note that only the core can (and should) be moved outside the web root because the other directories must be accessible via the web.  Changing the directory names is critical if you want to avoid your site being fingerprinted and ending up on the speed-dial list of every hacker-bot out there.</p>
+<p>
+Unlike Evolution, MODX Revolution makes it fairly easy to change the names of its various folders and move the core outside the web root. Note that only the core can (and should) be moved outside the web root because the other directories must be accessible via the web. Changing the directory names is critical if you want to avoid your site being fingerprinted and ending up on the speed-dial list of every hacker-bot out there.
+</p>
 
-<p>The Advanced Distribution allows you to specify the names and locations of the various directories during the install, but it won't install successfully on some hosts.</p>
+<p>
+The Advanced Distribution allows you to specify the names and locations of the various directories during the install, but it won't install successfully on some hosts.
+</p>
 
-<p>Before you do any of this, make a backup of your site and your database&#33;</p>
+<p>
+Before you do any of this, make a backup of your site and your database!
+</p>
 
-<h4><a name="HardeningMODXRevolution-core"></a>core</h4>
+<h4>
+<a name="HardeningMODXRevolution-core" id="HardeningMODXRevolution-core"></a>core
+</h4>
 
-<p>This is perhaps the most important path to change.  Move your core directory <b>out</b> of the web server's document root.  You don't want anyone poking around in there via a browser and exploiting any potential weaknesses.  One simple place to put it is simply one folder above your document root, i.e. <tt><sub>/core/</sub></tt> instead of <tt>/public_html/core/</tt>.  Once you move it, you'll have to update the following configuration details:</p>
+<p>
+This is perhaps the most important path to change. Move your core directory <b>out</b> of the web server's document root. You don't want anyone poking around in there via a browser and exploiting any potential weaknesses. One simple place to put it is simply one folder above your document root, i.e. <tt><sub>/core/</sub></tt> instead of <tt>/public_html/core/</tt>. Once you move it, you'll have to update the following configuration details:
+</p>
 
 <ul>
-	<li>core/config/config.inc.php (change the <b>$modx_core_path</b> variable)</li>
-	<li>/config.core.php (at the site root)</li>
-	<li>/connectors/config.core.php</li>
-	<li>/manager/config.core.php</li>
-	<li>The <b>modx_workspaces</b> database table &#8211; this is best done by re-running the setup as you might do when <a href="http://rtfm.modx.com/display/revolution20/Moving+Your+Site+to+a+New+Server" class="external-link" rel="nofollow">moving your site</a></li>
+<li>core/config/config.inc.php (change the <b>$modx_core_path</b> variable)
+</li>
+
+<li>/config.core.php (at the site root)
+</li>
+
+<li>/connectors/config.core.php
+</li>
+
+<li>/manager/config.core.php
+</li>
+
+<li>The <b>modx_workspaces</b> database table – this is best done by re-running the setup as you might do when <a href="http://rtfm.modx.com/display/revolution20/Moving+Your+Site+to+a+New+Server" class="external-link" rel="nofollow">moving your site</a>
+</li>
 </ul>
 
+<p>
+You'll probably want to go ahead and update the other paths, but just keep in mind that once you're done, you'll have to run the setup to ensure that all your paths are clean.
+</p>
 
-<p>You'll probably want to go ahead and update the other paths, but just keep in mind that once you're done, you'll have to run the setup to ensure that all your paths are clean.</p>
+<h4>
+<a name="HardeningMODXRevolution-manager" id="HardeningMODXRevolution-manager"></a>manager
+</h4>
 
-<h4><a name="HardeningMODXRevolution-manager"></a>manager</h4>
+<p>
+The manager is arguably the second most important path to change. After all, if someone sees that you've got a nice MODX login page at <a href="http://yoursite.com/manager/" class="external-link" rel="nofollow">http://yoursite.com/manager/</a> it won't take a genius to figure out that you're running MODX and the brute-force hacking attempts can begin.
+</p>
 
-<p>The manager is arguably the second most important path to change.  After all, if someone sees that you've got a nice MODX login page at <a href="http://yoursite.com/manager/" class="external-link" rel="nofollow">http://yoursite.com/manager/</a> it won't take a genius to figure out that you're running MODX and the brute-force hacking attempts can begin.</p>
+<p>
+Choose a randomly generated alphanumeric bit of text to use as your new manager folder. For maximum compatibility, it should use only lowercase letters. Then update the <b>core/config/config.inc.php</b> file to something like the following:
+</p>
 
-<p>Choose a randomly generated alphanumeric bit of text to use as your new manager folder.  For maximum compatibility, it should use only lowercase letters.  Then update the <b>core/config/config.inc.php</b> file to something like the following:</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$modx_manager_path = '/home/youruser/public_html/r4nd0m/';
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$modx_manager_path = '/home/youruser/public_html/r4nd0m/';
 $modx_manager_url = '/r4nd0m/';
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>Moving the manager will avoid the fingerprinting bots from easily sniffing your site out as a MODX site, but it's still possible that someone could eventually find your new manager directory (not easy, but entirely possible).  For an even more thorough solution, you could put the manager URL on a completely different domain, e.g. <tt><b>$modx_manager_url</b></tt> <tt>= 'http://othersite.com/r4nd0m/';</tt> This would require that you have multiple domains on your server, but the advantage here is that it would really throw off attempts to hack your site because it wouldn't be clear that the 2 domains are related, but it would require far more sysadmin work to make this type of setup work.</p>
+<p>
+Moving the manager will avoid the fingerprinting bots from easily sniffing your site out as a MODX site, but it's still possible that someone could eventually find your new manager directory (not easy, but entirely possible). For an even more thorough solution, you could put the manager URL on a completely different domain, e.g. <tt><b>$modx_manager_url</b></tt> <tt>= 'http://othersite.com/r4nd0m/';</tt> This would require that you have multiple domains on your server, but the advantage here is that it would really throw off attempts to hack your site because it wouldn't be clear that the 2 domains are related, but it would require far more sysadmin work to make this type of setup work.
+</p>
 
-<p>You can also lock down access to the manager by configuring your server and/or its firewall to allow access to the manager url from specific IP addresses.  E.g. if your site is only accessed by workers in an office, you could configure your server to deny requests from outside the office's IP addresses.  Another tactic would be to put an .htaccess password on the manager directory.  This would mean that users would have to enter 2 separate passwords before entering the MODX manager.  Perhaps that's not convenient, but it is more secure.</p>
+<p>
+You can also lock down access to the manager by configuring your server and/or its firewall to allow access to the manager url from specific IP addresses. E.g. if your site is only accessed by workers in an office, you could configure your server to deny requests from outside the office's IP addresses. Another tactic would be to put an .htaccess password on the manager directory. This would mean that users would have to enter 2 separate passwords before entering the MODX manager. Perhaps that's not convenient, but it is more secure.
+</p>
 
-<h4><a name="HardeningMODXRevolution-connectors"></a>connectors</h4>
+<h4>
+<a name="HardeningMODXRevolution-connectors" id="HardeningMODXRevolution-connectors"></a>connectors
+</h4>
 
-<p>Just as with the manager directory, choose a random alphanumeric name for your <b>connectors</b> directory, and then update your core/config/config.inc.php to reflect the new location, e.g.</p>
+<p>
+Just as with the manager directory, choose a random alphanumeric name for your <b>connectors</b> directory, and then update your core/config/config.inc.php to reflect the new location, e.g.
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$modx_connectors_path = '/home/youruser/public_html/0therp4th/';
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$modx_connectors_path = '/home/youruser/public_html/0therp4th/';
 $modx_connectors_url = '/0therp4th/';
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>As with the manager, this could also potentially live on a separate domain.</p>
+<p>
+As with the manager, this could also potentially live on a separate domain.
+</p>
 
-<h4><a name="HardeningMODXRevolution-assets"></a>assets</h4>
+<h4>
+<a name="HardeningMODXRevolution-assets" id="HardeningMODXRevolution-assets"></a>assets
+</h4>
 
-<p>The assets URL can be changed, but this is the lowest priority change because anyone visiting your site will be able to examine the source HTML and see the paths to this directory.  But it's good to change anyway, simply to confuse any efforts at fingerprinting.</p>
+<p>
+The assets URL can be changed, but this is the lowest priority change because anyone visiting your site will be able to examine the source HTML and see the paths to this directory. But it's good to change anyway, simply to confuse any efforts at fingerprinting.
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$modx_assets_path = '/home/youruser/public_html/4ssetsh3r3/';
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$modx_assets_path = '/home/youruser/public_html/4ssetsh3r3/';
 $modx_assets_url = '/4ssetsh3r3/';
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>Again, this could potentially live on another domain (e.g. one optimized to serve up static content).</p>
+<p>
+Again, this could potentially live on another domain (e.g. one optimized to serve up static content).
+</p>
 
+<h3>
+<a name="HardeningMODXRevolution-PathFollowup" id="HardeningMODXRevolution-PathFollowup"></a>Path Followup
+</h3>
 
-<h3><a name="HardeningMODXRevolution-PathFollowup"></a>Path Followup</h3>
+<p>
+After changing all these paths, save the new locations in a secure place (as with your passwords), and then re-run the MODX setup utility to ensure that everything was set correctly.
+</p>
 
-<p>After changing all these paths, save the new locations in a secure place (as with your passwords), and then re-run the MODX setup utility to ensure that everything was set correctly.</p>
+<p>
+Doing this will make your site more secure, but updating your site will become more complex: you will have to merge the various component directories one at a time for each MODX update.
+</p>
 
-<p>Doing this will make your site more secure, but updating your site will become more complex: you will have to merge the various component directories one at a time for each MODX update.</p>
+<h3>
+<a name="HardeningMODXRevolution-ChangeyourLoginPage" id="HardeningMODXRevolution-ChangeyourLoginPage"></a>Change your Login Page
+</h3>
 
-<h3><a name="HardeningMODXRevolution-ChangeyourLoginPage"></a>Change your Login Page</h3>
+<p>
+Ideally, you should also mask your manager login page so it's not obvious that you're running MODX. At a minimum, you should remove any MODX branding from your manager login form. See the page on <a href="http://rtfm.modx.com/display/revolution20/Manager+Templates+and+Themes" class="external-link" rel="nofollow">Manager Templates</a> for more information.
+</p>
 
-<p>Ideally, you should also mask your manager login page so it's not obvious that you're running MODX.  At a minimum, you should remove any MODX branding from your manager login form.  See the page on <a href="http://rtfm.modx.com/display/revolution20/Manager+Templates+and+Themes" class="external-link" rel="nofollow">Manager Templates</a> for more information.</p>
+<h3>
+<a name="HardeningMODXRevolution-ChangingDefaultDatabasePrefixes" id="HardeningMODXRevolution-ChangingDefaultDatabasePrefixes"></a>Changing Default Database Prefixes
+</h3>
 
+<p>
+This is best done when you first install MODX, but it's always a good habit to avoid the defaults and choose a custom database prefix for your tables instead of the default <b>modx_</b> prefix. If a hacker is somehow able to issue arbitrary SQL commands via a SQL injection attack, using custom table prefixes will make the attack just that much more difficult.
+</p>
 
-<h3><a name="HardeningMODXRevolution-ChangingDefaultDatabasePrefixes"></a>Changing Default Database Prefixes</h3>
+<h3>
+<a name="HardeningMODXRevolution-UseauniquenamefortheAdminUser" id="HardeningMODXRevolution-UseauniquenamefortheAdminUser"></a>Use a unique name for the Admin User
+</h3>
 
-<p>This is best done when you first install MODX, but it's always a good habit to avoid the defaults and choose a custom database prefix for your tables instead of the default <b>modx&#95;</b> prefix.  If a hacker is somehow able to issue arbitrary SQL commands via a SQL injection attack, using custom table prefixes will make the attack just that much more difficult.</p>
+<p>
+If your admin username is hard to guess, it will slow down any attempt at a brute-force hack. A randomly generated series of characters would make for the most secure username. Never use a name that is easy to guess (do not use a username like <b>admin</b>, <b>manager</b>, or a name that matches the site's name – they're too easy to guess). Remember that a big part of hacking is <a href="http://en.wikipedia.org/wiki/Social_engineering_(security)" class="external-link" rel="nofollow">social engineering</a> – you want to make it virtually impossible for someone to guess your admin user name.
+</p>
 
-<h3><a name="HardeningMODXRevolution-UseauniquenamefortheAdminUser"></a>Use a unique name for the Admin User</h3>
+<h3>
+<a name="HardeningMODXRevolution-ForceaPasswordPolicy" id="HardeningMODXRevolution-ForceaPasswordPolicy"></a>Force a Password Policy
+</h3>
 
-<p>If your admin username is hard to guess, it will slow down any attempt at a brute-force hack.  A randomly generated series of characters would make for the most secure username.  Never use a name that is easy to guess (do not use a username like <b>admin</b>, <b>manager</b>, or a name that matches the site's name &#8211; they're too easy to guess).  Remember that a big part of hacking is <a href="http://en.wikipedia.org/wiki/Social_engineering_(security)" class="external-link" rel="nofollow">social engineering</a> &#8211; you want to make it virtually impossible for someone to guess your admin user name.</p>
+<p>
+Delete any stagnant users from your site (e.g. if you created a login for a developer when you first setup the site, be sure to deactivate that user once his/her work is done). Ensure that each user is using a complex password.
+</p>
 
-<h3><a name="HardeningMODXRevolution-ForceaPasswordPolicy"></a>Force a Password Policy</h3>
+<h3>
+<a name="HardeningMODXRevolution-Setupadedicated404page" id="HardeningMODXRevolution-Setupadedicated404page"></a>Set up a dedicated 404 page
+</h3>
 
-<p>Delete any stagnant users from your site (e.g. if you created a login for a developer when you first setup the site, be sure to deactivate that user once his/her work is done).  Ensure that each user is using a complex password.</p>
+<p>
+Don't just point your 404 page to your homepage. Set up a dedicated 404 page. We don't want our site to get any undue attention because a scanner thinks that you have a page on your site that you do not. E.g. if scanner looks for a known vulnerability at <a href="http://yoursite.com/malicious/hack" class="external-link" rel="nofollow">http://yoursite.com/malicious/hack</a>, and the request comes back as an HTTP 200, then the scanner might think that you actually have that vulnerable file on your site, and it will attract other hacks or scans. You can use the FireFox "Web Developer" add-on (or several others) to view page headers and verify that 404s are actually 404s.
+</p>
 
+<h2>
+<a name="HardeningMODXRevolution-ForcingSFTPAccess" id="HardeningMODXRevolution-ForcingSFTPAccess"></a>Forcing SFTP Access
+</h2>
 
-<h3><a name="HardeningMODXRevolution-Setupadedicated404page"></a>Set up a dedicated 404 page</h3>
+<p>
+The kosher dictum here is "NEVER USE FTP." If your server doesn't support SFTP, find a different host. Period. Even shared hosts will have a shared certificate that you can use to access your sites securely.
+</p>
 
-<p>Don't just point your 404 page to your homepage.  Set up a dedicated 404 page.  We don't want our site to get any undue attention because a scanner thinks that you have a page on your site that you do not.  E.g. if scanner looks for a known vulnerability at <a href="http://yoursite.com/malicious/hack" class="external-link" rel="nofollow">http://yoursite.com/malicious/hack</a>, and the request comes back as an HTTP 200, then the scanner might think that you actually have that vulnerable file on your site, and it will attract other hacks or scans.  You can use the FireFox "Web Developer" add-on (or several others) to view page headers and verify that 404s are actually 404s.</p>
+<h2>
+<a name="HardeningMODXRevolution-AddinganSSLCertificatetoyourManager" id="HardeningMODXRevolution-AddinganSSLCertificatetoyourManager"></a>Adding an SSL Certificate to your Manager
+</h2>
 
+<p>
+Sending usernames and passwords via plaintext is silly: any fool hacker with an ounce of dedication can intercept them. If security is a priority, you should <b>always</b> access your MODX manager via a secure connection (i.e. via <a href="http://en.wikipedia.org/wiki/HTTP_Secure" class="external-link" rel="nofollow">HTTPS</a>).
+</p>
 
-<h2><a name="HardeningMODXRevolution-ForcingSFTPAccess"></a>Forcing SFTP Access</h2>
+<h3>
+<a name="HardeningMODXRevolution-UsingasharedCertificate" id="HardeningMODXRevolution-UsingasharedCertificate"></a>Using a shared Certificate
+</h3>
 
-<p>The kosher dictum here is "NEVER USE FTP."  If your server doesn't support SFTP, find a different host. Period.  Even shared hosts will have a shared certificate that you can use to access your sites securely.</p>
+<p>
+Just like with FTP, if your site is on a shared host, you can often piggyback on your host's shared certificate. That makes for ugly URLs, but please ladies and gentlemen: do not be so superficial as to put URL aesthetics above your security.
+</p>
 
-<h2><a name="HardeningMODXRevolution-AddinganSSLCertificatetoyourManager"></a>Adding an SSL Certificate to your Manager</h2>
+<p>
+Talk to your web host for specific instructions here, but to give you an idea, sometimes, you can use a URL that features your host's name or IP and your username, e.g.
+</p>
 
-<p>Sending usernames and passwords via plaintext is silly: any fool hacker with an ounce of dedication can intercept them.  If security is a priority, you should <b>always</b> access your MODX manager via a secure connection (i.e. via <a href="http://en.wikipedia.org/wiki/HTTP_Secure" class="external-link" rel="nofollow">HTTPS</a>).</p>
-
-<h3><a name="HardeningMODXRevolution-UsingasharedCertificate"></a>Using a shared Certificate</h3>
-
-<p>Just like with FTP, if your site is on a shared host, you can often piggyback on your host's shared certificate.  That makes for ugly URLs, but please ladies and gentlemen: do not be so superficial as to put URL aesthetics above your security.</p>
-
-
-<p>Talk to your web host for specific instructions here, but to give you an idea, sometimes, you can use a URL that features your host's name or IP and your username, e.g.</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">https:<span class="code-comment">//myhost.com/~myuser/manager
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+https:<span class="code-comment">//myhost.com/~myuser/manager
 </span>https:<span class="code-comment">//127.0.0.1/~myuser/manager</span>
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>127.0.0.1 is just an example IP address, and surely you've already changed your default "manager" URL, no?</p>
+<p>
+127.0.0.1 is just an example IP address, and surely you've already changed your default "manager" URL, no?
+</p>
 
-<h3><a name="HardeningMODXRevolution-UsingaselfsignedCertificate"></a>Using a self-signed Certificate</h3>
+<h3>
+<a name="HardeningMODXRevolution-UsingaselfsignedCertificate" id="HardeningMODXRevolution-UsingaselfsignedCertificate"></a>Using a self-signed Certificate
+</h3>
 
-<p>The piggy-back option works in a pinch, but for any serious site, you'll want to install your own SSL certificate, so then we have to talk about IP addresses: <b>you must have a unique IP address to install an SSL certificate</b>.  You can create your own self-signed certificate so long as you have a unique IP address.  Multiple non-secure HTTP connections can be shared across a single IP address, but a secure HTTPS connection requires its own dedicated IP address.  Most hosting providers will offer a unique IP address for an additional fee (usually an extra couple dollars per month).</p>
+<p>
+The piggy-back option works in a pinch, but for any serious site, you'll want to install your own SSL certificate, so then we have to talk about IP addresses: <b>you must have a unique IP address to install an SSL certificate</b>. You can create your own self-signed certificate so long as you have a unique IP address. Multiple non-secure HTTP connections can be shared across a single IP address, but a secure HTTPS connection requires its own dedicated IP address. Most hosting providers will offer a unique IP address for an additional fee (usually an extra couple dollars per month).
+</p>
 
-<p>Once you have a dedicated IP address (and <em>only then</em>), you can install an SSL certificate.  But now you face another dilemma: what kind?</p>
+<p>
+Once you have a dedicated IP address (and <em>only then</em>), you can install an SSL certificate. But now you face another dilemma: what kind?
+</p>
 
-<p>The cheapest option is to use your own <a href="http://en.wikipedia.org/wiki/Self-signed_certificate" class="external-link" rel="nofollow">self-signed certificate</a>.  Technically, it's every bit as secure as the ones you pay for, but due to the nature of "trust" and how internet browsers are programmed, your self-signed certificates will throw warnings in browsers:</p>
+<p>
+The cheapest option is to use your own <a href="http://en.wikipedia.org/wiki/Self-signed_certificate" class="external-link" rel="nofollow">self-signed certificate</a>. Technically, it's every bit as secure as the ones you pay for, but due to the nature of "trust" and how internet browsers are programmed, your self-signed certificates will throw warnings in browsers:
+</p>
 
-<p><span class="image-wrap" style=""><img src="https://img.skitch.com/20111231-rhguxeeudi6n6uef1je8umgyn.jpg" style="border: 1px solid black" /></span></p>
+<p>
+<span class="image-wrap" style=""><img src="https://img.skitch.com/20111231-rhguxeeudi6n6uef1je8umgyn.jpg" style="border: 1px solid black" /></span>
+</p>
 
-<p>Why?  Because nobody knows who you are.  And who are you to sign your own certificate?  The technology in place is the same no matter who signs your certificate, but the fact that you are not one of the trusted few entities that sign certificates, your browser will curse at you, and for good reason.  Remember the <a href="http://en.wikipedia.org/wiki/Arab_Spring" class="external-link" rel="nofollow">Arab Spring</a>?  In Syria, the government issued <a href="http://www.onthemedia.org/2011/may/20/syrias-digital-crackdown/transcript/" class="external-link" rel="nofollow">fake SSL certificates</a> in order to spy on protesters' Facebook accounts.  The morale of the story: if your browser says the certificate might be forged, run away.  But if <b>you know</b> that YOU signed this certificate, then you can trust yourself.  And if your clients trust you, you can instruct them to ignore that browser message.</p>
+<p>
+Why? Because nobody knows who you are. And who are you to sign your own certificate? The technology in place is the same no matter who signs your certificate, but the fact that you are not one of the trusted few entities that sign certificates, your browser will curse at you, and for good reason. Remember the <a href="http://en.wikipedia.org/wiki/Arab_Spring" class="external-link" rel="nofollow">Arab Spring</a>? In Syria, the government issued <a href="http://www.onthemedia.org/2011/may/20/syrias-digital-crackdown/transcript/" class="external-link" rel="nofollow">fake SSL certificates</a> in order to spy on protesters' Facebook accounts. The morale of the story: if your browser says the certificate might be forged, run away. But if <b>you know</b> that YOU signed this certificate, then you can trust yourself. And if your clients trust you, you can instruct them to ignore that browser message.
+</p>
 
-<p>Do you understand what you're up against?  It's a legitimate solution in certain situations.  If it's just you on this hobby-horse, load up&#33;  Install a self-signed certificate&#33;  The exact instructions here depend on your server, but here's a tutorial for Open SSL: <a href="http://www.akadia.com/services/ssh_test_certificate.html" class="external-link" rel="nofollow">click here</a>.</p>
+<p>
+Do you understand what you're up against? It's a legitimate solution in certain situations. If it's just you on this hobby-horse, load up! Install a self-signed certificate! The exact instructions here depend on your server, but here's a tutorial for Open SSL: <a href="http://www.akadia.com/services/ssh_test_certificate.html" class="external-link" rel="nofollow">click here</a>.
+</p>
 
-<h3><a name="HardeningMODXRevolution-Installa%22Real%22Certificate"></a>Install a "Real" Certificate</h3>
+<h3>
+<a name="HardeningMODXRevolution-Installa%22Real%22Certificate"></a>Install a "Real" Certificate
+</h3>
 
-<p>If the browser warnings are not acceptable for you or your clients, you need to be willing to spend a little money.  Prices on SSL certificates vary <b>wildly</b> (really, really crazy here), so shop around.  Seriously, the difference here are jaw-dropping, and the practical differences are hard to distinguish, so here's some links to get you started:</p>
+<p>
+If the browser warnings are not acceptable for you or your clients, you need to be willing to spend a little money. Prices on SSL certificates vary <b>wildly</b> (really, really crazy here), so shop around. Seriously, the difference here are jaw-dropping, and the practical differences are hard to distinguish, so here's some links to get you started:
+</p>
 
 <ul>
-	<li><a href="http://www.thawte.com/ssl/index.html" class="external-link" rel="nofollow">Thawte</a></li>
-	<li><a href="http://www.digicert.com/ev-ssl-certification.htm" class="external-link" rel="nofollow">EV</a></li>
-	<li><a href="http://www.verisign.com/ssl/" class="external-link" rel="nofollow">Verisign</a></li>
-	<li><a href="http://www.positivessl.com/" class="external-link" rel="nofollow">Positive SSL</a></li>
-	<li><a href="http://www.geotrust.com/" class="external-link" rel="nofollow">GeoTrust</a></li>
-	<li><a href="http://www.comodo.com/business-security/digital-certificates/ssl-certificates.php" class="external-link" rel="nofollow">Comodo</a></li>
+<li>
+<a href="http://www.thawte.com/ssl/index.html" class="external-link" rel="nofollow">Thawte</a>
+</li>
+
+<li>
+<a href="http://www.digicert.com/ev-ssl-certification.htm" class="external-link" rel="nofollow">EV</a>
+</li>
+
+<li>
+<a href="http://www.verisign.com/ssl/" class="external-link" rel="nofollow">Verisign</a>
+</li>
+
+<li>
+<a href="http://www.positivessl.com/" class="external-link" rel="nofollow">Positive SSL</a>
+</li>
+
+<li>
+<a href="http://www.geotrust.com/" class="external-link" rel="nofollow">GeoTrust</a>
+</li>
+
+<li>
+<a href="http://www.comodo.com/business-security/digital-certificates/ssl-certificates.php" class="external-link" rel="nofollow">Comodo</a>
+</li>
 </ul>
 
+<p>
+Whether you generate a .crt file yourself or you buy one, you'll have to install install it on your server, but that's the gold at the end of the rainbow: one way or another, that makes your connection encrypted. Once you <em>can</em> access your site via a secure connection, you <em>must</em> configure the manager to force secure connections.
+</p>
 
-<p>Whether you generate a .crt file yourself or you buy one, you'll have to install install it on your server, but that's the gold at the end of the rainbow: one way or another, that makes your connection encrypted.  Once you <em>can</em> access your site via a secure connection, you <em>must</em> configure the manager to force secure connections.</p>
+<h3>
+<a name="HardeningMODXRevolution-ForcingSSLconnectionstotheManager" id="HardeningMODXRevolution-ForcingSSLconnectionstotheManager"></a>Forcing SSL connections to the Manager
+</h3>
 
-<h3><a name="HardeningMODXRevolution-ForcingSSLconnectionstotheManager"></a>Forcing SSL connections to the Manager</h3>
+<p>
+Once you've got your site hooked up to use HTTPS, you need to force the manager to use SSL. First, you should confirm that both <a href="http://yoursite.com/" class="external-link" rel="nofollow">http://yoursite.com/</a> AND <a href="https://yoursite.com/" class="external-link" rel="nofollow">https://yoursite.com/</a> both work (browser warnings depending on what kind of certificate you've installed).
+</p>
 
-<p>Once you've got your site hooked up to use HTTPS, you need to force the manager to use SSL.  First, you should confirm that both <a href="http://yoursite.com/" class="external-link" rel="nofollow">http://yoursite.com/</a> AND <a href="https://yoursite.com/" class="external-link" rel="nofollow">https://yoursite.com/</a> both work (browser warnings depending on what kind of certificate you've installed).</p>
+<p>
+Once you've verified that HTTPS works, you can now modify your .htaccess file to force all connections to the manager to occur over port 443 (i.e. over a secure connection).
+</p>
 
-<p>Once you've verified that HTTPS works, you can now modify your .htaccess file to force all connections to the manager to occur over port 443 (i.e. over a secure connection).</p>
+<p>
+Inside your manager's folder (which you've changed by now from the default /manager/ directory), you should edit your <b>/manager/.htaccess</b> file to force a secure connection.
+</p>
 
-<p>Inside your manager's folder (which you've changed by now from the default /manager/ directory), you should edit your <b>/manager/.htaccess</b> file to force a secure connection.</p>
+<p>
+Here is a sample <b>.htaccess</b> file to put inside your manager directory:
+</p>
 
-<p>Here is a sample <b>.htaccess</b> file to put inside your manager directory:</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">RewriteEngine On
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+RewriteEngine On
 RewriteBase /
 RewriteCond %{SERVER_PORT} 80
 RewriteRule ^(.*)$ https:<span class="code-comment">//yoursite.com/manager/$1</span>
 </pre>
-</div></div>
-
-<p>Test this by trying to navigate to the non-secure url, e.g. <a href="http://yoursite.com/manager" class="external-link" rel="nofollow">http://yoursite.com/manager</a> &#8211; if it doesn't redirect to HTTPS, you'll have to tweak the .htaccess.</p>
-
-<h2><a name="HardeningMODXRevolution-MonitoringyourSiteandServer"></a>Monitoring your Site and Server</h2>
-
-<p>Once you've locked down your site and server, you'll benefit from regular monitoring of it.  There are some free services available.  The best ones will monitor specific files and report any changes made to them.  If your index.php suddenly changed, then that might indicate that somebody maliciously modified it.</p>
-        </div>
-
-        <!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-         <rdf:Description
-    rdf:about="http://oldrtfm.modx.com/display/revolution20/Hardening+MODX+Revolution"
-    dc:identifier="http://oldrtfm.modx.com/display/revolution20/Hardening+MODX+Revolution"
-    dc:title="Hardening MODX Revolution"
-    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/36634885"/>
-</rdf:RDF>
--->
-
-            
-    
-
-
-<fieldset class="hidden parameters">
-    <legend>Labels parameters</legend>
-    <input type="hidden" id="editLabel" value="Edit">
-    <input type="hidden" id="addLabel" value="Add Labels">
-    <input type="hidden" id="domainName" value="http://oldrtfm.modx.com">
-    <input type="hidden" id="pageId" value="36634885">
-    <input type="hidden" id="spaceKey" value="revolution20">
-</fieldset>
-
-<div id="labels-section" class="pageSection">
-    <div id="default-labels-header" class="section-header">
-        <h2 id="labels-section-title" class="section-title ">Labels</h2>
-            </div>
-
-    <div class="labels-editor">
-        <div id="labelsList">
-            <div id="label-10354699" class="confluence-label">
-    <a class="label" rel="nofollow" href="/label/revolution20/security">security</a>    <span class="remove-label-caption">security</span>
-    <a class="remove-label" href="#">Delete</a>
 </div>
-<div id="label-37027841" class="confluence-label">
-    <a class="label" rel="nofollow" href="/label/revolution20/hardening">hardening</a>    <span class="remove-label-caption">hardening</span>
-    <a class="remove-label" href="#">Delete</a>
-</div>
-        </div>
-
-        <span class="errorMessage error" id="errorSpan"></span>
-        <form method="GET" action="" id="add-labels-form">
-            <div id="labelInputSpan" class="labels-input">
-                <div id="labelOperationErrorContainer" class="hidden">
-                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
-                </div>
-
-                <div class="caption">Enter labels to add to this page:</div>
-                <div id="label-input-fields">
-                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
-                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
-                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
-                </div>
-                <div id="waitImageAndStatus">
-                    <img class="waiting" alt="Please wait" src="/s/1911/69/_/images/icons/wait.gif">&nbsp;
-                    <span id="labelOperationStatus" class="smalltext"></span>
-                </div>
-                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
-                <div class="labels-tip">
-                    <div id="suggestedLabelsSpan"></div>
-                    Looking for a label? Just start typing.
-                </div>
-            </div>
-        </form>
-    </div>
 </div>
 
-            
-            
+<p>
+Test this by trying to navigate to the non-secure url, e.g. <a href="http://yoursite.com/manager" class="external-link" rel="nofollow">http://yoursite.com/manager</a> – if it doesn't redirect to HTTPS, you'll have to tweak the .htaccess.
+</p>
 
+<h2>
+<a name="HardeningMODXRevolution-MonitoringyourSiteandServer" id="HardeningMODXRevolution-MonitoringyourSiteandServer"></a>Monitoring your Site and Server
+</h2>
 
-
-
-            
-    
-
-        
-<fieldset class="parameters hidden">
-    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
-    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
-        </fieldset>
-
-
-
-
-
-
-<div id="comments-section" class="pageSection">
-    
-            <div class="section-header ">
-            <h2 id="comments-section-title" class="section-title">
-                <a name="comments">Comments (1)</a>
-            </h2>
-            &nbsp;
-            <ul id="comment-top-links" class="global-comment-actions">
-                <li id="comment-show-hide">
-                    <a href="/display/revolution20/Hardening+MODX+Revolution?showComments=false#comments" id="comments-hide" >Hide Comments</a>
-                    <a href="/display/revolution20/Hardening+MODX+Revolution?showComments=true#comments" id="comments-show"  class="hidden" >Show Comments</a>
-                </li>
-                <li id="comments-expand-collapse" >
-                    <a href="#" id="comments-collapse">Collapse All</a>
-                    <span id="collapse-wait" class="hidden">Collapsing&hellip;</span>
-                    <span id="expand-wait" class="hidden">Expanding&hellip;</span>
-                    <a href="#" class="hidden" id="comments-expand">Expand All</a>
-                </li>
-                            </ul>
-        </div>
-    
-    
-                            <ol class="comment-threads top-level " id="page-comments">
-                        <li id="comment-thread-36635003" class="comment-thread">
-                    <div class="comment  " id="comment-36635003">
-                <p class="comment-user-logo">
-                    <img class="userLogo logo anonymous" src="/s/1911/69/_/images/icons/profilepics/anonymous.png"
-           alt="User icon: sepiariver" title="sepiariver">                </p>
-                <p class="date" title="Nov 29, 2011 13:42">
-                    Nov 29, 2011
-                </p>
-                <div class="comment-header comment-toggle">
-                    <h4 class="author"><a href="/display/~sepiariver"
-                          class="url fn"
-                   >YJ Tso</a> says:</h4>
-                                        <span class="excerpt">Changing the&nbsp;Manager Templates&nbsp;as per the documentation is a nice way ...</span>
-                </div>
-                <div class="comment-body">
-                    <div class="comment-content wiki-content">
-                        <p>Changing the&nbsp;<a href="/display/revolution20/Manager+Templates+and+Themes" title="Manager Templates and Themes">Manager Templates</a>&nbsp;as per the documentation is a nice way to customize your login page&#33;</p>
-                    </div>
-                    <div class="comment-actions">
-                                                    <ul id="comment-actions-secondary">
-                                                          <li class="first comment-permalink">
-            <a title="Permanent link to this comment" href="/display/revolution20/Hardening+MODX+Revolution?focusedCommentId=36635003#comment-36635003"
-                id="comment-permalink-36635003"                ><span>Permalink</span></a></li>
-            </ul>
-                            <ul id="comment-actions-primary">
-            </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-         <rdf:Description
-    rdf:about="http://oldrtfm.modx.com/display/revolution20/Hardening+MODX+Revolution?focusedCommentId=36635003#comment-36635003"
-    dc:identifier="http://oldrtfm.modx.com/display/revolution20/Hardening+MODX+Revolution?focusedCommentId=36635003#comment-36635003"
-    dc:title="Hardening MODX Revolution"
-    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/36635003"/>
-</rdf:RDF>
--->
-
-                    
-                                </li>
-                </ol>
-    
-                                    </div>
-
-
-            
-</div>
-
-
-    
-
-
-
-
-        
-        
-
-    
-    
-    
-
-
-<fieldset class="hidden parameters">
-        <input type="hidden" id="i18n.manage.watchers.dialog.title" value="Manage Watchers">
-        <input type="hidden" id="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
-        <input type="hidden" id="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
-</fieldset>
-<script type="text/x-template" title="manage-watchers-dialog">
-<div class="dialog-content">
-    <div class="column page-watchers">
-        <h3>Watching this page</h3>
-        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
-        <form action="/json/addwatch.action" method="POST">
-                <input type="hidden" name="atl_token" value="Wz9_y9qlqp">
-            <input type="hidden" name="pageId" value="36634885"/>
-            <input type="hidden" id="add-watcher-username" name="username" value=""/>
-            <label for="add-watcher-user">User</label>
-            <input id="add-watcher-user" name="userFullName" type="search" class="has-placeholder autocomplete-user"
-               value="" placeholder="Full name or username" autocomplete="off"
-               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
-               data-template="{title}" data-none-message="No matching users found.">
-            <input id="add-watcher-submit" type="submit" name="add" value="Add">
-            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
-            <div class="status hidden"></div>
-        </form>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No page watchers</li>
-        </ul>
-    </div>
-    <div class="column space-watchers">
-        <h3>Watching this space</h3>
-        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No space watchers</li>
-        </ul>
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="manage-watchers-user">
-    <li class="watch-user">
-        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
-        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
-        <span class="remove-watch" title="Remove"
-            data-username="{username}">Remove</span>
-    </li>
-</script>
-<script type="text/x-template" title="manage-watchers-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Managing+Watchers" target="_blank">Help</a>
-    </div>
-</script>
-    <br class="clear">
-</div>
-  
-    </div>
-</div>
-
-<div id="footer">
-                                                <p class="license license-opensource">
-                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to MODx CMS / xPDO. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
-                </p>
-                        
-    <ul id="poweredby">
-        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.3, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
-        <li class="print-only">Printed by Atlassian Confluence 3.3, the Enterprise Wiki.</li>        
-        <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
-        <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
-    </ul>
-
-    
-
-            <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-71684-1']);
-  _gaq.push(['_setDomainName', 'oldrtfm.modx.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    </div>    <!-- include system javascript resources -->
-                        
-    
-    
-    <!-- end system javascript resources -->
-</div>
-</body>
-</html>
+<p>
+Once you've locked down your site and server, you'll benefit from regular monitoring of it. There are some free services available. The best ones will monitor specific files and report any changes made to them. If your index.php suddenly changed, then that might indicate that somebody maliciously modified it.
+</p>

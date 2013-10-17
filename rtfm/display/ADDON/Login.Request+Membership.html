@@ -1,976 +1,480 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-            <title>Login.Request Membership - MODx Add-Ons - MODX Documentation</title>
-    
-        
-
-                        
-    
-
-            
-<meta id="confluence-context-path" name="confluence-context-path" content="">
-<meta id="atlassian-token" name="atlassian-token" content="8w6ZnamTo1">
-<meta id="confluence-space-key" name="confluence-space-key" content="ADDON">
-
-<script type="text/javascript">
-    // Deprecated global variables. To be removed in a future version of Confluence.
-    var contextPath = '';
-</script>
-
-    
-
-<!-- include system css resources -->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?media=print" media="print">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
-<![endif]-->
-
-<!-- end system css resources -->
-
-    <link rel="stylesheet" href="/s/1911/69/11/_/styles/combined.css?spaceKey=ADDON" type="text/css">
-
-    <meta name="confluence-request-time" content="1381728641475">
-
-<meta name="loggedInUsername" content="">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/s/1911/69/_/images/logo/confluence_16.png">
-
-<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="MODX Documentation"/>
-
-        <!-- include system javascript resources -->
-                        
-    
-    <script type="text/javascript" src="/s/1911/69/2/_/download/superbatch/js/batch.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
-<script type="text/javascript" src="/s/1911/69/3.3/_/download/batch/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.2/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
-
-    <!-- end system javascript resources -->
-
-    <link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/docs.css" />
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/syntaxhighlighter/css/all.css" />
-<!--<script type="text/javascript" src="http://misc.modx.com/js/jquery-1.3.2.min.js"></script>-->
-<script type="text/javascript" src="http://misc.modx.com/confluence/syntaxhighlighter/js/all.js"></script>
-<script type="text/javascript" src="http://misc.modx.com/confluence/loadcode.js"></script>
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/promo/ad.css" />
-
-    
-    <link rel="canonical" href="http://oldrtfm.modx.com/display/ADDON/Login.Request+Membership">
-    <link rel="shortlink" href="http://oldrtfm.modx.com/x/j4AXAg">
-    <meta name="wikilink" content="[ADDON:Login.Request Membership]">
-
-</head>
-
-<body             onload="placeFocus()"
-     id="com-atlassian-confluence" class="theme-documentation ">
-<div id="full-height-container">
-<!-- CODE FOR AD THAT SEEMS TO BE INSERTABLE DIRECTLY AFTER OPEN BODY TAG IN CONFLUENCE THEME ADMIN -->
-<!--<a href="https://modxcloud.com/signup/lab-account.html?utm_source=rtfm&utm_medium=banner&utm_campaign=one_percent%2B" class="modx-cloud-link">
-    <div class="modx-cloud-ad-wrap">
-        <div class="modx-cloud-ad">
-            <div class="logo-wrap">
-                <img src="http://misc.modx.com/confluence/promo/modx-cloud-logo.png" alt="MODX Cloud" width="161" height="40">
-            </div>
-            <p>The Most Productive MODX Learning Playground Ever</p>
-            <span class="faux-btn">
-                Claim Free Lab Account
-            </span>
-
-        </div>
-    </div>
-</a>-->
-<!-- END OF AD -->
-
-<div class="editors_note" style="background-color:#ff9a91;border: 1px solid red; padding:5px;color:black;">
-    <strong>Important Note:</strong> This is an archive of the official MODX Documentation. Please do not edit or make changes here.  The current documentation is located at <a href="rtfm.modx.com">rtfm.modx.com</a>.
-</div>
-
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
-    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
-    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
-    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
-    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
-</fieldset>
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
-    <input type="hidden" id="userLocale" value="en_GB">
-    <input type="hidden" id="staticResourceUrlPrefix" value="/s/1911/69/_">
-    <input type="hidden" id="contextPath" value="">
-</fieldset>
-
-    
-<div id="header" class="sectionbottom ">
-        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
-        <fieldset>
-            <legend>Quick Search</legend>
-            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
-            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
-            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
-        </fieldset>
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="quickNavEnabled" value="true" />
-                    </fieldset>
-    </form>
-    <ul id="header-menu-bar" class="ajs-menu-bar">
-                    
-        
-            <li class="normal ajs-menu-item">
-        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
-                                        <li>
-    
-        
-    
-    <a  id="space-pages-link" href="/pages/listpages.action?key=ADDON"  class=""   title="Attachments: 6">
-                   <span>Pages</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=ADDON"  class=""   title="Attachments: 6">
-                   <span>Blog</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=ADDON"  class=""   title="Attachments: 6">
-                   <span>Labels</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=ADDON"  class=""   title="Attachments: 6">
-                   <span>Attachments</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  href="/spaces/space-bookmarks.action?spaceKey=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
-                   <span>Bookmarks</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
-                   <span>Mail</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
-                   <span>Advanced</span></a>        </li>
-                            </ul>
-                        <ul  id="browse-menu-link-global"                 class="section-global">
-                                        <li>
-    
-            
-    
-    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
-                   <span>Confluence Gadgets</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-        
-                                                         <li class="ajs-menu-item normal">
-        
-        
-    
-    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2FADDON%2FLogin.Request%2BMembership"  class="user-item login-link"  >
-                   <span>Log In</span></a>        </li>
-                                <li class="normal ajs-menu-item">
-            <div id="splitter-button" class="hidden" title="Sidebar"></div>
-        </li>
-
-    </ul>
-    
-    
-    <ol id="breadcrumbs">
-                    
-        <li class="first" >
-                                    <span><a href="/dashboard.action">Dashboard</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/ADDON">MODx Add-Ons</a></span>
-                </li>
-                                        <li id="ellipsis" title="    &#8230;
-                    Home
-             &gt;         Login
-        &#8230;
-"><span><strong>&#8230;</strong></span></li>
-                                    
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/ADDON/Home">Home</a></span>
-                </li>
-                                
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/ADDON/Login">Login</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/ADDON/Login.Tutorials">Login.Tutorials</a></span>
-                </li>
-                    
-        <li>
-                                    <span>Login.Request Membership</span>
-                </li>
-        </ol>
-
-</div>
-
-    <div id="splitter">
-    <div id="splitter-sidebar">
-
-        
-
-                    
-    
-    
-
-<div class="plugin_pagetree">
-
-                <div id="pagetreesearch">
-            <form method="POST" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
-                                    <input type="hidden" name="ancestorId" value="425998">
-                                <input type="hidden" name="spaceKey" value="ADDON">
-                <input type="text"  size="20" name="queryString">
-                <input type="submit" value="Search">
-            </form>
-        </div>
-    
-        
-    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-        <div class="plugin_pagetree_children">
-        </div>
-    </ul>
-
-    <fieldset class="hidden">
-        <input type="hidden" name="treeId" value="">
-        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
-        <input type="hidden" name="treePageId" value="35094671">
-
-        <input type="hidden" name="noRoot" value="false">
-        <input type="hidden" name="rootPageId" value="425998">
-
-        <input type="hidden" name="rootPage" value="">
-        <input type="hidden" name="startDepth" value="0">
-        <input type="hidden" name="spaceKey" value="ADDON" >
-
-        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
-        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
-        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
-        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FLogin.Request%2BMembership">
-
-                <fieldset class="hidden">
-                                                <input type="hidden" name="ancestorId" value="33227183">
-                                    <input type="hidden" name="ancestorId" value="11042888">
-                                    <input type="hidden" name="ancestorId" value="425998">
-                                    </fieldset>
-    </fieldset>
-</div>
-
-
-
-            </div>
-    <div id="splitter-content">
-
-                    <script type="text/javascript" src="/s/1911/69/2/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
-    
-            
-    
-<div id="main" >
-    
-    
-    <div id="navigation" class="content-navigation view">
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="pageId" value="35094671">
-        </fieldset>
-        <ul class="ajs-menu-bar">
-                                
-                        
-            <li class="normal ajs-menu-item">
-        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="action-menu-link-primary"                 class="section-primary first">
-                                        <li>
-    
-        
-    
-    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=35094671"  class="action-view-attachments"  accessKey="a" >
-                   <span><u>A</u>ttachments (6)</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=35094671"  class="action-view-history"  >
-                   <span>Page History</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="mailPageLink" href="/pages/mailpage/mailpage.action?pageId=35094671"  class=""  >
-                    <span>
-                <img alt="E-mail" src="/images/icons/mail_content_16.gif" height="16" width="16" title="E-mail">
-                E-mail
-            </span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=35094671"  class="action-page-permissions"  >
-                   <span>Restrictions</span></a>        </li>
-                            </ul>
-                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
-                                        <li>
-    
-        
-    
-    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=35094671"  class="action-view-info"  >
-                   <span>Info</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=35094671"  class=""  >
-                   <span>Link to this Page&hellip;</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=ADDON&openId=35094671#selectedPageInHierarchy"  class=""  >
-                   <span>View in Hierarchy</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=35094671"  class="action-view-source popup-link"  >
-                   <span>View Wiki Markup</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-            </ul>
-    </div>
-
-    
-    <h1 id="title-heading" class="pagetitle">
-                    <a href="/display/ADDON"><img class="logo global custom" src="/download/attachments/9109505/global.logo?version=2&modificationDate=1356105314000" alt=""></a>        
-		<span id="title-text">
-					            <a href="/display/ADDON/Login.Request+Membership">Login.Request Membership</a>
-    				</span>
-    </h1>
-
-    
-
-    
-    
-    
-    <div id="content" class="page view">
-    
-
-
-
-<fieldset id="link-to-page-fields" class="hidden parameters">
-    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
-    <input type="hidden" id="linkToThisPageLink" value="Link">
-    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
-    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
-    <input type="hidden" id="linkToThisPageClose" value="Close">
-</fieldset>
-<fieldset class="hidden parameters">
-    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;Login.Request Membership&#8217;">
-    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
-    <input type="hidden" title="movePageDialogMoveButton" value="Move">
-    <input type="hidden" title="movePageDialogOkButton" value="OK">
-    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
-    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
-    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
-    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
-    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
-    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
-    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
-    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
-    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
-    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
-    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
-    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
-    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
-    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
-    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
-    <input type="hidden" title="pageTitle" value="Login.Request Membership"/>
-    <input type="hidden" title="parentPageTitle" value="Login.Tutorials"/>
-    <input type="hidden" title="fromPageTitle" value=""/>
-    <input type="hidden" title="spaceKey" value="ADDON"/>
-    <input type="hidden" title="spaceName" value="MODx Add-Ons"/>
-    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
-    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
-    <input type="hidden" title="movePageDialogBackButton" value="Back"/>
-    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder"/>
-    <input type="hidden" title="movePageDialogNextButton" value="Move"/>    
-</fieldset>
-
-<script type="text/x-template" title="movePageDialog">
-    <div class="row information">
-        Specify the new parent page for this page and its children by space and title.
-    </div>
-    <div class="form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
-            <div class="row">
-                <label for="new-space">New space:</label>
-                <div class="value new-space-value">
-                    <input id="new-space-key" name="new-space-key" type="hidden" value="ADDON">
-                                            <span class="space-input">
-                            <input id="new-space" name="new-space" value="MODx Add-Ons" disabled="disabled">
-                        </span>
-                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
-                                        <div class="new-space-dropdown aui-dd-parent"></div>
-                </div>
-            </div>
-            <div class="row">
-                <label for="new-parent-page">New parent page:</label>
-                <div class="value new-parent-page-value">
-                    <span class="page-input">
-                        <input id="new-parent-page" name="new-parent-page" value="Login.Tutorials">
-                    </span>
-                    <span class="description">Start typing a page title to see a list of suggestions.</span>
-                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="location-info">
-        <div class="row">
-            <label>Current location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <label>New location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
-<script type="text/x-template" title="movePageErrors">
-    <div id="move-errors" class="hidden warning"></div>
-</script>
-<script type="text/x-template" title="movePageBreadcrumb">
-    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbLoading">
-    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbError">
-    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
-</script>
-<script type="text/x-template" title="movePageNoMatchingPages">
-    <ol><li><span class="warning">No matching pages found.</span></li></ol>
-</script>
-<script type="text/x-template" title="movePageNoMatchingSpaces">
-    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
-</script>
-
-<script type="text/x-template" title="movePageSearchPanel">
-<div class="row information">
-    Search for and select the new parent page for this page and its children.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
-            
-
-    <label  for="move-page-search-query" class="assistive">Search keywords</label>
-            <input class="search-query" id="move-page-search-query">
-            
-
-    <label  for="move-page-search-space" class="assistive">Search in space</label>
-                            <select id="move-page-search-space" class="search-space" disabled="disabled">
-                    <option value="ADDON" selected="selected">MODx Add-Ons</option>
-                </select>
-                        <input type="button" value="Search">
-                            <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
-                    </fieldset>
-    </div>
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageSearchResultsLoading">
-    <div class="searching">Searching…</div>
-</script>
-
-<script type="text/x-template" title="movePageHistoryPanel">
-<div class="row information">
-    Select the new parent page for this page and its children from your history.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageHistoryLoading">
-    <div class="searching">Loading…</div>
-</script>
-<script type="text/x-template" title="movePageBrowsePanel">
-    <div class="row information">
-        Click to select the new parent page for this page and its children.
-    </div>
-    <div class="tree"></div>
-</script>
-<script type="text/x-template" title="movePagePanelLoading">
-    <span>Loading…</span>
-</script>
-<script type="text/x-template" title="movePageBrowsePanelSpace">
-    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
-</script>
-<script type="text/x-template" title="orderingPagePanel">
-<div id="orderingPlaceHolder"></div>
-</script>
-<script type="text/x-template" title="reorderCheckbox">
-<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
-</script>
-<script type="text/x-template" title="move-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Moving+a+Page" target="_blank">Help</a>
-    </div>
-</script>
-<script type="text/x-template" title="searchResultsGrid">
-    <table>
-        <thead>
-            <tr class="header">
-                <th class="search-result-title">Page Title</th>
-                <th class="search-result-space">Space</th>
-                <th class="search-result-date">Updated</th>
-            </tr>
-        </thead>
-    </table>
-</script>
-<script type="text/x-template" title="searchResultsGridCount">
-    <p class="search-result-count">{0}</p>
-</script>
-<script type="text/x-template" title="searchResultsGridRow">
-    <tr class="search-result">
-        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
-        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
-        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
-    </tr>
-</script>
-<!-- Start restrictions section -->
-<fieldset class="hidden parameters i18n">
-        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
-        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
-        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
-        <input type="hidden" id="i18n.cancel.name" value="Cancel">
-        <input type="hidden" id="i18n.close.name" value="Close">
-        <input type="hidden" id="i18n.update.name" value="Save">
-</fieldset>
-
-<script type="text/x-template" title="page-permissions-div">
-<div id="page-permissions-div">
-    <div id="page-permissions-editor-form">
-
-                <div id="page-permissions-error-div" class="hidden">
-            <a href="#" id="permissions-error-div-close">Ok</a>
-            <div></div>
-        </div>
-
-                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
-            <div>
-                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
-                <label for="restrictViewRadio">Restrict viewing of this page</label>
-                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
-                <label for="restrictEditRadio">Restrict editing of this page</label>
-            </div>
-        </div>
-        <div id="page-permissions-input" class="page-permissions-label-rows">
-            <div class="page-permissions-label">To:</div>
-            <div id="page-permissions-chooser-box">
-                                <span id="page-permissions-choose-user" class="ajs-button">
-                    
-
-
-
-    
-
-
-
-<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=ADDON&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
-<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=ADDON&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
-
-
-                </span>
-                <span id="page-permissions-choose-group" class="ajs-button">
-                    
-
-
-
-    
-
- 
-
-<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=ADDON&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
-<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=ADDON&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
-
-
-                </span>
-            </div>
-            <div id="page-permissions-input-box">
-                                <span>
-                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
-                </span>
-                <input
-    type="hidden"
-                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1911/69/_/images/border/spacer.gif"/>
-                <input type="button" id="add-typed-names" value="Restrict">
-            </div>
-        </div>
-    </div>
-    <div id="page-permissions-tables">
-        <div id="page-permissions-table-div">
-                        <table id="page-permissions-table" class="page-permissions-table">
-                <tr id="page-permissions-no-views" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
-                </tr>
-                <tr id="page-permissions-no-edits" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
-                </tr>
-            </table>
-        </div>
-        <div id="page-inherited-permissions-table-div" class="hidden">
-            <span id="page-inherited-permissions-table-desc">
-                <a class="icon twisty-closed">Show/Hide</a>
-                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
-            </span>
-            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
-        </div>
-    </div>
-</div>
-</script>
-
-<script type="text/x-template" title="permissions-row-template">
-    <tr class="permission-row">
-                                
-                <td class="page-permissions-marker-cell" width="20%">
-            <span>Viewing restricted to:</span>
-        </td>
-                <td class="permission-entity" nowrap="true" width="40%">
-            <span class="entity-container">
-                <img class="permission-entity-picture"/>
-                <span class="permission-entity-display-name"></span>
-                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
-            </span>
-        </td>
-        <td class="permission-detail-column">
-            <div class="permission-remove-div">
-                <a href="#" class="remove-permission-link">Remove restriction</a>
-            </div>
-        </td>
-    </tr>
-</script>
-<script type="text/x-template" title="permissions-username-no-suggestion-template">
-    <ol>
-        <li><a href="#" class="message"><span>No matches</span></a></li>
-    </ol>
-</script>
-<script type="text/x-template" title="page-inherited-permissions-table-div-template">
-        <div class="page-inherited-permissions-owner-div">
-        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
-        <table class="page-permissions-table"></table>
-    </div>
-</script>
-<script type="text/x-template" title="page-restrictions-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Page+Restrictions" target="_blank">Help</a>
-    </div>
-</script>
-<!-- End restrictions section -->
-
-        
-    
-    
-        <fieldset class="hidden parameters">
-            <input type="hidden" title="parentPageId" value="33227183">
-        </fieldset>
-
-        
-                            
-    
-
-                    
-
-        
-        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
-<div id="page-metadata-start" class="assistive"></div>
-
-    <div class="page-metadata">
-        <ul>
-                            <li class="page-metadata-item noprint">
-    
-            
-    
-    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Page restrictions apply</span></a>        </li>
-                            <li class="page-metadata-item noprint">
-    
-        
-    
-    <a  id="content-metadata-attachments" href="/pages/viewpageattachments.action?pageId=35094671&metadataLink=true"  class="page-metadata-icon action-view-attachments"  accessKey="a"  title="Attachments: 6">
-                   <span><span class="page-metadata-attachments-text">Attachments:</span><span class="page-metadata-attachments-count">6</span></span></a>        </li>
-                        <li class="page-metadata-modification-info">
-                                    Added by <a href="/display/~everettg_99"
-                          class="url fn"
-                   >Everett Griffiths</a>, last edited by <a href="/display/~everettg_99"
-                          class="url fn"
-                   >Everett Griffiths</a> on Jun 14, 2012
-                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=35094671&originalId=39355765">view change</a>)</span>
-                                                </li>
-                    </ul>
-          <div id="version-comment" class="noteMacro" style="display: none;">
-      <strong>Comment:</strong>
-      <br />
-  </div>
-    </div>
-
-
-<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
-<div id="page-metadata-end" class="assistive"></div>
-        
-        <fieldset class="hidden parameters">
-                        <input type="hidden" title="browsePageTreeMode" value="view">
-        </fieldset>
-
-        <div class="wiki-content">
-           <!-- wiki content -->
-            <div>
+<div>
 <ul>
-    <li><a href='#Login.RequestMembership-Outline'>Outline</a></li>
-    <li><a href='#Login.RequestMembership-DownloadtheNecessarySnippets'>Download the Necessary Snippets</a></li>
-    <li><a href='#Login.RequestMembership-CreatetheRequiredPages'>Create the Required Pages</a></li>
-    <li><a href='#Login.RequestMembership-EnsureBasicPermissionsareinPlace'>Ensure Basic Permissions are in Place</a></li>
-    <li><a href='#Login.RequestMembership-AddSnippets'>Add Snippets</a></li>
+<li>
+<a href='#Login.RequestMembership-Outline'>Outline</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-DownloadtheNecessarySnippets'>Download the Necessary Snippets</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-CreatetheRequiredPages'>Create the Required Pages</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-EnsureBasicPermissionsareinPlace'>Ensure Basic Permissions are in Place</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-AddSnippets'>Add Snippets</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#Login.RequestMembership-LoginPage%281%29'>Login Page (1)</a></li>
-    <li><a href='#Login.RequestMembership-TheHomepageTemplate'>The Homepage Template</a></li>
+<li>
+<a href='#Login.RequestMembership-LoginPage%281%29'>Login Page (1)</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-TheHomepageTemplate'>The Homepage Template</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#Login.RequestMembership-AddChunk%3Aheaderforguests'>Add Chunk: header_for_guests</a></li>
-    <li><a href='#Login.RequestMembership-AddChunk%3Aheaderformembers'>Add Chunk: header_for_members</a></li>
+<li>
+<a href='#Login.RequestMembership-AddChunk%3Aheaderforguests'>Add Chunk: header_for_guests</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-AddChunk%3Aheaderformembers'>Add Chunk: header_for_members</a>
+</li>
 </ul>
-    <li><a href='#Login.RequestMembership-LoginPage%281%29'>Login Page (1)</a></li>
-    <li><a href='#Login.RequestMembership-ForgotPassword%282%29'>Forgot Password (2)</a></li>
-    <li><a href='#Login.RequestMembership-ResetPasswordHandler%283%29'>Reset Password Handler (3)</a></li>
-    <li><a href='#Login.RequestMembership-MembersHomePage%284%29'>Members Home Page (4)</a></li>
-    <li><a href='#Login.RequestMembership-ComeAgainSoon%285%29'>Come Again Soon (5)</a></li>
-    <li><a href='#Login.RequestMembership-RequestMembership%286%29'>Request Membership (6)</a></li>
-    <li><a href='#Login.RequestMembership-RequestPending%287%29'>Request Pending (7)</a></li>
-    <li><a href='#Login.RequestMembership-MembershipConfirmationHandler%288%29'>Membership Confirmation Handler (8)</a></li>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-LoginPage%281%29'>Login Page (1)</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-ForgotPassword%282%29'>Forgot Password (2)</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-ResetPasswordHandler%283%29'>Reset Password Handler (3)</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-MembersHomePage%284%29'>Members Home Page (4)</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-ComeAgainSoon%285%29'>Come Again Soon (5)</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-RequestMembership%286%29'>Request Membership (6)</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-RequestPending%287%29'>Request Pending (7)</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-MembershipConfirmationHandler%288%29'>Membership Confirmation Handler (8)</a>
+</li>
 </ul>
-    <li><a href='#Login.RequestMembership-Testing%3AMakingitallWork'>Testing: Making it all Work</a></li>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-Testing%3AMakingitallWork'>Testing: Making it all Work</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#Login.RequestMembership-RequestMembership'>Request Membership</a></li>
-    <li><a href='#Login.RequestMembership-CheckforVerificationEmail'>Check for Verification Email</a></li>
-    <li><a href='#Login.RequestMembership-Login'>Login</a></li>
+<li>
+<a href='#Login.RequestMembership-RequestMembership'>Request Membership</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-CheckforVerificationEmail'>Check for Verification Email</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-Login'>Login</a>
+</li>
 </ul>
-    <li><a href='#Login.RequestMembership-Errors'>Errors</a></li>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-Errors'>Errors</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#Login.RequestMembership-WhenIsubmittherequestmembershipform%2Cthepagedoesnotredirect%21'>When I submit the request membership form, the page does not redirect!</a></li>
-    <li><a href='#Login.RequestMembership-WhenIgettheActivationemail%2Cthemessageisblank%21'>When I get the Activation email, the message is blank!</a></li>
-    <li><a href='#Login.RequestMembership-InevergettheEmailsthatMODxsends%21'>I never get the Emails that MODx sends!</a></li>
-    <li><a href='#Login.RequestMembership-Aftersubmittingtheregistrationform%2CIgetawhitepage.'>After submitting the registration form, I get a white page.</a></li>
+<li>
+<a href='#Login.RequestMembership-WhenIsubmittherequestmembershipform%2Cthepagedoesnotredirect%21'>When I submit the request membership form, the page does not redirect!</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-WhenIgettheActivationemail%2Cthemessageisblank%21'>When I get the Activation email, the message is blank!</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-InevergettheEmailsthatMODxsends%21'>I never get the Emails that MODx sends!</a>
+</li>
+
+<li>
+<a href='#Login.RequestMembership-Aftersubmittingtheregistrationform%2CIgetawhitepage.'>After submitting the registration form, I get a white page.</a>
+</li>
 </ul>
-</ul></div>
+</li>
+</ul>
+</div>
 
+<h2>
+<a name="Login.RequestMembership-Outline"></a>Outline
+</h2>
 
-<h2><a name="Login.RequestMembership-Outline"></a>Outline</h2>
+<p>
+If you've followed the tutorial for the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Basic Setup</a>, then it's time to try for a more thorough implementation of the Login Snippet where <font color="green"><em>users can apply for site membership themselves</em></font>. Once you've completed this tutorial, visitors to your site will be able to request membership by themselves and you will not have to add users manually.
+</p>
 
-<p>If you've followed the tutorial for the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Basic Setup</a>, then it's time to try for a more thorough implementation of the Login Snippet where <font color="green"><em>users can apply for site membership themselves</em></font>.  Once you've completed this tutorial, visitors to your site will be able to request membership by themselves and you will not have to add users manually. </p>
+<div class='panelMacro'>
+<table class='noteMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><font color="red">Do not try to use extended user fields yet.</font>  First get the registration process working using the standard user fields.  See the next tutorial for setting up user profiles and using extended user fields.</td></tr></table></div>
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+<font color="red">Do not try to use extended user fields yet.</font> First get the registration process working using the standard user fields. See the next tutorial for setting up user profiles and using extended user fields.
+</td>
+</tr>
+</table>
+</div>
 
-<p>A good example for what we're trying to accomplish in this tutorial is visible on the <a href="http://forum.foxycart.com/" class="external-link" rel="nofollow">FoxyCart Forum</a>: when you're viewing the forums as a guest, the header displays a login link, but after you've signed in, additional functionality is unlocked.  You've seen this type of thing on many sites.</p>
+<p>
+A good example for what we're trying to accomplish in this tutorial is visible on the <a href="http://forum.foxycart.com/" class="external-link" rel="nofollow">FoxyCart Forum</a>: when you're viewing the forums as a guest, the header displays a login link, but after you've signed in, additional functionality is unlocked. You've seen this type of thing on many sites.
+</p>
 
-<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The FoxyCart forum is not running MODx: we're just using a simplified version of their login flow as an example.</td></tr></table></div>
+<div class='panelMacro'>
+<table class='noteMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<p>The steps go something like this:</p>
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+The FoxyCart forum is not running MODx: we're just using a simplified version of their login flow as an example.
+</td>
+</tr>
+</table>
+</div>
 
-<p>1. <b>Visit the homepage as a guest:</b> the header displays a link to the login page.</p>
+<p>
+The steps go something like this:
+</p>
 
-<p><span class="image-wrap" style=""><img src="/download/attachments/35094671/Foxy+Cart+Header.jpg?version=1&amp;modificationDate=1303606748000" style="border: 0px solid black" /></span></p>
+<p>
+1. <b>Visit the homepage as a guest:</b> the header displays a link to the login page.
+</p>
 
+<p>
+<span class="image-wrap" style=""><img src="/download/attachments/35094671/Foxy+Cart+Header.jpg?version=1&amp;modificationDate=1303606748000" style="border: 0px solid black" /></span>
+</p>
 
-<p>2. <b>Login:</b> The Login page contains links to the "Forgot Password" and to a "Apply for Membership" page.  </p>
+<p>
+2. <b>Login:</b> The Login page contains links to the "Forgot Password" and to a "Apply for Membership" page.
+</p>
 
-<p><span class="image-wrap" style=""><img src="/download/attachments/35094671/The+FoxyCart+Forum+-+Sign+In.jpg?version=1&amp;modificationDate=1303606758000" style="border: 0px solid black" /></span></p>
+<p>
+<span class="image-wrap" style=""><img src="/download/attachments/35094671/The+FoxyCart+Forum+-+Sign+In.jpg?version=1&amp;modificationDate=1303606758000" style="border: 0px solid black" /></span>
+</p>
 
+<p>
+3. <b>Redirect to the Homepage:</b> after a successful login, you are returned to the homepage, but this time, additional functionality is unlocked.
+</p>
 
+<p>
+<span class="image-wrap" style=""><img src="/download/attachments/35094671/The+FoxyCart+Forum+-+Logged+In.jpg?version=1&amp;modificationDate=1303606753000" style="border: 0px solid black" /></span>
+</p>
 
-<p>3. <b>Redirect to the Homepage:</b> after a successful login, you are returned to the homepage, but this time, additional functionality is unlocked.</p>
+<p>
+4. <b>Logout:</b> When you're done visiting the site, you can click the "Logout" link and land on the "Come Again" page.
+</p>
 
-<p><span class="image-wrap" style=""><img src="/download/attachments/35094671/The+FoxyCart+Forum+-+Logged+In.jpg?version=1&amp;modificationDate=1303606753000" style="border: 0px solid black" /></span></p>
+<p>
+<span class="image-wrap" style=""><img src="/download/attachments/35094671/The+FoxyCart+Forum+-+Sign+Out.jpg?version=1&amp;modificationDate=1303606763000" style="border: 0px solid black" /></span>
+</p>
 
+<p>
+Make sense? It's pretty similar to what we did before in the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Basic Setup</a>, but there are a few extra things going on, so we need a few extra pages. Most importantly, we'll need to integrate both the <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> and the <a href="http://modx.com/extras/package/personalize" class="external-link" rel="nofollow">Personalize</a> Snippets, and we'll need to shuffle around a couple other components from the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Basic Setup</a> tutorial.
+</p>
 
+<div class='panelMacro'>
+<table class='noteMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<p>4. <b>Logout:</b> When you're done visiting the site, you can click the "Logout" link and land on the "Come Again" page.</p>
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+This tutorial makes use of related and complimentary Snippets!
+</td>
+</tr>
+</table>
+</div>
 
-<p><span class="image-wrap" style=""><img src="/download/attachments/35094671/The+FoxyCart+Forum+-+Sign+Out.jpg?version=1&amp;modificationDate=1303606763000" style="border: 0px solid black" /></span></p>
-
-
-
-<p>Make sense?  It's pretty similar to what we did before in the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Basic Setup</a>, but there are a few extra things going on, so we need a few extra pages.  Most importantly, we'll need to integrate both the <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> and the <a href="http://modx.com/extras/package/personalize" class="external-link" rel="nofollow">Personalize</a> Snippets, and we'll need to shuffle around a couple other components from the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Basic Setup</a> tutorial.</p>
-
-<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>This tutorial makes use of related and complimentary Snippets!</td></tr></table></div>
-
-
-<p>Let's get started!</p>
+<p>
+Let's get started!
+</p>
 
 <hr />
 
-<h2><a name="Login.RequestMembership-DownloadtheNecessarySnippets"></a>Download the Necessary Snippets </h2>
+<h2>
+<a name="Login.RequestMembership-DownloadtheNecessarySnippets"></a>Download the Necessary Snippets
+</h2>
 
-<p>We're augmenting the functionality offered by the default Login snippet, so make sure that you also download the <a href="http://modx.com/extras/package/personalize" class="external-link" rel="nofollow">Personalize</a> Snippet.  It is available via package management.</p>
+<p>
+We're augmenting the functionality offered by the default Login snippet, so make sure that you also download the <a href="http://modx.com/extras/package/personalize" class="external-link" rel="nofollow">Personalize</a> Snippet. It is available via package management.
+</p>
 
-<p><span class="image-wrap" style=""><img src="/download/attachments/35094671/Personalize+Snippet.jpg?version=1&amp;modificationDate=1303607956000" style="border: 0px solid black" /></span></p>
+<p>
+<span class="image-wrap" style=""><img src="/download/attachments/35094671/Personalize+Snippet.jpg?version=1&amp;modificationDate=1303607956000" style="border: 0px solid black" /></span>
+</p>
 
-<p>Be sure to download the latest version (the one by BobRay).  Bob says he may have goofed when submitting his upgrade, so it shows up as a separate package.</p>
-
+<p>
+Be sure to download the latest version (the one by BobRay). Bob says he may have goofed when submitting his upgrade, so it shows up as a separate package.
+</p>
 
 <hr />
 
+<h2>
+<a name="Login.RequestMembership-CreatetheRequiredPages"></a>Create the Required Pages
+</h2>
 
-<h2><a name="Login.RequestMembership-CreatetheRequiredPages"></a>Create the Required Pages </h2>
-
-<p>As with the basic setup, we want to make sure we have the required pages in place before we add in all the Snippets. Make sure the following <b>9</b> pages exist on your MODx Revo site (1 - 5 are the same as the basic setup, additional pages highlighted in green):</p>
+<p>
+As with the basic setup, we want to make sure we have the required pages in place before we add in all the Snippets. Make sure the following <b>9</b> pages exist on your MODx Revo site (1 - 5 are the same as the basic setup, additional pages highlighted in green):
+</p>
 
 <ul>
-	<li><b>Login Page (1)</b> : the page containing your login form</li>
-	<li><b>Forgot Password (2)</b> : the page where users can go when they forgot their password</li>
-	<li><b>Reset Password Handler (3)</b> : the hidden page that will actually do the resetting of the password</li>
-	<li><b>Members Home Page (4)</b> : the secret clubhouse, available only to valid members</li>
-	<li><b>Come Again Soon (5)</b> : the page displayed upon successful logout</li>
-	<li><b><font color="green">Request Membership (6)</font></b> : the page where users can request membership, i.e. the "Become a Member" page.</li>
-	<li><b><font color="green">Request Pending (7)</font></b> : notifies the user that the user's request has been received</li>
-	<li><b><font color="green">Membership Confirmation Handler (8)</font></b> : the hidden page that will actually register the user</li>
+<li>
+<b>Login Page (1)</b> : the page containing your login form
+</li>
+
+<li>
+<b>Forgot Password (2)</b> : the page where users can go when they forgot their password
+</li>
+
+<li>
+<b>Reset Password Handler (3)</b> : the hidden page that will actually do the resetting of the password
+</li>
+
+<li>
+<b>Members Home Page (4)</b> : the secret clubhouse, available only to valid members
+</li>
+
+<li>
+<b>Come Again Soon (5)</b> : the page displayed upon successful logout
+</li>
+
+<li>
+<b><font color="green">Request Membership (6)</font></b> : the page where users can request membership, i.e. the "Become a Member" page.
+</li>
+
+<li>
+<b><font color="green">Request Pending (7)</font></b> : notifies the user that the user's request has been received
+</li>
+
+<li>
+<b><font color="green">Membership Confirmation Handler (8)</font></b> : the hidden page that will actually register the user
+</li>
 </ul>
 
+<p>
+And lest we forget...
+</p>
 
-<p>And lest we forget...</p>
 <ul>
-	<li><b>Home Page (9)</b> : we're just being thorough &#8211; you probably already some page designated as your home page.</li>
+<li>
+<b>Home Page (9)</b> : we're just being thorough – you probably already some page designated as your home page.
+</li>
 </ul>
 
+<h2>
+<a name="Login.RequestMembership-EnsureBasicPermissionsareinPlace"></a>Ensure Basic Permissions are in Place
+</h2>
 
+<p>
+In case you haven't already, you'll want to prepare the necessary rights and permissions for users and resources on your site as described in the <a href="http://rtfm.modx.com/display/ADDON/Login.Basic+Setup#Login.BasicSetup-CreatetheNecessaryUserGroupsandResourceGroups" class="external-link" rel="nofollow">Basic Setup</a>. <font color="red">This must be in place before continuing!</font>
+</p>
 
-<h2><a name="Login.RequestMembership-EnsureBasicPermissionsareinPlace"></a>Ensure Basic Permissions are in Place</h2>
+<h2>
+<a name="Login.RequestMembership-AddSnippets"></a>Add Snippets
+</h2>
 
-<p>In case you haven't already, you'll want to prepare the necessary rights and permissions for users and resources on your site as described in the <a href="http://rtfm.modx.com/display/ADDON/Login.Basic+Setup#Login.BasicSetup-CreatetheNecessaryUserGroupsandResourceGroups" class="external-link" rel="nofollow">Basic Setup</a>.  <font color="red">This must be in place before continuing!</font></p>
+<h3>
+<a name="Login.RequestMembership-LoginPage%281%29"></a>Login Page (1)
+</h3>
 
-<h2><a name="Login.RequestMembership-AddSnippets"></a>Add Snippets</h2>
+<div class='panelMacro'>
+<table class='noteMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<h3><a name="Login.RequestMembership-LoginPage%281%29"></a>Login Page (1)</h3>
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+You don't have to spruce up your login page, so if you're at all unsure here, skip these bits with the <b>Personalize</b> Snippet and skip ahead a bit.
+</td>
+</tr>
+</table>
+</div>
 
-<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>You don't have to spruce up your login page, so if you're at all unsure here, skip these bits with the <b>Personalize</b> Snippet and skip ahead a bit.</td></tr></table></div>
+<p>
+As before, we can use the same Login Snippet:
+</p>
 
-<p>As before, we can use the same Login Snippet:</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 [[!Login? &amp;loginTpl=`lgnLoginTpl` &amp;logoutTpl=`lgnLogoutTpl` &amp;errTpl=`lgnErrTpl` &amp;logoutResourceId=`5`]] 
 </pre>
-</div></div>
+</div>
+</div>
 
-<h3><a name="Login.RequestMembership-TheHomepageTemplate"></a>The Homepage Template</h3>
+<h3>
+<a name="Login.RequestMembership-TheHomepageTemplate"></a>The Homepage Template
+</h3>
 
-<p>That nifty banner link on your homepage that displays "Logout" when you are signed in and "Login" when you're not can be accomplished via the <a href="http://modx.com/extras/package/personalize" class="external-link" rel="nofollow">Personalize</a> Snippet.</p>
+<p>
+That nifty banner link on your homepage that displays "Logout" when you are signed in and "Login" when you're not can be accomplished via the <a href="http://modx.com/extras/package/personalize" class="external-link" rel="nofollow">Personalize</a> Snippet.
+</p>
 
-<p>To make use of it, put something like the following in your homepage template (add HTML to taste):</p>
+<p>
+To make use of it, put something like the following in your homepage template (add HTML to taste):
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 &lt;div id=<span class="code-quote">"your_header"</span>&gt;
 [[!Personalize? &amp;yesChunk=`header_for_members` &amp;noChunk=`header_for_guests` &amp;ph=`name`]]
 &lt;/div&gt;
 </pre>
-</div></div>
+</div>
+</div>
 
-<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>It's important that the <b>Personalize</b> snippet is not cached!</td></tr></table></div>
+<div class='panelMacro'>
+<table class='noteMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<h4><a name="Login.RequestMembership-AddChunk%3Aheaderforguests"></a>Add Chunk: header_for_guests </h4>
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+It's important that the <b>Personalize</b> snippet is not cached!
+</td>
+</tr>
+</table>
+</div>
 
-<p>Create a chunk that contains something like the following:</p>
+<h4>
+<a name="Login.RequestMembership-AddChunk%3Aheaderforguests"></a>Add Chunk: header_for_guests
+</h4>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<p>
+Create a chunk that contains something like the following:
+</p>
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 &lt;span id=<span class="code-quote">"logged_in_status"</span>&gt;Not signed in (&lt;a href=<span class="code-quote">"[[~1]]"</span>&gt;Sign in&lt;/a&gt;)&lt;/span&gt;
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>The important thing there is that it links back to the login form.</p>
+<p>
+The important thing there is that it links back to the login form.
+</p>
 
-<h4><a name="Login.RequestMembership-AddChunk%3Aheaderformembers"></a>Add Chunk: header_for_members</h4>
+<h4>
+<a name="Login.RequestMembership-AddChunk%3Aheaderformembers"></a>Add Chunk: header_for_members
+</h4>
 
-<p>Next create a chunk that will be displayed to members when they are logged in:</p>
+<p>
+Next create a chunk that will be displayed to members when they are logged in:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 &lt;span id=<span class="code-quote">"logged_in_status"</span>&gt;Signed in: [[+name]] (&lt;a href=<span class="code-quote">"[[~1? &amp;service=`logout`]]"</span>&gt;Sign out&lt;/a&gt;)&lt;/span&gt;
 </pre>
-</div></div>
+</div>
+</div>
 
+<p>
+Note the special format of the logout link: you trigger the logout action by passing a parameter to the <em>Login</em> page.
+</p>
 
-<p>Note the special format of the logout link: you trigger the logout action by passing a parameter to the <em>Login</em> page. </p>
+<div class='panelMacro'>
+<table class='noteMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The syntax for passing parameters to a MODx URL tag is similar the way parameters are passed to Snippets; this ensures that the parameter gets correctly appended to the URL. The [[~1? &amp;service=`logout`]] tag would render two different ways depending on whether friendly URLs were enabled:
-
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+The syntax for passing parameters to a MODx URL tag is similar the way parameters are passed to Snippets; this ensures that the parameter gets correctly appended to the URL. The [[~1? &amp;service=`logout`]] tag would render two different ways depending on whether friendly URLs were enabled:
 <ul>
-	<li><a href="http://yoursite.com/index.php?id=1&amp;service=logout" class="external-link" rel="nofollow">http://yoursite.com/index.php?id=1&amp;service=logout</a></li>
-	<li><a href="http://yoursite.com/login?service=logout" class="external-link" rel="nofollow">http://yoursite.com/login?service=logout</a></li>
+<li>
+<a href="http://yoursite.com/index.php?id=1&amp;service=logout" class="external-link" rel="nofollow">http://yoursite.com/index.php?id=1&amp;service=logout</a>
+</li>
+
+<li>
+<a href="http://yoursite.com/login?service=logout" class="external-link" rel="nofollow">http://yoursite.com/login?service=logout</a>
+</li>
 </ul>
 
+<p>
+Note that MODx automatically handled the placement of the "?"
+</p>
+</td>
+</tr>
+</table>
+</div>
 
-<p>Note that MODx automatically handled the placement of the "?"</p></td></tr></table></div>
+<p>
+We could do the same thing for any parts of our page that need to change how they look based on whether a user is logged-in or not. In the example of FoxyCart, their site also added some menu options that appeared when when a user had successfully logged in. All you would need to do is create another instance of the <a href="http://modx.com/extras/package/personalize" class="external-link" rel="nofollow">Personalize</a> Snippet with its corresponding <b>yesChunk</b> and <b>noChunk</b>. We're going to assume you get the idea and you can repeat as needed.
+</p>
 
-<p>We could do the same thing for any parts of our page that need to change how they look based on whether a user is logged-in or not.  In the example of FoxyCart, their site also added some menu options that appeared when when a user had successfully logged in.  All you would need to do is create another instance of the <a href="http://modx.com/extras/package/personalize" class="external-link" rel="nofollow">Personalize</a> Snippet with its corresponding <b>yesChunk</b> and <b>noChunk</b>. We're going to assume you get the idea and you can repeat as needed.</p>
+<h3>
+<a name="Login.RequestMembership-LoginPage%281%29"></a>Login Page (1)
+</h3>
 
-<h3><a name="Login.RequestMembership-LoginPage%281%29"></a>Login Page (1)</h3>
+<p>
+We can basically use the same Snippet call as the Basic setup, but we're going to add one more parameter: <b>redirectToPrior</b>. This will enable users to login from any page, then return to that same page after completing the login.
+</p>
 
-<p>We can basically use the same Snippet call as the Basic setup, but we're going to add one more parameter: <b>redirectToPrior</b>. This will enable users to login from any page, then return to that same page after completing the login.</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 [[!Login? 
 &amp;loginTpl=`lgnLoginTpl` 
@@ -979,11 +483,15 @@
 &amp;logoutResourceId=`5` 
 &amp;redirectToPrior=`1`]] 
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>We can use the same <b>loginTpl</b> Chunk to display the login form, but we want to add a link to where the user can "Request Membership" :</p>
+<p>
+We can use the same <b>loginTpl</b> Chunk to display the login form, but we want to add a link to where the user can "Request Membership" :
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 &lt;div class=<span class="code-quote">"loginForm"</span>&gt;
     &lt;div class=<span class="code-quote">"loginMessage"</span>&gt;[[+errors]]&lt;/div&gt;
@@ -1011,31 +519,55 @@
 
 &lt;a href=<span class="code-quote">"[[~2]]"</span>&gt;Forgot your Password?&lt;/a&gt;  &lt;a href=<span class="code-quote">"[[~6]]"</span>&gt;Apply <span class="code-keyword">for</span> Membership&lt;/a&gt;
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>Again, you may choose to put the "Forgot Password" and "Apply for Membership" links outside of your Chunk and put them in the template alongside the Snippet call.</p>
+<p>
+Again, you may choose to put the "Forgot Password" and "Apply for Membership" links outside of your Chunk and put them in the template alongside the Snippet call.
+</p>
 
-<h3><a name="Login.RequestMembership-ForgotPassword%282%29"></a>Forgot Password (2) </h3>
+<h3>
+<a name="Login.RequestMembership-ForgotPassword%282%29"></a>Forgot Password (2)
+</h3>
 
-<p>This page functions identically as it did in the Basic Setup: it provides a form where forgetful users can request that their password be reset.  The form submission triggers an email to be sent.  The email contains a link to the "Reset Passsword Handler (3)" page.</p>
+<p>
+This page functions identically as it did in the Basic Setup: it provides a form where forgetful users can request that their password be reset. The form submission triggers an email to be sent. The email contains a link to the "Reset Passsword Handler (3)" page.
+</p>
 
-<h3><a name="Login.RequestMembership-ResetPasswordHandler%283%29"></a>Reset Password Handler (3)</h3>
+<h3>
+<a name="Login.RequestMembership-ResetPasswordHandler%283%29"></a>Reset Password Handler (3)
+</h3>
 
-<p>This page functions in exactly the way it did in the Basic Setup: it handles incoming links from emails and resets passwords as appropriate.</p>
+<p>
+This page functions in exactly the way it did in the Basic Setup: it handles incoming links from emails and resets passwords as appropriate.
+</p>
 
-<h3><a name="Login.RequestMembership-MembersHomePage%284%29"></a>Members Home Page (4)</h3>
+<h3>
+<a name="Login.RequestMembership-MembersHomePage%284%29"></a>Members Home Page (4)
+</h3>
 
-<p>You'll notice that in this scenario, we have effectively bypassed this page entirely.  It's still good to have it there: by its membership in a "Members Only" resource group, it represents content that is only visible to validated members.  In the FoxyCart example, the menu that was displayed only to the members represented "Members Only" pages like this one.  Just create the necessary pages you need, and adjust their access permissions so they belong to the "Members Only" resource group.</p>
+<p>
+You'll notice that in this scenario, we have effectively bypassed this page entirely. It's still good to have it there: by its membership in a "Members Only" resource group, it represents content that is only visible to validated members. In the FoxyCart example, the menu that was displayed only to the members represented "Members Only" pages like this one. Just create the necessary pages you need, and adjust their access permissions so they belong to the "Members Only" resource group.
+</p>
 
-<h3><a name="Login.RequestMembership-ComeAgainSoon%285%29"></a>Come Again Soon (5)</h3>
+<h3>
+<a name="Login.RequestMembership-ComeAgainSoon%285%29"></a>Come Again Soon (5)
+</h3>
 
-<p>This page doesn't have to change any from the basic setup.  Its purpose is simply to message the user; you can throw a link back to the login page if you want.</p>
+<p>
+This page doesn't have to change any from the basic setup. Its purpose is simply to message the user; you can throw a link back to the login page if you want.
+</p>
 
-<h3><a name="Login.RequestMembership-RequestMembership%286%29"></a>Request Membership (6)</h3>
+<h3>
+<a name="Login.RequestMembership-RequestMembership%286%29"></a>Request Membership (6)
+</h3>
 
-<p>Next, let's handle the form that allows users to apply for membership on your site.  The <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> Snippet acts on a form that is included in-line on the page (as opposed to a form inside of a chunk).</p>
+<p>
+Next, let's handle the form that allows users to apply for membership on your site. The <a href="/display/ADDON/Login.Register" title="Login.Register">Register</a> Snippet acts on a form that is included in-line on the page (as opposed to a form inside of a chunk).
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 &lt;h2&gt;Register&lt;/h2&gt;
 
@@ -1089,101 +621,174 @@
     &lt;/form&gt;
 &lt;/div&gt;
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>It needs to reference two other pages: the <b>Request Pending (7)</b> page, and the <b>Membership Confirmation Handler (8)</b> page. </p>
+<p>
+It needs to reference two other pages: the <b>Request Pending (7)</b> page, and the <b>Membership Confirmation Handler (8)</b> page.
+</p>
 
-<h3><a name="Login.RequestMembership-RequestPending%287%29"></a>Request Pending (7)</h3>
+<h3>
+<a name="Login.RequestMembership-RequestPending%287%29"></a>Request Pending (7)
+</h3>
 
-<p>This page's job is to inform the user that their request is being processed and that they should check their email for an activation link.  Here's a sample message:</p>
+<p>
+This page's job is to inform the user that their request is being processed and that they should check their email for an activation link. Here's a sample message:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 &lt;p&gt;Thank you <span class="code-keyword">for</span> your interest in our site! Check your email <span class="code-keyword">for</span> an activation link.  
 You will need to click <span class="code-keyword">this</span> link before you can log into our site.&lt;/p&gt;
 </pre>
-</div></div>
+</div>
+</div>
 
+<h3>
+<a name="Login.RequestMembership-MembershipConfirmationHandler%288%29"></a>Membership Confirmation Handler (8)
+</h3>
 
+<p>
+This page handles the incoming links from the emails sent by the <b>Register</b> Snippet. The <b>ConfirmRegister</b> Snippet handles this processing; in our example, we want it to redirect users to the home page (page 9 in our example):
+</p>
 
-<h3><a name="Login.RequestMembership-MembershipConfirmationHandler%288%29"></a>Membership Confirmation Handler (8)</h3>
-
-<p>This page handles the incoming links from the emails sent by the <b>Register</b> Snippet.  The <b>ConfirmRegister</b> Snippet handles this processing; in our example, we want it to redirect users to the home page (page 9 in our example):</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 [[ConfirmRegister? &amp;redirectTo=`9`]]
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>----------------------</p>
+<p>
+----------------------
+</p>
 
-<h2><a name="Login.RequestMembership-Testing%3AMakingitallWork"></a>Testing: Making it all Work</h2>
+<h2>
+<a name="Login.RequestMembership-Testing%3AMakingitallWork"></a>Testing: Making it all Work
+</h2>
 
-<p>Now that we have the pieces laid out, let's try to make this work.</p>
+<p>
+Now that we have the pieces laid out, let's try to make this work.
+</p>
 
-<h3><a name="Login.RequestMembership-RequestMembership"></a>Request Membership</h3>
+<h3>
+<a name="Login.RequestMembership-RequestMembership"></a>Request Membership
+</h3>
 
-<p>Go to your <b>Request Membership (6)</b> page.  Verify that the form shows up and go ahead and try creating a new user &#8211; use a different email address for this than the one you have assigned to your MODX manager user.</p>
+<p>
+Go to your <b>Request Membership (6)</b> page. Verify that the form shows up and go ahead and try creating a new user – use a different email address for this than the one you have assigned to your MODX manager user.
+</p>
 
-<p>If the page doesn't redirect correctly, verify that you have a valid page ID for the <b>&amp;submittedResourceId</b> parameter.</p>
-
-<ol>
-	<li><b>CHECK:</b> After submitting the form, you should be redirected to the <b>Request Pending (7)</b> page.</li>
-	<li><b>CHECK:</b> After submitting the form, you should see the new user created under <b>Security --&gt; Manage Users</b>. It will be grayed out because the user is not yet active until they confirm their email address by clicking the link that was emailed to them.</li>
-</ol>
-
-
-<p><span class="image-wrap" style=""><img src="/download/attachments/35094671/New_inactive_user.jpg?version=1&amp;modificationDate=1339727602000" style="border: 0px solid black" /></span></p>
-
-
-<h3><a name="Login.RequestMembership-CheckforVerificationEmail"></a>Check for Verification Email</h3>
-
-<p>Check your email for email message containing the confirmation link. There is a section below for troubleshooting email functionality on your server.</p>
-
-<p>Also check your spam filters on your your email account, and keep in mind it may take a minute or two for the email to arrive.</p>
+<p>
+If the page doesn't redirect correctly, verify that you have a valid page ID for the <b>&amp;submittedResourceId</b> parameter.
+</p>
 
 <ol>
-	<li><b>CHECK:</b> Did you get the confirmation email?  You can customize the text of the email by changing the content of the <b>ActivationEmailTpl</b> Chunk.</li>
-	<li><b>CHECK:</b> Is the confirmation link in the email correct?  When you click it, does it take you to the <b>Membership Confirmation Handler (8)</b> page?  If the link is not correct, double-check the <b>&amp;activationResourceId</b> parameter and make sure it's pointing to your <b>Membership Confirmation Handler (8)</b> page.</li>
-	<li><b>CHECK:</b> Make sure that the <b>ConfirmRegister</b> Snippet on the <b>Membership Confirmation Handler (8)</b> page works: if your template isn't displaying [[<b>content]] correctly, then the *ConfirmRegister</b> Snippet may never execute.  The expected behavior is that clicking the activation link in your email message should take to to the <b>Membership Confirmation Handler (8)</b> page, which should <em>immediately</em> redirect to the home page (check the <b>&amp;redirectTo</b> parameter in the <b>ConfirmRegister</b> Snippet.</li>
-	<li><b>CHECK:</b> Verify that your new user is not set to <font color="green"><b>Active</b></font> under <b>Security &#45;&gt; Manage Users</b>.  This confirms that the user was activated!</li>
+<li>
+<b>CHECK:</b> After submitting the form, you should be redirected to the <b>Request Pending (7)</b> page.
+</li>
+
+<li>
+<b>CHECK:</b> After submitting the form, you should see the new user created under <b>Security --&gt; Manage Users</b>. It will be grayed out because the user is not yet active until they confirm their email address by clicking the link that was emailed to them.
+</li>
 </ol>
 
+<p>
+<span class="image-wrap" style=""><img src="/download/attachments/35094671/New_inactive_user.jpg?version=1&amp;modificationDate=1339727602000" style="border: 0px solid black" /></span>
+</p>
 
-<h3><a name="Login.RequestMembership-Login"></a>Login </h3>
+<h3>
+<a name="Login.RequestMembership-CheckforVerificationEmail"></a>Check for Verification Email
+</h3>
 
-<p>Using a different browser other than the one you're logged into the MODX manager, navigate to your <b>Login Page (1)</b> (as was set up in the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">basic tutorial</a>.  Try to log in using the newly created user.</p>
+<p>
+Check your email for email message containing the confirmation link. There is a section below for troubleshooting email functionality on your server.
+</p>
+
+<p>
+Also check your spam filters on your your email account, and keep in mind it may take a minute or two for the email to arrive.
+</p>
 
 <ol>
-	<li><b>CHECK:</b> is the login successful?  Does the page redirect to your <b>Members Home Page (4)</b>?  If not, double-check the <b>&amp;loginResourceId</b> parameter in your <b>Login</b> Snippet call.</li>
-	<li><b>CHECK:</b> is the <b>Members Home Page (4)</b> publicly accessible?  You might need a 3rd browser for this, but try visiting the Members Home Page in a browser where you are not logged in to any part of the site.  You should see a 404 page.</li>
-	<li><b>CHECK:</b> Can you log out?  It's best to put a logout link on your Members Home Page somewhere.  See the basic tutorial for how to set up a logout link.  In a pinch, visit your login page and append <b>?service=logout</b> to the URL.</li>
+<li>
+<b>CHECK:</b> Did you get the confirmation email? You can customize the text of the email by changing the content of the <b>ActivationEmailTpl</b> Chunk.
+</li>
+
+<li>
+<b>CHECK:</b> Is the confirmation link in the email correct? When you click it, does it take you to the <b>Membership Confirmation Handler (8)</b> page? If the link is not correct, double-check the <b>&amp;activationResourceId</b> parameter and make sure it's pointing to your <b>Membership Confirmation Handler (8)</b> page.
+</li>
+
+<li>
+<b>CHECK:</b> Make sure that the <b>ConfirmRegister</b> Snippet on the <b>Membership Confirmation Handler (8)</b> page works: if your template isn't displaying [[<b>content]] correctly, then the *ConfirmRegister</b> Snippet may never execute. The expected behavior is that clicking the activation link in your email message should take to to the <b>Membership Confirmation Handler (8)</b> page, which should <em>immediately</em> redirect to the home page (check the <b>&amp;redirectTo</b> parameter in the <b>ConfirmRegister</b> Snippet.
+</li>
+
+<li>
+<b>CHECK:</b> Verify that your new user is not set to <font color="green"><b>Active</b></font> under <b>Security -&gt; Manage Users</b>. This confirms that the user was activated!
+</li>
 </ol>
 
+<h3>
+<a name="Login.RequestMembership-Login"></a>Login
+</h3>
 
+<p>
+Using a different browser other than the one you're logged into the MODX manager, navigate to your <b>Login Page (1)</b> (as was set up in the <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">basic tutorial</a>. Try to log in using the newly created user.
+</p>
 
+<ol>
+<li>
+<b>CHECK:</b> is the login successful? Does the page redirect to your <b>Members Home Page (4)</b>? If not, double-check the <b>&amp;loginResourceId</b> parameter in your <b>Login</b> Snippet call.
+</li>
 
-<p>----------------------</p>
+<li>
+<b>CHECK:</b> is the <b>Members Home Page (4)</b> publicly accessible? You might need a 3rd browser for this, but try visiting the Members Home Page in a browser where you are not logged in to any part of the site. You should see a 404 page.
+</li>
 
-<h2><a name="Login.RequestMembership-Errors"></a>Errors</h2>
+<li>
+<b>CHECK:</b> Can you log out? It's best to put a logout link on your Members Home Page somewhere. See the basic tutorial for how to set up a logout link. In a pinch, visit your login page and append <b>?service=logout</b> to the URL.
+</li>
+</ol>
 
-<h3><a name="Login.RequestMembership-WhenIsubmittherequestmembershipform%2Cthepagedoesnotredirect%21"></a>When I submit the request membership form, the page does not redirect!</h3>
+<p>
+----------------------
+</p>
 
-<p>Sometimes the form submits, the user <em>IS</em> created, but the page does not redirect: the user sees the same form they filled out.  What's going on?</p>
+<h2>
+<a name="Login.RequestMembership-Errors"></a>Errors
+</h2>
 
-<p>Triple-check the page ID you have set the <b>&amp;submittedResourceId</b> parameter.  If the page ID does not exist on your site, the user will be created, but the redirect will fail.</p>
+<h3>
+<a name="Login.RequestMembership-WhenIsubmittherequestmembershipform%2Cthepagedoesnotredirect%21"></a>When I submit the request membership form, the page does not redirect!
+</h3>
 
-<h3><a name="Login.RequestMembership-WhenIgettheActivationemail%2Cthemessageisblank%21"></a>When I get the Activation email, the message is blank!</h3>
+<p>
+Sometimes the form submits, the user <em>IS</em> created, but the page does not redirect: the user sees the same form they filled out. What's going on?
+</p>
 
-<p>The cause is almost certainly that you do not have a Chunk by the name listed for the <b>&amp;activationEmailTpl</b> parameter.  The default install of the Login package uses a Chunk named <b>lgnActivateEmailTpl</b>, whereas the tutorial here used one named <b>ActivateEmailTpl</b>.</p>
+<p>
+Triple-check the page ID you have set the <b>&amp;submittedResourceId</b> parameter. If the page ID does not exist on your site, the user will be created, but the redirect will fail.
+</p>
 
+<h3>
+<a name="Login.RequestMembership-WhenIgettheActivationemail%2Cthemessageisblank%21"></a>When I get the Activation email, the message is blank!
+</h3>
 
-<h3><a name="Login.RequestMembership-InevergettheEmailsthatMODxsends%21"></a>I never get the Emails that MODx sends!</h3>
+<p>
+The cause is almost certainly that you do not have a Chunk by the name listed for the <b>&amp;activationEmailTpl</b> parameter. The default install of the Login package uses a Chunk named <b>lgnActivateEmailTpl</b>, whereas the tutorial here used one named <b>ActivateEmailTpl</b>.
+</p>
 
-<p>Email configuration is unfortunately complex and differs from server to server. A good place to start is checking whether PHP can send emails.  Try placing the following script on your site, then navigate to it in your browser:</p>
+<h3>
+<a name="Login.RequestMembership-InevergettheEmailsthatMODxsends%21"></a>I never get the Emails that MODx sends!
+</h3>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<p>
+Email configuration is unfortunately complex and differs from server to server. A good place to start is checking whether PHP can send emails. Try placing the following script on your site, then navigate to it in your browser:
+</p>
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 &lt;?php
  $to = <span class="code-quote">"recipient@example.com"</span>;
@@ -1196,18 +801,31 @@ You will need to click <span class="code-keyword">this</span> link before you ca
   }
  ?&gt;
 </pre>
-</div></div>
-<p><em>&#42; Script from <a href="http://email.about.com/od/emailprogrammingtips/qt/How_to_Send_Email_from_a_PHP_Script.htm" class="external-link" rel="nofollow">About.com</a></em></p>
+</div>
+</div>
 
-<p>You can also try configuring your site to use SMTP to send emails; this is often preferable because it relies on a dedicated email server (e.g. yahoo.com or google.com) to send your messages.  Under System&#45;&gt;Settings, search for SMTP, and you'll find a handful of settings that can help you set that up.</p>
+<p>
+<em>* Script from <a href="http://email.about.com/od/emailprogrammingtips/qt/How_to_Send_Email_from_a_PHP_Script.htm" class="external-link" rel="nofollow">About.com</a></em>
+</p>
 
-<h3><a name="Login.RequestMembership-Aftersubmittingtheregistrationform%2CIgetawhitepage."></a>After submitting the registration form, I get a white page.</h3>
+<p>
+You can also try configuring your site to use SMTP to send emails; this is often preferable because it relies on a dedicated email server (e.g. yahoo.com or google.com) to send your messages. Under System-&gt;Settings, search for SMTP, and you'll find a handful of settings that can help you set that up.
+</p>
 
-<p>This issue shouldn't come up on recent versions of MODX, but to verify this behavior, try visiting your "Request Membership" sign-up page and submit the form without any data in it. If you get nothing but a completely empty blank white page, the cause may be due to your PHP configuration.</p>
+<h3>
+<a name="Login.RequestMembership-Aftersubmittingtheregistrationform%2CIgetawhitepage."></a>After submitting the registration form, I get a white page.
+</h3>
 
-<p>A simple test here is the following script:</p>
+<p>
+This issue shouldn't come up on recent versions of MODX, but to verify this behavior, try visiting your "Request Membership" sign-up page and submit the form without any data in it. If you get nothing but a completely empty blank white page, the cause may be due to your PHP configuration.
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<p>
+A simple test here is the following script:
+</p>
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
 <pre class="code-java">
 <span class="code-keyword">if</span> (function_exists('mb_ereg')) {
  print 'Yes, the multibyte function exists';
@@ -1216,209 +834,13 @@ You will need to click <span class="code-keyword">this</span> link before you ca
  print 'No, the function does not exist. The Register Snippet may fail.';
 }
 </pre>
-</div></div>
-
-<p>The solution involves recompiling PHP.  You must have the <b>mbstring</b> library installed and you must ensure that you have not included the <em>--disable-mbregex</em> option. </p>
-
-<p>See <a href="http://modxcms.com/forums/index.php/topic,63778.0.html" class="external-link" rel="nofollow">this forum post</a> for more details.</p>
-        </div>
-
-        <!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-         <rdf:Description
-    rdf:about="http://oldrtfm.modx.com/display/ADDON/Login.Request+Membership"
-    dc:identifier="http://oldrtfm.modx.com/display/ADDON/Login.Request+Membership"
-    dc:title="Login.Request Membership"
-    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/35094671"/>
-</rdf:RDF>
--->
-
-            
-    
-
-
-<fieldset class="hidden parameters">
-    <legend>Labels parameters</legend>
-    <input type="hidden" id="editLabel" value="Edit">
-    <input type="hidden" id="addLabel" value="Add Labels">
-    <input type="hidden" id="domainName" value="http://oldrtfm.modx.com">
-    <input type="hidden" id="pageId" value="35094671">
-    <input type="hidden" id="spaceKey" value="ADDON">
-</fieldset>
-
-<div id="labels-section" class="pageSection">
-    <div id="default-labels-header" class="section-header">
-        <h2 id="labels-section-title" class="section-title  hidden ">Labels</h2>
-            </div>
-
-    <div class="labels-editor">
-        <div id="labelsList">
-                    </div>
-
-        <span class="errorMessage error" id="errorSpan"></span>
-        <form method="GET" action="" id="add-labels-form">
-            <div id="labelInputSpan" class="labels-input">
-                <div id="labelOperationErrorContainer" class="hidden">
-                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
-                </div>
-
-                <div class="caption">Enter labels to add to this page:</div>
-                <div id="label-input-fields">
-                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
-                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
-                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
-                </div>
-                <div id="waitImageAndStatus">
-                    <img class="waiting" alt="Please wait" src="/s/1911/69/_/images/icons/wait.gif">&nbsp;
-                    <span id="labelOperationStatus" class="smalltext"></span>
-                </div>
-                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
-                <div class="labels-tip">
-                    <div id="suggestedLabelsSpan"></div>
-                    Looking for a label? Just start typing.
-                </div>
-            </div>
-        </form>
-    </div>
+</div>
 </div>
 
-            
-            
+<p>
+The solution involves recompiling PHP. You must have the <b>mbstring</b> library installed and you must ensure that you have not included the <em>--disable-mbregex</em> option.
+</p>
 
-
-
-
-            
-    
-
-        
-<fieldset class="parameters hidden">
-    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
-    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
-        </fieldset>
-
-
-
-
-
-
-<div id="comments-section" class="pageSection">
-    
-    
-    
-    
-                                    </div>
-
-
-            
-</div>
-
-
-    
-
-
-
-
-        
-        
-
-    
-    
-    
-
-
-<fieldset class="hidden parameters">
-        <input type="hidden" id="i18n.manage.watchers.dialog.title" value="Manage Watchers">
-        <input type="hidden" id="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
-        <input type="hidden" id="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
-</fieldset>
-<script type="text/x-template" title="manage-watchers-dialog">
-<div class="dialog-content">
-    <div class="column page-watchers">
-        <h3>Watching this page</h3>
-        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
-        <form action="/json/addwatch.action" method="POST">
-                <input type="hidden" name="atl_token" value="8w6ZnamTo1">
-            <input type="hidden" name="pageId" value="35094671"/>
-            <input type="hidden" id="add-watcher-username" name="username" value=""/>
-            <label for="add-watcher-user">User</label>
-            <input id="add-watcher-user" name="userFullName" type="search" class="has-placeholder autocomplete-user"
-               value="" placeholder="Full name or username" autocomplete="off"
-               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
-               data-template="{title}" data-none-message="No matching users found.">
-            <input id="add-watcher-submit" type="submit" name="add" value="Add">
-            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
-            <div class="status hidden"></div>
-        </form>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No page watchers</li>
-        </ul>
-    </div>
-    <div class="column space-watchers">
-        <h3>Watching this space</h3>
-        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No space watchers</li>
-        </ul>
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="manage-watchers-user">
-    <li class="watch-user">
-        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
-        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
-        <span class="remove-watch" title="Remove"
-            data-username="{username}">Remove</span>
-    </li>
-</script>
-<script type="text/x-template" title="manage-watchers-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Managing+Watchers" target="_blank">Help</a>
-    </div>
-</script>
-    <br class="clear">
-</div>
-  
-    </div>
-</div>
-
-<div id="footer">
-                                                <p class="license license-opensource">
-                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to MODx CMS / xPDO. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
-                </p>
-                        
-    <ul id="poweredby">
-        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.3, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
-        <li class="print-only">Printed by Atlassian Confluence 3.3, the Enterprise Wiki.</li>        
-        <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
-        <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
-    </ul>
-
-    
-
-            <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-71684-1']);
-  _gaq.push(['_setDomainName', 'oldrtfm.modx.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    </div>    <!-- include system javascript resources -->
-                        
-    
-    
-    <!-- end system javascript resources -->
-</div>
-</body>
-</html>
+<p>
+See <a href="http://modxcms.com/forums/index.php/topic,63778.0.html" class="external-link" rel="nofollow">this forum post</a> for more details.
+</p>

@@ -1,843 +1,156 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-            <title>Developing an Extra in MODX Revolution, Part III - MODx Revolution 2.x - MODX Documentation</title>
-    
-        
+<div class="panel" style="border-width: 1px;">
+<div class="panelContent">
+<p>
+This tutorial is part of a Series:
+</p>
 
-                        
-    
-
-            
-<meta id="confluence-context-path" name="confluence-context-path" content="">
-<meta id="atlassian-token" name="atlassian-token" content="q0auAQHdLl">
-<meta id="confluence-space-key" name="confluence-space-key" content="revolution20">
-
-<script type="text/javascript">
-    // Deprecated global variables. To be removed in a future version of Confluence.
-    var contextPath = '';
-</script>
-
-    
-
-<!-- include system css resources -->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?media=print" media="print">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
-<![endif]-->
-
-<!-- end system css resources -->
-
-    <link rel="stylesheet" href="/s/1911/69/6/_/styles/combined.css?spaceKey=revolution20" type="text/css">
-
-    <meta name="confluence-request-time" content="1381731561580">
-
-<meta name="loggedInUsername" content="">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/s/1911/69/_/images/logo/confluence_16.png">
-
-<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="MODX Documentation"/>
-
-        <!-- include system javascript resources -->
-                        
-    
-    <script type="text/javascript" src="/s/1911/69/2/_/download/superbatch/js/batch.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
-<script type="text/javascript" src="/s/1911/69/3.3/_/download/batch/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.2/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
-
-    <!-- end system javascript resources -->
-
-    <link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/docs.css" />
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/syntaxhighlighter/css/all.css" />
-<!--<script type="text/javascript" src="http://misc.modx.com/js/jquery-1.3.2.min.js"></script>-->
-<script type="text/javascript" src="http://misc.modx.com/confluence/syntaxhighlighter/js/all.js"></script>
-<script type="text/javascript" src="http://misc.modx.com/confluence/loadcode.js"></script>
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/promo/ad.css" />
-
-    
-    <link rel="canonical" href="http://oldrtfm.modx.com/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III">
-    <link rel="shortlink" href="http://oldrtfm.modx.com/x/NgAGAg">
-    <meta name="wikilink" content="[revolution20:Developing an Extra in MODX Revolution, Part III]">
-
-</head>
-
-<body             onload="placeFocus()"
-     id="com-atlassian-confluence" class="theme-documentation ">
-<div id="full-height-container">
-<!-- CODE FOR AD THAT SEEMS TO BE INSERTABLE DIRECTLY AFTER OPEN BODY TAG IN CONFLUENCE THEME ADMIN -->
-<!--<a href="https://modxcloud.com/signup/lab-account.html?utm_source=rtfm&utm_medium=banner&utm_campaign=one_percent%2B" class="modx-cloud-link">
-    <div class="modx-cloud-ad-wrap">
-        <div class="modx-cloud-ad">
-            <div class="logo-wrap">
-                <img src="http://misc.modx.com/confluence/promo/modx-cloud-logo.png" alt="MODX Cloud" width="161" height="40">
-            </div>
-            <p>The Most Productive MODX Learning Playground Ever</p>
-            <span class="faux-btn">
-                Claim Free Lab Account
-            </span>
-
-        </div>
-    </div>
-</a>-->
-<!-- END OF AD -->
-
-<div class="editors_note" style="background-color:#ff9a91;border: 1px solid red; padding:5px;color:black;">
-    <strong>Important Note:</strong> This is an archive of the official MODX Documentation. Please do not edit or make changes here.  The current documentation is located at <a href="rtfm.modx.com">rtfm.modx.com</a>.
-</div>
-
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
-    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
-    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
-    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
-    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
-</fieldset>
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
-    <input type="hidden" id="userLocale" value="en_GB">
-    <input type="hidden" id="staticResourceUrlPrefix" value="/s/1911/69/_">
-    <input type="hidden" id="contextPath" value="">
-</fieldset>
-
-    
-<div id="header" class="sectionbottom ">
-        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
-        <fieldset>
-            <legend>Quick Search</legend>
-            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
-            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
-            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
-        </fieldset>
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="quickNavEnabled" value="true" />
-                    </fieldset>
-    </form>
-    <ul id="header-menu-bar" class="ajs-menu-bar">
-                    
-        
-            <li class="normal ajs-menu-item">
-        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
-                                        <li>
-    
-        
-    
-    <a  id="space-pages-link" href="/pages/listpages.action?key=revolution20"  class=""   title="Attachments: 2">
-                   <span>Pages</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=revolution20"  class=""   title="Attachments: 2">
-                   <span>Blog</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=revolution20"  class=""   title="Attachments: 2">
-                   <span>Labels</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=revolution20"  class=""   title="Attachments: 2">
-                   <span>Attachments</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  href="/spaces/space-bookmarks.action?spaceKey=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Bookmarks</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Mail</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Advanced</span></a>        </li>
-                            </ul>
-                        <ul  id="browse-menu-link-global"                 class="section-global">
-                                        <li>
-    
-            
-    
-    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
-                   <span>Confluence Gadgets</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-        
-                                                         <li class="ajs-menu-item normal">
-        
-        
-    
-    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FDeveloping%2Ban%2BExtra%2Bin%2BMODX%2BRevolution%2C%2BPart%2BIII"  class="user-item login-link"  >
-                   <span>Log In</span></a>        </li>
-                                <li class="normal ajs-menu-item">
-            <div id="splitter-button" class="hidden" title="Sidebar"></div>
-        </li>
-
-    </ul>
-    
-    
-    <ol id="breadcrumbs">
-                    
-        <li class="first" >
-                                    <span><a href="/dashboard.action">Dashboard</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/revolution20">MODx Revolution 2.x</a></span>
-                </li>
-                                        <li id="ellipsis" title="    &#8230;
-                    Home
-             &gt;         Case Studies and Tutorials
-        &#8230;
-"><span><strong>&#8230;</strong></span></li>
-                                    
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/revolution20/Home">Home</a></span>
-                </li>
-                                
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/revolution20/Case+Studies+and+Tutorials">Case Studies and Tutorials</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution">Developing an Extra in MODX Revolution</a></span>
-                </li>
-                    
-        <li>
-                                    <span>Developing an Extra in MODX Revolution, Part III</span>
-                </li>
-        </ol>
-
-</div>
-
-    <div id="splitter">
-    <div id="splitter-sidebar">
-
-        
-
-                    
-    
-    
-
-<div class="plugin_pagetree">
-
-                <div id="pagetreesearch">
-            <form method="POST" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
-                                    <input type="hidden" name="ancestorId" value="18678050">
-                                <input type="hidden" name="spaceKey" value="revolution20">
-                <input type="text"  size="20" name="queryString">
-                <input type="submit" value="Search">
-            </form>
-        </div>
-    
-        
-    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-        <div class="plugin_pagetree_children">
-        </div>
-    </ul>
-
-    <fieldset class="hidden">
-        <input type="hidden" name="treeId" value="">
-        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
-        <input type="hidden" name="treePageId" value="33947702">
-
-        <input type="hidden" name="noRoot" value="false">
-        <input type="hidden" name="rootPageId" value="18678050">
-
-        <input type="hidden" name="rootPage" value="">
-        <input type="hidden" name="startDepth" value="0">
-        <input type="hidden" name="spaceKey" value="revolution20" >
-
-        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
-        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
-        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
-        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FDeveloping%2Ban%2BExtra%2Bin%2BMODX%2BRevolution%2C%2BPart%2BIII">
-
-                <fieldset class="hidden">
-                                                <input type="hidden" name="ancestorId" value="33587481">
-                                    <input type="hidden" name="ancestorId" value="18678106">
-                                    <input type="hidden" name="ancestorId" value="18678050">
-                                    </fieldset>
-    </fieldset>
-</div>
-
-
-
-            </div>
-    <div id="splitter-content">
-
-                    <script type="text/javascript" src="/s/1911/69/2/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
-    
-            
-    
-<div id="main" >
-    
-    
-    <div id="navigation" class="content-navigation view">
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="pageId" value="33947702">
-        </fieldset>
-        <ul class="ajs-menu-bar">
-                                
-                        
-            <li class="normal ajs-menu-item">
-        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="action-menu-link-primary"                 class="section-primary first">
-                                        <li>
-    
-        
-    
-    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=33947702"  class="action-view-attachments"  accessKey="a" >
-                   <span><u>A</u>ttachments (2)</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=33947702"  class="action-view-history"  >
-                   <span>Page History</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="mailPageLink" href="/pages/mailpage/mailpage.action?pageId=33947702"  class=""  >
-                    <span>
-                <img alt="E-mail" src="/images/icons/mail_content_16.gif" height="16" width="16" title="E-mail">
-                E-mail
-            </span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=33947702"  class="action-page-permissions"  >
-                   <span>Restrictions</span></a>        </li>
-                            </ul>
-                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
-                                        <li>
-    
-        
-    
-    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=33947702"  class="action-view-info"  >
-                   <span>Info</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=33947702"  class=""  >
-                   <span>Link to this Page&hellip;</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=revolution20&openId=33947702#selectedPageInHierarchy"  class=""  >
-                   <span>View in Hierarchy</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=33947702"  class="action-view-source popup-link"  >
-                   <span>View Wiki Markup</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-            </ul>
-    </div>
-
-    
-    <h1 id="title-heading" class="pagetitle">
-                    <a href="/display/revolution20"><img class="logo global custom" src="/download/attachments/9109505/global.logo?version=2&modificationDate=1356105314000" alt=""></a>        
-		<span id="title-text">
-					            <a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III">Developing an Extra in MODX Revolution, Part III</a>
-    				</span>
-    </h1>
-
-    
-
-    
-    
-    
-    <div id="content" class="page view">
-    
-
-
-
-<fieldset id="link-to-page-fields" class="hidden parameters">
-    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
-    <input type="hidden" id="linkToThisPageLink" value="Link">
-    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
-    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
-    <input type="hidden" id="linkToThisPageClose" value="Close">
-</fieldset>
-<fieldset class="hidden parameters">
-    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;Developing an Extra in MODX Revolution, Part III&#8217;">
-    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
-    <input type="hidden" title="movePageDialogMoveButton" value="Move">
-    <input type="hidden" title="movePageDialogOkButton" value="OK">
-    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
-    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
-    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
-    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
-    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
-    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
-    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
-    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
-    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
-    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
-    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
-    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
-    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
-    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
-    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
-    <input type="hidden" title="pageTitle" value="Developing an Extra in MODX Revolution, Part III"/>
-    <input type="hidden" title="parentPageTitle" value="Developing an Extra in MODX Revolution"/>
-    <input type="hidden" title="fromPageTitle" value=""/>
-    <input type="hidden" title="spaceKey" value="revolution20"/>
-    <input type="hidden" title="spaceName" value="MODx Revolution 2.x"/>
-    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
-    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
-    <input type="hidden" title="movePageDialogBackButton" value="Back"/>
-    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder"/>
-    <input type="hidden" title="movePageDialogNextButton" value="Move"/>    
-</fieldset>
-
-<script type="text/x-template" title="movePageDialog">
-    <div class="row information">
-        Specify the new parent page for this page and its children by space and title.
-    </div>
-    <div class="form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
-            <div class="row">
-                <label for="new-space">New space:</label>
-                <div class="value new-space-value">
-                    <input id="new-space-key" name="new-space-key" type="hidden" value="revolution20">
-                                            <span class="space-input">
-                            <input id="new-space" name="new-space" value="MODx Revolution 2.x" disabled="disabled">
-                        </span>
-                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
-                                        <div class="new-space-dropdown aui-dd-parent"></div>
-                </div>
-            </div>
-            <div class="row">
-                <label for="new-parent-page">New parent page:</label>
-                <div class="value new-parent-page-value">
-                    <span class="page-input">
-                        <input id="new-parent-page" name="new-parent-page" value="Developing an Extra in MODX Revolution">
-                    </span>
-                    <span class="description">Start typing a page title to see a list of suggestions.</span>
-                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="location-info">
-        <div class="row">
-            <label>Current location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <label>New location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
-<script type="text/x-template" title="movePageErrors">
-    <div id="move-errors" class="hidden warning"></div>
-</script>
-<script type="text/x-template" title="movePageBreadcrumb">
-    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbLoading">
-    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbError">
-    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
-</script>
-<script type="text/x-template" title="movePageNoMatchingPages">
-    <ol><li><span class="warning">No matching pages found.</span></li></ol>
-</script>
-<script type="text/x-template" title="movePageNoMatchingSpaces">
-    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
-</script>
-
-<script type="text/x-template" title="movePageSearchPanel">
-<div class="row information">
-    Search for and select the new parent page for this page and its children.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
-            
-
-    <label  for="move-page-search-query" class="assistive">Search keywords</label>
-            <input class="search-query" id="move-page-search-query">
-            
-
-    <label  for="move-page-search-space" class="assistive">Search in space</label>
-                            <select id="move-page-search-space" class="search-space" disabled="disabled">
-                    <option value="revolution20" selected="selected">MODx Revolution 2.x</option>
-                </select>
-                        <input type="button" value="Search">
-                            <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
-                    </fieldset>
-    </div>
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageSearchResultsLoading">
-    <div class="searching">Searching…</div>
-</script>
-
-<script type="text/x-template" title="movePageHistoryPanel">
-<div class="row information">
-    Select the new parent page for this page and its children from your history.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageHistoryLoading">
-    <div class="searching">Loading…</div>
-</script>
-<script type="text/x-template" title="movePageBrowsePanel">
-    <div class="row information">
-        Click to select the new parent page for this page and its children.
-    </div>
-    <div class="tree"></div>
-</script>
-<script type="text/x-template" title="movePagePanelLoading">
-    <span>Loading…</span>
-</script>
-<script type="text/x-template" title="movePageBrowsePanelSpace">
-    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
-</script>
-<script type="text/x-template" title="orderingPagePanel">
-<div id="orderingPlaceHolder"></div>
-</script>
-<script type="text/x-template" title="reorderCheckbox">
-<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
-</script>
-<script type="text/x-template" title="move-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Moving+a+Page" target="_blank">Help</a>
-    </div>
-</script>
-<script type="text/x-template" title="searchResultsGrid">
-    <table>
-        <thead>
-            <tr class="header">
-                <th class="search-result-title">Page Title</th>
-                <th class="search-result-space">Space</th>
-                <th class="search-result-date">Updated</th>
-            </tr>
-        </thead>
-    </table>
-</script>
-<script type="text/x-template" title="searchResultsGridCount">
-    <p class="search-result-count">{0}</p>
-</script>
-<script type="text/x-template" title="searchResultsGridRow">
-    <tr class="search-result">
-        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
-        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
-        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
-    </tr>
-</script>
-<!-- Start restrictions section -->
-<fieldset class="hidden parameters i18n">
-        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
-        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
-        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
-        <input type="hidden" id="i18n.cancel.name" value="Cancel">
-        <input type="hidden" id="i18n.close.name" value="Close">
-        <input type="hidden" id="i18n.update.name" value="Save">
-</fieldset>
-
-<script type="text/x-template" title="page-permissions-div">
-<div id="page-permissions-div">
-    <div id="page-permissions-editor-form">
-
-                <div id="page-permissions-error-div" class="hidden">
-            <a href="#" id="permissions-error-div-close">Ok</a>
-            <div></div>
-        </div>
-
-                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
-            <div>
-                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
-                <label for="restrictViewRadio">Restrict viewing of this page</label>
-                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
-                <label for="restrictEditRadio">Restrict editing of this page</label>
-            </div>
-        </div>
-        <div id="page-permissions-input" class="page-permissions-label-rows">
-            <div class="page-permissions-label">To:</div>
-            <div id="page-permissions-chooser-box">
-                                <span id="page-permissions-choose-user" class="ajs-button">
-                    
-
-
-
-    
-
-
-
-<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
-<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
-
-
-                </span>
-                <span id="page-permissions-choose-group" class="ajs-button">
-                    
-
-
-
-    
-
- 
-
-<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
-<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
-
-
-                </span>
-            </div>
-            <div id="page-permissions-input-box">
-                                <span>
-                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
-                </span>
-                <input
-    type="hidden"
-                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1911/69/_/images/border/spacer.gif"/>
-                <input type="button" id="add-typed-names" value="Restrict">
-            </div>
-        </div>
-    </div>
-    <div id="page-permissions-tables">
-        <div id="page-permissions-table-div">
-                        <table id="page-permissions-table" class="page-permissions-table">
-                <tr id="page-permissions-no-views" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
-                </tr>
-                <tr id="page-permissions-no-edits" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
-                </tr>
-            </table>
-        </div>
-        <div id="page-inherited-permissions-table-div" class="hidden">
-            <span id="page-inherited-permissions-table-desc">
-                <a class="icon twisty-closed">Show/Hide</a>
-                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
-            </span>
-            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
-        </div>
-    </div>
-</div>
-</script>
-
-<script type="text/x-template" title="permissions-row-template">
-    <tr class="permission-row">
-                                
-                <td class="page-permissions-marker-cell" width="20%">
-            <span>Viewing restricted to:</span>
-        </td>
-                <td class="permission-entity" nowrap="true" width="40%">
-            <span class="entity-container">
-                <img class="permission-entity-picture"/>
-                <span class="permission-entity-display-name"></span>
-                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
-            </span>
-        </td>
-        <td class="permission-detail-column">
-            <div class="permission-remove-div">
-                <a href="#" class="remove-permission-link">Remove restriction</a>
-            </div>
-        </td>
-    </tr>
-</script>
-<script type="text/x-template" title="permissions-username-no-suggestion-template">
-    <ol>
-        <li><a href="#" class="message"><span>No matches</span></a></li>
-    </ol>
-</script>
-<script type="text/x-template" title="page-inherited-permissions-table-div-template">
-        <div class="page-inherited-permissions-owner-div">
-        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
-        <table class="page-permissions-table"></table>
-    </div>
-</script>
-<script type="text/x-template" title="page-restrictions-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Page+Restrictions" target="_blank">Help</a>
-    </div>
-</script>
-<!-- End restrictions section -->
-
-        
-    
-    
-        <fieldset class="hidden parameters">
-            <input type="hidden" title="parentPageId" value="33587481">
-        </fieldset>
-
-        
-                            
-    
-
-                    
-
-        
-        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
-<div id="page-metadata-start" class="assistive"></div>
-
-    <div class="page-metadata">
-        <ul>
-                            <li class="page-metadata-item noprint">
-    
-            
-    
-    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Page restrictions apply</span></a>        </li>
-                            <li class="page-metadata-item noprint">
-    
-        
-    
-    <a  id="content-metadata-attachments" href="/pages/viewpageattachments.action?pageId=33947702&metadataLink=true"  class="page-metadata-icon action-view-attachments"  accessKey="a"  title="Attachments: 2">
-                   <span><span class="page-metadata-attachments-text">Attachments:</span><span class="page-metadata-attachments-count">2</span></span></a>        </li>
-                        <li class="page-metadata-modification-info">
-                                    Added by <a href="/display/~splittingred"
-                          class="url fn"
-                   >Shaun McCormick</a>, last edited by <a href="/display/~hansek"
-                          class="url fn"
-                   >Jan Tezner</a> on Mar 08, 2013
-                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=33947702&originalId=44990469">view change</a>)</span>
-                                                </li>
-                            <li class="show-hide-comment-link">
-                    <a id="show-version-comment" class="inline-control-link" href="#">show comment</a>
-                    <a id="hide-version-comment" class="inline-control-link" style="display:none;" href="#">hide comment</a>
-                </li>
-                    </ul>
-          <div id="version-comment" class="noteMacro" style="display: none;">
-      <strong>Comment:</strong>
-      Proper script termination without "Catchable fatal error: Argument 1 passed to xPDOObject::load() must be an instance of xPDO, instance of modX given ..."<br />
-  </div>
-    </div>
-
-
-<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
-<div id="page-metadata-end" class="assistive"></div>
-        
-        <fieldset class="hidden parameters">
-                        <input type="hidden" title="browsePageTreeMode" value="view">
-        </fieldset>
-
-        <div class="wiki-content">
-           <!-- wiki content -->
-            <div class="panel" style="border-width: 1px;"><div class="panelContent">
-<p>This tutorial is part of a Series:</p>
 <ul>
-	<li><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution" title="Developing an Extra in MODX Revolution">Part I: Getting Started and Creating the Doodles Snippet</a></li>
-	<li><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+II" title="Developing an Extra in MODX Revolution, Part II">Part II: Creating our Custom Manager Page</a></li>
-	<li>Part III: Packaging Our Extra</li>
+<li>
+<a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution" title="Developing an Extra in MODX Revolution">Part I: Getting Started and Creating the Doodles Snippet</a>
+</li>
+
+<li>
+<a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+II" title="Developing an Extra in MODX Revolution, Part II">Part II: Creating our Custom Manager Page</a>
+</li>
+
+<li>Part III: Packaging Our Extra
+</li>
 </ul>
-</div></div>
+</div>
+</div>
+
 <div>
 <ul>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-Overview'>Overview</a></li>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-SettingUpOurBuildDirectory'>Setting Up Our Build Directory</a></li>
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-Overview'>Overview</a>
+</li>
+
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-SettingUpOurBuildDirectory'>Setting Up Our Build Directory</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-TheBuildScript'>The Build Script</a></li>
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-TheBuildScript'>The Build Script</a>
+</li>
 </ul>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingintheData'>Adding in the Data</a></li>
+</li>
+
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingintheData'>Adding in the Data</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheSnippet'>Adding the Snippet</a></li>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddinginSnippetProperties'>Adding in Snippet Properties</a></li>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheFileResolvers'>Adding the File Resolvers</a></li>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheMenuandAction'>Adding the Menu and Action</a></li>
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheSnippet'>Adding the Snippet</a>
+</li>
+
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddinginSnippetProperties'>Adding in Snippet Properties</a>
+</li>
+
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheFileResolvers'>Adding the File Resolvers</a>
+</li>
+
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheMenuandAction'>Adding the Menu and Action</a>
+</li>
 </ul>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingaResolver'>Adding a Resolver</a></li>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheChangelog%2CReadme%2CLicenseandSetupOptions'>Adding the Changelog, Readme, License and Setup Options</a></li>
-    <li><a href='#DevelopinganExtrainMODXRevolution%2CPartIII-Summary'>Summary</a></li>
-</ul></div>
+</li>
 
-<h2><a name="DevelopinganExtrainMODXRevolution%2CPartIII-Overview"></a>Overview</h2>
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingaResolver'>Adding a Resolver</a>
+</li>
 
-<p>In this tutorial, we're going to be packaging up our Extra that we made in the <a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution" title="Developing an Extra in MODX Revolution">past</a> <a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+II" title="Developing an Extra in MODX Revolution, Part II">two</a> tutorials into a <a href="/display/revolution20/Transport+Packages" title="Transport Packages">Transport Package</a> (TP) so that we can install it on any MODX installation, and even submit it to the Extras section on modx.com.</p>
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheChangelog%2CReadme%2CLicenseandSetupOptions'>Adding the Changelog, Readme, License and Setup Options</a>
+</li>
 
-<p>First off, if you're not sure what a Transport Package is, or what Package Management is, I suggest you read up on <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a> and <a href="/display/revolution20/Transport+Packages" title="Transport Packages">Transport Packages</a> first before proceeding.</p>
+<li>
+<a href='#DevelopinganExtrainMODXRevolution%2CPartIII-Summary'>Summary</a>
+</li>
+</ul>
+</div>
 
-<p>Our main goals for this part of the tutorial will be getting the Extra in a package: specifically our Snippet; the files in core/components and assets/components; the Action, Menu and Namespace for our CMP; making our Snippet's default properties i18n supported; and finally, adding a Resolver that creates our custom DB table in the installing user's database.</p>
+<h2>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-Overview"></a>Overview
+</h2>
 
-<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>For simple Extras that don't have a CMP, we could just use <a href="/display/ADDON/PackMan" title="PackMan">PackMan</a> to package up our Extra. However, we have a CMP, and we want to learn how to do the script. So, here we are.</td></tr></table></div>
+<p>
+In this tutorial, we're going to be packaging up our Extra that we made in the <a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution" title="Developing an Extra in MODX Revolution">past</a> <a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+II" title="Developing an Extra in MODX Revolution, Part II">two</a> tutorials into a <a href="/display/revolution20/Transport+Packages" title="Transport Packages">Transport Package</a> (TP) so that we can install it on any MODX installation, and even submit it to the Extras section on modx.com.
+</p>
 
-<h2><a name="DevelopinganExtrainMODXRevolution%2CPartIII-SettingUpOurBuildDirectory"></a>Setting Up Our Build Directory</h2>
+<p>
+First off, if you're not sure what a Transport Package is, or what Package Management is, I suggest you read up on <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a> and <a href="/display/revolution20/Transport+Packages" title="Transport Packages">Transport Packages</a> first before proceeding.
+</p>
 
-<p>This is what our &#95;build directory will look like when we're through. We're already familiar with the build.config.php and build.schema.php files from Part I. For now, let's just explain a few things about it:</p>
+<p>
+Our main goals for this part of the tutorial will be getting the Extra in a package: specifically our Snippet; the files in core/components and assets/components; the Action, Menu and Namespace for our CMP; making our Snippet's default properties i18n supported; and finally, adding a Resolver that creates our custom DB table in the installing user's database.
+</p>
 
-<p><span class="image-wrap" style=""><img src="/download/attachments/33947702/doodles-build-dir1.png?version=1&amp;modificationDate=1295964982000" style="border: 0px solid black" /></span></p>
+<div class='panelMacro'>
+<table class='noteMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
+
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+For simple Extras that don't have a CMP, we could just use <a href="/display/ADDON/PackMan" title="PackMan">PackMan</a> to package up our Extra. However, we have a CMP, and we want to learn how to do the script. So, here we are.
+</td>
+</tr>
+</table>
+</div>
+
+<h2>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-SettingUpOurBuildDirectory"></a>Setting Up Our Build Directory
+</h2>
+
+<p>
+This is what our _build directory will look like when we're through. We're already familiar with the build.config.php and build.schema.php files from Part I. For now, let's just explain a few things about it:
+</p>
+
+<p>
+<span class="image-wrap" style=""><img src="/download/attachments/33947702/doodles-build-dir1.png?version=1&amp;modificationDate=1295964982000" style="border: 0px solid black" /></span>
+</p>
 
 <ul>
-	<li><b>data</b> &#45; This is where we're going to put all of our data-packaging scripts. We'll get into that shortly.</li>
-	<li><b>resolvers</b> &#45; A directory containing our <a href="http://rtfm.modx.com/display/revolution20/Transport+Packages#TransportPackages-AResolver" class="external-link" rel="nofollow">resolvers</a> for our Transport Package.</li>
-	<li><b>build.transport.php</b> &#45; This is our main build script. Running it will create the Transport Package. We'll be heavily looking at this file.</li>
-	<li><b>setup.options.php</b> &#45; While we won't use this extensively for our TP, we'll look at it briefly to show what's possible with it.</li>
+<li>
+<b>data</b> - This is where we're going to put all of our data-packaging scripts. We'll get into that shortly.
+</li>
+
+<li>
+<b>resolvers</b> - A directory containing our <a href="http://rtfm.modx.com/display/revolution20/Transport+Packages#TransportPackages-AResolver" class="external-link" rel="nofollow">resolvers</a> for our Transport Package.
+</li>
+
+<li>
+<b>build.transport.php</b> - This is our main build script. Running it will create the Transport Package. We'll be heavily looking at this file.
+</li>
+
+<li>
+<b>setup.options.php</b> - While we won't use this extensively for our TP, we'll look at it briefly to show what's possible with it.
+</li>
 </ul>
 
+<h3>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-TheBuildScript"></a>The Build Script
+</h3>
 
-<h3><a name="DevelopinganExtrainMODXRevolution%2CPartIII-TheBuildScript"></a>The Build Script</h3>
+<p>
+Let's go ahead and create a file at /www/doodles/_build/build.transport.php, and fill it with this:
+</p>
 
-<p>Let's go ahead and create a file at /www/doodles/_build/build.transport.php, and fill it with this:</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">&lt;?php
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?php
 $tstart = explode(' ', microtime());
 $tstart = $tstart[1] + $tstart[0];
 set_time_limit(0);
@@ -890,13 +203,19 @@ $modx-&gt;log(modX::LOG_LEVEL_INFO,<span class="code-quote">"\n&lt;br /&gt;Packa
 
 
 session_write_close();
-exit ();</pre>
-</div></div>
+exit ();
+</pre>
+</div>
+</div>
 
-<p>There's a lot in there. It's helpful to note that all this is doing so far is packaging in our Namespace, and creating a "doodles-1.0-beta4.zip" transport file. Let's go deeper to understand a bit more of it.</p>
+<p>
+There's a lot in there. It's helpful to note that all this is doing so far is packaging in our Namespace, and creating a "doodles-1.0-beta4.zip" transport file. Let's go deeper to understand a bit more of it.
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$tstart = explode(' ', microtime());
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$tstart = explode(' ', microtime());
 $tstart = $tstart[1] + $tstart[0];
 set_time_limit(0);
 
@@ -904,14 +223,23 @@ set_time_limit(0);
 define('PKG_NAME','Doodles');
 define('PKG_NAME_LOWER','doodles');
 define('PKG_VERSION','1.0');
-define('PKG_RELEASE','beta4');</pre>
-</div></div>
-<p>First off, we're going to get the time started for this build script so we can output at the end how long it took to build it. It's definitely not necessary code to build the TP, but it's useful information anyway.</p>
+define('PKG_RELEASE','beta4');
+</pre>
+</div>
+</div>
 
-<p>Then we'll set up some defines we'll use later to determine our package's name, version and release. Next:</p>
+<p>
+First off, we're going to get the time started for this build script so we can output at the end how long it took to build it. It's definitely not necessary code to build the TP, but it's useful information anyway.
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">/* define build paths */
+<p>
+Then we'll set up some defines we'll use later to determine our package's name, version and release. Next:
+</p>
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+/* define build paths */
 $root = dirname(dirname(__FILE__)).'/';
 $sources = array(
     'root' =&gt; $root,
@@ -929,17 +257,41 @@ unset($root);
 
 /* override with your own defines here (see build.config.sample.php) */
 require_once $sources['build'] . 'build.config.php';
-require_once MODX_CORE_PATH . 'model/modx/modx.class.php';</pre>
-</div></div>
+require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
+</pre>
+</div>
+</div>
 
-<p>Okay, here we're defining a whole bunch of paths on where to find stuff in our directory structure. This will be useful later on in our build script, so we can easily reference locations of files.</p>
+<p>
+Okay, here we're defining a whole bunch of paths on where to find stuff in our directory structure. This will be useful later on in our build script, so we can easily reference locations of files.
+</p>
 
-<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>Note the source_core and source_assets keys - it's very important to note that they <b>do not</b> have a trailing slash. When we package them in later, this is important.</td></tr></table></div>
+<div class='panelMacro'>
+<table class='noteMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<p>Finally, we'll include our build.config.php file and our modx class. Now it's time to load up the modX object:</p>
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+Note the source_core and source_assets keys - it's very important to note that they <b>do not</b> have a trailing slash. When we package them in later, this is important.
+</td>
+</tr>
+</table>
+</div>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$modx= <span class="code-keyword">new</span> modX();
+<p>
+Finally, we'll include our build.config.php file and our modx class. Now it's time to load up the modX object:
+</p>
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$modx= <span class="code-keyword">new</span> modX();
 $modx-&gt;initialize('mgr');
 echo '&lt;pre&gt;'; /* used <span class="code-keyword">for</span> nice formatting of log messages */
 $modx-&gt;setLogLevel(modX::LOG_LEVEL_INFO);
@@ -950,28 +302,53 @@ $builder = <span class="code-keyword">new</span> modPackageBuilder($modx);
 $builder-&gt;createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
 $builder-&gt;registerNamespace(PKG_NAME_LOWER,<span class="code-keyword">false</span>,<span class="code-keyword">true</span>,'{core_path}components/'.PKG_NAME_LOWER.'/');
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>Okay, a bit in here. First off, we'll instantiate the modX object, and initialize our 'mgr' Context. This sets up all the modX environment stuff we'll need. Next, we'll tell MODX to be a little more verbose in it's error reporting during this build script with the $modx-&gt;setLogLevel method - and we'll tell it to output to the screen as well with the setLogTarget message.</p>
+<p>
+Okay, a bit in here. First off, we'll instantiate the modX object, and initialize our 'mgr' Context. This sets up all the modX environment stuff we'll need. Next, we'll tell MODX to be a little more verbose in it's error reporting during this build script with the $modx-&gt;setLogLevel method - and we'll tell it to output to the screen as well with the setLogTarget message.
+</p>
 
-<p>Then we'll load the 'modPackageBuilder' class from the transport/ directory in core/model/modx/ (which is the default since we passed '' into the 3rd parameter of loadClass), which is an assistance class that we'll use to package up our Extra.</p>
+<p>
+Then we'll load the 'modPackageBuilder' class from the transport/ directory in core/model/modx/ (which is the default since we passed '' into the 3rd parameter of loadClass), which is an assistance class that we'll use to package up our Extra.
+</p>
 
-<p>Then we get into 2 interesting methods: createPackage and registerNamespace.</p>
+<p>
+Then we get into 2 interesting methods: createPackage and registerNamespace.
+</p>
 
-<blockquote><p>$modx-&gt;createPackage(key,version,release)</p></blockquote>
+<blockquote>
+<p>
+$modx-&gt;createPackage(key,version,release)
+</p>
+</blockquote>
 
-<p>Here's where the name for our TP gets created. We'll want to pass the name of our Extra (in lower case with no dots or hyphens&#33;) in the first parameter. Then we'll want to pass a version and a release number. We chose '1.0' and 'beta4' back when we did our defines (remember that?). Now, modTransportPackage has an assistance method to automatically package in our Namespace for us:</p>
+<p>
+Here's where the name for our TP gets created. We'll want to pass the name of our Extra (in lower case with no dots or hyphens!) in the first parameter. Then we'll want to pass a version and a release number. We chose '1.0' and 'beta4' back when we did our defines (remember that?). Now, modTransportPackage has an assistance method to automatically package in our Namespace for us:
+</p>
 
-<blockquote><p>$builder-&gt;registerNamespace(namespace_name,autoincludes,packageNamespace,namespacePath)</p></blockquote>
+<blockquote>
+<p>
+$builder-&gt;registerNamespace(namespace_name,autoincludes,packageNamespace,namespacePath)
+</p>
+</blockquote>
 
-<p>The first parameter is the name of our Namespace ('doodles' for us). The 2nd parameter auto-packages in an array of classes associated with our Namespace (we don't want this, so we set it to false). The third parameter asks if we want to add the Namespace to the TP (we do, so we set it to true). And finally, the last parameter asks what the path of our Namespace should eventually be.</p>
+<p>
+The first parameter is the name of our Namespace ('doodles' for us). The 2nd parameter auto-packages in an array of classes associated with our Namespace (we don't want this, so we set it to false). The third parameter asks if we want to add the Namespace to the TP (we do, so we set it to true). And finally, the last parameter asks what the path of our Namespace should eventually be.
+</p>
 
-<p>That last parameter is key - note how we make it resolve to: '{core_path}components/doodles/'? The {core_path} part is a placeholder that will get replaced by MODX when the Namespace is accessed in their installation. This makes our Package nice and flexible on its paths - we don't have to explicitly set them, and it becomes more easy to 'transport', so to speak.</p>
+<p>
+That last parameter is key - note how we make it resolve to: '{core_path}components/doodles/'? The {core_path} part is a placeholder that will get replaced by MODX when the Namespace is accessed in their installation. This makes our Package nice and flexible on its paths - we don't have to explicitly set them, and it becomes more easy to 'transport', so to speak.
+</p>
 
-<p>And now finally, the last few lines in our script:</p>
+<p>
+And now finally, the last few lines in our script:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">/* zip up <span class="code-keyword">package</span> */
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+/* zip up <span class="code-keyword">package</span> */
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Packing up transport <span class="code-keyword">package</span> zip...');
 $builder-&gt;pack();
 
@@ -979,21 +356,35 @@ $tend= explode(<span class="code-quote">" "</span>, microtime());
 $tend= $tend[1] + $tend[0];
 $totalTime= sprintf(<span class="code-quote">"%2.4f s"</span>,($tend - $tstart));
 $modx-&gt;log(modX::LOG_LEVEL_INFO,<span class="code-quote">"\n&lt;br /&gt;Package Built.&lt;br /&gt;\nExecution time: {$totalTime}\n"</span>);
-exit ();</pre>
-</div></div>
+exit ();
+</pre>
+</div>
+</div>
 
-<p>The pack() method tells MODX to go ahead and make the Transport Package zip with our built package so far. The rest of the lines after that just display how long it took to do the build. That's it&#33; If you run this via the browser (on mine, <a href="http://localhost/doodles/_build/build.transport.php" class="external-link" rel="nofollow">http://localhost/doodles/_build/build.transport.php</a>) you'll get some debugging info displayed, and then in your MODX's core/packages/ directory, you'll find this:</p>
+<p>
+The pack() method tells MODX to go ahead and make the Transport Package zip with our built package so far. The rest of the lines after that just display how long it took to do the build. That's it! If you run this via the browser (on mine, <a href="http://localhost/doodles/_build/build.transport.php" class="external-link" rel="nofollow">http://localhost/doodles/_build/build.transport.php</a>) you'll get some debugging info displayed, and then in your MODX's core/packages/ directory, you'll find this:
+</p>
 
-<p><span class="image-wrap" style=""><img src="/download/attachments/33947702/doodles-zip1.png?version=1&amp;modificationDate=1295966567000" style="border: 0px solid black" /></span></p>
+<p>
+<span class="image-wrap" style=""><img src="/download/attachments/33947702/doodles-zip1.png?version=1&amp;modificationDate=1295966567000" style="border: 0px solid black" /></span>
+</p>
 
-<p>Our Transport Package&#33; Nice and done. However, installing it wont actually do anything. Let's try and solve that.</p>
+<p>
+Our Transport Package! Nice and done. However, installing it wont actually do anything. Let's try and solve that.
+</p>
 
-<h2><a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingintheData"></a>Adding in the Data</h2>
+<h2>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingintheData"></a>Adding in the Data
+</h2>
 
-<p>We're going to want to package in our Snippet in its own 'Doodles' category, to get it to be nice and separated out from other Snippets the user might be using. In our build.transport.php file, add this below our registerNamespace call at line 42:</p>
+<p>
+We're going to want to package in our Snippet in its own 'Doodles' category, to get it to be nice and separated out from other Snippets the user might be using. In our build.transport.php file, add this below our registerNamespace call at line 42:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$category= $modx-&gt;newObject('modCategory');
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$category= $modx-&gt;newObject('modCategory');
 $category-&gt;set('id',1);
 $category-&gt;set('category',PKG_NAME);
 
@@ -1018,63 +409,94 @@ $attr = array(
     ),
 );
 $vehicle = $builder-&gt;createVehicle($category,$attr);
-$builder-&gt;putVehicle($vehicle);</pre>
-</div></div>
+$builder-&gt;putVehicle($vehicle);
+</pre>
+</div>
+</div>
 
-<p>Quite a bit of this is detailed <a href="/display/revolution20/Creating+a+3rd+Party+Component+Build+Script" title="Creating a 3rd Party Component Build Script">in this tutorial here</a>, but we'll go over it again here. First off, we create a modCategory object that has the name (category) of 'Doodles'. Great. Note how we don't &#45;&gt;save() on it - we just want the object. Next we have some code to package in the Snippet, but we've commented it out for now. Go ahead and ignore it - we'll come back to it.</p>
+<p>
+Quite a bit of this is detailed <a href="/display/revolution20/Creating+a+3rd+Party+Component+Build+Script" title="Creating a 3rd Party Component Build Script">in this tutorial here</a>, but we'll go over it again here. First off, we create a modCategory object that has the name (category) of 'Doodles'. Great. Note how we don't -&gt;save() on it - we just want the object. Next we have some code to package in the Snippet, but we've commented it out for now. Go ahead and ignore it - we'll come back to it.
+</p>
 
-<p>Next, we create this really big array of attributes, it seems. A bit more on these - they are attributes for the Vehicle for the Category. What's a Vehicle? Well, a Vehicle "carries" an Object in the Transport Package. Each object (say, a Snippet, Menu, Category, etc) needs a Vehicle to be carried in the Transport Package. So we'll create one, but first we want to assign some attributes to it to tell MODX just how this Vehicle should behave when the user installs it.</p>
-
-<ul>
-	<li><b>xPDOTransport::UNIQUE_KEY =&gt; 'category'</b> &#45; Here, we're telling MODX that the unique key for this Category is the field 'category'. Since we are installing this on another machine, the ID of the Category there will most likely be different than our ID on our machine. So MODX needs some way of identifying our 'Doodles' category if the User were to decide and uninstall our Doodles Extra. MODX uses this UNIQUE_KEY property to look for a modCategory object with 'category' =&gt; "Doodles", and then removes it there.</li>
-</ul>
-
-
-<ul>
-	<li><b>xPDOTransport::PRESERVE_KEYS =&gt; false</b> &#45; Sometimes, however, we want the primary key of our object to be 'preserved' - or rather, used when the User installs our package. This is useful for non-auto-incrementing primary keys (PKs), such as Menu items, which we'll get to later. Our Category doesn't need its ID preserved, so we'll set that to false here.</li>
-</ul>
-
+<p>
+Next, we create this really big array of attributes, it seems. A bit more on these - they are attributes for the Vehicle for the Category. What's a Vehicle? Well, a Vehicle "carries" an Object in the Transport Package. Each object (say, a Snippet, Menu, Category, etc) needs a Vehicle to be carried in the Transport Package. So we'll create one, but first we want to assign some attributes to it to tell MODX just how this Vehicle should behave when the user installs it.
+</p>
 
 <ul>
-	<li><b>xPDOTransport::UPDATE_OBJECT =&gt; true</b> &#45; A crucial one. This tells MODX that if the Category already exists, update it with our version. If we had set this to false, MODX would just skip this Category if it found it. We don't want that - say we want to release an update for our Doodles Extra later; we'd want the Category to update.</li>
+<li>
+<b>xPDOTransport::UNIQUE_KEY =&gt; 'category'</b> - Here, we're telling MODX that the unique key for this Category is the field 'category'. Since we are installing this on another machine, the ID of the Category there will most likely be different than our ID on our machine. So MODX needs some way of identifying our 'Doodles' category if the User were to decide and uninstall our Doodles Extra. MODX uses this UNIQUE_KEY property to look for a modCategory object with 'category' =&gt; "Doodles", and then removes it there.
+</li>
 </ul>
-
 
 <ul>
-	<li><b>xPDOTransport::RELATED_OBJECTS =&gt; true</b> &#45; This tells MODX that we have some related objects to our Category we want to package in. (We do. We have a Snippet.) Related objects are important, as this means that they will be "related" to one another on install. Our example is a good one - any Snippets we install, we want to assign to the Category we're installing.</li>
+<li>
+<b>xPDOTransport::PRESERVE_KEYS =&gt; false</b> - Sometimes, however, we want the primary key of our object to be 'preserved' - or rather, used when the User installs our package. This is useful for non-auto-incrementing primary keys (PKs), such as Menu items, which we'll get to later. Our Category doesn't need its ID preserved, so we'll set that to false here.
+</li>
 </ul>
-
 
 <ul>
-	<li><b>xPDOTransport::RELATED_OBJECT_ATTRIBUTES</b> &#45; This takes in an associative array. Each index in the first depth of it tells MODX what the alias of it is - note we only have one, "Snippets". That tells MODX to look for any Related Objects in this Category that are Snippets, and then below that defines properties for those Snippets:</li>
+<li>
+<b>xPDOTransport::UPDATE_OBJECT =&gt; true</b> - A crucial one. This tells MODX that if the Category already exists, update it with our version. If we had set this to false, MODX would just skip this Category if it found it. We don't want that - say we want to release an update for our Doodles Extra later; we'd want the Category to update.
+</li>
 </ul>
 
+<ul>
+<li>
+<b>xPDOTransport::RELATED_OBJECTS =&gt; true</b> - This tells MODX that we have some related objects to our Category we want to package in. (We do. We have a Snippet.) Related objects are important, as this means that they will be "related" to one another on install. Our example is a good one - any Snippets we install, we want to assign to the Category we're installing.
+</li>
+</ul>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">'Snippets' =&gt; array(
+<ul>
+<li>
+<b>xPDOTransport::RELATED_OBJECT_ATTRIBUTES</b> - This takes in an associative array. Each index in the first depth of it tells MODX what the alias of it is - note we only have one, "Snippets". That tells MODX to look for any Related Objects in this Category that are Snippets, and then below that defines properties for those Snippets:
+</li>
+</ul>
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+'Snippets' =&gt; array(
    xPDOTransport::PRESERVE_KEYS =&gt; <span class="code-keyword">false</span>,
    xPDOTransport::UPDATE_OBJECT =&gt; <span class="code-keyword">true</span>,
    xPDOTransport::UNIQUE_KEY =&gt; 'name',
-),</pre>
-</div></div>
+),
+</pre>
+</div>
+</div>
 
-<p>We're going to tell the package to not preserve the Snippet's keys (similarly to the Category). Then we want to update it should MODX find it already during installs or upgrades. Finally, we tell MODX that its unique key is 'name' - MODX will look for a Snippet with the name of 'Doodles' (we'll get to where that's defined here in a bit) during install, and if it finds it, upgrade it (or remove it during uninstall).</p>
+<p>
+We're going to tell the package to not preserve the Snippet's keys (similarly to the Category). Then we want to update it should MODX find it already during installs or upgrades. Finally, we tell MODX that its unique key is 'name' - MODX will look for a Snippet with the name of 'Doodles' (we'll get to where that's defined here in a bit) during install, and if it finds it, upgrade it (or remove it during uninstall).
+</p>
 
-<p>Then we hit this:</p>
+<p>
+Then we hit this:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$vehicle = $builder-&gt;createVehicle($category,$attr);
-$builder-&gt;putVehicle($vehicle);</pre>
-</div></div>
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$vehicle = $builder-&gt;createVehicle($category,$attr);
+$builder-&gt;putVehicle($vehicle);
+</pre>
+</div>
+</div>
 
-<p>This packages our Category object into a nice little vehicle for us, with the attributes we just defined. And then it adds it to the Transport Package. Done&#33; Our Category is now in the TP. But we need to add the Snippets to it&#33;</p>
+<p>
+This packages our Category object into a nice little vehicle for us, with the attributes we just defined. And then it adds it to the Transport Package. Done! Our Category is now in the TP. But we need to add the Snippets to it!
+</p>
 
-<h3><a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheSnippet"></a>Adding the Snippet</h3>
+<h3>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheSnippet"></a>Adding the Snippet
+</h3>
 
-<p>Go ahead and create a directory at /www/doodles/_build/data/. Now let's add a file at /www/doodles/_build/data/transport.snippets.php. Place this in there:</p>
+<p>
+Go ahead and create a directory at /www/doodles/_build/data/. Now let's add a file at /www/doodles/_build/data/transport.snippets.php. Place this in there:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">&lt;?php
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?php
 function getSnippetContent($filename) {
     $o = file_get_contents($filename);
     $o = trim(str_replace(array('&lt;?php','?&gt;'),'',$o));
@@ -1093,29 +515,47 @@ $properties = include $sources['data'].'properties/properties.doodles.php';
 $snippets[1]-&gt;setProperties($properties);
 unset($properties);
 
-<span class="code-keyword">return</span> $snippets;</pre>
-</div></div>
+<span class="code-keyword">return</span> $snippets;
+</pre>
+</div>
+</div>
 
-<p>First off, we're going to make a little helper method that grabs our snippet we worked on earlier and strips the &lt;?php tags from it. Then, we'll make a $snippets array - basically an array of all the Snippets we want to package up.</p>
+<p>
+First off, we're going to make a little helper method that grabs our snippet we worked on earlier and strips the &lt;?php tags from it. Then, we'll make a $snippets array - basically an array of all the Snippets we want to package up.
+</p>
 
-<p>Next, we'll actually make a new Snippet object. Note, however, we're <b>not</b> saving it - just creating it. Also, we're going to include some properties on them (more on that in a second). Finally, we return the $snippets array. Remember that part we commented out in our build.transport.php file? This part:</p>
+<p>
+Next, we'll actually make a new Snippet object. Note, however, we're <b>not</b> saving it - just creating it. Also, we're going to include some properties on them (more on that in a second). Finally, we return the $snippets array. Remember that part we commented out in our build.transport.php file? This part:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">/* add snippets */
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+/* add snippets */
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Packaging in snippets...');
 $snippets = include $sources['data'].'transport.snippets.php';
 <span class="code-keyword">if</span> (empty($snippets)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not <span class="code-keyword">package</span> in snippets.');
-$category-&gt;addMany($snippets);</pre>
-</div></div>
+$category-&gt;addMany($snippets);
+</pre>
+</div>
+</div>
 
-<p>Go ahead and uncomment it. Now our Snippets are loaded into the Category Vehicle. We're done there. Let's add those properties that we mentioned earlier.</p>
+<p>
+Go ahead and uncomment it. Now our Snippets are loaded into the Category Vehicle. We're done there. Let's add those properties that we mentioned earlier.
+</p>
 
-<h3><a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddinginSnippetProperties"></a>Adding in Snippet Properties</h3>
+<h3>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddinginSnippetProperties"></a>Adding in Snippet Properties
+</h3>
 
-<p>Create a file at /www/doodles/_build/data/properties/properties.doodles.php. Put this in it:</p>
+<p>
+Create a file at /www/doodles/_build/data/properties/properties.doodles.php. Put this in it:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">&lt;?php
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?php
 $properties = array(
     array(
         'name' =&gt; 'tpl',
@@ -1145,56 +585,102 @@ $properties = array(
         'lexicon' =&gt; 'doodles:properties',
     ),
 );
-<span class="code-keyword">return</span> $properties;</pre>
-</div></div>
+<span class="code-keyword">return</span> $properties;
+</pre>
+</div>
+</div>
 
-<p>These are PHP representations of the default Properties for our Snippet. Let's look at the keys they have:</p>
-
-<ul>
-	<li><b>name</b> &#45; This is the name, or key, of the property. We've got tpl, sort, and dir. For example, in our tpl property, we're telling it to default to 'rowTpl'. When someone wants to use the property, it would look like this in their snippet call:</li>
-</ul>
-
-
-<blockquote><p>[[Doodles? &amp;tpl=`rowTpl`]]</p></blockquote>
+<p>
+These are PHP representations of the default Properties for our Snippet. Let's look at the keys they have:
+</p>
 
 <ul>
-	<li><b>desc</b> &#45; The description of our property. This can either be the actual description, or, if the 'lexicon' attribute on this property is set, a Lexicon key. We've got it as a Lexicon key, because we're going to i18n our properties.</li>
-	<li><b>type</b> &#45; This is the 'xtype' of the property. Currently, the 4 available values are "textfield", "textarea", "combo-boolean" (Yes/No) and "list". We've got two textfields here, and a list type.</li>
-	<li><b>options</b> &#45; Only used by the 'list' type, this is an array of arrays, which each contain an option in the list. Each option has two values - 'text' and 'value', where value is the actual value stored when it's selected, and 'text' is the text displayed for the value. 'text' can be a Lexicon key, if wanted.</li>
-	<li><b>value</b> &#45; The default value of the property.</li>
-	<li><b>lexicon</b> &#45; If wanted, properties can be i18n-compatible. Just specify the Lexicon Topic here, and MODX will handle the rest.</li>
+<li>
+<b>name</b> - This is the name, or key, of the property. We've got tpl, sort, and dir. For example, in our tpl property, we're telling it to default to 'rowTpl'. When someone wants to use the property, it would look like this in their snippet call:
+</li>
 </ul>
 
+<blockquote>
+<p>
+[[Doodles? &amp;tpl=`rowTpl`]]
+</p>
+</blockquote>
 
-<p>Okay, so we've got our properties. But as you can see, we've referenced a 'doodles:properties' Lexicon Topic. Let's go ahead and create that, in the file /www/doodles/core/components/doodles/lexicon/en/properties.inc.php:</p>
+<ul>
+<li>
+<b>desc</b> - The description of our property. This can either be the actual description, or, if the 'lexicon' attribute on this property is set, a Lexicon key. We've got it as a Lexicon key, because we're going to i18n our properties.
+</li>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">&lt;?php
+<li>
+<b>type</b> - This is the 'xtype' of the property. Currently, the 4 available values are "textfield", "textarea", "combo-boolean" (Yes/No) and "list". We've got two textfields here, and a list type.
+</li>
+
+<li>
+<b>options</b> - Only used by the 'list' type, this is an array of arrays, which each contain an option in the list. Each option has two values - 'text' and 'value', where value is the actual value stored when it's selected, and 'text' is the text displayed for the value. 'text' can be a Lexicon key, if wanted.
+</li>
+
+<li>
+<b>value</b> - The default value of the property.
+</li>
+
+<li>
+<b>lexicon</b> - If wanted, properties can be i18n-compatible. Just specify the Lexicon Topic here, and MODX will handle the rest.
+</li>
+</ul>
+
+<p>
+Okay, so we've got our properties. But as you can see, we've referenced a 'doodles:properties' Lexicon Topic. Let's go ahead and create that, in the file /www/doodles/core/components/doodles/lexicon/en/properties.inc.php:
+</p>
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?php
 $_lang['prop_doodles.ascending'] = 'Ascending';
 $_lang['prop_doodles.descending'] = 'Descending';
 $_lang['prop_doodles.dir_desc'] = 'The direction to sort by.';
 $_lang['prop_doodles.sort_desc'] = 'The field to sort by.';
-$_lang['prop_doodles.tpl_desc'] = 'The chunk <span class="code-keyword">for</span> displaying each row.';</pre>
-</div></div>
+$_lang['prop_doodles.tpl_desc'] = 'The chunk <span class="code-keyword">for</span> displaying each row.';
+</pre>
+</div>
+</div>
 
-<p>As you can see here, it's a similar format to our default topic. Also, the keys in each string here match with the 'desc' attribute in each of our properties. This means that our Snippet's properties will be translated when they are shown - useful for making Extras that are translatable&#33;</p>
+<p>
+As you can see here, it's a similar format to our default topic. Also, the keys in each string here match with the 'desc' attribute in each of our properties. This means that our Snippet's properties will be translated when they are shown - useful for making Extras that are translatable!
+</p>
 
-<p>If you run the build script now, your Category, Snippet and its Properties will be packaged in. Great&#33; But we've missed something - the actual files aren't getting copied. Let's remedy that.</p>
+<p>
+If you run the build script now, your Category, Snippet and its Properties will be packaged in. Great! But we've missed something - the actual files aren't getting copied. Let's remedy that.
+</p>
 
-<h3><a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheFileResolvers"></a>Adding the File Resolvers</h3>
+<h3>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheFileResolvers"></a>Adding the File Resolvers
+</h3>
 
-<p>So we want to add /www/doodles/core/components/doodles/ and /www/doodles/assets/components/doodles/ to our Transport Package. We're going to add those files to our Category Vehicle, via what are called File Resolvers. These scripts run after the package has been installed, and can be used to copy files into the User's MODX installation.</p>
+<p>
+So we want to add /www/doodles/core/components/doodles/ and /www/doodles/assets/components/doodles/ to our Transport Package. We're going to add those files to our Category Vehicle, via what are called File Resolvers. These scripts run after the package has been installed, and can be used to copy files into the User's MODX installation.
+</p>
 
-<p>So, in build.transport.php, right after this, where we add the Category Vehicle at line 67:</p>
+<p>
+So, in build.transport.php, right after this, where we add the Category Vehicle at line 67:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$vehicle = $builder-&gt;createVehicle($category,$attr);</pre>
-</div></div>
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$vehicle = $builder-&gt;createVehicle($category,$attr);
+</pre>
+</div>
+</div>
 
-<p>add this:</p>
+<p>
+add this:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding file resolvers to category...');
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding file resolvers to category...');
 $vehicle-&gt;resolve('file',array(
     'source' =&gt; $sources['source_assets'],
     'target' =&gt; <span class="code-quote">"<span class="code-keyword">return</span> MODX_ASSETS_PATH . 'components/';"</span>,
@@ -1202,31 +688,47 @@ $vehicle-&gt;resolve('file',array(
 $vehicle-&gt;resolve('file',array(
     'source' =&gt; $sources['source_core'],
     'target' =&gt; <span class="code-quote">"<span class="code-keyword">return</span> MODX_CORE_PATH . 'components/';"</span>,
-));</pre>
-</div></div>
+));
+</pre>
+</div>
+</div>
 
-<p>Let's explain. First off, there are two attributes here worth noting:</p>
+<p>
+Let's explain. First off, there are two attributes here worth noting:
+</p>
 
 <ul>
-	<li><b>source</b> &#45; This is the source of the files, or the path in which they can be found. This points to our source_assets and source_core paths, which were defined above. Note the lack of a trailing slash, as we mentioned earlier.</li>
+<li>
+<b>source</b> - This is the source of the files, or the path in which they can be found. This points to our source_assets and source_core paths, which were defined above. Note the lack of a trailing slash, as we mentioned earlier.
+</li>
 </ul>
-
 
 <ul>
-	<li><b>target</b> &#45; This an eval'ed statement that returns where the script will be installed. Here, we're telling it to install to the assets path and core path of the User's MODX install, respectively.</li>
+<li>
+<b>target</b> - This an eval'ed statement that returns where the script will be installed. Here, we're telling it to install to the assets path and core path of the User's MODX install, respectively.
+</li>
 </ul>
 
+<p>
+Also, the first parameter of the resolve() call tells MODX this is a 'file' resolver. We'll be looking into PHP resolvers later on in this tutorial.
+</p>
 
-<p>Also, the first parameter of the resolve() call tells MODX this is a 'file' resolver. We'll be looking into PHP resolvers later on in this tutorial.</p>
+<p>
+If you run the build script now, it will package in your doodles/core/ and doodles/assets/ directories, and install them into the User's proper directories. Great!
+</p>
 
-<p>If you run the build script now, it will package in your doodles/core/ and doodles/assets/ directories, and install them into the User's proper directories. Great&#33;</p>
+<h3>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheMenuandAction"></a>Adding the Menu and Action
+</h3>
 
-<h3><a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheMenuandAction"></a>Adding the Menu and Action</h3>
+<p>
+Now that we've got most of our Extra nice and packaged, let's add in the Menu and Action that make up our Custom Manager Page (CMP). Add this code below the putVehicle line at line 80 for our Category:
+</p>
 
-<p>Now that we've got most of our Extra nice and packaged, let's add in the Menu and Action that make up our Custom Manager Page (CMP). Add this code below the putVehicle line at line 80 for our Category:</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$modx-&gt;log(modX::LOG_LEVEL_INFO,'Packaging in menu...');
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$modx-&gt;log(modX::LOG_LEVEL_INFO,'Packaging in menu...');
 $menu = include $sources['data'].'transport.menu.php';
 <span class="code-keyword">if</span> (empty($menu)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not <span class="code-keyword">package</span> in menu.');
 $vehicle= $builder-&gt;createVehicle($menu,array (
@@ -1246,20 +748,29 @@ $modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding in PHP resolvers...');
 $builder-&gt;putVehicle($vehicle);
 unset($vehicle,$menu);
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>Very similar to our Category Vehicle creation code. We've also got a related object of our Action. There are a couple differences, however, worth noting:</p>
+<p>
+Very similar to our Category Vehicle creation code. We've also got a related object of our Action. There are a couple differences, however, worth noting:
+</p>
 
 <ul>
-	<li>PRESERVE_KEYS is set to 'true' on our menu. This is because menu keys are unique - and we want to preserve that for our installed menu.</li>
-	<li>UNIQUE_KEY of the related object Action is an array. This tells MODX to look for a modAction object that has both a 'namespace' =&gt; 'doodles' and a controller of 'controllers/index'. It's a bit more specific on the search.</li>
+<li>PRESERVE_KEYS is set to 'true' on our menu. This is because menu keys are unique - and we want to preserve that for our installed menu.
+</li>
+
+<li>UNIQUE_KEY of the related object Action is an array. This tells MODX to look for a modAction object that has both a 'namespace' =&gt; 'doodles' and a controller of 'controllers/index'. It's a bit more specific on the search.
+</li>
 </ul>
 
+<p>
+As you probably guessed, we need to add a transport.menu.php file. Add one at /www/doodles/_build/data/transport.menu.php:
+</p>
 
-<p>As you probably guessed, we need to add a transport.menu.php file. Add one at /www/doodles/_build/data/transport.menu.php:</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">&lt;?php
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?php
 $action= $modx-&gt;newObject('modAction');
 $action-&gt;fromArray(array(
     'id' =&gt; 1,
@@ -1286,28 +797,44 @@ unset($menus);
 
 <span class="code-keyword">return</span> $menu;
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>Looks very similar to our transport.snippets.php file, except we're just returning one menu, and we're calling addOne on the menu object to add the Action as a related object to the menu. Note that the fields in each of the fromArray calls are the fields in the DB table for the menu and action, by the way.</p>
+<p>
+Looks very similar to our transport.snippets.php file, except we're just returning one menu, and we're calling addOne on the menu object to add the Action as a related object to the menu. Note that the fields in each of the fromArray calls are the fields in the DB table for the menu and action, by the way.
+</p>
 
-<p>So now our Menu and Action are all nicely packaged in.</p>
+<p>
+So now our Menu and Action are all nicely packaged in.
+</p>
 
-<h2><a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingaResolver"></a>Adding a Resolver</h2>
+<h2>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingaResolver"></a>Adding a Resolver
+</h2>
 
-<p>When someone installs our system, however, they're going to have 1 big problem - the database table modx_doodles isn't going to exist&#33; Let's write a PHP resolver to create it on install. A PHP Resolver is a PHP script that runs after the Vehicle it's attached to has been installed. We'll attach this resolver to our Menu vehicle. Right below our $builder-&gt;createVehicle call for the Menu, and before you run putVehicle for that vehicle, add this:</p>
+<p>
+When someone installs our system, however, they're going to have 1 big problem - the database table modx_doodles isn't going to exist! Let's write a PHP resolver to create it on install. A PHP Resolver is a PHP script that runs after the Vehicle it's attached to has been installed. We'll attach this resolver to our Menu vehicle. Right below our $builder-&gt;createVehicle call for the Menu, and before you run putVehicle for that vehicle, add this:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding in PHP resolvers...');
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding in PHP resolvers...');
 $vehicle-&gt;resolve('php',array(
     'source' =&gt; $sources['resolvers'] . 'resolve.tables.php',
 ));
 </pre>
-</div></div>
+</div>
+</div>
 
-<p>All that's passed into this PHP resolver is the 'source' field, which points to the PHP script. Let's create a file at /www/doodles/_build/resolvers/resolve.tables.php, and put this inside:</p>
+<p>
+All that's passed into this PHP resolver is the 'source' field, which points to the PHP script. Let's create a file at /www/doodles/_build/resolvers/resolve.tables.php, and put this inside:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">&lt;?php
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?php
 <span class="code-keyword">if</span> ($object-&gt;xpdo) {
     <span class="code-keyword">switch</span> ($options[xPDOTransport::PACKAGE_ACTION]) {
         <span class="code-keyword">case</span> xPDOTransport::ACTION_INSTALL:
@@ -1324,25 +851,43 @@ $vehicle-&gt;resolve('php',array(
             <span class="code-keyword">break</span>;
     }
 }
-<span class="code-keyword">return</span> <span class="code-keyword">true</span>;</pre>
-</div></div>
+<span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+</pre>
+</div>
+</div>
 
-<p>Great. So here we're doing a few things. Note the initial check for $object-&gt;xpdo. $object is our Menu, since we attached this to the Menu's vehicle. Then we want to check for the xpdo var on it (which is also MODX). We then run into a switch statement, that checks a mysterious PACKAGE_ACTION const in the $options array. This little switch tells us to only run this code during <b>new</b> installs, or ACTION_INSTALL.</p>
+<p>
+Great. So here we're doing a few things. Note the initial check for $object-&gt;xpdo. $object is our Menu, since we attached this to the Menu's vehicle. Then we want to check for the xpdo var on it (which is also MODX). We then run into a switch statement, that checks a mysterious PACKAGE_ACTION const in the $options array. This little switch tells us to only run this code during <b>new</b> installs, or ACTION_INSTALL.
+</p>
 
-<p>Further in the switch, we are assigning $modx as a reference to $object-&gt;xpdo, for easier typing. Then we'll find our Doodles' model path via our friendly getOption calls, and then run the addPackage call to add our xpdo schema to the database (remember that from Part I?). Finally, we'll run $modx-&gt;getManager(), which gets an xPDOManager instance, and call $manager-&gt;createObjectContainer('Doodle') on it.</p>
+<p>
+Further in the switch, we are assigning $modx as a reference to $object-&gt;xpdo, for easier typing. Then we'll find our Doodles' model path via our friendly getOption calls, and then run the addPackage call to add our xpdo schema to the database (remember that from Part I?). Finally, we'll run $modx-&gt;getManager(), which gets an xPDOManager instance, and call $manager-&gt;createObjectContainer('Doodle') on it.
+</p>
 
-<p>This method tells MODX to run the SQL to create the database table for the Doodle class, which is what we want. And at the end of the resolver, we'll return true so that MODX knows everything went smoothly.</p>
+<p>
+This method tells MODX to run the SQL to create the database table for the Doodle class, which is what we want. And at the end of the resolver, we'll return true so that MODX knows everything went smoothly.
+</p>
 
-<p>If you build the package, and install it now, it will create our database table. Great&#33;</p>
+<p>
+If you build the package, and install it now, it will create our database table. Great!
+</p>
 
-<h2><a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheChangelog%2CReadme%2CLicenseandSetupOptions"></a>Adding the Changelog, Readme, License and Setup Options</h2>
+<h2>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-AddingtheChangelog%2CReadme%2CLicenseandSetupOptions"></a>Adding the Changelog, Readme, License and Setup Options
+</h2>
 
-<p>Let's get fancy. When installing packages in MODX, often you'll see a dialog with a license, readme, and changelog. We want that in our package&#33; First off, let's add those files.</p>
+<p>
+Let's get fancy. When installing packages in MODX, often you'll see a dialog with a license, readme, and changelog. We want that in our package! First off, let's add those files.
+</p>
 
-<p>Create a file in /www/doodles/core/components/doodles/docs/changelog.txt:</p>
+<p>
+Create a file in /www/doodles/core/components/doodles/docs/changelog.txt:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">Changelog file <span class="code-keyword">for</span> Doodles component.
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+Changelog file <span class="code-keyword">for</span> Doodles component.
 
 Doodles 1.0
 ====================================
@@ -1350,26 +895,40 @@ Doodles 1.0
 - Added <span class="code-keyword">default</span> properties to Doodles snippet in build
 - Fixes to doodles class
 - Fixed bugs with build, updated readme
-- Initial commit</pre>
-</div></div>
+- Initial commit
+</pre>
+</div>
+</div>
 
-<p>Then create a license file (we'll let you put the content in) at /www/doodles/core/components/doodles/docs/license.txt.</p>
+<p>
+Then create a license file (we'll let you put the content in) at /www/doodles/core/components/doodles/docs/license.txt.
+</p>
 
-<p>Finally, create a readme.txt in the docs/ directory:</p>
+<p>
+Finally, create a readme.txt in the docs/ directory:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">--------------------
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+--------------------
 Extra: Doodles
 --------------------
 Version: 1.0
 
-A simple demo extra <span class="code-keyword">for</span> creating robust 3rd-Party Components in MODx Revolution.</pre>
-</div></div>
+A simple demo extra <span class="code-keyword">for</span> creating robust 3rd-Party Components in MODx Revolution.
+</pre>
+</div>
+</div>
 
-<p>Now that we've got our docs files, let's go to the end of our build.transport.php script, right before the $builder-&gt;pack() part, and add these lines:</p>
+<p>
+Now that we've got our docs files, let's go to the end of our build.transport.php script, right before the $builder-&gt;pack() part, and add these lines:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding <span class="code-keyword">package</span> attributes and setup options...');
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding <span class="code-keyword">package</span> attributes and setup options...');
 $builder-&gt;setPackageAttributes(array(
     'license' =&gt; file_get_contents($sources['docs'] . 'license.txt'),
     'readme' =&gt; file_get_contents($sources['docs'] . 'readme.txt'),
@@ -1377,15 +936,23 @@ $builder-&gt;setPackageAttributes(array(
     'setup-options' =&gt; array(
         'source' =&gt; $sources['build'].'setup.options.php',
     ),
-));</pre>
-</div></div>
+));
+</pre>
+</div>
+</div>
 
-<p>So as you can see here, we have a setPackageAttributes() method, that allows some attributes. They're pretty self-explanatory - license takes in text for the license (which we grab using file_get_contents), readme takes in text for the readme, and changelog takes in text for the changelog.</p>
+<p>
+So as you can see here, we have a setPackageAttributes() method, that allows some attributes. They're pretty self-explanatory - license takes in text for the license (which we grab using file_get_contents), readme takes in text for the readme, and changelog takes in text for the changelog.
+</p>
 
-<p>The new one is the 'setup-options' array. First off, it's an array with a key of 'source' (like a resolver&#33;), that points to a path of a PHP file (also like a resolver&#33;). Let's create this PHP file, at /www/doodles/_build/setup.options.php:</p>
+<p>
+The new one is the 'setup-options' array. First off, it's an array with a key of 'source' (like a resolver!), that points to a path of a PHP file (also like a resolver!). Let's create this PHP file, at /www/doodles/_build/setup.options.php:
+</p>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">&lt;?php
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+&lt;?php
 $output = '';
 <span class="code-keyword">switch</span> ($options[xPDOTransport::PACKAGE_ACTION]) {
     <span class="code-keyword">case</span> xPDOTransport::ACTION_INSTALL:
@@ -1396,330 +963,97 @@ $output = '';
     <span class="code-keyword">case</span> xPDOTransport::ACTION_UNINSTALL:
         <span class="code-keyword">break</span>;
 }
-<span class="code-keyword">return</span> $output;</pre>
-</div></div>
-
-<p>So, this looks familiar to a resolver, eh? That's because this little bit of code allows us to present 'Setup Options' to the user on installation. Right now we're just going to output a pretty message to tell people thanks for installing Doodles.</p>
-
-<p>Remember that $options array in our PHP resolver? If we were to put any form elements in this output, they'd be found in that array with the same key. (An input with name of 'test' would be in $options<span class="error">&#91;&#39;test&#39;&#93;</span>). That means you could make a resolver that would process the form fields you put in the Setup Options script.</p>
-
-<p>That means that you could have a lot of neat little fields that do pre-installation options. That's a bit beyond the scope of this tutorial, but now that you know the basics, you can probably figure it out from there. (Also, plenty of existing Extras, such as <a href="/display/ADDON/Quip" title="Quip">Quip</a> do this, and you can <a href="https://github.com/splittingred/Quip" class="external-link" rel="nofollow">view their code</a> to see how.</p>
-
-<h2><a name="DevelopinganExtrainMODXRevolution%2CPartIII-Summary"></a>Summary</h2>
-
-<p>Now you can run your build.transport.php file, and you'll get a nice little doodles-1.0-beta4.zip file in your MODX install's core/packages/ directory. You can now either install that by uploading it to a MODX install's core/packages/ directory (but not the same one you just developed in&#33;), or post it to <a href="http://modx.com/extras/" class="external-link" rel="nofollow">modx.com/extras/</a> to be included in the official MODX Provider that hooks into <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>. Pretty neat?</p>
-
-<p>Let's recap. Over the 3 parts of this tutorial, we:</p>
-
-<ul>
-	<li>Stubbed out the directory structure for our Extra so we could develop externally and even get it on a source control system, such as Git</li>
-	<li>Added a custom xPDO model for our custom database table for our Doodles</li>
-	<li>Created a dynamic, templatable Snippet that lists our Doodles</li>
-	<li>Created a robust, CRUD-based Custom Manager Page to manage our Doodles from</li>
-	<li>Wrote a Transport Package (TP) build script to build our package with that installs our files and MODX objects</li>
-	<li>Made our TP create the custom DB table on install</li>
-	<li>Made our TP display the license/readme/changelog and a nice status message</li>
-</ul>
-
-
-<p>All in all, I'd say that was pretty successful. Congrats, and we hope you enjoy developing on MODX&#33;</p>
-
-<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The Doodles Extra in this tutorial can be found on GitHub, here: <a href="https://github.com/splittingred/doodles" class="external-link" rel="nofollow">https://github.com/splittingred/doodles</a></td></tr></table></div>
-
-<div class="panel" style="border-width: 1px;"><div class="panelContent">
-<p>This tutorial is part of a Series:</p>
-<ul>
-	<li><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution" title="Developing an Extra in MODX Revolution">Part I: Getting Started and Creating the Doodles Snippet</a></li>
-	<li><a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+II" title="Developing an Extra in MODX Revolution, Part II">Part II: Creating our Custom Manager Page</a></li>
-	<li>Part III: Packaging Our Extra</li>
-</ul>
-</div></div>
-        </div>
-
-        <!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-         <rdf:Description
-    rdf:about="http://oldrtfm.modx.com/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III"
-    dc:identifier="http://oldrtfm.modx.com/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III"
-    dc:title="Developing an Extra in MODX Revolution, Part III"
-    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/33947702"/>
-</rdf:RDF>
--->
-
-            
-    
-
-
-<fieldset class="hidden parameters">
-    <legend>Labels parameters</legend>
-    <input type="hidden" id="editLabel" value="Edit">
-    <input type="hidden" id="addLabel" value="Add Labels">
-    <input type="hidden" id="domainName" value="http://oldrtfm.modx.com">
-    <input type="hidden" id="pageId" value="33947702">
-    <input type="hidden" id="spaceKey" value="revolution20">
-</fieldset>
-
-<div id="labels-section" class="pageSection">
-    <div id="default-labels-header" class="section-header">
-        <h2 id="labels-section-title" class="section-title  hidden ">Labels</h2>
-            </div>
-
-    <div class="labels-editor">
-        <div id="labelsList">
-                    </div>
-
-        <span class="errorMessage error" id="errorSpan"></span>
-        <form method="GET" action="" id="add-labels-form">
-            <div id="labelInputSpan" class="labels-input">
-                <div id="labelOperationErrorContainer" class="hidden">
-                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
-                </div>
-
-                <div class="caption">Enter labels to add to this page:</div>
-                <div id="label-input-fields">
-                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
-                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
-                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
-                </div>
-                <div id="waitImageAndStatus">
-                    <img class="waiting" alt="Please wait" src="/s/1911/69/_/images/icons/wait.gif">&nbsp;
-                    <span id="labelOperationStatus" class="smalltext"></span>
-                </div>
-                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
-                <div class="labels-tip">
-                    <div id="suggestedLabelsSpan"></div>
-                    Looking for a label? Just start typing.
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-            
-            
-
-
-
-
-            
-    
-
-        
-<fieldset class="parameters hidden">
-    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
-    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
-        </fieldset>
-
-
-
-
-
-
-<div id="comments-section" class="pageSection">
-    
-            <div class="section-header ">
-            <h2 id="comments-section-title" class="section-title">
-                <a name="comments">Comments (1)</a>
-            </h2>
-            &nbsp;
-            <ul id="comment-top-links" class="global-comment-actions">
-                <li id="comment-show-hide">
-                    <a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III?showComments=false#comments" id="comments-hide" >Hide Comments</a>
-                    <a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III?showComments=true#comments" id="comments-show"  class="hidden" >Show Comments</a>
-                </li>
-                <li id="comments-expand-collapse" >
-                    <a href="#" id="comments-collapse">Collapse All</a>
-                    <span id="collapse-wait" class="hidden">Collapsing&hellip;</span>
-                    <span id="expand-wait" class="hidden">Expanding&hellip;</span>
-                    <a href="#" class="hidden" id="comments-expand">Expand All</a>
-                </li>
-                            </ul>
-        </div>
-    
-    
-                            <ol class="comment-threads top-level " id="page-comments">
-                        <li id="comment-thread-40206385" class="comment-thread">
-                    <div class="comment  " id="comment-40206385">
-                <p class="comment-user-logo">
-                    <img class="userLogo logo anonymous" src="/s/1911/69/_/images/icons/profilepics/anonymous.png"
-           alt="User icon: charless" title="charless">                </p>
-                <p class="date" title="Jul 09, 2012 14:55">
-                    Jul 09, 2012
-                </p>
-                <div class="comment-header comment-toggle">
-                    <h4 class="author"><a href="/display/~charless"
-                          class="url fn"
-                   >charles s</a> says:</h4>
-                                        <span class="excerpt">the&nbsp;transport.menu.php modAction controller value should be just "index" an...</span>
-                </div>
-                <div class="comment-body">
-                    <div class="comment-content wiki-content">
-                        <p>the&nbsp;transport.menu.php modAction controller value should be just "index" and not have the preceding "controllers/" as follows when using the new abstract classes:</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$action= $modx-&gt;newObject('modAction');
-$action-&gt;fromArray(array(
-    'id' =&gt; 1,
-    'namespace' =&gt; 'doodles',
-    'parent' =&gt; 0,
-    'controller' =&gt; 'index',
-    'haslayout' =&gt; <span class="code-keyword">true</span>,
-    'lang_topics' =&gt; 'doodles:<span class="code-keyword">default</span>',
-    'assets' =&gt; '',
-),'',<span class="code-keyword">true</span>,<span class="code-keyword">true</span>);
+<span class="code-keyword">return</span> $output;
 </pre>
-</div></div>
-<p>$action= $modx-&gt;newObject('modAction');<br/>
-$action-&gt;fromArray(array(<br/>
-&nbsp; &nbsp; 'id' =&gt; 1,<br/>
-&nbsp; &nbsp; 'namespace' =&gt; 'doodles',<br/>
-&nbsp; &nbsp; 'parent' =&gt; 0,<br/>
-&nbsp; &nbsp; 'controller' =&gt; 'controllers/index',<br/>
-&nbsp; &nbsp; 'haslayout' =&gt; true,<br/>
-&nbsp; &nbsp; 'lang_topics' =&gt; 'doodles:default',<br/>
-&nbsp; &nbsp; 'assets' =&gt; '',<br/>
-),'',true,true);</p>
-                    </div>
-                    <div class="comment-actions">
-                                                    <ul id="comment-actions-secondary">
-                                                          <li class="first comment-permalink">
-            <a title="Permanent link to this comment" href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III?focusedCommentId=40206385#comment-40206385"
-                id="comment-permalink-40206385"                ><span>Permalink</span></a></li>
-            </ul>
-                            <ul id="comment-actions-primary">
-            </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-         <rdf:Description
-    rdf:about="http://oldrtfm.modx.com/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III?focusedCommentId=40206385#comment-40206385"
-    dc:identifier="http://oldrtfm.modx.com/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+III?focusedCommentId=40206385#comment-40206385"
-    dc:title="Developing an Extra in MODX Revolution, Part III"
-    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/40206385"/>
-</rdf:RDF>
--->
-
-                    
-                                </li>
-                </ol>
-    
-                                    </div>
-
-
-            
+</div>
 </div>
 
+<p>
+So, this looks familiar to a resolver, eh? That's because this little bit of code allows us to present 'Setup Options' to the user on installation. Right now we're just going to output a pretty message to tell people thanks for installing Doodles.
+</p>
 
-    
+<p>
+Remember that $options array in our PHP resolver? If we were to put any form elements in this output, they'd be found in that array with the same key. (An input with name of 'test' would be in $options<span class="error">['test']</span>). That means you could make a resolver that would process the form fields you put in the Setup Options script.
+</p>
 
+<p>
+That means that you could have a lot of neat little fields that do pre-installation options. That's a bit beyond the scope of this tutorial, but now that you know the basics, you can probably figure it out from there. (Also, plenty of existing Extras, such as <a href="/display/ADDON/Quip" title="Quip">Quip</a> do this, and you can <a href="https://github.com/splittingred/Quip" class="external-link" rel="nofollow">view their code</a> to see how.
+</p>
 
+<h2>
+<a name="DevelopinganExtrainMODXRevolution%2CPartIII-Summary"></a>Summary
+</h2>
 
+<p>
+Now you can run your build.transport.php file, and you'll get a nice little doodles-1.0-beta4.zip file in your MODX install's core/packages/ directory. You can now either install that by uploading it to a MODX install's core/packages/ directory (but not the same one you just developed in!), or post it to <a href="http://modx.com/extras/" class="external-link" rel="nofollow">modx.com/extras/</a> to be included in the official MODX Provider that hooks into <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>. Pretty neat?
+</p>
 
-        
-        
+<p>
+Let's recap. Over the 3 parts of this tutorial, we:
+</p>
 
-    
-    
-    
+<ul>
+<li>Stubbed out the directory structure for our Extra so we could develop externally and even get it on a source control system, such as Git
+</li>
 
+<li>Added a custom xPDO model for our custom database table for our Doodles
+</li>
 
-<fieldset class="hidden parameters">
-        <input type="hidden" id="i18n.manage.watchers.dialog.title" value="Manage Watchers">
-        <input type="hidden" id="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
-        <input type="hidden" id="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
-</fieldset>
-<script type="text/x-template" title="manage-watchers-dialog">
-<div class="dialog-content">
-    <div class="column page-watchers">
-        <h3>Watching this page</h3>
-        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
-        <form action="/json/addwatch.action" method="POST">
-                <input type="hidden" name="atl_token" value="q0auAQHdLl">
-            <input type="hidden" name="pageId" value="33947702"/>
-            <input type="hidden" id="add-watcher-username" name="username" value=""/>
-            <label for="add-watcher-user">User</label>
-            <input id="add-watcher-user" name="userFullName" type="search" class="has-placeholder autocomplete-user"
-               value="" placeholder="Full name or username" autocomplete="off"
-               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
-               data-template="{title}" data-none-message="No matching users found.">
-            <input id="add-watcher-submit" type="submit" name="add" value="Add">
-            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
-            <div class="status hidden"></div>
-        </form>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No page watchers</li>
-        </ul>
-    </div>
-    <div class="column space-watchers">
-        <h3>Watching this space</h3>
-        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No space watchers</li>
-        </ul>
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="manage-watchers-user">
-    <li class="watch-user">
-        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
-        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
-        <span class="remove-watch" title="Remove"
-            data-username="{username}">Remove</span>
-    </li>
-</script>
-<script type="text/x-template" title="manage-watchers-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Managing+Watchers" target="_blank">Help</a>
-    </div>
-</script>
-    <br class="clear">
-</div>
-  
-    </div>
+<li>Created a dynamic, templatable Snippet that lists our Doodles
+</li>
+
+<li>Created a robust, CRUD-based Custom Manager Page to manage our Doodles from
+</li>
+
+<li>Wrote a Transport Package (TP) build script to build our package with that installs our files and MODX objects
+</li>
+
+<li>Made our TP create the custom DB table on install
+</li>
+
+<li>Made our TP display the license/readme/changelog and a nice status message
+</li>
+</ul>
+
+<p>
+All in all, I'd say that was pretty successful. Congrats, and we hope you enjoy developing on MODX!
+</p>
+
+<div class='panelMacro'>
+<table class='noteMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
+
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+The Doodles Extra in this tutorial can be found on GitHub, here: <a href="https://github.com/splittingred/doodles" class="external-link" rel="nofollow">https://github.com/splittingred/doodles</a>
+</td>
+</tr>
+</table>
 </div>
 
-<div id="footer">
-                                                <p class="license license-opensource">
-                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to MODx CMS / xPDO. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
-                </p>
-                        
-    <ul id="poweredby">
-        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.3, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
-        <li class="print-only">Printed by Atlassian Confluence 3.3, the Enterprise Wiki.</li>        
-        <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
-        <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
-    </ul>
+<div class="panel" style="border-width: 1px;">
+<div class="panelContent">
+<p>
+This tutorial is part of a Series:
+</p>
 
-    
+<ul>
+<li>
+<a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution" title="Developing an Extra in MODX Revolution">Part I: Getting Started and Creating the Doodles Snippet</a>
+</li>
 
-            <script type="text/javascript">
+<li>
+<a href="/display/revolution20/Developing+an+Extra+in+MODX+Revolution%2C+Part+II" title="Developing an Extra in MODX Revolution, Part II">Part II: Creating our Custom Manager Page</a>
+</li>
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-71684-1']);
-  _gaq.push(['_setDomainName', 'oldrtfm.modx.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    </div>    <!-- include system javascript resources -->
-                        
-    
-    
-    <!-- end system javascript resources -->
+<li>Part III: Packaging Our Extra
+</li>
+</ul>
 </div>
-</body>
-</html>
+</div>

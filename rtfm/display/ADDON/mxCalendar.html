@@ -1,1572 +1,1402 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-            <title>mxCalendar - MODx Add-Ons - MODX Documentation</title>
-    
-        
+<p>
+<span class="image-wrap" style=""><img src="/download/attachments/38994084/logo-mxCalendar.png?version=1&amp;modificationDate=1334336364000" style="border: 0px solid black" /></span>
+</p>
 
-                        
-    
+<h5>
+<a name="mxCalendar-Workingonfinishingdocumentation%2C%26nbsp%3Bpleasevisit%26nbsp%3B"></a>Working on finishing documentation,&nbsp;please visit&nbsp;<a href="http://charlesmx.com/software/mxcalendar-revo.html" class="external-link" rel="nofollow">http://charlesmx.com/software/mxcalendar-revo.html</a>&nbsp;in the meantime, or if you have access feel free to help update.
+</h5>
 
-            
-<meta id="confluence-context-path" name="confluence-context-path" content="">
-<meta id="atlassian-token" name="atlassian-token" content="Up-vF728YZ">
-<meta id="confluence-space-key" name="confluence-space-key" content="ADDON">
+<h2>
+<a name="mxCalendar-AboutmxCalendar" id="mxCalendar-AboutmxCalendar"></a>About mxCalendar
+</h2>
 
-<script type="text/javascript">
-    // Deprecated global variables. To be removed in a future version of Confluence.
-    var contextPath = '';
-</script>
+<p>
+mxCalendar is a extra created for both Evolution and Revolution to allow for full calendar editing using the native Manager of ModX. The calendar supports various views including calendar, list, and detail of which all views support the ModX&nbsp;template standards for fully customizing your themes. In addition mxCalendar supports feature rich calendar functions such as repeating events, Google Maps, cateogries, context, and unique calendars.
+</p>
 
-    
+<h2>
+<a name="mxCalendar-Installation" id="mxCalendar-Installation"></a>Installation
+</h2>
 
-<!-- include system css resources -->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?media=print" media="print">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
-<![endif]-->
+<h3>
+<a name="mxCalendar-ModXRevolution%3A"></a>ModX Revolution:
+</h3>
 
-<!-- end system css resources -->
+<p>
+It can be downloaded from within the MODx Revolution manager via&nbsp;<a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here:&nbsp;<a href="http://modx.com/extras/package/mxcalendar2" class="external-link" rel="nofollow">http://modx.com/extras/package/mxcalendar2</a>. When using the Package Management for direct download you can simply click on the "Install" button after download completes. If you choose to download from the extras site you will then need to FTP, or otherwise move, the transport package zip file to your "/core/packages/" folder first. After you have copied the transport zip file to your packages folder you will then need to launch Package Management from inside the Manager (ver 2.2.x) and then select the down arrow next to "Download Extras" and select the last option "Search Locally for Packages" and then find "mxcalendars" in the list of packages and choose "install".
+</p>
 
-    <link rel="stylesheet" href="/s/1911/69/11/_/styles/combined.css?spaceKey=ADDON" type="text/css">
+<h3>
+<a name="mxCalendar-ModXEvolution%3A"></a>ModX Evolution:
+</h3>
 
-    <meta name="confluence-request-time" content="1381728755036">
+<p>
+You will need to download from the ModX Extras Repository, here&nbsp;<a href="http://modx.com/extras/package/mxcalendar" class="external-link" rel="nofollow">http://modx.com/extras/package/mxcalendar</a>. After you have downloaded you will need to follow these steps.
+</p>
 
-<meta name="loggedInUsername" content="">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/s/1911/69/_/images/logo/confluence_16.png">
-
-<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="MODX Documentation"/>
-
-        <!-- include system javascript resources -->
-                        
-    
-    <script type="text/javascript" src="/s/1911/69/2/_/download/superbatch/js/batch.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
-<script type="text/javascript" src="/s/1911/69/3.3/_/download/batch/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.2/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
-
-    <!-- end system javascript resources -->
-
-    <link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/docs.css" />
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/syntaxhighlighter/css/all.css" />
-<!--<script type="text/javascript" src="http://misc.modx.com/js/jquery-1.3.2.min.js"></script>-->
-<script type="text/javascript" src="http://misc.modx.com/confluence/syntaxhighlighter/js/all.js"></script>
-<script type="text/javascript" src="http://misc.modx.com/confluence/loadcode.js"></script>
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/promo/ad.css" />
-
-    
-    <link rel="canonical" href="http://oldrtfm.modx.com/display/ADDON/mxCalendar">
-    <link rel="shortlink" href="http://oldrtfm.modx.com/x/pABTAg">
-    <meta name="wikilink" content="[ADDON:mxCalendar]">
-
-</head>
-
-<body             onload="placeFocus()"
-     id="com-atlassian-confluence" class="theme-documentation ">
-<div id="full-height-container">
-<!-- CODE FOR AD THAT SEEMS TO BE INSERTABLE DIRECTLY AFTER OPEN BODY TAG IN CONFLUENCE THEME ADMIN -->
-<!--<a href="https://modxcloud.com/signup/lab-account.html?utm_source=rtfm&utm_medium=banner&utm_campaign=one_percent%2B" class="modx-cloud-link">
-    <div class="modx-cloud-ad-wrap">
-        <div class="modx-cloud-ad">
-            <div class="logo-wrap">
-                <img src="http://misc.modx.com/confluence/promo/modx-cloud-logo.png" alt="MODX Cloud" width="161" height="40">
-            </div>
-            <p>The Most Productive MODX Learning Playground Ever</p>
-            <span class="faux-btn">
-                Claim Free Lab Account
-            </span>
-
-        </div>
-    </div>
-</a>-->
-<!-- END OF AD -->
-
-<div class="editors_note" style="background-color:#ff9a91;border: 1px solid red; padding:5px;color:black;">
-    <strong>Important Note:</strong> This is an archive of the official MODX Documentation. Please do not edit or make changes here.  The current documentation is located at <a href="rtfm.modx.com">rtfm.modx.com</a>.
-</div>
-
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
-    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
-    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
-    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
-    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
-</fieldset>
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
-    <input type="hidden" id="userLocale" value="en_GB">
-    <input type="hidden" id="staticResourceUrlPrefix" value="/s/1911/69/_">
-    <input type="hidden" id="contextPath" value="">
-</fieldset>
-
-    
-<div id="header" class="sectionbottom ">
-        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
-        <fieldset>
-            <legend>Quick Search</legend>
-            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
-            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
-            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
-        </fieldset>
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="quickNavEnabled" value="true" />
-                    </fieldset>
-    </form>
-    <ul id="header-menu-bar" class="ajs-menu-bar">
-                    
-        
-            <li class="normal ajs-menu-item">
-        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
-                                        <li>
-    
-        
-    
-    <a  id="space-pages-link" href="/pages/listpages.action?key=ADDON"  class=""   title="Attachments: 7">
-                   <span>Pages</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=ADDON"  class=""   title="Attachments: 7">
-                   <span>Blog</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=ADDON"  class=""   title="Attachments: 7">
-                   <span>Labels</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=ADDON"  class=""   title="Attachments: 7">
-                   <span>Attachments</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  href="/spaces/space-bookmarks.action?spaceKey=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
-                   <span>Bookmarks</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
-                   <span>Mail</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
-                   <span>Advanced</span></a>        </li>
-                            </ul>
-                        <ul  id="browse-menu-link-global"                 class="section-global">
-                                        <li>
-    
-            
-    
-    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
-                   <span>Confluence Gadgets</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-        
-                                                         <li class="ajs-menu-item normal">
-        
-        
-    
-    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2FADDON%2FmxCalendar"  class="user-item login-link"  >
-                   <span>Log In</span></a>        </li>
-                                <li class="normal ajs-menu-item">
-            <div id="splitter-button" class="hidden" title="Sidebar"></div>
-        </li>
-
-    </ul>
-    
-    
-    <ol id="breadcrumbs">
-                    
-        <li class="first" >
-                                    <span><a href="/dashboard.action">Dashboard</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/ADDON">MODx Add-Ons</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/ADDON/Home">Home</a></span>
-                </li>
-                    
-        <li>
-                                    <span>mxCalendar</span>
-                </li>
-        </ol>
-
-</div>
-
-    <div id="splitter">
-    <div id="splitter-sidebar">
-
-        
-
-                    
-    
-    
-
-<div class="plugin_pagetree">
-
-                <div id="pagetreesearch">
-            <form method="POST" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
-                                    <input type="hidden" name="ancestorId" value="425998">
-                                <input type="hidden" name="spaceKey" value="ADDON">
-                <input type="text"  size="20" name="queryString">
-                <input type="submit" value="Search">
-            </form>
-        </div>
-    
-        
-    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-        <div class="plugin_pagetree_children">
-        </div>
-    </ul>
-
-    <fieldset class="hidden">
-        <input type="hidden" name="treeId" value="">
-        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
-        <input type="hidden" name="treePageId" value="38994084">
-
-        <input type="hidden" name="noRoot" value="false">
-        <input type="hidden" name="rootPageId" value="425998">
-
-        <input type="hidden" name="rootPage" value="">
-        <input type="hidden" name="startDepth" value="0">
-        <input type="hidden" name="spaceKey" value="ADDON" >
-
-        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
-        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
-        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
-        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FmxCalendar">
-
-                <fieldset class="hidden">
-                                                <input type="hidden" name="ancestorId" value="425998">
-                                    </fieldset>
-    </fieldset>
-</div>
-
-
-
-            </div>
-    <div id="splitter-content">
-
-                    <script type="text/javascript" src="/s/1911/69/2/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
-    
-            
-    
-<div id="main" >
-    
-    
-    <div id="navigation" class="content-navigation view">
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="pageId" value="38994084">
-        </fieldset>
-        <ul class="ajs-menu-bar">
-                                
-                        
-            <li class="normal ajs-menu-item">
-        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="action-menu-link-primary"                 class="section-primary first">
-                                        <li>
-    
-        
-    
-    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=38994084"  class="action-view-attachments"  accessKey="a" >
-                   <span><u>A</u>ttachments (7)</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=38994084"  class="action-view-history"  >
-                   <span>Page History</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="mailPageLink" href="/pages/mailpage/mailpage.action?pageId=38994084"  class=""  >
-                    <span>
-                <img alt="E-mail" src="/images/icons/mail_content_16.gif" height="16" width="16" title="E-mail">
-                E-mail
-            </span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=38994084"  class="action-page-permissions"  >
-                   <span>Restrictions</span></a>        </li>
-                            </ul>
-                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
-                                        <li>
-    
-        
-    
-    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=38994084"  class="action-view-info"  >
-                   <span>Info</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=38994084"  class=""  >
-                   <span>Link to this Page&hellip;</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=ADDON&openId=38994084#selectedPageInHierarchy"  class=""  >
-                   <span>View in Hierarchy</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=38994084"  class="action-view-source popup-link"  >
-                   <span>View Wiki Markup</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-            </ul>
-    </div>
-
-    
-    <h1 id="title-heading" class="pagetitle">
-                    <a href="/display/ADDON"><img class="logo global custom" src="/download/attachments/9109505/global.logo?version=2&modificationDate=1356105314000" alt=""></a>        
-		<span id="title-text">
-					            <a href="/display/ADDON/mxCalendar">mxCalendar</a>
-    				</span>
-    </h1>
-
-    
-
-    
-    
-    
-    <div id="content" class="page view">
-    
-
-
-
-<fieldset id="link-to-page-fields" class="hidden parameters">
-    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
-    <input type="hidden" id="linkToThisPageLink" value="Link">
-    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
-    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
-    <input type="hidden" id="linkToThisPageClose" value="Close">
-</fieldset>
-<fieldset class="hidden parameters">
-    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;mxCalendar&#8217;">
-    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
-    <input type="hidden" title="movePageDialogMoveButton" value="Move">
-    <input type="hidden" title="movePageDialogOkButton" value="OK">
-    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
-    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
-    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
-    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
-    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
-    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
-    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
-    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
-    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
-    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
-    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
-    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
-    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
-    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
-    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
-    <input type="hidden" title="pageTitle" value="mxCalendar"/>
-    <input type="hidden" title="parentPageTitle" value="Home"/>
-    <input type="hidden" title="fromPageTitle" value=""/>
-    <input type="hidden" title="spaceKey" value="ADDON"/>
-    <input type="hidden" title="spaceName" value="MODx Add-Ons"/>
-    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
-    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
-    <input type="hidden" title="movePageDialogBackButton" value="Back"/>
-    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder"/>
-    <input type="hidden" title="movePageDialogNextButton" value="Move"/>    
-</fieldset>
-
-<script type="text/x-template" title="movePageDialog">
-    <div class="row information">
-        Specify the new parent page for this page and its children by space and title.
-    </div>
-    <div class="form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
-            <div class="row">
-                <label for="new-space">New space:</label>
-                <div class="value new-space-value">
-                    <input id="new-space-key" name="new-space-key" type="hidden" value="ADDON">
-                                            <span class="space-input">
-                            <input id="new-space" name="new-space" value="MODx Add-Ons" disabled="disabled">
-                        </span>
-                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
-                                        <div class="new-space-dropdown aui-dd-parent"></div>
-                </div>
-            </div>
-            <div class="row">
-                <label for="new-parent-page">New parent page:</label>
-                <div class="value new-parent-page-value">
-                    <span class="page-input">
-                        <input id="new-parent-page" name="new-parent-page" value="Home">
-                    </span>
-                    <span class="description">Start typing a page title to see a list of suggestions.</span>
-                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="location-info">
-        <div class="row">
-            <label>Current location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <label>New location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
-<script type="text/x-template" title="movePageErrors">
-    <div id="move-errors" class="hidden warning"></div>
-</script>
-<script type="text/x-template" title="movePageBreadcrumb">
-    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbLoading">
-    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbError">
-    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
-</script>
-<script type="text/x-template" title="movePageNoMatchingPages">
-    <ol><li><span class="warning">No matching pages found.</span></li></ol>
-</script>
-<script type="text/x-template" title="movePageNoMatchingSpaces">
-    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
-</script>
-
-<script type="text/x-template" title="movePageSearchPanel">
-<div class="row information">
-    Search for and select the new parent page for this page and its children.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
-            
-
-    <label  for="move-page-search-query" class="assistive">Search keywords</label>
-            <input class="search-query" id="move-page-search-query">
-            
-
-    <label  for="move-page-search-space" class="assistive">Search in space</label>
-                            <select id="move-page-search-space" class="search-space" disabled="disabled">
-                    <option value="ADDON" selected="selected">MODx Add-Ons</option>
-                </select>
-                        <input type="button" value="Search">
-                            <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
-                    </fieldset>
-    </div>
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageSearchResultsLoading">
-    <div class="searching">Searching…</div>
-</script>
-
-<script type="text/x-template" title="movePageHistoryPanel">
-<div class="row information">
-    Select the new parent page for this page and its children from your history.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageHistoryLoading">
-    <div class="searching">Loading…</div>
-</script>
-<script type="text/x-template" title="movePageBrowsePanel">
-    <div class="row information">
-        Click to select the new parent page for this page and its children.
-    </div>
-    <div class="tree"></div>
-</script>
-<script type="text/x-template" title="movePagePanelLoading">
-    <span>Loading…</span>
-</script>
-<script type="text/x-template" title="movePageBrowsePanelSpace">
-    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
-</script>
-<script type="text/x-template" title="orderingPagePanel">
-<div id="orderingPlaceHolder"></div>
-</script>
-<script type="text/x-template" title="reorderCheckbox">
-<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
-</script>
-<script type="text/x-template" title="move-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Moving+a+Page" target="_blank">Help</a>
-    </div>
-</script>
-<script type="text/x-template" title="searchResultsGrid">
-    <table>
-        <thead>
-            <tr class="header">
-                <th class="search-result-title">Page Title</th>
-                <th class="search-result-space">Space</th>
-                <th class="search-result-date">Updated</th>
-            </tr>
-        </thead>
-    </table>
-</script>
-<script type="text/x-template" title="searchResultsGridCount">
-    <p class="search-result-count">{0}</p>
-</script>
-<script type="text/x-template" title="searchResultsGridRow">
-    <tr class="search-result">
-        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
-        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
-        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
-    </tr>
-</script>
-<!-- Start restrictions section -->
-<fieldset class="hidden parameters i18n">
-        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
-        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
-        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
-        <input type="hidden" id="i18n.cancel.name" value="Cancel">
-        <input type="hidden" id="i18n.close.name" value="Close">
-        <input type="hidden" id="i18n.update.name" value="Save">
-</fieldset>
-
-<script type="text/x-template" title="page-permissions-div">
-<div id="page-permissions-div">
-    <div id="page-permissions-editor-form">
-
-                <div id="page-permissions-error-div" class="hidden">
-            <a href="#" id="permissions-error-div-close">Ok</a>
-            <div></div>
-        </div>
-
-                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
-            <div>
-                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
-                <label for="restrictViewRadio">Restrict viewing of this page</label>
-                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
-                <label for="restrictEditRadio">Restrict editing of this page</label>
-            </div>
-        </div>
-        <div id="page-permissions-input" class="page-permissions-label-rows">
-            <div class="page-permissions-label">To:</div>
-            <div id="page-permissions-chooser-box">
-                                <span id="page-permissions-choose-user" class="ajs-button">
-                    
-
-
-
-    
-
-
-
-<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=ADDON&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
-<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=ADDON&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
-
-
-                </span>
-                <span id="page-permissions-choose-group" class="ajs-button">
-                    
-
-
-
-    
-
- 
-
-<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=ADDON&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
-<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=ADDON&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
-
-
-                </span>
-            </div>
-            <div id="page-permissions-input-box">
-                                <span>
-                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
-                </span>
-                <input
-    type="hidden"
-                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1911/69/_/images/border/spacer.gif"/>
-                <input type="button" id="add-typed-names" value="Restrict">
-            </div>
-        </div>
-    </div>
-    <div id="page-permissions-tables">
-        <div id="page-permissions-table-div">
-                        <table id="page-permissions-table" class="page-permissions-table">
-                <tr id="page-permissions-no-views" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
-                </tr>
-                <tr id="page-permissions-no-edits" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
-                </tr>
-            </table>
-        </div>
-        <div id="page-inherited-permissions-table-div" class="hidden">
-            <span id="page-inherited-permissions-table-desc">
-                <a class="icon twisty-closed">Show/Hide</a>
-                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
-            </span>
-            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
-        </div>
-    </div>
-</div>
-</script>
-
-<script type="text/x-template" title="permissions-row-template">
-    <tr class="permission-row">
-                                
-                <td class="page-permissions-marker-cell" width="20%">
-            <span>Viewing restricted to:</span>
-        </td>
-                <td class="permission-entity" nowrap="true" width="40%">
-            <span class="entity-container">
-                <img class="permission-entity-picture"/>
-                <span class="permission-entity-display-name"></span>
-                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
-            </span>
-        </td>
-        <td class="permission-detail-column">
-            <div class="permission-remove-div">
-                <a href="#" class="remove-permission-link">Remove restriction</a>
-            </div>
-        </td>
-    </tr>
-</script>
-<script type="text/x-template" title="permissions-username-no-suggestion-template">
-    <ol>
-        <li><a href="#" class="message"><span>No matches</span></a></li>
-    </ol>
-</script>
-<script type="text/x-template" title="page-inherited-permissions-table-div-template">
-        <div class="page-inherited-permissions-owner-div">
-        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
-        <table class="page-permissions-table"></table>
-    </div>
-</script>
-<script type="text/x-template" title="page-restrictions-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Page+Restrictions" target="_blank">Help</a>
-    </div>
-</script>
-<!-- End restrictions section -->
-
-        
-    
-    
-        <fieldset class="hidden parameters">
-            <input type="hidden" title="parentPageId" value="425998">
-        </fieldset>
-
-        
-                            
-    
-
-                    
-
-        
-        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
-<div id="page-metadata-start" class="assistive"></div>
-
-    <div class="page-metadata">
-        <ul>
-                            <li class="page-metadata-item noprint">
-    
-            
-    
-    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Page restrictions apply</span></a>        </li>
-                            <li class="page-metadata-item noprint">
-    
-        
-    
-    <a  id="content-metadata-attachments" href="/pages/viewpageattachments.action?pageId=38994084&metadataLink=true"  class="page-metadata-icon action-view-attachments"  accessKey="a"  title="Attachments: 7">
-                   <span><span class="page-metadata-attachments-text">Attachments:</span><span class="page-metadata-attachments-count">7</span></span></a>        </li>
-                        <li class="page-metadata-modification-info">
-                                    Added by <a href="/display/~charless"
-                          class="url fn"
-                   >charles s</a>, last edited by <a href="/display/~frogabog"
-                          class="url fn"
-                   >Kori Rush</a> on Nov 19, 2012
-                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=38994084&originalId=43417621">view change</a>)</span>
-                                                </li>
-                    </ul>
-          <div id="version-comment" class="noteMacro" style="display: none;">
-      <strong>Comment:</strong>
-      <br />
-  </div>
-    </div>
-
-
-<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
-<div id="page-metadata-end" class="assistive"></div>
-        
-        <fieldset class="hidden parameters">
-                        <input type="hidden" title="browsePageTreeMode" value="view">
-        </fieldset>
-
-        <div class="wiki-content">
-           <!-- wiki content -->
-            <p><span class="image-wrap" style=""><img src="/download/attachments/38994084/logo-mxCalendar.png?version=1&amp;modificationDate=1334336364000" style="border: 0px solid black" /></span></p>
-
-<h5><a name="mxCalendar-Workingonfinishingdocumentation%2C%26nbsp%3Bpleasevisit%26nbsp%3B"></a>Working on finishing documentation,&nbsp;please visit&nbsp;<a href="http://charlesmx.com/software/mxcalendar-revo.html" class="external-link" rel="nofollow">http://charlesmx.com/software/mxcalendar-revo.html</a>&nbsp;in the meantime, or if you have access feel free to help update.</h5>
-
-
-<h2><a name="mxCalendar-AboutmxCalendar"></a>About mxCalendar</h2>
-
-<p>mxCalendar is a extra created for both Evolution and Revolution to allow for full calendar editing using the native Manager of ModX. The calendar supports various views including calendar, list, and detail of which all views support the ModX&nbsp;template standards for fully customizing your themes. In addition mxCalendar supports feature rich calendar functions such as repeating events, Google Maps, cateogries, context, and unique calendars.</p>
-
-<h2><a name="mxCalendar-Installation"></a>Installation</h2>
-
-
-<h3><a name="mxCalendar-ModXRevolution%3A"></a>ModX Revolution:</h3>
-
-<p>It can be downloaded from within the MODx Revolution manager via&nbsp;<a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a>, or from the MODx Extras Repository, here:&nbsp;<a href="http://modx.com/extras/package/mxcalendar2" class="external-link" rel="nofollow">http://modx.com/extras/package/mxcalendar2</a>. When using the Package Management for direct download you can simply click on the "Install" button after download completes. If you choose to download from the extras site you will then need to FTP, or otherwise move, the transport package zip file to your "/core/packages/" folder first. After you have copied the transport zip file to your packages folder you will then need to launch Package Management from inside the Manager (ver 2.2.x) and then select the down arrow next to "Download Extras" and select the last option "Search Locally for Packages" and then find "mxcalendars" in the list of packages and choose "install".</p>
-
-
-<h3><a name="mxCalendar-ModXEvolution%3A"></a>ModX Evolution:</h3>
-
-<p>You will need to download from the ModX Extras Repository, here&nbsp;<a href="http://modx.com/extras/package/mxcalendar" class="external-link" rel="nofollow">http://modx.com/extras/package/mxcalendar</a>. After you have downloaded you will need to follow these steps.</p>
 <ol>
-	<li>Unzip folder to your favorite place</li>
-	<li>Upload mxCalendar folder to your sites root /assets/modules/ folder</li>
-	<li>Copy contents of "snippets/mxCalendar.module.txt" file from the unzipped folder</li>
-	<li>Log into your Manager interface and goto the Modules &gt; Manage Modules section</li>
-	<li>Select the New Module button</li>
-	<li>In the Module name field place mxcalendar</li>
-	<li>Past the content of "snippets/mxCalendar.module.txt" into the Module code (php) section</li>
-	<li>Select Save</li>
-	<li>Click the gear icon next to the new entry "mxcalendar" and select Run Module</li>
-	<li>You should see a screen saying the installation was successful, so click the Start button</li>
-	<li>Now you are in the new manager</li>
+<li>Unzip folder to your favorite place
+</li>
+
+<li>Upload mxCalendar folder to your sites root /assets/modules/ folder
+</li>
+
+<li>Copy contents of "snippets/mxCalendar.module.txt" file from the unzipped folder
+</li>
+
+<li>Log into your Manager interface and goto the Modules &gt; Manage Modules section
+</li>
+
+<li>Select the New Module button
+</li>
+
+<li>In the Module name field place mxcalendar
+</li>
+
+<li>Past the content of "snippets/mxCalendar.module.txt" into the Module code (php) section
+</li>
+
+<li>Select Save
+</li>
+
+<li>Click the gear icon next to the new entry "mxcalendar" and select Run Module
+</li>
+
+<li>You should see a screen saying the installation was successful, so click the Start button
+</li>
+
+<li>Now you are in the new manager
+</li>
 </ol>
 
+<h2>
+<a name="mxCalendar-CreatingCalendars" id="mxCalendar-CreatingCalendars"></a>Creating Calendars
+</h2>
 
-<h2><a name="mxCalendar-CreatingCalendars"></a>Creating Calendars</h2>
+<p>
+<font color="#FF6600"><b>*Note</b></font><font color="#FF6600">: Calendars are only supported in the Revo version of mxCalendar</font>
+</p>
 
-<p><font color="#ff6600"><b>&#42;Note</b></font><font color="#ff6600">: Calendars are only supported in the Revo version of mxCalendar</font></p>
+<p>
+In the manager menu, select <b>Components</b> -&gt; <b>mxCalendar</b>.&nbsp; Select the <b>Calendars</b> tab, click <b>Create New Calendar</b>.&nbsp; Name your calendar, check the active checkbox (if unchecked) and save.
+</p>
 
-<p>In the manager menu, select <b>Components</b> &#45;&gt; <b>mxCalendar</b>.&nbsp; Select the <b>Calendars</b> tab, click <b>Create New Calendar</b>.&nbsp; Name your calendar, check the active checkbox (if unchecked) and save.</p>
+<p>
+? <span class="image-wrap" style=""><img src="/download/attachments/38994084/mxCalendarCreateCalendar.jpg?version=1&amp;modificationDate=1352869552000" style="border: 1px solid black" /></span>
+</p>
 
-<p>? <span class="image-wrap" style=""><img src="/download/attachments/38994084/mxCalendarCreateCalendar.jpg?version=1&amp;modificationDate=1352869552000" style="border: 1px solid black" /></span></p>
+<h2>
+<a name="mxCalendar-CreatingCategories" id="mxCalendar-CreatingCategories"></a>Creating Categories
+</h2>
 
-<h2><a name="mxCalendar-CreatingCategories"></a>Creating Categories</h2>
+<p>
+In the manager menu, select <b>Components</b> -&gt; <b>mxCalendar</b>.&nbsp; Select the <b>Categories</b> tab, click <b>Create New Category</b>.&nbsp; Name the category and enter options, save.
+</p>
 
-<p>In the manager menu, select <b>Components</b> &#45;&gt; <b>mxCalendar</b>.&nbsp; Select the <b>Categories</b> tab, click <b>Create New Category</b>.&nbsp; Name the category and enter options, save.</p>
+<p>
+? <span class="image-wrap" style=""><img src="/download/attachments/38994084/mxCalendarCreateCategory.jpg?version=1&amp;modificationDate=1352871857000" style="border: 1px solid black" /></span>
+</p>
 
+<h2>
+<a name="mxCalendar-CreatingNewEvents" id="mxCalendar-CreatingNewEvents"></a>Creating New Events
+</h2>
 
-<p>? <span class="image-wrap" style=""><img src="/download/attachments/38994084/mxCalendarCreateCategory.jpg?version=1&amp;modificationDate=1352871857000" style="border: 1px solid black" /></span></p>
+<p>
+In the manager menu, select <b>Components</b> -&gt; <b>mxCalendar</b>.&nbsp; Select the <b>Events</b> tab, click <b>Create New Calendar Item</b>.
+</p>
 
-<h2><a name="mxCalendar-CreatingNewEvents"></a>Creating New Events</h2>
+<p>
+Select a context. Leave blank for all contexts.&nbsp; Give the event a name, select a calendar to associate the event with, a category, and start and end date/times.&nbsp;&nbsp;
+</p>
 
+<p>
+Enter your event description in the rich text editor.&nbsp; This populates the [[*content]] for the event detail view.
+<br />
+<span class="image-wrap" style=""><img src="/download/attachments/38994084/mxCalendarAddEvent.jpg?version=2&amp;modificationDate=1352869709000" height="493" width="840" style="border: 1px solid black" /></span>
+</p>
 
-<p>In the manager menu, select <b>Components</b> &#45;&gt; <b>mxCalendar</b>.&nbsp; Select the <b>Events</b> tab, click <b>Create New Calendar Item</b>.</p>
+<p>
+In the Location tab, name the location and enter the address.&nbsp; Check "Display Map" to output a Google Map for the address that you entered.&nbsp;
+<br />
+The example shown is the default Google Map display in a styled modal window (tplDetail or tplDetailModal).
+</p>
 
-<p>Select a context. Leave blank for all contexts.&nbsp; Give the event a name, select a calendar to associate the event with, a category, and start and end date/times.&nbsp;&nbsp;</p>
+<p>
+&nbsp; <span class="image-wrap" style="float: left"><img src="/download/attachments/38994084/mxCalendarEventLocation.jpg?version=1&amp;modificationDate=1352869570000" style="border: 0px solid black" /></span>
+</p>
 
-<p>Enter your event description in the rich text editor.&nbsp; This populates the [[*content]] for the event detail view.<br/>
-<span class="image-wrap" style=""><img src="/download/attachments/38994084/mxCalendarAddEvent.jpg?version=2&amp;modificationDate=1352869709000" height="493" width="840" style="border: 1px solid black" /></span></p>
+<p>
+<span class="image-wrap" style="float: right"><img src="/download/attachments/38994084/mxCalendarGoogleMapModalView.jpg?version=1&amp;modificationDate=1352871182000" height="318" width="725" style="border: 1px solid black" /></span>
+</p>
 
-<p>In the Location tab, name the location and enter the address.&nbsp; Check "Display Map" to output a Google Map for the address that you entered.&nbsp;<br/>
-The example shown is the default Google Map display in a styled modal window (tplDetail or tplDetailModal).</p>
+<p>
+In the event tab, enter the event link URL.
+</p>
 
-<p>&nbsp; <span class="image-wrap" style="float: left"><img src="/download/attachments/38994084/mxCalendarEventLocation.jpg?version=1&amp;modificationDate=1352869570000" style="border: 0px solid black" /></span></p>
+<p>
+<span class="image-wrap" style=""><img src="/download/attachments/38994084/mxCalendarAddEventLink.jpg?version=1&amp;modificationDate=1352870583000" style="border: 1px solid black" /></span>
+<br />
+Form Tab documentation forthcoming...
+</p>
 
-<p><span class="image-wrap" style="float: right"><img src="/download/attachments/38994084/mxCalendarGoogleMapModalView.jpg?version=1&amp;modificationDate=1352871182000" height="318" width="725" style="border: 1px solid black" /></span></p>
+<h2>
+<a name="mxCalendar-UsingmxCalendar" id="mxCalendar-UsingmxCalendar"></a>Using mxCalendar
+</h2>
 
-<p>In the event tab, enter the event link URL.</p>
+<p>
+Now to the best part, using mxCalendar to manage and display events.
+</p>
 
-<p><span class="image-wrap" style=""><img src="/download/attachments/38994084/mxCalendarAddEventLink.jpg?version=1&amp;modificationDate=1352870583000" style="border: 1px solid black" /></span><br/>
-Form Tab documentation forthcoming...</p>
+<h2>
+<a name="mxCalendar-BasicUse%3A"></a>Basic Use:
+</h2>
 
+<p>
+After installation you should be able to call the default view (calendar) in your resource using:
+</p>
 
-<h2><a name="mxCalendar-UsingmxCalendar"></a>Using mxCalendar</h2>
-
-<p>Now to the best part, using mxCalendar to manage and display events.</p>
-
-<h2><a name="mxCalendar-BasicUse%3A"></a>Basic Use:</h2>
-
-<p>After installation you should be able to call the default view (calendar) in your resource using:</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">[[!mxcalendar?]]
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+[[!mxcalendar?]]
 </pre>
-</div></div>
-<p>This should provide you with the calendar view and full page load on   navigation. If you want to step things up a notch to use the AJAX   navigation and modal view of event details we'd add two additional   parameters to the snippet call. The first is the "ajaxResourceId" which   should be a new resource (page) that is created using the (blank)   template since we are returning this in the ajax response and simply   modifying the DOM. The next thing we want to add is the "modalView" set   to true to enable the modal display of the event details.</p>
+</div>
+</div>
 
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">[[!mxcalendar?
+<p>
+This should provide you with the calendar view and full page load on navigation. If you want to step things up a notch to use the AJAX navigation and modal view of event details we'd add two additional parameters to the snippet call. The first is the "ajaxResourceId" which should be a new resource (page) that is created using the (blank) template since we are returning this in the ajax response and simply modifying the DOM. The next thing we want to add is the "modalView" set to true to enable the modal display of the event details.
+</p>
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+[[!mxcalendar?
 &amp;ajaxResourceId=`43`
 &amp;modalView=`1`
 ]]
 </pre>
-</div></div>
-<p>Now when you reload your primary page with the mxcalendar   snippet call, not the ajax one, you shoudl see the same display however   now when you click on the arrows for previous and next months the   content is loaded via ajax and not an entire URL page reload. The second   thing you should notice is now when you click on and event title in  the  calendar view it displayes the event detail view in a nice modal   window. ah... that's nice</p>
+</div>
+</div>
 
-<h2><a name="mxCalendar-Parameters%2FProperties%2FSettings"></a>Parameters / Properties / Settings</h2>
+<p>
+Now when you reload your primary page with the mxcalendar snippet call, not the ajax one, you shoudl see the same display however now when you click on the arrows for previous and next months the content is loaded via ajax and not an entire URL page reload. The second thing you should notice is now when you click on and event title in the calendar view it displayes the event detail view in a nice modal window. ah... that's nice
+</p>
+
+<h2>
+<a name="mxCalendar-Parameters%2FProperties%2FSettings"></a>Parameters / Properties / Settings
+</h2>
 
 <div class='table-wrap'>
-<table class='confluenceTable'><tbody>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Parameters</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Type</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Default</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Scope</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Description</b></font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">theme</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">string</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">default</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini, list, detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the theme to use; looks for theme files in the “/assets/components/mxcalendars/theme/” folder. You can create a new one by simply copying the default or traditional folder and modify then update the parater to your folder name.</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">resourceId</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">int</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">(current resource)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini, list, detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">This sets the resource ID to use when creating links that use the non-ajax parameter</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">isLocked</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">boolean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">0 (FALSE)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini, list, detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">When set to true the display type for this snippet call will not be changed regardless of any passed parameters or query string values; used when you have multiple snippet calls on a single page</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">displayType</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">string</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">default</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the default display mode when not passed in snippet call or query string</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">elStartDate</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">date</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">now</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">list</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Uses PHP strtotime to set as the minimum date start listing</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">elEndDate</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">date</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&#43;4 weeks</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">list</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the last date you want as the filter for returning dates in the future; uses PHP strtotime function</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplListItem</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">el.itemclean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">list</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">The chunk you want to use for each individual event item returned in the list</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplListHeading</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">el.listheading</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">list</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">The chunk you want to use for month heading sperator in list view; to display the monthly heading make it empty</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplListWrap</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">el.wrap</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">list</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">The chunk that is the outer most wrapper for the list view, often contains the global heading “Upcoming Events”</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">eventListlimit</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">int</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">5</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">list</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the max number of event items to display in the events list this includes the repeating events for a given event</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">sort</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">string (column name)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">startdate</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini, list, detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the default sorting order, often this is not modified and helps performance when dealing with the limits</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">dir</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">string (ASC, DESC)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">ASC</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini, list, detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the sort direction to use</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">limit</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">int</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">99</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini, list, detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Sets the max number of items to return from the data base query</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;contextFilter</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;string (comma seperated)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">empty; ?all + current context</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini, list, detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Sets which context to filter out events for, by defaullt it list global events where no context has been set plus the current context. &nbsp;In order to disable the global events from display you have to set the contextFilter value to the current context, thus over writing the default value.</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> calendarFilter </td>
-<td class='confluenceTd'> string (comma seperated list of category id) </td>
-<td class='confluenceTd'> null </td>
-<td class='confluenceTd'> calendar, mini </td>
-<td class='confluenceTd'> Sets a calendar filter based on the events associated calendar. By default all events are displayed regardless of the calendar they are associated to. You must set this to the value of a category id or multiple category id's&nbsp;separated&nbsp;by a comma (,). </td>
-</tr>
-<tr>
-<td class='confluenceTd'> elDirectional </td>
-<td class='confluenceTd'> date <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> future <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> calendar, mini, list, detail <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Sets the direction of the list based on the elStartDate parameter.&nbsp; By default, all listed events are future events.&nbsp; To show a list of past events, set this to `past` (make sure to include the elStartDate=`now` for a past event list display.) <br class="atl-forced-newline" /> </td>
-</tr>
-<tr>
-<td class='confluenceTd'>&nbsp;</td>
-<td class='confluenceTd'>&nbsp;</td>
-<td class='confluenceTd'>&nbsp;</td>
-<td class='confluenceTd'>&nbsp;</td>
-<td class='confluenceTd'>&nbsp;</td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Text and Date Formatting</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">dateformat</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">strftime</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">%</font><font color="#5c5c5c"><del>Y</del></font><font color="#5c5c5c">%m-%d</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini, list, detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Uses the PHP strftime to return a pre-formatted date stamp; Extended value of %O to replace the date(S) type. English ordinal suffix for the day of the month, 2 characters (</font><font color="#5c5c5c"><em>st</em></font><font color="#5c5c5c">,&nbsp;</font><font color="#5c5c5c"><em>nd</em></font><font color="#5c5c5c">,&nbsp;</font><font color="#5c5c5c"><em>rd</em></font><font color="#5c5c5c">&nbsp;or&nbsp;</font><font color="#5c5c5c"><em>th</em></font><font color="#5c5c5c">).&nbsp;Use this to help speed up render time.</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">timeformat</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">strftime</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">%H:%M %p</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini, list, detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Uses the PHP strftime to return a pre-formatted time stamp; Extended value of %O to replace the date(S) type. English ordinal suffix for the day of the month, 2 characters (</font><font color="#5c5c5c"><em>st</em></font><font color="#5c5c5c">,&nbsp;</font><font color="#5c5c5c"><em>nd</em></font><font color="#5c5c5c">,&nbsp;</font><font color="#5c5c5c"><em>rd</em></font><font color="#5c5c5c">&nbsp;or&nbsp;</font><font color="#5c5c5c"><em>th</em></font><font color="#5c5c5c">).&nbsp;Use this to help speed up render time.</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">dateseperator</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">string</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">/</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini, list, detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the date seperator string to use in date stamps</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Calendar view</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">activeMonthOnlyEvents</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">boolean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">0 (FALSE)</font><br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Display only events in the days of the current month</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">highlightToday</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">boolean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">1 (TRUE)</font><br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Adds the value of @todayClass to the current date</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">todayClass</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">today</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the CSS class name to use for the current date</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">noEventsClass</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">mxcDayNoEvents</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar,mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the CSS class name to apply to date containers where no events are found</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">hasEventsClass</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">mxcEvents</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the CSS class name to apply to date containers where events are found</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplEvent</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">tplEvent</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the template chunk name to use for each event</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplDay</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">tplDay</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the template chunk name to use for each day of the month, wrapper chunk for the tplEvent</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplWeek</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">tplWeek</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the template chunk name to use for each week of the month, outer wrapper for the tplDay</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplMonth</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">tplMonth</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the template chunk name to use for the month, outer wrapper for the tplWeek</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplHeading</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">tplHeading</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the template chunk name to use for the calendar heading, this chunk contains the calendar navigation controls</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Detail view</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplDetail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">tplDetail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the template chunk to display the event details</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplDetailModal</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">tplDetailModal</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the template chunk to display the event details in a modal view only</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> mapHeight <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> String/Int <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> 500px <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> all <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Set the Google Map height in the event details <br class="atl-forced-newline" /> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> mapWidth <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> String/Int <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> 500px <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> all <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Set the Google Map width in the event details </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Categories list</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">showCategories</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">boolean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">1 (TRUE)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set to true to enable the listing of categories to filter events by; set to false to disable listing of categories</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplCategoryWrap</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">tplCategoryWrap</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the chunk to wrap all the category listing output in</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">tplCategoryItem</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String (chunk)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">tplCategoryItem</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the template chunk to use for the category listing items</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">labelCategoryHeading</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">lexicon: mxcalendars.label_category_heading</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">calendar, mini</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the category listing heading label text</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Aux Parameters/Properties (global)</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">addJQ</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">boolean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">1 (TRUE)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Add the jQuery library source JS file as defined in the @jqLibSrc property</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">jqLibSrc</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c"><a href="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" class="external-link" rel="nofollow">https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js</a></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the URL to the jQuery library you would like mxCalendar to load</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">usemxcLib</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">boolean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">1 (TRUE)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Use the stand-a-lone modal windows JS library packaged with mxCalendar</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">ajaxResourceId</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">int</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">null</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the document resource id that you has the base mxcalendars snippet call and&nbsp;</font><font color="#5c5c5c"><b><em>blank template</em></b></font><font color="#5c5c5c">&nbsp;defined for use with the modal display</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">modalView</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">boolean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">0 (FALSE)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Enable or disable the modal view of events</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">modalSetWidth</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String/Int</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">80.00%</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the value for the modal windows display width, supports percents (%) and fixed width (500px)</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">modalSetHeight</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String/Int</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">70.00%</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the value for the modal windows display height, supports percents (%) and fixed width (500px)</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Google Map</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">gmapLib</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c"><a href="http://maps.google.com/maps/api/js?sensor=false" class="external-link" rel="nofollow">http://maps.google.com/maps/api/js?sensor=false</a></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the Google Map API URL to use for your site</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">gmapId</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">map</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the node id where the Google Map object should be displayed</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">gmapDefaultZoom</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Int</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">13</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the Google Map display default zoom level</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">gmapAPIKey</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">String</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">null</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">detail</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set the Google Map API key to your registered API for additional tracking and increased request (higher limits)</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Holiday (coming soon)</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">holidays</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Struct</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">null</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">coming soon</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">holidayDisplayEvents</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Boolean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">1 (TRUE)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">coming soon</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c"><b>Debugging</b></font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">&nbsp;</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">use with caution, so not listed and not recommended to use</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">debugTimezone</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">boolean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">0 (FALSE)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set to true to see how your dates are being processed for your server settings</font> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> <font color="#5c5c5c">debug</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">boolean</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">0 (FALSE)</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">all</font> </td>
-<td class='confluenceTd'> <font color="#5c5c5c">Set to true to enable all kids of fun output of the calendar processing, helps to trouble shoot any issues with the calendar</font><br class="atl-forced-newline" />
-<br class="atl-forced-newline" /> </td>
-</tr>
-</tbody></table>
+<table class='confluenceTable'>
+<tbody>
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Parameters</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Type</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Default</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Scope</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Description</b></font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">theme</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">string</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">default</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini, list, detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the theme to use; looks for theme files in the “/assets/components/mxcalendars/theme/” folder. You can create a new one by simply copying the default or traditional folder and modify then update the parater to your folder name.</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">resourceId</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">int</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">(current resource)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini, list, detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">This sets the resource ID to use when creating links that use the non-ajax parameter</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">isLocked</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">boolean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">0 (FALSE)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini, list, detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">When set to true the display type for this snippet call will not be changed regardless of any passed parameters or query string values; used when you have multiple snippet calls on a single page</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">displayType</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">string</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">default</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the default display mode when not passed in snippet call or query string</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">elStartDate</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">date</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">now</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">list</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Uses PHP strtotime to set as the minimum date start listing</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">elEndDate</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">date</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">+4 weeks</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">list</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the last date you want as the filter for returning dates in the future; uses PHP strtotime function</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplListItem</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">el.itemclean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">list</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">The chunk you want to use for each individual event item returned in the list</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplListHeading</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">el.listheading</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">list</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">The chunk you want to use for month heading sperator in list view; to display the monthly heading make it empty</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplListWrap</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">el.wrap</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">list</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">The chunk that is the outer most wrapper for the list view, often contains the global heading “Upcoming Events”</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">eventListlimit</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">int</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">5</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">list</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the max number of event items to display in the events list this includes the repeating events for a given event</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">sort</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">string (column name)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">startdate</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini, list, detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the default sorting order, often this is not modified and helps performance when dealing with the limits</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">dir</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">string (ASC, DESC)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">ASC</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini, list, detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the sort direction to use</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">limit</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">int</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">99</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini, list, detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Sets the max number of items to return from the data base query</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;contextFilter</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;string (comma seperated)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">empty; ?all + current context</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini, list, detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Sets which context to filter out events for, by defaullt it list global events where no context has been set plus the current context. &nbsp;In order to disable the global events from display you have to set the contextFilter value to the current context, thus over writing the default value.</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+calendarFilter
+</td>
+<td class='confluenceTd'>
+string (comma seperated list of category id)
+</td>
+<td class='confluenceTd'>
+null
+</td>
+<td class='confluenceTd'>
+calendar, mini
+</td>
+<td class='confluenceTd'>
+Sets a calendar filter based on the events associated calendar. By default all events are displayed regardless of the calendar they are associated to. You must set this to the value of a category id or multiple category id's&nbsp;separated&nbsp;by a comma (,).
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+elDirectional
+</td>
+<td class='confluenceTd'>
+date
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+future
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+calendar, mini, list, detail
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Sets the direction of the list based on the elStartDate parameter.&nbsp; By default, all listed events are future events.&nbsp; To show a list of past events, set this to `past` (make sure to include the elStartDate=`now` for a past event list display.)
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+&nbsp;
+</td>
+<td class='confluenceTd'>
+&nbsp;
+</td>
+<td class='confluenceTd'>
+&nbsp;
+</td>
+<td class='confluenceTd'>
+&nbsp;
+</td>
+<td class='confluenceTd'>
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Text and Date Formatting</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">dateformat</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">strftime</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">%</font><font color="#5C5C5C"><del>Y</del></font><font color="#5C5C5C">%m-%d</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini, list, detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Uses the PHP strftime to return a pre-formatted date stamp; Extended value of %O to replace the date(S) type. English ordinal suffix for the day of the month, 2 characters (</font><font color="#5C5C5C"><em>st</em></font><font color="#5C5C5C">,&nbsp;</font><font color="#5C5C5C"><em>nd</em></font><font color="#5C5C5C">,&nbsp;</font><font color="#5C5C5C"><em>rd</em></font><font color="#5C5C5C">&nbsp;or&nbsp;</font><font color="#5C5C5C"><em>th</em></font><font color="#5C5C5C">).&nbsp;Use this to help speed up render time.</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">timeformat</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">strftime</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">%H:%M %p</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini, list, detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Uses the PHP strftime to return a pre-formatted time stamp; Extended value of %O to replace the date(S) type. English ordinal suffix for the day of the month, 2 characters (</font><font color="#5C5C5C"><em>st</em></font><font color="#5C5C5C">,&nbsp;</font><font color="#5C5C5C"><em>nd</em></font><font color="#5C5C5C">,&nbsp;</font><font color="#5C5C5C"><em>rd</em></font><font color="#5C5C5C">&nbsp;or&nbsp;</font><font color="#5C5C5C"><em>th</em></font><font color="#5C5C5C">).&nbsp;Use this to help speed up render time.</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">dateseperator</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">string</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">/</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini, list, detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the date seperator string to use in date stamps</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Calendar view</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">activeMonthOnlyEvents</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">boolean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">0 (FALSE)</font>
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Display only events in the days of the current month</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">highlightToday</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">boolean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">1 (TRUE)</font>
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Adds the value of @todayClass to the current date</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">todayClass</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">today</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the CSS class name to use for the current date</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">noEventsClass</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">mxcDayNoEvents</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar,mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the CSS class name to apply to date containers where no events are found</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">hasEventsClass</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">mxcEvents</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the CSS class name to apply to date containers where events are found</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplEvent</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplEvent</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the template chunk name to use for each event</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplDay</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplDay</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the template chunk name to use for each day of the month, wrapper chunk for the tplEvent</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplWeek</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplWeek</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the template chunk name to use for each week of the month, outer wrapper for the tplDay</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplMonth</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplMonth</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the template chunk name to use for the month, outer wrapper for the tplWeek</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplHeading</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplHeading</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the template chunk name to use for the calendar heading, this chunk contains the calendar navigation controls</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Detail view</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplDetail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplDetail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the template chunk to display the event details</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplDetailModal</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplDetailModal</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the template chunk to display the event details in a modal view only</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+mapHeight
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+String/Int
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+500px
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+all
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Set the Google Map height in the event details
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+mapWidth
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+String/Int
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+500px
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+all
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Set the Google Map width in the event details
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Categories list</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">showCategories</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">boolean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">1 (TRUE)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set to true to enable the listing of categories to filter events by; set to false to disable listing of categories</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplCategoryWrap</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplCategoryWrap</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the chunk to wrap all the category listing output in</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplCategoryItem</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String (chunk)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">tplCategoryItem</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the template chunk to use for the category listing items</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">labelCategoryHeading</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">lexicon: mxcalendars.label_category_heading</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">calendar, mini</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the category listing heading label text</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Aux Parameters/Properties (global)</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">addJQ</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">boolean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">1 (TRUE)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Add the jQuery library source JS file as defined in the @jqLibSrc property</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">jqLibSrc</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String</font>
+</td>
+<td class='confluenceTd'>
+<a href="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" class="external-link" rel="nofollow"><font color="#5C5C5C">https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js</font></a>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the URL to the jQuery library you would like mxCalendar to load</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">usemxcLib</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">boolean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">1 (TRUE)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Use the stand-a-lone modal windows JS library packaged with mxCalendar</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">ajaxResourceId</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">int</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">null</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the document resource id that you has the base mxcalendars snippet call and&nbsp;</font><font color="#5C5C5C"><b><em>blank template</em></b></font><font color="#5C5C5C">&nbsp;defined for use with the modal display</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">modalView</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">boolean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">0 (FALSE)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Enable or disable the modal view of events</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">modalSetWidth</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String/Int</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">80.00%</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the value for the modal windows display width, supports percents (%) and fixed width (500px)</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">modalSetHeight</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String/Int</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">70.00%</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the value for the modal windows display height, supports percents (%) and fixed width (500px)</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Google Map</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">gmapLib</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String</font>
+</td>
+<td class='confluenceTd'>
+<a href="http://maps.google.com/maps/api/js?sensor=false" class="external-link" rel="nofollow"><font color="#5C5C5C">http://maps.google.com/maps/api/js?sensor=false</font></a>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the Google Map API URL to use for your site</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">gmapId</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">map</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the node id where the Google Map object should be displayed</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">gmapDefaultZoom</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Int</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">13</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the Google Map display default zoom level</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">gmapAPIKey</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">String</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">null</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">detail</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set the Google Map API key to your registered API for additional tracking and increased request (higher limits)</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Holiday (coming soon)</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">holidays</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Struct</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">null</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">coming soon</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">holidayDisplayEvents</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Boolean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">1 (TRUE)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">coming soon</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C"><b>Debugging</b></font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">&nbsp;</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">use with caution, so not listed and not recommended to use</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">debugTimezone</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">boolean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">0 (FALSE)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set to true to see how your dates are being processed for your server settings</font>
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+<font color="#5C5C5C">debug</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">boolean</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">0 (FALSE)</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">all</font>
+</td>
+<td class='confluenceTd'>
+<font color="#5C5C5C">Set to true to enable all kids of fun output of the calendar processing, helps to trouble shoot any issues with the calendar</font>
+<br class="atl-forced-newline" />
+<br class="atl-forced-newline" />
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 
-
-
-<h2><a name="mxCalendar-Demo"></a>Demo</h2>
-        </div>
-
-        <!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-         <rdf:Description
-    rdf:about="http://oldrtfm.modx.com/display/ADDON/mxCalendar"
-    dc:identifier="http://oldrtfm.modx.com/display/ADDON/mxCalendar"
-    dc:title="mxCalendar"
-    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/38994084"/>
-</rdf:RDF>
--->
-
-            
-    
-
-
-<fieldset class="hidden parameters">
-    <legend>Labels parameters</legend>
-    <input type="hidden" id="editLabel" value="Edit">
-    <input type="hidden" id="addLabel" value="Add Labels">
-    <input type="hidden" id="domainName" value="http://oldrtfm.modx.com">
-    <input type="hidden" id="pageId" value="38994084">
-    <input type="hidden" id="spaceKey" value="ADDON">
-</fieldset>
-
-<div id="labels-section" class="pageSection">
-    <div id="default-labels-header" class="section-header">
-        <h2 id="labels-section-title" class="section-title ">Labels</h2>
-            </div>
-
-    <div class="labels-editor">
-        <div id="labelsList">
-            <div id="label-37847042" class="confluence-label">
-    <a class="label" rel="nofollow" href="/label/ADDON/calendar">calendar</a>    <span class="remove-label-caption">calendar</span>
-    <a class="remove-label" href="#">Delete</a>
-</div>
-<div id="label-43286529" class="confluence-label">
-    <a class="label" rel="nofollow" href="/label/ADDON/mxcalendar">mxcalendar</a>    <span class="remove-label-caption">mxcalendar</span>
-    <a class="remove-label" href="#">Delete</a>
-</div>
-<div id="label-43286530" class="confluence-label">
-    <a class="label" rel="nofollow" href="/label/ADDON/properties">properties</a>    <span class="remove-label-caption">properties</span>
-    <a class="remove-label" href="#">Delete</a>
-</div>
-        </div>
-
-        <span class="errorMessage error" id="errorSpan"></span>
-        <form method="GET" action="" id="add-labels-form">
-            <div id="labelInputSpan" class="labels-input">
-                <div id="labelOperationErrorContainer" class="hidden">
-                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
-                </div>
-
-                <div class="caption">Enter labels to add to this page:</div>
-                <div id="label-input-fields">
-                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
-                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
-                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
-                </div>
-                <div id="waitImageAndStatus">
-                    <img class="waiting" alt="Please wait" src="/s/1911/69/_/images/icons/wait.gif">&nbsp;
-                    <span id="labelOperationStatus" class="smalltext"></span>
-                </div>
-                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
-                <div class="labels-tip">
-                    <div id="suggestedLabelsSpan"></div>
-                    Looking for a label? Just start typing.
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-                    <div id="children-section" class="pageSection">
-        
-        <div class="section-header ">
-            <h2 id="children-section-title" class="section-title">
-                <a name="children">Child Pages (2)    </a>
-            </h2>
-            <span class="noprint">
-                &nbsp;
-                                    <a id="hide-children-link" class="grey" href="/display/ADDON/mxCalendar?showChildren=false&#0035;children">Hide Child Pages</a>
-                
-                &nbsp;|&nbsp; <a class="grey" href="/pages/listpages-dirview.action?key=ADDON&amp;openId=38994084#selectedPageInHierarchy">Reorder Pages</a>
-                            </span>
-        </div>
-                    <div id="page-children" class="pageSectionBody">
-                                                     <span class="icon icon-page">Page:</span>
-                         <a href="/display/ADDON/mxCalendar.Examples">mxCalendar.Examples</a>
-                             <br>
-                                                     <span class="icon icon-page">Page:</span>
-                         <a href="/display/ADDON/mxCalendar.Placeholders">mxCalendar.Placeholders</a>
-                             <br>
-                            </div>
-                </div>
-    
-            
-
-
-
-
-            
-    
-
-        
-<fieldset class="parameters hidden">
-    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
-    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
-        </fieldset>
-
-
-
-
-
-
-<div id="comments-section" class="pageSection">
-    
-    
-    
-    
-                                    </div>
-
-
-            
-</div>
-
-
-    
-
-
-
-
-        
-        
-
-    
-    
-    
-
-
-<fieldset class="hidden parameters">
-        <input type="hidden" id="i18n.manage.watchers.dialog.title" value="Manage Watchers">
-        <input type="hidden" id="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
-        <input type="hidden" id="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
-</fieldset>
-<script type="text/x-template" title="manage-watchers-dialog">
-<div class="dialog-content">
-    <div class="column page-watchers">
-        <h3>Watching this page</h3>
-        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
-        <form action="/json/addwatch.action" method="POST">
-                <input type="hidden" name="atl_token" value="Up-vF728YZ">
-            <input type="hidden" name="pageId" value="38994084"/>
-            <input type="hidden" id="add-watcher-username" name="username" value=""/>
-            <label for="add-watcher-user">User</label>
-            <input id="add-watcher-user" name="userFullName" type="search" class="has-placeholder autocomplete-user"
-               value="" placeholder="Full name or username" autocomplete="off"
-               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
-               data-template="{title}" data-none-message="No matching users found.">
-            <input id="add-watcher-submit" type="submit" name="add" value="Add">
-            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
-            <div class="status hidden"></div>
-        </form>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No page watchers</li>
-        </ul>
-    </div>
-    <div class="column space-watchers">
-        <h3>Watching this space</h3>
-        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No space watchers</li>
-        </ul>
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="manage-watchers-user">
-    <li class="watch-user">
-        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
-        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
-        <span class="remove-watch" title="Remove"
-            data-username="{username}">Remove</span>
-    </li>
-</script>
-<script type="text/x-template" title="manage-watchers-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Managing+Watchers" target="_blank">Help</a>
-    </div>
-</script>
-    <br class="clear">
-</div>
-  
-    </div>
-</div>
-
-<div id="footer">
-                                                <p class="license license-opensource">
-                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to MODx CMS / xPDO. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
-                </p>
-                        
-    <ul id="poweredby">
-        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.3, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
-        <li class="print-only">Printed by Atlassian Confluence 3.3, the Enterprise Wiki.</li>        
-        <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
-        <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
-    </ul>
-
-    
-
-            <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-71684-1']);
-  _gaq.push(['_setDomainName', 'oldrtfm.modx.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    </div>    <!-- include system javascript resources -->
-                        
-    
-    
-    <!-- end system javascript resources -->
-</div>
-</body>
-</html>
+<h2>
+<a name="mxCalendar-Demo" id="mxCalendar-Demo"></a>Demo
+</h2>

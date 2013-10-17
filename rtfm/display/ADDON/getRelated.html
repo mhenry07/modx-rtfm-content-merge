@@ -1,1285 +1,773 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-            <title>getRelated - MODx Add-Ons - MODX Documentation</title>
-    
-        
-
-                        
-    
-
-            
-<meta id="confluence-context-path" name="confluence-context-path" content="">
-<meta id="atlassian-token" name="atlassian-token" content="5-xieeHpqC">
-<meta id="confluence-space-key" name="confluence-space-key" content="ADDON">
-
-<script type="text/javascript">
-    // Deprecated global variables. To be removed in a future version of Confluence.
-    var contextPath = '';
-</script>
-
-    
-
-<!-- include system css resources -->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?media=print" media="print">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
-<![endif]-->
-
-<!-- end system css resources -->
-
-    <link rel="stylesheet" href="/s/1911/69/11/_/styles/combined.css?spaceKey=ADDON" type="text/css">
-
-    <meta name="confluence-request-time" content="1381728537273">
-
-<meta name="loggedInUsername" content="">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/s/1911/69/_/images/logo/confluence_16.png">
-
-<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="MODX Documentation"/>
-
-        <!-- include system javascript resources -->
-                        
-    
-    <script type="text/javascript" src="/s/1911/69/2/_/download/superbatch/js/batch.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
-<script type="text/javascript" src="/s/1911/69/3.3/_/download/batch/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.2/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
-
-    <!-- end system javascript resources -->
-
-    <link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/docs.css" />
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/syntaxhighlighter/css/all.css" />
-<!--<script type="text/javascript" src="http://misc.modx.com/js/jquery-1.3.2.min.js"></script>-->
-<script type="text/javascript" src="http://misc.modx.com/confluence/syntaxhighlighter/js/all.js"></script>
-<script type="text/javascript" src="http://misc.modx.com/confluence/loadcode.js"></script>
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/promo/ad.css" />
-
-    
-    <link rel="canonical" href="http://oldrtfm.modx.com/display/ADDON/getRelated">
-    <link rel="shortlink" href="http://oldrtfm.modx.com/x/BQAvAg">
-    <meta name="wikilink" content="[ADDON:getRelated]">
-
-</head>
-
-<body             onload="placeFocus()"
-     id="com-atlassian-confluence" class="theme-documentation ">
-<div id="full-height-container">
-<!-- CODE FOR AD THAT SEEMS TO BE INSERTABLE DIRECTLY AFTER OPEN BODY TAG IN CONFLUENCE THEME ADMIN -->
-<!--<a href="https://modxcloud.com/signup/lab-account.html?utm_source=rtfm&utm_medium=banner&utm_campaign=one_percent%2B" class="modx-cloud-link">
-    <div class="modx-cloud-ad-wrap">
-        <div class="modx-cloud-ad">
-            <div class="logo-wrap">
-                <img src="http://misc.modx.com/confluence/promo/modx-cloud-logo.png" alt="MODX Cloud" width="161" height="40">
-            </div>
-            <p>The Most Productive MODX Learning Playground Ever</p>
-            <span class="faux-btn">
-                Claim Free Lab Account
-            </span>
-
-        </div>
-    </div>
-</a>-->
-<!-- END OF AD -->
-
-<div class="editors_note" style="background-color:#ff9a91;border: 1px solid red; padding:5px;color:black;">
-    <strong>Important Note:</strong> This is an archive of the official MODX Documentation. Please do not edit or make changes here.  The current documentation is located at <a href="rtfm.modx.com">rtfm.modx.com</a>.
-</div>
-
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
-    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
-    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
-    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
-    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
-</fieldset>
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
-    <input type="hidden" id="userLocale" value="en_GB">
-    <input type="hidden" id="staticResourceUrlPrefix" value="/s/1911/69/_">
-    <input type="hidden" id="contextPath" value="">
-</fieldset>
-
-    
-<div id="header" class="sectionbottom ">
-        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
-        <fieldset>
-            <legend>Quick Search</legend>
-            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
-            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
-            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
-        </fieldset>
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="quickNavEnabled" value="true" />
-                    </fieldset>
-    </form>
-    <ul id="header-menu-bar" class="ajs-menu-bar">
-                    
-        
-            <li class="normal ajs-menu-item">
-        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
-                                        <li>
-    
-        
-    
-    <a  id="space-pages-link" href="/pages/listpages.action?key=ADDON"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Pages</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=ADDON"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Blog</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=ADDON"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Labels</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=ADDON"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Attachments</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  href="/spaces/space-bookmarks.action?spaceKey=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
-                   <span>Bookmarks</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
-                   <span>Mail</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=ADDON"  class=""   title="Browse bookmarks in the MODx Add-Ons space">
-                   <span>Advanced</span></a>        </li>
-                            </ul>
-                        <ul  id="browse-menu-link-global"                 class="section-global">
-                                        <li>
-    
-            
-    
-    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
-                   <span>Confluence Gadgets</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-        
-                                                         <li class="ajs-menu-item normal">
-        
-        
-    
-    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2FADDON%2FgetRelated"  class="user-item login-link"  >
-                   <span>Log In</span></a>        </li>
-                                <li class="normal ajs-menu-item">
-            <div id="splitter-button" class="hidden" title="Sidebar"></div>
-        </li>
-
-    </ul>
-    
-    
-    <ol id="breadcrumbs">
-                    
-        <li class="first" >
-                                    <span><a href="/dashboard.action">Dashboard</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/ADDON">MODx Add-Ons</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/ADDON/Home">Home</a></span>
-                </li>
-                    
-        <li>
-                                    <span>getRelated</span>
-                </li>
-        </ol>
-
-</div>
-
-    <div id="splitter">
-    <div id="splitter-sidebar">
-
-        
-
-                    
-    
-    
-
-<div class="plugin_pagetree">
-
-                <div id="pagetreesearch">
-            <form method="POST" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
-                                    <input type="hidden" name="ancestorId" value="425998">
-                                <input type="hidden" name="spaceKey" value="ADDON">
-                <input type="text"  size="20" name="queryString">
-                <input type="submit" value="Search">
-            </form>
-        </div>
-    
-        
-    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-        <div class="plugin_pagetree_children">
-        </div>
-    </ul>
-
-    <fieldset class="hidden">
-        <input type="hidden" name="treeId" value="">
-        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
-        <input type="hidden" name="treePageId" value="36634629">
-
-        <input type="hidden" name="noRoot" value="false">
-        <input type="hidden" name="rootPageId" value="425998">
-
-        <input type="hidden" name="rootPage" value="">
-        <input type="hidden" name="startDepth" value="0">
-        <input type="hidden" name="spaceKey" value="ADDON" >
-
-        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
-        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
-        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
-        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2FADDON%2FgetRelated">
-
-                <fieldset class="hidden">
-                                                <input type="hidden" name="ancestorId" value="425998">
-                                    </fieldset>
-    </fieldset>
-</div>
-
-
-
-            </div>
-    <div id="splitter-content">
-
-                    <script type="text/javascript" src="/s/1911/69/2/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
-    
-            
-    
-<div id="main" >
-    
-    
-    <div id="navigation" class="content-navigation view">
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="pageId" value="36634629">
-        </fieldset>
-        <ul class="ajs-menu-bar">
-                                
-                        
-            <li class="normal ajs-menu-item">
-        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="action-menu-link-primary"                 class="section-primary first">
-                                        <li>
-    
-        
-    
-    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=36634629"  class="action-view-attachments"  accessKey="a" >
-                   <span><u>A</u>ttachments (0)</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=36634629"  class="action-view-history"  >
-                   <span>Page History</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="mailPageLink" href="/pages/mailpage/mailpage.action?pageId=36634629"  class=""  >
-                    <span>
-                <img alt="E-mail" src="/images/icons/mail_content_16.gif" height="16" width="16" title="E-mail">
-                E-mail
-            </span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=36634629"  class="action-page-permissions"  >
-                   <span>Restrictions</span></a>        </li>
-                            </ul>
-                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
-                                        <li>
-    
-        
-    
-    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=36634629"  class="action-view-info"  >
-                   <span>Info</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=36634629"  class=""  >
-                   <span>Link to this Page&hellip;</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=ADDON&openId=36634629#selectedPageInHierarchy"  class=""  >
-                   <span>View in Hierarchy</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=36634629"  class="action-view-source popup-link"  >
-                   <span>View Wiki Markup</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-            </ul>
-    </div>
-
-    
-    <h1 id="title-heading" class="pagetitle">
-                    <a href="/display/ADDON"><img class="logo global custom" src="/download/attachments/9109505/global.logo?version=2&modificationDate=1356105314000" alt=""></a>        
-		<span id="title-text">
-					            <a href="/display/ADDON/getRelated">getRelated</a>
-    				</span>
-    </h1>
-
-    
-
-    
-    
-    
-    <div id="content" class="page view">
-    
-
-
-
-<fieldset id="link-to-page-fields" class="hidden parameters">
-    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
-    <input type="hidden" id="linkToThisPageLink" value="Link">
-    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
-    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
-    <input type="hidden" id="linkToThisPageClose" value="Close">
-</fieldset>
-<fieldset class="hidden parameters">
-    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;getRelated&#8217;">
-    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
-    <input type="hidden" title="movePageDialogMoveButton" value="Move">
-    <input type="hidden" title="movePageDialogOkButton" value="OK">
-    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
-    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
-    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
-    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
-    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
-    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
-    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
-    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
-    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
-    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
-    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
-    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
-    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
-    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
-    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
-    <input type="hidden" title="pageTitle" value="getRelated"/>
-    <input type="hidden" title="parentPageTitle" value="Home"/>
-    <input type="hidden" title="fromPageTitle" value=""/>
-    <input type="hidden" title="spaceKey" value="ADDON"/>
-    <input type="hidden" title="spaceName" value="MODx Add-Ons"/>
-    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
-    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
-    <input type="hidden" title="movePageDialogBackButton" value="Back"/>
-    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder"/>
-    <input type="hidden" title="movePageDialogNextButton" value="Move"/>    
-</fieldset>
-
-<script type="text/x-template" title="movePageDialog">
-    <div class="row information">
-        Specify the new parent page for this page and its children by space and title.
-    </div>
-    <div class="form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
-            <div class="row">
-                <label for="new-space">New space:</label>
-                <div class="value new-space-value">
-                    <input id="new-space-key" name="new-space-key" type="hidden" value="ADDON">
-                                            <span class="space-input">
-                            <input id="new-space" name="new-space" value="MODx Add-Ons" disabled="disabled">
-                        </span>
-                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
-                                        <div class="new-space-dropdown aui-dd-parent"></div>
-                </div>
-            </div>
-            <div class="row">
-                <label for="new-parent-page">New parent page:</label>
-                <div class="value new-parent-page-value">
-                    <span class="page-input">
-                        <input id="new-parent-page" name="new-parent-page" value="Home">
-                    </span>
-                    <span class="description">Start typing a page title to see a list of suggestions.</span>
-                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="location-info">
-        <div class="row">
-            <label>Current location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <label>New location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
-<script type="text/x-template" title="movePageErrors">
-    <div id="move-errors" class="hidden warning"></div>
-</script>
-<script type="text/x-template" title="movePageBreadcrumb">
-    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbLoading">
-    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbError">
-    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
-</script>
-<script type="text/x-template" title="movePageNoMatchingPages">
-    <ol><li><span class="warning">No matching pages found.</span></li></ol>
-</script>
-<script type="text/x-template" title="movePageNoMatchingSpaces">
-    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
-</script>
-
-<script type="text/x-template" title="movePageSearchPanel">
-<div class="row information">
-    Search for and select the new parent page for this page and its children.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
-            
-
-    <label  for="move-page-search-query" class="assistive">Search keywords</label>
-            <input class="search-query" id="move-page-search-query">
-            
-
-    <label  for="move-page-search-space" class="assistive">Search in space</label>
-                            <select id="move-page-search-space" class="search-space" disabled="disabled">
-                    <option value="ADDON" selected="selected">MODx Add-Ons</option>
-                </select>
-                        <input type="button" value="Search">
-                            <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
-                    </fieldset>
-    </div>
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageSearchResultsLoading">
-    <div class="searching">Searching…</div>
-</script>
-
-<script type="text/x-template" title="movePageHistoryPanel">
-<div class="row information">
-    Select the new parent page for this page and its children from your history.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageHistoryLoading">
-    <div class="searching">Loading…</div>
-</script>
-<script type="text/x-template" title="movePageBrowsePanel">
-    <div class="row information">
-        Click to select the new parent page for this page and its children.
-    </div>
-    <div class="tree"></div>
-</script>
-<script type="text/x-template" title="movePagePanelLoading">
-    <span>Loading…</span>
-</script>
-<script type="text/x-template" title="movePageBrowsePanelSpace">
-    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
-</script>
-<script type="text/x-template" title="orderingPagePanel">
-<div id="orderingPlaceHolder"></div>
-</script>
-<script type="text/x-template" title="reorderCheckbox">
-<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
-</script>
-<script type="text/x-template" title="move-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Moving+a+Page" target="_blank">Help</a>
-    </div>
-</script>
-<script type="text/x-template" title="searchResultsGrid">
-    <table>
-        <thead>
-            <tr class="header">
-                <th class="search-result-title">Page Title</th>
-                <th class="search-result-space">Space</th>
-                <th class="search-result-date">Updated</th>
-            </tr>
-        </thead>
-    </table>
-</script>
-<script type="text/x-template" title="searchResultsGridCount">
-    <p class="search-result-count">{0}</p>
-</script>
-<script type="text/x-template" title="searchResultsGridRow">
-    <tr class="search-result">
-        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
-        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
-        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
-    </tr>
-</script>
-<!-- Start restrictions section -->
-<fieldset class="hidden parameters i18n">
-        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
-        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
-        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
-        <input type="hidden" id="i18n.cancel.name" value="Cancel">
-        <input type="hidden" id="i18n.close.name" value="Close">
-        <input type="hidden" id="i18n.update.name" value="Save">
-</fieldset>
-
-<script type="text/x-template" title="page-permissions-div">
-<div id="page-permissions-div">
-    <div id="page-permissions-editor-form">
-
-                <div id="page-permissions-error-div" class="hidden">
-            <a href="#" id="permissions-error-div-close">Ok</a>
-            <div></div>
-        </div>
-
-                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
-            <div>
-                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
-                <label for="restrictViewRadio">Restrict viewing of this page</label>
-                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
-                <label for="restrictEditRadio">Restrict editing of this page</label>
-            </div>
-        </div>
-        <div id="page-permissions-input" class="page-permissions-label-rows">
-            <div class="page-permissions-label">To:</div>
-            <div id="page-permissions-chooser-box">
-                                <span id="page-permissions-choose-user" class="ajs-button">
-                    
-
-
-
-    
-
-
-
-<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=ADDON&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
-<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=ADDON&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
-
-
-                </span>
-                <span id="page-permissions-choose-group" class="ajs-button">
-                    
-
-
-
-    
-
- 
-
-<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=ADDON&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
-<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=ADDON&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
-
-
-                </span>
-            </div>
-            <div id="page-permissions-input-box">
-                                <span>
-                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
-                </span>
-                <input
-    type="hidden"
-                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1911/69/_/images/border/spacer.gif"/>
-                <input type="button" id="add-typed-names" value="Restrict">
-            </div>
-        </div>
-    </div>
-    <div id="page-permissions-tables">
-        <div id="page-permissions-table-div">
-                        <table id="page-permissions-table" class="page-permissions-table">
-                <tr id="page-permissions-no-views" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
-                </tr>
-                <tr id="page-permissions-no-edits" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
-                </tr>
-            </table>
-        </div>
-        <div id="page-inherited-permissions-table-div" class="hidden">
-            <span id="page-inherited-permissions-table-desc">
-                <a class="icon twisty-closed">Show/Hide</a>
-                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
-            </span>
-            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
-        </div>
-    </div>
-</div>
-</script>
-
-<script type="text/x-template" title="permissions-row-template">
-    <tr class="permission-row">
-                                
-                <td class="page-permissions-marker-cell" width="20%">
-            <span>Viewing restricted to:</span>
-        </td>
-                <td class="permission-entity" nowrap="true" width="40%">
-            <span class="entity-container">
-                <img class="permission-entity-picture"/>
-                <span class="permission-entity-display-name"></span>
-                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
-            </span>
-        </td>
-        <td class="permission-detail-column">
-            <div class="permission-remove-div">
-                <a href="#" class="remove-permission-link">Remove restriction</a>
-            </div>
-        </td>
-    </tr>
-</script>
-<script type="text/x-template" title="permissions-username-no-suggestion-template">
-    <ol>
-        <li><a href="#" class="message"><span>No matches</span></a></li>
-    </ol>
-</script>
-<script type="text/x-template" title="page-inherited-permissions-table-div-template">
-        <div class="page-inherited-permissions-owner-div">
-        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
-        <table class="page-permissions-table"></table>
-    </div>
-</script>
-<script type="text/x-template" title="page-restrictions-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Page+Restrictions" target="_blank">Help</a>
-    </div>
-</script>
-<!-- End restrictions section -->
-
-        
-    
-    
-        <fieldset class="hidden parameters">
-            <input type="hidden" title="parentPageId" value="425998">
-        </fieldset>
-
-        
-                            
-    
-
-                    
-
-        
-        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
-<div id="page-metadata-start" class="assistive"></div>
-
-    <div class="page-metadata">
-        <ul>
-                            <li class="page-metadata-item noprint">
-    
-            
-    
-    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Page restrictions apply</span></a>        </li>
-                        <li class="page-metadata-modification-info">
-                                    Added by <a href="/display/~markh"
-                          class="url fn"
-                   >Mark Hamstra</a>, last edited by <a href="/display/~markh"
-                          class="url fn"
-                   >Mark Hamstra</a> on Oct 21, 2012
-                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=36634629&originalId=42565776">view change</a>)</span>
-                                                </li>
-                    </ul>
-          <div id="version-comment" class="noteMacro" style="display: none;">
-      <strong>Comment:</strong>
-      <br />
-  </div>
-    </div>
-
-
-<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
-<div id="page-metadata-end" class="assistive"></div>
-        
-        <fieldset class="hidden parameters">
-                        <input type="hidden" title="browsePageTreeMode" value="view">
-        </fieldset>
-
-        <div class="wiki-content">
-           <!-- wiki content -->
-            <p>getRelated is a snippet for MODX Revolution that helps you list related resources.</p>
-
-<p>It allows you to customize the algorithm through its vital &amp;fields property allowing you to specify fields to use in comparison and the weight every field has.</p>
+<p>
+getRelated is a snippet for MODX Revolution that helps you list related resources.
+</p>
+
+<p>
+It allows you to customize the algorithm through its vital &amp;fields property allowing you to specify fields to use in comparison and the weight every field has.
+</p>
 
 <div>
 <ul>
-    <li><a href='#getRelated-Links%26History'>Links &amp; History</a></li>
-    <li><a href='#getRelated-HowgetRelatedworks%28MandatoryRead%5C%21%29'>How getRelated works (Mandatory Read!)</a></li>
-    <li><a href='#getRelated-SnippetProperties'>Snippet Properties</a></li>
-    <li><a href='#getRelated-Usage'>Usage</a></li>
+<li>
+<a href='#getRelated-Links%26History'>Links &amp; History</a>
+</li>
+
+<li>
+<a href='#getRelated-HowgetRelatedworks%28MandatoryRead%5C%21%29'>How getRelated works (Mandatory Read!)</a>
+</li>
+
+<li>
+<a href='#getRelated-SnippetProperties'>Snippet Properties</a>
+</li>
+
+<li>
+<a href='#getRelated-Usage'>Usage</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#getRelated-OptimizingPerformance'>Optimizing Performance</a></li>
+<li>
+<a href='#getRelated-OptimizingPerformance'>Optimizing Performance</a>
+</li>
 </ul>
-</ul></div>
-
-<h2><a name="getRelated-Links%26History"></a>Links &amp; History</h2>
-
-<div class='table-wrap'>
-<table class='confluenceTable'><tbody>
-<tr>
-<th class='confluenceTh'> Version <br class="atl-forced-newline" /> </th>
-<th class='confluenceTh'> Released On <br class="atl-forced-newline" /> </th>
-<th class='confluenceTh'> Highlights <br class="atl-forced-newline" /> </th>
-</tr>
-<tr>
-<td class='confluenceTd'> 1.2.0-pl <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> June 7th, 2012 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Add &amp;stopwords property, properly handling multiple calls per page, can also be used with Russian now. <br class="atl-forced-newline" /> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> 1.1.2-pl </td>
-<td class='confluenceTd'> January 21st, 2012 </td>
-<td class='confluenceTd'> Add &amp;hideContainers property. Prevent E_NOTICE errors. Fix &amp;includeDeleted property. </td>
-</tr>
-<tr>
-<td class='confluenceTd'> 1.1.1-pl </td>
-<td class='confluenceTd'> December 10th, 2011 </td>
-<td class='confluenceTd'> Fix issue with &amp;parents. Fix issue with &amp;fields with only one resource field chosen. </td>
-</tr>
-<tr>
-<td class='confluenceTd'> 1.1.0-pl </td>
-<td class='confluenceTd'> December 4th, 2011 </td>
-<td class='confluenceTd'> Adds TVs to the result set using new &amp;returnTVs propery, and also a new &amp;exclude property to hide certain results. </td>
-</tr>
-<tr>
-<td class='confluenceTd'> 1.0.2-pl <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> November 10th, 2011 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Fixes bug with filtering out current resource, now searches case insensitively and fixes ignoreHidden and ignoreUnpublished properties. Also improves legibility of debug data. <br class="atl-forced-newline" /> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> 1.0.1-pl(2) <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> October 26th, 2011 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Fixes bugs with tpl properties, &amp;parents and &amp;fields <br class="atl-forced-newline" /> </td>
-</tr>
-<tr>
-<td class='confluenceTd'> 1.0.0-pl <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> October 13th, 2011 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> First public release. Versions &lt; 1.0 were only released for HandyMan Contributors through its beta channel. <br class="atl-forced-newline" /> </td>
-</tr>
-</tbody></table>
+</li>
+</ul>
 </div>
 
-
-<p>The source is public at Github: <a href="https://github.com/Mark-H/getRelated" class="external-link" rel="nofollow">https://github.com/Mark-H/getRelated</a><br/>
-... which is also the place for bugs and feature requests: <a href="https://github.com/Mark-H/getRelated/Issues" class="external-link" rel="nofollow">https://github.com/Mark-H/getRelated/Issues</a></p>
-
-
-
-
-
-
-
-<p>Discussion on the forum in this topic: <a href="http://forums.modx.com/thread/71009/getrelated-automatically-listing-related-resources-for-revolution" class="external-link" rel="nofollow">http://forums.modx.com/thread/71009/getrelated-automatically-listing-related-resources-for-revolution</a></p>
-
-
-
-
-
-
-
-
-<p>Developed by <a href="http://www.markhamstra.nl" class="external-link" rel="nofollow">Mark Hamstra</a> for <a href="http://vierkante-meter.nl" class="external-link" rel="nofollow">Vierkante Meter</a>.</p>
-
-<h2><a name="getRelated-HowgetRelatedworks%28MandatoryRead%5C%21%29"></a>How getRelated works (Mandatory Read&#33;)</h2>
-
-<p>To properly use the properties to customize the results, it is important to understand how getRelated works.</p>
-
-<p>The following steps are taken in collecting related resources:</p>
-<ol>
-	<li>getRelated finds the resource you are using as the base, usually the current resource. It takes the fields you specify (&amp;fields) and tears them apart to find distinct words.</li>
-	<li>It uses stopwords, defined in the language specific lexicons, to filter out common stop words leaving only words that really should matter.</li>
-	<li>It uses the related words in a database query limited to the contexts, parents (and their children) you define to find only resources that contain one or more of these resources. <b>This is the comparison sample.</b> This is done for resource fields and template variables based on your fields property.</li>
-	<li>The sample is processed against the weights you define in your fields property (&amp;fields) to calculate a ranking for each of those resource.&nbsp;</li>
-	<li>The result set is sorted based on ranking (highest ranking first) and then outputted on screen using the tpl properties.</li>
-</ol>
-
-
-<p>The properties below can be used to customize behavior in one or more of the steps above. In the table below you can find the step(s) a property applies to.</p>
-
-
-
-<h2><a name="getRelated-SnippetProperties"></a>Snippet Properties</h2>
+<h2>
+<a name="getRelated-Links%26History"></a>Links &amp; History
+</h2>
 
 <div class='table-wrap'>
-<table class='confluenceTable'><tbody>
+<table class='confluenceTable'>
+<tbody>
 <tr>
-<th class='confluenceTh'> Property <br class="atl-forced-newline" /> </th>
-<th class='confluenceTh'> Step(s) <br class="atl-forced-newline" /> </th>
-<th class='confluenceTh'> Description <br class="atl-forced-newline" /> </th>
-<th class='confluenceTh'> Default Value <br class="atl-forced-newline" /> </th>
+<th class='confluenceTh'>
+Version
+<br class="atl-forced-newline" />
+</th>
+<th class='confluenceTh'>
+Released On
+<br class="atl-forced-newline" />
+</th>
+<th class='confluenceTh'>
+Highlights
+<br class="atl-forced-newline" />
+</th>
 </tr>
+
 <tr>
-<td class='confluenceTd'> resource </td>
-<td class='confluenceTd'> 1 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Either the Resource ID to find related resources for or "current" or empty to find related for the current resource. </td>
-<td class='confluenceTd'> current <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+1.2.0-pl
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+June 7th, 2012
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Add &amp;stopwords property, properly handling multiple calls per page, can also be used with Russian now.
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> fields </td>
-<td class='confluenceTd'> 1, 3, 4 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Comma separated list of fieldname:weight to use in the comparison.  Prefix TVs with "tv.". Don\'t use the content unless you want to kill  performance. Example of use:  pagetitle:3,tv.MyTags:7,tv.MySubjects:15,introtext:2 </td>
-<td class='confluenceTd'> pagetitle:3,introtext:2 </td>
+<td class='confluenceTd'>
+1.1.2-pl
+</td>
+<td class='confluenceTd'>
+January 21st, 2012
+</td>
+<td class='confluenceTd'>
+Add &amp;hideContainers property. Prevent E_NOTICE errors. Fix &amp;includeDeleted property.
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> defaultWeight <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> 4 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> (int) Weight to assign to fields that don't have a weight set specifically. </td>
-<td class='confluenceTd'> 5 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+1.1.1-pl
+</td>
+<td class='confluenceTd'>
+December 10th, 2011
+</td>
+<td class='confluenceTd'>
+Fix issue with &amp;parents. Fix issue with &amp;fields with only one resource field chosen.
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> returnFields </td>
-<td class='confluenceTd'> 5 (3) <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Resource Fields (use &amp;returnTVs for template variables) to include in the output. By default you will have access to the resource ID as well. <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> pagetitle,longtitle,introtext </td>
+<td class='confluenceTd'>
+1.1.0-pl
+</td>
+<td class='confluenceTd'>
+December 4th, 2011
+</td>
+<td class='confluenceTd'>
+Adds TVs to the result set using new &amp;returnTVs propery, and also a new &amp;exclude property to hide certain results.
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> returnTVs </td>
-<td class='confluenceTd'> 5 </td>
-<td class='confluenceTd'> Specify a comma separated list of TV names to include in the results. These TVs are not used in the comparison process, but are only retrieved when returning the top ranking results. Do <em>not</em>&nbsp;prefix with "tv." like you would in the &amp;fields property. </td>
-<td class='confluenceTd'>&nbsp;</td>
+<td class='confluenceTd'>
+1.0.2-pl
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+November 10th, 2011
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Fixes bug with filtering out current resource, now searches case insensitively and fixes ignoreHidden and ignoreUnpublished properties. Also improves legibility of debug data.
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> parents </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Comma separated list of parents to use in finding related resources </td>
-<td class='confluenceTd'>&nbsp;</td>
+<td class='confluenceTd'>
+1.0.1-pl(2)
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+October 26th, 2011
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Fixes bugs with tpl properties, &amp;parents and &amp;fields
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> parentsDepth </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> The depth to search parents for </td>
-<td class='confluenceTd'> 10 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+1.0.0-pl
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+October 13th, 2011
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+First public release. Versions &lt; 1.0 were only released for HandyMan Contributors through its beta channel.
+<br class="atl-forced-newline" />
+</td>
 </tr>
+</tbody>
+</table>
+</div>
+
+<p>
+The source is public at Github: <a href="https://github.com/Mark-H/getRelated" class="external-link" rel="nofollow">https://github.com/Mark-H/getRelated</a>
+<br />
+... which is also the place for bugs and feature requests: <a href="https://github.com/Mark-H/getRelated/Issues" class="external-link" rel="nofollow">https://github.com/Mark-H/getRelated/Issues</a>
+</p>
+
+<p>
+Discussion on the forum in this topic: <a href="http://forums.modx.com/thread/71009/getrelated-automatically-listing-related-resources-for-revolution" class="external-link" rel="nofollow">http://forums.modx.com/thread/71009/getrelated-automatically-listing-related-resources-for-revolution</a>
+</p>
+
+<p>
+Developed by <a href="http://www.markhamstra.nl" class="external-link" rel="nofollow">Mark Hamstra</a> for <a href="http://vierkante-meter.nl" class="external-link" rel="nofollow">Vierkante Meter</a>.
+</p>
+
+<h2>
+<a name="getRelated-HowgetRelatedworks%28MandatoryRead%5C%21%29"></a>How getRelated works (Mandatory Read!)
+</h2>
+
+<p>
+To properly use the properties to customize the results, it is important to understand how getRelated works.
+</p>
+
+<p>
+The following steps are taken in collecting related resources:
+</p>
+
+<ol>
+<li>getRelated finds the resource you are using as the base, usually the current resource. It takes the fields you specify (&amp;fields) and tears them apart to find distinct words.
+</li>
+
+<li>It uses stopwords, defined in the language specific lexicons, to filter out common stop words leaving only words that really should matter.
+</li>
+
+<li>It uses the related words in a database query limited to the contexts, parents (and their children) you define to find only resources that contain one or more of these resources. <b>This is the comparison sample.</b> This is done for resource fields and template variables based on your fields property.
+</li>
+
+<li>The sample is processed against the weights you define in your fields property (&amp;fields) to calculate a ranking for each of those resource.&nbsp;
+</li>
+
+<li>The result set is sorted based on ranking (highest ranking first) and then outputted on screen using the tpl properties.
+</li>
+</ol>
+
+<p>
+The properties below can be used to customize behavior in one or more of the steps above. In the table below you can find the step(s) a property applies to.
+</p>
+
+<h2>
+<a name="getRelated-SnippetProperties"></a>Snippet Properties
+</h2>
+
+<div class='table-wrap'>
+<table class='confluenceTable'>
+<tbody>
 <tr>
-<td class='confluenceTd'> exclude </td>
-<td class='confluenceTd'> 3 </td>
-<td class='confluenceTd'> Comma separated list of resource IDs you want to exclude from the results. </td>
-<td class='confluenceTd'>&nbsp;</td>
+<th class='confluenceTh'>
+Property
+<br class="atl-forced-newline" />
+</th>
+<th class='confluenceTh'>
+Step(s)
+<br class="atl-forced-newline" />
+</th>
+<th class='confluenceTh'>
+Description
+<br class="atl-forced-newline" />
+</th>
+<th class='confluenceTh'>
+Default Value
+<br class="atl-forced-newline" />
+</th>
 </tr>
+
 <tr>
-<td class='confluenceTd'> contexts </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Comma separated list of Contexts to search in </td>
-<td class='confluenceTd'> current <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+resource
+</td>
+<td class='confluenceTd'>
+1
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Either the Resource ID to find related resources for or "current" or empty to find related for the current resource.
+</td>
+<td class='confluenceTd'>
+current
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> includeUnpublished </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> [1&#124;0]&nbsp;Also use unpublished resources in the result set. <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> 0 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+fields
+</td>
+<td class='confluenceTd'>
+1, 3, 4
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Comma separated list of fieldname:weight to use in the comparison. Prefix TVs with "tv.". Don\'t use the content unless you want to kill performance. Example of use: pagetitle:3,tv.MyTags:7,tv.MySubjects:15,introtext:2
+</td>
+<td class='confluenceTd'>
+pagetitle:3,introtext:2
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> includeHidden </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> [1&#124;0] Also use resources marked as hidden in menus in the result set. Set to 0 to exclude them. <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> 1 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+defaultWeight
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+4
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+(int) Weight to assign to fields that don't have a weight set specifically.
+</td>
+<td class='confluenceTd'>
+5
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> hideContainers </td>
-<td class='confluenceTd'> 3 </td>
-<td class='confluenceTd'> [1&#124;0]&nbsp;<em>Added in 1.2.0.</em> When set to 1 this will exclude resources which have "isfolder" set to true, ie those that are containers. </td>
-<td class='confluenceTd'> 0 </td>
+<td class='confluenceTd'>
+returnFields
+</td>
+<td class='confluenceTd'>
+5 (3)
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Resource Fields (use &amp;returnTVs for template variables) to include in the output. By default you will have access to the resource ID as well.
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+pagetitle,longtitle,introtext
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> stopwords <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> 2 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> <em>Added in 1.2.0</em> &#124; A comma separated list of words to filter out of the match data, on top of the language specific stopwords. <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'>&nbsp;</td>
+<td class='confluenceTd'>
+returnTVs
+</td>
+<td class='confluenceTd'>
+5
+</td>
+<td class='confluenceTd'>
+Specify a comma separated list of TV names to include in the results. These TVs are not used in the comparison process, but are only retrieved when returning the top ranking results. Do <em>not</em>&nbsp;prefix with "tv." like you would in the &amp;fields property.
+</td>
+<td class='confluenceTd'>
+&nbsp;
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> limit </td>
-<td class='confluenceTd'> 5 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Number of related resources to output to screen. <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+parents
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Comma separated list of parents to use in finding related resources
+</td>
+<td class='confluenceTd'>
+&nbsp;
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> fieldSample </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Number of resources to collect for the <b>sample</b> in comparing based on <b>resource fields</b>. Can  have a huge impact on performance so if you're experiencing long load  times, try decreasing this number or adjusting the stopwords in your language lexicon. </td>
-<td class='confluenceTd'> 125 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+parentsDepth
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+The depth to search parents for
+</td>
+<td class='confluenceTd'>
+10
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> fieldSort </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Resource field to sort by in collecting the sample, used in conjunction with the fieldSample propert. (<em>Does not sort the related resources output, only the sample used in determining related resources&#33;</em>) </td>
-<td class='confluenceTd'> createdon <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+exclude
+</td>
+<td class='confluenceTd'>
+3
+</td>
+<td class='confluenceTd'>
+Comma separated list of resource IDs you want to exclude from the results.
+</td>
+<td class='confluenceTd'>
+&nbsp;
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> fieldSortDir </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Sort direction for the fieldSort property, used in collecting the sample. <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> desc <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+contexts
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Comma separated list of Contexts to search in
+</td>
+<td class='confluenceTd'>
+current
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> tvSample </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Number of TV results to include (note: one resource can have more than  one result depending on your fields property) in the <b>sample</b> in comparing based on TV  values. </td>
-<td class='confluenceTd'> 125 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+includeUnpublished
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+[1|0]&nbsp;Also use unpublished resources in the result set.
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+0
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> tvSort </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Resource field to sort by in the TV query, used in conjunction with the tvSample property. (<em>Does not sort the related resources output, only the sample used in determining related resources&#33;</em>) </td>
-<td class='confluenceTd'> createdon <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+includeHidden
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+[1|0] Also use resources marked as hidden in menus in the result set. Set to 0 to exclude them.
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+1
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> tvSortDir </td>
-<td class='confluenceTd'> 3 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Sort direction for the tvSort property, used in collecting the sample. <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> desc <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+hideContainers
+</td>
+<td class='confluenceTd'>
+3
+</td>
+<td class='confluenceTd'>
+[1|0]&nbsp;<em>Added in 1.2.0.</em> When set to 1 this will exclude resources which have "isfolder" set to true, ie those that are containers.
+</td>
+<td class='confluenceTd'>
+0
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> tplOuter </td>
-<td class='confluenceTd'> 5 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Chunk name to use as outer (or wrapper) template. The [[+wrapper]] placeholder will be filled with the individual rows, separated by whatever is in the rowSeparator property (see below). Placeholders you can use are [[+count]] and [[+wrapper]]. <br class="atl-forced-newline" />
-<br class="atl-forced-newline" />  <br class="atl-forced-newline" />  
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">&lt;h3&gt;[[%getrelated.pagesfound? &amp;namespace=`getrelated` &amp;count=`[[+count]]`]]&lt;/h3&gt;
+<td class='confluenceTd'>
+stopwords
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+2
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+<em>Added in 1.2.0</em> | A comma separated list of words to filter out of the match data, on top of the language specific stopwords.
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+limit
+</td>
+<td class='confluenceTd'>
+5
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Number of related resources to output to screen.
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+fieldSample
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Number of resources to collect for the <b>sample</b> in comparing based on <b>resource fields</b>. Can have a huge impact on performance so if you're experiencing long load times, try decreasing this number or adjusting the stopwords in your language lexicon.
+</td>
+<td class='confluenceTd'>
+125
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+fieldSort
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Resource field to sort by in collecting the sample, used in conjunction with the fieldSample propert. (<em>Does not sort the related resources output, only the sample used in determining related resources!</em>)
+</td>
+<td class='confluenceTd'>
+createdon
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+fieldSortDir
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Sort direction for the fieldSort property, used in collecting the sample.
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+desc
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+tvSample
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Number of TV results to include (note: one resource can have more than one result depending on your fields property) in the <b>sample</b> in comparing based on TV values.
+</td>
+<td class='confluenceTd'>
+125
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+tvSort
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Resource field to sort by in the TV query, used in conjunction with the tvSample property. (<em>Does not sort the related resources output, only the sample used in determining related resources!</em>)
+</td>
+<td class='confluenceTd'>
+createdon
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+tvSortDir
+</td>
+<td class='confluenceTd'>
+3
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Sort direction for the tvSort property, used in collecting the sample.
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+desc
+<br class="atl-forced-newline" />
+</td>
+</tr>
+
+<tr>
+<td class='confluenceTd'>
+tplOuter
+</td>
+<td class='confluenceTd'>
+5
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Chunk name to use as outer (or wrapper) template. The [[+wrapper]] placeholder will be filled with the individual rows, separated by whatever is in the rowSeparator property (see below). Placeholders you can use are [[+count]] and [[+wrapper]].
+<br class="atl-forced-newline" />
+<br class="atl-forced-newline" />
+<br class="atl-forced-newline" />
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+&lt;h3&gt;[[%getrelated.pagesfound? &amp;namespace=`getrelated` &amp;count=`[[+count]]`]]&lt;/h3&gt;
 &lt;ul&gt;
   [[+wrapper]]
 &lt;/ul&gt;
 </pre>
-</div></div>
-<p> </p></td>
-<td class='confluenceTd'> relatedOuter <br class="atl-forced-newline" /> </td>
+</div>
+</div>
+</td>
+<td class='confluenceTd'>
+relatedOuter
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> tplRow </td>
-<td class='confluenceTd'> 5 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Chunk name to use as row template, used in every related resource. <br class="atl-forced-newline" />
+<td class='confluenceTd'>
+tplRow
+</td>
+<td class='confluenceTd'>
+5
 <br class="atl-forced-newline" />
-The placeholders you can use include the fields in your &amp;fields  property (minus TVs), as well as those in the returnFields property. The resource ID is always accessible with [[+id]], the ranking (the result of the algorithm) as [[+rank]] and the number of the result with [[+idx]]. <br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Chunk name to use as row template, used in every related resource.
 <br class="atl-forced-newline" />
-Default chunk (stored as file in core/components/getrelated/elements/chunks/): <br class="atl-forced-newline" />  <br class="atl-forced-newline" />  
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">&lt;li&gt;
+<br class="atl-forced-newline" />
+The placeholders you can use include the fields in your &amp;fields property (minus TVs), as well as those in the returnFields property. The resource ID is always accessible with [[+id]], the ranking (the result of the algorithm) as [[+rank]] and the number of the result with [[+idx]].
+<br class="atl-forced-newline" />
+<br class="atl-forced-newline" />
+Default chunk (stored as file in core/components/getrelated/elements/chunks/):
+<br class="atl-forced-newline" />
+<br class="atl-forced-newline" />
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+&lt;li&gt;
   &lt;a href=<span class="code-quote">"[[~[[+id]]]]"</span> title=<span class="code-quote">"[[+longtitle:<span class="code-keyword">default</span>=`[[+pagetitle]]`]]"</span>&gt;
     [[+longtitle:<span class="code-keyword">default</span>=`[[+pagetitle]]`]] ([[+rank]])
   &lt;/a&gt;
 &lt;/li&gt;
 </pre>
-</div></div>
-<p> </p></td>
-<td class='confluenceTd'> relatedRow <br class="atl-forced-newline" /> </td>
+</div>
+</div>
+</td>
+<td class='confluenceTd'>
+relatedRow
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> noResults </td>
-<td class='confluenceTd'> 5 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> Text or output when there are no related resources found. (Hint: you could add a&nbsp;[[$chunk]] to the property to output that when there are no results: &amp;noResults=`[[$chunkname]]`) </td>
-<td class='confluenceTd'> "No related pages found." <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+noResults
+</td>
+<td class='confluenceTd'>
+5
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+Text or output when there are no related resources found. (Hint: you could add a&nbsp;[[$chunk]] to the property to output that when there are no results: &amp;noResults=`[[$chunkname]]`)
+</td>
+<td class='confluenceTd'>
+"No related pages found."
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> rowSeparator </td>
-<td class='confluenceTd'> 5 <br class="atl-forced-newline" /> </td>
-<td class='confluenceTd'> String to use as separator between rows. </td>
-<td class='confluenceTd'> \n <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+rowSeparator
+</td>
+<td class='confluenceTd'>
+5
+<br class="atl-forced-newline" />
+</td>
+<td class='confluenceTd'>
+String to use as separator between rows.
+</td>
+<td class='confluenceTd'>
+\n
+<br class="atl-forced-newline" />
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> debug </td>
-<td class='confluenceTd'>&nbsp;</td>
-<td class='confluenceTd'> [1&#124;0]&nbsp;Enable/disable debug mode. When enabled it will dump lots of information on screen. </td>
-<td class='confluenceTd'> 0 <br class="atl-forced-newline" /> </td>
+<td class='confluenceTd'>
+debug
+</td>
+<td class='confluenceTd'>
+&nbsp;
+</td>
+<td class='confluenceTd'>
+[1|0]&nbsp;Enable/disable debug mode. When enabled it will dump lots of information on screen.
+</td>
+<td class='confluenceTd'>
+0
+<br class="atl-forced-newline" />
+</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 
+<h2>
+<a name="getRelated-Usage"></a>Usage
+</h2>
 
-<h2><a name="getRelated-Usage"></a>Usage</h2>
+<div class='panelMacro'>
+<table class='noteMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<div class='panelMacro'><table class='noteMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>There is absolutely no valid reason that I can think of to call this snippet uncached. Especially when you are running a bigger site, calling the snippet uncached can easily result in a great performance hit that is simply not needed. This snippet looks at resource data, and by default the cache is cleared when a resource is updated. So in between resource updates there is no data change that getRelated cares about. SO DO NOT CALL IT UNCACHED&#33;&#33;&#33;
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+There is absolutely no valid reason that I can think of to call this snippet uncached. Especially when you are running a bigger site, calling the snippet uncached can easily result in a great performance hit that is simply not needed. This snippet looks at resource data, and by default the cache is cleared when a resource is updated. So in between resource updates there is no data change that getRelated cares about. SO DO NOT CALL IT UNCACHED!!!
+<p>
+If you're not sure you're calling it uncached: Uncached snippets are prefixed with an exclamation mark: [[!snippetname]], so we will want to use it <b>without</b> the exclamation mark: [[snippetname]].
+</p>
+</td>
+</tr>
+</table>
+</div>
 
+<p>
+The minimum snippet call for getRelated to use is just the tag itself.
+</p>
 
-<p>If you're not sure you're calling it uncached: Uncached snippets are prefixed with an exclamation mark: [[&#33;snippetname]], so we will want to use it <b>without</b> the exclamation mark: [[snippetname]].</p></td></tr></table></div>
-
-
-<p>The minimum snippet call for getRelated to use is just the tag itself.</p>
-
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">[[getRelated]]
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+[[getRelated]]
 </pre>
-</div></div>
-<p>This creates an unordered list with a max of three related resources based on the pagetitle and introtext. You can further refine that using the &amp;fields property (see above) to use your tag or category TV or another field that contains a brief summary or keywords.</p>
+</div>
+</div>
 
+<p>
+This creates an unordered list with a max of three related resources based on the pagetitle and introtext. You can further refine that using the &amp;fields property (see above) to use your tag or category TV or another field that contains a brief summary or keywords.
+</p>
 
-<h3><a name="getRelated-OptimizingPerformance"></a>Optimizing Performance</h3>
+<h3>
+<a name="getRelated-OptimizingPerformance"></a>Optimizing Performance
+</h3>
 
-<p>If you're getting a slow performance caused by getRelated, here's some suggestions/thoughts:</p>
+<p>
+If you're getting a slow performance caused by getRelated, here's some suggestions/thoughts:
+</p>
+
 <ol>
-	<li>Make sure the snippet is called <b>cached</b>&#33; I wont help you figuring out slow performance if you are not caching this snippet..</li>
-	<li>Do not use fields like the content as there will simply be too much</li>
-	<li>It is possible the query used to collect the sample is too broad. There can be multiple causes &amp; fixes for that:
-	<ol>
-		<li>There is no translation for the language you use yet, resulting in the English stopwords being stripped and not stopwords in your native language. There's a real easy fix that will benefit others as well: translate <a href="https://github.com/Mark-H/getRelated/blob/master/core/components/getrelated/lexicon/en/default.inc.php" class="external-link" rel="nofollow">the English Lexicon</a> to your language &amp; send it back for inclusion in the addon. Do not translate the long list of stop words in there, but rather find a list of stopwords in your language from a reliable source.</li>
-		<li>All your resources use similar words (a company name, the name of a product being sold, or your editor's favorite word) resulting in the sample being distorted by that. If you enable debug (&amp;debug=`1` in the snippet) you can see the Match Data which are the words that will be matched, so you can verify if there's any words use that it shouldn't.<br/>
-If that is the case, you can filter out these words by adding them to the "getrelated.stopwords" lexicon in your language. Go to System &gt; Lexicon Management and in the dropdown that defaults to "core" select "getrelated". If not using English, select the right language from the language drop down as well. Now find the stopwords lexicon and add the words distorting the result set to the list. If you think the stopwords should be added to the main package, file a <a href="https://github.com/Mark-H/getRelated/issues" class="external-link" rel="nofollow">bug report</a>.</li>
-	</ol>
-	</li>
-	<li>Your site has too much related resources. If you have too much resources and have optimized what you could with the above options, you could:
-	<ol>
-		<li>Adjust the sample sizes. The default settings resulting in test results of around 1 second which is "okay" for a first load (cause you are getting results from the cache after that, right?&#33;), but this depends on the number of the fields you are using, whether they are resource fields or TVs and in general how the values are stored in the database. If you use a lot of TVs in your &amp;fields property, you can bring the tvSample down to, say, 50 to only get 50 results per TV. If you use 3 TVs, that could theoretically bring down the total amount of resources being processed from 375 to 150.<br/>
-To make sure you still get the right results, you can change order in which the sample is fetched with tvSort and tvSortDir as well as fieldSort and fieldSortDir. By default it sorts on the createdon date, with the newest first.</li>
-	</ol>
-	</li>
-	<li>It could be that the returnTVs property with a lot of TVs and a large result set has a performance impact. I haven't tested this extensively, but you should try to keep your result set limited (see earlier tips) and only use the TVs you really need.</li>
-	<li>It's a bug&#33; While this addon has gone through testing on various installs and site sizes, it's possible something weird is going on. Please post in the forum topic or on Github and we can see what's going on. (links above)</li>
+<li>Make sure the snippet is called <b>cached</b>! I wont help you figuring out slow performance if you are not caching this snippet..
+</li>
+
+<li>Do not use fields like the content as there will simply be too much
+</li>
+
+<li>It is possible the query used to collect the sample is too broad. There can be multiple causes &amp; fixes for that:
+<ol>
+<li>There is no translation for the language you use yet, resulting in the English stopwords being stripped and not stopwords in your native language. There's a real easy fix that will benefit others as well: translate <a href="https://github.com/Mark-H/getRelated/blob/master/core/components/getrelated/lexicon/en/default.inc.php" class="external-link" rel="nofollow">the English Lexicon</a> to your language &amp; send it back for inclusion in the addon. Do not translate the long list of stop words in there, but rather find a list of stopwords in your language from a reliable source.
+</li>
+
+<li>All your resources use similar words (a company name, the name of a product being sold, or your editor's favorite word) resulting in the sample being distorted by that. If you enable debug (&amp;debug=`1` in the snippet) you can see the Match Data which are the words that will be matched, so you can verify if there's any words use that it shouldn't.
+<br />
+If that is the case, you can filter out these words by adding them to the "getrelated.stopwords" lexicon in your language. Go to System &gt; Lexicon Management and in the dropdown that defaults to "core" select "getrelated". If not using English, select the right language from the language drop down as well. Now find the stopwords lexicon and add the words distorting the result set to the list. If you think the stopwords should be added to the main package, file a <a href="https://github.com/Mark-H/getRelated/issues" class="external-link" rel="nofollow">bug report</a>.
+</li>
 </ol>
-        </div>
+</li>
 
-        <!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-         <rdf:Description
-    rdf:about="http://oldrtfm.modx.com/display/ADDON/getRelated"
-    dc:identifier="http://oldrtfm.modx.com/display/ADDON/getRelated"
-    dc:title="getRelated"
-    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/36634629"/>
-</rdf:RDF>
--->
+<li>Your site has too much related resources. If you have too much resources and have optimized what you could with the above options, you could:
+<ol>
+<li>Adjust the sample sizes. The default settings resulting in test results of around 1 second which is "okay" for a first load (cause you are getting results from the cache after that, right?!), but this depends on the number of the fields you are using, whether they are resource fields or TVs and in general how the values are stored in the database. If you use a lot of TVs in your &amp;fields property, you can bring the tvSample down to, say, 50 to only get 50 results per TV. If you use 3 TVs, that could theoretically bring down the total amount of resources being processed from 375 to 150.
+<br />
+To make sure you still get the right results, you can change order in which the sample is fetched with tvSort and tvSortDir as well as fieldSort and fieldSortDir. By default it sorts on the createdon date, with the newest first.
+</li>
+</ol>
+</li>
 
-            
-    
+<li>It could be that the returnTVs property with a lot of TVs and a large result set has a performance impact. I haven't tested this extensively, but you should try to keep your result set limited (see earlier tips) and only use the TVs you really need.
+</li>
 
-
-<fieldset class="hidden parameters">
-    <legend>Labels parameters</legend>
-    <input type="hidden" id="editLabel" value="Edit">
-    <input type="hidden" id="addLabel" value="Add Labels">
-    <input type="hidden" id="domainName" value="http://oldrtfm.modx.com">
-    <input type="hidden" id="pageId" value="36634629">
-    <input type="hidden" id="spaceKey" value="ADDON">
-</fieldset>
-
-<div id="labels-section" class="pageSection">
-    <div id="default-labels-header" class="section-header">
-        <h2 id="labels-section-title" class="section-title  hidden ">Labels</h2>
-            </div>
-
-    <div class="labels-editor">
-        <div id="labelsList">
-                    </div>
-
-        <span class="errorMessage error" id="errorSpan"></span>
-        <form method="GET" action="" id="add-labels-form">
-            <div id="labelInputSpan" class="labels-input">
-                <div id="labelOperationErrorContainer" class="hidden">
-                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
-                </div>
-
-                <div class="caption">Enter labels to add to this page:</div>
-                <div id="label-input-fields">
-                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
-                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
-                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
-                </div>
-                <div id="waitImageAndStatus">
-                    <img class="waiting" alt="Please wait" src="/s/1911/69/_/images/icons/wait.gif">&nbsp;
-                    <span id="labelOperationStatus" class="smalltext"></span>
-                </div>
-                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
-                <div class="labels-tip">
-                    <div id="suggestedLabelsSpan"></div>
-                    Looking for a label? Just start typing.
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-            
-            
-
-
-
-
-            
-    
-
-        
-<fieldset class="parameters hidden">
-    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
-    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
-        </fieldset>
-
-
-
-
-
-
-<div id="comments-section" class="pageSection">
-    
-    
-    
-    
-                                    </div>
-
-
-            
-</div>
-
-
-    
-
-
-
-
-        
-        
-
-    
-    
-    
-
-
-<fieldset class="hidden parameters">
-        <input type="hidden" id="i18n.manage.watchers.dialog.title" value="Manage Watchers">
-        <input type="hidden" id="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
-        <input type="hidden" id="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
-</fieldset>
-<script type="text/x-template" title="manage-watchers-dialog">
-<div class="dialog-content">
-    <div class="column page-watchers">
-        <h3>Watching this page</h3>
-        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
-        <form action="/json/addwatch.action" method="POST">
-                <input type="hidden" name="atl_token" value="5-xieeHpqC">
-            <input type="hidden" name="pageId" value="36634629"/>
-            <input type="hidden" id="add-watcher-username" name="username" value=""/>
-            <label for="add-watcher-user">User</label>
-            <input id="add-watcher-user" name="userFullName" type="search" class="has-placeholder autocomplete-user"
-               value="" placeholder="Full name or username" autocomplete="off"
-               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
-               data-template="{title}" data-none-message="No matching users found.">
-            <input id="add-watcher-submit" type="submit" name="add" value="Add">
-            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
-            <div class="status hidden"></div>
-        </form>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No page watchers</li>
-        </ul>
-    </div>
-    <div class="column space-watchers">
-        <h3>Watching this space</h3>
-        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No space watchers</li>
-        </ul>
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="manage-watchers-user">
-    <li class="watch-user">
-        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
-        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
-        <span class="remove-watch" title="Remove"
-            data-username="{username}">Remove</span>
-    </li>
-</script>
-<script type="text/x-template" title="manage-watchers-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Managing+Watchers" target="_blank">Help</a>
-    </div>
-</script>
-    <br class="clear">
-</div>
-  
-    </div>
-</div>
-
-<div id="footer">
-                                                <p class="license license-opensource">
-                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to MODx CMS / xPDO. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
-                </p>
-                        
-    <ul id="poweredby">
-        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.3, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
-        <li class="print-only">Printed by Atlassian Confluence 3.3, the Enterprise Wiki.</li>        
-        <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
-        <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
-    </ul>
-
-    
-
-            <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-71684-1']);
-  _gaq.push(['_setDomainName', 'oldrtfm.modx.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    </div>    <!-- include system javascript resources -->
-                        
-    
-    
-    <!-- end system javascript resources -->
-</div>
-</body>
-</html>
+<li>It's a bug! While this addon has gone through testing on various installs and site sizes, it's possible something weird is going on. Please post in the forum topic or on Github and we can see what's going on. (links above)
+</li>
+</ol>

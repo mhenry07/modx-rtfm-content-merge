@@ -1,1214 +1,517 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-            <title>Making Member-Only Pages - MODx Revolution 2.x - MODX Documentation</title>
-    
-        
-
-                        
-    
-
-            
-<meta id="confluence-context-path" name="confluence-context-path" content="">
-<meta id="atlassian-token" name="atlassian-token" content="4m6TxZR9pD">
-<meta id="confluence-space-key" name="confluence-space-key" content="revolution20">
-
-<script type="text/javascript">
-    // Deprecated global variables. To be removed in a future version of Confluence.
-    var contextPath = '';
-</script>
-
-    
-
-<!-- include system css resources -->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?media=print" media="print">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
-<![endif]-->
-
-<!-- end system css resources -->
-
-    <link rel="stylesheet" href="/s/1911/69/6/_/styles/combined.css?spaceKey=revolution20" type="text/css">
-
-    <meta name="confluence-request-time" content="1381730872635">
-
-<meta name="loggedInUsername" content="">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/s/1911/69/_/images/logo/confluence_16.png">
-
-<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="MODX Documentation"/>
-
-        <!-- include system javascript resources -->
-                        
-    
-    <script type="text/javascript" src="/s/1911/69/2/_/download/superbatch/js/batch.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
-<script type="text/javascript" src="/s/1911/69/3.3/_/download/batch/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.2/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
-
-    <!-- end system javascript resources -->
-
-    <link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/docs.css" />
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/syntaxhighlighter/css/all.css" />
-<!--<script type="text/javascript" src="http://misc.modx.com/js/jquery-1.3.2.min.js"></script>-->
-<script type="text/javascript" src="http://misc.modx.com/confluence/syntaxhighlighter/js/all.js"></script>
-<script type="text/javascript" src="http://misc.modx.com/confluence/loadcode.js"></script>
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/promo/ad.css" />
-
-    
-    <link rel="canonical" href="http://oldrtfm.modx.com/display/revolution20/Making+Member-Only+Pages">
-    <link rel="shortlink" href="http://oldrtfm.modx.com/x/UAIdAQ">
-    <meta name="wikilink" content="[revolution20:Making Member-Only Pages]">
-
-</head>
-
-<body             onload="placeFocus()"
-     id="com-atlassian-confluence" class="theme-documentation ">
-<div id="full-height-container">
-<!-- CODE FOR AD THAT SEEMS TO BE INSERTABLE DIRECTLY AFTER OPEN BODY TAG IN CONFLUENCE THEME ADMIN -->
-<!--<a href="https://modxcloud.com/signup/lab-account.html?utm_source=rtfm&utm_medium=banner&utm_campaign=one_percent%2B" class="modx-cloud-link">
-    <div class="modx-cloud-ad-wrap">
-        <div class="modx-cloud-ad">
-            <div class="logo-wrap">
-                <img src="http://misc.modx.com/confluence/promo/modx-cloud-logo.png" alt="MODX Cloud" width="161" height="40">
-            </div>
-            <p>The Most Productive MODX Learning Playground Ever</p>
-            <span class="faux-btn">
-                Claim Free Lab Account
-            </span>
-
-        </div>
-    </div>
-</a>-->
-<!-- END OF AD -->
-
-<div class="editors_note" style="background-color:#ff9a91;border: 1px solid red; padding:5px;color:black;">
-    <strong>Important Note:</strong> This is an archive of the official MODX Documentation. Please do not edit or make changes here.  The current documentation is located at <a href="rtfm.modx.com">rtfm.modx.com</a>.
-</div>
-
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
-    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
-    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
-    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
-    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
-</fieldset>
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
-    <input type="hidden" id="userLocale" value="en_GB">
-    <input type="hidden" id="staticResourceUrlPrefix" value="/s/1911/69/_">
-    <input type="hidden" id="contextPath" value="">
-</fieldset>
-
-    
-<div id="header" class="sectionbottom ">
-        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
-        <fieldset>
-            <legend>Quick Search</legend>
-            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
-            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
-            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
-        </fieldset>
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="quickNavEnabled" value="true" />
-                    </fieldset>
-    </form>
-    <ul id="header-menu-bar" class="ajs-menu-bar">
-                    
-        
-            <li class="normal ajs-menu-item">
-        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
-                                        <li>
-    
-        
-    
-    <a  id="space-pages-link" href="/pages/listpages.action?key=revolution20"  class=""   title="Attachments: 2">
-                   <span>Pages</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=revolution20"  class=""   title="Attachments: 2">
-                   <span>Blog</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=revolution20"  class=""   title="Attachments: 2">
-                   <span>Labels</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=revolution20"  class=""   title="Attachments: 2">
-                   <span>Attachments</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  href="/spaces/space-bookmarks.action?spaceKey=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Bookmarks</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Mail</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Advanced</span></a>        </li>
-                            </ul>
-                        <ul  id="browse-menu-link-global"                 class="section-global">
-                                        <li>
-    
-            
-    
-    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
-                   <span>Confluence Gadgets</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-        
-                                                         <li class="ajs-menu-item normal">
-        
-        
-    
-    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FMaking%2BMember-Only%2BPages"  class="user-item login-link"  >
-                   <span>Log In</span></a>        </li>
-                                <li class="normal ajs-menu-item">
-            <div id="splitter-button" class="hidden" title="Sidebar"></div>
-        </li>
-
-    </ul>
-    
-    
-    <ol id="breadcrumbs">
-                    
-        <li class="first" >
-                                    <span><a href="/dashboard.action">Dashboard</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/revolution20">MODx Revolution 2.x</a></span>
-                </li>
-                                        <li id="ellipsis" title="    &#8230;
-                    Home
-             &gt;         Administering Your Site
-             &gt;         Security
-        &#8230;
-"><span><strong>&#8230;</strong></span></li>
-                                    
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/revolution20/Home">Home</a></span>
-                </li>
-                                
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/revolution20/Administering+Your+Site">Administering Your Site</a></span>
-                </li>
-                                
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/revolution20/Security">Security</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/revolution20/Security+Tutorials">Security Tutorials</a></span>
-                </li>
-                    
-        <li>
-                                    <span>Making Member-Only Pages</span>
-                </li>
-        </ol>
-
-</div>
-
-    <div id="splitter">
-    <div id="splitter-sidebar">
-
-        
-
-                    
-    
-    
-
-<div class="plugin_pagetree">
-
-                <div id="pagetreesearch">
-            <form method="POST" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
-                                    <input type="hidden" name="ancestorId" value="18678050">
-                                <input type="hidden" name="spaceKey" value="revolution20">
-                <input type="text"  size="20" name="queryString">
-                <input type="submit" value="Search">
-            </form>
-        </div>
-    
-        
-    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-        <div class="plugin_pagetree_children">
-        </div>
-    </ul>
-
-    <fieldset class="hidden">
-        <input type="hidden" name="treeId" value="">
-        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
-        <input type="hidden" name="treePageId" value="18678352">
-
-        <input type="hidden" name="noRoot" value="false">
-        <input type="hidden" name="rootPageId" value="18678050">
-
-        <input type="hidden" name="rootPage" value="">
-        <input type="hidden" name="startDepth" value="0">
-        <input type="hidden" name="spaceKey" value="revolution20" >
-
-        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
-        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
-        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
-        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FMaking%2BMember-Only%2BPages">
-
-                <fieldset class="hidden">
-                                                <input type="hidden" name="ancestorId" value="18678350">
-                                    <input type="hidden" name="ancestorId" value="18678085">
-                                    <input type="hidden" name="ancestorId" value="18678453">
-                                    <input type="hidden" name="ancestorId" value="18678050">
-                                    </fieldset>
-    </fieldset>
-</div>
-
-
-
-            </div>
-    <div id="splitter-content">
-
-                    <script type="text/javascript" src="/s/1911/69/2/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
-    
-            
-    
-<div id="main" >
-    
-    
-    <div id="navigation" class="content-navigation view">
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="pageId" value="18678352">
-        </fieldset>
-        <ul class="ajs-menu-bar">
-                                
-                        
-            <li class="normal ajs-menu-item">
-        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="action-menu-link-primary"                 class="section-primary first">
-                                        <li>
-    
-        
-    
-    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=18678352"  class="action-view-attachments"  accessKey="a" >
-                   <span><u>A</u>ttachments (2)</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=18678352"  class="action-view-history"  >
-                   <span>Page History</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="mailPageLink" href="/pages/mailpage/mailpage.action?pageId=18678352"  class=""  >
-                    <span>
-                <img alt="E-mail" src="/images/icons/mail_content_16.gif" height="16" width="16" title="E-mail">
-                E-mail
-            </span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=18678352"  class="action-page-permissions"  >
-                   <span>Restrictions</span></a>        </li>
-                            </ul>
-                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
-                                        <li>
-    
-        
-    
-    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=18678352"  class="action-view-info"  >
-                   <span>Info</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=18678352"  class=""  >
-                   <span>Link to this Page&hellip;</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=revolution20&openId=18678352#selectedPageInHierarchy"  class=""  >
-                   <span>View in Hierarchy</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=18678352"  class="action-view-source popup-link"  >
-                   <span>View Wiki Markup</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-            </ul>
-    </div>
-
-    
-    <h1 id="title-heading" class="pagetitle">
-                    <a href="/display/revolution20"><img class="logo global custom" src="/download/attachments/9109505/global.logo?version=2&modificationDate=1356105314000" alt=""></a>        
-		<span id="title-text">
-					            <a href="/display/revolution20/Making+Member-Only+Pages">Making Member-Only Pages</a>
-    				</span>
-    </h1>
-
-    
-
-    
-    
-    
-    <div id="content" class="page view">
-    
-
-
-
-<fieldset id="link-to-page-fields" class="hidden parameters">
-    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
-    <input type="hidden" id="linkToThisPageLink" value="Link">
-    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
-    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
-    <input type="hidden" id="linkToThisPageClose" value="Close">
-</fieldset>
-<fieldset class="hidden parameters">
-    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;Making Member-Only Pages&#8217;">
-    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
-    <input type="hidden" title="movePageDialogMoveButton" value="Move">
-    <input type="hidden" title="movePageDialogOkButton" value="OK">
-    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
-    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
-    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
-    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
-    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
-    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
-    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
-    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
-    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
-    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
-    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
-    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
-    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
-    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
-    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
-    <input type="hidden" title="pageTitle" value="Making Member-Only Pages"/>
-    <input type="hidden" title="parentPageTitle" value="Security Tutorials"/>
-    <input type="hidden" title="fromPageTitle" value=""/>
-    <input type="hidden" title="spaceKey" value="revolution20"/>
-    <input type="hidden" title="spaceName" value="MODx Revolution 2.x"/>
-    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
-    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
-    <input type="hidden" title="movePageDialogBackButton" value="Back"/>
-    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder"/>
-    <input type="hidden" title="movePageDialogNextButton" value="Move"/>    
-</fieldset>
-
-<script type="text/x-template" title="movePageDialog">
-    <div class="row information">
-        Specify the new parent page for this page and its children by space and title.
-    </div>
-    <div class="form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
-            <div class="row">
-                <label for="new-space">New space:</label>
-                <div class="value new-space-value">
-                    <input id="new-space-key" name="new-space-key" type="hidden" value="revolution20">
-                                            <span class="space-input">
-                            <input id="new-space" name="new-space" value="MODx Revolution 2.x" disabled="disabled">
-                        </span>
-                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
-                                        <div class="new-space-dropdown aui-dd-parent"></div>
-                </div>
-            </div>
-            <div class="row">
-                <label for="new-parent-page">New parent page:</label>
-                <div class="value new-parent-page-value">
-                    <span class="page-input">
-                        <input id="new-parent-page" name="new-parent-page" value="Security Tutorials">
-                    </span>
-                    <span class="description">Start typing a page title to see a list of suggestions.</span>
-                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="location-info">
-        <div class="row">
-            <label>Current location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <label>New location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
-<script type="text/x-template" title="movePageErrors">
-    <div id="move-errors" class="hidden warning"></div>
-</script>
-<script type="text/x-template" title="movePageBreadcrumb">
-    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbLoading">
-    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbError">
-    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
-</script>
-<script type="text/x-template" title="movePageNoMatchingPages">
-    <ol><li><span class="warning">No matching pages found.</span></li></ol>
-</script>
-<script type="text/x-template" title="movePageNoMatchingSpaces">
-    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
-</script>
-
-<script type="text/x-template" title="movePageSearchPanel">
-<div class="row information">
-    Search for and select the new parent page for this page and its children.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
-            
-
-    <label  for="move-page-search-query" class="assistive">Search keywords</label>
-            <input class="search-query" id="move-page-search-query">
-            
-
-    <label  for="move-page-search-space" class="assistive">Search in space</label>
-                            <select id="move-page-search-space" class="search-space" disabled="disabled">
-                    <option value="revolution20" selected="selected">MODx Revolution 2.x</option>
-                </select>
-                        <input type="button" value="Search">
-                            <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
-                    </fieldset>
-    </div>
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageSearchResultsLoading">
-    <div class="searching">Searching…</div>
-</script>
-
-<script type="text/x-template" title="movePageHistoryPanel">
-<div class="row information">
-    Select the new parent page for this page and its children from your history.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageHistoryLoading">
-    <div class="searching">Loading…</div>
-</script>
-<script type="text/x-template" title="movePageBrowsePanel">
-    <div class="row information">
-        Click to select the new parent page for this page and its children.
-    </div>
-    <div class="tree"></div>
-</script>
-<script type="text/x-template" title="movePagePanelLoading">
-    <span>Loading…</span>
-</script>
-<script type="text/x-template" title="movePageBrowsePanelSpace">
-    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
-</script>
-<script type="text/x-template" title="orderingPagePanel">
-<div id="orderingPlaceHolder"></div>
-</script>
-<script type="text/x-template" title="reorderCheckbox">
-<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
-</script>
-<script type="text/x-template" title="move-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Moving+a+Page" target="_blank">Help</a>
-    </div>
-</script>
-<script type="text/x-template" title="searchResultsGrid">
-    <table>
-        <thead>
-            <tr class="header">
-                <th class="search-result-title">Page Title</th>
-                <th class="search-result-space">Space</th>
-                <th class="search-result-date">Updated</th>
-            </tr>
-        </thead>
-    </table>
-</script>
-<script type="text/x-template" title="searchResultsGridCount">
-    <p class="search-result-count">{0}</p>
-</script>
-<script type="text/x-template" title="searchResultsGridRow">
-    <tr class="search-result">
-        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
-        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
-        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
-    </tr>
-</script>
-<!-- Start restrictions section -->
-<fieldset class="hidden parameters i18n">
-        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
-        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
-        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
-        <input type="hidden" id="i18n.cancel.name" value="Cancel">
-        <input type="hidden" id="i18n.close.name" value="Close">
-        <input type="hidden" id="i18n.update.name" value="Save">
-</fieldset>
-
-<script type="text/x-template" title="page-permissions-div">
-<div id="page-permissions-div">
-    <div id="page-permissions-editor-form">
-
-                <div id="page-permissions-error-div" class="hidden">
-            <a href="#" id="permissions-error-div-close">Ok</a>
-            <div></div>
-        </div>
-
-                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
-            <div>
-                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
-                <label for="restrictViewRadio">Restrict viewing of this page</label>
-                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
-                <label for="restrictEditRadio">Restrict editing of this page</label>
-            </div>
-        </div>
-        <div id="page-permissions-input" class="page-permissions-label-rows">
-            <div class="page-permissions-label">To:</div>
-            <div id="page-permissions-chooser-box">
-                                <span id="page-permissions-choose-user" class="ajs-button">
-                    
-
-
-
-    
-
-
-
-<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
-<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
-
-
-                </span>
-                <span id="page-permissions-choose-group" class="ajs-button">
-                    
-
-
-
-    
-
- 
-
-<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
-<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
-
-
-                </span>
-            </div>
-            <div id="page-permissions-input-box">
-                                <span>
-                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
-                </span>
-                <input
-    type="hidden"
-                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1911/69/_/images/border/spacer.gif"/>
-                <input type="button" id="add-typed-names" value="Restrict">
-            </div>
-        </div>
-    </div>
-    <div id="page-permissions-tables">
-        <div id="page-permissions-table-div">
-                        <table id="page-permissions-table" class="page-permissions-table">
-                <tr id="page-permissions-no-views" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
-                </tr>
-                <tr id="page-permissions-no-edits" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
-                </tr>
-            </table>
-        </div>
-        <div id="page-inherited-permissions-table-div" class="hidden">
-            <span id="page-inherited-permissions-table-desc">
-                <a class="icon twisty-closed">Show/Hide</a>
-                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
-            </span>
-            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
-        </div>
-    </div>
-</div>
-</script>
-
-<script type="text/x-template" title="permissions-row-template">
-    <tr class="permission-row">
-                                
-                <td class="page-permissions-marker-cell" width="20%">
-            <span>Viewing restricted to:</span>
-        </td>
-                <td class="permission-entity" nowrap="true" width="40%">
-            <span class="entity-container">
-                <img class="permission-entity-picture"/>
-                <span class="permission-entity-display-name"></span>
-                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
-            </span>
-        </td>
-        <td class="permission-detail-column">
-            <div class="permission-remove-div">
-                <a href="#" class="remove-permission-link">Remove restriction</a>
-            </div>
-        </td>
-    </tr>
-</script>
-<script type="text/x-template" title="permissions-username-no-suggestion-template">
-    <ol>
-        <li><a href="#" class="message"><span>No matches</span></a></li>
-    </ol>
-</script>
-<script type="text/x-template" title="page-inherited-permissions-table-div-template">
-        <div class="page-inherited-permissions-owner-div">
-        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
-        <table class="page-permissions-table"></table>
-    </div>
-</script>
-<script type="text/x-template" title="page-restrictions-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Page+Restrictions" target="_blank">Help</a>
-    </div>
-</script>
-<!-- End restrictions section -->
-
-        
-    
-    
-        <fieldset class="hidden parameters">
-            <input type="hidden" title="parentPageId" value="18678350">
-        </fieldset>
-
-        
-                            
-    
-
-                    
-
-        
-        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
-<div id="page-metadata-start" class="assistive"></div>
-
-    <div class="page-metadata">
-        <ul>
-                            <li class="page-metadata-item noprint">
-    
-            
-    
-    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Page restrictions apply</span></a>        </li>
-                            <li class="page-metadata-item noprint">
-    
-        
-    
-    <a  id="content-metadata-attachments" href="/pages/viewpageattachments.action?pageId=18678352&metadataLink=true"  class="page-metadata-icon action-view-attachments"  accessKey="a"  title="Attachments: 2">
-                   <span><span class="page-metadata-attachments-text">Attachments:</span><span class="page-metadata-attachments-count">2</span></span></a>        </li>
-                        <li class="page-metadata-modification-info">
-                                    Added by <a href="/display/~markh"
-                          class="url fn"
-                   >Mark Hamstra</a>, last edited by <a href="/display/~scottborys"
-                          class="url fn"
-                   >Scott Borys</a> on Sep 28, 2012
-                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=18678352&originalId=41484515">view change</a>)</span>
-                                                </li>
-                    </ul>
-          <div id="version-comment" class="noteMacro" style="display: none;">
-      <strong>Comment:</strong>
-      <br />
-  </div>
-    </div>
-
-
-<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
-<div id="page-metadata-end" class="assistive"></div>
-        
-        <fieldset class="hidden parameters">
-                        <input type="hidden" title="browsePageTreeMode" value="view">
-        </fieldset>
-
-        <div class="wiki-content">
-           <!-- wiki content -->
-            <p><br class="atl-forced-newline" /></p>
+<p>
+<br class="atl-forced-newline" />
+</p>
 
 <div>
 <ul>
-    <li><a href='#MakingMember-OnlyPages-Introduction'>Introduction</a></li>
-    <li><a href='#MakingMember-OnlyPages-AccessWizardexplanation%282.2.2andlater%29'>Access Wizard explanation (2.2.2 and later)</a></li>
+<li>
+<a href='#MakingMember-OnlyPages-Introduction'>Introduction</a>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-AccessWizardexplanation%282.2.2andlater%29'>Access Wizard explanation (2.2.2 and later)</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#MakingMember-OnlyPages-1.CreateaResourceGroup'>1. Create a Resource Group</a></li>
-    <li><a href='#MakingMember-OnlyPages-2.AddResourcestotheResourceGroup'>2. Add Resources to the Resource Group</a></li>
-    <li><a href='#MakingMember-OnlyPages-3.AddUserstotheUserGroup'>3. Add Users to the User Group</a></li>
-    <li><a href='#MakingMember-OnlyPages-4.AddContextAccesstotheUserGroup'>4. Add Context Access to the User Group</a></li>
-    <li><a href='#MakingMember-OnlyPages-5.FlushPermissions'>5. Flush Permissions</a></li>
+<li>
+<a href='#MakingMember-OnlyPages-1.CreateaResourceGroup'>1. Create a Resource Group</a>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-2.AddResourcestotheResourceGroup'>2. Add Resources to the Resource Group</a>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-3.AddUserstotheUserGroup'>3. Add Users to the User Group</a>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-4.AddContextAccesstotheUserGroup'>4. Add Context Access to the User Group</a>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-5.FlushPermissions'>5. Flush Permissions</a>
+</li>
 </ul>
-    <li><a href='#MakingMember-OnlyPages-Stepbystepexplanation%28pre2.2.2%29'>Step-by-step explanation (pre-2.2.2)</a></li>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-Stepbystepexplanation%28pre2.2.2%29'>Step-by-step explanation (pre-2.2.2)</a>
+</li>
+
+<li style="list-style: none; display: inline">
 <ul>
-    <li><a href='#MakingMember-OnlyPages-1.CreateaResourceGroup'>1. Create a Resource Group</a></li>
-    <li><a href='#MakingMember-OnlyPages-2.LinkyourmemberonlyresourcetotheResourceGroup'>2. Link your member-only resource to the Resource Group</a></li>
-    <li><a href='#MakingMember-OnlyPages-3.CreateaUserGroup'>3. Create a User Group</a></li>
-    <li><a href='#MakingMember-OnlyPages-4.AddResourceGroupaccess'>4. Add Resource Group access</a></li>
-    <li><a href='#MakingMember-OnlyPages-5.Adduserstotheusergroup'>5. Add users to the user group</a></li>
-    <li><a href='#MakingMember-OnlyPages-6.Flushpermissions'>6. Flush permissions</a></li>
+<li>
+<a href='#MakingMember-OnlyPages-1.CreateaResourceGroup'>1. Create a Resource Group</a>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-2.LinkyourmemberonlyresourcetotheResourceGroup'>2. Link your member-only resource to the Resource Group</a>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-3.CreateaUserGroup'>3. Create a User Group</a>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-4.AddResourceGroupaccess'>4. Add Resource Group access</a>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-5.Adduserstotheusergroup'>5. Add users to the user group</a>
+</li>
+
+<li>
+<a href='#MakingMember-OnlyPages-6.Flushpermissions'>6. Flush permissions</a>
+</li>
 </ul>
-    <li><a href='#MakingMember-OnlyPages-Help%5C%21Ican%27tgetthistowork%2Cstill%5C%21'>Help! I can't get this to work, still!</a></li>
-    <li><a href='#MakingMember-OnlyPages-SeeAlso'>See Also</a></li>
-</ul></div>
+</li>
 
-<h2><a name="MakingMember-OnlyPages-Introduction"></a>Introduction</h2>
+<li>
+<a href='#MakingMember-OnlyPages-Help%5C%21Ican%27tgetthistowork%2Cstill%5C%21'>Help! I can't get this to work, still!</a>
+</li>
 
-<p>MODX Revolution uses a whole new set of security systems to allow you more flexibility while giving your users access (or denying) to Manager and Web resources. As there seems to be need for a proper tutorial to get you into the basics of working with this advanced system this document has been written.</p>
+<li>
+<a href='#MakingMember-OnlyPages-SeeAlso'>See Also</a>
+</li>
+</ul>
+</div>
 
-<p>It's common to have pages in the front end of a site that can only be seen by certain users. This tutorial describes how to do that in MODX Revolution. It assumes that you already know how to let users register and log in using the components in the <a href="/display/ADDON/Login" title="Login">Login</a> package. The process described below will have no effect on which resources users can see or edit in the MODX Manager.</p>
+<h2>
+<a name="MakingMember-OnlyPages-Introduction"></a>Introduction
+</h2>
 
-<p>For those that are savvy enough, below follows a simple list to help you through the maze or to remind you how it works. If you need more information and would like some examples, scroll down to the related subsection below.</p>
+<p>
+MODX Revolution uses a whole new set of security systems to allow you more flexibility while giving your users access (or denying) to Manager and Web resources. As there seems to be need for a proper tutorial to get you into the basics of working with this advanced system this document has been written.
+</p>
+
+<p>
+It's common to have pages in the front end of a site that can only be seen by certain users. This tutorial describes how to do that in MODX Revolution. It assumes that you already know how to let users register and log in using the components in the <a href="/display/ADDON/Login" title="Login">Login</a> package. The process described below will have no effect on which resources users can see or edit in the MODX Manager.
+</p>
+
+<p>
+For those that are savvy enough, below follows a simple list to help you through the maze or to remind you how it works. If you need more information and would like some examples, scroll down to the related subsection below.
+</p>
 
 <ol>
-	<li>Create a Resource Group (Security &#45;&gt; Resource Groups &#45;&gt; Create Resource Group)</li>
-	<li>Link your member-only resource to the Resource Group. (By editing the resource, or by dragging them from the resource tree to the right)</li>
-	<li>Create a User Group (Security &#45;&gt; Access Controls &#45;&gt; User Groups &#45;&gt; New User Group)</li>
-	<li>Add a resource group entry on the Resource Group Access tab (context: web, minimum role: Member (9999), access policy: Resource)</li>
-	<li>Add users to the user group with the role of Member. (Security &#45;&gt; Manage Users)</li>
-	<li>Flush permissions (Security &#45;&gt; Flush Permissions) and try it in another browser (not just another browser window: another browser)</li>
+<li>Create a Resource Group (Security -&gt; Resource Groups -&gt; Create Resource Group)
+</li>
+
+<li>Link your member-only resource to the Resource Group. (By editing the resource, or by dragging them from the resource tree to the right)
+</li>
+
+<li>Create a User Group (Security -&gt; Access Controls -&gt; User Groups -&gt; New User Group)
+</li>
+
+<li>Add a resource group entry on the Resource Group Access tab (context: web, minimum role: Member (9999), access policy: Resource)
+</li>
+
+<li>Add users to the user group with the role of Member. (Security -&gt; Manage Users)
+</li>
+
+<li>Flush permissions (Security -&gt; Flush Permissions) and try it in another browser (not just another browser window: another browser)
+</li>
 </ol>
 
+<h2>
+<a name="MakingMember-OnlyPages-AccessWizardexplanation%282.2.2andlater%29"></a>Access Wizard explanation (2.2.2 and later)
+</h2>
 
-<h2><a name="MakingMember-OnlyPages-AccessWizardexplanation%282.2.2andlater%29"></a>Access Wizard explanation (2.2.2 and later)</h2>
+<p>
+MODX 2.2.2 ships with an access wizard that simplifies this process. The step-by-step explanation is still valid, but the access wizard simplifies the process. You may wish to read both explanations to gain a better understanding of how each aspect of MODX's security system interacts.
+</p>
 
-<p>MODX 2.2.2 ships with an access wizard that simplifies this process. The step-by-step explanation is still valid, but the access wizard simplifies the process. You may wish to read both explanations to gain a better understanding of how each aspect of MODX's security system interacts.</p>
+<h3>
+<a name="MakingMember-OnlyPages-1.CreateaResourceGroup"></a>1. Create a Resource Group
+</h3>
 
-<h3><a name="MakingMember-OnlyPages-1.CreateaResourceGroup"></a>1. Create a Resource Group</h3>
+<p>
+Go to Security -&gt; Resouce Groups and click the Create Resource Group. A window similar to this should pop up: <span class="image-wrap" style=""><img src="/download/attachments/18678352/create-resource-group.png?version=1&amp;modificationDate=1348848806000" style="border: 1px solid black" /></span>
+</p>
 
-<p>Go to Security &#45;&gt; Resouce Groups and click the Create Resource Group. A window similar to this should pop up: <span class="image-wrap" style=""><img src="/download/attachments/18678352/create-resource-group.png?version=1&amp;modificationDate=1348848806000" style="border: 1px solid black" /></span></p>
-
-<p>Let's go over each section:</p>
+<p>
+Let's go over each section:
+</p>
 
 <div class='table-wrap'>
-<table class='confluenceTable'><tbody>
+<table class='confluenceTable'>
+<tbody>
 <tr>
-<th class='confluenceTh'> Section </th>
-<th class='confluenceTh'> Explanation </th>
-<th class='confluenceTh'> Tutorial Default </th>
+<th class='confluenceTh'>
+Section
+</th>
+<th class='confluenceTh'>
+Explanation
+</th>
+<th class='confluenceTh'>
+Tutorial Default
+</th>
 </tr>
+
 <tr>
-<td class='confluenceTd'> Name </td>
-<td class='confluenceTd'> This is the name of the resource group that we're generating. Make it descriptive and easy-to-remember. </td>
-<td class='confluenceTd'> Protected </td>
+<td class='confluenceTd'>
+Name
+</td>
+<td class='confluenceTd'>
+This is the name of the resource group that we're generating. Make it descriptive and easy-to-remember.
+</td>
+<td class='confluenceTd'>
+Protected
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> Contexts </td>
-<td class='confluenceTd'> This is the context where you want the rules to apply. For this tutorial, we only have one context, "web", and we only want to hide things there. </td>
-<td class='confluenceTd'> web </td>
+<td class='confluenceTd'>
+Contexts
+</td>
+<td class='confluenceTd'>
+This is the context where you want the rules to apply. For this tutorial, we only have one context, "web", and we only want to hide things there.
+</td>
+<td class='confluenceTd'>
+web
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> Automatically give Administrator Group Access </td>
-<td class='confluenceTd'> Checking this box will give all users in the default administrator group access to the resource group. As of 2.2.1, the default admin user is marked as a "sudo" user and they can view all resource groups, regardless of whether the administrator group has access. However, if there are any other administrators that don't have sudo access and we want them to be able to view the resources in the resource group, we should check that box. </td>
-<td class='confluenceTd'> checked </td>
+<td class='confluenceTd'>
+Automatically give Administrator Group Access
+</td>
+<td class='confluenceTd'>
+Checking this box will give all users in the default administrator group access to the resource group. As of 2.2.1, the default admin user is marked as a "sudo" user and they can view all resource groups, regardless of whether the administrator group has access. However, if there are any other administrators that don't have sudo access and we want them to be able to view the resources in the resource group, we should check that box.
+</td>
+<td class='confluenceTd'>
+checked
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> Automatically give Anonymous Group Access </td>
-<td class='confluenceTd'> Checking this box will give all users in the anonymous user group access to the resource group. When someone comes to your website and they're not logged into anywhere, they're considered in the anonymous user group. We want to protect our pages from users who aren't logged in, so let's leave this box unchecked for this tutorial. </td>
-<td class='confluenceTd'> unchecked </td>
+<td class='confluenceTd'>
+Automatically give Anonymous Group Access
+</td>
+<td class='confluenceTd'>
+Checking this box will give all users in the anonymous user group access to the resource group. When someone comes to your website and they're not logged into anywhere, they're considered in the anonymous user group. We want to protect our pages from users who aren't logged in, so let's leave this box unchecked for this tutorial.
+</td>
+<td class='confluenceTd'>
+unchecked
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> Create Parallel User Group </td>
-<td class='confluenceTd'> You may not wish to have everyone who can view the member-only pages be in the administrator group (if you've checked the "Automatically give Administrator Group Access" option). In this case, you can create another user group that has access to the resources in this resource group. Let's check that, as our members aren't administrators. </td>
-<td class='confluenceTd'> checked </td>
+<td class='confluenceTd'>
+Create Parallel User Group
+</td>
+<td class='confluenceTd'>
+You may not wish to have everyone who can view the member-only pages be in the administrator group (if you've checked the "Automatically give Administrator Group Access" option). In this case, you can create another user group that has access to the resources in this resource group. Let's check that, as our members aren't administrators.
+</td>
+<td class='confluenceTd'>
+checked
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> Automatically Give Other User Groups Access </td>
-<td class='confluenceTd'> If you have any other user groups that you've defined previously to this tutorial to whom you want to give access, you can list them here. </td>
-<td class='confluenceTd'>&nbsp;</td>
+<td class='confluenceTd'>
+Automatically Give Other User Groups Access
+</td>
+<td class='confluenceTd'>
+If you have any other user groups that you've defined previously to this tutorial to whom you want to give access, you can list them here.
+</td>
+<td class='confluenceTd'>
+&nbsp;
+</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 
+<p>
+Great! We have a resource group and a user group created. We now need to add resources to the resource group and users to that user group and then we'll be laughing.
+</p>
 
-<p>Great&#33; We have a resource group and a user group created. We now need to add resources to the resource group and users to that user group and then we'll be laughing.</p>
+<h3>
+<a name="MakingMember-OnlyPages-2.AddResourcestotheResourceGroup"></a>2. Add Resources to the Resource Group
+</h3>
 
-<h3><a name="MakingMember-OnlyPages-2.AddResourcestotheResourceGroup"></a>2. Add Resources to the Resource Group</h3>
+<p>
+We need to tell MODX with resource we want to protect. Let's stay on the same page from Step 1 (Security &gt; Resource Groups). On the right, open up the web context to see all the pages on your site. Drag them from the column on the right into your resource group. Easy, right? An alternative is to go into each resource, go to the Resource Groups tab, and check the checkbox under the "Acces" column and the "Protected" row.
+</p>
 
-<p>We need to tell MODX with resource we want to protect. Let's stay on the same page from Step 1 (Security &gt; Resource Groups). On the right, open up the web context to see all the pages on your site. Drag them from the column on the right into your resource group. Easy, right? An alternative is to go into each resource, go to the Resource Groups tab, and check the checkbox under the "Acces" column and the "Protected" row.</p>
+<h3>
+<a name="MakingMember-OnlyPages-3.AddUserstotheUserGroup"></a>3. Add Users to the User Group
+</h3>
 
-<h3><a name="MakingMember-OnlyPages-3.AddUserstotheUserGroup"></a>3. Add Users to the User Group</h3>
+<p>
+Okay, we've had enough of the Resource Group page. Go to Security &gt; Access Controls. In the Users Groups tab, we can see a list of all of the user groups on our site. Right click on the "Protected" User group. Select "Add User to Group". For the "Name", select the user you want in the user group. For the Role, let's select "Member" for now. Roles define what an individual user can do within a user group, but we don't need that fine of control for this tutorial. Click Save.
+</p>
 
-<p>Okay, we've had enough of the Resource Group page. Go to Security &gt; Access Controls. In the Users Groups tab, we can see a list of all of the user groups on our site. Right click on the "Protected" User group. Select "Add User to Group". For the "Name", select the user you want in the user group. For the Role, let's select "Member" for now. Roles define what an individual user can do within a user group, but we don't need that fine of control for this tutorial. Click Save.</p>
-<div class='panelMacro'><table class='infoMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>It is important to realize that as soon as you have protected a resource by (1) assigning it to one or more resource groups and (2) linking the resource group to a user group using an access control, those pages will no longer show up for users that are not linked to the resource group. The default behavior in that case is displaying the 404-error page. If you would rather return the 401-error, you will need to give the anonymous user group "load" permission for the resource group. More about this in a later tutorial. At this moment in the tutorial, your page will not be visible as you have not yet added it to a user group.</td></tr></table></div>
-<p>We now have our resources in a resource group, and users in a user group. Done? Sorry, we have a few small things to do first. If you're following this tutorial and this is your first foray into MODX security, you will likely run into a small but important snag: the user group we created doesn't have context access to our front end context, web. In other words, if we could view that context, we could view those protected resources &#45;&#45; but we can't currently view that context. Let's give our user group permission to view that context.</p>
+<div class='panelMacro'>
+<table class='infoMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<h3><a name="MakingMember-OnlyPages-4.AddContextAccesstotheUserGroup"></a>4. Add Context Access to the User Group</h3>
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+It is important to realize that as soon as you have protected a resource by (1) assigning it to one or more resource groups and (2) linking the resource group to a user group using an access control, those pages will no longer show up for users that are not linked to the resource group. The default behavior in that case is displaying the 404-error page. If you would rather return the 401-error, you will need to give the anonymous user group "load" permission for the resource group. More about this in a later tutorial. At this moment in the tutorial, your page will not be visible as you have not yet added it to a user group.
+</td>
+</tr>
+</table>
+</div>
 
-<p>Go to Security &gt; Access Controls. Right click on the protected user group. Select "Update user group". Go to the Context Access tab. Click "Add Context". We are presented with a dialog such as the one below. Let's break it down: <span class="image-wrap" style=""><img src="/download/attachments/18678352/context-access.png?version=1&amp;modificationDate=1348853336000" style="border: 1px solid black" /></span></p>
+<p>
+We now have our resources in a resource group, and users in a user group. Done? Sorry, we have a few small things to do first. If you're following this tutorial and this is your first foray into MODX security, you will likely run into a small but important snag: the user group we created doesn't have context access to our front end context, web. In other words, if we could view that context, we could view those protected resources -- but we can't currently view that context. Let's give our user group permission to view that context.
+</p>
+
+<h3>
+<a name="MakingMember-OnlyPages-4.AddContextAccesstotheUserGroup"></a>4. Add Context Access to the User Group
+</h3>
+
+<p>
+Go to Security &gt; Access Controls. Right click on the protected user group. Select "Update user group". Go to the Context Access tab. Click "Add Context". We are presented with a dialog such as the one below. Let's break it down: <span class="image-wrap" style=""><img src="/download/attachments/18678352/context-access.png?version=1&amp;modificationDate=1348853336000" style="border: 1px solid black" /></span>
+</p>
+
 <div class='table-wrap'>
-<table class='confluenceTable'><tbody>
+<table class='confluenceTable'>
+<tbody>
 <tr>
-<th class='confluenceTh'> Section </th>
-<th class='confluenceTh'> Explanation </th>
-<th class='confluenceTh'> Tutorial Default </th>
+<th class='confluenceTh'>
+Section
+</th>
+<th class='confluenceTh'>
+Explanation
+</th>
+<th class='confluenceTh'>
+Tutorial Default
+</th>
 </tr>
+
 <tr>
-<td class='confluenceTd'> Context </td>
-<td class='confluenceTd'> This specifies to which context we're giving access. The basic use case will have web and mgr. Web is the public front-end of your website, and mgr is the private back-end of your website (i.e., the manager that you're logged in). </td>
-<td class='confluenceTd'> web </td>
+<td class='confluenceTd'>
+Context
+</td>
+<td class='confluenceTd'>
+This specifies to which context we're giving access. The basic use case will have web and mgr. Web is the public front-end of your website, and mgr is the private back-end of your website (i.e., the manager that you're logged in).
+</td>
+<td class='confluenceTd'>
+web
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> Minimum Role </td>
-<td class='confluenceTd'> This specifies what user roles this rule will apply to. If we want all users in this user group, select "Member - 9999". This is where some of that fine control comes in that we talked about earlier. </td>
-<td class='confluenceTd'> Member - 9999 </td>
+<td class='confluenceTd'>
+Minimum Role
+</td>
+<td class='confluenceTd'>
+This specifies what user roles this rule will apply to. If we want all users in this user group, select "Member - 9999". This is where some of that fine control comes in that we talked about earlier.
+</td>
+<td class='confluenceTd'>
+Member - 9999
+</td>
 </tr>
+
 <tr>
-<td class='confluenceTd'> Access Policy </td>
-<td class='confluenceTd'> This specifies what permissions we're giving to the users. Different policies will allow user groups to do different things. </td>
-<td class='confluenceTd'> Administrator </td>
+<td class='confluenceTd'>
+Access Policy
+</td>
+<td class='confluenceTd'>
+This specifies what permissions we're giving to the users. Different policies will allow user groups to do different things.
+</td>
+<td class='confluenceTd'>
+Administrator
+</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 
-<p>Let's make one rule with "web", "Member - 9999", and "Load, List and View". If we want users to be able to view the MODX manager, we can add a second rule to give them access to the mgr context: "mgr", "Member - 9999", and "Administrator". All these users will have admin access. If you would prefer to limit their permissions, you could instead choose "Content Editor" or "Developer" for their access policies. Alternatively, you can make your own in Security &gt; Access Policies if you want to be specific about what users can or can't do.</p>
+<p>
+Let's make one rule with "web", "Member - 9999", and "Load, List and View". If we want users to be able to view the MODX manager, we can add a second rule to give them access to the mgr context: "mgr", "Member - 9999", and "Administrator". All these users will have admin access. If you would prefer to limit their permissions, you could instead choose "Content Editor" or "Developer" for their access policies. Alternatively, you can make your own in Security &gt; Access Policies if you want to be specific about what users can or can't do.
+</p>
 
-<p>We now have users in a user group, resources in a resource group, and that user group can view the context. We're so close&#33;</p>
+<p>
+We now have users in a user group, resources in a resource group, and that user group can view the context. We're so close!
+</p>
 
-<h3><a name="MakingMember-OnlyPages-5.FlushPermissions"></a>5. Flush Permissions</h3>
+<h3>
+<a name="MakingMember-OnlyPages-5.FlushPermissions"></a>5. Flush Permissions
+</h3>
 
-<p>Before you can see a change, you need to reset / flush what your individual users can see and do. Go to Security &gt; Flush Permissions. To test this in the front end, you must use a different browser. 90% of your grief will come from not testing in a different browser or flushing your permissions, so don't be lazy and open that second browser up. Congratulations, you now have members-only pages&#33;</p>
-<div class='panelMacro'><table class='infoMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>In some cases you may need to clear the site cache, specifically for the mgr (manager) context as elements and resources may cache their permissions.</td></tr></table></div>
+<p>
+Before you can see a change, you need to reset / flush what your individual users can see and do. Go to Security &gt; Flush Permissions. To test this in the front end, you must use a different browser. 90% of your grief will come from not testing in a different browser or flushing your permissions, so don't be lazy and open that second browser up. Congratulations, you now have members-only pages!
+</p>
 
-<h2><a name="MakingMember-OnlyPages-Stepbystepexplanation%28pre2.2.2%29"></a>Step-by-step explanation (pre-2.2.2)</h2>
+<div class='panelMacro'>
+<table class='infoMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<p>If you're not quite as savvy, or would rather also know what happens when you set a certain permission or make an access entry, you might find this section interesting. As of 2.2.2, MODX ships with an Access Wizard and you might wish to start with that.</p>
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+In some cases you may need to clear the site cache, specifically for the mgr (manager) context as elements and resources may cache their permissions.
+</td>
+</tr>
+</table>
+</div>
 
-<h3><a name="MakingMember-OnlyPages-1.CreateaResourceGroup"></a>1. Create a Resource Group</h3>
+<h2>
+<a name="MakingMember-OnlyPages-Stepbystepexplanation%28pre2.2.2%29"></a>Step-by-step explanation (pre-2.2.2)
+</h2>
 
-<p>A <a href="/display/revolution20/Resource+Groups" title="Resource Groups">Resource Group</a> is a collection of resources which you can link to user groups and access list entries. When you have created a resource group, you can easily classify pages to be only visible for certain user groups, or roles within user groups.</p>
+<p>
+If you're not quite as savvy, or would rather also know what happens when you set a certain permission or make an access entry, you might find this section interesting. As of 2.2.2, MODX ships with an Access Wizard and you might wish to start with that.
+</p>
 
-<p>To create a resource group, navigate to Security &#45;&gt; Resource Groups and click on the Create Resource Group button. In the popup you are prompted to enter a name for the resource group. In the tutorial we expect you named it "Protected".</p>
+<h3>
+<a name="MakingMember-OnlyPages-1.CreateaResourceGroup"></a>1. Create a Resource Group
+</h3>
 
-<h3><a name="MakingMember-OnlyPages-2.LinkyourmemberonlyresourcetotheResourceGroup"></a>2. Link your member-only resource to the Resource Group</h3>
+<p>
+A <a href="/display/revolution20/Resource+Groups" title="Resource Groups">Resource Group</a> is a collection of resources which you can link to user groups and access list entries. When you have created a resource group, you can easily classify pages to be only visible for certain user groups, or roles within user groups.
+</p>
 
-<p>Now that you have a resource group, you should add resources to it. There are two ways to achieve this.</p>
+<p>
+To create a resource group, navigate to Security -&gt; Resource Groups and click on the Create Resource Group button. In the popup you are prompted to enter a name for the resource group. In the tutorial we expect you named it "Protected".
+</p>
 
-<p>First of all, you can go to Security &#45;&gt; Resource Groups and drag resources from the right resource tree to the left resource groups ("Protected"). The second option is editing your resource, and ticking the right box on the "Access Permissions" tab.</p>
+<h3>
+<a name="MakingMember-OnlyPages-2.LinkyourmemberonlyresourcetotheResourceGroup"></a>2. Link your member-only resource to the Resource Group
+</h3>
 
+<p>
+Now that you have a resource group, you should add resources to it. There are two ways to achieve this.
+</p>
 
+<p>
+First of all, you can go to Security -&gt; Resource Groups and drag resources from the right resource tree to the left resource groups ("Protected"). The second option is editing your resource, and ticking the right box on the "Access Permissions" tab.
+</p>
 
-<h3><a name="MakingMember-OnlyPages-3.CreateaUserGroup"></a>3. Create a User Group</h3>
+<h3>
+<a name="MakingMember-OnlyPages-3.CreateaUserGroup"></a>3. Create a User Group
+</h3>
 
-<p>You have a resource group with resource applied to them, now you'll need to decide who will be able to view the resources. For this, we'll make a new user group.</p>
+<p>
+You have a resource group with resource applied to them, now you'll need to decide who will be able to view the resources. For this, we'll make a new user group.
+</p>
 
-<p>To do this, go to Security &#45;&gt; Access Controls. On the (default) User Groups tab, click on the New User Group button. Choose a name for the group, and submit the form.</p>
+<p>
+To do this, go to Security -&gt; Access Controls. On the (default) User Groups tab, click on the New User Group button. Choose a name for the group, and submit the form.
+</p>
 
+<h3>
+<a name="MakingMember-OnlyPages-4.AddResourceGroupaccess"></a>4. Add Resource Group access
+</h3>
 
-<h3><a name="MakingMember-OnlyPages-4.AddResourceGroupaccess"></a>4. Add Resource Group access</h3>
+<p>
+Move on to the "Resource Group Access" tab. This tab defines the resource groups your user group has access to. Three out of four fields are similar to the Context Access groups, namely the Context, Minimum Role and Access Policy. A new one is Resource Group which, as you probably guessed, defines the resource group the user group can access.
+</p>
 
-<p>Move on to the "Resource Group Access" tab. This tab defines the resource groups your user group has access to. Three out of four fields are similar to the Context Access groups, namely the Context, Minimum Role and Access Policy. A new one is Resource Group which, as you probably guessed, defines the resource group the user group can access.</p>
+<p>
+The settings:
+</p>
 
-<p>The settings:</p>
 <ul>
-	<li>Resource Group: whatever you named it, for example "Protected"</li>
-	<li>Context: web</li>
-	<li>Minimum role: Member (9999)</li>
-	<li>Access Policy: Resource</li>
+<li>Resource Group: whatever you named it, for example "Protected"
+</li>
+
+<li>Context: web
+</li>
+
+<li>Minimum role: Member (9999)
+</li>
+
+<li>Access Policy: Resource
+</li>
 </ul>
 
+<div class='panelMacro'>
+<table class='infoMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-<div class='panelMacro'><table class='infoMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>It is important to realize that as soon as you have protected a resource   by (1) assigning it to one or more resource groups and (2) linking the resource group to a user group using an access control, those pages will no   longer show up for users that are not linked to the resource group. The   default behavior in that case is displaying the 404-error page. If you   would rather return the 401-error, you will need to give the anonymous   user group "load" permission for the resource group. More about this  in a  later tutorial. At this moment in the tutorial, your page will not  be visible as you have not yet added it to a user group.</td></tr></table></div>
-
-<h3><a name="MakingMember-OnlyPages-5.Adduserstotheusergroup"></a>5. Add users to the user group</h3>
-
-<p>Now add some users to the user group. You can do this by editing the user, or by going back to the Users tab and adding them from there. It will ask for the User Group, as well as the Role. As we assumed the Member role with an authority of 9999, you can simply use that one.</p>
-
-<p>When using a websignup snippet, make sure it automatically puts them in the right user group.</p>
-
-
-<h3><a name="MakingMember-OnlyPages-6.Flushpermissions"></a>6. Flush permissions</h3>
-
-<p>Now that all settings are done, you will need to flush permissions (Security &#45;&gt; Flush Permissions) before you will see an effect. Also make sure that, if you go to test it front-end, you use a different browser all together. Don't use a different tab or browser window, as it will still use your Manager login to check for permissions.</p>
-
-<div class='panelMacro'><table class='infoMacro'><colgroup><col width='24'><col></colgroup><tr><td valign='top'><img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>Please note that in some cases it is also necessary to clear the site cache, specifically for the mgr (manager) context, as elements and resources may cache their permissions.</td></tr></table></div>
-
-<h2><a name="MakingMember-OnlyPages-Help%5C%21Ican%27tgetthistowork%2Cstill%5C%21"></a>Help&#33; I can't get this to work, still&#33;</h2>
-
-<p>Make sure you followed everything step by step and that you flushed permissions properly. If everything seems to be alright, check again and then go to the Forums to ask for help. If you think the tutorial is misleading or inaccurate, please visit the forum topic (linked below) and post about what is incorrect so it can be fixed.</p>
-
-<h2><a name="MakingMember-OnlyPages-SeeAlso"></a>See Also</h2>
-
-<p>Bob's permissions guide: <a href="http://bobsguides.com/revolution-permissions.html" class="external-link" rel="nofollow">http://bobsguides.com/revolution-permissions.html</a></p>
-
-
-
-<p>Forum topic discussing this tutorial: <a href="http://modxcms.com/forums/index.php/topic,51259.0.html" class="external-link" rel="nofollow">http://modxcms.com/forums/index.php/topic,51259.0.html</a></p>
-
-
-
-<p>Using the Login Snippet to set up a basic "Members Only" area: <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Login.Basic Setup</a></p>
-
-
-
-<p>Security: <a href="/display/revolution20/Security" title="Security">Security</a></p>
-
-
-
-<style type='text/css'>/*<![CDATA[*/
-table.ScrollbarTable  {border: none;padding: 3px;width: 100%;padding: 3px;margin: 0px;background-color: #f0f0f0}
-table.ScrollbarTable td.ScrollbarPrevIcon {text-align: center;width: 16px;border: none;}
-table.ScrollbarTable td.ScrollbarPrevName {text-align: left;border: none;}
-table.ScrollbarTable td.ScrollbarParent {text-align: center;border: none;}
-table.ScrollbarTable td.ScrollbarNextName {text-align: right;border: none;}
-table.ScrollbarTable td.ScrollbarNextIcon {text-align: center;width: 16px;border: none;}
-
-/*]]>*/</style><div class="Scrollbar"><table class='ScrollbarTable'><tr><td class='ScrollbarPrevIcon'><a href="/display/revolution20/Giving+a+User+Manager+Access"><img border='0' align='middle' src='/images/icons/back_16.gif' width='16' height='16'></a></td><td width='33%' class='ScrollbarPrevName'><a href="/display/revolution20/Giving+a+User+Manager+Access">Giving a User Manager Access</a>&nbsp;</td><td width='33%' class='ScrollbarParent'><sup><a href="/display/revolution20/Security+Tutorials"><img border='0' align='middle' src='/images/icons/up_16.gif' width='8' height='8'></a></sup><a href="/display/revolution20/Security+Tutorials">Security Tutorials</a></td><td width='33%' class='ScrollbarNextName'>&nbsp;<a href="/display/revolution20/Creating+a+Second+Super+Admin+User">Creating a Second Super Admin User</a></td><td class='ScrollbarNextIcon'><a href="/display/revolution20/Creating+a+Second+Super+Admin+User"><img border='0' align='middle' src='/images/icons/forwd_16.gif' width='16' height='16'></a></td></tr></table></div>
-        </div>
-
-        <!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-         <rdf:Description
-    rdf:about="http://oldrtfm.modx.com/display/revolution20/Making+Member-Only+Pages"
-    dc:identifier="http://oldrtfm.modx.com/display/revolution20/Making+Member-Only+Pages"
-    dc:title="Making Member-Only Pages"
-    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/18678352"/>
-</rdf:RDF>
--->
-
-            
-    
-
-
-<fieldset class="hidden parameters">
-    <legend>Labels parameters</legend>
-    <input type="hidden" id="editLabel" value="Edit">
-    <input type="hidden" id="addLabel" value="Add Labels">
-    <input type="hidden" id="domainName" value="http://oldrtfm.modx.com">
-    <input type="hidden" id="pageId" value="18678352">
-    <input type="hidden" id="spaceKey" value="revolution20">
-</fieldset>
-
-<div id="labels-section" class="pageSection">
-    <div id="default-labels-header" class="section-header">
-        <h2 id="labels-section-title" class="section-title  hidden ">Labels</h2>
-            </div>
-
-    <div class="labels-editor">
-        <div id="labelsList">
-                    </div>
-
-        <span class="errorMessage error" id="errorSpan"></span>
-        <form method="GET" action="" id="add-labels-form">
-            <div id="labelInputSpan" class="labels-input">
-                <div id="labelOperationErrorContainer" class="hidden">
-                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
-                </div>
-
-                <div class="caption">Enter labels to add to this page:</div>
-                <div id="label-input-fields">
-                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
-                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
-                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
-                </div>
-                <div id="waitImageAndStatus">
-                    <img class="waiting" alt="Please wait" src="/s/1911/69/_/images/icons/wait.gif">&nbsp;
-                    <span id="labelOperationStatus" class="smalltext"></span>
-                </div>
-                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
-                <div class="labels-tip">
-                    <div id="suggestedLabelsSpan"></div>
-                    Looking for a label? Just start typing.
-                </div>
-            </div>
-        </form>
-    </div>
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+It is important to realize that as soon as you have protected a resource by (1) assigning it to one or more resource groups and (2) linking the resource group to a user group using an access control, those pages will no longer show up for users that are not linked to the resource group. The default behavior in that case is displaying the 404-error page. If you would rather return the 401-error, you will need to give the anonymous user group "load" permission for the resource group. More about this in a later tutorial. At this moment in the tutorial, your page will not be visible as you have not yet added it to a user group.
+</td>
+</tr>
+</table>
 </div>
 
-            
-            
+<h3>
+<a name="MakingMember-OnlyPages-5.Adduserstotheusergroup"></a>5. Add users to the user group
+</h3>
 
+<p>
+Now add some users to the user group. You can do this by editing the user, or by going back to the Users tab and adding them from there. It will ask for the User Group, as well as the Role. As we assumed the Member role with an authority of 9999, you can simply use that one.
+</p>
 
+<p>
+When using a websignup snippet, make sure it automatically puts them in the right user group.
+</p>
 
+<h3>
+<a name="MakingMember-OnlyPages-6.Flushpermissions"></a>6. Flush permissions
+</h3>
 
-            
-    
+<p>
+Now that all settings are done, you will need to flush permissions (Security -&gt; Flush Permissions) before you will see an effect. Also make sure that, if you go to test it front-end, you use a different browser all together. Don't use a different tab or browser window, as it will still use your Manager login to check for permissions.
+</p>
 
-        
-<fieldset class="parameters hidden">
-    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
-    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
-        </fieldset>
+<div class='panelMacro'>
+<table class='infoMacro'>
+<colgroup>
+<col width='24' />
+<col />
+</colgroup>
 
-
-
-
-
-
-<div id="comments-section" class="pageSection">
-    
-    
-    
-    
-                                    </div>
-
-
-            
+<tr>
+<td valign='top'>
+<img src="/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0" />
+</td>
+<td>
+Please note that in some cases it is also necessary to clear the site cache, specifically for the mgr (manager) context, as elements and resources may cache their permissions.
+</td>
+</tr>
+</table>
 </div>
 
+<h2>
+<a name="MakingMember-OnlyPages-Help%5C%21Ican%27tgetthistowork%2Cstill%5C%21"></a>Help! I can't get this to work, still!
+</h2>
 
-    
+<p>
+Make sure you followed everything step by step and that you flushed permissions properly. If everything seems to be alright, check again and then go to the Forums to ask for help. If you think the tutorial is misleading or inaccurate, please visit the forum topic (linked below) and post about what is incorrect so it can be fixed.
+</p>
 
+<h2>
+<a name="MakingMember-OnlyPages-SeeAlso"></a>See Also
+</h2>
 
+<p>
+Bob's permissions guide: <a href="http://bobsguides.com/revolution-permissions.html" class="external-link" rel="nofollow">http://bobsguides.com/revolution-permissions.html</a>
+</p>
 
+<p>
+Forum topic discussing this tutorial: <a href="http://modxcms.com/forums/index.php/topic,51259.0.html" class="external-link" rel="nofollow">http://modxcms.com/forums/index.php/topic,51259.0.html</a>
+</p>
 
-        
-        
+<p>
+Using the Login Snippet to set up a basic "Members Only" area: <a href="/display/ADDON/Login.Basic+Setup" title="Login.Basic Setup">Login.Basic Setup</a>
+</p>
 
-    
-    
-    
-
-
-<fieldset class="hidden parameters">
-        <input type="hidden" id="i18n.manage.watchers.dialog.title" value="Manage Watchers">
-        <input type="hidden" id="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
-        <input type="hidden" id="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
-</fieldset>
-<script type="text/x-template" title="manage-watchers-dialog">
-<div class="dialog-content">
-    <div class="column page-watchers">
-        <h3>Watching this page</h3>
-        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
-        <form action="/json/addwatch.action" method="POST">
-                <input type="hidden" name="atl_token" value="4m6TxZR9pD">
-            <input type="hidden" name="pageId" value="18678352"/>
-            <input type="hidden" id="add-watcher-username" name="username" value=""/>
-            <label for="add-watcher-user">User</label>
-            <input id="add-watcher-user" name="userFullName" type="search" class="has-placeholder autocomplete-user"
-               value="" placeholder="Full name or username" autocomplete="off"
-               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
-               data-template="{title}" data-none-message="No matching users found.">
-            <input id="add-watcher-submit" type="submit" name="add" value="Add">
-            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
-            <div class="status hidden"></div>
-        </form>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No page watchers</li>
-        </ul>
-    </div>
-    <div class="column space-watchers">
-        <h3>Watching this space</h3>
-        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No space watchers</li>
-        </ul>
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="manage-watchers-user">
-    <li class="watch-user">
-        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
-        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
-        <span class="remove-watch" title="Remove"
-            data-username="{username}">Remove</span>
-    </li>
-</script>
-<script type="text/x-template" title="manage-watchers-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Managing+Watchers" target="_blank">Help</a>
-    </div>
-</script>
-    <br class="clear">
-</div>
-  
-    </div>
-</div>
-
-<div id="footer">
-                                                <p class="license license-opensource">
-                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to MODx CMS / xPDO. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
-                </p>
-                        
-    <ul id="poweredby">
-        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.3, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
-        <li class="print-only">Printed by Atlassian Confluence 3.3, the Enterprise Wiki.</li>        
-        <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
-        <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
-    </ul>
-
-    
-
-            <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-71684-1']);
-  _gaq.push(['_setDomainName', 'oldrtfm.modx.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    </div>    <!-- include system javascript resources -->
-                        
-    
-    
-    <!-- end system javascript resources -->
-</div>
-</body>
-</html>
+<p>
+Security: <a href="/display/revolution20/Security" title="Security">Security</a>
+</p>

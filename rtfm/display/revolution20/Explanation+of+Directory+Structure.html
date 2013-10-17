@@ -1,1262 +1,577 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-            <title>Explanation of Directory Structure - MODx Revolution 2.x - MODX Documentation</title>
-    
-        
-
-                        
-    
-
-            
-<meta id="confluence-context-path" name="confluence-context-path" content="">
-<meta id="atlassian-token" name="atlassian-token" content="NFM0Qo-mM8">
-<meta id="confluence-space-key" name="confluence-space-key" content="revolution20">
-
-<script type="text/javascript">
-    // Deprecated global variables. To be removed in a future version of Confluence.
-    var contextPath = '';
-</script>
-
-    
-
-<!-- include system css resources -->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/2/_/download/superbatch/css/batch.css?media=print" media="print">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
-<![endif]-->
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.css" media="all">
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/resources/confluence.web.resources:aui-forms/confluence-forms.css" media="all">
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/s/1911/69/1.0/_/download/batch/confluence.web.resources:aui-forms/confluence.web.resources:aui-forms.css?ieonly=true" media="all">
-<![endif]-->
-
-<!-- end system css resources -->
-
-    <link rel="stylesheet" href="/s/1911/69/6/_/styles/combined.css?spaceKey=revolution20" type="text/css">
-
-    <meta name="confluence-request-time" content="1381730260395">
-
-<meta name="loggedInUsername" content="">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/s/1911/69/_/images/logo/confluence_16.png">
-
-<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="MODX Documentation"/>
-
-        <!-- include system javascript resources -->
-                        
-    
-    <script type="text/javascript" src="/s/1911/69/2/_/download/superbatch/js/batch.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.20/_/download/batch/com.atlassian.confluence.plugins.pagetree:pagetree-resources/com.atlassian.confluence.plugins.pagetree:pagetree-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:fancy-box/confluence.macros.advanced:fancy-box.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.9.3/_/download/batch/confluence.macros.advanced:thumbnail-images/confluence.macros.advanced:thumbnail-images.js" ></script>
-<script type="text/javascript" src="/s/1911/69/3.3/_/download/batch/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources/com.atlassian.confluence.plugins.fixedwidth-theme:fixedwidth-resources.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:support/com.atlassian.confluence.plugins.drag-and-drop:support.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0.8/_/download/batch/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content/com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.2/_/download/batch/com.atlassian.confluence.plugins.doctheme:splitter/com.atlassian.confluence.plugins.doctheme:splitter.js" ></script>
-<script type="text/javascript" src="/s/1911/69/1.0/_/download/batch/legacy.confluence.web.resources:prototype/legacy.confluence.web.resources:prototype.js" ></script>
-
-    <!-- end system javascript resources -->
-
-    <link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/docs.css" />
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/syntaxhighlighter/css/all.css" />
-<!--<script type="text/javascript" src="http://misc.modx.com/js/jquery-1.3.2.min.js"></script>-->
-<script type="text/javascript" src="http://misc.modx.com/confluence/syntaxhighlighter/js/all.js"></script>
-<script type="text/javascript" src="http://misc.modx.com/confluence/loadcode.js"></script>
-<link type="text/css" rel="stylesheet" href="http://misc.modx.com/confluence/promo/ad.css" />
-
-    
-    <link rel="canonical" href="http://oldrtfm.modx.com/display/revolution20/Explanation+of+Directory+Structure">
-    <link rel="shortlink" href="http://oldrtfm.modx.com/x/ugEdAQ">
-    <meta name="wikilink" content="[revolution20:Explanation of Directory Structure]">
-
-</head>
-
-<body             onload="placeFocus()"
-     id="com-atlassian-confluence" class="theme-documentation ">
-<div id="full-height-container">
-<!-- CODE FOR AD THAT SEEMS TO BE INSERTABLE DIRECTLY AFTER OPEN BODY TAG IN CONFLUENCE THEME ADMIN -->
-<!--<a href="https://modxcloud.com/signup/lab-account.html?utm_source=rtfm&utm_medium=banner&utm_campaign=one_percent%2B" class="modx-cloud-link">
-    <div class="modx-cloud-ad-wrap">
-        <div class="modx-cloud-ad">
-            <div class="logo-wrap">
-                <img src="http://misc.modx.com/confluence/promo/modx-cloud-logo.png" alt="MODX Cloud" width="161" height="40">
-            </div>
-            <p>The Most Productive MODX Learning Playground Ever</p>
-            <span class="faux-btn">
-                Claim Free Lab Account
-            </span>
-
-        </div>
-    </div>
-</a>-->
-<!-- END OF AD -->
-
-<div class="editors_note" style="background-color:#ff9a91;border: 1px solid red; padding:5px;color:black;">
-    <strong>Important Note:</strong> This is an archive of the official MODX Documentation. Please do not edit or make changes here.  The current documentation is located at <a href="rtfm.modx.com">rtfm.modx.com</a>.
-</div>
-
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
-    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
-    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
-    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
-    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
-</fieldset>
-
-<fieldset class="hidden parameters">
-    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="10485760">
-    <input type="hidden" id="userLocale" value="en_GB">
-    <input type="hidden" id="staticResourceUrlPrefix" value="/s/1911/69/_">
-    <input type="hidden" id="contextPath" value="">
-</fieldset>
-
-    
-<div id="header" class="sectionbottom ">
-        <form id="quick-search" class="quick-search" method="get" action="/dosearchsite.action">
-        <fieldset>
-            <legend>Quick Search</legend>
-            <input class="quick-search-query" id="quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" size="25" />
-            <input class="quick-search-submit" id="quick-search-submit" type="submit" value="Search" />
-            <div class="aui-dd-parent quick-nav-drop-down"><!-- Quick nav appears here --></div>
-        </fieldset>
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="quickNavEnabled" value="true" />
-                    </fieldset>
-    </form>
-    <ul id="header-menu-bar" class="ajs-menu-bar">
-                    
-        
-            <li class="normal ajs-menu-item">
-        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
-                                        <li>
-    
-        
-    
-    <a  id="space-pages-link" href="/pages/listpages.action?key=revolution20"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Pages</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=revolution20"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Blog</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=revolution20"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Labels</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-attachments-link" href="/spaces/listattachmentsforspace.action?key=revolution20"  class=""   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Attachments</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  href="/spaces/space-bookmarks.action?spaceKey=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Bookmarks</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-mail-link" href="/spaces/viewmailarchive.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Mail</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=revolution20"  class=""   title="Browse bookmarks in the MODx Revolution 2.x space">
-                   <span>Advanced</span></a>        </li>
-                            </ul>
-                        <ul  id="browse-menu-link-global"                 class="section-global">
-                                        <li>
-    
-            
-    
-    <a  id="gadget-directory-link" href="#"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
-                   <span>Confluence Gadgets</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-        
-                                                         <li class="ajs-menu-item normal">
-        
-        
-    
-    <a  id="login-link" href="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FExplanation%2Bof%2BDirectory%2BStructure"  class="user-item login-link"  >
-                   <span>Log In</span></a>        </li>
-                                <li class="normal ajs-menu-item">
-            <div id="splitter-button" class="hidden" title="Sidebar"></div>
-        </li>
-
-    </ul>
-    
-    
-    <ol id="breadcrumbs">
-                    
-        <li class="first" >
-                                    <span><a href="/dashboard.action">Dashboard</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/revolution20">MODx Revolution 2.x</a></span>
-                </li>
-                                        <li id="ellipsis" title="    &#8230;
-                    Home
-             &gt;         Getting Started
-             &gt;         An Overview of MODX
-        &#8230;
-"><span><strong>&#8230;</strong></span></li>
-                                    
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/revolution20/Home">Home</a></span>
-                </li>
-                                
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/revolution20/Getting+Started">Getting Started</a></span>
-                </li>
-                                
-        <li class="hidden-crumb" >
-                                    <span><a href="/display/revolution20/An+Overview+of+MODX">An Overview of MODX</a></span>
-                </li>
-                    
-        <li>
-                                    <span><a href="/display/revolution20/Glossary+of+Revolution+Terms">Glossary of Revolution Terms</a></span>
-                </li>
-                    
-        <li>
-                                    <span>Explanation of Directory Structure</span>
-                </li>
-        </ol>
-
-</div>
-
-    <div id="splitter">
-    <div id="splitter-sidebar">
-
-        
-
-                    
-    
-    
-
-<div class="plugin_pagetree">
-
-                <div id="pagetreesearch">
-            <form method="POST" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
-                                    <input type="hidden" name="ancestorId" value="18678050">
-                                <input type="hidden" name="spaceKey" value="revolution20">
-                <input type="text"  size="20" name="queryString">
-                <input type="submit" value="Search">
-            </form>
-        </div>
-    
-        
-    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
-        <div class="plugin_pagetree_children">
-        </div>
-    </ul>
-
-    <fieldset class="hidden">
-        <input type="hidden" name="treeId" value="">
-        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false">
-        <input type="hidden" name="treePageId" value="18678202">
-
-        <input type="hidden" name="noRoot" value="false">
-        <input type="hidden" name="rootPageId" value="18678050">
-
-        <input type="hidden" name="rootPage" value="">
-        <input type="hidden" name="startDepth" value="0">
-        <input type="hidden" name="spaceKey" value="revolution20" >
-
-        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
-        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
-        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
-        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fdisplay%2Frevolution20%2FExplanation%2Bof%2BDirectory%2BStructure">
-
-                <fieldset class="hidden">
-                                                <input type="hidden" name="ancestorId" value="18678203">
-                                    <input type="hidden" name="ancestorId" value="18678475">
-                                    <input type="hidden" name="ancestorId" value="18678198">
-                                    <input type="hidden" name="ancestorId" value="18678050">
-                                    </fieldset>
-    </fieldset>
-</div>
-
-
-
-            </div>
-    <div id="splitter-content">
-
-                    <script type="text/javascript" src="/s/1911/69/2/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
-    
-            
-    
-<div id="main" >
-    
-    
-    <div id="navigation" class="content-navigation view">
-        <fieldset class="hidden parameters">
-            <input type="hidden" id="pageId" value="18678202">
-        </fieldset>
-        <ul class="ajs-menu-bar">
-                                
-                        
-            <li class="normal ajs-menu-item">
-        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="hidden ajs-drop-down">
-                        <ul  id="action-menu-link-primary"                 class="section-primary first">
-                                        <li>
-    
-        
-    
-    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=18678202"  class="action-view-attachments"  accessKey="a" >
-                   <span><u>A</u>ttachments (0)</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=18678202"  class="action-view-history"  >
-                   <span>Page History</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="mailPageLink" href="/pages/mailpage/mailpage.action?pageId=18678202"  class=""  >
-                    <span>
-                <img alt="E-mail" src="/images/icons/mail_content_16.gif" height="16" width="16" title="E-mail">
-                E-mail
-            </span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=18678202"  class="action-page-permissions"  >
-                   <span>Restrictions</span></a>        </li>
-                            </ul>
-                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
-                                        <li>
-    
-        
-    
-    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=18678202"  class="action-view-info"  >
-                   <span>Info</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=18678202"  class=""  >
-                   <span>Link to this Page&hellip;</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=revolution20&openId=18678202#selectedPageInHierarchy"  class=""  >
-                   <span>View in Hierarchy</span></a>        </li>
-                                        <li>
-    
-        
-    
-    <a  id="action-view-source-link" href="/pages/viewpagesrc.action?pageId=18678202"  class="action-view-source popup-link"  >
-                   <span>View Wiki Markup</span></a>        </li>
-                            </ul>
-                    </div>
-    </li>
-            </ul>
-    </div>
-
-    
-    <h1 id="title-heading" class="pagetitle">
-                    <a href="/display/revolution20"><img class="logo global custom" src="/download/attachments/9109505/global.logo?version=2&modificationDate=1356105314000" alt=""></a>        
-		<span id="title-text">
-					            <a href="/display/revolution20/Explanation+of+Directory+Structure">Explanation of Directory Structure</a>
-    				</span>
-    </h1>
-
-    
-
-    
-    
-    
-    <div id="content" class="page view">
-    
-
-
-
-<fieldset id="link-to-page-fields" class="hidden parameters">
-    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
-    <input type="hidden" id="linkToThisPageLink" value="Link">
-    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
-    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
-    <input type="hidden" id="linkToThisPageClose" value="Close">
-</fieldset>
-<fieldset class="hidden parameters">
-    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page &ndash; &#8216;Explanation of Directory Structure&#8217;">
-    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
-    <input type="hidden" title="movePageDialogMoveButton" value="Move">
-    <input type="hidden" title="movePageDialogOkButton" value="OK">
-    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
-    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
-    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
-    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
-    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
-    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
-    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
-    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
-    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
-    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
-    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
-    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
-    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing <b>{0}</b>.">
-    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing <b>{0}</b>-<b>{1}</b> of <b>{2}</b> pages containing <b>{3}</b>.">
-    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
-    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
-    <input type="hidden" title="pageTitle" value="Explanation of Directory Structure"/>
-    <input type="hidden" title="parentPageTitle" value="Glossary of Revolution Terms"/>
-    <input type="hidden" title="fromPageTitle" value=""/>
-    <input type="hidden" title="spaceKey" value="revolution20"/>
-    <input type="hidden" title="spaceName" value="MODx Revolution 2.x"/>
-    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children."/>
-    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering"/>
-    <input type="hidden" title="movePageDialogBackButton" value="Back"/>
-    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder"/>
-    <input type="hidden" title="movePageDialogNextButton" value="Move"/>    
-</fieldset>
-
-<script type="text/x-template" title="movePageDialog">
-    <div class="row information">
-        Specify the new parent page for this page and its children by space and title.
-    </div>
-    <div class="form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
-            <div class="row">
-                <label for="new-space">New space:</label>
-                <div class="value new-space-value">
-                    <input id="new-space-key" name="new-space-key" type="hidden" value="revolution20">
-                                            <span class="space-input">
-                            <input id="new-space" name="new-space" value="MODx Revolution 2.x" disabled="disabled">
-                        </span>
-                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
-                                        <div class="new-space-dropdown aui-dd-parent"></div>
-                </div>
-            </div>
-            <div class="row">
-                <label for="new-parent-page">New parent page:</label>
-                <div class="value new-parent-page-value">
-                    <span class="page-input">
-                        <input id="new-parent-page" name="new-parent-page" value="Glossary of Revolution Terms">
-                    </span>
-                    <span class="description">Start typing a page title to see a list of suggestions.</span>
-                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div class="location-info">
-        <div class="row">
-            <label>Current location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <label>New location:</label>
-            <div class="value breadcrumbs-container">
-                <div class="breadcrumbs-line">
-                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
-<script type="text/x-template" title="movePageErrors">
-    <div id="move-errors" class="hidden warning"></div>
-</script>
-<script type="text/x-template" title="movePageBreadcrumb">
-    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbLoading">
-    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
-</script>
-<script type="text/x-template" title="movePageBreadcrumbError">
-    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
-</script>
-<script type="text/x-template" title="movePageNoMatchingPages">
-    <ol><li><span class="warning">No matching pages found.</span></li></ol>
-</script>
-<script type="text/x-template" title="movePageNoMatchingSpaces">
-    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
-</script>
-
-<script type="text/x-template" title="movePageSearchPanel">
-<div class="row information">
-    Search for and select the new parent page for this page and its children.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-form">
-        <fieldset>
-            
-
-    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
-            
-
-    <label  for="move-page-search-query" class="assistive">Search keywords</label>
-            <input class="search-query" id="move-page-search-query">
-            
-
-    <label  for="move-page-search-space" class="assistive">Search in space</label>
-                            <select id="move-page-search-space" class="search-space" disabled="disabled">
-                    <option value="revolution20" selected="selected">MODx Revolution 2.x</option>
-                </select>
-                        <input type="button" value="Search">
-                            <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
-                    </fieldset>
-    </div>
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageSearchResultsLoading">
-    <div class="searching">Searching…</div>
-</script>
-
-<script type="text/x-template" title="movePageHistoryPanel">
-<div class="row information">
-    Select the new parent page for this page and its children from your history.
-</div>
-<div id="move-page-search-container" class="row">
-    <div class="search-results">
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="movePageHistoryLoading">
-    <div class="searching">Loading…</div>
-</script>
-<script type="text/x-template" title="movePageBrowsePanel">
-    <div class="row information">
-        Click to select the new parent page for this page and its children.
-    </div>
-    <div class="tree"></div>
-</script>
-<script type="text/x-template" title="movePagePanelLoading">
-    <span>Loading…</span>
-</script>
-<script type="text/x-template" title="movePageBrowsePanelSpace">
-    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
-</script>
-<script type="text/x-template" title="orderingPagePanel">
-<div id="orderingPlaceHolder"></div>
-</script>
-<script type="text/x-template" title="reorderCheckbox">
-<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
-</script>
-<script type="text/x-template" title="move-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Moving+a+Page" target="_blank">Help</a>
-    </div>
-</script>
-<script type="text/x-template" title="searchResultsGrid">
-    <table>
-        <thead>
-            <tr class="header">
-                <th class="search-result-title">Page Title</th>
-                <th class="search-result-space">Space</th>
-                <th class="search-result-date">Updated</th>
-            </tr>
-        </thead>
-    </table>
-</script>
-<script type="text/x-template" title="searchResultsGridCount">
-    <p class="search-result-count">{0}</p>
-</script>
-<script type="text/x-template" title="searchResultsGridRow">
-    <tr class="search-result">
-        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
-        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
-        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
-    </tr>
-</script>
-<!-- Start restrictions section -->
-<fieldset class="hidden parameters i18n">
-        <input type="hidden" id="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
-        <input type="hidden" id="i18n.page.perms.dialog.heading" value="Page Restrictions">
-        <input type="hidden" id="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
-        <input type="hidden" id="i18n.cancel.name" value="Cancel">
-        <input type="hidden" id="i18n.close.name" value="Close">
-        <input type="hidden" id="i18n.update.name" value="Save">
-</fieldset>
-
-<script type="text/x-template" title="page-permissions-div">
-<div id="page-permissions-div">
-    <div id="page-permissions-editor-form">
-
-                <div id="page-permissions-error-div" class="hidden">
-            <a href="#" id="permissions-error-div-close">Ok</a>
-            <div></div>
-        </div>
-
-                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
-            <div>
-                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
-                <label for="restrictViewRadio">Restrict viewing of this page</label>
-                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
-                <label for="restrictEditRadio">Restrict editing of this page</label>
-            </div>
-        </div>
-        <div id="page-permissions-input" class="page-permissions-label-rows">
-            <div class="page-permissions-label">To:</div>
-            <div id="page-permissions-chooser-box">
-                                <span id="page-permissions-choose-user" class="ajs-button">
-                    
-
-
-
-    
-
-
-
-<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
-<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=revolution20&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
-
-
-                </span>
-                <span id="page-permissions-choose-group" class="ajs-button">
-                    
-
-
-
-    
-
- 
-
-<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/1911/69/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
-<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=revolution20&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
-
-
-                </span>
-            </div>
-            <div id="page-permissions-input-box">
-                                <span>
-                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
-                </span>
-                <input
-    type="hidden"
-                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/1911/69/_/images/border/spacer.gif"/>
-                <input type="button" id="add-typed-names" value="Restrict">
-            </div>
-        </div>
-    </div>
-    <div id="page-permissions-tables">
-        <div id="page-permissions-table-div">
-                        <table id="page-permissions-table" class="page-permissions-table">
-                <tr id="page-permissions-no-views" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
-                </tr>
-                <tr id="page-permissions-no-edits" class="marker-row">
-                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
-                </tr>
-            </table>
-        </div>
-        <div id="page-inherited-permissions-table-div" class="hidden">
-            <span id="page-inherited-permissions-table-desc">
-                <a class="icon twisty-closed">Show/Hide</a>
-                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
-            </span>
-            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
-        </div>
-    </div>
-</div>
-</script>
-
-<script type="text/x-template" title="permissions-row-template">
-    <tr class="permission-row">
-                                
-                <td class="page-permissions-marker-cell" width="20%">
-            <span>Viewing restricted to:</span>
-        </td>
-                <td class="permission-entity" nowrap="true" width="40%">
-            <span class="entity-container">
-                <img class="permission-entity-picture"/>
-                <span class="permission-entity-display-name"></span>
-                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
-            </span>
-        </td>
-        <td class="permission-detail-column">
-            <div class="permission-remove-div">
-                <a href="#" class="remove-permission-link">Remove restriction</a>
-            </div>
-        </td>
-    </tr>
-</script>
-<script type="text/x-template" title="permissions-username-no-suggestion-template">
-    <ol>
-        <li><a href="#" class="message"><span>No matches</span></a></li>
-    </ol>
-</script>
-<script type="text/x-template" title="page-inherited-permissions-table-div-template">
-        <div class="page-inherited-permissions-owner-div">
-        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
-        <table class="page-permissions-table"></table>
-    </div>
-</script>
-<script type="text/x-template" title="page-restrictions-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Page+Restrictions" target="_blank">Help</a>
-    </div>
-</script>
-<!-- End restrictions section -->
-
-        
-    
-    
-        <fieldset class="hidden parameters">
-            <input type="hidden" title="parentPageId" value="18678203">
-        </fieldset>
-
-        
-                            
-    
-
-                    
-
-        
-        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
-<div id="page-metadata-start" class="assistive"></div>
-
-    <div class="page-metadata">
-        <ul>
-                            <li class="page-metadata-item noprint">
-    
-            
-    
-    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
-                   <span>Page restrictions apply</span></a>        </li>
-                        <li class="page-metadata-modification-info">
-                                    Added by <a href="/display/~splittingred"
-                          class="url fn"
-                   >Shaun McCormick</a>, last edited by <a href="/display/~netprophet"
-                          class="url fn"
-                   >Mike Schell</a> on Jan 08, 2010
-                                                                    </li>
-                    </ul>
-          <div id="version-comment" class="noteMacro" style="display: none;">
-      <strong>Comment:</strong>
-      <br />
-  </div>
-    </div>
-
-
-<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
-<div id="page-metadata-end" class="assistive"></div>
-        
-        <fieldset class="hidden parameters">
-                        <input type="hidden" title="browsePageTreeMode" value="view">
-        </fieldset>
-
-        <div class="wiki-content">
-           <!-- wiki content -->
-            <p><br class="atl-forced-newline" /></p>
-
-<p>The root directory of MODx is split into several subdirectories, each with its own set of responsibilities and tasks. Some of these directories can be renamed and moved, and their locations can be configured during setup.</p>
+<p>
+<br class="atl-forced-newline" />
+</p>
+
+<p>
+The root directory of MODx is split into several subdirectories, each with its own set of responsibilities and tasks. Some of these directories can be renamed and moved, and their locations can be configured during setup.
+</p>
 
 <div>
 <ul>
-    <li><a href='#ExplanationofDirectoryStructure-connectors%2F'>connectors/</a></li>
-<ul>
-    <li><a href='#ExplanationofDirectoryStructure-NotableFiles'>Notable Files</a></li>
-</ul>
-    <li><a href='#ExplanationofDirectoryStructure-core%2F'>core/</a></li>
-<ul>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fcache%2F'>core/cache/</a></li>
-<ul>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fcache%2Flogs%2F'>core/cache/logs/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fcache%2Fmgr%2F'>core/cache/mgr/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fcache%2Frss%2F'>core/cache/rss/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fcache%2Fweb%2F'>core/cache/web/</a></li>
-</ul>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fcomponents%2F'>core/components/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fconfig%2F'>core/config/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fdocs%2F'>core/docs/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Ferror%2F'>core/error/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fexport%2F'>core/export/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fimport%2F'>core/import/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Flexicon%2F'>core/lexicon/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fmodel%2F'>core/model/</a></li>
-<ul>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2F'>core/model/modx/</a></li>
-<ul>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2Fmysql%2F'>core/model/modx/mysql/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2Fprocessors%2F'>core/model/modx/processors/</a></li>
-</ul>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fmodel%2Fschema%2F'>core/model/schema/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fmodel%2Fsmarty%2F'>core/model/smarty/</a></li>
-</ul>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fpackages%2F'>core/packages/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-core%2Fxpdo%2F'>core/xpdo/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-NotableFiles'>Notable Files</a></li>
-</ul>
-    <li><a href='#ExplanationofDirectoryStructure-manager%2F'>manager/</a></li>
-<ul>
-    <li><a href='#ExplanationofDirectoryStructure-manager%2Fassets%2F'>manager/assets/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-manager%2Fassets%2Fcontrollers%2F'>manager/assets/controllers/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-manager%2Fassets%2Ftemplates%2F'>manager/assets/templates/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-NotableFiles'>Notable Files</a></li>
-</ul>
-    <li><a href='#ExplanationofDirectoryStructure-setup%2F'>setup/</a></li>
-    <li><a href='#ExplanationofDirectoryStructure-%5Cbuild%2F'>_build/</a></li>
-<ul>
-    <li><a href='#ExplanationofDirectoryStructure-NotableFiles'>Notable Files</a></li>
-</ul>
-    <li><a href='#ExplanationofDirectoryStructure-assets%2F'>assets/</a></li>
-<ul>
-    <li><a href='#ExplanationofDirectoryStructure-assets%2Fcomponents%2F'>assets/components/</a></li>
-</ul>
-</ul></div>
-<h2><a name="ExplanationofDirectoryStructure-connectors%2F"></a>connectors/</h2>
+<li>
+<a href='#ExplanationofDirectoryStructure-connectors%2F'>connectors/</a>
+</li>
 
-<p>Connectors are essentially entry points for AJAX requests in MODx. They don't do any database manipulation on their own; they simply load up the main MODx class, sanitize any request data, and then handle the request by pointing to the appropriate Processor file.</p>
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href='#ExplanationofDirectoryStructure-NotableFiles'>Notable Files</a>
+</li>
+</ul>
+</li>
 
-<p>For example, when we create a resource, we request connectors/resource/index.php?action=create. The index.php file will include the base connector file (connectors/index.php) which instantiates the main MODx object, handle any custom <a href="/display/revolution20/Contexts" title="Contexts">Context</a> switching, and sanitize the GET or POST request. The connectors/resource/index.php will then "handle" the request and call the correct Processor file, which we will discuss later.</p>
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2F'>core/</a>
+</li>
 
-<h3><a name="ExplanationofDirectoryStructure-NotableFiles"></a>Notable Files</h3>
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fcache%2F'>core/cache/</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fcache%2Flogs%2F'>core/cache/logs/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fcache%2Fmgr%2F'>core/cache/mgr/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fcache%2Frss%2F'>core/cache/rss/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fcache%2Fweb%2F'>core/cache/web/</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fcomponents%2F'>core/components/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fconfig%2F'>core/config/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fdocs%2F'>core/docs/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Ferror%2F'>core/error/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fexport%2F'>core/export/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fimport%2F'>core/import/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Flexicon%2F'>core/lexicon/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fmodel%2F'>core/model/</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2F'>core/model/modx/</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2Fmysql%2F'>core/model/modx/mysql/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2Fprocessors%2F'>core/model/modx/processors/</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fmodel%2Fschema%2F'>core/model/schema/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fmodel%2Fsmarty%2F'>core/model/smarty/</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fpackages%2F'>core/packages/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-core%2Fxpdo%2F'>core/xpdo/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-NotableFiles'>Notable Files</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-manager%2F'>manager/</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href='#ExplanationofDirectoryStructure-manager%2Fassets%2F'>manager/assets/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-manager%2Fassets%2Fcontrollers%2F'>manager/assets/controllers/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-manager%2Fassets%2Ftemplates%2F'>manager/assets/templates/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-NotableFiles'>Notable Files</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-setup%2F'>setup/</a>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-%5Cbuild%2F'>_build/</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href='#ExplanationofDirectoryStructure-NotableFiles'>Notable Files</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href='#ExplanationofDirectoryStructure-assets%2F'>assets/</a>
+</li>
+
+<li style="list-style: none; display: inline">
+<ul>
+<li>
+<a href='#ExplanationofDirectoryStructure-assets%2Fcomponents%2F'>assets/components/</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2>
+<a name="ExplanationofDirectoryStructure-connectors%2F"></a>connectors/
+</h2>
+
+<p>
+Connectors are essentially entry points for AJAX requests in MODx. They don't do any database manipulation on their own; they simply load up the main MODx class, sanitize any request data, and then handle the request by pointing to the appropriate Processor file.
+</p>
+
+<p>
+For example, when we create a resource, we request connectors/resource/index.php?action=create. The index.php file will include the base connector file (connectors/index.php) which instantiates the main MODx object, handle any custom <a href="/display/revolution20/Contexts" title="Contexts">Context</a> switching, and sanitize the GET or POST request. The connectors/resource/index.php will then "handle" the request and call the correct Processor file, which we will discuss later.
+</p>
+
+<h3>
+<a name="ExplanationofDirectoryStructure-NotableFiles" id="ExplanationofDirectoryStructure-NotableFiles"></a>Notable Files
+</h3>
 
 <ul>
-	<li><b>connectors/index.php</b> &#45; This file is particularly useful in creating your own connectors. Simply include this file in your connectors, and then handle the request using $modx-&gt;request-&gt;handleRequest();</li>
+<li>
+<b>connectors/index.php</b> - This file is particularly useful in creating your own connectors. Simply include this file in your connectors, and then handle the request using $modx-&gt;request-&gt;handleRequest();
+</li>
 </ul>
-
 
 <hr />
-<h2><a name="ExplanationofDirectoryStructure-core%2F"></a>core/</h2>
 
-<p>The Core is what makes MODx, MODx. It is the base for all the libraries for Revolution. Most everything you need, with the exception of the manager files and the setup files, are in this directory.</p>
+<h2>
+<a name="ExplanationofDirectoryStructure-core%2F"></a>core/
+</h2>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Fcache%2F"></a>core/cache/</h3>
+<p>
+The Core is what makes MODx, MODx. It is the base for all the libraries for Revolution. Most everything you need, with the exception of the manager files and the setup files, are in this directory.
+</p>
 
-<p>The cache directory contains all of the cache files generated by MODx. Lexicons, elements, resources, RSS, and Smarty data are generated on-demand by MODx, meaning that they are only cached after being accessed for the first time.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Fcache%2F"></a>core/cache/
+</h3>
 
-<h4><a name="ExplanationofDirectoryStructure-core%2Fcache%2Flogs%2F"></a>core/cache/logs/</h4>
+<p>
+The cache directory contains all of the cache files generated by MODx. Lexicons, elements, resources, RSS, and Smarty data are generated on-demand by MODx, meaning that they are only cached after being accessed for the first time.
+</p>
 
-<p>All file logging in MODx is done here. You will find the error.log file here, which contains the date, time, file, and error which was logged by MODx.</p>
+<h4>
+<a name="ExplanationofDirectoryStructure-core%2Fcache%2Flogs%2F"></a>core/cache/logs/
+</h4>
 
-<p>To log an entry to this file, you can use the $modx-&gt;log() method.</p>
+<p>
+All file logging in MODx is done here. You will find the error.log file here, which contains the date, time, file, and error which was logged by MODx.
+</p>
 
-<h4><a name="ExplanationofDirectoryStructure-core%2Fcache%2Fmgr%2F"></a>core/cache/mgr/</h4>
+<p>
+To log an entry to this file, you can use the $modx-&gt;log() method.
+</p>
 
-<p>This directory contains cache data for the mgr (Manager) context. Like every context cache, it will cache any context settings that have been overridden from their default System Settings.</p>
+<h4>
+<a name="ExplanationofDirectoryStructure-core%2Fcache%2Fmgr%2F"></a>core/cache/mgr/
+</h4>
 
-<h4><a name="ExplanationofDirectoryStructure-core%2Fcache%2Frss%2F"></a>core/cache/rss/</h4>
+<p>
+This directory contains cache data for the mgr (Manager) context. Like every context cache, it will cache any context settings that have been overridden from their default System Settings.
+</p>
 
-<p>A cache of every RSS feed in MODx.</p>
+<h4>
+<a name="ExplanationofDirectoryStructure-core%2Fcache%2Frss%2F"></a>core/cache/rss/
+</h4>
 
-<h4><a name="ExplanationofDirectoryStructure-core%2Fcache%2Fweb%2F"></a>core/cache/web/</h4>
+<p>
+A cache of every RSS feed in MODx.
+</p>
 
-<p>Unlike the cache in MODx Evolution, the MODx Revolution cache is split up into several parts. Every context (ie. web and mgr) has a context.cache.php file. This file is like the config.cache.php file, except that it only caches settings that have been overridden from their default System Setting. Any context can override a system setting.</p>
+<h4>
+<a name="ExplanationofDirectoryStructure-core%2Fcache%2Fweb%2F"></a>core/cache/web/
+</h4>
 
-<p>Additionally, the web context cache will contain separate directories for resources and elements. A resource with ID 12 will be found at cache/web/resources/12.cache.php. This new caching mechanism means that loading times will decrease, and the limit on the number of cacheable resources will disappear.</p>
+<p>
+Unlike the cache in MODx Evolution, the MODx Revolution cache is split up into several parts. Every context (ie. web and mgr) has a context.cache.php file. This file is like the config.cache.php file, except that it only caches settings that have been overridden from their default System Setting. Any context can override a system setting.
+</p>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Fcomponents%2F"></a>core/components/</h3>
+<p>
+Additionally, the web context cache will contain separate directories for resources and elements. A resource with ID 12 will be found at cache/web/resources/12.cache.php. This new caching mechanism means that loading times will decrease, and the limit on the number of cacheable resources will disappear.
+</p>
 
-<p>When you install a package using the <a href="/display/revolution20/Package+Management" title="Package Management">Package Manager</a>, a core/components/&lt;component_name&gt;/ directory will be created to hold any files necessary for the installed component to run. Typically, any files needed to run in the Manager, such as controllers, model/schema data, processors and class files, should be stored here, as well as files you don't want web-accessible.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Fcomponents%2F"></a>core/components/
+</h3>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Fconfig%2F"></a>core/config/</h3>
+<p>
+When you install a package using the <a href="/display/revolution20/Package+Management" title="Package Management">Package Manager</a>, a core/components/&lt;component_name&gt;/ directory will be created to hold any files necessary for the installed component to run. Typically, any files needed to run in the Manager, such as controllers, model/schema data, processors and class files, should be stored here, as well as files you don't want web-accessible.
+</p>
 
-<p>This directory contains the configuration file for MODx Revolution. It sets up database credentials and a number of MODX&#95; constants for the proper operation of your site.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Fconfig%2F"></a>core/config/
+</h3>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Fdocs%2F"></a>core/docs/</h3>
+<p>
+This directory contains the configuration file for MODx Revolution. It sets up database credentials and a number of MODX_ constants for the proper operation of your site.
+</p>
 
-<p>This directory contains the changelog.txt file, the GPL license, and any tutorials that have been created for Revolution.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Fdocs%2F"></a>core/docs/
+</h3>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Ferror%2F"></a>core/error/</h3>
+<p>
+This directory contains the changelog.txt file, the GPL license, and any tutorials that have been created for Revolution.
+</p>
 
-<p>This contains default templating for error response messages in Revolution's front-end. You can customize those pages here.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Ferror%2F"></a>core/error/
+</h3>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Fexport%2F"></a>core/export/</h3>
+<p>
+This contains default templating for error response messages in Revolution's front-end. You can customize those pages here.
+</p>
 
-<p>After running the Export function in MODx Revolution, the exported HTML files for your site will be located here.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Fexport%2F"></a>core/export/
+</h3>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Fimport%2F"></a>core/import/</h3>
+<p>
+After running the Export function in MODx Revolution, the exported HTML files for your site will be located here.
+</p>
 
-<p>To run the Import function in MODx Revolution, you need to move your HTML files into this directory.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Fimport%2F"></a>core/import/
+</h3>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Flexicon%2F"></a>core/lexicon/</h3>
+<p>
+To run the Import function in MODx Revolution, you need to move your HTML files into this directory.
+</p>
 
-<p><span class="error">&#91;Lexicons&#93;</span> in Revolution are different from language files in Evolution for two main reasons.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Flexicon%2F"></a>core/lexicon/
+</h3>
 
-<p>First, in Revolution, lexicon files are split up into separate directories, depending on their two-digit IANA code (for example, English lexicons are stored in /core/lexicon/en/). Inside these subdirectories are multiple files, in the format "topic.inc.php". A "topic" is simply a single lexicon file. Splitting lexicons into topics means that only the <em>required</em> language strings are loaded, saving memory and loading time.</p>
+<p>
+<span class="error">[Lexicons]</span> in Revolution are different from language files in Evolution for two main reasons.
+</p>
 
-<p>Second, all lexicons are stored in the MODx database, and later cached on-demand. This makes it possible to manage lexicons directly from the Manager, inside the <span class="error">&#91;Lexicon Management&#93;</span> area.</p>
+<p>
+First, in Revolution, lexicon files are split up into separate directories, depending on their two-digit IANA code (for example, English lexicons are stored in /core/lexicon/en/). Inside these subdirectories are multiple files, in the format "topic.inc.php". A "topic" is simply a single lexicon file. Splitting lexicons into topics means that only the <em>required</em> language strings are loaded, saving memory and loading time.
+</p>
 
-<p>To load a lexicon, one would use a format such as this:</p>
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$modx-&gt;lexicon-&gt;load( 'lang:namespace:topic' );
+<p>
+Second, all lexicons are stored in the MODx database, and later cached on-demand. This makes it possible to manage lexicons directly from the Manager, inside the <span class="error">[Lexicon Management]</span> area.
+</p>
+
+<p>
+To load a lexicon, one would use a format such as this:
+</p>
+
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$modx-&gt;lexicon-&gt;load( 'lang:namespace:topic' );
 </pre>
-</div></div>
-<p># <b>lang</b> &#45; the 2-digit IANA code. This is optional, and defaults to 'en'.</p>
+</div>
+</div>
+
+<p>
+# <b>lang</b> - the 2-digit IANA code. This is optional, and defaults to 'en'.
+</p>
+
 <ol>
-	<li><b>namespace</b> &#45; Each lexicon has its own <a href="/display/revolution20/Namespaces" title="Namespaces">Namespace</a>. The built-in namespace for MODx is "core". Package creators will also be able to create a custom namespace, and Manager users can also create their own namespaces as well.</li>
-	<li><b>topic</b> &#45; The specific topic/file you want to load.</li>
+<li>
+<b>namespace</b> - Each lexicon has its own <a href="/display/revolution20/Namespaces" title="Namespaces">Namespace</a>. The built-in namespace for MODx is "core". Package creators will also be able to create a custom namespace, and Manager users can also create their own namespaces as well.
+</li>
+
+<li>
+<b>topic</b> - The specific topic/file you want to load.
+</li>
 </ol>
 
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Fmodel%2F"></a>core/model/
+</h3>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Fmodel%2F"></a>core/model/</h3>
+<p>
+This is the model. What's a model, you say? Well, it's the M in MVC (model-view-controller), which is an OO paradigm that states that there should be at least three parts to an application. The Model, which contains the structure of the database and the hooks into it; the View, which is the GUI part of the application that contains no logic - just presentation; and the Controllers, which connect the model to the view.
+</p>
 
-<p>This is the model. What's a model, you say? Well, it's the M in MVC (model-view-controller), which is an OO paradigm that states that there should be at least three parts to an application. The Model, which contains the structure of the database and the hooks into it; the View, which is the GUI part of the application that contains no logic - just presentation; and the Controllers, which connect the model to the view.</p>
+<p>
+So, MODx does model sort-of similar. We actually do a MVC/C model, in which we add a Connector access point and Processors to the model. We'll explain those as we come to them. What you need to know is that the model contains all the PHP classes that run Revolution, including the processors that handle specific functions - such as saving snippets, removing chunks, etc.
+</p>
 
-<p>So, MODx does model sort-of similar. We actually do a MVC/C model, in which we add a Connector access point and Processors to the model. We'll explain those as we come to them. What you need to know is that the model contains all the PHP classes that run Revolution, including the processors that handle specific functions - such as saving snippets, removing chunks, etc.</p>
+<h4>
+<a name="ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2F"></a>core/model/modx/
+</h4>
 
-<h4><a name="ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2F"></a>core/model/modx/</h4>
+<p>
+"Wait! I thought we were already in a modx dir? Why another modx subdirectory?" Good question. Well, MODx Revolution uses xPDO for its database management. xPDO uses the idea of 'packages' for different connections to different models. So, if I wanted to create my custom tables, I'd create a new xPDO package, and add it in at runtime. This way I could use the maps and classes created without having to modify the MODx core. This is shown in the <a href="/display/~splittingred/2008/06/26/Writing+a+3rd+Party+Component+in+MODx+Revolution%2C+Pt.+I" title="Writing a 3rd Party Component in MODx Revolution, Pt. I">Creating a 3rd Party Component</a> tutorial.
+</p>
 
-<p>"Wait&#33; I thought we were already in a modx dir? Why another modx subdirectory?" Good question. Well, MODx Revolution uses xPDO for its database management. xPDO uses the idea of 'packages' for different connections to different models. So, if I wanted to create my custom tables, I'd create a new xPDO package, and add it in at runtime. This way I could use the maps and classes created without having to modify the MODx core. This is shown in the <a href="/display/~splittingred/2008/06/26/Writing+a+3rd+Party+Component+in+MODx+Revolution%2C+Pt.+I" title="Writing a 3rd Party Component in MODx Revolution, Pt. I">Creating a 3rd Party Component</a> tutorial.</p>
+<p>
+So, that said, it can be inferred that the core/model/modx directory is referring to the "modx" package. Let's go inside it, and you'll see a ton of classes. These are the classes that are either xPDOObjects - which are PHP classes that represent tables in the DB (ie, modsnippet.class.php is a PHP class that is an object of modx_site_snippets), or they are functional classes, such as modcachemanager.class.php.
+</p>
 
-<p>So, that said, it can be inferred that the core/model/modx directory is referring to the "modx" package. Let's go inside it, and you'll see a ton of classes. These are the classes that are either xPDOObjects - which are PHP classes that represent tables in the DB (ie, modsnippet.class.php is a PHP class that is an object of modx_site_snippets), or they are functional classes, such as modcachemanager.class.php.</p>
+<p>
+The subdirectories in this folder - not including mysql or processors - are subcategories of classes, that are loaded like: $modx-&gt;loadClass('transport.modPackageBuilder'); with the "." being the separation of directories.
+</p>
 
-<p>The subdirectories in this folder - not including mysql or processors - are subcategories of classes, that are loaded like: $modx-&gt;loadClass('transport.modPackageBuilder'); with the "." being the separation of directories.</p>
+<h5>
+<a name="ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2Fmysql%2F"></a>core/model/modx/mysql/
+</h5>
 
-<h5><a name="ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2Fmysql%2F"></a>core/model/modx/mysql/</h5>
+<p>
+This directory contains the class and map files for each xPDO object. Maps are simply PHP arrays containing the structure of the database table they reference.
+</p>
 
-<p>This directory contains the class and map files for each xPDO object. Maps are simply PHP arrays containing the structure of the database table they reference.</p>
+<p>
+Other database platforms such as pgsql, mssql, and others would also appear here.
+</p>
 
-<p>Other database platforms such as pgsql, mssql, and others would also appear here.</p>
+<h5>
+<a name="ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2Fprocessors%2F"></a>core/model/modx/processors/
+</h5>
 
-<h5><a name="ExplanationofDirectoryStructure-core%2Fmodel%2Fmodx%2Fprocessors%2F"></a>core/model/modx/processors/</h5>
+<p>
+This directory contains the individual processor files used in database manipulation. They are never accessed directly, and instead are accessed through connectors. This allows you to lock them down to prevent unauthorized access.
+</p>
 
-<p>This directory contains the individual processor files used in database manipulation. They are never accessed directly, and instead are accessed through connectors. This allows you to lock them down to prevent unauthorized access.</p>
+<h4>
+<a name="ExplanationofDirectoryStructure-core%2Fmodel%2Fschema%2F"></a>core/model/schema/
+</h4>
 
-<h4><a name="ExplanationofDirectoryStructure-core%2Fmodel%2Fschema%2F"></a>core/model/schema/</h4>
+<p>
+The schema is the XML representation of the MODx database. This is used in building new maps and classes, but is never actually read or parsed when MODx is running. For the most part, you can ignore this directory, as it is mainly used for development work. The tutorials on <a href="/display/~splittingred/2008/06/26/Writing+a+3rd+Party+Component+in+MODx+Revolution%2C+Pt.+I" title="Writing a 3rd Party Component in MODx Revolution, Pt. I">creating 3rd party components</a> teach more about schemas.
+</p>
 
-<p>The schema is the XML representation of the MODx database. This is used in building new maps and classes, but is never actually read or parsed when MODx is running. For the most part, you can ignore this directory, as it is mainly used for development work. The tutorials on <a href="/display/~splittingred/2008/06/26/Writing+a+3rd+Party+Component+in+MODx+Revolution%2C+Pt.+I" title="Writing a 3rd Party Component in MODx Revolution, Pt. I">creating 3rd party components</a> teach more about schemas.</p>
+<h4>
+<a name="ExplanationofDirectoryStructure-core%2Fmodel%2Fsmarty%2F"></a>core/model/smarty/
+</h4>
 
-<h4><a name="ExplanationofDirectoryStructure-core%2Fmodel%2Fsmarty%2F"></a>core/model/smarty/</h4>
+<p>
+This contains the Smarty libraries. It's simply an extraction of the Smarty files you can get from <a href="http://smarty.php.net" class="external-link" rel="nofollow">http://smarty.php.net</a>. Nothing in this folder is customized for MODx - that happens elsewhere.
+</p>
 
-<p>This contains the Smarty libraries. It's simply an extraction of the Smarty files you can get from <a href="http://smarty.php.net" class="external-link" rel="nofollow">http://smarty.php.net</a>. Nothing in this folder is customized for MODx - that happens elsewhere.</p>
+<p>
+Smarty is an intelligent, object-oriented templating engine that uses dynamic, modifiable placeholders. Most pages seen in the Manager and during Setup are Smarty template (.tpl) files that MODx interacts with.
+</p>
 
-<p>Smarty is an intelligent, object-oriented templating engine that uses dynamic, modifiable placeholders. Most pages seen in the Manager and during Setup are Smarty template (.tpl) files that MODx interacts with.</p>
+<p>
+When you edit a resource (often a document) in the Manager, for example, you're looking at a page generated by the controller at manager/controllers/resource/staticresource/update.php. After setting the characteristics of the resource in the $resource array, this code renders the page:
+</p>
 
-<p>When you edit a resource (often a document) in the Manager, for example, you're looking at a page generated by the controller at manager/controllers/resource/staticresource/update.php. After setting the characteristics of the resource in the $resource array, this code renders the page:</p>
-<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
-<pre class="code-java">$modx-&gt;smarty-&gt;assign('resource',$resource);
+<div class="code panel" style="border-width: 1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">
+$modx-&gt;smarty-&gt;assign('resource',$resource);
 <span class="code-keyword">return</span> $modx-&gt;smarty-&gt;fetch('resource/staticresource/update.tpl');
 </pre>
-</div></div>
-<p>The Smarty placeholders in update.tpl are filled in with the data held in the $resource array.</p>
+</div>
+</div>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Fpackages%2F"></a>core/packages/</h3>
+<p>
+The Smarty placeholders in update.tpl are filled in with the data held in the $resource array.
+</p>
 
-<p>Here you will find any transport packages you've downloaded via the <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a> section of Revolution, such as TinyMCE, Ditto, etc. The core package is also found here as well. This allows for easy installation and removal, as well as remote updating of installed packages.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Fpackages%2F"></a>core/packages/
+</h3>
 
-<p>When you build a package (for example, after checking out from SVN), the transport package will be stored here.</p>
+<p>
+Here you will find any transport packages you've downloaded via the <a href="/display/revolution20/Package+Management" title="Package Management">Package Management</a> section of Revolution, such as TinyMCE, Ditto, etc. The core package is also found here as well. This allows for easy installation and removal, as well as remote updating of installed packages.
+</p>
 
-<h3><a name="ExplanationofDirectoryStructure-core%2Fxpdo%2F"></a>core/xpdo/</h3>
+<p>
+When you build a package (for example, after checking out from SVN), the transport package will be stored here.
+</p>
 
-<p>MODx Revolution was designed to use OpenExpedio (xPDO), an extension to PDO. It provides a uniform interface for manipulating databases, and makes it possible for MODx to support various database platforms besides MySQL.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-core%2Fxpdo%2F"></a>core/xpdo/
+</h3>
 
-<p>This directory contains all of the class files needed by xPDO to do everything from query caching, to building transport packages and outputting data as a convenient JSON object.</p>
+<p>
+MODx Revolution was designed to use OpenExpedio (xPDO), an extension to PDO. It provides a uniform interface for manipulating databases, and makes it possible for MODx to support various database platforms besides MySQL.
+</p>
 
-<p>These classes are used by MODx internally, and developers should never need to deal with them directly.</p>
+<p>
+This directory contains all of the class files needed by xPDO to do everything from query caching, to building transport packages and outputting data as a convenient JSON object.
+</p>
 
-<h3><a name="ExplanationofDirectoryStructure-NotableFiles"></a>Notable Files</h3>
+<p>
+These classes are used by MODx internally, and developers should never need to deal with them directly.
+</p>
+
+<h3>
+<a name="ExplanationofDirectoryStructure-NotableFiles" id="ExplanationofDirectoryStructure-NotableFiles"></a>Notable Files
+</h3>
 
 <ul>
-	<li><b>core/cache/config.cache.php</b> &#45; This is the cache file for all of the <a href="/display/revolution20/System+Settings" title="System Settings">System Settings</a> in MODx. Their database equivalents are found in the &#95;system_settings table, and their xPDO equivalents are modSystemSetting objects.
-	<ul>
-		<li><b><em>Tip</em></b> &#45; If you ever get locked out by the CAPTCHA component, you can edit this file and set <em>use_captcha</em> to '0' to disable CAPTCHA. Then you can log in and disable CAPTCHA in <a href="/display/revolution20/System+Settings" title="System Settings">System Settings</a>.</li>
-	</ul>
-	</li>
-	<li><b>core/cache/sitePublishing.idx.php</b> &#45; In MODx Evolution, this file contained the cache data for all documents, chunks, and snippets. In Revolution, this is no longer the case, and this file now keeps track of cache refresh intervals.</li>
-	<li><b>core/cache/mgr/actions.cache.php</b> &#45; a map of all modAction objects.</li>
+<li>
+<b>core/cache/config.cache.php</b> - This is the cache file for all of the <a href="/display/revolution20/System+Settings" title="System Settings">System Settings</a> in MODx. Their database equivalents are found in the _system_settings table, and their xPDO equivalents are modSystemSetting objects.
+<ul>
+<li>
+<b><em>Tip</em></b> - If you ever get locked out by the CAPTCHA component, you can edit this file and set <em>use_captcha</em> to '0' to disable CAPTCHA. Then you can log in and disable CAPTCHA in <a href="/display/revolution20/System+Settings" title="System Settings">System Settings</a>.
+</li>
+</ul>
+</li>
+
+<li>
+<b>core/cache/sitePublishing.idx.php</b> - In MODx Evolution, this file contained the cache data for all documents, chunks, and snippets. In Revolution, this is no longer the case, and this file now keeps track of cache refresh intervals.
+</li>
+
+<li>
+<b>core/cache/mgr/actions.cache.php</b> - a map of all modAction objects.
+</li>
 </ul>
 
-
 <hr />
-<h2><a name="ExplanationofDirectoryStructure-manager%2F"></a>manager/</h2>
 
-<p>The Manager is the MODx backend or administration area for creating resources, managing users, and performing overall site maintenance tasks.</p>
+<h2>
+<a name="ExplanationofDirectoryStructure-manager%2F"></a>manager/
+</h2>
 
-<h3><a name="ExplanationofDirectoryStructure-manager%2Fassets%2F"></a>manager/assets/</h3>
+<p>
+The Manager is the MODx backend or administration area for creating resources, managing users, and performing overall site maintenance tasks.
+</p>
 
-<p>This directory contains the <a href="http://extjs.com/" class="external-link" rel="nofollow">ExtJS</a> libraries, as well as the custom ModExt implementation. ModExt extends the original ExtJS library, to make development more convenient for users.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-manager%2Fassets%2F"></a>manager/assets/
+</h3>
 
-<h3><a name="ExplanationofDirectoryStructure-manager%2Fassets%2Fcontrollers%2F"></a>manager/assets/controllers/</h3>
+<p>
+This directory contains the <a href="http://extjs.com/" class="external-link" rel="nofollow">ExtJS</a> libraries, as well as the custom ModExt implementation. ModExt extends the original ExtJS library, to make development more convenient for users.
+</p>
 
-<p>Controllers are the PHP files tied to modActions. They simply fetch data and return or output it to the browser for rendering and display. Whenever you load a page in the Manager, you are in effect telling MODx to load a particular Controller, which simply loads a Smarty template and outputs any necessary JavaScript to the browser.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-manager%2Fassets%2Fcontrollers%2F"></a>manager/assets/controllers/
+</h3>
 
-<h3><a name="ExplanationofDirectoryStructure-manager%2Fassets%2Ftemplates%2F"></a>manager/assets/templates/</h3>
+<p>
+Controllers are the PHP files tied to modActions. They simply fetch data and return or output it to the browser for rendering and display. Whenever you load a page in the Manager, you are in effect telling MODx to load a particular Controller, which simply loads a Smarty template and outputs any necessary JavaScript to the browser.
+</p>
 
-<p>This directory contains the template files for each manager page. They do not contain PHP code, but rather are used to organize HTML. If you are looking for the Smarty .tpl file for a particular manager page, check in the manager/templates/default/ directory.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-manager%2Fassets%2Ftemplates%2F"></a>manager/assets/templates/
+</h3>
 
-<h3><a name="ExplanationofDirectoryStructure-NotableFiles"></a>Notable Files</h3>
+<p>
+This directory contains the template files for each manager page. They do not contain PHP code, but rather are used to organize HTML. If you are looking for the Smarty .tpl file for a particular manager page, check in the manager/templates/default/ directory.
+</p>
+
+<h3>
+<a name="ExplanationofDirectoryStructure-NotableFiles" id="ExplanationofDirectoryStructure-NotableFiles"></a>Notable Files
+</h3>
 
 <ul>
-	<li><b>manager/assets/ext2/ext-all.js</b> &#45; This is the main Ext library file, which must be included on all Manager pages (or any page using Ext). It's compressed to save space, decrease download time, and speed up page loads. However, if you're doing a lot of JavaScript work, you're bound to run into some cryptic errors because of the compression. The best way to deal with this is to simply rename this file, and then rename the ext-all.js file to ext-all-debug.js to use the uncompressed version during development. Just be sure to switch them back afterwards&#33;</li>
+<li>
+<b>manager/assets/ext2/ext-all.js</b> - This is the main Ext library file, which must be included on all Manager pages (or any page using Ext). It's compressed to save space, decrease download time, and speed up page loads. However, if you're doing a lot of JavaScript work, you're bound to run into some cryptic errors because of the compression. The best way to deal with this is to simply rename this file, and then rename the ext-all.js file to ext-all-debug.js to use the uncompressed version during development. Just be sure to switch them back afterwards!
+</li>
 </ul>
 
+<hr />
+
+<h2>
+<a name="ExplanationofDirectoryStructure-setup%2F"></a>setup/
+</h2>
+
+<p>
+This directory is the equivalent of the "install" directory in MODx Evolution. It contains the necessary files needed to run Setup and perform a <a href="/display/revolution20/Fresh+Installation" title="Fresh Installation">Fresh Installation</a> or an <a href="/display/revolution20/Upgrading+from+MODx+Evolution" title="Upgrading from MODx Evolution">Upgrade</a>.
+</p>
 
 <hr />
-<h2><a name="ExplanationofDirectoryStructure-setup%2F"></a>setup/</h2>
 
-<p>This directory is the equivalent of the "install" directory in MODx Evolution. It contains the necessary files needed to run Setup and perform a <a href="/display/revolution20/Fresh+Installation" title="Fresh Installation">Fresh Installation</a> or an <a href="/display/revolution20/Upgrading+from+MODx+Evolution" title="Upgrading from MODx Evolution">Upgrade</a>.</p>
+<h2>
+<a name="ExplanationofDirectoryStructure-%5Cbuild%2F"></a>_build/
+</h2>
 
-<hr />
-<h2><a name="ExplanationofDirectoryStructure-%5Cbuild%2F"></a>&#95;build/</h2>
+<p>
+This directory is only present in version of MODx Revolution downloaded from the subversion server (as well as the "SDK" distribution). It contains the packaged MODx core data files necessary to install MODx to a database.
+</p>
 
-<p>This directory is only present in version of MODx Revolution downloaded from the subversion server (as well as the "SDK" distribution). It contains the packaged MODx core data files necessary to install MODx to a database.</p>
-
-<h3><a name="ExplanationofDirectoryStructure-NotableFiles"></a>Notable Files</h3>
+<h3>
+<a name="ExplanationofDirectoryStructure-NotableFiles" id="ExplanationofDirectoryStructure-NotableFiles"></a>Notable Files
+</h3>
 
 <ul>
-	<li><b>&#95;build/transport.core.php</b> &#45; This file must be executed after downloading MODx Revolution, and prior to running Setup. After completion, you should notice a "core" directory inside your core/packages/ directory, which will contain all of the necessary <span class="error">&#91;Vehicles&#93;</span> for installing MODx Revolution.</li>
+<li>
+<b>_build/transport.core.php</b> - This file must be executed after downloading MODx Revolution, and prior to running Setup. After completion, you should notice a "core" directory inside your core/packages/ directory, which will contain all of the necessary <span class="error">[Vehicles]</span> for installing MODx Revolution.
+</li>
 </ul>
 
-
 <hr />
-<h2><a name="ExplanationofDirectoryStructure-assets%2F"></a>assets/</h2>
 
-<p>This directory is not present in MODx Revolution by default, but like in MODx Evolution, it is common to place images, CSS, JavaScript, and other media in here.</p>
+<h2>
+<a name="ExplanationofDirectoryStructure-assets%2F"></a>assets/
+</h2>
 
-<h3><a name="ExplanationofDirectoryStructure-assets%2Fcomponents%2F"></a>assets/components/</h3>
+<p>
+This directory is not present in MODx Revolution by default, but like in MODx Evolution, it is common to place images, CSS, JavaScript, and other media in here.
+</p>
 
-<p>When you install a package using the <a href="/display/revolution20/Package+Management" title="Package Management">Package Manager</a>, an assets/components/&lt;component_name&gt;/ directory will be created to hold any necessary component files, such as JavaScript or images.</p>
+<h3>
+<a name="ExplanationofDirectoryStructure-assets%2Fcomponents%2F"></a>assets/components/
+</h3>
 
-<style type='text/css'>/*<![CDATA[*/
-table.ScrollbarTable  {border: none;padding: 3px;width: 100%;padding: 3px;margin: 0px;background-color: #f0f0f0}
-table.ScrollbarTable td.ScrollbarPrevIcon {text-align: center;width: 16px;border: none;}
-table.ScrollbarTable td.ScrollbarPrevName {text-align: left;border: none;}
-table.ScrollbarTable td.ScrollbarParent {text-align: center;border: none;}
-table.ScrollbarTable td.ScrollbarNextName {text-align: right;border: none;}
-table.ScrollbarTable td.ScrollbarNextIcon {text-align: center;width: 16px;border: none;}
-
-/*]]>*/</style><div class="Scrollbar"><table class='ScrollbarTable'><tr><td width='33%' class='ScrollbarPrevName'>&nbsp;</td><td width='33%' class='ScrollbarParent'><sup><a href="/display/revolution20/Glossary+of+Revolution+Terms"><img border='0' align='middle' src='/images/icons/up_16.gif' width='8' height='8'></a></sup><a href="/display/revolution20/Glossary+of+Revolution+Terms">Glossary of Revolution Terms</a></td><td width='33%' class='ScrollbarNextName'>&nbsp;</td></tr></table></div>
-        </div>
-
-        <!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
-         <rdf:Description
-    rdf:about="http://oldrtfm.modx.com/display/revolution20/Explanation+of+Directory+Structure"
-    dc:identifier="http://oldrtfm.modx.com/display/revolution20/Explanation+of+Directory+Structure"
-    dc:title="Explanation of Directory Structure"
-    trackback:ping="http://oldrtfm.modx.com/rpc/trackback/18678202"/>
-</rdf:RDF>
--->
-
-            
-    
-
-
-<fieldset class="hidden parameters">
-    <legend>Labels parameters</legend>
-    <input type="hidden" id="editLabel" value="Edit">
-    <input type="hidden" id="addLabel" value="Add Labels">
-    <input type="hidden" id="domainName" value="http://oldrtfm.modx.com">
-    <input type="hidden" id="pageId" value="18678202">
-    <input type="hidden" id="spaceKey" value="revolution20">
-</fieldset>
-
-<div id="labels-section" class="pageSection">
-    <div id="default-labels-header" class="section-header">
-        <h2 id="labels-section-title" class="section-title ">Labels</h2>
-            </div>
-
-    <div class="labels-editor">
-        <div id="labelsList">
-            <div id="label-7471111" class="confluence-label">
-    <a class="label" rel="nofollow" href="/label/revolution20/reference">reference</a>    <span class="remove-label-caption">reference</span>
-    <a class="remove-label" href="#">Delete</a>
-</div>
-<div id="label-5734410" class="confluence-label">
-    <a class="label" rel="nofollow" href="/label/revolution20/directory">directory</a>    <span class="remove-label-caption">directory</span>
-    <a class="remove-label" href="#">Delete</a>
-</div>
-<div id="label-3801089" class="confluence-label">
-    <a class="label" rel="nofollow" href="/label/revolution20/system">system</a>    <span class="remove-label-caption">system</span>
-    <a class="remove-label" href="#">Delete</a>
-</div>
-        </div>
-
-        <span class="errorMessage error" id="errorSpan"></span>
-        <form method="GET" action="" id="add-labels-form">
-            <div id="labelInputSpan" class="labels-input">
-                <div id="labelOperationErrorContainer" class="hidden">
-                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
-                </div>
-
-                <div class="caption">Enter labels to add to this page:</div>
-                <div id="label-input-fields">
-                    <input autocomplete="off" id="labelsString" name="labelsString" value="" size="40">
-                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
-                    <input id="close-labels-editor-button" type="submit" class="hide-labels-editor" value="Done">
-                </div>
-                <div id="waitImageAndStatus">
-                    <img class="waiting" alt="Please wait" src="/s/1911/69/_/images/icons/wait.gif">&nbsp;
-                    <span id="labelOperationStatus" class="smalltext"></span>
-                </div>
-                <div id="labelsAutocompleteList" class="aui-dd-parent"></div>
-                <div class="labels-tip">
-                    <div id="suggestedLabelsSpan"></div>
-                    Looking for a label? Just start typing.
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-            
-            
-
-
-
-
-            
-    
-
-        
-<fieldset class="parameters hidden">
-    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
-    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
-        </fieldset>
-
-
-
-
-
-
-<div id="comments-section" class="pageSection">
-    
-    
-    
-    
-                                    </div>
-
-
-            
-</div>
-
-
-    
-
-
-
-
-        
-        
-
-    
-    
-    
-
-
-<fieldset class="hidden parameters">
-        <input type="hidden" id="i18n.manage.watchers.dialog.title" value="Manage Watchers">
-        <input type="hidden" id="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
-        <input type="hidden" id="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
-</fieldset>
-<script type="text/x-template" title="manage-watchers-dialog">
-<div class="dialog-content">
-    <div class="column page-watchers">
-        <h3>Watching this page</h3>
-        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
-        <form action="/json/addwatch.action" method="POST">
-                <input type="hidden" name="atl_token" value="NFM0Qo-mM8">
-            <input type="hidden" name="pageId" value="18678202"/>
-            <input type="hidden" id="add-watcher-username" name="username" value=""/>
-            <label for="add-watcher-user">User</label>
-            <input id="add-watcher-user" name="userFullName" type="search" class="has-placeholder autocomplete-user"
-               value="" placeholder="Full name or username" autocomplete="off"
-               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
-               data-template="{title}" data-none-message="No matching users found.">
-            <input id="add-watcher-submit" type="submit" name="add" value="Add">
-            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
-            <div class="status hidden"></div>
-        </form>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No page watchers</li>
-        </ul>
-    </div>
-    <div class="column space-watchers">
-        <h3>Watching this space</h3>
-        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
-        <ul class="user-list">
-            <li class="loading">Loading&hellip;</li>
-            <li class="no-users hidden">No space watchers</li>
-        </ul>
-    </div>
-</div>
-</script>
-<script type="text/x-template" title="manage-watchers-user">
-    <li class="watch-user">
-        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
-        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
-        <span class="remove-watch" title="Remove"
-            data-username="{username}">Remove</span>
-    </li>
-</script>
-<script type="text/x-template" title="manage-watchers-help-link">
-    <div class="dialog-help-link">
-            <a href="http://docs.atlassian.com/confluence/docs-33/Managing+Watchers" target="_blank">Help</a>
-    </div>
-</script>
-    <br class="clear">
-</div>
-  
-    </div>
-</div>
-
-<div id="footer">
-                                                <p class="license license-opensource">
-                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to MODx CMS / xPDO. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
-                </p>
-                        
-    <ul id="poweredby">
-        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.3, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
-        <li class="print-only">Printed by Atlassian Confluence 3.3, the Enterprise Wiki.</li>        
-        <li class="noprint"> &nbsp; |&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
-        <li class="noprint"> &nbsp;|&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
-    </ul>
-
-    
-
-            <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-71684-1']);
-  _gaq.push(['_setDomainName', 'oldrtfm.modx.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-    </div>    <!-- include system javascript resources -->
-                        
-    
-    
-    <!-- end system javascript resources -->
-</div>
-</body>
-</html>
+<p>
+When you install a package using the <a href="/display/revolution20/Package+Management" title="Package Management">Package Manager</a>, an assets/components/&lt;component_name&gt;/ directory will be created to hold any necessary component files, such as JavaScript or images.
+</p>
