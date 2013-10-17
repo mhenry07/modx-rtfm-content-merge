@@ -83,7 +83,7 @@ Let's display some images that we input in Step 3. Paste this code wherever you 
 &lt;/ul&gt;
 </pre>
 <p>
-Let's break this down. The first parameter, &amp;tvname, refers to the name of the MIGX TV that we created in Backend Usage, Step 2. &amp;tpl refers to either a code string for which to use with the MIGX items or the name of a chunk. If you're using a code string, make sure to prepend the code as above with @CODE:.
+Let's break this down. The first parameter, &amp;tvname, refers to the name of the MIGX TV that we created in Backend Usage, Step 2. &amp;tpl refers to either a code string for which to use with the MIGX items or the name of a chunk. If you're using a code string, make sure to prepend the code as above with @CODE.
 </p>
 
 <p>
@@ -102,7 +102,9 @@ If you're using <a href="extras/revo/phpthumbof" title="phpThumbOf">phpthumbof</
 </p>
 
 <pre class="brush: html">
-&lt;li&gt;&lt;img src="[[+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`]]" alt="[[+title]]"/&gt;&lt;/li&gt;
+&lt;li&gt;
+  &lt;img src="[[+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`]]" alt="[[+title]]"/&gt;
+&lt;/li&gt;
 </pre>
 <h2 id="MIGX.Frontend-Usage-UsingMIGXwithgetResources">
 Using MIGX with getResources
@@ -140,14 +142,14 @@ Include them in the snippet call:
 </p>
 
 <pre class="brush: html">
-  [[!getImageList?
+[[!getImageList?
     &amp;tvname=`myMIGXtv`
     &amp;tpl=`thumbTpl2`
     &amp;docid=`[[+id]]`
     &amp;limit=`1`
     &amp;pagetitle=`[[+pagetitle]]`
     &amp;originalResourceId=`[[+id]]`
-  ]]
+]]
 </pre>
 <p>
 and then refer to them in the chunk, prepended with "+property.":
@@ -298,7 +300,7 @@ together with &amp;randomize, this will preselect items from top to limit, for i
 where
 </td>
 <td>
-filter items. example:&nbsp;
+filter items. example:
 
 <pre class="brush: javascript">
 {"active:=":"1","rating:&gt;":"5"}
@@ -314,7 +316,7 @@ filter items. example:&nbsp;
 sort
 </td>
 <td>
-sort items by multiple fields. example:&nbsp;
+sort items by multiple fields. example:
 
 <pre class="brush: javascript">
 [{"sortby":"age","sortdir":"DESC","sortmode":"numeric"},{"sortby":"name","sortdir":"ASC"}]

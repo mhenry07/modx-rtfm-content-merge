@@ -50,6 +50,28 @@ System Setting -&gt; Context Setting -&gt; User Setting
 </div>
 </div>
 
+<h2>
+Retrieving Context Settings
+</h2>
+
+<p>
+Retrieving a Context Setting is no different than retrieving any other System Setting -- in fact, you may not be aware that a given setting is being set at the System or Context (or at the User) level.
+</p>
+
+<p>
+In a template or Chunk:
+</p>
+
+<pre class="brush: php">
+[[++my_context_setting]]
+</pre>
+<p>
+Programmatically in a Snippet:
+</p>
+
+<pre class="brush: php">
+$setting = $modx-&gt;getOption('my_context_setting');
+</pre>
 <h2 id="Contexts-SeeAlso">
 See Also
 </h2>

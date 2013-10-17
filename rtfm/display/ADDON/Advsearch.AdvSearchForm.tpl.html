@@ -10,7 +10,7 @@ A Chunk named "<strong>AdvSearchForm</strong>" is provided with AdvSearch. This 
 Default Value
 </h2>
 
-<pre class="brush: php">
+<pre class="brush: html">
 &lt;form class="advsea-search-form" action="[[~[[+landing]]]]" method="[[+method]]"&gt;
   &lt;fieldset&gt;
     &lt;input type="hidden" name="id" value="[[+landing]]" /&gt;
@@ -26,7 +26,7 @@ Available Placeholders
 </h2>
 
 <table>
-<tbody>
+<thead>
 <tr>
 <th>
 Name
@@ -35,7 +35,9 @@ Name
 Description
 </th>
 </tr>
+</thead>
 
+<tbody>
 <tr>
 <td>
 asId
@@ -110,16 +112,16 @@ The searchForm chunk should contain:
 </p>
 
 <ul class="alternate" type="square">
-<li>an action: action="[[~[<span class="error">[+landing]</span>]]]"
+<li>an action: action="[[~[[+landing]]]]"
 </li>
 
-<li>a method: method="[<span class="error">[+method]</span>]"
+<li>a method: method="[[+method]]"
 </li>
 
-<li>a hidden input field named asId: &lt;input type="hidden" name="asId" value="[<span class="error">[+asId]</span>]" /&gt; for the form instance
+<li>a hidden input field named asId: &lt;input type="hidden" name="asId" value="[[+asId]]"&gt; for the form instance
 </li>
 
-<li>a hidden input field named id: &lt;input type="hidden" name="id" value="[<span class="error">[+landing]</span>]" /&gt; with the landing page id
+<li>a hidden input field named id: &lt;input type="hidden" name="id" value="[[+landing]]"&gt; with the landing page id
 </li>
 
 <li>a submit input field named "sub".
@@ -131,19 +133,15 @@ and possibly:
 </p>
 
 <ul class="alternate" type="square">
-<li>an input text : &lt;input type="text" id="[<span class="error">[+asId]</span>]_search" name="[<span class="error">[+searchIndex]</span>]" value="[<span class="error">[+searchValue]</span>]" /&gt;
+<li>an input text field: &lt;input type="text" id="[[+asId]]_search" name="[[+searchIndex]]" value="[[+searchValue]]" /&gt;
 <br />
 For a form without a search input field, simply remove this line from the form.
 </li>
 </ul>
 
 <ul class="alternate" type="square">
-<li>the help link: [<span class="error">[+helpLink]</span>]
+<li>the help link: [[+helpLink]]
 <br />
-To hide the help link use the &amp;help parameter rather to remove the placeholder.
+To hide the help link use the &amp;help parameter to remove the placeholder altogether.
 </li>
 </ul>
-
-<h2 id="Advsearch.AdvSearchForm.tpl-SeeAlso">
-See Also
-</h2>

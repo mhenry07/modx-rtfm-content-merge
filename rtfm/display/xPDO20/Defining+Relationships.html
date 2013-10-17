@@ -35,13 +35,12 @@ An aggregate relationship in xPDO is relationship between two tables where the s
 </p>
 
 <p>
-A great example of this is a collection of Crayons in a Box. The relationship from the Crayons to the Box is an <strong>aggregate</strong> relationship, and would be defined in our XML schema like such:
+A great example of this is a collection of Crayons in a Box. The relationship from the Crayons to the Box is an <strong>aggregate</strong> relationship, and would be defined in our XML schema like this:
 </p>
 
-<pre class="brush: php">
+<pre class="brush: xml">
 &lt;object class="myCrayon" table="crayons" extends="xPDOSimpleObject"&gt;
     &lt;field key="box" dbtype="int" precision="10" phptype="integer" null="false" default="" /&gt;
-
     &lt;aggregate alias="Box" class="myBox" local="box" foreign="id" cardinality="one" owner="foreign" /&gt;
 &lt;/object&gt;
 </pre>
@@ -96,6 +95,19 @@ A composite relationship in xPDO is relationship between two tables where the se
 Back to our Crayon-Box example: The Crayons are Composites of the Box object. We'd define that in our XML schema as:
 </p>
 
+<pre class="brush: xml">
+&lt;object class="myBox" table="boxes" extends="xPDOSimpleObject"&gt;
+    &lt;composite alias="Crayons" class="myCrayon" local="id" foreign="box" cardinality="many" owner="local" /&gt;
+&lt;/object&gt;
+</pre>
+<p>
+As you can see, a few attributes have changed. The alias now is plural, since we could have any number of Crayons related to this Box. Also, the local attribute now points to the ID of this Box; the foreign attribute points to the foreign key 'box' in the Crayon object; the cardinality is now "many"; and finally, the owner of the key is now "local", since it is owned by the Box.
+</p>
+
+<p>
+We can grab all the Crayons in the Box with this xPDO code:
+</p>
+
 <pre class="brush: php">
 &lt;object class="myBox" table="boxes" extends="xPDOSimpleObject"&gt;
     &lt;composite alias="Crayons" class="myCrayon" local="id" foreign="box" cardinality="many" owner="local" /&gt;
@@ -148,9 +160,7 @@ Let's go back to our StoreFinder model. First off, let's review our schema so fa
     &lt;field key="phone" dbtype="varchar" precision="20" phptype="string" null="false" default="" /&gt;
     &lt;field key="fax" dbtype="varchar" precision="20" phptype="string" null="false" default="" /&gt;
     &lt;field key="active" dbtype="int" precision="1" attributes="unsigned" phptype="integer" null="false" default="0" /&gt;
-
     &lt;alias key="postalcode" field="zip" /&gt;
-
     &lt;index alias="name" name="name" primary="false" unique="false" type="BTREE"&gt;
         &lt;column key="name" length="" collation="A" null="false" /&gt;
     &lt;/index&gt;
@@ -161,16 +171,13 @@ Let's go back to our StoreFinder model. First off, let's review our schema so fa
   &lt;object class="sfOwner" table="sfinder_owners" extends="xPDOSimpleObject"&gt;
     &lt;field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default="" index="index" /&gt;
     &lt;field key="email" dbtype="varchar" precision="255" phptype="string" null="false" default="" /&gt;
-
     &lt;index alias="name" name="name" primary="false" unique="false" type="BTREE"&gt;
         &lt;column key="name" length="" collation="A" null="false" /&gt;
     &lt;/index&gt;
   &lt;/object&gt;
-
   &lt;object class="sfStoreOwner" table="sfinder_store_owners" extends="xPDOSimpleObject"&gt;
     &lt;field key="store" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="index" /&gt;
     &lt;field key="owner" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="index" /&gt;
-
     &lt;index alias="store" name="store" primary="false" unique="false" type="BTREE"&gt;
         &lt;column key="store" length="" collation="A" null="false" /&gt;
     &lt;/index&gt;
@@ -188,7 +195,7 @@ We're going to want to relate Stores to Owners, but as you can see here, the rel
 Those two fields contain the PK values of the Store and Owner it is relating. So let's add the relationships. In our sfStore definition, we want to add this line:
 </p>
 
-<pre class="brush: php">
+<pre class="brush: xml">
 &lt;composite alias="StoreOwners" class="sfStoreOwner" local="id" foreign="store" cardinality="many" owner="local" /&gt;
 </pre>
 <p>
@@ -204,6 +211,14 @@ Note that both of our primary classes use a Composite relationship. This is beca
 
 <p>
 So go to our sfStoreOwner definition, and add these two lines:
+</p>
+
+<pre class="brush: xml">
+&lt;aggregate alias="Store" class="sfStore" local="store" foreign="id" cardinality="one" owner="foreign" /&gt;
+&lt;aggregate alias="Owner" class="sfOwner" local="owner" foreign="id" cardinality="one" owner="foreign" /&gt;
+</pre>
+<p>
+Now that we've got our model defined, in our xPDO code we'll be able to do something like this:
 </p>
 
 <pre class="brush: php">
@@ -240,7 +255,6 @@ $c-&gt;where(array(
    'StoreOwners.store' =&gt; 43, // the ID of our Store
 ));
 $owners = $xpdo-&gt;getCollection('sfOwner',$c);
-
 foreach ($owners as $owner) {
    echo $owner-&gt;get('name').'&lt;br /&gt;';
 }

@@ -80,21 +80,23 @@ Create a new Package and schema-file
 </h2>
 
 <p>
-Go to Components-&gt;MIGX-&gt;Tab 'Package Manager'
+Go to Components-&gt;MIGX-&gt;Tab 'Package Manager'.
 </p>
 
 <p>
-add a name for your new package into the field 'packageName:'. For our example we use 'mygallery'.
-<br />
-Click 'Create Package'
-<br />
-This should create a directory under your core-path with an empty schema-file in its correct place.
+Add a name for your new package into the field 'packageName:'. For our example we use 'mygallery'.
 </p>
 
 <p>
-Still having 'mygallery' in the field packageName we want to fill the textarea-field 'schema'.
-<br />
-Go to the tab 'xml schame' and add this code:
+Click 'Create Package' This should create a directory under your core-path with an empty schema-file in its correct place.
+</p>
+
+<p>
+Still having 'mygallery' in the field packageName, we want to fill the textarea-field 'schema'.
+</p>
+
+<p>
+Go to the tab 'xml scheme' and add this code:
 </p>
 
 <h3 id="MIGXdb.Createabasicgallery-managementfromscratchwithMIGXdb-TheSchema">
@@ -112,7 +114,6 @@ The Schema
         &lt;field key="image" dbtype="varchar" precision="255" phptype="string" null="false" default="" /&gt;
         &lt;field key="extended" dbtype="text" phptype="json" null="false" default="" /&gt;
         &lt;field key="pos" dbtype="int" precision="10" phptype="integer" null="false" default="0" /&gt;        
-        
         &lt;field key="published" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" default="0" /&gt;
         &lt;field key="createdby" dbtype="int" precision="10" phptype="integer" null="false" default="0" /&gt;
         &lt;field key="createdon" dbtype="datetime" phptype="datetime" null="false" /&gt;
@@ -123,19 +124,16 @@ The Schema
         &lt;field key="deletedby" dbtype="int" precision="10" phptype="integer" null="false" default="0" /&gt;
         &lt;field key="publishedon" dbtype="datetime" phptype="datetime" null="false" /&gt;
         &lt;field key="publishedby" dbtype="int" precision="10" phptype="integer" null="false" default="0" /&gt;
-
         &lt;index alias="PRIMARY" name="PRIMARY" primary="true" unique="true"&gt;
                 &lt;column key="id" collation="A" null="false" /&gt;
         &lt;/index&gt;
-        
         &lt;aggregate alias="Resource" class="modResource" local="resource_id" foreign="id" cardinality="one" owner="foreign" /&gt;
         &lt;aggregate alias="Creator" class="modUser" local="createdby" foreign="id" cardinality="one" owner="foreign" /&gt;
         &lt;/object&gt;
-    
 &lt;/model&gt;
 </pre>
 <p>
-by clicking 'Save Schema' we should have our schema-file created. You can test it by clicking 'Load Schema'
+by clicking 'Save Schema' we should have our schema-file created. You can test it by clicking 'Load Schema'.
 </p>
 
 <p>
@@ -147,7 +145,7 @@ Parse Schema
 </h3>
 
 <p>
-Create xpdo-classes and maps from schema by clicking 'Parse Schema' on the tab 'Parse Schema'
+Create xpdo-classes and maps from schema by clicking 'Parse Schema' on the tab 'Parse Schema'.
 </p>
 
 <h3 id="MIGXdb.Createabasicgallery-managementfromscratchwithMIGXdb-CreateTable(s)">
@@ -155,10 +153,10 @@ Create Table(s)
 </h3>
 
 <p>
-Create tables from schema by clicking 'Create Tables' on the tab 'Create Tables'
-<br />
-This schould create our table.
-<br />
+Create tables from schema by clicking 'Create Tables' on the tab 'Create Tables'. This should create our table.
+</p>
+
+<p>
 At this time we have only one table in our schema defined.
 </p>
 
@@ -336,11 +334,11 @@ Add this code into the one field 'Json' :
 }
 </pre>
 <p>
-click 'done'
+Click 'done'.
 </p>
 
 <p>
-you can check what it has done by right-clicking the record and choose 'edit' and go thrue the tabs and its nested grids.
+You can check what it has done by right-clicking the record and choosing 'edit' and go through the tabs and their nested grids.
 </p>
 
 <h2 id="MIGXdb.Createabasicgallery-managementfromscratchwithMIGXdb-CreatetheMIGXdbTV">
@@ -352,23 +350,27 @@ Create a new Template for our gallery-pages.
 </p>
 
 <p>
-now we create our MIGXdb - TV.
-<br />
+Now we create our MIGXdb - TV.
+</p>
+
+<p>
 Create a new TV.
-<br />
+</p>
+
+<p>
 Name: mygallery
 </p>
 
 <p>
-Go to the tab: 'Input Options'
-<br />
-Under 'Configurations' add: 'mygallery'
+Go to the tab: 'Input Options'.
 </p>
 
 <p>
-This says MIGX to search for configurations with name 'mygallery' This can be configuration-records as we have done above or php-files as it is done for the MIGX-configs-CMP.
-<br />
-The MIGX-config-CMP is nothing else as a MIGXdb-CMP itself.
+Under 'Configurations' add: 'mygallery'.
+</p>
+
+<p>
+This tells MIGX to search for configurations with the name 'mygallery' This can be configuration-records as we have done above or php-files as it is done for the MIGX-configs-CMP. The MIGX-config-CMP is nothing else as a MIGXdb-CMP itself.
 </p>
 
 <p>
@@ -384,37 +386,39 @@ Adding extended fields
 </h2>
 
 <p>
-we want to add a URL to each image. This is very easy, because we can use the extended-field to store additional fields in it.
-<br />
-We just need to create a new Input-field to our Form.
+We want to add a URL to each image. This is very easy, because we can use extended-fields to store additional fields in. We just need to create a new Input-field to our Form.
 </p>
 
 <p>
-Go to Components-&gt;MIGX
-<br />
-right-click on our mygallery-config, choose 'Edit'
+Go to Components-&gt;MIGX. Right-click on our mygallery-config, choose 'Edit'.
 </p>
 
 <p>
-Go to the Tab 'Formtabs'
-<br />
-click 'Add Item' -&gt;
-<br />
+Go to the Tab 'Formtabs', and click 'Add Item'.
+</p>
+
+<p>
 caption: 'Extended Fields'
-<br />
-on Fields click 'Add Item' -&gt;
-<br />
+</p>
+
+<p>
+on Fields click 'Add Item'.
+</p>
+
+<p>
 fieldname: extended.url
 <br />
 Caption: URL
 <br />
 inputTVtype: url
-<br />
-click done -&gt; done -&gt; done to close all windows and save out additions
 </p>
 
 <p>
-Now we have created a new tab in our gallery-management-window with a new field to add a URL to our image
+Click done -&gt; done -&gt; done to close all windows and save the additions.
+</p>
+
+<p>
+Now we have created a new tab in our gallery-management-window with a new field to add a URL to our image.
 </p>
 
 <h2 id="MIGXdb.Createabasicgallery-managementfromscratchwithMIGXdb-Makingsomegalleries.">
@@ -422,12 +426,18 @@ Making some galleries.
 </h2>
 
 <p>
-Create a folder in the resource-tree 'Galleries' with your gallery-template.
-<br />
-Create Resources und this folder with the same gallery-template.
-<br />
+Create a container resource in the resource-tree, 'Galleries', using your gallery-template.
+</p>
+
+<p>
+Create Resources under this folder using the same gallery-template.
+</p>
+
+<p>
 By clicking 'Load grid' this should load our db-grid where we can add,edit,delete records with images.
-<br />
+</p>
+
+<p>
 The created records should be automatically connected to our resources by the db-field 'resource_id' and we will see only the records connected to our resource in the grid.
 </p>
 
@@ -438,12 +448,18 @@ Adding a search-field to our grid
 <p>
 Go to Components-&gt;MIGX
 <br />
-right-click on our mygallery-config, choose 'Edit'
-<br />
+right-click on our mygallery-config, choose 'Edit'.
+</p>
+
+<p>
 Tab 'db-filters'
-<br />
-click 'add item'
-<br />
+</p>
+
+<p>
+Click 'Add Item'
+</p>
+
+<p>
 filter name: search
 <br />
 filter type: textbox
@@ -455,7 +471,7 @@ getlist where:
 {"title:LIKE":"%[[+search]]%","OR:description:LIKE":"%[[+search]]%"}
 </pre>
 <p>
-click 'done' -&gt; 'done'
+Click 'done' -&gt; 'done'.
 </p>
 
 <p>
@@ -463,12 +479,14 @@ Now we have added a nice search-field to our grid for filtering grid-items.
 </p>
 
 <h2 id="MIGXdb.Createabasicgallery-managementfromscratchwithMIGXdb-ListingtheImagesonFrontend.">
-Listing the Images on Frontend.
+Listing the Images on Frontend
 </h2>
 
 <p>
-For listing your images on the Frontend you can use the included snippet 'migx'
-<br />
+For listing your images on the Frontend you can use the included snippet 'migxLoopCollection'
+</p>
+
+<p>
 Some examples:
 </p>
 
@@ -481,18 +499,18 @@ Some examples:
 ]]
 </pre>
 <p>
-creates a printed array of all published images which belong to the active resource
+creates a printed array of all published images which belong to the active resource.
 </p>
 
 <pre class="brush: php">
 [[!migxLoopCollection?
-&amp;packageName=`mygallery`
-&amp;classname=`myGallery`
-&amp;sortConfig=`[{"sortby":"RAND()"}]`
-&amp;where=`{"resource_id":"[[*id]]","published":"1"}`
-&amp;tpl=`@CODE:&lt;img src="[[+image]]" /&gt;`
+  &amp;packageName=`mygallery`
+  &amp;classname=`myGallery`
+  &amp;sortConfig=`[{"sortby":"RAND()"}]`
+  &amp;where=`{"resource_id":"[[*id]]","published":"1"}`
+  &amp;tpl=`@CODE:&lt;img src="[[+image]]" /&gt;`
 ]]
 </pre>
 <p>
-lists all images in random order
+lists all images in random order.
 </p>

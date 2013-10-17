@@ -95,6 +95,10 @@ virtuNewsletter
 virtuNewsletter is another newsletter system for MODX Revolution.
 </p>
 
+<p>
+If you want to read the old doc, please see here <a href="http://oldrtfm.modx.com/display/ADDON/virtuNewsletter">http://oldrtfm.modx.com/display/ADDON/virtuNewsletter</a>.
+</p>
+
 <h2 id="virtuNewsletter-Download">
 Download
 </h2>
@@ -249,13 +253,9 @@ The default is in <strong>core/components/virtunewsletter/elements/emails/deacti
 &lt;p&gt;Thank you.&lt;/p&gt;
 
 &lt;p&gt;Your subscription has been cancelled successfully.&lt;/p&gt;
-
 &lt;p&gt;We will no longer send you the upcoming newsletters.&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
+&lt;p&gt; &lt;/p&gt;
 &lt;p&gt;Regards,&lt;/p&gt;
-
 &lt;p&gt;&lt;a href="http://www.example.com" target="_blank"&gt;Example.com&lt;/a&gt;&lt;/p&gt;
 </pre>
 <p>
@@ -447,11 +447,17 @@ The name itself can be changed, but make sure you have to apply this also to the
 
 <p>
 You are now ready to create the newsletters using the common resource.
-<br />
+</p>
+
+<p>
 1. Create another template that will be acting as the email's body, means without &lt;!DOCTYPE&gt; and &lt;head&gt; tags.
-<br />
+</p>
+
+<p>
 2. Put the CSS styles inside the &lt;style&gt;&lt;/style&gt; tag, and it will parsed automatically inline to the email's body.
-<br />
+</p>
+
+<p>
 3. You might also want to add these placeholders as the unsubscribe link, or link to read this on your website:
 </p>
 
@@ -465,7 +471,6 @@ You are now ready to create the newsletters using the common resource.
 ]]"&gt;
 Unsubscribe
 &lt;/a&gt;
-
 &lt;!-- read the newsletter on the website --&gt;
 &lt;a href="[[~63?
 &amp;newsid=`[[+virtuNewsletter.email.id]]`

@@ -1,5 +1,3 @@
-<div class="panel" style="border-width: 1px;">
-<div class="panelContent">
 <p>
 This tutorial is part of a Series:
 </p>
@@ -16,57 +14,53 @@ This tutorial is part of a Series:
 <a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution/developing-an-extra-in-modx-revolution,-part-iii" title="Developing an Extra in MODX Revolution, Part III">Part III: Packaging Our Extra</a>
 </li>
 </ul>
-</div>
-</div>
 
-<div>
 <ul>
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-Overview">Overview</a>
+<a href="/revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-Overview">Overview</a>
 </li>
 
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-SettingUpOurDirectories">Setting Up Our Directories</a>
+<a href="/revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-SettingUpOurDirectories">Setting Up Our Directories</a>
 </li>
 
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-CreatingtheDoodlesSnippet">Creating the Doodles Snippet</a>
+<a href="/revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-CreatingtheDoodlesSnippet">Creating the Doodles Snippet</a>
 <ul>
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-MakingtheMagicPathSettings">Making the Magic Path Settings</a>
+<a href="/revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-MakingtheMagicPathSettings">Making the Magic Path Settings</a>
 </li>
 
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-MakingtheDoodlesBaseClass">Making the Doodles Base Class</a>
+<a href="/revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-MakingtheDoodlesBaseClass">Making the Doodles Base Class</a>
 </li>
 
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-MakingtheModel">Making the Model</a>
+<a href="/revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-MakingtheModel">Making the Model</a>
 </li>
 
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-TheSchemaParsingScript">The Schema Parsing Script</a>
+<a href="/revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-TheSchemaParsingScript">The Schema Parsing Script</a>
 </li>
 
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-TheStaticSnippet">The Static Snippet</a>
+<a href="/revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-TheStaticSnippet">The Static Snippet</a>
 </li>
 
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-BuildingtheQuery">Building the Query</a>
+<a href="/revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-BuildingtheQuery">Building the Query</a>
 </li>
 
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-TheDoodlesclassgetChunkMethod">The Doodles class getChunk Method</a>
+<a href="/revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-TheDoodlesclassgetChunkMethod">The Doodles class getChunk Method</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution#DevelopinganExtrainMODXRevolution-Summary">Summary</a>
+<a href="#DevelopinganExtrainMODXRevolution-Summary">Summary</a>
 </li>
 </ul>
-</div>
 
 <h2 id="DevelopinganExtrainMODXRevolution-Overview">
 Overview
@@ -116,11 +110,11 @@ In here, we'll have quite a few directories:
 </p>
 
 <p>
-<img src="download/attachments/33587481/doodles-dir-structure.png?version=1&amp;modificationDate=1295640210000" />
+<img src="/download/attachments/33587481/doodles-dir-structure.png?version=1&amp;modificationDate=1295640210000" />
 </p>
 
 <p>
-Let's note a few things. First off, our main 3 directories are <strong>core/</strong>, <strong>assets/</strong> and <strong>_build/</strong>. Typically, MODX Extras are separated into 2 different directories when installed: core/components/doodles/ and assets/components/doodles/. Why? This lets us separate web-specific assets (JavaScript files, CSS, images, etc.) into a location inside of the webroot, whereas all PHP files are put into core/components/ which can (and should) be outside of the webroot for security reasons.
+Let's note a few things. The main 3 directories are <strong>core/</strong>, <strong>assets/</strong> and <strong>_build/</strong>. Typically, MODX Extras are separated into 2 different directories when installed: core/components/doodles/ and assets/components/doodles/. Why? This lets us separate web-specific assets (JavaScript files, CSS, images, etc.) into a location inside of the webroot, whereas all PHP files are put into core/components/ which can (and should) be outside of the webroot for security reasons.
 </p>
 
 <p>
@@ -233,7 +227,7 @@ We set a couple System Settings (that are specific to our development environmen
 </li>
 
 <li>
-<strong>doodles.assets_url</strong> - /doodles/assets/components/doodles/
+<strong>doodles.assets_url</strong> - /doodles/assets/components/doodles
 </li>
 </ul>
 
@@ -265,6 +259,7 @@ First off, you're probably asking me why we're even making this class. Well, it'
 </p>
 
 <pre class="brush: php">
+&lt;?php
 class Doodles {
     public $modx;
     public $config = array();
@@ -311,7 +306,7 @@ $output = '';
 return $output;
 </pre>
 <p>
-Cool. Now we want to use <a href="display/xPDO20/Home" title="Home">xPDO</a> to query the database to grab our records...oops. We haven't made an xPDO model for them yet. We should do that.
+Cool. Now we want to use <a href="/display/xPDO20/Home" title="Home">xPDO</a> to query the database to grab our records...oops. We haven't made an xPDO model for them yet. We should do that.
 </p>
 
 <h3 id="DevelopinganExtrainMODXRevolution-MakingtheModel">
@@ -319,7 +314,7 @@ Making the Model
 </h3>
 
 <p>
-xPDO OOP query methods to access the database. It currently is beginning to support multiple databases, and it does that by the abstraction of DB queries. Also, it allows you to keep your DB rows in nice, clean classes and do all kinds of neat things in very short lines of code. But to do that, we have to add an xPDO model to our Snippet (via the $modx-&gt;addPackage method). But first we have to build that model, using an xPDO Schema. There's a <a href="http://rtfm.modx.com/display/xPDO20/Creating+a+Model+With+xPDO">nice long tutorial here</a> on how to do that, but we'll go over it fast for now.
+xPDO OOP query methods to access the database. It currently is beginning to support multiple databases, and it does that by the abstraction of DB queries. Also, it allows you to keep your DB rows in nice, clean classes and do all kinds of neat things in very short lines of code. But to do that, we have to add an xPDO model to our Snippet (via the $modx-&gt;addPackage method). But first we have to build that model, using an xPDO Schema. There's a <a href="display/xPDO20/Creating+a+Model+With+xPDO">nice long tutorial here</a> on how to do that, but we'll go over it fast for now.
 </p>
 
 <p>
@@ -328,7 +323,7 @@ Go ahead and make a xml file in /www/doodles/core/components/doodles/model/schem
 
 <pre class="brush: php">
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;model package="doodles" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM"&gt;
+&lt;model package="doodles" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.0"&gt;
     &lt;object class="Doodle" table="doodles" extends="xPDOSimpleObject"&gt;
         &lt;field key="name" dbtype="varchar" precision="255" phptype="string" null="false" default=""/&gt;
         &lt;field key="description" dbtype="text" phptype="string" null="false" default=""/&gt;
@@ -396,14 +391,11 @@ include_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 $modx= new modX();
 $modx-&gt;initialize('mgr');
 $modx-&gt;loadClass('transport.modPackageBuilder','',false, true);
-echo '&lt;pre&gt;'; /* used for nice formatting of log messages */
 $modx-&gt;setLogLevel(modX::LOG_LEVEL_INFO);
-$modx-&gt;setLogTarget('ECHO');
-
-$root = dirname(dirname(__FILE__)).'/';
+$modx-&gt;setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
 $sources = array(
-    'model' =&gt; $root.'core/components/doodles/model/',
-    'schema_file' =&gt; $root.'core/components/doodles/model/schema/doodles.mysql.schema.xml',
+    'model' =&gt; $modx-&gt;getOption('doodles.core_path').'model/',
+    'schema_file' =&gt; $modx-&gt;getOption('doodles.core_path').'model/schema/doodles.mysql.schema.xml'
 );
 $manager= $modx-&gt;getManager();
 $generator= $manager-&gt;getGenerator();
@@ -411,9 +403,9 @@ $generator= $manager-&gt;getGenerator();
 if (!is_dir($sources['model'])) { $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Model directory not found!'); die(); }
 if (!file_exists($sources['schema_file'])) { $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Schema file not found!'); die(); }
 $generator-&gt;parseSchema($sources['schema_file'],$sources['model']);
-
-echo 'Done.';
-exit();
+$modx-&gt;addPackage('doodles', $sources['model']); // add package to make all models available
+$manager-&gt;createObjectContainer('Doodle'); // created the database table
+$modx-&gt;log(modX::LOG_LEVEL_INFO, 'Done!');
 </pre>
 <p>
 Basically this file parses your XML schema file and makes xPDO classes and maps (PHP representations of that XML file) for your component. We'll come back to this, but first off, it's not gonna run. It's gonna die on looking for a /www/doodles/_build/build.config.php file. Time to make one of those!
@@ -428,7 +420,7 @@ define('MODX_CONNECTORS_PATH', MODX_BASE_PATH . 'connectors/');
 define('MODX_ASSETS_PATH', MODX_BASE_PATH . 'assets/');
 
 define('MODX_BASE_URL','/modx/');
-define('MODX_CORE_URL', MODX_BASE_URL . 'core/');
+/* define('MODX_CORE_URL', MODX_BASE_URL . 'core/'); */ /* There isn't a core URL!! */
 define('MODX_MANAGER_URL', MODX_BASE_URL . 'manager/');
 define('MODX_CONNECTORS_URL', MODX_BASE_URL . 'connectors/');
 define('MODX_ASSETS_URL', MODX_BASE_URL . 'assets/');
@@ -446,7 +438,7 @@ That should run and generate you some nice pretty class files and maps:
 </p>
 
 <p>
-<img src="download/attachments/33587481/doodles-maps.png?version=1&amp;modificationDate=1295642993000" />
+<img src="/download/attachments/33587481/doodles-maps.png?version=1&amp;modificationDate=1295642993000" />
 </p>
 
 <p>
@@ -498,7 +490,7 @@ Create a new snippet, and check the Is Static checkbox. This will display two ne
 </p>
 
 <pre class="brush: php">
-[[++doodles.core_path]]/elements/snippets/snippet.doodles.php
+[[++doodles.core_path]]components/doodles/elements/snippets/snippet.doodles.php
 </pre>
 <p>
 Note the extra slash there between the setting tag and the rest of the path. We did put a trailing slash in our core_path, but somewhere in the processing MODx disappears that trailing slash, so we need to add one here. The path will now resolve to
@@ -516,18 +508,9 @@ Which works perfect for us! Then we can edit our Snippet in our favorite IDE and
 Building the Query
 </h3>
 
-<p>
-First off, we need to create the table. This will be done in a resolver later, but for now, just add this to your snippet, before the return statement:
-</p>
-
-<pre class="brush: php">
-$m = $modx-&gt;getManager();
-$created = $m-&gt;createObjectContainer('Doodle');
-return $created ? 'Table created.' : 'Table not created.';
-</pre>
-<p>
-Then go ahead and run your snippet. This will automatically create the DB table that we made in our schema. Now that you've got that done, remove that code and we can continue on.
-</p>
+<div class="warning">
+<strong>Note:</strong> The previous object creation which was located here, is moved to the _build/build.schema.php file, as you can see in the above section. Because creating your storage table should be done inside a snippet but belongs to the build process of your package.
+</div>
 
 <p>
 Okay, let's add this to our Snippet before the return statement:
@@ -544,13 +527,11 @@ In this example, we are retrieving a collection of "Doodle" objects. Most of the
 </div>
 
 <p>
-That's going to grab an array of Doodle objects, or in non-xPDO terms, a bunch of rows from the database. Go ahead and save your snippet, then run it in the browser at <a href="http://localhost/modx/doodles.html">http://localhost/modx/doodles.html</a> (or wherever the Resource was). You should get this:
+That's going to grab an array of Doodle objects, or in non-xPDO terms, a bunch of rows from the database. Go ahead and save your snippet, then run it in the browser at <a href="http://localhost/modx/doodles.html" class="external-link" rel="nofollow">http://localhost/modx/doodles.html</a> (or wherever the Resource was). You should get this:
 </p>
 
 <blockquote>
-<p>
 0
-</p>
 </blockquote>
 
 <p>
@@ -562,9 +543,7 @@ Use whatever DB editing software (such as phpMyAdmin) you want, and find the 'mo
 </p>
 
 <blockquote>
-<p>
 2
-</p>
 </blockquote>
 
 <p>
@@ -652,7 +631,7 @@ So, what this does is iterates over all the Doodle objects we got with the getCo
 </p>
 
 <p>
-<img src="download/attachments/33587481/doodleoutput1.png?version=1&amp;modificationDate=1295645209000" />
+<img src="/download/attachments/33587481/doodleoutput1.png?version=1&amp;modificationDate=1295645209000" />
 </p>
 
 <p>
@@ -703,8 +682,6 @@ We've got ourselves a nice custom database model, which our Doodles Snippet usin
 But we're gonna want some way of editing that data in the MODX manager, right? Well, that's where Custom Manager Pages (CMPs) come in. Go on and proceed to the <a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution/developing-an-extra-in-modx-revolution,-part-ii" title="Developing an Extra in MODX Revolution, Part II">next part of this tutorial</a>.
 </p>
 
-<div class="panel" style="border-width: 1px;">
-<div class="panelContent">
 <p>
 This tutorial is part of a Series:
 </p>
@@ -721,5 +698,3 @@ This tutorial is part of a Series:
 <a href="revolution/2.x/case-studies-and-tutorials/developing-an-extra-in-modx-revolution/developing-an-extra-in-modx-revolution,-part-iii" title="Developing an Extra in MODX Revolution, Part III">Part III: Packaging Our Extra</a>
 </li>
 </ul>
-</div>
-</div>

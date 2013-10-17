@@ -1,16 +1,16 @@
 <div>
 <ul>
 <li>
-<a href="revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-KnownIssueswithSuhosin">Known Issues with Suhosin</a>
+<a href="/revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-KnownIssueswithSuhosin">Known Issues with Suhosin</a>
 <ul>
 <li>
-<a href="revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-RecommendedConfiguration">Recommended Configuration</a>
+<a href="/revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-RecommendedConfiguration">Recommended Configuration</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href="revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-SeeAlso">See Also</a>
+<a href="/revolution/2.x/getting-started/installation/basic-installation/modx-and-suhosin#MODXandSuhosin-SeeAlso">See Also</a>
 </li>
 </ul>
 </div>
@@ -35,22 +35,16 @@ Recommended Configuration
 If the user has suhosin on, and wants JS compression, it is recommended to set the offending param value to a higher limit, such as 4096 or greater. This can be done by editing the php.ini file and restarting the server:
 </p>
 
-<blockquote>
-<p>
+<pre class="brush: php">
 suhosin.get.max_value_length = 4096
-</p>
-</blockquote>
-
+</pre>
 <p>
 In some cases, it may also happen that some functionality doesn't work as expected due to the use of the eval() statement and suhosin blocking that as well. If that happens, you can disable it using the following configuration:
 </p>
 
-<blockquote>
-<p>
+<pre class="brush: php">
 suhosin.executor.disable_eval 0
-</p>
-</blockquote>
-
+</pre>
 <p>
 If you cannot edit the php.ini directly, consult with your host on the best way to set up these configurations. Some hosts might allow changing it through htaccess files, a control panel interface or they can do it for you.
 </p>

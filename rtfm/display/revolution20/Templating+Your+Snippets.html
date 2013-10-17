@@ -28,10 +28,6 @@ One of the best practices in Snippet design is to make sure that you never write
 </li>
 </ul>
 </li>
-
-<li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets/templating-your-snippets#TemplatingYourSnippets-SeeAlso">See Also</a>
-</li>
 </ul>
 </div>
 
@@ -66,7 +62,6 @@ if (count($children) &gt; 0) {
 $c-&gt;sortby('menuindex','ASC');
 /* get the resources as xPDOObjects */
 $resources = $modx-&gt;getCollection('modResource',$c);
-
 $output = '';
 foreach ($resources as $resource) {
    $output .= '&lt;li&gt;&lt;a href="'.$modx-&gt;makeUrl($resource-&gt;get('id')).'"&gt;'.$resource-&gt;get('pagetitle').'&lt;/a&gt;&lt;/li&gt;';
@@ -137,7 +132,7 @@ Now the user can call the snippet this way to override the chunk for each Resour
 [[!ResourceLister? &amp;tpl=`MyOwnChunk`]]
 </pre>
 <p>
-Meaning they can template their results however they want - using LIs, or table rows, or whatever! You've now created a flexible, powerful snippet. The available placeholders depend on what array is passed to $modx-&gt;getChunk(); or $tpl-&gt;process() methods. In this example the available placeholders would be all default fields (no TVs!) of a resource like for example&nbsp;[[+pagetitle]],&nbsp;[[+id]] or&nbsp;[[+content]].
+Meaning they can template their results however they want - using LIs, or table rows, or whatever! You've now created a flexible, powerful snippet. The available placeholders depend on what array is passed to $modx-&gt;getChunk(); or $tpl-&gt;process() methods. In this example the available placeholders would be all default fields (no TVs!) of a resource like for example [[+pagetitle]], [[+id]] or [[+content]].
 </p>
 
 <h3 id="TemplatingYourSnippets-AddingARowClass">
@@ -203,7 +198,6 @@ For reference, our final code looks like this:
 $tpl = $modx-&gt;getOption('tpl',$scriptProperties,'ResourceItem');
 $id = (int)$modx-&gt;getOption('id',$scriptProperties,390);
 $rowCls = $modx-&gt;getOption('rowCls',$scriptProperties,'resource-item');
-
 $c = $modx-&gt;newQuery('modResource');
 $c-&gt;where(array(
   'published' =&gt; true,
@@ -217,7 +211,6 @@ if (count($children) &gt; 0) {
 }
 $c-&gt;sortby('menuindex','ASC');
 $resources = $modx-&gt;getCollection('modResource',$c);
-
 $output = '';
 foreach ($resources as $resource) {
     $resourceArray = $resource-&gt;toArray();

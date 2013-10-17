@@ -5,7 +5,7 @@ This document will walk you through the basics of creating a Discuss Theme. We w
 <div>
 <ul>
 <li>
-<a href="extras/revo/discuss/discuss.creating-a-discuss-theme#Discuss.CreatingaDiscussTheme-UnderstandingtheFileStructure%26nbsp%3B">Understanding the File Structure&nbsp;</a>
+<a href="extras/revo/discuss/discuss.creating-a-discuss-theme#Discuss.CreatingaDiscussTheme-UnderstandingtheFileStructure%26nbsp%3B">Understanding the File Structure</a>
 </li>
 
 <li>
@@ -23,7 +23,7 @@ This document will walk you through the basics of creating a Discuss Theme. We w
 </div>
 
 <h2 id="Discuss.CreatingaDiscussTheme-UnderstandingtheFileStructure&amp;nbsp;">
-Understanding the File Structure&nbsp;
+Understanding the File Structure
 </h2>
 
 <p>
@@ -39,7 +39,7 @@ Discuss themes consist of 2 parts: the theme assets (css, javascript and images)
 </ul>
 
 <p>
-Both <strong>THEME_NAME's</strong> should obviously be the same, and that name is also what needs to be defined in the <strong>discuss.theme</strong> setting to use the theme.&nbsp;
+Both <strong>THEME_NAME's</strong> should obviously be the same, and that name is also what needs to be defined in the <strong>discuss.theme</strong> setting to use the theme.
 <br />
 The default theme included in Discuss is loosely based on the official MODX Forums theme and as a result it also uses SASS to generate the CSS. You can find the SASS source files in assets/components/discuss/themes/default/sass/, with the compiled css in the /css/ directory. <a href="http://sass-lang.com/">You can learn more about SASS here</a>.
 </p>
@@ -49,9 +49,15 @@ Basic Theming Considerations
 </h2>
 
 <p>
-Just like any other MODX Extra, Discuss gives you infinite markup freedom. This does mean there's a lot of different templates in use for various bits of the template. To give you an idea, here's a visual view of the forum home breakdown. <span class="image-wrap" style="display: block; text-align: center"><img src="https://www.evernote.com/shard/s265/sh/14aa5e38-ec33-4a44-be2d-ba2698f1d6ab/b9f56412352884f8e6f9522a638d45ea/res/35d30b10-9174-4430-a8c4-286c203cfae5/skitch.png" style="border: 1px solid black" /></span>
-<br />
-Luckily, there's an easy way for you to figure out what markup is coming from what template file. Simply enable the&nbsp;<strong>discuss.debug_templates</strong> system setting, and every referenced chunk template will be pre- and suffixed with a HTML comment indicating what chunk (and its filename) was referenced. Example:
+Just like any other MODX Extra, Discuss gives you infinite markup freedom. This does mean there's a lot of different templates in use for various bits of the template. To give you an idea, here's a visual view of the forum home breakdown.
+</p>
+
+<p>
+<img src="https://www.evernote.com/shard/s265/sh/14aa5e38-ec33-4a44-be2d-ba2698f1d6ab/b9f56412352884f8e6f9522a638d45ea/res/35d30b10-9174-4430-a8c4-286c203cfae5/skitch.png" />
+</p>
+
+<p>
+Luckily, there's an easy way for you to figure out what markup is coming from what template file. Simply enable the <strong>discuss.debug_templates</strong> system setting, and every referenced chunk template will be pre- and suffixed with a HTML comment indicating what chunk (and its filename) was referenced. Example:
 </p>
 
 <pre class="brush: php">
@@ -111,7 +117,7 @@ Let's look at the manifest item for the <strong>thread/reply</strong> controller
     ),
 </pre>
 <p>
-Besides registering a javascript file to the footer (located in assets/components/discuss/themes/THEME_NAME/js/), we are passing it an option of pageTpl, pointing it to common/thread-with-form. This means that instead of using the pages/thread/reply.tpl template, it will actually use the pages/common/thread-with-form.tpl template for this controller. This allows you to reuse markup across similar controllers without having to repeat yourself.&nbsp;
+Besides registering a javascript file to the footer (located in assets/components/discuss/themes/THEME_NAME/js/), we are passing it an option of pageTpl, pointing it to common/thread-with-form. This means that instead of using the pages/thread/reply.tpl template, it will actually use the pages/common/thread-with-form.tpl template for this controller. This allows you to reuse markup across similar controllers without having to repeat yourself.
 </p>
 
 <p>
@@ -123,7 +129,7 @@ Using the Manifest to further Customise your Theme
 </h2>
 
 <p>
-The manifest, which we briefly referred to above, is a powerful tool allowing you to go beyond basic CSS&nbsp;customisations&nbsp;and making some changes to the template files. It allows you to configure a number of options per controllers, change templates and add something called modules. You'll find we've applied a bunch of these in the default template and you may not need to do this yourself, but it's great to know how it works in case you want to change it for your specific needs.
+The manifest, which we briefly referred to above, is a powerful tool allowing you to go beyond basic CSS customisations and making some changes to the template files. It allows you to configure a number of options per controllers, change templates and add something called modules. You'll find we've applied a bunch of these in the default template and you may not need to do this yourself, but it's great to know how it works in case you want to change it for your specific needs.
 </p>
 
 <p>
@@ -131,7 +137,7 @@ The manifest is a big php array located in the themes' templates directory calle
 </p>
 
 <ol>
-<li>The first level is the controller's name or the special "global" which is applied everywhere.&nbsp;
+<li>The first level is the controller's name or the special "global" which is applied everywhere.
 </li>
 
 <li>The second level can be either of the following:
@@ -142,7 +148,7 @@ The manifest is a big php array located in the themes' templates directory calle
 <li>"css": allows you to define stylesheets to load on specific controllers. This third level then contains an array of files to load from assets/components/discuss/theme_name/css/.
 </li>
 
-<li>"options": defines controller specific options to configure the behaviour of the controller. The options vary from controller to controller, and you can find them all in the <a href="extras/revo/discuss/discuss.controllers" title="Discuss.Controllers">Controllers</a> documentation.&nbsp;
+<li>"options": defines controller specific options to configure the behaviour of the controller. The options vary from controller to controller, and you can find them all in the <a href="extras/revo/discuss/discuss.controllers" title="Discuss.Controllers">Controllers</a> documentation.
 </li>
 </ol>
 </li>
@@ -157,7 +163,7 @@ Git-powered Theme workflow
 </h2>
 
 <p>
-To get started creating a Discuss theme in a git-powered workflow, kick it off by creating a fork of the main Discuss repository at&nbsp;<a href="https://github.com/modxcms/Discuss">https://github.com/modxcms/Discuss</a>. Then, clone your fork to a local directory and add the original repository as an upstream remote.
+To get started creating a Discuss theme in a git-powered workflow, kick it off by creating a fork of the main Discuss repository at <a href="https://github.com/modxcms/Discuss">https://github.com/modxcms/Discuss</a>. Then, clone your fork to a local directory and add the original repository as an upstream remote.
 </p>
 
 <pre class="brush: php">
@@ -173,7 +179,7 @@ $ cd Discuss
 $ git checkout release-1.1
 </pre>
 <p>
-Once you did that, we're going to create a different theme branch, which will help make collaboration easier in case you want to <a href="extras/revo/discuss/discuss.contributing" title="Discuss.Contributing">contribute back to Discuss</a> *cough*. If you want to fix stuff in the default branch, you would instead create a fix branch, eg fix-colorsbug.&nbsp;
+Once you did that, we're going to create a different theme branch, which will help make collaboration easier in case you want to <a href="extras/revo/discuss/discuss.contributing" title="Discuss.Contributing">contribute back to Discuss</a> *cough*. If you want to fix stuff in the default branch, you would instead create a fix branch, eg fix-colorsbug.
 </p>
 
 <pre class="brush: php">

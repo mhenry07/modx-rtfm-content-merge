@@ -20,6 +20,45 @@ Event Parameters
 None. The resource can be referenced via $modx-&gt;resource.
 </p>
 
+<h2>
+Return Values
+</h2>
+
+<p>
+Any values returned from this event will be written as errors to the logs.
+</p>
+
+<h2>
+Usage
+</h2>
+
+<p>
+<em>* Some of this may not be accurate because I'm testing this via trial and error.</em>
+</p>
+
+<p>
+You can use this event to set resource parameters at runtime or perform logging. E.g.
+</p>
+
+<pre class="brush: php">
+// Set all pages to be uncached (for debugging)
+$modx-&gt;resource-&gt;set('cacheable', 0);
+// Or switch the template
+$modx-&gt;resource-&gt;set('template', 6);
+// Alternate syntax
+$modx-&gt;resource-&gt;template = 6;
+</pre>
+<p>
+Note that modifying resource parameters during the <em>first</em> page load (before the resource is cached) will cause those parameters to be written to the cache file. E.g. changing the template at this point will cause the resource <code>_content</code> to store the contents of the newly referenced template.
+</p>
+
+<p>
+After a page has been cached (i.e. <em>not</em> the first page load), you can append or prepend content (or overwrite it entirely) by modifying the _content property.
+</p>
+
+<pre class="brush: php">
+$modx-&gt;resource-&gt;_content = 'Content override';
+</pre>
 <h2 id="OnLoadWebDocument-SeeAlso">
 See Also
 </h2>

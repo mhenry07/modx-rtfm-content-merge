@@ -48,7 +48,7 @@ Introduction
 </h2>
 
 <p>
-Custom Output Filters are simply MODx Snippets dedicated to formatting placeholder output. If a raw placeholder, e.g.
+Custom Output Filters are MODx Snippets dedicated to formatting placeholder output in the view layer (in a Template or in a Chunk). If a raw placeholder, e.g.
 </p>
 
 <pre class="brush: php">
@@ -66,11 +66,11 @@ simply by creating a Snippet named <strong>myOutputFilter</strong>
 </p>
 
 <p>
-This page serves as a place where some basic custom output filters can be found. These are not included in the core package, however you need to add these yourself.
+In the above example, the pagetitle value will be modified by a Snippet named <strong>myOutputFilter</strong>
 </p>
 
 <p>
-You can find <a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)" title="Input and Output Filters (Output Modifiers)">more information on the built-in output filters</a>, if that is what you're looking.
+Check the page on MODX's <a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)" title="Input and Output Filters (Output Modifiers)">built-in output filters</a> before writing your own filter.
 </p>
 
 <h2 id="CustomOutputFilterExamples-CreatingaCustomOutputModifier">
@@ -78,7 +78,19 @@ Creating a Custom Output Modifier
 </h2>
 
 <p>
-A custom output filter is simply a <a href="revolution/2.x/developing-in-modx/basic-development/snippets" title="Snippets">Snippet</a> that is earmarked to modify content. Simply put the <a href="revolution/2.x/developing-in-modx/basic-development/snippets" title="Snippets">Snippet</a> name instead of the modifier. Example with a snippet named 'makeDownloadLink':
+When writing your own Output Modifier, your Snippet can take the following inputs:
+</p>
+
+<pre class="brush: php">
+$input; // the value that is being formatted/filtered
+$options; // optional values passed via backticks
+</pre>
+<p>
+A custom output filter is simply a <a href="revolution/2.x/developing-in-modx/basic-development/snippets" title="Snippets">Snippet</a> that is earmarked to modify content. Simply put the <a href="revolution/2.x/developing-in-modx/basic-development/snippets" title="Snippets">Snippet</a> name instead of the modifier.
+</p>
+
+<p>
+The syntax is that the Snippet name comes after a colon. Example with a snippet named 'makeDownloadLink':
 </p>
 
 <pre class="brush: php">
@@ -158,7 +170,7 @@ tag
 The complete parent tag.
 </td>
 <td>
-[[+<a href="file:makeDownloadLink=">file:makeDownloadLink=</a>`notitle`]]
+[[+file:makeDownloadLink=`notitle`]]
 </td>
 </tr>
 </tbody>
@@ -176,7 +188,7 @@ Porting PHx to Custom Output Filters
 </h2>
 
 <p>
-PHx is a very popular MODX Evolution extra that offers similar functionality as output filters in Revolution, however they are not exactly the same. The most important thing to remember when porting PHx code to a custom output filter in Revolution is probably that the input (the tag's content being processed) is now available in the $input variable, contrary to the $output one which was the case in PHx.
+PHx is a popular MODX Evolution extra that offers similar functionality as output filters in Revolution, however they are not exactly the same. The most important thing to remember when porting PHx code to a custom output filter in Revolution is probably that the input (the tag's content being processed) is now available in the $input variable, contrary to the $output one which was the case in PHx.
 </p>
 
 <p>
@@ -252,6 +264,24 @@ This parseTags takes input as a comma delimited list, and makes all individual t
 <pre class="brush: php">
 &lt;?php
 /*
+ * Based on phx:parseLinks
+ */
+$t = $input;
+$t = ereg_replace("[a-zA-Z]+://([.]?[a-zA-Z0-9_/-])*", "&lt;a href=\"\\0\"&gt;\\0&lt;/a&gt;", $t);
+$t = ereg_replace("(^| |\n)(www([.]?[a-zA-Z0-9_/-])*)", "\\1&lt;a href=\"http://\\2\"&gt;\\2&lt;/a&gt;", $t);
+return $t;
+</pre>
+<h3 id="CustomOutputFilterExamples-parseTags">
+parseTags
+</h3>
+
+<p>
+This parseTags takes input as a comma delimited list, and makes all individual tags a link to resource 9 with tag=tagname query parameter appended to the link.
+</p>
+
+<pre class="brush: php">
+&lt;?php
+/*
  * parseTags output filter
  * by Mark Hamstra (http://www.markhamstra.nl)
  * free to use / modify / distribute to your will
@@ -261,7 +291,7 @@ if ($input == '') { return ''; } // Output filters are also processed when the i
   foreach ($tags as $key =&gt; $value) { // Process them individually
     $output[] = '&lt;a href="'.$modx-&gt;makeurl(9, '', array('tag' =&gt; $value)).'"&gt;'.$value.'&lt;/a&gt;';
   }
-  return implode(', ',$output); // Delimite again with a comma-space
+  return implode(', ',$output); // Delimit again with a comma-space
 </pre>
 <h3 id="CustomOutputFilterExamples-shorten">
 shorten
@@ -275,7 +305,6 @@ This shortens the input like :ellipsis but it does not truncate words. Defaults 
 &lt;?php
 $output = '';
 $options = !empty($options)?$options:50;
-
 if (!empty($input) &amp;&amp; !empty($options)) {
   if (strlen($input) &gt; $options) {
     $output = substr($input, 0, strrpos(substr($input, 0, $options), ' ')).' &amp;hellip;';
@@ -318,10 +347,8 @@ numberformat
 
 <pre class="brush: php">
 &lt;?php
-
 $number = floatval($input);
 $optionsXpld = @explode('&amp;', $options);
-
 $optionsArray = array();
 foreach ($optionsXpld as $xpld) {
     $params = @explode('=', $xpld);
@@ -332,13 +359,10 @@ foreach ($optionsXpld as $xpld) {
         $optionsArray[$params[0]] = '';
     }
 }
-
 $decimals = isset($optionsArray['decimals']) ? $optionsArray['decimals'] : null;
 $dec_point = isset($optionsArray['dec_point']) ? $optionsArray['dec_point'] : null;
 $thousands_sep = isset($optionsArray['thousands_sep']) ? $optionsArray['thousands_sep'] : null;
-
 $output = number_format($number, $decimals, $dec_point, $thousands_sep);
-
 return $output;
 </pre>
 <p>

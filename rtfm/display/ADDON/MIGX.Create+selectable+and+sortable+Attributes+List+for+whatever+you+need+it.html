@@ -72,11 +72,13 @@ Create the Attributes Builder
 <li>formtabs:
 
 <pre class="brush: php">
-[{"caption":"Attribute","fields":[
-{"field":"attribute","caption":"Attribute"},
-{"field":"title","caption":"Title"},
-{"field":"icon","caption":"Icon","inputTVtype":"image"}
-]
+[{
+        "caption":"Attribute",
+        "fields":[
+                {"field":"attribute",   "caption":"Attribute"},
+                {"field":"title", "caption":"Title"},
+                {"field":"icon", "caption":"Icon", "inputTVtype":"image"}
+        ]
 }]
 </pre>
 </li>
@@ -85,9 +87,9 @@ Create the Attributes Builder
 
 <pre class="brush: php">
 [
-{"header": "Attribute", "width": "50", "sortable": "true", "dataIndex": "attribute"},
-{"header": "Title", "width": "50", "sortable": "true", "dataIndex": "title"}, 
-{"header": "Image", "width": "50", "sortable": "false", "dataIndex": "icon","renderer": "this.renderImage"}
+        {"header": "Attribute", "width": "50", "sortable": "true", "dataIndex": "attribute"},
+        {"header": "Title", "width": "50", "sortable": "true", "dataIndex": "title"},
+        {"header": "Image", "width": "50", "sortable": "false", "dataIndex": "icon","renderer": "this.renderImage"}
 ]
 </pre>
 </li>
@@ -117,8 +119,58 @@ Create the Attributes Selector - TV
 
 <li>content:
 
+<pre clas="brush: php">
+[[getImageList?
+  &amp;tvname=`migx_attributes_builder`
+  &amp;docid=`90`
+  &amp;toJsonPlaceholder=`json`
+]]
+[[+json]]
+
+</pre>
+</li>
+
+<li>Change the Docid to our resource created above.
+</li>
+</ul>
+</li>
+
+<li>Create a new TV
+<ul>
+<li>name: migx_attributes
+</li>
+
+<li>Input Type: migx
+</li>
+
+<li>input option values: @CHUNK getAttributeOptions
+</li>
+
+<li>configs: migx_attributes
+</li>
+</ul>
+</li>
+
+<li>Add this TV to template(s) where you want select from our attributes-list.
+</li>
+
+<li>Create a new MIGX Configuration (Components-&gt;MIGX-&gt;Tab: MIGX -&gt; 'add item')
+<ul>
+<li>name: migx_attributes
+</li>
+</ul>
+</li>
+
+<li>Click 'Done' to save the new Configuration
+</li>
+
+<li>right-click on the new configuration and select 'import/export'
+</li>
+
+<li>copy/paste this code into the textarea:
+
 <pre class="brush: php">
-[[getImageList? 
+[[getImageList?
 &amp;tvname=`migx_attributes_builder`
 &amp;docid=`90`
 &amp;toJsonPlaceholder=`json`
@@ -336,15 +388,15 @@ Add this snippet-tag to your template/resource-content:
 
 <pre class="brush: php">
 &lt;ul&gt;
-[[getImageList? 
-    &amp;tvname=`migx_attributes` 
+[[getImageList?
+    &amp;tvname=`migx_attributes`
     &amp;where=`{"active":"1"}`
     &amp;tpl=`@CODE:
-      &lt;li &gt;
+      &lt;li&gt;
       &lt;img src="[[+icon]]" alt="[[+title]]" title="[[+title]]" /&gt;
       &lt;span&gt;[[+title]]&lt;/span&gt;
       [[+comment:nl2br]]
-      &lt;/li&gt; ` 
+      &lt;/li&gt; `
 ]]
 &lt;/ul&gt;
 </pre>

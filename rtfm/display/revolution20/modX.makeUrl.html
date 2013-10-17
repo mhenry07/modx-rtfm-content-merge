@@ -67,5 +67,13 @@ Make a URL to Resource with ID 56, but add a ?fun=123 to the URL.
 </p>
 
 <pre class="brush: php">
-$url = $modx-&gt;makeUrl(56,'',array('fun' =&gt; '123'));
+$url = $modx-&gt;makeUrl(25, '', array('hello' =&gt; 'world'));
+$url = $modx-&gt;makeUrl(25, '', 'hello=world');
+</pre>
+<p>
+Note that the arguments available to this function can be passed to the <code>[[~link]]</code> tags, e.g.
+</p>
+
+<pre class="brush: php">
+[[~123? &amp;scheme=`full`]]
 </pre>

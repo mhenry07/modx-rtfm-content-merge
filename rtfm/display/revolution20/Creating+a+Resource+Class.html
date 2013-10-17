@@ -65,171 +65,10 @@ The next step is to generate the maps and classes for the model. You can do this
 Create the script at the web root of your MODX site, then execute it by hitting that page in a browser.
 </p>
 
-<pre class="brush: php">
-&lt;?php
-/**
- * Parses a MODX XML schema file in order to create the corresponding PHP classes
- * and (optionally) database tables.  Use this script when you are editing a MODX XML
- * schema file and you are using it as your basis for creating PHP classes.  Do not
- * use this script if you are trying to reverse-engineer existing database tables!
- *
- * See http://rtfm.modx.com/display/revolution20/Creating+a+Resource+Class
- * 
- * USAGE:
- * 1. Create this file in the docroot (webroot) of your MODX installation.
- * 2. Execute the file by visiting it in a browser, e.g. http://yoursite.com/parse_schema.php
- */
-//------------------------------------------------------------------------------
-//! CONFIGURATION
-//------------------------------------------------------------------------------
-// Your package shortname:
-$package_name = 'copyrightedresource';
+<p>
+Refer to the script at <a href="https://github.com/craftsmancoding/modx_utils/blob/master/parse_schema.php">parse_schema.php</a> and adjust it to your own setup.
+</p>
 
-// Set this to false if you've started to customize the PHP classes, otherwise
-// your changes will be overwritten!
-$regenerate_classes = true;
-
-
-//------------------------------------------------------------------------------
-//  DO NOT TOUCH BELOW THIS LINE
-//------------------------------------------------------------------------------
-require_once 'config.core.php';
-
-if (!defined('MODX_CORE_PATH')) {
-    print_msg('&lt;h1&gt;Parsing Error&lt;/h1&gt;
-        &lt;p&gt;MODX_CORE_PATH not defined! Did you include the correct config file?&lt;/p&gt;');
-    exit;
-}
-require_once MODX_CORE_PATH . 'config/config.inc.php';
-$xpdo_path = strtr(MODX_CORE_PATH . 'xpdo/xpdo.class.php', '\\', '/');
-include_once ( $xpdo_path );
- 
-// A few definitions of files/folders:
-$package_dir = MODX_CORE_PATH . "components/$package_name/";
-$model_dir = MODX_CORE_PATH . "components/$package_name/model/";
-$class_dir = MODX_CORE_PATH . "components/$package_name/model/$package_name";
-$schema_dir = MODX_CORE_PATH . "components/$package_name/model/schema";
-$mysql_class_dir = MODX_CORE_PATH . "components/$package_name/model/$package_name/mysql";
-$xml_schema_file = MODX_CORE_PATH . "components/$package_name/model/schema/$package_name.mysql.schema.xml";
- 
-// A few variables used to track execution times.
-$mtime= microtime();
-$mtime= explode(' ', $mtime);
-$mtime= $mtime[1] + $mtime[0];
-$tstart= $mtime;
- 
-// Validations
-if ( empty($package_name) ) {
-    print_msg('&lt;h1&gt;Parsing Error&lt;/h1&gt;
-        &lt;p&gt;The $package_name cannot be empty!  Please adjust the configuration and try again.&lt;/p&gt;');
-    exit;
-}
- 
-// Create directories if necessary
-$dirs = array($package_dir, $schema_dir ,$mysql_class_dir, $class_dir);
- 
-foreach ($dirs as $d) {
-    if ( !file_exists($d) ) {
-        if ( !mkdir($d, 0777, true) ) {
-            print_msg( sprintf('&lt;h1&gt;Parsing Error&lt;/h1&gt;
-                &lt;p&gt;Error creating &lt;code&gt;%s&lt;/code&gt;&lt;/p&gt;
-                &lt;p&gt;Create the directory (and its parents) and try again.&lt;/p&gt;'
-                , $d
-            ));
-            exit;
-        }
-    }
-    if ( !is_writable($d) ) {
-        print_msg( sprintf('&lt;h1&gt;Parsing Error&lt;/h1&gt;
-            &lt;p&gt;The &lt;code&gt;%s&lt;/code&gt; directory is not writable by PHP.&lt;/p&gt;
-            &lt;p&gt;Adjust the permissions and try again.&lt;/p&gt;'
-        , $d));
-        exit;
-    }
-}
- 
-
-print_msg( sprintf('&lt;br/&gt;&lt;strong&gt;Ok:&lt;/strong&gt; The necessary directories exist and have the correct permissions inside of &lt;br/&gt;
-        &lt;code&gt;%s&lt;/code&gt;', $package_dir));
- 
-if (file_exists($xml_schema_file)) {
-    print_msg( sprintf('&lt;br/&gt;&lt;strong&gt;Ok:&lt;/strong&gt; Using existing XML schema file:&lt;br/&gt;&lt;code&gt;%s&lt;/code&gt;',$xml_schema_file));
-}
-
-$xpdo = new xPDO("mysql:host=$database_server;dbname=$dbase", $database_user, $database_password, $table_prefix);
-$xpdo-&gt;setLogLevel(xPDO::LOG_LEVEL_INFO);
-$xpdo-&gt;setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
-
-$manager = $xpdo-&gt;getManager();
-$generator = $manager-&gt;getGenerator();
-
-// Use this to generate classes and maps from your schema
-if ($regenerate_classes) { 
-    print_msg('&lt;br/&gt;Attempting to remove/regenerate class files...');
-    delete_class_files($class_dir);
-    delete_class_files($mysql_class_dir);
-}
-
-$generator-&gt;parseSchema($xml_schema_file,$model_dir);
-
-
-$mtime= microtime();
-$mtime= explode(" ", $mtime);
-$mtime= $mtime[1] + $mtime[0];
-$tend= $mtime;
-$totalTime= ($tend - $tstart);
-$totalTime= sprintf("%2.4f s", $totalTime);
-
-print_msg("&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Finished!&lt;/strong&gt; Execution time: {$totalTime}&lt;br/&gt;");
-print_msg("&lt;br/&gt;Check &lt;code&gt;$class_dir&lt;/code&gt; for your newly generated class files!"); 
-exit();
-
-//------------------------------------------------------------------------------
-//! FUNCTIONS
-//------------------------------------------------------------------------------
-/**
- * Deletes the MODX class files in a given directory.
- *
- * @param string $dir: full path to directory containing class files you wish to delete.
- * @return void
- */
-function delete_class_files($dir) {
-    global $verbose;
- 
-    $all_files = scandir($dir);
-    foreach ( $all_files as $f ) {
-        if ( preg_match('#\.class\.php$#i', $f) || preg_match('#\.map\.inc\.php$#i', $f)) {
-            if ( unlink("$dir/$f") ) {
-                if ($verbose) {
-                    print_msg( sprintf('&lt;br/&gt;Deleted file: &lt;code&gt;%s/%s&lt;/code&gt;',$dir,$f) );
-                }
-            }
-            else {
-                print_msg( sprintf('&lt;br/&gt;Failed to delete file: &lt;code&gt;%s/%s&lt;/code&gt;',$dir,$f) );
-            }
-        }
-    }
-}
-
-/**
- * Formats/prints messages. HTML is stripped if this is run via the command line.
- *
- * @param string $msg to be printed
- * @return void this actually prints data to stdout
- */
-function print_msg($msg) {
-    if ( php_sapi_name() == 'cli' ) {
-        $msg = preg_replace('#&lt;br\s*/&gt;#i', "\n", $msg);
-        $msg = preg_replace('#&lt;h1&gt;#i', '== ', $msg);
-        $msg = preg_replace('#&lt;/h1&gt;#i', ' ==', $msg);
-        $msg = preg_replace('#&lt;h2&gt;#i', '=== ', $msg);
-        $msg = preg_replace('#&lt;/h2&gt;#i', ' ===', $msg);
-        $msg = strip_tags($msg) . "\n";
-    }
-    print $msg;
-}
-?&gt;
-</pre>
 <p>
 After this script runs, a handful of PHP files should have been created inside your <code>core/components/copyrightedresource/model/</code> directory. See the image below.
 </p>
@@ -384,7 +223,7 @@ This returns two translated strings that MODX will insert into the "Create" cont
 </p>
 
 <p>
-Just to be clear, you don't necessarily <em>need</em> to use the MODX lexicon here. You could simply return the text like so:
+Just to be clear, you don't necessarily <em>need</em> to use the MODX lexicon here. You could return the text like so:
 </p>
 
 <pre class="brush: php">
@@ -438,7 +277,7 @@ To load the CRC properly, you'll need to add it to the Extension Packages. Why? 
 $modx-&gt;addExtensionPackage('copyrightedresource','/path/to/copyrightedresource/model/');
 </pre>
 <p>
-Simply run this code once and MODX will automatically add it to the Extension Packages. Here is another sample script for helping you to do this:
+Run this code once and MODX will automatically add it to the Extension Packages. Here is another sample script for helping you to do this:
 </p>
 
 <pre class="brush: php">

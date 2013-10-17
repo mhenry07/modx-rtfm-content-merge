@@ -67,7 +67,7 @@ For usage with global arrays you must replace resource_id by array name, eg. "po
 </p>
 
 <p>
-In general, this plugin replaces <a href="http://rtfm.modx.com/display/ADDON/getResourceField">getResourceField</a> and <a href="http://modx.com/extras/package/getreqparam">getReqParam</a> snippets.
+In general, this plugin replaces <a href="display/ADDON/getResourceField">getResourceField</a> and <a href="http://modx.com/extras/package/getreqparam">getReqParam</a> snippets.
 </p>
 
 <h2 id="fastField-Examples">
@@ -78,32 +78,32 @@ Examples
 Return the pagetitle from the resource with id 123:
 </p>
 
-<pre class="brush: php">
+<pre class="brush: plain">
  [[#123.pagetitle]]
 </pre>
 <p>
 Return the introtext of a parent of a current resource and display description for empty one:
 </p>
 
-<pre class="brush: php">
+<pre class="brush: plain">
  [[#[[*parent]].introtext:default=`[[#[[*parent]].description]]`]]
 </pre>
 <p>
-Return the content of the resources in rowTpl chunk while <a href="http://rtfm.modx.com/display/ADDON/Wayfinder">Wayfinder</a> usage:
+Return the content of the resources in rowTpl chunk while <a href="display/ADDON/Wayfinder">Wayfinder</a> usage:
 </p>
 
-<pre class="brush: php">
+<pre class="brush: plain">
  [[#[[+wf.docid]].content]]
 </pre>
 <p>
 Return TV image from the resource with id 10:
 </p>
 
-<pre class="brush: php">
+<pre class="brush: plain">
  [[#10.tv.image]]
 </pre>
 <p>
-Return property articlesPerPage from the resource with id 1 of custom resource type <a href="http://rtfm.modx.com/display/ADDON/Articles">Articles</a>
+Return property articlesPerPage from the resource with id 1 of custom resource type <a href="display/ADDON/Articles">Articles</a>
 </p>
 
 <pre class="brush: php">
@@ -113,14 +113,17 @@ Return property articlesPerPage from the resource with id 1 of custom resource t
 Return the value of $_POST['myVar']:
 </p>
 
-<pre class="brush: php">
+<pre class="brush: plain">
  [[!#post.myVar]]
 </pre>
 <p>
 Supported global arrays: $_GET, $_POST, $_REQUEST, $_SERVER, $_FILES, $_COOKIE, $_SESSION. The type of array after # is case-insensitive. The name of array element is case-sensitive. You should use uncached tag, eg. [[!#get.name]], for cached resources.
+</p>
+
+<div class="warning">
 <br />
 <strong>CAUTION</strong>: <strong>It is dangerous to use raw global variables on the page. For example, use :stripTags output filter to prevent XSS-attacks (eg. [[!#get.name:stripTags]])!</strong>
-</p>
+</div>
 
 <h2 id="fastField-Howitworks">
 How it works

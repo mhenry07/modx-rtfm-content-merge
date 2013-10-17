@@ -3,15 +3,53 @@ What is a User Group?
 </h2>
 
 <p>
-A User Group is simply a collection of Users.
+User Groups are used by MODX to define permissions. Unlike some CMS's, in MODX a User can belong to <em>multiple</em> User Groups.
 </p>
 
-<h2 id="UserGroups-Usage">
+<h2>
 Usage
 </h2>
 
 <p>
-Go to Security -&gt; Access Controls. From there you will see a tree of User Groups and their respective Users. You can assign a User to a User Group by right-clicking on the User Group and either:
+Permissions in MODX are granted to <em>User Groups</em>, not to individual users, so a User must belong to at least one User Group in order to have any permissions. In other words, what a User can or cannot do depends on which User Groups the User belongs to. In other CMS's this concept is sometimes referred to as a "role".
+</p>
+
+<p>
+To edit a User Group's permissions, you need to go to Security -&gt; Access Controls, then right-click an existing User Group to update it, or create a new User Group.
+</p>
+
+<p>
+A User Group can define access permissions to four areas:
+</p>
+
+<ul>
+<li>
+<strong>Context Access</strong> -- this is where you would define access to the manager or to a front-end login portal.
+</li>
+
+<li>
+<strong>Resource Group Access</strong> -- this is where you would define access to a Resource Group
+</li>
+
+<li>
+<strong>Element Category Access</strong> -- this is where you could limit access to only certain Chunks or to only certain fields within a resource.
+</li>
+
+<li>
+<strong>Media Source Access</strong> -- this is where you could limit access to certain folders on the filesystem or S3 buckets.
+</li>
+</ul>
+
+<h2>
+Managing Members
+</h2>
+
+<p>
+To add or remove Users to User Groups you can edit the User Groups when you edit a single User (Security -&gt; Manage Users) then right-click the User you want to edit and view the "Access Permissions" tab.
+</p>
+
+<p>
+Another way to control this is by going to Security -&gt; Access Controls. From there you will see a tree of User Groups and their respective Users. You can assign a User to a User Group by right-clicking on the User Group and either:
 </p>
 
 <ul>
@@ -22,7 +60,7 @@ Go to Security -&gt; Access Controls. From there you will see a tree of User Gro
 </li>
 </ul>
 
-<h3 id="UserGroups-AssigningPolicies">
+<h3>
 Assigning Policies
 </h3>
 
@@ -70,7 +108,7 @@ Assigning User Groups and Roles via the MODX API
 </h3>
 
 <p>
-When working with the modUser object in the MODX API, you can assign access permissions via modUser::<a href="http://api.modx.com/revolution/2.1/_model_modx_moduser.class.html#%5CmodUser::joinGroup()">joinGroup</a>. Using this method, you can add&nbsp;a user directly to a User Group, and optionally assign a Role.
+When working with the modUser object in the MODX API, you can assign access permissions via modUser::<a href="http://api.modx.com/revolution/2.1/_model_modx_moduser.class.html#%5CmodUser::joinGroup()">joinGroup</a>. Using this method, you can add a user directly to a User Group, and optionally assign a Role.
 </p>
 
 <pre class="brush: php">
@@ -82,6 +120,7 @@ if( $user ){
     // Assign new user to User Group / Role
     $user-&gt;joinGroup('UserGroupNameOrId','OptionalRoleNameOrId');}
 ?&gt;
+                
 </pre>
 <h2 id="UserGroups-SeeAlso">
 See Also

@@ -1,7 +1,6 @@
-<div>
 <ul>
 <li>
-<a href="revolution/2.x/administering-your-site/security/users#Users-WhatisaUser%3F">What is a User?</a>
+<a href="revolution/2.x/administering-your-site/security/users#Users-WhatisaUser?">What is a User?</a>
 </li>
 
 <li>
@@ -24,12 +23,7 @@
 </li>
 </ul>
 </li>
-
-<li>
-<a href="revolution/2.x/administering-your-site/security/users#Users-SeeAlso">See Also</a>
-</li>
 </ul>
-</div>
 
 <h2 id="Users-WhatisaUser?">
 What is a User?
@@ -51,17 +45,15 @@ User Settings
 User Settings in MODx Revolution will automatically override for that user any System or Context settings with the same key. They can also be completely unique settings as well. The order of inheritance for Settings is:
 </p>
 
-<blockquote>
 <p>
-System Settings -&gt; Context Settings -&gt; User Settings
+<code>System Settings -&gt; Context Settings -&gt; User Settings</code>
 </p>
-</blockquote>
 
 <p>
 To edit the user settings, navigate to <strong>Security -&gt; Manage Users -&gt; Update User (<em>right-click</em>) -&gt; Settings (<em>tab</em>)</strong>
 </p>
 
-<div class="note">
+<div class="warning">
 You can change user-specific settings only <em>after</em> you've created the user. The "Settings" tab is not visible when you first create the user.
 </div>
 
@@ -96,7 +88,7 @@ Users contain the following fields:
 </p>
 
 <table>
-<tbody>
+<thead>
 <tr>
 <th>
 Name
@@ -105,7 +97,9 @@ Name
 Description
 </th>
 </tr>
+</thead>
 
+<tbody>
 <tr>
 <td>
 id
@@ -167,7 +161,7 @@ Users also have a Profile attached to them. It contains the following fields:
 </p>
 
 <table id="TBL1376497247036">
-<tbody>
+<thead>
 <tr>
 <th>
 Name
@@ -176,7 +170,9 @@ Name
 Description
 </th>
 </tr>
+</thead>
 
+<tbody>
 <tr>
 <td>
 internalKey
@@ -439,7 +435,6 @@ Values in the extended field return as an array. They can be manipulated like so
 /* get the extended field named "color": */
 $fields = $profile-&gt;get('extended');
 $color = $fields['color'];
-
 /* set the color field to red */
 $fields = $profile-&gt;get('extended');
 $fields['color'] = 'red';

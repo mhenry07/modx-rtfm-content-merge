@@ -43,6 +43,30 @@ Select a Single Record
 Here's a simple query to fetch one row from the database. Note that you would normally use <a href="xpdo/2.x/class-reference/xpdo/xpdo.getobject" title="xPDO.getObject">getObject</a> or <a href="xpdo/2.x/class-reference/xpdo/xpdo.getcollection" title="xPDO.getCollection">getCollection</a> to fetch a data from built-in MODX tables.
 </p>
 
+<p>
+<code>xPDOObject|false query (string $statement)</code>
+</p>
+
+<p>
+<strong>$statement</strong>
+</p>
+
+<p>
+The SQL statement to prepare and execute. Data inside the query should be <a href="http://us1.php.net/manual/en/pdo.quote.php" class="external-link" rel="nofollow">properly escaped</a>.
+</p>
+
+<h2 id="xPDO.query-Examples">
+Examples
+</h2>
+
+<h3 id="xPDO.query-SelectaSingleRecord">
+Select a Single Record
+</h3>
+
+<p>
+Here's a simple query to fetch one row from the database. Note that you would normally use <a href="/display/xPDO20/xPDO.getObject" title="xPDO.getObject">getObject</a> or <a href="/display/xPDO20/xPDO.getCollection" title="xPDO.getCollection">getCollection</a> to fetch a data from built-in MODX tables.
+</p>
+
 <pre class="brush: php">
 $result = $modx-&gt;query("SELECT * FROM modx_users WHERE id=1");
 if (!is_object($result)) {
@@ -138,7 +162,7 @@ $id = $modx-&gt;quote(1, PDO::PARAM_INT);
 $sql = "SELECT * FROM cms_users WHERE id = $id";
 $result = $modx-&gt;query($sql);
 $row = $result-&gt;fetch(PDO::FETCH_ASSOC);
-return print_r($row,true);
+return print_r($row, true);
 </pre>
 <h3 id="xPDO.query-SelectaCollection">
 Select a Collection

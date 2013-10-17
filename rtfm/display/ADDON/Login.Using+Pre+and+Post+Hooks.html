@@ -74,10 +74,8 @@ UpdateProfile
 <pre class="brush: php">
 // A reference to the modUser object
 $user = $hook-&gt;getValue('updateprofile.user');
-
 // A reference to the modUserProfile object
 $profile = $hook-&gt;getValue('updateprofile.profile');
-
 // A boolean stating if the username was changed
 $changed = $hook-&gt;getValue('updateprofile.usernameChanged');
 </pre>
@@ -121,7 +119,27 @@ We'd create a snippet named 'hookComEmail', and use this code:
 <pre class="brush: php">
 $message = 'Hi, a new User signed up: '.$hook-&gt;getValue('username')
  . ' with email '.$hook-&gt;getValue('email').'.';
+</pre>
 
+<p>
+This is a list of Examples of hooks:
+</p>
+
+<h3 id="Login.UsingPreandPostHooks-RegistercustomemailpostHook">
+Register custom email postHook
+</h3>
+
+<p>
+Say we want to send a custom email to communitymanager@jerrys.com every time a user signs up.
+</p>
+
+<p>
+We'd create a snippet named 'hookComEmail', and use this code:
+</p>
+
+<pre class="brush: php">
+$message = 'Hi, a new User signed up: '.$hook-&gt;getValue('username')
+ . ' with email '.$hook-&gt;getValue('email').'.';
 $modx-&gt;getService('mail', 'mail.modPHPMailer');
 $modx-&gt;mail-&gt;set(modMail::MAIL_BODY,$message);
 $modx-&gt;mail-&gt;set(modMail::MAIL_FROM,'admin@jerrys.org');

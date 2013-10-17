@@ -69,28 +69,30 @@ Fist of all watch this video
 </p>
 
 <p>
-2. Open system settings in manager, switch to hybridauth and make\update ha.keys.Servicename. In our wxample it will be ha.keys.Twitter
+2. Open system settings in manager, switch to hybridauth and make\update ha.keys.Servicename. In our example it will be ha.keys.Twitter
 </p>
 
 <p>
-3. You need to set your keys as json sting with array.
+3. You need to set your keys as json string with array.
 </p>
 
 <pre class="brush: html">
-{"key":"you key from twitter","secret":"secret from twitter"}
+{"key":"your key from twitter","secret":"secret from twitter"}
 </pre>
 <p>
-<img src="download/attachments/43417801/ha3.png?version=1&amp;modificationDate=1356616628000" width="300" style="border: 1px solid black" />
-<br />
-It needed for proper initialization of the library (<a href="http://hybridauth.sourceforge.net/userguide/Configuration.html">http://hybridauth.sourceforge.net/userguide/Configuration.html</a>).
+<img src="/download/attachments/43417801/ha3.png?version=1&amp;modificationDate=1356616628000" />
 </p>
 
 <p>
-4. Now you can run snippet [[!HybriAuth?providers=`Twitter`]] on any page.
+It is needed for proper initialization of the library (<a href="http://hybridauth.sourceforge.net/userguide/Configuration.html">http://hybridauth.sourceforge.net/userguide/Configuration.html</a>).
+</p>
+
+<p>
+4. Now you can run snippet <code>[[!HybridAuth?providers=`Twitter`]]</code> on any page.
 </p>
 
 <div class="info">
-If there will be any errors on library initialization - it will be logged in system log.
+If there are any errors on library initialization - it will be logged in system log.
 </div>
 
 <h2 id="HybridAuth-Parameters">
@@ -114,7 +116,6 @@ Default
 <tr>
 <td>
 providers
-<br />
 </td>
 <td>
 Comma separated list of a providers for authentification. All available providers are here /core/components/hybridauth/model/hybridauth/lib/Providers/. For example, &amp;providers=`Google,Twitter,Facebook`.
@@ -170,13 +171,10 @@ loadTpl
 
 <tr>
 <td>
-&nbsp;
 </td>
 <td>
-&nbsp;
 </td>
 <td>
-&nbsp;
 </td>
 </tr>
 
@@ -227,13 +225,10 @@ tpl.HybridAuth.profile
 
 <tr>
 <td>
-&nbsp;
 </td>
 <td>
-&nbsp;
 </td>
 <td>
-&nbsp;
 </td>
 </tr>
 
@@ -267,13 +262,10 @@ none
 
 <tr>
 <td>
-&nbsp;
 </td>
 <td>
-&nbsp;
 </td>
 <td>
-&nbsp;
 </td>
 </tr>
 
@@ -309,13 +301,10 @@ username,email,fullname
 
 <tr>
 <td>
-&nbsp;
 </td>
 <td>
-&nbsp;
 </td>
 <td>
-&nbsp;
 </td>
 </tr>
 
@@ -368,7 +357,7 @@ Update profile
 [[!HybridAuth? providers=`Google,Twitter,Facebook` &amp;action=`UpdateProfile`]]
 </pre>
 <p>
-Update profile width required photo
+Update profile with required photo
 </p>
 
 <pre class="brush: html">
@@ -379,14 +368,14 @@ Known issues
 </h2>
 
 <p>
-1. Error "<strong>You cannot access this page directly</strong>" occurs when user session is cached by opcode-cacher, such as <strong>php-apc</strong>. For example, at&nbsp;<a href="http://modxcloud.com">MODXCloud</a>&nbsp;this error always occurs.
+1. Error "<strong>You cannot access this page directly</strong>" occurs when user session is cached by opcode-cacher, such as <strong>php-apc</strong>. For example, at <a href="http://modxcloud.com">MODXCloud</a> this error always occurs.
 </p>
 
 <p>
 For solving this, you need to add to the /index.php at the root of site this line for disabling apc caching:
 </p>
 
-<pre class="brush: html">
+<pre class="brush: php">
 ini_set('apc.cache_by_default', 0);
 </pre>
 <p>

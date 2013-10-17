@@ -49,13 +49,13 @@
 </div>
 
 <p>
-MODx comes with a flexible amount of system settings. They are found in System -&gt; System Settings, and can easily be edited and changed. All system settings are available in your templates by using the [[++placeholder]] notation. See <a href="http://rtfm.modx.com/display/revolution20/Commonly+Used+Template+Tags">Template Tags</a> for more information.
+MODx comes with a flexible amount of system settings. They are found in System -&gt; System Settings, and can easily be edited and changed. All system settings are available in your templates by using the [[++placeholder]] notation. See <a href="display/revolution20/Commonly+Used+Template+Tags">Template Tags</a> for more information.
 </p>
 <object width="780" height="500">
-<param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" />
+<param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" />
 <param name="allowFullScreen" value="true" />
 <param name="allowscriptaccess" value="always" />
-<embed src="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;amp;server=vimeo.com&amp;amp;show_title=1&amp;amp;show_byline=1&amp;amp;show_portrait=0&amp;amp;color=&amp;amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="780" height="500" flashvars="$flashVars" />
+<embed src="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="780" height="500" flashvars="$flashVars" />
 </object>
 <h2 id="SystemSettings-CreatingnewSystemSettings(viatheGUI)">
 Creating new System Settings (via the GUI)
@@ -289,9 +289,7 @@ $MySetting-&gt;set('value', 'my_value');
 $MySetting-&gt;set('xtype', 'textfield');
 $MySetting-&gt;set('namespace', 'my_namespace');
 $MySetting-&gt;set('area', 'MyArea');
-
 $MySetting-&gt;save();
-
 // Clear the cache:
 $cacheRefreshOptions =  array( 'system_settings' =&gt; array() );
 $modx-&gt;cacheManager-&gt; refresh($cacheRefreshOptions);
@@ -315,11 +313,19 @@ So in this example, you would need to add the following lexicon entries to a lex
 <pre class="brush: php">
 $_lang['setting_mykey'] = 'Name of My Setting';
 $_lang['setting_mykey_desc'] = 'Description of my key';
+                
 </pre>
 <p>
 MODX will populate the values for the name and description based on those lexicon entries.
 </p>
 
+<p>
+You may find it useful to reference your localized language strings inside your Templates or CMPs. You can do this via a lexicon tag, but you must specify the "setting" topic, e.g.
+</p>
+
+<pre class="brush: php">
+[[!%setting_emailsender? &amp;topic=`setting` &amp;namespace=`core` &amp;language=`en`]]
+</pre>
 <h2 id="SystemSettings-TypesofSystemSettings">
 Types of System Settings
 </h2>

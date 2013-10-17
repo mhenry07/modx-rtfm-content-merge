@@ -59,7 +59,7 @@ Usage
 Simply place wherever you want a SearchForm to render, and add the 'landing' property to the call to specify the Resource where the <a href="extras/revo/advsearch/advsearch.advsearch" title="AdvSearch.AdvSearch">AdvSearch</a> snippet call is located (which is where the results will display).
 </p>
 
-<pre class="brush: php">
+<pre class="brush: plain">
 [[!AdvSearchForm? &amp;landing=`82`]]
 </pre>
 <p>
@@ -79,7 +79,7 @@ To set or unset features.
 </p>
 
 <table>
-<tbody>
+<thead>
 <tr>
 <th>
 Name
@@ -91,7 +91,9 @@ Description
 Default
 </th>
 </tr>
+</thead>
 
+<tbody>
 <tr>
 <td>
 clearDefault
@@ -127,7 +129,7 @@ To design your own search.
 </p>
 
 <table>
-<tbody>
+<thead>
 <tr>
 <th>
 Name
@@ -139,7 +141,9 @@ Description
 Default
 </th>
 </tr>
+</thead>
 
+<tbody>
 <tr>
 <td>
 asId
@@ -160,7 +164,6 @@ landing
 The Resource that the AdvSearch snippet is called on, that will display the results of the search.
 </td>
 <td>
-&nbsp;
 </td>
 </tr>
 
@@ -196,7 +199,6 @@ toPlaceholder
 Whether to set the output to directly return, or set to a placeholder with this propertys name.
 </td>
 <td>
-&nbsp;
 </td>
 </tr>
 
@@ -223,7 +225,7 @@ The parameters that could help you for a custom installation.
 </p>
 
 <table>
-<tbody>
+<thead>
 <tr>
 <th>
 Name
@@ -235,7 +237,9 @@ Description
 Default
 </th>
 </tr>
+</thead>
 
+<tbody>
 <tr>
 <td>
 addJs
@@ -306,7 +310,7 @@ AdvSearchForm Chunks
 There is 1 chunk that is processed in AdvSearchForm. Its corresponding AdvSearchForm parameter is:
 </p>
 
-<ul class="alternate" type="square">
+<ul>
 <li>
 <a href="extras/revo/advsearch/advsearch.advsearchform/advsearch.advsearchform.tpl" title="Advsearch.AdvSearchForm.tpl">tpl</a> - The Chunk to use for the search form.
 </li>
@@ -327,7 +331,7 @@ Display the search form, without but search with POST instead of GET:
 Set the search form to a 'search.form' placeholder, specify a landing page on Resource 82, and use a custom Chunk called 'MySearchForm' for the form template:
 </p>
 
-<pre class="brush: php">
+<pre class="brush: plain">
 [[AdvSearchForm? &amp;tpl=`MySearchForm` &amp;landing=`82` &amp;toPlaceholder=`search.form`]]
 
 &lt;h2&gt;Search&lt;/h2&gt;
@@ -337,11 +341,11 @@ Set the search form to a 'search.form' placeholder, specify a landing page on Re
 Display two search forms, the first one (as0) without the help link and the second one (as1) without the clearDefault feature:
 </p>
 
-<pre class="brush: php">
+<pre class="brush: plain">
 [[AdvSearchForm? &amp;help=`0`]]
 </pre>
 
-<pre class="brush: php">
+<pre class="brush: plain">
 [[AdvSearchForm? &amp;asId=`as1` &amp;clearDefault=`0`]]
 </pre>
 <h2 id="AdvSearch.AdvSearchForm-Errors">
@@ -349,7 +353,7 @@ Errors
 </h2>
 
 <p>
-The following erro message are possible:
+The following error message are possible:
 </p>
 
 <ul class="alternate" type="square">

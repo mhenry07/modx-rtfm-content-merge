@@ -348,6 +348,328 @@ Display a list of the top 5 tags for the 'tags' TV, and link to Resource ID 123:
 <pre class="brush: php">
 [[!tagLister? &amp;tv=`tags` &amp;limit=`5` &amp;target=`123`]]
 </pre>
+<h2 name="tagLister.tagLister-Properties">
+Properties
+</h2>
+
+<table>
+<tbody>
+<tr>
+<th>
+Name
+</th>
+<th>
+Description
+</th>
+<th>
+Default Value
+</th>
+</tr>
+
+<tr>
+<td>
+tpl
+</td>
+<td>
+Name of a Chunk that will be used for each result.
+</td>
+<td>
+tag
+</td>
+</tr>
+
+<tr>
+<td>
+tv
+</td>
+<td>
+The name or ID of the TV being used for tags.
+</td>
+<td>
+tags
+</td>
+</tr>
+
+<tr>
+<td>
+tvDelimiter
+</td>
+<td>
+The delimiter being used between tags in the TV. Usually a comma, sometimes a space.
+</td>
+<td>
+,
+</td>
+</tr>
+
+<tr>
+<td>
+target
+</td>
+<td>
+The target Resource to point the tag links to.
+</td>
+<td>
+1
+</td>
+</tr>
+
+<tr>
+<td>
+tagVar
+<br />
+</td>
+<td>
+The request parameter used for outputting the tag in the default tpl.
+<br />
+</td>
+<td>
+tag
+<br />
+</td>
+</tr>
+
+<tr>
+<td>
+tagKeyVar
+<br />
+</td>
+<td>
+The request parameter used for outputting the key in the default tpl.
+<br />
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+sortBy
+</td>
+<td>
+Field to sort by. Can be set to <strong>tag</strong>, <strong>count</strong>, or <strong>publishedon</strong>.
+</td>
+<td>
+count
+</td>
+</tr>
+
+<tr>
+<td>
+sortDir
+</td>
+<td>
+Order which to sort by.
+</td>
+<td>
+ASC
+</td>
+</tr>
+
+<tr>
+<td>
+limit
+</td>
+<td>
+Limits the number of tags returned.
+</td>
+<td>
+10
+</td>
+</tr>
+
+<tr>
+<td>
+cls
+</td>
+<td>
+A CSS class to add to each row.
+</td>
+<td>
+tl-tag
+</td>
+</tr>
+
+<tr>
+<td>
+all
+</td>
+<td>
+Whether to show 'All tags' link.
+</td>
+<td>
+false
+</td>
+</tr>
+
+<tr>
+<td>
+allTpl
+</td>
+<td>
+Name of a Chunk that will be used for the 'All Tags' link
+</td>
+<td>
+all
+</td>
+</tr>
+
+<tr>
+<td>
+altCls
+</td>
+<td>
+A CSS class to add to each alternate row.
+</td>
+<td>
+tl-tag-alt
+</td>
+</tr>
+
+<tr>
+<td>
+firstCls
+</td>
+<td>
+Optional. A CSS class to add to the first row. If empty will ignore.
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+lastCls
+</td>
+<td>
+Optional. A CSS class to add to the last row. If empty will ignore.
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+activeCls
+<br />
+</td>
+<td>
+Optional. A CSS class to add to the active row. Will be ignored if empty.
+<br />
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+toPlaceholder
+</td>
+<td>
+If set, will set the output of this snippet to this placeholder rather than output it.
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+toLower
+<br />
+</td>
+<td>
+If set to 1/true the tags will be changed to lowercase text.
+<br />
+</td>
+<td>
+false
+<br />
+</td>
+</tr>
+
+<tr>
+<td>
+weights
+<br />
+</td>
+<td>
+</td>
+<td>
+0
+<br />
+</td>
+</tr>
+
+<tr>
+<td>
+weightCls
+<br />
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+parents
+<br />
+</td>
+<td>
+Comma delimited list of parents to use to limit the search for tags to.
+<br />
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+depth
+<br />
+</td>
+<td>
+Depth of parents to search in.
+<br />
+</td>
+<td>
+10
+<br />
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="tagLister.tagLister-tagListerChunks">
+tagLister Chunks
+</h2>
+
+<p>
+There are 2 chunks that are processed in tagLister. Their corresponding parameters are:
+</p>
+
+<ul class="alternate" type="square">
+<li>
+<a href="/display/ADDON/tagLister.tagLister.tpl" title="tagLister.tagLister.tpl">tpl</a> - The Chunk to use for each tag listed.
+</li>
+
+<li>
+<a href="/display/ADDON/tagLister.tagLister.all" title="tagLister.tagLister.all">allTpl</a> - The Chunk to use for the 'All Tags' link.
+</li>
+</ul>
+
+<h2 id="tagLister.tagLister-Examples">
+Examples
+</h2>
+
+<p>
+Display a list of the top 5 tags for the 'tags' TV, and link to Resource ID 123:
+</p>
+
+<pre class="brush: php">
+[[!tagLister? &amp;tv=`tags` &amp;limit=`5` &amp;target=`123`]]
+</pre>
 <h2 id="tagLister.tagLister-SeeAlso">
 See Also
 </h2>

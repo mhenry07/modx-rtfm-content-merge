@@ -1,80 +1,74 @@
-<div>
 <ul>
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-Overview">Overview</a>
+<a href="#Snippets-Overview">Overview</a>
 <ul>
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-WhatisaSnippet%3F">What is a Snippet?</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-WhatisaSnippet%3F">What is a Snippet?</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-HowDoTheyWork%3F">How Do They Work?</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-HowDoTheyWork%3F">How Do They Work?</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-SimpleExample">Simple Example</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-SimpleExample">Simple Example</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-PassingValuesIntoaSnippet">Passing Values Into a Snippet</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-PassingValuesIntoaSnippet">Passing Values Into a Snippet</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-ReadingValuesinyourSnippets">Reading Values in your Snippets</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-ReadingValuesinyourSnippets">Reading Values in your Snippets</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-DatabaseInteractioninSnippets">Database Interaction in Snippets</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-DatabaseInteractioninSnippets">Database Interaction in Snippets</a>
 <ul>
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-WhyanORM%3F">Why an ORM?</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-WhyanORM%3F">Why an ORM?</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-ExampleDBCode">Example DB Code</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-ExampleDBCode">Example DB Code</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-FurtherDatabaseReading">Further Database Reading</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-FurtherDatabaseReading">Further Database Reading</a>
 </li>
 </ul>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-RecommendedMethodsandTips">Recommended Methods and Tips</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-RecommendedMethodsandTips">Recommended Methods and Tips</a>
 <ul>
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-WriteyourSnippetsoutsideofMODx.">Write your Snippets outside of MODx.</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-WriteyourSnippetsoutsideofMODX.">Write your Snippets outside of the Manager.</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-Don%27ttrytomixPHPandHTMLinaSnippet.">Don't try to mix PHP and HTML in a Snippet.</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-Don%27ttrytomixPHPandHTMLinaSnippet.">Don't try to mix PHP and HTML in a Snippet.</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-Don%27tWorkonLiveSnippets">Don't Work on Live Snippets</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-Don%27tWorkonLiveSnippets">Don't Work on Live Snippets</a>
 </li>
 
 <li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-UseDefaultProperties">Use Default Properties</a>
+<a href="/revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-UseDefaultProperties">Use Default Properties</a>
 </li>
 </ul>
 </li>
-
-<li>
-<a href="revolution/2.x/developing-in-modx/basic-development/snippets#Snippets-SeeAlso">See Also</a>
-</li>
 </ul>
-</div>
 
 <h2 id="Snippets-Overview">
 Overview
 </h2>
 
 <p>
-Snippets are the method by which MODx allows you to run dynamic PHP code in any of your pages. They are the main development vehicle for most developers.
+Snippets are the method by which MODX allows you to run dynamic PHP code in any of your pages. They are the main development vehicle for most developers.
 </p>
 
 <h3 id="Snippets-WhatisaSnippet?">
@@ -90,11 +84,11 @@ How Do They Work?
 </h3>
 
 <p>
-First off, most Snippets are <em>cached</em>, meaning they're stored as a temporary, dynamic function in the cache. If they're flagged as uncached, then they are not parsed until the parser has done all of the other cached content.
+Most Snippets are <em>cached</em>, meaning they're stored as a temporary, dynamic function in the cache. If they're flagged as uncached, then they are not parsed until the parser has done all of the other cached content.
 </p>
 
 <p>
-Then, once they're up to be cached, Snippets are then parsed by the MODx Parser. They have access to the $modx object.
+Then, once they're up to be cached, Snippets are then parsed by the MODX Parser. They have access to the $modx object.
 </p>
 
 <h3 id="Snippets-SimpleExample">
@@ -102,7 +96,7 @@ Simple Example
 </h3>
 
 <p>
-Here's the perfunctory super-basic example of what a Snippet's code might look like:
+Here's a basic example of what a Snippet's code might look like:
 </p>
 
 <pre class="brush: php">
@@ -189,7 +183,7 @@ You might be asking, why use an ORM instead of just straight SQL? Well, a few re
 
 <ol>
 <li>
-<strong>SQL Abstraction</strong> - This means that you can write code that works in a variety of different database types, such as MySQL, sqllite, postegresql, and more, as MODx expands to those databases. All without having to rewrite a single line of code. This makes it ideal for plugin authors who want their code to be executable on the widest possible variety of systems.
+<strong>SQL Abstraction</strong> - This means that you can write code that works in a variety of different database types, such as MySQL, sqllite, postegresql, and more, as MODX expands to those databases. All without having to rewrite a single line of code. This makes it ideal for plugin authors who want their code to be executable on the widest possible variety of systems.
 </li>
 
 <li>
@@ -218,7 +212,6 @@ $chunk = $modx-&gt;getObject('modChunk',array(
    'name' =&gt; 'LineItem',
 ));
 if (!$chunk) return 'No line item chunk!';
-
 return $chunk-&gt;process(array(
    'name' =&gt; 'G.I. Joe',
    'grenades' =&gt; 42,
@@ -277,7 +270,7 @@ Recommended Methods and Tips
 </h2>
 
 <h3 id="Snippets-WriteyourSnippetsoutsideofMODx.">
-Write your Snippets outside of MODx.
+Write your Snippets outside of the MODX Manager.
 </h3>
 
 <p>
@@ -306,11 +299,11 @@ And run your Snippets externally while you develop them!
 </p>
 
 <p>
-Then you can test them to make sure they work (e.g. on the bash command line, you can use the command <em>php -l my_script.php</em> to check the script for syntax errors). Depending on your environment, you may also get some useful error messages to help you with debugging. Copy and paste the code into MODx only when you're sure it's working.
+Then you can test them to make sure they work (e.g. on the bash command line, you can use the command <em>php -l my_script.php</em> to check the script for syntax errors). Depending on your environment, you may also get some useful error messages to help you with debugging. Copy and paste the code into MODX only when you're sure it's working.
 </p>
 
 <p>
-Remember that a snippet in a file on your web site can be executed by anyone with a web browser, so don't leave them there on a live site unless you've placed the snippet code outside the web root so the file can't be accessed via the web. In MODx Revolution, you can put the snippet files under the core directory and move the entire directory outside the web root. You can also put a test in the snippet that makes it exit if it's not running inside MODx, but it's safest just to move the file or paste the code into a snippet in the Manager and delete the file.
+Remember that a snippet in a file on your web site can be executed by anyone with a web browser, so don't leave them there on a live site unless you've placed the snippet code outside the web root so the file can't be accessed via the web. In MODX Revolution, you can put the snippet files under the core directory and move the entire directory outside the web root. You can also put a test in the snippet that makes it exit if it's not running inside MODX, but it's safest just to move the file or paste the code into a snippet in the Manager and delete the file.
 </p>
 
 <h3 id="Snippets-Don'ttrytomixPHPandHTMLinaSnippet.">
@@ -324,11 +317,11 @@ Snippets execute PHP code. They should always begin with a <strong>&lt;?php</str
 <pre class="brush: php">
 &lt;p&gt;This is a horrible mixture of HTML and PHP&lt;/p&gt;
 &lt;?php
-return "&lt;p&gt;and PHP!&amp;nbsp; Don't try it!&amp;nbsp; It's bad architecture and it won't work!!&lt;/p&gt;";
+return "&lt;p&gt;and PHP!  Don't try it!  It's bad architecture and it won't work!!&lt;/p&gt;";
 ?&gt;
 </pre>
 <p>
-You'll find that MODx will append PHP tags to beginning and end of the snippet, creating an invalid syntax, e.g.:
+You'll find that MODX will append PHP tags to beginning and end of the snippet, creating an invalid syntax, e.g.:
 </p>
 
 <pre class="brush: php">
@@ -351,7 +344,7 @@ Don't Work on Live Snippets
 </h3>
 
 <p>
-If you're writing new versions of Snippets, <em>duplicate</em> the old version! That way you can go back to the old version of the code if something doesn't work correctly! MODx doesn't inherently do versioning control, so you have to backup code yourself.
+If you're writing new versions of Snippets, <em>duplicate</em> the old version! That way you can go back to the old version of the code if something doesn't work correctly! MODX doesn't inherently do versioning control, so you have to backup code yourself.
 </p>
 
 <h3 id="Snippets-UseDefaultProperties">
@@ -359,7 +352,7 @@ Use Default Properties
 </h3>
 
 <p>
-Consider adding your properties for your snippet into the Properties grid, so that the user can add custom <a href="revolution/2.x/making-sites-with-modx/customizing-content/properties-and-property-sets" title="Properties and Property Sets">Property Sets</a> to override them.
+Consider adding default properties for your snippet into the snippet's Properties tab, so that the user can add custom <a href="revolution/2.x/making-sites-with-modx/customizing-content/properties-and-property-sets" title="Properties and Property Sets">Property Sets</a> to override them.
 </p>
 
 <h2 id="Snippets-SeeAlso">

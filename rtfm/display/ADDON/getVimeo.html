@@ -57,106 +57,16 @@ Calls without the &amp;channel, &amp;id and &amp;tpl properties specified will o
 Available Properties
 </h3>
 
-<h4 id="getVimeo-TemplatingProperties">
-Templating Properties
-</h4>
-
-<table>
-<tbody>
-<tr>
-<th>
-Name
-<br />
-</th>
-<th>
-Description
-<br />
-</th>
-<th>
-Default Value
-<br />
-</th>
-<th>
-Added in Version
-<br />
-</th>
-</tr>
-
-<tr>
-<td>
-tpl
-<br />
-</td>
-<td>
-Name of a chunk serving as a template. (REQUIRED)
-<br />
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-1.0.0-pl
-</td>
-</tr>
-
-<tr>
-<td>
-tplAlt
-<br />
-</td>
-<td>
-Name of a chunk serving as a template for every other Video.
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-1.0.0-pl
-</td>
-</tr>
-
-<tr>
-<td>
-tplWrapper
-<br />
-</td>
-<td>
-Name of a chunk serving as a wrapper template for the output. (NOTE: Only works when placeholder is set with &amp;toPlaceholder)
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-1.0.0-pl
-</td>
-</tr>
-
-<tr>
-<td>
-toPlaceholder
-</td>
-<td>
-If set, will assign the output to this placeholder instead of outputting it directly.
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-1.0.0-pl
-</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="getVimeo-SelectionProperties">
+<h3 id="getVimeo-SelectionProperties">
 Selection Properties
-</h4>
+</h3>
 
 <table>
 <tbody>
 <tr>
 <th>
 Name
+<br />
 </th>
 <th>
 Description
@@ -175,7 +85,6 @@ Added in Version
 <tr>
 <td>
 channel
-<br />
 </td>
 <td>
 The URL Name or Numeric ID of the target Vimeo Channel. (REQUIRED)
@@ -191,7 +100,6 @@ The URL Name or Numeric ID of the target Vimeo Channel. (REQUIRED)
 <tr>
 <td>
 id
-<br />
 </td>
 <td>
 A comma-separated list of Numeric Video IDs to output from target Channel. Use `all` to output all Videos. (REQUIRED)
@@ -207,7 +115,6 @@ A comma-separated list of Numeric Video IDs to output from target Channel. Use `
 <tr>
 <td>
 sortby
-<br />
 </td>
 <td>
 A placeholder name to sort by. (NOTE: Please see placeholder docs for more details)
@@ -223,18 +130,151 @@ upload_date
 <tr>
 <td>
 sortdir
-<br />
 </td>
 <td>
 Order which to sort by. (OPTIONS: DESC or ASC)
-<br />
 </td>
 <td>
 DESC
-<br />
 </td>
 <td>
 1.0.0-pl
+</td>
+</tr>
+
+<tr>
+<td>
+limit
+</td>
+<td>
+Limits the number of Videos returned. Use `0` for unlimited results.
+</td>
+<td>
+0
+</td>
+<td>
+1.1.0-pl
+</td>
+</tr>
+
+<tr>
+<td>
+offset
+</td>
+<td>
+An offset of Videos to skip.
+</td>
+<td>
+0
+</td>
+<td>
+1.1.0-pl
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="getVimeo-TemplatingProperties">
+Templating Properties
+</h3>
+
+<table>
+<tbody>
+<tr>
+<th>
+Name
+</th>
+<th>
+Description
+</th>
+<th>
+Default Value
+</th>
+<th>
+Added in Version
+</th>
+</tr>
+
+<tr>
+<td>
+tpl
+</td>
+<td>
+Name of a chunk serving as a template. (REQUIRED)
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+1.0.0-pl
+</td>
+</tr>
+
+<tr>
+<td>
+tplAlt
+</td>
+<td>
+Name of a chunk serving as a template for every other Video.
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+1.0.0-pl
+</td>
+</tr>
+
+<tr>
+<td>
+tplWrapper
+</td>
+<td>
+Name of a chunk serving as a wrapper template for the output. (NOTE: Does not work with &amp;toPlaceholder. The placeholder where the items are inserted is [[+output]])
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+1.0.0-pl
+</td>
+</tr>
+
+<tr>
+<td>
+toPlaceholder
+</td>
+<td>
+If set, will assign the output to this placeholder instead of outputting it directly. (NOTE: Does not work with &amp;tplWrapper)
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+1.0.0-pl
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="getVimeo-OtherProperties">
+Other Properties
+</h3>
+
+<table>
+<tbody>
+<tr>
+<td>
+totalVar
+</td>
+<td>
+Define the key of a placeholder set by getVimeo indicating the total number of Videos that would be returned, NOT considering the LIMIT value.
+</td>
+<td>
+total
+</td>
+<td>
+1.1.0-pl
 </td>
 </tr>
 </tbody>
@@ -550,6 +590,19 @@ Returns the total number of Videos in the output.
 <br />
 </td>
 </tr>
+
+<tr>
+<td>
+[[+idx]]
+</td>
+<td>
+Returns each Videos numerical position within the output. Increases with each iteration, starting with 1.
+<br />
+</td>
+<td>
+1.1.0-pl
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -580,5 +633,37 @@ Output a list of ALL videos from the Vimeo 'Staff Picks' Channel, using the 'vim
 [[+videos:notempty=`[[+videos]]`]]
 </pre>
 <div class="info">
-You can also pass a placeholder name (&amp;toPlaceholder) to a wrapper chunk (&amp;tplWrapper) for more complex markup wrapping.
+You CANNOT pass a placeholder name (&amp;toPlaceholder) to a wrapper chunk (&amp;tplWrapper).
 </div>
+
+<h2 id="getVimeo-getPageExamples">
+Using getPage for Pagination
+</h2>
+
+<p>
+When combined with <a title="getPage" href="/display/ADDON/getPage">getPage</a>, getVimeo allows you to do powerful and flexible pagination on your pages.
+</p>
+
+<p>
+Output a list of ALL videos from the Vimeo 'Staff Picks' Channel, using the 'vimeoTpl' chunk:
+</p>
+
+<pre class="brush: php">
+[[!getPage?
+  &amp;element=`getVimeo`
+  &amp;channel=`staffpicks`
+  &amp;id=`all`
+  &amp;tpl=`vimeoTpl`
+  &amp;limit=`5`
+]]
+
+</pre>
+<div class="paging">
+<div style="margin-left: 2em" class="pageList">
+[[!+page.nav]]
+</div>
+</div>
+
+<pre>
+
+</pre>
