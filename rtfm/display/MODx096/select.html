@@ -31,7 +31,7 @@ Modx versions:
 Input parameters:
 </td>
 <td>
-([string $fields [, string $from [, string $where [, string $orderby [, string $limit]]]]])
+(&#91;string $fields &#91;, string $from &#91;, string $where &#91;, string $orderby &#91;, string $limit&#93;&#93;&#93;&#93;&#93;)
 </td>
 </tr>
 
@@ -79,7 +79,7 @@ Description
 </h2>
 
 <pre class="brush: php">
-resource select([string $fields [, string $from [, string $where [, string $orderby [, string $limit]]]]])
+resource select(&#91;string $fields &#91;, string $from &#91;, string $where &#91;, string $orderby &#91;, string $limit&#93;&#93;&#93;&#93;&#93;)
 </pre>
 <p>
 The select function is a simple wrapper for the SQL SELECT query. select() sends a query to the currently active database, $this-&gt;conn as created when connect() is called. This function is analogous to mysql_query() except the query string is broken up into 5 parts. Only the $from field is required for a meaningful result.
@@ -120,7 +120,7 @@ function login($username, $password)
    if($modx-&gt;db-&gt;getRecordCount($res))
    {
       $id = $modx-&gt;db-&gt;getValue($res);
-      $_SESSION['userid'] = $id;
+      $_SESSION&#91;'userid'&#93; = $id;
       //other log in things...
    }
    else
@@ -147,7 +147,7 @@ Related
 </h2>
 
 <p>
-<span class="error">[getRecordCount]</span>(), <a href="evolution/0.9.x/developers-guide/api-reference/dbapi/query" title="query">query</a>(), <span class="error">[getRow]</span>(), <span class="error">[makeArray]</span>().
+<span class="error">&#91;getRecordCount&#93;</span>(), <a href="evolution/0.9.x/developers-guide/api-reference/dbapi/query" title="query">query</a>(), <span class="error">&#91;getRow&#93;</span>(), <span class="error">&#91;makeArray&#93;</span>().
 </p>
 
 <h2 id="select-Notes">

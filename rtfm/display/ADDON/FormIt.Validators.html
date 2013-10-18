@@ -35,28 +35,28 @@ Validation can simply be done by adding the fields to validate to the &amp;valid
 </p>
 
 <pre class="brush: php">
-[[!FormIt? &amp;validate=`username:required`]]
+&#91;&#91;!FormIt? &amp;validate=`username:required`&#93;&#93;
 </pre>
 <p>
 Validators can also be "chained", or done in sucession. The following first checks to see if required, then strips all tags from the post:
 </p>
 
 <pre class="brush: php">
-[[!FormIt? &amp;validate=`text:required:stripTags`
+&#91;&#91;!FormIt? &amp;validate=`text:required:stripTags`
 </pre>
 <p>
 Multiple fields and validators are separated by commas:
 </p>
 
 <pre class="brush: php">
-[[!FormIt? &amp;validate=`date:required:isDate=^%m/%d/%Y^,
+&#91;&#91;!FormIt? &amp;validate=`date:required:isDate=^%m/%d/%Y^,
     name:required:testFormItValidator,
     email:email:required,
     colors:required,
     subject:required,
     username:required:islowercase,
     message:stripTags,
-    numbers:required`]]
+    numbers:required`&#93;&#93;
 </pre>
 <p>
 FormIt allows you to split the validators on multiple lines if you so choose.
@@ -67,7 +67,7 @@ Note: Don't use backticks ` inside a validate call. Use carets ^ instead:
 </p>
 
 <pre class="brush: php">
-[[!FormIt? &amp;validate=`date:required:isDate=^%m/%d/%Y^`]]
+&#91;&#91;!FormIt? &amp;validate=`date:required:isDate=^%m/%d/%Y^`&#93;&#93;
 </pre>
 <p>
 This will fix the call and cause it to work properly.
@@ -78,10 +78,10 @@ A general error message for validators, useful if no errors are showing but vali
 </p>
 
 <pre class="brush: php">
-[[!+fi.validation_error_message]]
+&#91;&#91;!+fi.validation_error_message&#93;&#93;
 </pre>
 <p>
-This will contain a validation error message, which can be set using the &amp;validationErrorMessage property, and using [[+errors]] in the property value, which will be replaced by all the field errors.
+This will contain a validation error message, which can be set using the &amp;validationErrorMessage property, and using &#91;&#91;+errors&#93;&#93; in the property value, which will be replaced by all the field errors.
 </p>
 
 <p>
@@ -89,7 +89,7 @@ Also, there is a 1/0 placeholder as well:
 </p>
 
 <pre class="brush: php">
-[[!+fi.validation_error]]
+&#91;&#91;!+fi.validation_error&#93;&#93;
 </pre>
 <h2 id="FormIt.Validators-BuiltInValidators">
 Built-In Validators
@@ -333,7 +333,7 @@ Validators can also be custom <a href="revolution/2.x/developing-in-modx/basic-d
 </p>
 
 <pre class="brush: php">
-[[!FormIt? &amp;customValidators=`isBigEnough`]]
+&#91;&#91;!FormIt? &amp;customValidators=`isBigEnough`&#93;&#93;
 </pre>
 <div class="note">
 As of FormIt 1.2.0, all custom validators <strong>must</strong> be specified in the customValidators property, or they will not be run.
@@ -344,7 +344,7 @@ And then as a validator on the &amp;validate property:
 </p>
 
 <pre class="brush: php">
-[[!FormIt? &amp;validate=`cost:isBigEnough`]]
+&#91;&#91;!FormIt? &amp;validate=`cost:isBigEnough`&#93;&#93;
 </pre>
 <p>
 Then in your Snippet, "isBigEnough":
@@ -557,10 +557,10 @@ You can also specify the message per-field by prefixing the field key in the pro
 </p>
 
 <pre class="brush: php">
-[[!FormIt?
+&#91;&#91;!FormIt?
   &amp;vTextRequired=`Please enter a value for this field.`
   &amp;subject.vTextRequired=`Please enter a subject.`
-]]
+&#93;&#93;
 </pre>
 <p>
 This will use the &amp;subject.vTextRequired for the subject field, and then fallback to the &amp;vTextRequired message for all other fields.

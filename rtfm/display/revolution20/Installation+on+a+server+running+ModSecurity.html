@@ -237,27 +237,27 @@ Here is a sample error from the Apache error log:
 </p>
 
 <pre class="brush: php">
-[Sat Nov 19 19:16:32 2011] [error] [client 123.123.123.123] ModSecurity: Access denied with code 500 (phase 2).
-Pattern match "(insert[[:space:]]+into.+values|select.*from.+[a-z|A-Z|0-9]|select.+from|bulk[[:space:]]+insert|union.+select|convert.+\\\\(.*from)"
+&#91;Sat Nov 19 19:16:32 2011&#93; &#91;error&#93; &#91;client 123.123.123.123&#93; ModSecurity: Access denied with code 500 (phase 2).
+Pattern match "(insert&#91;&#91;:space:&#93;&#93;+into.+values|select.*from.+&#91;a-z|A-Z|0-9&#93;|select.+from|bulk&#91;&#91;:space:&#93;&#93;+insert|union.+select|convert.+\\\\(.*from)"
 at ARGS:els.
-[file "/usr/local/apache/conf/modsec2.user.conf"]
-[line "359"]
-[id "300016"]
-[rev "2"]
-[msg "Generic SQL injection protection"]
-[severity "CRITICAL"]
-[hostname "yoursite.com"]
-[uri "/connectors/element/tv.php"]
-[unique_id "TshG4EWntHMAAAfIFmUAAAAI"]
+&#91;file "/usr/local/apache/conf/modsec2.user.conf"&#93;
+&#91;line "359"&#93;
+&#91;id "300016"&#93;
+&#91;rev "2"&#93;
+&#91;msg "Generic SQL injection protection"&#93;
+&#91;severity "CRITICAL"&#93;
+&#91;hostname "yoursite.com"&#93;
+&#91;uri "/connectors/element/tv.php"&#93;
+&#91;unique_id "TshG4EWntHMAAAfIFmUAAAAI"&#93;
 </pre>
 <p>
 From this error, we need 3 pieces of information in order to whitelist a particular action. Take note of the following 3 items:
 </p>
 
 <pre class="brush: php">
-[id "300016"]
-[hostname "yoursite.com"]
-[uri "/connectors/element/tv.php"]
+&#91;id "300016"&#93;
+&#91;hostname "yoursite.com"&#93;
+&#91;uri "/connectors/element/tv.php"&#93;
 </pre>
 <p>
 This tells what rule was being tripped, what domain it was tripped on, and from what location inside that domain the rule is being tripped.
@@ -372,9 +372,9 @@ Give our sample error message earlier which identified the following error:
 </p>
 
 <pre class="brush: php">
-[id "300016"]
-[hostname "yoursite.com"]
-[uri "/connectors/element/tv.php"]
+&#91;id "300016"&#93;
+&#91;hostname "yoursite.com"&#93;
+&#91;uri "/connectors/element/tv.php"&#93;
 </pre>
 <p>
 We would go to the VirtualHosts directive for <strong>yoursite.com</strong> and add a rule like the following:

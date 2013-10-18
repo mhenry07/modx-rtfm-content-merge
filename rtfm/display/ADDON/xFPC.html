@@ -492,23 +492,23 @@ Wether or not to show the content in static text as well
 <p>
 Here we have an example case:
 <br />
-Imagine you have a random quote on your webpage from your clients saying how awesome you are. You used to do this with a snippet called [<span class="error">[!getRandomAwesomeQuote]</span>].
+Imagine you have a random quote on your webpage from your clients saying how awesome you are. You used to do this with a snippet called &#91;<span class="error">&#91;!getRandomAwesomeQuote&#93;</span>&#93;.
 <br />
 Since you are using xFPC the quote is static, since it cached your complete page. We can fix this.
 </p>
 
 <p>
-Create a new resource, give it a blank empty template and place the [<span class="error">[!getRandomAwesomeQuote]</span>] snippet inside it's content field. Let's say the new resource
+Create a new resource, give it a blank empty template and place the &#91;<span class="error">&#91;!getRandomAwesomeQuote&#93;</span>&#93; snippet inside it's content field. Let's say the new resource
 <br />
 got the ID "300". You can hide this resource from the menu, but be sure to publish it.
 <br />
-Now back to the place where the <span class="error">[!getRandomAwesomeQuote]</span> used to be and replace this call with:
+Now back to the place where the <span class="error">&#91;!getRandomAwesomeQuote&#93;</span> used to be and replace this call with:
 </p>
 
 <pre class="brush: php">
-[[xFPCAjax?
+&#91;&#91;xFPCAjax?
    &amp;resource=`300`
-]]
+&#93;&#93;
 </pre>
 <p>
 Now, when your static cache file is loaded, it will load the dynamic quote from the resource using AJAX. This means that your page loads blazing fast in the blink of an eye
@@ -521,7 +521,7 @@ So your old template looked like this:
 </p>
 
 <pre class="brush: php">
-&lt;div class="awesome-quote"&gt;[[!getRandomAwesomeQuote]]&lt;/div&gt;
+&lt;div class="awesome-quote"&gt;&#91;&#91;!getRandomAwesomeQuote&#93;&#93;&lt;/div&gt;
 </pre>
 <p>
 And your new template looks like this: (You have moved your dynamic snippet to a new resource with an empty template that has the ID 300)
@@ -529,9 +529,9 @@ And your new template looks like this: (You have moved your dynamic snippet to a
 
 <pre class="brush: php">
 &lt;div class="awesome-quote"&gt;
-[[xFPCAjax?
+&#91;&#91;xFPCAjax?
    &amp;resource=`300`
-]]
+&#93;&#93;
 &lt;/div&gt;
 </pre>
 <p>

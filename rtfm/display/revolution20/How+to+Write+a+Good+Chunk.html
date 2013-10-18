@@ -52,27 +52,27 @@ Here's an example of a tpl Chunk that got completely out of hand:
 </p>
 
 <pre class="brush: php">
-[[+tv.RemovePin:eq=`active`:then=`[[+modx.user.id:memberof=`
-Members`:then=`{address:'[[+tv.country]], [[+pagetitle]]', data:'&lt;div class="googleBubble"&gt;
-[[+tv.Socialicons:replace=`||==`:replace=`facebook==&lt;img src="/assets/images/mapof/facebook.png"
+&#91;&#91;+tv.RemovePin:eq=`active`:then=`&#91;&#91;+modx.user.id:memberof=`
+Members`:then=`{address:'&#91;&#91;+tv.country&#93;&#93;, &#91;&#91;+pagetitle&#93;&#93;', data:'&lt;div class="googleBubble"&gt;
+&#91;&#91;+tv.Socialicons:replace=`||==`:replace=`facebook==&lt;img src="/assets/images/mapof/facebook.png"
 alt="Facebook" width="16" height="16" class="pull-right mR2"&gt;`:replace=`linkedin==&lt;img 
 src="/assets/images/mapof/linkedin.png" alt="linked in" width="16" height="16" class="pull-right 
 mR2"&gt;`:replace=`twitter==&lt;img src="/assets/images/mapof/twitter.png" alt="twitter" width="16" 
-height="16" class="pull-right mR2"&gt;`]]&lt;b&gt;[[+tv.GPGroupName:replace=`'==&amp;apos;`:default=`Dr 
-[[+createdby:userinfo=`fullname`:ucwords]]`]]&lt;/b&gt;&lt;br&gt;[[+tv.occupation:notempty=`Occupation: 
-[[+tv.occupation]]&lt;br&gt;`]][[+tv.other:notempty=`Occupation: [[+tv.other]]&lt;br&gt;&lt;br&gt;`]]
-[[+content:replace=`
-==&lt;br&gt;`:replace=`'==&amp;apos;`:strip]]&lt;br&gt;[[+tv.leadadmin:notempty=`&lt;br&gt;Admin contact: 
-[[+tv.leadadmin]]`]] [[+tv.opentomembers:notempty=`&lt;br&gt;Open to new members?: [[+tv.opentomembers]]`]]
-&lt;br&gt;[[+tv.showEmailAddress:eq=`Yes`:then=`Email: &lt;a href="mailto:[[+createdby:userinfo=`email`]]"&gt;
-[[+createdby:userinfo=`email`]]&lt;/a&gt;`:else=``]]&lt;/div&gt;',options:{[[+tv.leadadmin:neq=``:then=`icon: new
+height="16" class="pull-right mR2"&gt;`&#93;&#93;&lt;b&gt;&#91;&#91;+tv.GPGroupName:replace=`'==&amp;apos;`:default=`Dr 
+&#91;&#91;+createdby:userinfo=`fullname`:ucwords&#93;&#93;`&#93;&#93;&lt;/b&gt;&lt;br&gt;&#91;&#91;+tv.occupation:notempty=`Occupation: 
+&#91;&#91;+tv.occupation&#93;&#93;&lt;br&gt;`&#93;&#93;&#91;&#91;+tv.other:notempty=`Occupation: &#91;&#91;+tv.other&#93;&#93;&lt;br&gt;&lt;br&gt;`&#93;&#93;
+&#91;&#91;+content:replace=`
+==&lt;br&gt;`:replace=`'==&amp;apos;`:strip&#93;&#93;&lt;br&gt;&#91;&#91;+tv.leadadmin:notempty=`&lt;br&gt;Admin contact: 
+&#91;&#91;+tv.leadadmin&#93;&#93;`&#93;&#93; &#91;&#91;+tv.opentomembers:notempty=`&lt;br&gt;Open to new members?: &#91;&#91;+tv.opentomembers&#93;&#93;`&#93;&#93;
+&lt;br&gt;&#91;&#91;+tv.showEmailAddress:eq=`Yes`:then=`Email: &lt;a href="mailto:&#91;&#91;+createdby:userinfo=`email`&#93;&#93;"&gt;
+&#91;&#91;+createdby:userinfo=`email`&#93;&#93;&lt;/a&gt;`:else=``&#93;&#93;&lt;/div&gt;',options:{&#91;&#91;+tv.leadadmin:neq=``:then=`icon: new
 google.maps.MarkerImage('/assets/images/mapof/pin-gold.png')`:else=`icon: new
-google.maps.MarkerImage('/assets/images/mapof/pin-blue.png')`]]}},`:else=`{address:'[[+tv.country]], 
-[[+pagetitle]]', data:'&lt;div class="googleBubble"&gt;&lt;h3&gt;Login to view&lt;/h3&gt;&lt;p&gt;To view the details of this 
-pin please &lt;a href="[[~702]]"&gt;create an account&lt;/a&gt; or &lt;a href="[[~702]]"&gt;login&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;',options:{[[+tv.leadadmin:neq=``:then=`icon: new
+google.maps.MarkerImage('/assets/images/mapof/pin-blue.png')`&#93;&#93;}},`:else=`{address:'&#91;&#91;+tv.country&#93;&#93;, 
+&#91;&#91;+pagetitle&#93;&#93;', data:'&lt;div class="googleBubble"&gt;&lt;h3&gt;Login to view&lt;/h3&gt;&lt;p&gt;To view the details of this 
+pin please &lt;a href="&#91;&#91;~702&#93;&#93;"&gt;create an account&lt;/a&gt; or &lt;a href="&#91;&#91;~702&#93;&#93;"&gt;login&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;',options:{&#91;&#91;+tv.leadadmin:neq=``:then=`icon: new
 google.maps.MarkerImage('/assets/images/mapof/pin-gold.png')`:else=`icon: new
-google.maps.MarkerImage('/assets/images/mapof/pin-blue.png')`]]}},`]]`]]
+google.maps.MarkerImage('/assets/images/mapof/pin-blue.png')`&#93;&#93;}},`&#93;&#93;`&#93;&#93;
 </pre>
 <p>
 If you are writing stuff like this for your site, <em><strong>stop now</strong></em>. You will save yourself <em>hours and hours</em> of time if you rethink the problem and move all of that logic into a Snippet or put it somewhere else altogether.
@@ -117,7 +117,7 @@ Keep your Chunks and Templates <em>clean</em>. They should be easy to read and e
 </p>
 
 <pre class="brush: php">
-Dear [[+first_name]], it was nice to see you last [[+day_of_week]]
+Dear &#91;&#91;+first_name&#93;&#93;, it was nice to see you last &#91;&#91;+day_of_week&#93;&#93;
 </pre>
 <p>
 See that? Simple. Short. Sweet.

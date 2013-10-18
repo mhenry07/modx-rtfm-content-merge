@@ -252,7 +252,7 @@ tplItem
 <br />
 </td>
 <td>
-Chunkname. Template for one item. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
+Chunkname. Template for one item. <span class="error">&#91;Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use&#93;</span>
 </td>
 <td>
 cmDefaultTplItem
@@ -266,7 +266,7 @@ tplImageOuter
 <br />
 </td>
 <td>
-Chunkname. Outer template to wrap the entire image result set, called for every vehicle item. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
+Chunkname. Outer template to wrap the entire image result set, called for every vehicle item. <span class="error">&#91;Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use&#93;</span>
 </td>
 <td>
 cmDefaultTplImageOuter
@@ -280,7 +280,7 @@ tplImageItem
 <br />
 </td>
 <td>
-Chunkname. Template for one image item. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
+Chunkname. Template for one image item. <span class="error">&#91;Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use&#93;</span>
 </td>
 <td>
 cmDefaultTplImageItem
@@ -294,7 +294,7 @@ tplOptionsOuter
 <br />
 </td>
 <td>
-Chunkname. Outer template to wrap the entire options result set, called for every vehicle item. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
+Chunkname. Outer template to wrap the entire options result set, called for every vehicle item. <span class="error">&#91;Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use&#93;</span>
 </td>
 <td>
 cmDefaultTplOptionsOuter
@@ -308,7 +308,7 @@ tplOptionsItem
 <br />
 </td>
 <td>
-Chunkname. Template for one option item. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
+Chunkname. Template for one option item. <span class="error">&#91;Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use&#93;</span>
 </td>
 <td>
 cmDefaultTplOptionsItem
@@ -322,7 +322,7 @@ tplOwner
 <br />
 </td>
 <td>
-Chunkname. Template to use for displaying owner information. <span class="error">[Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use]</span>
+Chunkname. Template to use for displaying owner information. <span class="error">&#91;Placeholders|display/ADDON/CamperManagement.Placeholders+you+can+use&#93;</span>
 </td>
 <td>
 cmDefaultTplOwner
@@ -391,22 +391,22 @@ Override the item chunk and image item chunk, getting the last 4 added vehicles 
 </p>
 
 <pre class="brush: php">
-[[!cmCampers? &amp;tplItem=`cmTplItem` &amp;tplImageItem=`cmTplImage` &amp;limit=`4` &amp;target=`12`]]
+&#91;&#91;!cmCampers? &amp;tplItem=`cmTplItem` &amp;tplImageItem=`cmTplImage` &amp;limit=`4` &amp;target=`12`&#93;&#93;
 </pre>
 <p>
 cmTplItem chunk:
 </p>
 
 <pre class="brush: php">
-&lt;li onclick="location.href='[[+url]]'"&gt;
-    &lt;div class="status[[+status]]"&gt;&lt;/div&gt;
-    [[+images:default=`&lt;img src="/assets/templates/lighthouse/cmimg/ph.png" /&gt;`]]
-    &lt;h4&gt;&lt;a href="[[+url]]" title="[[+brand]] [[+type]]"&gt;[[+brand]] [[+type]]&lt;/a&gt;&lt;/h4&gt;
+&lt;li onclick="location.href='&#91;&#91;+url&#93;&#93;'"&gt;
+    &lt;div class="status&#91;&#91;+status&#93;&#93;"&gt;&lt;/div&gt;
+    &#91;&#91;+images:default=`&lt;img src="/assets/templates/lighthouse/cmimg/ph.png" /&gt;`&#93;&#93;
+    &lt;h4&gt;&lt;a href="&#91;&#91;+url&#93;&#93;" title="&#91;&#91;+brand&#93;&#93; &#91;&#91;+type&#93;&#93;"&gt;&#91;&#91;+brand&#93;&#93; &#91;&#91;+type&#93;&#93;&lt;/a&gt;&lt;/h4&gt;
     &lt;ul&gt;
-        &lt;li&gt;&lt;span&gt;Manufactured:&lt;/span&gt; [[+manufactured]]&lt;/li&gt;
-        &lt;li&gt;&lt;span&gt;Mileage:&lt;/span&gt; [[+mileage]]&lt;/li&gt;
-        &lt;li&gt;&lt;span&gt;Engine:&lt;/span&gt; [[+engine]]&lt;/li&gt;
-        &lt;li&gt;&lt;span&gt;Price:&lt;/span&gt; &amp;euro; [[+price]]&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;Manufactured:&lt;/span&gt; &#91;&#91;+manufactured&#93;&#93;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;Mileage:&lt;/span&gt; &#91;&#91;+mileage&#93;&#93;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;Engine:&lt;/span&gt; &#91;&#91;+engine&#93;&#93;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;Price:&lt;/span&gt; &amp;euro; &#91;&#91;+price&#93;&#93;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/li&gt;
 </pre>
@@ -430,7 +430,7 @@ We put this is the template (it matches our slideshow script):
 
 <pre class="brush: php">
 &lt;div id="slideshow"&gt;  
-   [[!cmCampers? &amp;status=`2` &amp;tplOuter=`cmHomeOuter` &amp;tplItem=`cmHomeItem` &amp;tplImageItem=`cmHomeImage` &amp;searchFromRequest=`0` &amp;target=`12` ]]
+   &#91;&#91;!cmCampers? &amp;status=`2` &amp;tplOuter=`cmHomeOuter` &amp;tplItem=`cmHomeItem` &amp;tplImageItem=`cmHomeImage` &amp;searchFromRequest=`0` &amp;target=`12` &#93;&#93;
 &lt;/div&gt;
 </pre>
 <p>
@@ -442,7 +442,7 @@ cmHomeOuter, which only outputs the inner stuff instead of the default of an uno
 </p>
 
 <pre class="brush: php">
-[[+items]]
+&#91;&#91;+items&#93;&#93;
 </pre>
 <p>
 cmHomeItem, which outputs the images and the caption for one vehicle. Again, this is specific for our slideshow and your scripts may require something different.
@@ -450,9 +450,9 @@ cmHomeItem, which outputs the images and the caption for one vehicle. Again, thi
 
 <pre class="brush: php">
 &lt;div class="slide"&gt;
-  &lt;a href="[[+url]]" title="[[+brand]] [[+type]]" &gt;[[+images]]&lt;/a&gt;
+  &lt;a href="&#91;&#91;+url&#93;&#93;" title="&#91;&#91;+brand&#93;&#93; &#91;&#91;+type&#93;&#93;" &gt;&#91;&#91;+images&#93;&#93;&lt;/a&gt;
   &lt;div class="slider-infobox"&gt;
-    &lt;p&gt;&lt;a href="[[+url]]" title="[[+brand]] [[+type]]" &gt;[[+brand]] [[+type]] - &amp;euro; [[+price]]&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="&#91;&#91;+url&#93;&#93;" title="&#91;&#91;+brand&#93;&#93; &#91;&#91;+type&#93;&#93;" &gt;&#91;&#91;+brand&#93;&#93; &#91;&#91;+type&#93;&#93; - &amp;euro; &#91;&#91;+price&#93;&#93;&lt;/a&gt;&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
@@ -461,7 +461,7 @@ cmHomeImage which simply puts in the image tag.
 </p>
 
 <pre class="brush: php">
-&lt;img src="[[+image]]" alt="[[+brand]] [[+type]]" /&gt;
+&lt;img src="&#91;&#91;+image&#93;&#93;" alt="&#91;&#91;+brand&#93;&#93; &#91;&#91;+type&#93;&#93;" /&gt;
 </pre>
 <p>
 All of the above gives us the following output in the front-end for one item:

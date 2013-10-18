@@ -138,19 +138,19 @@ Simply specify it as a hook in your FormIt call:
 </p>
 
 <pre class="brush: php">
-[[!FormIt? &amp;hooks=`math`]]
+&#91;&#91;!FormIt? &amp;hooks=`math`&#93;&#93;
 </pre>
 <p>
 And then paste this HTML in the part of the form you want to have the math question:
 </p>
 
 <pre class="brush: php">
-&lt;label&gt;[[!+fi.op1]] [[!+fi.operator]] [[!+fi.op2]]?&lt;/label&gt;
-[[!+fi.error.math]]
-&lt;input type="text" name="math:required" value="[[!+fi.math]]" /&gt;
-&lt;input type="hidden" name="op1" value="[[!+fi.op1]]" /&gt;
-&lt;input type="hidden" name="op2" value="[[!+fi.op2]]" /&gt;
-&lt;input type="hidden" name="operator" value="[[!+fi.operator]]" /&gt;
+&lt;label&gt;&#91;&#91;!+fi.op1&#93;&#93; &#91;&#91;!+fi.operator&#93;&#93; &#91;&#91;!+fi.op2&#93;&#93;?&lt;/label&gt;
+&#91;&#91;!+fi.error.math&#93;&#93;
+&lt;input type="text" name="math:required" value="&#91;&#91;!+fi.math&#93;&#93;" /&gt;
+&lt;input type="hidden" name="op1" value="&#91;&#91;!+fi.op1&#93;&#93;" /&gt;
+&lt;input type="hidden" name="op2" value="&#91;&#91;!+fi.op2&#93;&#93;" /&gt;
+&lt;input type="hidden" name="operator" value="&#91;&#91;!+fi.operator&#93;&#93;" /&gt;
 </pre>
 <p>
 That will then load the math question in the place of the input named "math". The hidden fields are crucial, as it tells FormIt what the equation will be (as it is random on first load).
@@ -165,7 +165,7 @@ If you don't want just "-" or "+" as the operator, and want to hide it even more
 </p>
 
 <pre class="brush: php">
-&lt;label&gt;[[!+fi.op1]] [[!+fi.operator:is=`-`:then=`minus`:else=`plus`]] [[!+fi.op2]]?&lt;/label&gt;
+&lt;label&gt;&#91;&#91;!+fi.op1&#93;&#93; &#91;&#91;!+fi.operator:is=`-`:then=`minus`:else=`plus`&#93;&#93; &#91;&#91;!+fi.op2&#93;&#93;?&lt;/label&gt;
 </pre>
 <p>
 This will render the equation like "23 plus 41?" or "50 minus 12?" instead of a -/+ symbol, making it harder for spam bots.

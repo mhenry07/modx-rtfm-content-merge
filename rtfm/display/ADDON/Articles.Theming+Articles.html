@@ -72,19 +72,19 @@ Our container template, or "BlogTemplate", has some placeholders that are provid
 </p>
 
 <ul>
-<li>[[+latest_posts]] - This shows the "Latest Posts" widget on the right-hand side of the sample template.
+<li>&#91;&#91;+latest_posts&#93;&#93; - This shows the "Latest Posts" widget on the right-hand side of the sample template.
 </li>
 
-<li>[[+latest_comments]] - This shows the "Latest Comments" widget on the right-hand side of the sample template.
+<li>&#91;&#91;+latest_comments&#93;&#93; - This shows the "Latest Comments" widget on the right-hand side of the sample template.
 </li>
 
-<li>[[+comments_enabled]] - This will be 1 or 0, depending on if you enabled comments for this container.
+<li>&#91;&#91;+comments_enabled&#93;&#93; - This will be 1 or 0, depending on if you enabled comments for this container.
 </li>
 
-<li>[[+tags]] - This shows a list of the most commonly used tags across your blog.
+<li>&#91;&#91;+tags&#93;&#93; - This shows a list of the most commonly used tags across your blog.
 </li>
 
-<li>[[+archives]] - This shows a list of the latest months (or years) in archive format that you've made posts to.
+<li>&#91;&#91;+archives&#93;&#93; - This shows a list of the latest months (or years) in archive format that you've made posts to.
 </li>
 </ul>
 
@@ -101,30 +101,30 @@ Our article template, or "BlogPostTemplate", has some placeholders as well:
 </p>
 
 <ul>
-<li>[[+latest_posts]] - This shows the "Latest Posts" widget on the right-hand side of the sample template.
+<li>&#91;&#91;+latest_posts&#93;&#93; - This shows the "Latest Posts" widget on the right-hand side of the sample template.
 </li>
 
-<li>[[+comments]] - The comments, provided by <a href="extras/revo/quip" title="Quip">Quip</a>, for this article, if comments are enabled.
+<li>&#91;&#91;+comments&#93;&#93; - The comments, provided by <a href="extras/revo/quip" title="Quip">Quip</a>, for this article, if comments are enabled.
 </li>
 
-<li>[[+comments_count]] - a count of the number of comments made on the current article (i.e. on the current post). Relies on <a href="extras/revo/quip/quip.quipcount" title="Quip.QuipCount">QuipCount</a>.
+<li>&#91;&#91;+comments_count&#93;&#93; - a count of the number of comments made on the current article (i.e. on the current post). Relies on <a href="extras/revo/quip/quip.quipcount" title="Quip.QuipCount">QuipCount</a>.
 </li>
 
-<li>[[+comments_form]] - The reply form, provided by <a href="extras/revo/quip" title="Quip">Quip</a>, if comments are enabled.
+<li>&#91;&#91;+comments_form&#93;&#93; - The reply form, provided by <a href="extras/revo/quip" title="Quip">Quip</a>, if comments are enabled.
 </li>
 
-<li>[[*articlestags]] - Used with the "notempty" output filter, this can trigger whether or not you show the [[+article_tags]] placeholder (note the * instead of the +)
+<li>&#91;&#91;*articlestags&#93;&#93; - Used with the "notempty" output filter, this can trigger whether or not you show the &#91;&#91;+article_tags&#93;&#93; placeholder (note the * instead of the +)
 </li>
 
-<li>[[+article_tags]] - contains a list of all tags that the current article has been tagged with.
+<li>&#91;&#91;+article_tags&#93;&#93; - contains a list of all tags that the current article has been tagged with.
 </li>
 
-<li>[[*articles_container]] - The ID of the Container that our Article is in. Note the * instead of the +
+<li>&#91;&#91;*articles_container&#93;&#93; - The ID of the Container that our Article is in. Note the * instead of the +
 </li>
 </ul>
 
 <p>
-If you are <em>outside</em> the Article Template and you need to display the number of comments that were made on a given post (e.g. if you want to display the number of comments on each post in your list of "Latest Posts"), then you cannot use the [[+comments_count]] placeholder. You must instead use <a href="extras/revo/quip/quip.quipcount" title="Quip.QuipCount">QuipCount</a>. Go to the <strong>Components -&gt; Quip</strong> page and take a look at the thread names that Articles gives each post automatically. It follows this format: article-b{page-id-of-blog}-{page-id-of-post}, e.g. <strong>article-b12-37</strong>
+If you are <em>outside</em> the Article Template and you need to display the number of comments that were made on a given post (e.g. if you want to display the number of comments on each post in your list of "Latest Posts"), then you cannot use the &#91;&#91;+comments_count&#93;&#93; placeholder. You must instead use <a href="extras/revo/quip/quip.quipcount" title="Quip.QuipCount">QuipCount</a>. Go to the <strong>Components -&gt; Quip</strong> page and take a look at the thread names that Articles gives each post automatically. It follows this format: article-b{page-id-of-blog}-{page-id-of-post}, e.g. <strong>article-b12-37</strong>
 </p>
 
 <p>
@@ -136,7 +136,7 @@ Knowing that, we can then use <a href="extras/revo/quip/quip.quipcount" title="Q
 </p>
 
 <pre class="brush: php">
-[[!QuipCount? &amp;thread=`article-b9-[[+id]]`]]
+&#91;&#91;!QuipCount? &amp;thread=`article-b9-&#91;&#91;+id&#93;&#93;`&#93;&#93;
 </pre>
 <p>
 In the above example, the blog is page id 9.

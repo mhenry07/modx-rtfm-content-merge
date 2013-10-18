@@ -28,27 +28,27 @@ A YAMS extender has been written for ditto which allows existing ditto templates
 &amp;extenders=`@FILE assets/modules/yams/yams.extender.inc.php`
 </pre>
 <p>
-must be added to ditto calls. This will automatically replace normal placeholders like [+pagetitle+] with multilingual ones.
+must be added to ditto calls. This will automatically replace normal placeholders like &#91;+pagetitle+&#93; with multilingual ones.
 </p>
 </li>
 
-<li>If the snippet call is runnning as uncacheable ([!Ditto? ...) add
+<li>If the snippet call is runnning as uncacheable (&#91;!Ditto? ...) add
 
 <pre class="brush: php">
 &amp;id=`(yams_id)` &amp;language=`(yams_mname)`
 </pre>
 <p>
-to the Ditto snippet calls and prefix the names any ditto specific placeholders with (yams_id)_. For example, when using pagination it will be necessary to use [+(yams_id)_start+].
+to the Ditto snippet calls and prefix the names any ditto specific placeholders with (yams_id)_. For example, when using pagination it will be necessary to use &#91;+(yams_id)_start+&#93;.
 </p>
 </li>
 
-<li>If the snippet call is runnning as cacheable ([[Ditto? ...) then place once copy of the snippet call in each language tab of the document and add
+<li>If the snippet call is runnning as cacheable (&#91;&#91;Ditto? ...) then place once copy of the snippet call in each language tab of the document and add
 
 <pre class="brush: php">
 &amp;id=`id` &amp;language=`language file name`
 </pre>
 <p>
-to each snippet call, where id is to be replaced by the language group id of the language and language file name is to be replaced with the name of the relevant language file. Also prefix the names any ditto specific placeholders with id_. For example, when using pagination it will be necessary to use [+id_start+].
+to each snippet call, where id is to be replaced by the language group id of the language and language file name is to be replaced with the name of the relevant language file. Also prefix the names any ditto specific placeholders with id_. For example, when using pagination it will be necessary to use &#91;+id_start+&#93;.
 </p>
 </li>
 </ul>

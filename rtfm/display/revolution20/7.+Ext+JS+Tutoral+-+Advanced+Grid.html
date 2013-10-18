@@ -40,11 +40,11 @@ Ext.onReady(function(){
         remoteSort: true,
 
         // Define the fields you wish to display
-        fields: [
+        fields: &#91;
             'pagetitle', 
             'alias', 
             {name: 'createdby', type: 'int'}
-        ],
+        &#93;,
 
         // Use HttpProxy for local stores, ScriptTagProxy for remote stores
         proxy: new Ext.data.HttpProxy({
@@ -64,7 +64,7 @@ Ext.onReady(function(){
         loadMask: true,  // will generate a spinner icon
 
         // grid columns
-        columns:[{
+        columns:&#91;{
             header: "Page Title",
             dataIndex: 'pagetitle',
             width: 420,
@@ -80,7 +80,7 @@ Ext.onReady(function(){
             width: 80,
             align: 'right',
             sortable: true
-        }],
+        }&#93;,
 
         // paging bar on the bottom
         bbar: new Ext.PagingToolbar({
@@ -146,7 +146,7 @@ $data = array(
     'total' =&gt; $total_pages,
 );
 foreach ($pages as $p) {
-    $data['results'][] = $p-&gt;toArray();
+    $data&#91;'results'&#93;&#91;&#93; = $p-&gt;toArray();
 }
 // Use the log for debugging Ajax
 $modx-&gt;log(1,print_r($_POST,true));

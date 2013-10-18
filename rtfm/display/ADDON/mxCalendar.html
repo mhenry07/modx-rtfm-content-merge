@@ -110,7 +110,7 @@ Select a context. Leave blank for all contexts.&nbsp; Give the event a name, sel
 </p>
 
 <p>
-Enter your event description in the rich text editor.&nbsp; This populates the [[*content]] for the event detail view.
+Enter your event description in the rich text editor.&nbsp; This populates the &#91;&#91;*content&#93;&#93; for the event detail view.
 <br />
 <img src="download/attachments/38994084/mxCalendarAddEvent.jpg?version=2&amp;modificationDate=1352869709000" height="493" width="840" style="border: 1px solid black" />
 </p>
@@ -156,17 +156,17 @@ After installation you should be able to call the default view (calendar) in you
 </p>
 
 <pre class="brush: php">
-[[!mxcalendar?]]
+&#91;&#91;!mxcalendar?&#93;&#93;
 </pre>
 <p>
 This should provide you with the calendar view and full page load on navigation. If you want to step things up a notch to use the AJAX navigation and modal view of event details we'd add two additional parameters to the snippet call. The first is the "ajaxResourceId" which should be a new resource (page) that is created using the (blank) template since we are returning this in the ajax response and simply modifying the DOM. The next thing we want to add is the "modalView" set to true to enable the modal display of the event details.
 </p>
 
 <pre class="brush: php">
-[[!mxcalendar?
+&#91;&#91;!mxcalendar?
 &amp;ajaxResourceId=`43`
 &amp;modalView=`1`
-]]
+&#93;&#93;
 </pre>
 <p>
 Now when you reload your primary page with the mxcalendar snippet call, not the ajax one, you shoudl see the same display however now when you click on the arrows for previous and next months the content is loaded via ajax and not an entire URL page reload. The second thing you should notice is now when you click on and event title in the calendar view it displayes the event detail view in a nice modal window. ah... that's nice

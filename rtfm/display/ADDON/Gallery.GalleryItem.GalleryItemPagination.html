@@ -297,14 +297,14 @@ $modx-&gt;addPackage('gallery',$modx-&gt;getOption('gallery.core_path',$config,$
 $curItem = $modx-&gt;getOption('curItem',$scriptProperties,1);
 if ($modx-&gt;getOption('checkForRequestVar',$scriptProperties,true)) {
     $getParam = $modx-&gt;getOption('getParam',$scriptProperties,'galItem');
-    if (!empty($_REQUEST[$getParam])) { $curItem = (int)$_REQUEST[$getParam]; }
+    if (!empty($_REQUEST&#91;$getParam&#93;)) { $curItem = (int)$_REQUEST&#91;$getParam&#93;; }
 }
 if (empty($curItem)) return '';
 
 $album = $modx-&gt;getOption('album',$scriptProperties,1);
 if ($modx-&gt;getOption('checkForRequestAlbumVar',$scriptProperties,true)) {
     $albumRequestVar = $modx-&gt;getOption('albumRequestVar',$scriptProperties,'galAlbum');
-    if (!empty($_REQUEST[$albumRequestVar])) $album = $_REQUEST[$albumRequestVar];
+    if (!empty($_REQUEST&#91;$albumRequestVar&#93;)) $album = $_REQUEST&#91;$albumRequestVar&#93;;
 }
 // We pass the album name/ID to an &amp;album property and find the gallery object
 if (!is_int($album)) {
@@ -333,27 +333,27 @@ $collection = $modx-&gt;getCollection('galAlbumItem',$c);
 
 $items = array();
 foreach ($collection as $i) {
-    $items[] = $i-&gt;toArray();
+    $items&#91;&#93; = $i-&gt;toArray();
 }
 
 $continue = true;
 $i = 0; $prev = array(); $cur = array(); $next = array();
 while ($continue) {
     $prev = $cur;
-    $cur = $items[$i];
-    if ($cur['id'] == $curItem) {
-        $next = $items[$i+1];
+    $cur = $items&#91;$i&#93;;
+    if ($cur&#91;'id'&#93; == $curItem) {
+        $next = $items&#91;$i+1&#93;;
         $continue = false;
     }
     $i++;
 }
-$first = $items[0];
-$last = $items[count($items)-1];
-$phs['galitem.cur.'] = $cur;
-$phs['galitem.prev.'] = $prev;
-$phs['galitem.next.'] = $next;
-$phs['galitem.first.'] = $first;
-$phs['galitem.last.'] = $last;
+$first = $items&#91;0&#93;;
+$last = $items&#91;count($items)-1&#93;;
+$phs&#91;'galitem.cur.'&#93; = $cur;
+$phs&#91;'galitem.prev.'&#93; = $prev;
+$phs&#91;'galitem.next.'&#93; = $next;
+$phs&#91;'galitem.first.'&#93; = $first;
+$phs&#91;'galitem.last.'&#93; = $last;
 
 $modx-&gt;setPlaceholders($phs);
 
@@ -364,12 +364,12 @@ Now set up your placeholders for the navigation:
 </p>
 
 <pre class="brush: php">
-[[!GalleryItemPagination? &amp;album=`1`]]
-[[!If? &amp;subject=`[[!+galitem.prev.id]]`&amp;operator=`isnotempty` &amp;then=`
-&lt;a id="previmg" href="[[++site_url]]?id=[[*id]]&amp;galItem=[[!+galitem.prev.id]]&amp;galAlbum=1&amp;galTag="&gt;previous image&lt;/a&gt;`]]
-[[!If? &amp;subject=`[[!+galitem.next.id]]`&amp;operator=`isnotempty` &amp;then=`
-&lt;a id="nextimg" href="[[++site_url]]?id=[[*id]]&amp;galItem=[[!+galitem.next.id]]&amp;galAlbum=1&amp;galTag="&gt;next image&lt;/a&gt;`]]
-`]]
+&#91;&#91;!GalleryItemPagination? &amp;album=`1`&#93;&#93;
+&#91;&#91;!If? &amp;subject=`&#91;&#91;!+galitem.prev.id&#93;&#93;`&amp;operator=`isnotempty` &amp;then=`
+&lt;a id="previmg" href="&#91;&#91;++site_url&#93;&#93;?id=&#91;&#91;*id&#93;&#93;&amp;galItem=&#91;&#91;!+galitem.prev.id&#93;&#93;&amp;galAlbum=1&amp;galTag="&gt;previous image&lt;/a&gt;`&#93;&#93;
+&#91;&#91;!If? &amp;subject=`&#91;&#91;!+galitem.next.id&#93;&#93;`&amp;operator=`isnotempty` &amp;then=`
+&lt;a id="nextimg" href="&#91;&#91;++site_url&#93;&#93;?id=&#91;&#91;*id&#93;&#93;&amp;galItem=&#91;&#91;!+galitem.next.id&#93;&#93;&amp;galAlbum=1&amp;galTag="&gt;next image&lt;/a&gt;`&#93;&#93;
+`&#93;&#93;
 </pre>
 <h2 id="Gallery.GalleryItem.GalleryItemPagination-SeeAlso">
 See Also

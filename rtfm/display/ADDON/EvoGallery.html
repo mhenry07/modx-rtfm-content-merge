@@ -384,14 +384,14 @@ Max width 1280, max height 1024, quality 95, apply watermark filter with filenam
 </p>
 
 <pre class="brush: php">
-{'w': 1280, 'h': 1024, 'q': 95, 'fltr': ['wmi|/assets/images/watermark.png|TL']}
+{'w': 1280, 'h': 1024, 'q': 95, 'fltr': &#91;'wmi|/assets/images/watermark.png|TL'&#93;}
 </pre>
 <p>
 Max width 1280, max height 1024, quality 95, zoom crop, apply brightness filter with value 200, apply watermark filter with filename '/assets/images/watermark.png' and position to bottom-right
 </p>
 
 <pre class="brush: php">
-{'w': 1280, 'h': 1024, 'q': 95, 'zc': 1, 'fltr': ['brit|200', 'wmi|/assets/images/watermark.png|BR']}
+{'w': 1280, 'h': 1024, 'q': 95, 'zc': 1, 'fltr': &#91;'brit|200', 'wmi|/assets/images/watermark.png|BR'&#93;}
 </pre>
 <h3 id="EvoGallery-Snippet">
 Snippet
@@ -514,7 +514,7 @@ picId
 ID of specific pic to show when displaying by a single image
 </td>
 <td>
-$_REQUEST[ 'picId' ]
+$_REQUEST&#91; 'picId' &#93;
 </td>
 </tr>
 
@@ -647,7 +647,7 @@ tpl
 Chunk template for the outer gallery template (defaults to tpl.default.txt for selected type). Placeholders: items
 </td>
 <td>
-$this-&gt;config['snippetPath'] . $this-&gt;config['type'] . '/tpl.default.txt'
+$this-&gt;config&#91;'snippetPath'&#93; . $this-&gt;config&#91;'type'&#93; . '/tpl.default.txt'
 </td>
 </tr>
 
@@ -659,7 +659,7 @@ itemTpl
 Chunk template for each thumbnail/image in the gallery. See below for available placeholders.
 </td>
 <td>
-$this-&gt;config['snippetPath'] . $this-&gt;config['type'] . '/tpl.item.default.txt'
+$this-&gt;config&#91;'snippetPath'&#93; . $this-&gt;config&#91;'type'&#93; . '/tpl.item.default.txt'
 <br />
 </td>
 </tr>
@@ -672,7 +672,7 @@ itemTplFirst
 Chunk template for last thumbnail/image in the gallery (defaults to tpl.item.first.txt for selected type)
 </td>
 <td>
-$this-&gt;config['snippetPath'] . $this-&gt;config['type'] . '/tpl.item.first.txt'
+$this-&gt;config&#91;'snippetPath'&#93; . $this-&gt;config&#91;'type'&#93; . '/tpl.item.first.txt'
 </td>
 </tr>
 
@@ -684,7 +684,7 @@ itemTplLast
 Chunk template for last thumbnail/image in the gallery (defaults to tpl.item.last.txt for selected type)
 </td>
 <td>
-$this-&gt;config['snippetPath'] . $this-&gt;config['type'] . '/tpl.item.last.txt'
+$this-&gt;config&#91;'snippetPath'&#93; . $this-&gt;config&#91;'type'&#93; . '/tpl.item.last.txt'
 </td>
 </tr>
 
@@ -696,7 +696,7 @@ itemTplAlt
 Chunk template for alternate thumbnail/image in the gallery (defaults to tpl.item.alt.txt for selected type)
 </td>
 <td>
-$this-&gt;config['snippetPath'] . $this-&gt;config['type'] . '/tpl.item.alt.txt'
+$this-&gt;config&#91;'snippetPath'&#93; . $this-&gt;config&#91;'type'&#93; . '/tpl.item.alt.txt'
 </td>
 </tr>
 
@@ -720,7 +720,7 @@ galleriesUrl
 URL to the galleries directory (should contain folders with the Id of the document, with a thumbs/ folder within each document's gallery)
 </td>
 <td>
-$modx-&gt;config[ 'base_url' ] . 'assets/galleries/'
+$modx-&gt;config&#91; 'base_url' &#93; . 'assets/galleries/'
 </td>
 </tr>
 
@@ -732,7 +732,7 @@ galleriesPath
 Path to the galleries directory
 </td>
 <td>
-$modx-&gt;config[ 'base_path' ] . 'assets/galleries/'
+$modx-&gt;config&#91; 'base_path' &#93; . 'assets/galleries/'
 </td>
 </tr>
 
@@ -744,7 +744,7 @@ snippetUrl
 URL to the snippet directory
 </td>
 <td>
-$modx-&gt;config[ 'base_url' ] . 'assets/snippets/evogallery/'
+$modx-&gt;config&#91; 'base_url' &#93; . 'assets/snippets/evogallery/'
 </td>
 </tr>
 
@@ -756,7 +756,7 @@ snippetPath
 Path to the snippet directory
 </td>
 <td>
-$modx-&gt;config[ 'base_path' ] . 'assets/snippets/evogallery/'
+$modx-&gt;config&#91; 'base_path' &#93; . 'assets/snippets/evogallery/'
 </td>
 </tr>
 
@@ -844,7 +844,7 @@ tplPaginatePrevious
 Template for the previous link
 </td>
 <td>
-&lt;a href='[<ins>url</ins>]' class='eg_previous_link'&gt;[<ins>PaginatePreviousText</ins>]&lt;/a&gt;
+&lt;a href='&#91;<ins>url</ins>&#93;' class='eg_previous_link'&gt;&#91;<ins>PaginatePreviousText</ins>&#93;&lt;/a&gt;
 </td>
 </tr>
 
@@ -856,7 +856,7 @@ tplPaginateNext
 Template for the next link
 </td>
 <td>
-&lt;a href='[<ins>url</ins>]' class='eg_next_link'&gt;[<ins>PaginateNextText</ins>]&lt;/a&gt;
+&lt;a href='&#91;<ins>url</ins>&#93;' class='eg_next_link'&gt;&#91;<ins>PaginateNextText</ins>&#93;&lt;/a&gt;
 </td>
 </tr>
 
@@ -868,7 +868,7 @@ tplPaginateNextOff
 Template for the inside of the next link
 </td>
 <td>
-&lt;span class='eg_next_off eg_off'&gt;[<ins>PaginateNextText</ins>]&lt;/span&gt;
+&lt;span class='eg_next_off eg_off'&gt;&#91;<ins>PaginateNextText</ins>&#93;&lt;/span&gt;
 </td>
 </tr>
 
@@ -880,7 +880,7 @@ tplPaginatePreviousOff
 Template for the inside of the previous link
 </td>
 <td>
-&lt;span class='eg_previous_off eg_off'&gt;[<ins>PaginatePreviousText</ins>]&lt;/span&gt;
+&lt;span class='eg_previous_off eg_off'&gt;&#91;<ins>PaginatePreviousText</ins>&#93;&lt;/span&gt;
 </td>
 </tr>
 
@@ -892,7 +892,7 @@ tplPaginatePage
 Template for the page link
 </td>
 <td>
-&lt;a class='eg_page' href='[<ins>url</ins>]'&gt;[<ins>page</ins>]&lt;/a&gt;
+&lt;a class='eg_page' href='&#91;<ins>url</ins>&#93;'&gt;&#91;<ins>page</ins>&#93;&lt;/a&gt;
 </td>
 </tr>
 
@@ -904,7 +904,7 @@ tplPaginateCurrentPage
 Template for the current page link
 </td>
 <td>
-&lt;span class='eg_currentpage'&gt;[<ins>page</ins>]&lt;/span&gt;
+&lt;span class='eg_currentpage'&gt;&#91;<ins>page</ins>&#93;&lt;/span&gt;
 </td>
 </tr>
 </tbody>
@@ -919,21 +919,21 @@ Output a list of images using the jQuery Cycle type (jquery-cycle):
 </p>
 
 <pre class="brush: php">
-[[EvoGallery? &amp;display=`images` &amp;type=`jquery-cycle`]]
+&#91;&#91;EvoGallery? &amp;display=`images` &amp;type=`jquery-cycle`&#93;&#93;
 </pre>
 <p>
 Output a list of images using the jQuery Cycle type (jquery-cycle), sorted on the 'sortorder' variable:
 </p>
 
 <pre class="brush: php">
- [[EvoGallery? &amp;display=`images` &amp;type=`jquery-cycle` &amp;sortBy=`sortorder`]]
+ &#91;&#91;EvoGallery? &amp;display=`images` &amp;type=`jquery-cycle` &amp;sortBy=`sortorder`&#93;&#93;
 </pre>
 <p>
 Output the galleries available in a specific container using a specific item template:
 </p>
 
 <pre class="brush: php">
-[[EvoGallery? &amp;display=`galleries` &amp;docId=`22` &amp;itemTpl=`galleryListItem`]]
+&#91;&#91;EvoGallery? &amp;display=`galleries` &amp;docId=`22` &amp;itemTpl=`galleryListItem`&#93;&#93;
 </pre>
 <h3 id="EvoGallery-TemplatePlaceholders">
 Template Placeholders

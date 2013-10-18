@@ -11,7 +11,7 @@ Syntax
 </h2>
 
 <pre class="brush: php">
-@SELECT `pagetitle` AS `name`,`id` FROM `[[+PREFIX]]site_content` WHERE `published` = 1 AND `deleted` = 0
+@SELECT `pagetitle` AS `name`,`id` FROM `&#91;&#91;+PREFIX&#93;&#93;site_content` WHERE `published` = 1 AND `deleted` = 0
 </pre>
 <p>
 To write one of these, you need to be familiar with <a href="http://dev.mysql.com/doc/refman/5.1/en/">MySQL syntax</a>. It is recommended that you first write a functional MySQL statement that executes without error in the MySQL command line (see errors, below for some pit-falls). Once you've verified that your query works, then you can create a @SELECT binding with it.
@@ -57,7 +57,7 @@ For example, to grab a list of active users in a SELECT box:
 </p>
 
 <pre class="brush: php">
-@SELECT `username` AS `name`,`id` FROM `[[+PREFIX]]users` WHERE `active` = 1
+@SELECT `username` AS `name`,`id` FROM `&#91;&#91;+PREFIX&#93;&#93;users` WHERE `active` = 1
 </pre>
 <h2 id="SELECTBinding-Alternatives">
 Alternatives
@@ -85,7 +85,7 @@ Consider the following query:
 
 <pre class="brush: php">
 @SELECT '-none-' AS username, 0 AS id UNION ALL 
-SELECT `username`,`id` FROM `[[+PREFIX]]users` WHERE `active` = 1 ORDER BY username ASC
+SELECT `username`,`id` FROM `&#91;&#91;+PREFIX&#93;&#93;users` WHERE `active` = 1 ORDER BY username ASC
 </pre>
 <p>
 Just be aware that the sort order here may force your empty option somewhere into the stack instead of keeping it on top. In the above example, a hyphen is used in the username to ensure that it sorts to the top of the list.
@@ -109,7 +109,7 @@ First, have a look at the following tables (you may have prefixes to your table 
 </li>
 
 <li>
-<em>site_tmplvars</em> - contains the name of template variable. The "name" field is what triggers the substitution. E.g. A name of "my_template_variable" should be used as "[[*my_template_variable]]". If you care to think of this architecturally, this table defines the variable class: the name and type of variable that a series of pages will have.
+<em>site_tmplvars</em> - contains the name of template variable. The "name" field is what triggers the substitution. E.g. A name of "my_template_variable" should be used as "&#91;&#91;*my_template_variable&#93;&#93;". If you care to think of this architecturally, this table defines the variable class: the name and type of variable that a series of pages will have.
 </li>
 
 <li>

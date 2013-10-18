@@ -19,7 +19,7 @@ Create a resource called 'Login' and place this in the content field:
 </p>
 
 <pre class="brush: php">
-[[!Login]]
+&#91;&#91;!Login&#93;&#93;
 </pre>
 <p>
 And set this page to be the unauthorized resource (this could also be you own login page).
@@ -34,8 +34,8 @@ Create a resource called 'Profile' and place this in the content field:
 </p>
 
 <pre class="brush: php">
-[[!FormIt?preHooks=`vcFormItGetUser`&amp;hooks=`vcFormItSaveUser`&amp;submitVar=`vc_user_form`&amp;validate=`fullname:required,address:required,zip:required,state:required,country:required,city:required`&amp;clearFieldsOnSuccess=`1`&amp;store=`1`]]
-&lt;form action="[[~[[*id]]]]" method="post"&gt;
+&#91;&#91;!FormIt?preHooks=`vcFormItGetUser`&amp;hooks=`vcFormItSaveUser`&amp;submitVar=`vc_user_form`&amp;validate=`fullname:required,address:required,zip:required,state:required,country:required,city:required`&amp;clearFieldsOnSuccess=`1`&amp;store=`1`&#93;&#93;
+&lt;form action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post"&gt;
         &lt;table&gt;
                 &lt;tr&gt;
                         &lt;td colspan="2"&gt;&lt;strong&gt;Shipping address&lt;/strong&gt;&lt;/td&gt;
@@ -43,43 +43,43 @@ Create a resource called 'Profile' and place this in the content field:
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;Full name&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="shipping_fullname" value="[[!+fi.shipping_fullname]]" /&gt; [[+fi.error.shipping_fullname]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_fullname" value="&#91;&#91;!+fi.shipping_fullname&#93;&#93;" /&gt; &#91;&#91;+fi.error.shipping_fullname&#93;&#93;&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;Full name&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="billing_fullname" value="[[!+fi.billing_fullname]]" /&gt; [[+fi.error.billing_fullname]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_fullname" value="&#91;&#91;!+fi.billing_fullname&#93;&#93;" /&gt; &#91;&#91;+fi.error.billing_fullname&#93;&#93;&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;Adres&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="shipping_address" value="[[!+fi.shipping_address]]" /&gt; [[+fi.error.shipping_address]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_address" value="&#91;&#91;!+fi.shipping_address&#93;&#93;" /&gt; &#91;&#91;+fi.error.shipping_address&#93;&#93;&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;Adres&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="billing_address" value="[[!+fi.billing_address]]" /&gt; [[+fi.error.billing_address]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_address" value="&#91;&#91;!+fi.billing_address&#93;&#93;" /&gt; &#91;&#91;+fi.error.billing_address&#93;&#93;&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;Zip code&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="shipping_zip" value="[[!+fi.shipping_zip]]" /&gt; [[+fi.error.shipping_zip]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_zip" value="&#91;&#91;!+fi.shipping_zip&#93;&#93;" /&gt; &#91;&#91;+fi.error.shipping_zip&#93;&#93;&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;Zip code&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="billing_zip" value="[[!+fi.billing_zip]]" /&gt; [[+fi.error.billing_zip]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_zip" value="&#91;&#91;!+fi.billing_zip&#93;&#93;" /&gt; &#91;&#91;+fi.error.billing_zip&#93;&#93;&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;City&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="shipping_city" value="[[!+fi.shipping_city]]" /&gt; [[+fi.error.shipping_city]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_city" value="&#91;&#91;!+fi.shipping_city&#93;&#93;" /&gt; &#91;&#91;+fi.error.shipping_city&#93;&#93;&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;City&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="billing_city" value="[[!+fi.billing_city]]" /&gt; [[+fi.error.billing_city]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_city" value="&#91;&#91;!+fi.billing_city&#93;&#93;" /&gt; &#91;&#91;+fi.error.billing_city&#93;&#93;&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;State&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="shipping_state" value="[[!+fi.shipping_state]]" /&gt; [[+fi.error.shipping_state]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_state" value="&#91;&#91;!+fi.shipping_state&#93;&#93;" /&gt; &#91;&#91;+fi.error.shipping_state&#93;&#93;&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;State&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="billing_state" value="[[!+fi.billing_state]]" /&gt; [[+fi.error.billing_state]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_state" value="&#91;&#91;!+fi.billing_state&#93;&#93;" /&gt; &#91;&#91;+fi.error.billing_state&#93;&#93;&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td&gt;&lt;strong&gt;Country&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="shipping_country" value="[[!+fi.shipping_country]]" /&gt; [[+fi.error.shipping_country]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="shipping_country" value="&#91;&#91;!+fi.shipping_country&#93;&#93;" /&gt; &#91;&#91;+fi.error.shipping_country&#93;&#93;&lt;/td&gt;
                         &lt;td&gt;&lt;strong&gt;Country&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td&gt;&lt;input type="text" name="billing_country" value="[[!+fi.billing_country]]" /&gt; [[+fi.error.billing_country]]&lt;/td&gt;
+                        &lt;td&gt;&lt;input type="text" name="billing_country" value="&#91;&#91;!+fi.billing_country&#93;&#93;" /&gt; &#91;&#91;+fi.error.billing_country&#93;&#93;&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td colspan="2"&gt;&lt;strong&gt;Billing address same as shipping address&lt;/strong&gt;&lt;/td&gt;
-                        &lt;td colspan="2"&gt;&lt;input type="checkbox" name="billing_as_shipping" value="1" [[!+fi.billing_as_shipping:FormItIsChecked=`1`]] /&gt; (toggle)&lt;/td&gt;
+                        &lt;td colspan="2"&gt;&lt;input type="checkbox" name="billing_as_shipping" value="1" &#91;&#91;!+fi.billing_as_shipping:FormItIsChecked=`1`&#93;&#93; /&gt; (toggle)&lt;/td&gt;
                 &lt;/tr&gt;
                 &lt;tr&gt;
                         &lt;td colspan="4"&gt;&lt;input type="submit" name="vc_user_form" value="Save" /&gt;

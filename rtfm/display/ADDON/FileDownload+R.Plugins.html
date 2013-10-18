@@ -134,21 +134,21 @@ To call the plugins, you need to call it inside the snippet, as a JSON format, e
 </p>
 
 <pre class="brush: php">
-[[!FileDownload?
+&#91;&#91;!FileDownload?
 &amp;getDir=`assets/files`
-&amp;plugins=`[
+&amp;plugins=`&#91;
     {
-        "name":"[[++core_path]]components/filedownload/plugins/formit.formsave.plugin.php"
+        "name":"&#91;&#91;++core_path&#93;&#93;components/filedownload/plugins/formit.formsave.plugin.php"
         ,"event":"OnLoad"
         ,"strict":true
     },{
-        "name":"[[++core_path]]components/filedownload/plugins/formit.formsave.plugin.php"
+        "name":"&#91;&#91;++core_path&#93;&#93;components/filedownload/plugins/formit.formsave.plugin.php"
         ,"event":"AfterFileDownload"
     },{
         "name":"FileDownloadEmailPlugin"
         ,"event":"AfterFileDownload"
     }
-]`
+&#93;`
 &amp;emailProps=`{
     "emailTpl":"FileDownloadEmailChunk",
     "emailSubject":"New Downloader",
@@ -157,7 +157,7 @@ To call the plugins, you need to call it inside the snippet, as a JSON format, e
     "emailBCC":"your@secret.email.com",
     "emailBCCName":"secret"
 }`
-]]
+&#93;&#93;
 </pre>
 <p>
 In this example, I'm using 2 default plugins for examples, <strong><a href="extras/revo/formsave" title="FormSave">FormSave</a></strong> (as file based) and <strong>Email</strong> (as a snippet), which are both depend on <a href="extras/revo/formit" title="FormIt">FormIt</a>.

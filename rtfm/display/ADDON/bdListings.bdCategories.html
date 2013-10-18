@@ -49,7 +49,7 @@ Offset of categories to display, defaults to 0 (start with the first)
 sortby
 </td>
 <td>
-[ name | description | parent | sortorder ]&nbsp;Field to sort on.
+&#91; name | description | parent | sortorder &#93;&nbsp;Field to sort on.
 </td>
 <td>
 sortorder
@@ -61,7 +61,7 @@ sortorder
 sortdir
 </td>
 <td>
-[ asc | desc ] Sort direction
+&#91; asc | desc &#93; Sort direction
 </td>
 <td>
 asc
@@ -85,7 +85,7 @@ ID of a category to list subcategories under. Defaults to 0 (top-level).
 includeSub
 </td>
 <td>
-[ 1 | 0 ] When 1 this will also include subcategories (only if parent = 0)
+&#91; 1 | 0 &#93; When 1 this will also include subcategories (only if parent = 0)
 <br />
 </td>
 <td>
@@ -145,9 +145,9 @@ Placeholders you can use:
 Default file in core / components / bdlistings / elements / chunks / bdCategories.category.tpl:&nbsp;
 
 <pre class="brush: php">
-&lt;h3&gt;[[+name]]&lt;/h3&gt;
-&lt;p&gt;[[+description]]&lt;/p&gt;
-[[+subcategories]]
+&lt;h3&gt;&#91;&#91;+name&#93;&#93;&lt;/h3&gt;
+&lt;p&gt;&#91;&#91;+description&#93;&#93;&lt;/p&gt;
+&#91;&#91;+subcategories&#93;&#93;
 </pre>
 </li>
 </ul>
@@ -174,7 +174,7 @@ Default&nbsp;file in core / components / bdlistings / elements / chunks / bdCate
 <br />
 
 <pre class="brush: php">
-&lt;p&gt;Subcategories: [[+subcategories]]&lt;/p&gt;
+&lt;p&gt;Subcategories: &#91;&#91;+subcategories&#93;&#93;&lt;/p&gt;
 </pre>
 </li>
 </ul>
@@ -202,7 +202,7 @@ Default file in&nbsp;core / components / bdlistings / elements / chunks / bdCate
 
 <pre class="brush: php">
 &lt;h2&gt;Categories&lt;/h2&gt;
-[[+wrapper]]
+&#91;&#91;+wrapper&#93;&#93;
 </pre>
 </li>
 </ul>
@@ -237,7 +237,7 @@ Placeholders you can use:
 Default file in core / components / bdlistings / elements / chunks / bdCategories.outer.tpl:
 
 <pre class="brush: php">
-&lt;a title="[[+description:htmlentities]]"&gt;[[+name]]&lt;/a&gt;
+&lt;a title="&#91;&#91;+description:htmlentities&#93;&#93;"&gt;&#91;&#91;+name&#93;&#93;&lt;/a&gt;
 </pre>
 </li>
 </ul>
@@ -258,7 +258,7 @@ Minimum call:
 </h3>
 
 <p>
-[[!bdCategories]]
+&#91;&#91;!bdCategories&#93;&#93;
 </p>
 
 <p>
@@ -299,7 +299,7 @@ Snippet call:
 </p>
 
 <p>
-[[!bdCategories? &amp;tplCategory=`bdl.cat.cat` &amp;tplSub=`bdl.cat.sub` &amp;tplInner=`bdl.cat.inner` &amp;tplOuter=`bdl.cat.outer` &amp;subSeparator=`` &amp;includeSub=`1` ]]
+&#91;&#91;!bdCategories? &amp;tplCategory=`bdl.cat.cat` &amp;tplSub=`bdl.cat.sub` &amp;tplInner=`bdl.cat.inner` &amp;tplOuter=`bdl.cat.outer` &amp;subSeparator=`` &amp;includeSub=`1` &#93;&#93;
 </p>
 
 <p>
@@ -307,22 +307,22 @@ bdl.cat.cat chunk:
 </p>
 
 <pre class="brush: php">
-&lt;option value="[[+id]]"&gt;[[+name]]&lt;/option&gt;
-   [[+subcategories]]
+&lt;option value="&#91;&#91;+id&#93;&#93;"&gt;&#91;&#91;+name&#93;&#93;&lt;/option&gt;
+   &#91;&#91;+subcategories&#93;&#93;
 </pre>
 <p>
 bdl.cat.sub chunk:
 </p>
 
 <pre class="brush: php">
-&lt;option value="[[+id]]"&gt;- [[+name]]&lt;/option&gt;
+&lt;option value="&#91;&#91;+id&#93;&#93;"&gt;- &#91;&#91;+name&#93;&#93;&lt;/option&gt;
 </pre>
 <p>
 bdl.cat.inner chunk:
 </p>
 
 <pre class="brush: php">
-[[+subcategories]]
+&#91;&#91;+subcategories&#93;&#93;
 </pre>
 <p>
 bdl.cat.outer chunk:
@@ -330,7 +330,7 @@ bdl.cat.outer chunk:
 
 <pre class="brush: php">
 &lt;select name="category"&gt; 
-  [[+wrapper]]
+  &#91;&#91;+wrapper&#93;&#93;
 &lt;/select&gt;
 </pre>
 <p>

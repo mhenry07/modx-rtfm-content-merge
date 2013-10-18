@@ -109,9 +109,9 @@ Function Source
 <pre class="brush: php">
     function hasPermission($pm) {
         $state= false;
-        $pms= $_SESSION['mgrPermissions'];
+        $pms= $_SESSION&#91;'mgrPermissions'&#93;;
         if ($pms)
-            $state= ($pms[$pm] == 1);
+            $state= ($pms&#91;$pm&#93; == 1);
         return $state;
     }
 </pre>

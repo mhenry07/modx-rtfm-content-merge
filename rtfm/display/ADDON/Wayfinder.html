@@ -87,7 +87,7 @@ Since you can make multiple calls to <em>Wayfinder</em> on a single page, and ea
 </p>
 
 <p>
-Please note that since the release of Revolution there are two types of Wayfinder snippets available, one for each version. For clarity, this page uses the Evolution syntax when showing examples. Generally speaking the functionality between the two versions are the same, and so are the parameters. Mind that in Revolution, snippets must be called with [[Wayfinder? &amp;...]] instead of [!Wayfinder? &amp;...!].
+Please note that since the release of Revolution there are two types of Wayfinder snippets available, one for each version. For clarity, this page uses the Evolution syntax when showing examples. Generally speaking the functionality between the two versions are the same, and so are the parameters. Mind that in Revolution, snippets must be called with &#91;&#91;Wayfinder? &amp;...&#93;&#93; instead of &#91;!Wayfinder? &amp;...!&#93;.
 </p>
 
 <p>
@@ -365,7 +365,7 @@ The minimum Wayfinder snippet call:
 </p>
 
 <pre class="brush: php">
-[[Wayfinder? &amp;startId=`0`&amp;level=`1`]]
+&#91;&#91;Wayfinder? &amp;startId=`0`&amp;level=`1`&#93;&#93;
 </pre>
 <p>
 will output the HTML for a multi-level, unordered list of the entire document tree (with certain exceptions), where each list item is a link to a corresponding document in the MODX document tree.
@@ -583,7 +583,7 @@ If set, this parameter creates a unique ID for each item. The value will be <em>
 <br />
 </td>
 <td>
-When set to 1, the link specified in a weblink document will be output to the placeholder [<ins>wf.link</ins>] instead of the link to the weblink.
+When set to 1, the link specified in a weblink document will be output to the placeholder &#91;<ins>wf.link</ins>&#93; instead of the link to the weblink.
 <br />
 </td>
 <td>
@@ -744,7 +744,7 @@ The sorting order, 'ASC' or 'DESC'
 <br />
 </td>
 <td>
-JSON style filtering option. For example when trying to hide blog or news from the Articles addon: &amp;where=`[{"class_key:!=": "Article"}]`
+JSON style filtering option. For example when trying to hide blog or news from the Articles addon: &amp;where=`&#91;{"class_key:!=": "Article"}&#93;`
 </td>
 <td>
 </td>
@@ -755,7 +755,7 @@ JSON style filtering option. For example when trying to hide blog or news from t
 &amp;hereId
 </td>
 <td>
-Define the current ID to use for the snippet. Use a value of [[*id]] if the template specified by hereTpl and activeRowParentTpl is not applied correctly to the menu item. See <a href="http://kashin.me/blog/heretpl.html" rel="nofollow">here</a> for more information.
+Define the current ID to use for the snippet. Use a value of &#91;&#91;*id&#93;&#93; if the template specified by hereTpl and activeRowParentTpl is not applied correctly to the menu item. See <a href="http://kashin.me/blog/heretpl.html" rel="nofollow">here</a> for more information.
 </td>
 <td>
 iterated ID
@@ -785,7 +785,7 @@ These parameters specify the chunks that contain the templates that will drive t
 </p>
 
 <p>
-With the current version of WayFinder in Revolution, you can access your own custom TVs by using a placeholder <em>without</em> the 'wf.' prefix, e.g. [[+my_TV]]
+With the current version of WayFinder in Revolution, you can access your own custom TVs by using a placeholder <em>without</em> the 'wf.' prefix, e.g. &#91;&#91;+my_TV&#93;&#93;
 </p>
 
 <p>
@@ -797,14 +797,14 @@ If you want MODX 2.x to process a TV (e.g. an image TV with a base path/url as a
 </p>
 
 <pre class="brush: php">
-... &lt;img src="[[+icon]]" /&gt; ...
+... &lt;img src="&#91;&#91;+icon&#93;&#93;" /&gt; ...
 </pre>
 <p>
 But it will not get you the fully processes TV. Just change your code to this:
 </p>
 
 <pre class="brush: php">
-... &lt;img src="[[processTV? &amp;myId=`[[+id]]` &amp;myTV=`icon` ]]" /&gt; ...
+... &lt;img src="&#91;&#91;processTV? &amp;myId=`&#91;&#91;+id&#93;&#93;` &amp;myTV=`icon` &#93;&#93;" /&gt; ...
 </pre>
 <p>
 Within the snippet <em>processTV</em> you place this php-code:
@@ -824,7 +824,7 @@ As a result the full processed image TV is returned.
 </p>
 
 <p>
-Name of the chunk containing the template for the outer most container; if not included, a string including "&lt;ul&gt;[[+wf.wrapper]]&lt;/ul&gt;" is assumed
+Name of the chunk containing the template for the outer most container; if not included, a string including "&lt;ul&gt;&#91;&#91;+wf.wrapper&#93;&#93;&lt;/ul&gt;" is assumed
 </p>
 
 <p>
@@ -847,22 +847,22 @@ Please note that you will need to wrap the placeholders with the relevant tags.
 </p>
 
 <pre class="brush: php">
-Evolution: [+wf._____+]
-Revolution: [[+wf._____]]
+Evolution: &#91;+wf._____+&#93;
+Revolution: &#91;&#91;+wf._____&#93;&#93;
 </pre>
 <p>
 Example of an &amp;outerTpl chunk (Evo):
 </p>
 
 <pre class="brush: php">
-&lt;ul id="topnav"[+wf.classes+]&gt;[+wf.wrapper+]&lt;/ul&gt;
+&lt;ul id="topnav"&#91;+wf.classes+&#93;&gt;&#91;+wf.wrapper+&#93;&lt;/ul&gt;
 </pre>
 <p>
 Revo:
 </p>
 
 <pre class="brush: php">
-&lt;ul id="topnav"[[+wf.classes]]&gt;[[+wf.wrapper]]&lt;/ul&gt;
+&lt;ul id="topnav"&#91;&#91;+wf.classes&#93;&#93;&gt;&#91;&#91;+wf.wrapper&#93;&#93;&lt;/ul&gt;
 </pre>
 <p>
 The following table shows other parameters to change your output, that use the same placeholders as the &amp;outerTpl parameter.
@@ -943,13 +943,13 @@ Please note that you will need to wrap the placeholders with the relevant tags.
 </p>
 
 <pre class="brush: php">
-Evolution: [+wf._____+]
-Revolution: [[+wf._____]]
+Evolution: &#91;+wf._____+&#93;
+Revolution: &#91;&#91;+wf._____&#93;&#93;
 </pre>
 <p>
-Since version 2.3.0 you can use placeholders for all fields of a Resource, such as [[+introtext]], [[+menutitle]], [[+published]], etc.
+Since version 2.3.0 you can use placeholders for all fields of a Resource, such as &#91;&#91;+introtext&#93;&#93;, &#91;&#91;+menutitle&#93;&#93;, &#91;&#91;+published&#93;&#93;, etc.
 <br />
-Since version 2.3.2 placeholder [[+protected]] is added that is 1 if Resource is protected by a <a href="/revolution/2.x/administering-your-site/security/resource-groups">Resource Group</a>.
+Since version 2.3.2 placeholder &#91;&#91;+protected&#93;&#93; is added that is 1 if Resource is protected by a <a href="/revolution/2.x/administering-your-site/security/resource-groups">Resource Group</a>.
 </p>
 
 <p>
@@ -957,22 +957,22 @@ Examples of a &amp;rowTpl (or related) chunk:
 </p>
 
 <pre class="brush: php">
-&lt;li[+wf.id+][+wf.classes+]&gt;&lt;a href="[+wf.link+]" title="[+wf.title+]" [+wf.attributes+]&gt;[+wf.linktext+]&lt;/a&gt;[+wf.wrapper+]&lt;/li&gt;
+&lt;li&#91;+wf.id+&#93;&#91;+wf.classes+&#93;&gt;&lt;a href="&#91;+wf.link+&#93;" title="&#91;+wf.title+&#93;" &#91;+wf.attributes+&#93;&gt;&#91;+wf.linktext+&#93;&lt;/a&gt;&#91;+wf.wrapper+&#93;&lt;/li&gt;
 </pre>
 
 <pre class="brush: php">
-&lt;li&gt;&lt;a href="[+wf.link+]"&gt;[+wf.linktext+]&lt;/a&gt; - [+wf.description+]  [+wf.wrapper+]&lt;/li&gt;
+&lt;li&gt;&lt;a href="&#91;+wf.link+&#93;"&gt;&#91;+wf.linktext+&#93;&lt;/a&gt; - &#91;+wf.description+&#93;  &#91;+wf.wrapper+&#93;&lt;/li&gt;
 </pre>
 <p>
 Revo:
 </p>
 
 <pre class="brush: php">
-&lt;li[[+wf.id]][[+wf.classes]]&gt;&lt;a href="[[+wf.link]]" title="[[+wf.title]]" [[+wf.attributes]]&gt;[[+wf.linktext]]&lt;/a&gt;[[+wf.wrapper]]&lt;/li&gt;
+&lt;li&#91;&#91;+wf.id&#93;&#93;&#91;&#91;+wf.classes&#93;&#93;&gt;&lt;a href="&#91;&#91;+wf.link&#93;&#93;" title="&#91;&#91;+wf.title&#93;&#93;" &#91;&#91;+wf.attributes&#93;&#93;&gt;&#91;&#91;+wf.linktext&#93;&#93;&lt;/a&gt;&#91;&#91;+wf.wrapper&#93;&#93;&lt;/li&gt;
 </pre>
 
 <pre class="brush: php">
-&lt;li&gt;&lt;a href="[[+wf.link]]"&gt;[[+wf.linktext]]&lt;/a&gt; - [[+wf.description]]  [[+wf.wrapper]]&lt;/li&gt;
+&lt;li&gt;&lt;a href="&#91;&#91;+wf.link&#93;&#93;"&gt;&#91;&#91;+wf.linktext&#93;&#93;&lt;/a&gt; - &#91;&#91;+wf.description&#93;&#93;  &#91;&#91;+wf.wrapper&#93;&#93;&lt;/li&gt;
 </pre>
 <p>
 The following table shows other parameters to change your output, that use the same placeholders as the &amp;rowTpl parameter.
@@ -1006,7 +1006,7 @@ Name of the chunk containing the template for the start item, if enabled via the
 <br />
 </td>
 <td>
-Name of the chunk containing the template for the current document if it is a container and has children. Remember the [<ins>wf.wrapper</ins>] placeholder to output the children documents.
+Name of the chunk containing the template for the current document if it is a container and has children. Remember the &#91;<ins>wf.wrapper</ins>&#93; placeholder to output the children documents.
 <br />
 </td>
 </tr>
@@ -1017,7 +1017,7 @@ Name of the chunk containing the template for the current document if it is a co
 <br />
 </td>
 <td>
-Name of the chunk containing the template for any document that is a container and has children. Remember the [<ins>wf.wrapper</ins>] placeholder to output the children documents.
+Name of the chunk containing the template for any document that is a container and has children. Remember the &#91;<ins>wf.wrapper</ins>&#93; placeholder to output the children documents.
 <br />
 </td>
 </tr>
@@ -1097,7 +1097,7 @@ Example of how &amp;startItemTpl could be used:
 </p>
 
 <pre class="brush: php">
-&lt;h2 class="menustart"&gt;&lt;a href="[+wf.link+]"&gt;[+wf.linktext+]&lt;/a&gt;&lt;/h2&gt;[+wf.wrapper+]
+&lt;h2 class="menustart"&gt;&lt;a href="&#91;+wf.link+&#93;"&gt;&#91;+wf.linktext+&#93;&lt;/a&gt;&lt;/h2&gt;&#91;+wf.wrapper+&#93;
 </pre>
 <h3 id="Wayfinder-CSSClassNameParameters">
 CSS Class Name Parameters
@@ -1340,7 +1340,7 @@ Default value
 </td>
 <td>
 <pre class="brush: php">
-&lt;ul[[+wf.classes]]&gt;[[+wf.wrapper]]&lt;/ul&gt;
+&lt;ul&#91;&#91;+wf.classes&#93;&#93;&gt;&#91;&#91;+wf.wrapper&#93;&#93;&lt;/ul&gt;
 </pre>
 </td>
 </tr>
@@ -1351,7 +1351,7 @@ Default value
 </td>
 <td>
 <pre class="brush: php">
-&lt;li[[+wf.id]][[+wf.classes]]&gt;&lt;a href="[[+wf.link]]" title="[[+wf.title]]" [[+wf.attributes]]&gt;[[+wf.linktext]]&lt;/a&gt;[[+wf.wrapper]]&lt;/li&gt;
+&lt;li&#91;&#91;+wf.id&#93;&#93;&#91;&#91;+wf.classes&#93;&#93;&gt;&lt;a href="&#91;&#91;+wf.link&#93;&#93;" title="&#91;&#91;+wf.title&#93;&#93;" &#91;&#91;+wf.attributes&#93;&#93;&gt;&#91;&#91;+wf.linktext&#93;&#93;&lt;/a&gt;&#91;&#91;+wf.wrapper&#93;&#93;&lt;/li&gt;
 </pre>
 </td>
 </tr>
@@ -1362,7 +1362,7 @@ Default value
 </td>
 <td>
 <pre class="brush: php">
-&lt;h2[[+wf.id]][[+wf.classes]]&gt;[[+wf.linktext]]&lt;/h2&gt;[[+wf.wrapper]]
+&lt;h2&#91;&#91;+wf.id&#93;&#93;&#91;&#91;+wf.classes&#93;&#93;&gt;&#91;&#91;+wf.linktext&#93;&#93;&lt;/h2&gt;&#91;&#91;+wf.wrapper&#93;&#93;
 </pre>
 </td>
 </tr>
@@ -1389,7 +1389,7 @@ The snippet call:
 </p>
 
 <pre class="brush: php">
-[[Wayfinder? &amp;startId=`0`]]
+&#91;&#91;Wayfinder? &amp;startId=`0`&#93;&#93;
 </pre>
 <p>
 will output the HTML for a multi-level, unordered list of the entire document tree (with certain exceptions), where each list item is a link to a corresponding document in the ModX document tree.
@@ -1410,28 +1410,28 @@ Example DropMenu call in template file:
 </p>
 
 <pre class="brush: php">
-[[DropMenu?startDoc=`0`&amp;levelLimit=`1` ]]
+&#91;&#91;DropMenu?startDoc=`0`&amp;levelLimit=`1` &#93;&#93;
 </pre>
 <p>
 Can be replaced by
 </p>
 
 <pre class="brush: php">
-[[Wayfinder? &amp;startId=`0`&amp;level=`1`]]
+&#91;&#91;Wayfinder? &amp;startId=`0`&amp;level=`1`&#93;&#93;
 </pre>
 <h3 id="Wayfinder-AccordionmenuswithWayfinder">
 Accordion menus with Wayfinder
 </h3>
 
 <ul>
-<li>[Accordion menu with Wayfinder|Accordion menu with
+<li>&#91;Accordion menu with Wayfinder|Accordion menu with
 <br />
-Wayfinder]
+Wayfinder&#93;
 </li>
 
-<li>[Accordion menu with Wayfinder using JQuery|Accordion menu with
+<li>&#91;Accordion menu with Wayfinder using JQuery|Accordion menu with
 <br />
-Wayfinder using JQuery]
+Wayfinder using JQuery&#93;
 <br />
 </li>
 </ul>

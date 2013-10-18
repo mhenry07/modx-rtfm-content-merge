@@ -84,9 +84,9 @@ Use the <strong>PDO::FETCH_ASSOC</strong> will force the result to be an associa
 <pre class="brush: php">
 Array
 (
-    [id] =&gt; 1
-    [username] =&gt; my_user
-    [password] =&gt; xxxxxxxxxxxxxxxxxxx
+    &#91;id&#93; =&gt; 1
+    &#91;username&#93; =&gt; my_user
+    &#91;password&#93; =&gt; xxxxxxxxxxxxxxxxxxx
     // ...
 )
 </pre>
@@ -97,12 +97,12 @@ Without it, the results are a mix of an associative and a regular array:
 <pre class="brush: php">
 Array
 (
-    [id] =&gt; 1
-    [0] =&gt; 1
-    [username] =&gt; my_user
-    [1] =&gt; my_user
-    [password] =&gt; xxxxxxxxxxxxxxxxxxxxxxx
-    [2] =&gt; xxxxxxxxxxxxxxxxxxxxx
+    &#91;id&#93; =&gt; 1
+    &#91;0&#93; =&gt; 1
+    &#91;username&#93; =&gt; my_user
+    &#91;1&#93; =&gt; my_user
+    &#91;password&#93; =&gt; xxxxxxxxxxxxxxxxxxxxxxx
+    &#91;2&#93; =&gt; xxxxxxxxxxxxxxxxxxxxx
     // ...  
 )
 </pre>
@@ -144,7 +144,7 @@ $row = $result-&gt;fetch(PDO::FETCH_ASSOC);
 return print_r($row,true);
 </pre>
 <p>
-The <span class="error">[quote]</span> function can take a 2nd argument, which you can use to quote integers specifically
+The <span class="error">&#91;quote&#93;</span> function can take a 2nd argument, which you can use to quote integers specifically
 </p>
 
 <ul>
@@ -176,7 +176,7 @@ Here's a simple query to fetch multiple rows from the database. Note that you wo
 $output = '';
 $sql = "SELECT * FROM modx_users";
 foreach ($modx-&gt;query($sql) as $row) {
-    $output .= $row['username'] .'&lt;br/&gt;';
+    $output .= $row&#91;'username'&#93; .'&lt;br/&gt;';
 }
 return $output;
 </pre>
@@ -262,7 +262,7 @@ See Also
 </li>
 
 <li>
-<span class="error">[xPDO.load]</span>
+<span class="error">&#91;xPDO.load&#93;</span>
 </li>
 
 <li>

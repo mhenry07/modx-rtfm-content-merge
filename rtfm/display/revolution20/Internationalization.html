@@ -137,7 +137,7 @@ To use a Lexicon Entry in a tag, use the following syntax:
 </p>
 
 <pre class="brush: php">
-[[%key? &amp;topic=`topicname` &amp;namespace=`namespace_name` &amp;language=`en`]]
+&#91;&#91;%key? &amp;topic=`topicname` &amp;namespace=`namespace_name` &amp;language=`en`&#93;&#93;
 </pre>
 <p>
 The 'language', 'topic', and 'namespace' properties are optional; if the tag has been run earlier on the page with the same 'topic' property value, that topic will have already been loaded. If 'topic' is not specified, it will assume 'default'. If 'namespace' is not specified, it will assume 'core', or the MODx Revolution Core Namespace.
@@ -148,11 +148,11 @@ It is preferable not to use the 'language' property for every tag should you be 
 </div>
 
 <p>
-If you have placeholders in your lexicon string, for example "This is [[+userinput]]!", you simply specify the key ("userinput") as tag property and pass what you want it replaced with in the value. Example:
+If you have placeholders in your lexicon string, for example "This is &#91;&#91;+userinput&#93;&#93;!", you simply specify the key ("userinput") as tag property and pass what you want it replaced with in the value. Example:
 </p>
 
 <p>
-[[!%key? &amp;topic=`topicname` &amp;namespace=`namespace_name` &amp;language=`en` &amp;userinput=`amazing`]]
+&#91;&#91;!%key? &amp;topic=`topicname` &amp;namespace=`namespace_name` &amp;language=`en` &amp;userinput=`amazing`&#93;&#93;
 </p>
 
 <div class="note">
@@ -230,7 +230,7 @@ Now we can use the lexicon() method on the MODx object to get our Entry with key
 $modx-&gt;lexicon('school.basketball');
 </pre>
 <p>
-If you have placeholders in your lexicon string, for example "This is [[+userinput]]!", you can pass an array as the second arguement which has key=&gt;value pairs of your placeholder content, like so:
+If you have placeholders in your lexicon string, for example "This is &#91;&#91;+userinput&#93;&#93;!", you can pass an array as the second arguement which has key=&gt;value pairs of your placeholder content, like so:
 </p>
 
 <pre class="brush: php">
@@ -252,7 +252,7 @@ Please note that this assumes you have loaded the lexicon in your connector - th
 </p>
 
 <p>
-If you have placeholders in your lexicon string, for example "This is [[+userinput]]!", you can pass the values for the placeholders as a javascript object, like so:
+If you have placeholders in your lexicon string, for example "This is &#91;&#91;+userinput&#93;&#93;!", you can pass the values for the placeholders as a javascript object, like so:
 </p>
 
 <pre class="brush: php">
@@ -271,7 +271,7 @@ So say you're creating System Settings for your 3rd Party Component (3PC). The s
 <br />
 The recommended format for 3PC developers is to use a prefix which identifies the parent component:
 <p>
-$<em>lang['_name-of-component</em>.key-name'] = 'Your translation here.';
+$<em>lang&#91;'_name-of-component</em>.key-name'&#93; = 'Your translation here.';
 </p>
 
 <p>
@@ -284,8 +284,8 @@ To add a lexicon name and description, we'd simply add the following 2 strings i
 </p>
 
 <pre class="brush: php">
-$_lang['setting_gallery.display_thumbs'] = 'Display Thumbnails';
-$_lang['setting_gallery.display_thumbs_desc'] = 'When set to true, this will display thumbnails for the gallery.';
+$_lang&#91;'setting_gallery.display_thumbs'&#93; = 'Display Thumbnails';
+$_lang&#91;'setting_gallery.display_thumbs_desc'&#93; = 'When set to true, this will display thumbnails for the gallery.';
 </pre>
 <p>
 And we're done!

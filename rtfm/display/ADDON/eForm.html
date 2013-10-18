@@ -166,7 +166,7 @@ What is eForm?
 </h2>
 
 <p>
-eForm is a highly flexible form parser snippet that will let you convert web forms into an email which can then be sent via email to users you can specify in the [<a href="extras/evo/yams/yams-english-documentation/yams-snippet" title="YAMS Snippet">YAMS Snippet</a>] or the form. Some notable features include:
+eForm is a highly flexible form parser snippet that will let you convert web forms into an email which can then be sent via email to users you can specify in the &#91;<a href="extras/evo/yams/yams-english-documentation/yams-snippet" title="YAMS Snippet">YAMS Snippet</a>&#93; or the form. Some notable features include:
 </p>
 
 <ul>
@@ -177,7 +177,7 @@ eForm is a highly flexible form parser snippet that will let you convert web for
 </li>
 
 <li>
-<span class="error">[Captcha]</span> support
+<span class="error">&#91;Captcha&#93;</span> support
 </li>
 
 <li>Supports html email with attachments
@@ -247,14 +247,14 @@ Required Parameters
 
 <li>&amp;tpl - <em>Required</em>
 <ul>
-<li>[<span class="error">[Chunk]</span>] name or document id to use as a template.
+<li>&#91;<span class="error">&#91;Chunk&#93;</span>&#93; name or document id to use as a template.
 </li>
 </ul>
 </li>
 
 <li>&amp;report - <em>Required</em>
 <ul>
-<li>[<span class="error">[Chunk]</span>] name or document id to use when generating reports, if using the &amp;noemail parameter, this parameter is not required.
+<li>&#91;<span class="error">&#91;Chunk&#93;</span>&#93; name or document id to use when generating reports, if using the &amp;noemail parameter, this parameter is not required.
 </li>
 </ul>
 </li>
@@ -281,7 +281,7 @@ Optional Parameters
 
 <li>&amp;automessage - <em>Optional</em>
 <ul>
-<li>chunk name (non-numeric) or document id (numeric) to use as an auto-responder message Can include <span class="error">[+form fields+]</span>. E.g. <span class="error">[+firstname+]</span> - tags: <span class="error">[form_fields]</span>,<span class="error">[postdate]</span> - note: eForm will send the auto-respond message to the email address specified inside the <span class="error">[email]</span> form field.
+<li>chunk name (non-numeric) or document id (numeric) to use as an auto-responder message Can include <span class="error">&#91;+form fields+&#93;</span>. E.g. <span class="error">&#91;+firstname+&#93;</span> - tags: <span class="error">&#91;form_fields&#93;</span>,<span class="error">&#91;postdate&#93;</span> - note: eForm will send the auto-respond message to the email address specified inside the <span class="error">&#91;email&#93;</span> form field.
 <br />
 <strong>More to Come...</strong>
 </li>
@@ -346,9 +346,9 @@ A Simple ContactForm chunk
 </h4>
 
 <pre class="brush: php">
-&lt;p class="error"&gt;[+validationmessage+]&lt;/p&gt;
+&lt;p class="error"&gt;&#91;+validationmessage+&#93;&lt;/p&gt;
 
-&lt;form method="post" action="[~[*id*]~]" id="EmailForm"&gt;
+&lt;form method="post" action="&#91;~&#91;*id*&#93;~&#93;" id="EmailForm"&gt;
 
         &lt;fieldset&gt;
                 &lt;h3&gt; Contact Us&lt;/h3&gt;
@@ -387,14 +387,14 @@ A simple ContactFormReport
 </h4>
 
 <pre class="brush: php">
-&lt;p&gt;This is a response sent by &lt;b&gt;[+name+]&lt;/b&gt; using the feedback form on this website. The details of the message follow below:&lt;/p&gt;
+&lt;p&gt;This is a response sent by &lt;b&gt;&#91;+name+&#93;&lt;/b&gt; using the feedback form on this website. The details of the message follow below:&lt;/p&gt;
 
-&lt;p&gt;Name: [+name+]&lt;/p&gt;
-&lt;p&gt;Email: [+email+]&lt;/p&gt;
-&lt;p&gt;Regarding: [+subject+]&lt;/p&gt;
-&lt;p&gt;Comments:&lt;br /&gt;[+message+]&lt;/p&gt;
+&lt;p&gt;Name: &#91;+name+&#93;&lt;/p&gt;
+&lt;p&gt;Email: &#91;+email+&#93;&lt;/p&gt;
+&lt;p&gt;Regarding: &#91;+subject+&#93;&lt;/p&gt;
+&lt;p&gt;Comments:&lt;br /&gt;&#91;+message+&#93;&lt;/p&gt;
 
-&lt;p&gt;You can use this link to reply: &lt;a href="mailto:[+email+]?subject=RE: [+subject+]"&gt;[+email+]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use this link to reply: &lt;a href="mailto:&#91;+email+&#93;?subject=RE: &#91;+subject+&#93;"&gt;&#91;+email+&#93;&lt;/a&gt;&lt;/p&gt;
 </pre>
 <p>
 --ScottyDelicious 16:00, 5 December 2006 (PST)
@@ -405,8 +405,8 @@ eForm Document Snippet Calls
 </h3>
 
 <pre class="brush: php">
-[!eForm? &amp;formid=`ContactForm` &amp;subject=`[+subject+]` &amp;to=`you@youremail.com` 
-&amp;ccsender=`1` &amp;tpl=`ContactForm` &amp;report=`ContactFormReport` &amp;gotoid=`1`  !]
+&#91;!eForm? &amp;formid=`ContactForm` &amp;subject=`&#91;+subject+&#93;` &amp;to=`you@youremail.com` 
+&amp;ccsender=`1` &amp;tpl=`ContactForm` &amp;report=`ContactFormReport` &amp;gotoid=`1`  !&#93;
 </pre>
 <h3 id="eForm-UsingeFormwithFlashforms">
 Using eForm with Flash forms
@@ -427,7 +427,7 @@ var postData:String = "";
 postData += "action=index.php?id=&lt;eFormPage&gt;";
 postData += "&amp;name="+escape(Util.trim(input_name.text));
 
-fileRef["postData"] = postData;
+fileRef&#91;"postData"&#93; = postData;
 fileRef.upload(url);
 </pre>
 <p>
@@ -564,7 +564,7 @@ See the eform event example on how you can include a function. example: #FUNCTIO
 
 <li>#REGEX - regular expression - syntax as for preg_match() - see php manual
 <br />
-example: #REGEX /^<span class="error">[a-z]</span>+ <span class="error">[a-z0-9_]</span>+/i
+example: #REGEX /^<span class="error">&#91;a-z&#93;</span>+ <span class="error">&#91;a-z0-9_&#93;</span>+/i
 </li>
 
 <li>#FILTER - Filters do not validate the input but simply replace words or values using filter criteria. You can use the following
@@ -674,8 +674,8 @@ Form field examples with validation
 </p>
 
 <pre class="brush: php">
-&lt;input type="checkbox" name="myColors[]" value="Red" eform="Colors::1" /&gt; (datatype left blank)
-&lt;input type="checkbox" name="myColors[]" value="Green" /&gt; (datatype left blank)
+&lt;input type="checkbox" name="myColors&#91;&#93;" value="Red" eform="Colors::1" /&gt; (datatype left blank)
+&lt;input type="checkbox" name="myColors&#91;&#93;" value="Green" /&gt; (datatype left blank)
 </pre>
 <h2 id="eForm-Notes">
 Notes

@@ -105,7 +105,7 @@ return 'Hello, World!';
 ?&gt;
 </pre>
 <p>
-If you named this <em>"helloWorld"</em>, you could call this snippet by using [[helloWorld]] in your documents, templates, or Chunks (see <a href="revolution/2.x/making-sites-with-modx/tag-syntax" title="Tag Syntax">Tag Syntax</a>). You can also call a Snippet from another Snippet using the <a href="revolution/2.x/developing-in-modx/other-development-resources/class-reference/modx/modx.runsnippet" title="modX.runSnippet">runSnippet</a> API method.
+If you named this <em>"helloWorld"</em>, you could call this snippet by using &#91;&#91;helloWorld&#93;&#93; in your documents, templates, or Chunks (see <a href="revolution/2.x/making-sites-with-modx/tag-syntax" title="Tag Syntax">Tag Syntax</a>). You can also call a Snippet from another Snippet using the <a href="revolution/2.x/developing-in-modx/other-development-resources/class-reference/modx/modx.runsnippet" title="modX.runSnippet">runSnippet</a> API method.
 </p>
 
 <div class="note">
@@ -121,7 +121,7 @@ Values are passed to your Snippet using a modifed CGI web-form type notation tha
 </p>
 
 <pre class="brush: php">
-[[!mySnippet? &amp;input=`Hello World`]]
+&#91;&#91;!mySnippet? &amp;input=`Hello World`&#93;&#93;
 </pre>
 <p>
 And the code for your Snippet might look something like this:
@@ -153,7 +153,7 @@ For example, if you call your Snippet using a call like this:
 </p>
 
 <pre class="brush: php">
-[[!mySnippet? &amp;x=`x-ray` &amp;y=`yellow`]]
+&#91;&#91;!mySnippet? &amp;x=`x-ray` &amp;y=`yellow`&#93;&#93;
 </pre>
 <p>
 Then the <strong>$scriptProperties</strong> array will contain this:
@@ -204,7 +204,7 @@ Example DB Code
 </h3>
 
 <p>
-Let's get a chunk named 'LineItem', and change the placeholders in it (done with [[+placeholderName]] syntax) to some custom values:
+Let's get a chunk named 'LineItem', and change the placeholders in it (done with &#91;&#91;+placeholderName&#93;&#93; syntax) to some custom values:
 </p>
 
 <pre class="brush: php">
@@ -292,7 +292,7 @@ You can use the include snippet on a page like such:
 </p>
 
 <pre class="brush: php">
-[[!include? &amp;file=`/absolute/path/to/my/snippet.php`]]
+&#91;&#91;!include? &amp;file=`/absolute/path/to/my/snippet.php`&#93;&#93;
 </pre>
 <p>
 And run your Snippets externally while you develop them!

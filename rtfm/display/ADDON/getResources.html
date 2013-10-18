@@ -144,7 +144,7 @@ The getResources snippet can be called using the tag:
 </p>
 
 <pre class="brush: php">
-[[getResources]]
+&#91;&#91;getResources&#93;&#93;
 </pre>
 <p>
 Calls without a &amp;tpl property specify will just output an array listing of each resulting Resource and their fields.
@@ -273,7 +273,7 @@ An optional directory to look for file-based chunks when using @FILE
 tplWrapper
 </td>
 <td>
-Name of a chunk serving as a wrapper template for the output [NOTE: Does not work with toSeparatePlaceholders]. The placeholder where the items are inserted is [[+output]].
+Name of a chunk serving as a wrapper template for the output &#91;NOTE: Does not work with toSeparatePlaceholders&#93;. The placeholder where the items are inserted is &#91;&#91;+output&#93;&#93;.
 </td>
 <td>
 </td>
@@ -354,7 +354,7 @@ You can prefix any tpl property with @FILE or @INLINE to use a file-based chunk 
 
 <ul>
 <li>
-<strong>@INLINE</strong> — This prefix allows you to provide markup to use for your tpl directly in the property value. It is recommended you use this only when specifying the tpl* properties in a <span class="error">[Property Set]</span>, otherwise any placeholders in your inline markup may be evaluated before the content gets passed to getResources, since cacheable nested tags in MODX Revolution are evaluated before processing of the containing tag begins. This must be followed by a space, e.g. "@INLINE &lt;li&gt;[[+pagetitle]]&lt;/li&gt;"
+<strong>@INLINE</strong> — This prefix allows you to provide markup to use for your tpl directly in the property value. It is recommended you use this only when specifying the tpl* properties in a <span class="error">&#91;Property Set&#93;</span>, otherwise any placeholders in your inline markup may be evaluated before the content gets passed to getResources, since cacheable nested tags in MODX Revolution are evaluated before processing of the containing tag begins. This must be followed by a space, e.g. "@INLINE &lt;li&gt;&#91;&#91;+pagetitle&#93;&#93;&lt;/li&gt;"
 </li>
 </ul>
 </div>
@@ -426,7 +426,7 @@ Integer value indicating depth to search for resources from each parent. First l
 tvFilters
 </td>
 <td>
-Can be used to filter resources by certain TV values. These are entered as [(<em>tvname</em>)(<em>operator</em>)](<em>value</em>). There are two delimiters you can use to combine filter conditions.
+Can be used to filter resources by certain TV values. These are entered as &#91;(<em>tvname</em>)(<em>operator</em>)&#93;(<em>value</em>). There are two delimiters you can use to combine filter conditions.
 <br />
 </td>
 <td>
@@ -743,7 +743,7 @@ The same thing is possible if you put the sorted IDs in a template variable, lik
 </p>
 
 <pre class="brush: php">
-&amp;sortby=`FIELD(modResource.id,[[*templateVariable]])`
+&amp;sortby=`FIELD(modResource.id,&#91;&#91;*templateVariable&#93;&#93;)`
 </pre>
 <table>
 <tbody>
@@ -1190,7 +1190,7 @@ Description
 
 <tr>
 <td>
-[[+idx]]
+&#91;&#91;+idx&#93;&#93;
 </td>
 <td>
 Increases with each iteration, starting with 1 (or the value set by the <strong>&amp;idx</strong> parameter)
@@ -1212,71 +1212,71 @@ Output a list of child Resources of the current Resource, using the 'myRowTpl' c
 </p>
 
 <pre class="brush: php">
-[[!getResources? &amp;parents=`[[*id]]` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!getResources? &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Output all resources beneath the Resource with ID '5', with the exception of resource 10, using the 'myRowTpl' chunk:
 </p>
 
 <pre class="brush: php">
-[[!getResources? &amp;parents=`5` &amp;resources=`-10` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!getResources? &amp;parents=`5` &amp;resources=`-10` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Output only the resources specified, using the 'myRowTpl' chunk:
 </p>
 
 <pre class="brush: php">
-[[!getResources? &amp;parents=`-1` &amp;resources=`10,11,12` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!getResources? &amp;parents=`-1` &amp;resources=`10,11,12` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Output the top 5 latest published Resources beneath the Resource with ID '5', with tpl 'blogPost':
 </p>
 
 <pre class="brush: php">
-[[!getResources? &amp;parents=`5` &amp;limit=`5` &amp;tpl=`blogPost` &amp;includeContent=`1`]]
+&#91;&#91;!getResources? &amp;parents=`5` &amp;limit=`5` &amp;tpl=`blogPost` &amp;includeContent=`1`&#93;&#93;
 </pre>
 <p>
 Output a list of child Resources of the current Resource, based on the Resource-template:
 </p>
 
 <pre class="brush: php">
-[[!getResources? &amp;parents=`[[*id]]` &amp;where=`{"template:=":8}` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!getResources? &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;where=`{"template:=":8}` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Output a list of child Resources of the current Resource, where the Resource-template ID is 1 or 2:
 </p>
 
 <pre class="brush: php">
-[[!getResources? &amp;parents=`[[*id]]` &amp;where=`{"template:=":1, "OR:template:=":2}` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!getResources? &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;where=`{"template:=":1, "OR:template:=":2}` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Output a list of child Resources of the current Resource, where the Resource-template ID is 1, 2 or 3 (you cannot use the same key name more than once):
 </p>
 
 <pre class="brush: php">
-[[!getResources? &amp;parents=`[[*id]]` &amp;where=`{"template:IN":[1,2,3]}` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!getResources? &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;where=`{"template:IN":&#91;1,2,3&#93;}` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Display a message when no results found (equivalent of "empty" parameter in Ditto):
 </p>
 
 <pre class="brush: php">
-[[!getResources:default=`No results found`? &amp;parents=`[[*id]]` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!getResources:default=`No results found`? &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Example using an inline Tpl
 </p>
 
 <pre class="brush: php">
-[[!getResources? &amp;tpl=`@INLINE &lt;li title="[[+longtitle]]"&gt;[[+pagetitle]]&lt;/li&gt;`]]
+&#91;&#91;!getResources? &amp;tpl=`@INLINE &lt;li title="&#91;&#91;+longtitle&#93;&#93;"&gt;&#91;&#91;+pagetitle&#93;&#93;&lt;/li&gt;`&#93;&#93;
 </pre>
 <p>
 Wrapping a getResources result in other markup (<del>like an &amp;outerTpl property, which doesn't exist for getResources</del> from version 1.6.0 you can still do it like that or use the &amp;tplWrapper property).
 </p>
 
 <pre class="brush: php">
-[[getResources?   ...  &amp;toPlaceholder=`results`]]
-[[+results:notempty=`&lt;ol&gt;[[+results]]&lt;/ol&gt;`]]
+&#91;&#91;getResources?   ...  &amp;toPlaceholder=`results`&#93;&#93;
+&#91;&#91;+results:notempty=`&lt;ol&gt;&#91;&#91;+results&#93;&#93;&lt;/ol&gt;`&#93;&#93;
 </pre>
 <h2 id="getResources-DisplayingTemplateVariableswithgetResources">
 Displaying Template Variables with getResources
@@ -1301,7 +1301,7 @@ In the Tpl chunk you use to display the getResources output, use a placeholder t
 </p>
 
 <pre class="brush: php">
-[[+tv.my_tv]]
+&#91;&#91;+tv.my_tv&#93;&#93;
 </pre>
 <h2 id="getResources-UsinggetPageforPagination">
 Using getPage for Pagination
@@ -1320,7 +1320,7 @@ Grab first 10 Resources - sorted by publishedon - below the Resource ID 17, no m
 </p>
 
 <pre class="brush: php">
-[[!getPage?
+&#91;&#91;!getPage?
    &amp;elementClass=`modSnippet`
    &amp;element=`getResources`
 
@@ -1333,10 +1333,10 @@ Grab first 10 Resources - sorted by publishedon - below the Resource ID 17, no m
    &amp;includeContent=`1`
 
    &amp;tpl=`blogListPost`
-]]
+&#93;&#93;
 &lt;div class="paging"&gt;
 &lt;ul class="pageList"&gt;
-  [[!+page.nav]]
+  &#91;&#91;!+page.nav&#93;&#93;
 &lt;/ul&gt;
 &lt;/div&gt;
 </pre>
@@ -1346,11 +1346,11 @@ and the chunk blogListPost:
 
 <pre class="brush: php">
 &lt;div class="blogPost"&gt;
-  &lt;div class="date"&gt;[[+publishedon:strtotime:date=`%b %d %Y`]]&lt;/div&gt;
-  &lt;h2&gt;&lt;a href="[[~[[+id]]]]" title="[[+pagetitle]]"&gt;[[+pagetitle]]&lt;/a&gt;&lt;/h2&gt;
-  &lt;p class="author"&gt;&lt;strong&gt;Author:&lt;/strong&gt; &lt;span class="author"&gt;[[+createdby:userinfo=`username`]]&lt;/span&gt;&lt;/p&gt;
-  &lt;p class="summary"&gt;[[+introtext]]&lt;/p&gt;
-  &lt;p class="readmore"&gt;&lt;a href="[[~[[+id]]]]"&gt;&lt;span&gt;Read more&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;div class="date"&gt;&#91;&#91;+publishedon:strtotime:date=`%b %d %Y`&#93;&#93;&lt;/div&gt;
+  &lt;h2&gt;&lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;" title="&#91;&#91;+pagetitle&#93;&#93;"&gt;&#91;&#91;+pagetitle&#93;&#93;&lt;/a&gt;&lt;/h2&gt;
+  &lt;p class="author"&gt;&lt;strong&gt;Author:&lt;/strong&gt; &lt;span class="author"&gt;&#91;&#91;+createdby:userinfo=`username`&#93;&#93;&lt;/span&gt;&lt;/p&gt;
+  &lt;p class="summary"&gt;&#91;&#91;+introtext&#93;&#93;&lt;/p&gt;
+  &lt;p class="readmore"&gt;&lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;"&gt;&lt;span&gt;Read more&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
   &lt;div class="clear"&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;hr/&gt;
@@ -1376,7 +1376,7 @@ Array of Attributes is Dumped
 </p>
 
 <pre class="brush: php">
-[[!getResources? &amp;parents=`5` &amp;limit=`5` &amp;tpl=`blogPost`]]
+&#91;&#91;!getResources? &amp;parents=`5` &amp;limit=`5` &amp;tpl=`blogPost`&#93;&#93;
 </pre>
 <p>
 <strong>OR</strong>
@@ -1407,7 +1407,7 @@ The Content isn't There
 </h3>
 
 <p>
-You are retrieving the correct resources and you are seeing <em>some</em> of the results formatting correctly, but your [[+content]] placeholders don't contain anything. What's going on? You must include the <strong>&amp;includeContent=`1`</strong> argument to get the content.
+You are retrieving the correct resources and you are seeing <em>some</em> of the results formatting correctly, but your &#91;&#91;+content&#93;&#93; placeholders don't contain anything. What's going on? You must include the <strong>&amp;includeContent=`1`</strong> argument to get the content.
 </p>
 
 <h3 id="getResources-Cachingproblemsusingtpl,tplN,tplnN,tplFirst,tplLastortplOdd">
@@ -1419,25 +1419,25 @@ If you are using this parameters you may have thought about reusing your tpl chu
 </p>
 
 <p>
-Generic Tpl Chunk: [[$GenericTplChunk]]
+Generic Tpl Chunk: &#91;&#91;$GenericTplChunk&#93;&#93;
 </p>
 
 <pre class="brush: php">
-&lt;div&gt;Hi [[+pagetitle]]&lt;/div&gt;
+&lt;div&gt;Hi &#91;&#91;+pagetitle&#93;&#93;&lt;/div&gt;
 </pre>
 <p>
-Fourth Tpl Chunk ( tpl_nN): [[$4thTplChunk]]
+Fourth Tpl Chunk ( tpl_nN): &#91;&#91;$4thTplChunk&#93;&#93;
 </p>
 
 <pre class="brush: php">
-&lt;div class="highlight"&gt;[[$GenericTplChunk]]&lt;/div&gt;
+&lt;div class="highlight"&gt;&#91;&#91;$GenericTplChunk&#93;&#93;&lt;/div&gt;
 </pre>
 <p>
 If you have problems with this, having blank or strange results, is due to MODX caching. Calling the chunk uncached won't work. You have to use a trick: a dummy tag when calling the generic chunk.
 </p>
 
 <pre class="brush: php">
-&lt;div class="highlight"&gt;[[$GenericTplChunk? &amp;idx=`[[+idx]]` ]]&lt;/div&gt;
+&lt;div class="highlight"&gt;&#91;&#91;$GenericTplChunk? &amp;idx=`&#91;&#91;+idx&#93;&#93;` &#93;&#93;&lt;/div&gt;
 </pre>
 <p>
 Note: You don't need to call the chunk uncached.

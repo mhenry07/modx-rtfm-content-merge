@@ -22,21 +22,21 @@ Use a YAMS repeat call to loop over all languages and output the flag list:
 </p>
 
 <pre class="brush: php">
-[[YAMS? &amp;get=`repeat` &amp;beforetpl=`@CODE:&lt;ul&gt;` &amp;repeattpl=`otherFlagItemTpl` &amp;currenttpl=`currentFlagItemTpl` &amp;aftertpl=`@CODE:&lt;/ul&gt;`]]
+&#91;&#91;YAMS? &amp;get=`repeat` &amp;beforetpl=`@CODE:&lt;ul&gt;` &amp;repeattpl=`otherFlagItemTpl` &amp;currenttpl=`currentFlagItemTpl` &amp;aftertpl=`@CODE:&lt;/ul&gt;`&#93;&#93;
 </pre>
 <p>
 Here otherFlagItemTpl is a chunk that contains a linked flag image:
 </p>
 
 <pre class="brush: php">
-&lt;li class="yams_lang_(yams_id)"&gt;&lt;a href="(yams_docr)" lang="(yams_tag)" xml:lang="(yams_tag)" dir="(yams_dir)" title="(yams_name_in_(yams_id+))"&gt;&lt;img alt="(yams_name)" src="[(site_url)]assets/images/flags/(yams_id).png"/&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li class="yams_lang_(yams_id)"&gt;&lt;a href="(yams_docr)" lang="(yams_tag)" xml:lang="(yams_tag)" dir="(yams_dir)" title="(yams_name_in_(yams_id+))"&gt;&lt;img alt="(yams_name)" src="&#91;(site_url)&#93;assets/images/flags/(yams_id).png"/&gt;&lt;/a&gt;&lt;/li&gt;
 </pre>
 <p>
 and currentFlagItemTpl is a chunk that contains an unlinked flag image:
 </p>
 
 <pre class="brush: php">
-&lt;li class="yams_lang_(yams_id) yams_current"&gt;&lt;img alt="(yams_name)" src="[(site_url)]assets/images/flags/(yams_id).png"/&gt;&lt;/li&gt;
+&lt;li class="yams_lang_(yams_id) yams_current"&gt;&lt;img alt="(yams_name)" src="&#91;(site_url)&#93;assets/images/flags/(yams_id).png"/&gt;&lt;/li&gt;
 </pre>
 <p>
 Flag images with the filename format (yams_id).png should be placed in the directory assets/images/flags/.

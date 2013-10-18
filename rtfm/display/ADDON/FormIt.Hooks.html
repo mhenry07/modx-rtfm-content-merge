@@ -73,7 +73,7 @@ Just specify the preHook in the 'preHooks' property in your FormIt snippet call.
 </p>
 
 <pre class="brush: php">
-[[!FormIt? &amp;preHooks=`loadCustomValues`]]
+&#91;&#91;!FormIt? &amp;preHooks=`loadCustomValues`&#93;&#93;
 </pre>
 <p>
 Would then run the 'loadCustomValues' snippet before loading the form. You could then set fields on the form like so:
@@ -118,7 +118,7 @@ Simply specify the hook in the 'hooks' property in your FormIt snippet call. For
 </p>
 
 <pre class="brush: php">
-[[!FormIt? &amp;hooks=`spam,email`]]
+&#91;&#91;!FormIt? &amp;hooks=`spam,email`&#93;&#93;
 </pre>
 <h2 id="FormIt.Hooks-BuiltInHooks">
 Built-In Hooks
@@ -227,9 +227,9 @@ FormIt 2.0.0+ supports file-based hooks and preHooks. This means that you can po
 </p>
 
 <pre class="brush: php">
-[[!FormIt? 
-  &amp;hooks=`[[++assets_path]]hooks/my.hook.php`
-]]
+&#91;&#91;!FormIt? 
+  &amp;hooks=`&#91;&#91;++assets_path&#93;&#93;hooks/my.hook.php`
+&#93;&#93;
 </pre>
 <p>
 This will evaluate the MODX tags in the hook line, and then look for the hook at assets/hooks/my.hook.php. If the file is found, it will evaluate the hook from there.

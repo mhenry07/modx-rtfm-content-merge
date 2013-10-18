@@ -40,9 +40,9 @@ foreach ($collection as $obj)
     if (is_object($obj))
     {
         $out = $obj-&gt;toArray();                      // 'Zip'
-        $out[timezone] = $obj-&gt;TZ-&gt;get('tzname');
-        $out[state] = $obj-&gt;ST-&gt;get('statename');
-        $out[county] = $obj-&gt;CT-&gt;get('countyname');        
+        $out&#91;timezone&#93; = $obj-&gt;TZ-&gt;get('tzname');
+        $out&#91;state&#93; = $obj-&gt;ST-&gt;get('statename');
+        $out&#91;county&#93; = $obj-&gt;CT-&gt;get('countyname');        
     }
 }
 return $out;
@@ -57,7 +57,7 @@ Snippet Call
 </h3>
 
 <pre class="brush: php">
-[[!zipCollectionGraph?lookupZip=`32117`]]
+&#91;&#91;!zipCollectionGraph?lookupZip=`32117`&#93;&#93;
 </pre>
 <h3 id="getCollectionGraph-Output">
 Output
@@ -66,17 +66,17 @@ Output
 <pre class="brush: php">
 Array
 (
-    [id] =&gt; 32117
-    [city] =&gt; Daytona Beach
-    [areacode] =&gt; 386
-    [lat] =&gt; 29.233
-    [lon] =&gt; -81.0479
-    [sw_county_id] =&gt; 1800
-    [sw_states_id] =&gt; 15
-    [sw_timezones_id] =&gt; 4
-    [timezone] =&gt; Eastern
-    [state] =&gt; Florida
-    [county] =&gt; Volusia
+    &#91;id&#93; =&gt; 32117
+    &#91;city&#93; =&gt; Daytona Beach
+    &#91;areacode&#93; =&gt; 386
+    &#91;lat&#93; =&gt; 29.233
+    &#91;lon&#93; =&gt; -81.0479
+    &#91;sw_county_id&#93; =&gt; 1800
+    &#91;sw_states_id&#93; =&gt; 15
+    &#91;sw_timezones_id&#93; =&gt; 4
+    &#91;timezone&#93; =&gt; Eastern
+    &#91;state&#93; =&gt; Florida
+    &#91;county&#93; =&gt; Volusia
 )
 
 </pre>

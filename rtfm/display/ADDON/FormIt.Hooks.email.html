@@ -222,14 +222,14 @@ Simply specify it as a hook in your FormIt call, and then specify the email-spec
 </p>
 
 <pre class="brush: php">
-[[!FormIt?
+&#91;&#91;!FormIt?
    &amp;emailTpl=`CentralizedDebtObligationEmailTpl`
    &amp;emailSubject=`Some Sucker Bought Another CDO`
    &amp;emailTo=`sales@mortgagemoney.com`
    &amp;emailCC=`boss@mortgagemoney.com`
    &amp;emailBCC=`fbi@gov.com`
    &amp;emailBCCName=`CDO Fraud Informant`
-]]
+&#93;&#93;
 </pre>
 <p>
 Note the &amp;emailTpl property points to the name of a Chunk. In that Chunk, you'll have placeholders for each field in your form. Our Chunk could look like this:
@@ -238,9 +238,9 @@ Note the &amp;emailTpl property points to the name of a Chunk. In that Chunk, yo
 <pre class="brush: php">
 &lt;p&gt;Hello,&lt;/p&gt;
 
-&lt;p&gt;[[+name]] just purchased the CDO package: [[+cdo_package]].&lt;/p&gt;
+&lt;p&gt;&#91;&#91;+name&#93;&#93; just purchased the CDO package: &#91;&#91;+cdo_package&#93;&#93;.&lt;/p&gt;
 
-&lt;p&gt;Their email: [[+email]]&lt;/p&gt;
+&lt;p&gt;Their email: &#91;&#91;+email&#93;&#93;&lt;/p&gt;
 
 &lt;p&gt;Thanks!&lt;/p&gt;
 </pre>
@@ -257,13 +257,13 @@ An example is using the form to specify who to send to:
 </p>
 
 <pre class="brush: php">
-[[!FormIt?
-   &amp;emailTo=`[[+addressTo]]`
-]]
+&#91;&#91;!FormIt?
+   &amp;emailTo=`&#91;&#91;+addressTo&#93;&#93;`
+&#93;&#93;
 ...
 &lt;select name="addressTo"&gt;
-   &lt;option value="john@doe.com" [[!+fi.addressTo:FormItIsSelected=`john@doe.com`]]&gt;John&lt;/option&gt;
-   &lt;option value="jane@doe.com" [[!+fi.addressTo:FormItIsSelected=`jane@doe.com`]]&gt;Jane&lt;/option&gt;
+   &lt;option value="john@doe.com" &#91;&#91;!+fi.addressTo:FormItIsSelected=`john@doe.com`&#93;&#93;&gt;John&lt;/option&gt;
+   &lt;option value="jane@doe.com" &#91;&#91;!+fi.addressTo:FormItIsSelected=`jane@doe.com`&#93;&#93;&gt;Jane&lt;/option&gt;
 &lt;/select&gt;
 </pre>
 <p>
@@ -279,9 +279,9 @@ Let's say you have a subject field in your form. You want that to be the subject
 </p>
 
 <pre class="brush: php">
-[[!FormIt?
+&#91;&#91;!FormIt?
     &amp;emailUseFieldForSubject=`1`
-]]
+&#93;&#93;
 </pre>
 <p>
 This will then look for a field named "subject" that will be used in the email. If it's not found or empty, it will default to the &amp;emailSubject property.
@@ -296,18 +296,18 @@ FormIt, as of 1.6.0+, will automatically handle checkboxes and combine them into
 </p>
 
 <pre class="brush: php">
-[[!FormIt?
-  &amp;emailMultiWrapper=`&lt;li&gt;[[+value]]&lt;/li&gt;`
-]]
+&#91;&#91;!FormIt?
+  &amp;emailMultiWrapper=`&lt;li&gt;&#91;&#91;+value&#93;&#93;&lt;/li&gt;`
+&#93;&#93;
 </pre>
 <p>
 Or just to separate them with BR tags:
 </p>
 
 <pre class="brush: php">
-[[!FormIt?
+&#91;&#91;!FormIt?
   &amp;emailMultiSeparator=`&lt;br /&gt;`
-]]
+&#93;&#93;
 </pre>
 <h2 id="FormIt.Hooks.email-SeeAlso">
 See Also

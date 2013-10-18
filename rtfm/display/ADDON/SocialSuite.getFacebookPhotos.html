@@ -397,7 +397,7 @@ The default chunk is as follows:
 
 <pre class="brush: php">
 &lt;li&gt;
-    &lt;img src="[[+src_small]]" width="[[+src_small_width]]" height="[[+src_small_height]]" /&gt;
+    &lt;img src="&#91;&#91;+src_small&#93;&#93;" width="&#91;&#91;+src_small_width&#93;&#93;" height="&#91;&#91;+src_small_height&#93;&#93;" /&gt;
 &lt;/li&gt;
 </pre>
 <p>
@@ -667,7 +667,7 @@ images
 array
 </td>
 <td>
-An array of objects containing width, height, source each representing the various photo sizes.&nbsp;&nbsp;Use as&nbsp;[[+images.2.source]].
+An array of objects containing width, height, source each representing the various photo sizes.&nbsp;&nbsp;Use as&nbsp;&#91;&#91;+images.2.source&#93;&#93;.
 </td>
 </tr>
 
@@ -719,10 +719,10 @@ The default albumTpl chunk is as follows; please keep in mind you need to have p
 </p>
 
 <pre class="brush: php">
- &lt;h2&gt;&lt;a href="[[+link]]"&gt;[[+name]]&lt;/a&gt; &lt;span&gt;([[+photo_count]] photos, created on [[+created:date=`%d/%m/%Y`]])&lt;/span&gt;&lt;/h2&gt;
+ &lt;h2&gt;&lt;a href="&#91;&#91;+link&#93;&#93;"&gt;&#91;&#91;+name&#93;&#93;&lt;/a&gt; &lt;span&gt;(&#91;&#91;+photo_count&#93;&#93; photos, created on &#91;&#91;+created:date=`%d/%m/%Y`&#93;&#93;)&lt;/span&gt;&lt;/h2&gt;
 &lt;div&gt;
     &lt;ul&gt;
-        [[+photos]]
+        &#91;&#91;+photos&#93;&#93;
     &lt;/ul&gt;
 &lt;/div&gt;
 </pre>
@@ -1036,7 +1036,7 @@ The default outerTpl is the following:
 
 <pre class="brush: php">
  &lt;ul&gt;
-    [[+photos]]
+    &#91;&#91;+photos&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <p>
@@ -1060,10 +1060,10 @@ Snippet call:
 </p>
 
 <pre class="brush: php">
-[[!getFacebookPhotos?
+&#91;&#91;!getFacebookPhotos?
   &amp;user=`modxcms` 
   &amp;perAlbum=`1`
-]]
+&#93;&#93;
 </pre>
 <p>
 which without any customization results in the following output:

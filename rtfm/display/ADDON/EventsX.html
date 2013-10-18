@@ -248,8 +248,8 @@ example <em>events</em> calendar template
 <pre class="brush: php">
 &lt;html&gt;
 &lt;head&gt;
-&lt;title&gt;[[++site_name]] - [[*pagetitle]]&lt;/title&gt;
-&lt;base href="[[++site_url]]" /&gt;
+&lt;title&gt;&#91;&#91;++site_name&#93;&#93; - &#91;&#91;*pagetitle&#93;&#93;&lt;/title&gt;
+&lt;base href="&#91;&#91;++site_url&#93;&#93;" /&gt;
 &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="assets/components/eventsx/js/web/jquery.calendar-widget.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="assets/components/eventsx/js/web/calendar.js"&gt;&lt;/script&gt;
@@ -258,7 +258,7 @@ example <em>events</em> calendar template
 &lt;body&gt;
   &lt;a href="" id="prevMonth"&gt;previous month&lt;/a&gt; &lt;a href="" id="nextMonth"&gt;next month&lt;/a&gt;
   &lt;div id="calendar"&gt;&lt;/div&gt;
-  [[*content]]
+  &#91;&#91;*content&#93;&#93;
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
@@ -269,12 +269,12 @@ example <em>upcoming events</em> calendar template
 <pre class="brush: php">
 &lt;html&gt;
 &lt;head&gt;
-&lt;title&gt;[[++site_name]] - [[*pagetitle]]&lt;/title&gt;
-&lt;base href="[[++site_url]]" /&gt;
+&lt;title&gt;&#91;&#91;++site_name&#93;&#93; - &#91;&#91;*pagetitle&#93;&#93;&lt;/title&gt;
+&lt;base href="&#91;&#91;++site_url&#93;&#93;" /&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    [[!EventsX? &amp;tpl=`evxEventTpl` &amp;limit=`10`]]
-    [[*content]]
+    &#91;&#91;!EventsX? &amp;tpl=`evxEventTpl` &amp;limit=`10`&#93;&#93;
+    &#91;&#91;*content&#93;&#93;
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
@@ -283,19 +283,19 @@ example&nbsp;<em>single event</em>&nbsp;calendar template
 </h3>
 
 <pre class="brush: php">
-[[!evxEvent?]]&lt;html&gt;
+&#91;&#91;!evxEvent?&#93;&#93;&lt;html&gt;
 &lt;head&gt;
-&lt;title&gt;[[++site_name]] - [[*pagetitle]]&lt;/title&gt;
-&lt;base href="[[++site_url]]" /&gt;
+&lt;title&gt;&#91;&#91;++site_name&#93;&#93; - &#91;&#91;*pagetitle&#93;&#93;&lt;/title&gt;
+&lt;base href="&#91;&#91;++site_url&#93;&#93;" /&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;p&gt;Name: [[+event.name]]&lt;/p&gt;
-    &lt;p&gt;Start date: [[+event.startdate:strtotime:date=`%d-%m-%Y`]]&lt;/p&gt;
-    &lt;p&gt;End date: [[+event.enddate:strtotime:date=`%d-%m-%Y`]]&lt;/p&gt;
-    [[+description]]&lt;!-- Description is a TinyMCE field by default, so no &lt;p&gt; here --&gt;
+    &lt;p&gt;Name: &#91;&#91;+event.name&#93;&#93;&lt;/p&gt;
+    &lt;p&gt;Start date: &#91;&#91;+event.startdate:strtotime:date=`%d-%m-%Y`&#93;&#93;&lt;/p&gt;
+    &lt;p&gt;End date: &#91;&#91;+event.enddate:strtotime:date=`%d-%m-%Y`&#93;&#93;&lt;/p&gt;
+    &#91;&#91;+description&#93;&#93;&lt;!-- Description is a TinyMCE field by default, so no &lt;p&gt; here --&gt;
     &lt;h2&gt;Location&lt;/h2&gt;
-    &lt;p&gt;[[+event.location]]&lt;br /&gt; [[+event.street]]&lt;br /&gt; [[+event.pc]]&lt;br /&gt; [[+event.city]]&lt;br /&gt; [[+event.region]]&lt;br /&gt; [[+event.country]]&lt;/p&gt;
-    &lt;p&gt;&lt;a href="[[+event.website]]"&gt;Visit website&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&#91;&#91;+event.location&#93;&#93;&lt;br /&gt; &#91;&#91;+event.street&#93;&#93;&lt;br /&gt; &#91;&#91;+event.pc&#93;&#93;&lt;br /&gt; &#91;&#91;+event.city&#93;&#93;&lt;br /&gt; &#91;&#91;+event.region&#93;&#93;&lt;br /&gt; &#91;&#91;+event.country&#93;&#93;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="&#91;&#91;+event.website&#93;&#93;"&gt;Visit website&lt;/a&gt;&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>

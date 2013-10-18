@@ -99,7 +99,7 @@ showBoards
 true
 </td>
 <td>
-Choose if you want to see boards or not... you'll probably want this :) Gets set to the&nbsp;[[+boards]] placeholder.
+Choose if you want to see boards or not... you'll probably want this :) Gets set to the&nbsp;&#91;&#91;+boards&#93;&#93; placeholder.
 </td>
 </tr>
 
@@ -112,7 +112,7 @@ showRecentPosts
 false
 </td>
 <td>
-Enable if you want to get recent posts in the&nbsp;[[+recent_posts]] placeholder. Uses the&nbsp;postTpl (default=post/disThreadLi) chunk for each post.
+Enable if you want to get recent posts in the&nbsp;&#91;&#91;+recent_posts&#93;&#93; placeholder. Uses the&nbsp;postTpl (default=post/disThreadLi) chunk for each post.
 </td>
 </tr>
 
@@ -125,7 +125,7 @@ showLogoutActionButton
 false
 </td>
 <td>
-If enabled sets a&nbsp;[[+discuss.authLink]] placeholder (including &lt;a&gt; tag) to log the user out. The&nbsp;[[+discuss.authLink]] placeholder is available by default for login.
+If enabled sets a&nbsp;&#91;&#91;+discuss.authLink&#93;&#93; placeholder (including &lt;a&gt; tag) to log the user out. The&nbsp;&#91;&#91;+discuss.authLink&#93;&#93; placeholder is available by default for login.
 </td>
 </tr>
 
@@ -138,7 +138,7 @@ showLoginForm
 false
 </td>
 <td>
-If enabled sets a&nbsp;[[+discuss.loginForm]] placeholder with the contents of the dislogin chunk.
+If enabled sets a&nbsp;&#91;&#91;+discuss.loginForm&#93;&#93; placeholder with the contents of the dislogin chunk.
 </td>
 </tr>
 
@@ -238,7 +238,7 @@ board/disLastPostBy
 <br />
 </td>
 <td>
-Fills the&nbsp;[[+lastPost]] placeholder. Available placeholders:
+Fills the&nbsp;&#91;&#91;+lastPost&#93;&#93; placeholder. Available placeholders:
 <br />
 - createdon
 <br />
@@ -266,19 +266,19 @@ Fills the&nbsp;[[+lastPost]] placeholder. Available placeholders:
 <td>
 rray(
 <br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'createdon' =&gt; strftime($modx-&gt;getOption('discuss.date_format'),strtotime($board['last_post_createdon'])),
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'createdon' =&gt; strftime($modx-&gt;getOption('discuss.date_format'),strtotime($board&#91;'last_post_createdon'&#93;)),
 <br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'user' =&gt; $board['last_post_author'],
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'user' =&gt; $board&#91;'last_post_author'&#93;,
 <br />
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'username' =&gt; $username,
 <br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'thread' =&gt; $board['last_post_thread'],
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'thread' =&gt; $board&#91;'last_post_thread'&#93;,
 <br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'id' =&gt; $board['last_post_id'],
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'id' =&gt; $board&#91;'last_post_id'&#93;,
 <br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'url' =&gt; $board['last_post_url'],
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'url' =&gt; $board&#91;'last_post_url'&#93;,
 <br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'author_link' =&gt; $canViewProfiles ? '&lt;a href="'.$discuss-&gt;request-&gt;makeUrl('u/'.$board['last_post_username']).'"&gt;'.$username.'&lt;/a&gt;' : $username,
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'author_link' =&gt; $canViewProfiles ? '&lt;a href="'.$discuss-&gt;request-&gt;makeUrl('u/'.$board&#91;'last_post_username'&#93;).'"&gt;'.$username.'&lt;/a&gt;' : $username,
 <br />
 &nbsp; &nbsp; &nbsp; &nbsp; );
 <br />
@@ -368,11 +368,11 @@ rray(
 </p>
 
 <p>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'createdon' =&gt; strftime($modx-&gt;getOption('discuss.date_format'),strtotime($board['last_post_createdon'])),
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'createdon' =&gt; strftime($modx-&gt;getOption('discuss.date_format'),strtotime($board&#91;'last_post_createdon'&#93;)),
 </p>
 
 <p>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'user' =&gt; $board['last_post_author'],
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'user' =&gt; $board&#91;'last_post_author'&#93;,
 </p>
 
 <p>
@@ -380,19 +380,19 @@ rray(
 </p>
 
 <p>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'thread' =&gt; $board['last_post_thread'],
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'thread' =&gt; $board&#91;'last_post_thread'&#93;,
 </p>
 
 <p>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'id' =&gt; $board['last_post_id'],
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'id' =&gt; $board&#91;'last_post_id'&#93;,
 </p>
 
 <p>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'url' =&gt; $board['last_post_url'],
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'url' =&gt; $board&#91;'last_post_url'&#93;,
 </p>
 
 <p>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'author_link' =&gt; $canViewProfiles ? '&lt;a class="dis-last-post-by" href="'.$discuss-&gt;request-&gt;makeUrl('u/'.$board['last_post_username']).'"&gt;'.$username.'&lt;/a&gt;' : $username,
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'author_link' =&gt; $canViewProfiles ? '&lt;a class="dis-last-post-by" href="'.$discuss-&gt;request-&gt;makeUrl('u/'.$board&#91;'last_post_username'&#93;).'"&gt;'.$username.'&lt;/a&gt;' : $username,
 </p>
 
 <p>

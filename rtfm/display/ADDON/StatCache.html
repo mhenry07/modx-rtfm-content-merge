@@ -61,7 +61,7 @@ location /modx {
     try_files /modx/statcache$uri~index.html /modx/statcache$uri $uri $uri/ @modx-rewrite2;
 }
 location @modx-rewrite2 {
-    rewrite ^/(.[^/]*)/(.*)$ /$1/index.php?q=$2 last;
+    rewrite ^/(.&#91;^/&#93;*)/(.*)$ /$1/index.php?q=$2 last;
 }
 </pre>
 <p>
@@ -84,10 +84,10 @@ MODX in DOCUMENT_ROOT
 # If MODX is directly in your DOCUMENT_ROOT,
 # add this before your MODX Friendly URLs RewriteCond's and RewriteRule...
 RewriteCond %{DOCUMENT_ROOT}/statcache%{REQUEST_URI}\~index.html \-f
-RewriteRule \^(.*)$ /statcache/$1~index.html [L,QSA]
+RewriteRule \^(.*)$ /statcache/$1~index.html &#91;L,QSA&#93;
 
 RewriteCond %{DOCUMENT_ROOT}/statcache%{REQUEST_URI} \-f
-RewriteRule \^(.*)$ /statcache/$1 [L,QSA]
+RewriteRule \^(.*)$ /statcache/$1 &#91;L,QSA&#93;
 </pre>
 <h4 id="StatCache-MODXinsubdirectoryofDOCUMENTROOT">
 MODX in subdirectory of DOCUMENT_ROOT
@@ -97,10 +97,10 @@ MODX in subdirectory of DOCUMENT_ROOT
 # If MODX is in a subdirectory of your DOCUMENT_ROOT,
 # add this before your MODX Friendly URLs RewriteCond's and RewriteRule...
 RewriteCond %{DOCUMENT_ROOT}/modx/statcache%{REQUEST_URI}\~index.html \-f
-RewriteRule \^(.*)$ /modx/statcache/$1~index.html [L,QSA]
+RewriteRule \^(.*)$ /modx/statcache/$1~index.html &#91;L,QSA&#93;
 
 RewriteCond %{DOCUMENT_ROOT}/modx/statcache%{REQUEST_URI} \-f
-RewriteRule \^(.*)$ /modx/statcache/$1 [L,QSA]
+RewriteRule \^(.*)$ /modx/statcache/$1 &#91;L,QSA&#93;
 </pre>
 <p>
 You can add an exemption to serve post requests and query strings directly from MODX instead of the static pages, by adding these two lines to your .htaccess

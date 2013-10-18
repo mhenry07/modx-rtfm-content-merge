@@ -106,9 +106,9 @@ The Quip snippet can be called like so in the page you want comments to display:
 </p>
 
 <pre class="brush: php">
-[[!Quip? &amp;thread=`threadNameHere` &amp;threading=`0`]]
+&#91;&#91;!Quip? &amp;thread=`threadNameHere` &amp;threading=`0`&#93;&#93;
 &lt;br /&gt;
-[[!QuipReply? &amp;thread=`threadNameHere`]]
+&#91;&#91;!QuipReply? &amp;thread=`threadNameHere`&#93;&#93;
 </pre>
 <h3 id="Quip-ThreadedComments">
 Threaded Comments
@@ -120,9 +120,9 @@ If you have threading turned on, you'll need to first do a couple things. One is
 
 <pre class="brush: php">
 &lt;h2&gt;Reply to Thread&lt;/h2&gt;
-[[!Quip]]
+&#91;&#91;!Quip&#93;&#93;
 &lt;br /&gt;
-[[!QuipReply]]
+&#91;&#91;!QuipReply&#93;&#93;
 </pre>
 <div class="note">
 You wont need to set any properties on this call, since it will pull from your original QuipReply call on your main thread page.
@@ -133,9 +133,9 @@ And then you'll need to add the 'replyResourceId' property to your original Quip
 </p>
 
 <pre class="brush: php">
-[[!Quip? &amp;thread=`threadNameHere` &amp;replyResourceId=`123`]]
+&#91;&#91;!Quip? &amp;thread=`threadNameHere` &amp;replyResourceId=`123`&#93;&#93;
 &lt;br /&gt;
-[[!QuipReply? &amp;thread=`threadNameHere`]]
+&#91;&#91;!QuipReply? &amp;thread=`threadNameHere`&#93;&#93;
 </pre>
 <p>
 Also, Quip provides users with an assistance snippet called <a href="extras/revo/quip/quip.quipcount" title="Quip.QuipCount">QuipCount</a>, which can be used to find thread comment totals or user comment totals.
@@ -277,25 +277,25 @@ A sample code line for a blog post that's on a Resource with no threading:
 </p>
 
 <pre class="brush: php">
-[[Quip? &amp;thread=`blogpost[[*id]]` &amp;threading=`0`]]
+&#91;&#91;Quip? &amp;thread=`blogpost&#91;&#91;*id&#93;&#93;` &amp;threading=`0`&#93;&#93;
 </pre>
 <p>
 Display comments for thread `post45`, but only allow logged-in users to comment, and have the "Reply to Thread" resource be ID 123:
 </p>
 
 <pre class="brush: php">
-[[!Quip? &amp;thread=`post45` &amp;replyResourceId=`123`]]
+&#91;&#91;!Quip? &amp;thread=`post45` &amp;replyResourceId=`123`&#93;&#93;
 &lt;br /&gt;
-[[!QuipReply? &amp;thread=`post45` &amp;requireAuth=`1`]]
+&#91;&#91;!QuipReply? &amp;thread=`post45` &amp;requireAuth=`1`&#93;&#93;
 </pre>
 <p>
 Display comments for thread `spamproof123`, with no threading, with reCaptcha support.
 </p>
 
 <pre class="brush: php">
-[[!Quip? &amp;thread=`spamproof123` &amp;threaded=`0`]]
+&#91;&#91;!Quip? &amp;thread=`spamproof123` &amp;threaded=`0`&#93;&#93;
 &lt;br /&gt;
-[[!QuipReply? &amp;thread=`spamproof123` &amp;recaptcha=`1`]]
+&#91;&#91;!QuipReply? &amp;thread=`spamproof123` &amp;recaptcha=`1`&#93;&#93;
 </pre>
 <h2 id="Quip-SeeAlso">
 See Also

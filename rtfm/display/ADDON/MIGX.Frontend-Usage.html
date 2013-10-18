@@ -76,10 +76,10 @@ Let's display some images that we input in Step 3. Paste this code wherever you 
 
 <pre class="brush: html">
 &lt;ul&gt;
-  [[!getImageList? 
+  &#91;&#91;!getImageList? 
     &amp;tvname=`myMIGXtv`
-    &amp;tpl=`@CODE:&lt;li&gt;[[+idx]]&lt;img src="[[+image]]"/&gt;&lt;p&gt;[[+title]]&lt;/p&gt;&lt;/li&gt;
-  `]]
+    &amp;tpl=`@CODE:&lt;li&gt;&#91;&#91;+idx&#93;&#93;&lt;img src="&#91;&#91;+image&#93;&#93;"/&gt;&lt;p&gt;&#91;&#91;+title&#93;&#93;&lt;/p&gt;&lt;/li&gt;
+  `&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <p>
@@ -92,9 +92,9 @@ If you're using <a href="extras/revo/phpthumbof" title="phpThumbOf">phpthumbof</
 
 <pre class="brush: html">
 &lt;ul&gt;
-  [[!getImageList?
+  &#91;&#91;!getImageList?
     &amp;tvname=`myMIGXtv`
-    &amp;tpl=`thumbTpl`]]
+    &amp;tpl=`thumbTpl`&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <p>
@@ -103,7 +103,7 @@ If you're using <a href="extras/revo/phpthumbof" title="phpThumbOf">phpthumbof</
 
 <pre class="brush: html">
 &lt;li&gt;
-  &lt;img src="[[+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`]]" alt="[[+title]]"/&gt;
+  &lt;img src="&#91;&#91;+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`&#93;&#93;" alt="&#91;&#91;+title&#93;&#93;"/&gt;
 &lt;/li&gt;
 </pre>
 <h2 id="MIGX.Frontend-Usage-UsingMIGXwithgetResources">
@@ -116,13 +116,13 @@ You can call getImageList from <a href="extras/revo/getresources" title="getReso
 
 <pre class="brush: html">
 &lt;li&gt;
-  &lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle]]&lt;/a&gt;  
-  [[!getImageList?
+  &lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;"&gt;&#91;&#91;+pagetitle&#93;&#93;&lt;/a&gt;  
+  &#91;&#91;!getImageList?
     &amp;tvname=`myMIGXtv`
     &amp;tpl=`thumbTpl`
     &amp;limit=`1`
-    &amp;docid=`[[+id]]`
-  ]]
+    &amp;docid=`&#91;&#91;+id&#93;&#93;`
+  &#93;&#93;
 &lt;/li&gt;
 </pre>
 <p>
@@ -142,14 +142,14 @@ Include them in the snippet call:
 </p>
 
 <pre class="brush: html">
-[[!getImageList?
+&#91;&#91;!getImageList?
     &amp;tvname=`myMIGXtv`
     &amp;tpl=`thumbTpl2`
-    &amp;docid=`[[+id]]`
+    &amp;docid=`&#91;&#91;+id&#93;&#93;`
     &amp;limit=`1`
-    &amp;pagetitle=`[[+pagetitle]]`
-    &amp;originalResourceId=`[[+id]]`
-]]
+    &amp;pagetitle=`&#91;&#91;+pagetitle&#93;&#93;`
+    &amp;originalResourceId=`&#91;&#91;+id&#93;&#93;`
+&#93;&#93;
 </pre>
 <p>
 and then refer to them in the chunk, prepended with "+property.":
@@ -157,8 +157,8 @@ and then refer to them in the chunk, prepended with "+property.":
 
 <pre class="brush: html">
   &lt;li&gt;
-    &lt;img src="[[+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`]]" alt="[[+title]]" /&gt;
-    &lt;a href="[[~[[+property.originalResourceId]]]]"&gt;See more images from [[+property.pagetitle]]&lt;/a&gt;
+    &lt;img src="&#91;&#91;+image:phpthumbof=`w=300&amp;h=300&amp;zc=1`&#93;&#93;" alt="&#91;&#91;+title&#93;&#93;" /&gt;
+    &lt;a href="&#91;&#91;~&#91;&#91;+property.originalResourceId&#93;&#93;&#93;&#93;"&gt;See more images from &#91;&#91;+property.pagetitle&#93;&#93;&lt;/a&gt;
   &lt;/li&gt;
 </pre>
 <p>
@@ -214,10 +214,10 @@ chunkname to render each record. You can also use @CODE: or @FILE: if empty, get
 docid
 </td>
 <td>
-if you want to show MIGX-records from other resources. Usefull in <a href="extras/revo/getresources" title="getResources">getResources</a>-tpls with &amp;docid=`[[+id]]`
+if you want to show MIGX-records from other resources. Usefull in <a href="extras/revo/getresources" title="getResources">getResources</a>-tpls with &amp;docid=`&#91;&#91;+id&#93;&#93;`
 </td>
 <td>
-[[*id]]
+&#91;&#91;*id&#93;&#93;
 <br />
 </td>
 </tr>
@@ -319,7 +319,7 @@ sort
 sort items by multiple fields. example:
 
 <pre class="brush: javascript">
-[{"sortby":"age","sortdir":"DESC","sortmode":"numeric"},{"sortby":"name","sortdir":"ASC"}]
+&#91;{"sortby":"age","sortdir":"DESC","sortmode":"numeric"},{"sortby":"name","sortdir":"ASC"}&#93;
 </pre>
 </td>
 <td>
@@ -333,7 +333,7 @@ toPlaceholder
 <br />
 </td>
 <td>
-outputs to placeholder. example: &amp;toPlaceholder=`MIGX` - get the output by&nbsp;[[+MIGX]]
+outputs to placeholder. example: &amp;toPlaceholder=`MIGX` - get the output by&nbsp;&#91;&#91;+MIGX&#93;&#93;
 </td>
 <td>
 &nbsp;
@@ -346,7 +346,7 @@ toSeparatePlaceholders
 <br />
 </td>
 <td>
-outputs items to seperate placeholders. example: &amp;toSeparatePlaceholders=`MIGX` - get the items by&nbsp;[[+MIGX.1]] [[+MIGX.2]] ......&nbsp;
+outputs items to seperate placeholders. example: &amp;toSeparatePlaceholders=`MIGX` - get the items by&nbsp;&#91;&#91;+MIGX.1&#93;&#93; &#91;&#91;+MIGX.2&#93;&#93; ......&nbsp;
 </td>
 <td>
 &nbsp;
@@ -359,7 +359,7 @@ placeholdersKeyField
 <br />
 </td>
 <td>
-together with &amp;toSeparatePlaceholders. example: &amp;placeholdersKeyField=`title` -&nbsp;get the items by&nbsp;[[+MIGX.firsttitle]]&nbsp;[[+MIGX.thirdtitle]] ......
+together with &amp;toSeparatePlaceholders. example: &amp;placeholdersKeyField=`title` -&nbsp;get the items by&nbsp;&#91;&#91;+MIGX.firsttitle&#93;&#93;&nbsp;&#91;&#91;+MIGX.thirdtitle&#93;&#93; ......
 </td>
 <td>
 &nbsp;
@@ -387,7 +387,7 @@ toJsonPlaceholder
 <td>
 output items as json into a placeholder, usefull when you want for example show randomized items on different places.
 <br />
-example: &amp;toJsonPlaceholder=`jsonoutput` -&gt;&nbsp;[[getImagelist? &amp;value=`[[+jsonoutput]]`................]]
+example: &amp;toJsonPlaceholder=`jsonoutput` -&gt;&nbsp;&#91;&#91;getImagelist? &amp;value=`&#91;&#91;+jsonoutput&#93;&#93;`................&#93;&#93;
 </td>
 <td>
 &nbsp;
@@ -400,7 +400,7 @@ jsonVarKey
 <br />
 </td>
 <td>
-example: &amp;jsonVarKey=`migx_json` - this will use the value from $_REQUEST['migx_json'] as value, if any
+example: &amp;jsonVarKey=`migx_json` - this will use the value from $_REQUEST&#91;'migx_json'&#93; as value, if any
 <br />
 useful together with the backend-preview-feature
 </td>
@@ -429,7 +429,7 @@ Description
 
 <tr>
 <td>
-[[+fieldname]]
+&#91;&#91;+fieldname&#93;&#93;
 <br />
 </td>
 <td>
@@ -439,7 +439,7 @@ replace 'fieldname' with your fieldnames
 
 <tr>
 <td>
-[[+idx]]
+&#91;&#91;+idx&#93;&#93;
 <br />
 </td>
 <td>
@@ -449,7 +449,7 @@ the index of each item, begins allways with 1
 
 <tr>
 <td>
-[[+_first]]
+&#91;&#91;+_first&#93;&#93;
 <br />
 </td>
 <td>
@@ -459,7 +459,7 @@ returns 1, if in first row
 
 <tr>
 <td>
-[[+_last]]
+&#91;&#91;+_last&#93;&#93;
 <br />
 </td>
 <td>
@@ -469,7 +469,7 @@ returns 1, if in last row
 
 <tr>
 <td>
-[[+_alt]]
+&#91;&#91;+_alt&#93;&#93;
 <br />
 </td>
 <td>
@@ -479,7 +479,7 @@ returns 1 every second row
 
 <tr>
 <td>
-[[+total]]
+&#91;&#91;+total&#93;&#93;
 <br />
 </td>
 <td>
@@ -489,11 +489,11 @@ count of all rows, replace 'total' with your totalVar
 
 <tr>
 <td>
-[[+property.name]]
+&#91;&#91;+property.name&#93;&#93;
 <br />
 </td>
 <td>
-you can use every script property/param that's set in the actual snippet call, for example if you have &amp;docid=`20` the placeholder&nbsp;[[+property.docid]] will return 20
+you can use every script property/param that's set in the actual snippet call, for example if you have &amp;docid=`20` the placeholder&nbsp;&#91;&#91;+property.docid&#93;&#93; will return 20
 </td>
 </tr>
 </tbody>
@@ -512,10 +512,10 @@ Using &amp;tpl=`@FIELD:` you can use any field as the template name to switch te
 </p>
 
 <pre class="brush: html">
-  [[!getImageList?
+  &#91;&#91;!getImageList?
     &amp;tvname=`myMIGXtv`
     &amp;tpl=`@FIELD:tpl`
-  ]]
+  &#93;&#93;
 </pre>
 <p>
 If you have specified a field name "tpl" from the MIGX TV setup, getImageList will use the value of this field for the items's tpl. The value must be exactly what you would put in the &amp;tpl property - a chunk name, @CODE:... @FILE...

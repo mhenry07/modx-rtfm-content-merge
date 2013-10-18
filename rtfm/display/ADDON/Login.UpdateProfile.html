@@ -42,7 +42,7 @@ user will go to to edit their profile. Then, add this snippet:
 </p>
 
 <pre class="brush: php">
-[[!UpdateProfile? &amp;validate=`fullname:required,email:required:email`]]
+&#91;&#91;!UpdateProfile? &amp;validate=`fullname:required,email:required:email`&#93;&#93;
 </pre>
 <h3 id="Login.UpdateProfile-UpdateProfileProperties">
 UpdateProfile Properties
@@ -210,71 +210,71 @@ Then, below this, add in the following HTML (removing any fields you'd like) to 
 
 <pre class="brush: php">
 &lt;div class="update-profile"&gt;
-    &lt;div class="updprof-error"&gt;[[+error.message]]&lt;/div&gt;
-    [[+login.update_success:if=`[[+login.update_success]]`:is=`1`:then=`[[%login.profile_updated? &amp;namespace=`login` &amp;topic=`updateprofile`]]`]]
+    &lt;div class="updprof-error"&gt;&#91;&#91;+error.message&#93;&#93;&lt;/div&gt;
+    &#91;&#91;+login.update_success:if=`&#91;&#91;+login.update_success&#93;&#93;`:is=`1`:then=`&#91;&#91;%login.profile_updated? &amp;namespace=`login` &amp;topic=`updateprofile`&#93;&#93;`&#93;&#93;
 
-    &lt;form class="form" action="[[~[[*id]]]]" method="post"&gt;
+    &lt;form class="form" action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post"&gt;
         &lt;input type="hidden" name="nospam" value="" /&gt;
 
-        &lt;label for="fullname"&gt;[[!%login.fullname? &amp;namespace=`login` &amp;topic=`updateprofile`]]
-            &lt;span class="error"&gt;[[+error.fullname]]&lt;/span&gt;
+        &lt;label for="fullname"&gt;&#91;&#91;!%login.fullname? &amp;namespace=`login` &amp;topic=`updateprofile`&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.fullname&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="fullname" id="fullname" value="[[+fullname]]" /&gt;
+        &lt;input type="text" name="fullname" id="fullname" value="&#91;&#91;+fullname&#93;&#93;" /&gt;
 
-        &lt;label for="email"&gt;[[!%login.email]]
-            &lt;span class="error"&gt;[[+error.email]]&lt;/span&gt;
+        &lt;label for="email"&gt;&#91;&#91;!%login.email&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.email&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="email" id="email" value="[[+email]]" /&gt;
+        &lt;input type="text" name="email" id="email" value="&#91;&#91;+email&#93;&#93;" /&gt;
 
-        &lt;label for="phone"&gt;[[!%login.phone]]
-            &lt;span class="error"&gt;[[+error.phone]]&lt;/span&gt;
+        &lt;label for="phone"&gt;&#91;&#91;!%login.phone&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.phone&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="phone" id="phone" value="[[+phone]]" /&gt;
+        &lt;input type="text" name="phone" id="phone" value="&#91;&#91;+phone&#93;&#93;" /&gt;
 
-        &lt;label for="mobilephone"&gt;[[!%login.mobilephone]]
-            &lt;span class="error"&gt;[[+error.mobilephone]]&lt;/span&gt;
+        &lt;label for="mobilephone"&gt;&#91;&#91;!%login.mobilephone&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.mobilephone&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="mobilephone" id="mobilephone" value="[[+mobilephone]]" /&gt;
+        &lt;input type="text" name="mobilephone" id="mobilephone" value="&#91;&#91;+mobilephone&#93;&#93;" /&gt;
 
-        &lt;label for="fax"&gt;[[!%login.fax]]
-            &lt;span class="error"&gt;[[+error.fax]]&lt;/span&gt;
+        &lt;label for="fax"&gt;&#91;&#91;!%login.fax&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.fax&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="fax" id="fax" value="[[+fax]]" /&gt;
+        &lt;input type="text" name="fax" id="fax" value="&#91;&#91;+fax&#93;&#93;" /&gt;
 
-        &lt;label for="address"&gt;[[!%login.address]]
-            &lt;span class="error"&gt;[[+error.address]]&lt;/span&gt;
+        &lt;label for="address"&gt;&#91;&#91;!%login.address&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.address&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="address" id="address" value="[[+address]]" /&gt;
+        &lt;input type="text" name="address" id="address" value="&#91;&#91;+address&#93;&#93;" /&gt;
 
-        &lt;label for="country"&gt;[[!%login.country]]
-            &lt;span class="error"&gt;[[+error.country]]&lt;/span&gt;
+        &lt;label for="country"&gt;&#91;&#91;!%login.country&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.country&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="country" id="country" value="[[+country]]" /&gt;
+        &lt;input type="text" name="country" id="country" value="&#91;&#91;+country&#93;&#93;" /&gt;
 
-        &lt;label for="city"&gt;[[!%login.city]]
-            &lt;span class="error"&gt;[[+error.city]]&lt;/span&gt;
+        &lt;label for="city"&gt;&#91;&#91;!%login.city&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.city&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="city" id="city" value="[[+city]]" /&gt;
+        &lt;input type="text" name="city" id="city" value="&#91;&#91;+city&#93;&#93;" /&gt;
 
-        &lt;label for="state"&gt;[[!%login.state]]
-            &lt;span class="error"&gt;[[+error.state]]&lt;/span&gt;
+        &lt;label for="state"&gt;&#91;&#91;!%login.state&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.state&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="state" id="state" value="[[+state]]" /&gt;
+        &lt;input type="text" name="state" id="state" value="&#91;&#91;+state&#93;&#93;" /&gt;
 
-        &lt;label for="zip"&gt;[[!%login.zip]]
-            &lt;span class="error"&gt;[[+error.zip]]&lt;/span&gt;
+        &lt;label for="zip"&gt;&#91;&#91;!%login.zip&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.zip&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="zip" id="zip" value="[[+zip]]" /&gt;
+        &lt;input type="text" name="zip" id="zip" value="&#91;&#91;+zip&#93;&#93;" /&gt;
 
-        &lt;label for="website"&gt;[[!%login.website]]
-            &lt;span class="error"&gt;[[+error.website]]&lt;/span&gt;
+        &lt;label for="website"&gt;&#91;&#91;!%login.website&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.website&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="website" id="website" value="[[+website]]" /&gt;
+        &lt;input type="text" name="website" id="website" value="&#91;&#91;+website&#93;&#93;" /&gt;
 
         &lt;br class="clear" /&gt;
 
         &lt;div class="form-buttons"&gt;
-            &lt;input type="submit" name="login-updprof-btn" value="[[!%login.update_profile]]" /&gt;
+            &lt;input type="submit" name="login-updprof-btn" value="&#91;&#91;!%login.update_profile&#93;&#93;" /&gt;
         &lt;/div&gt;
     &lt;/form&gt;
 &lt;/div&gt;

@@ -28,9 +28,9 @@ This creates a single XML sitemap listing all documents in all languages. It ass
 <li>Include the following in your XMLSitemap template:
 
 <pre class="brush: php">
-&lt;?xml version="1.0" encoding="[(modx_charset)]" ?&gt;
+&lt;?xml version="1.0" encoding="&#91;(modx_charset)&#93;" ?&gt;
 &lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" &gt;
-[*content*]
+&#91;*content*&#93;
 &lt;/urlset&gt;
 </pre>
 </li>
@@ -75,7 +75,7 @@ Associate the template variable with all your templates except XMLSitemap.
 <li>Create a new chunk called SitemapRepeatTpl with your ditto call in it that generates the &lt;url&gt; blocks for all your documents. Ideally, all your web documents should be in a single folder, and &amp;parents should be set to the id of that folder. The snippet call might look something like this:
 
 <pre class="brush: php">
-[!Ditto? &amp;language=`(yams_mname)` &amp;parents=`1` &amp;tpl=`UrlsetURL` &amp;depth=`5` &amp;dateSource=`editedon` &amp;dateFormat=`%Y-%m-%d` &amp;display=`all` &amp;showInMenuOnly=`0` &amp;seeThroughUnpub=`1` &amp;filter=`type,reference,2|searchable,1,1`!]
+&#91;!Ditto? &amp;language=`(yams_mname)` &amp;parents=`1` &amp;tpl=`UrlsetURL` &amp;depth=`5` &amp;dateSource=`editedon` &amp;dateFormat=`%Y-%m-%d` &amp;display=`all` &amp;showInMenuOnly=`0` &amp;seeThroughUnpub=`1` &amp;filter=`type,reference,2|searchable,1,1`!&#93;
 </pre>
 <p>
 where UrlsetURL is another chunk with the following contents
@@ -83,10 +83,10 @@ where UrlsetURL is another chunk with the following contents
 
 <pre class="brush: php">
 &lt;url&gt;
-&lt;loc&gt;(yams_doc:[+id+])&lt;/loc&gt;
-&lt;lastmod&gt;[+date+]&lt;/lastmod&gt;
-&lt;changefreq&gt;[+UrlsetChangeFreq+]&lt;/changefreq&gt;
-&lt;priority&gt;[+UrlsetPriority+]&lt;/priority&gt;
+&lt;loc&gt;(yams_doc:&#91;+id+&#93;)&lt;/loc&gt;
+&lt;lastmod&gt;&#91;+date+&#93;&lt;/lastmod&gt;
+&lt;changefreq&gt;&#91;+UrlsetChangeFreq+&#93;&lt;/changefreq&gt;
+&lt;priority&gt;&#91;+UrlsetPriority+&#93;&lt;/priority&gt;
 &lt;/url&gt;
 </pre>
 <p>
@@ -97,7 +97,7 @@ This ditto call specifies that there are maximum of 5 levels of folders - which 
 <li>Create a new document with the alias sitemap.xml that lives outside your web root folder. Select the XMLSitemap template. Set the content type to text/xml. For the content, use
 
 <pre class="brush: php">
-[[YAMS? &amp;get=`repeat` &amp;repeattpl=`SitemapRepeatTpl`]]
+&#91;&#91;YAMS? &amp;get=`repeat` &amp;repeattpl=`SitemapRepeatTpl`&#93;&#93;
 </pre>
 </li>
 </ol>

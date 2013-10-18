@@ -102,36 +102,36 @@ Simply drop the following line in your document :
 </p>
 
 <pre class="brush: php">
-[[Cliche]]
+&#91;&#91;Cliche&#93;&#93;
 </pre>
 <p>
 To show all albums list:
 </p>
 
 <pre class="brush: php">
-[[Cliche?
+&#91;&#91;Cliche?
     &amp;view=`albums`
-]]
+&#93;&#93;
 </pre>
 <p>
 To show a specific album:
 </p>
 
 <pre class="brush: php">
-[[Cliche?
+&#91;&#91;Cliche?
     &amp;id=`your_album_id`
     &amp;view=`album`
-]]
+&#93;&#93;
 </pre>
 <p>
 To show a single image:
 </p>
 
 <pre class="brush: php">
-[[Cliche?
+&#91;&#91;Cliche?
     &amp;id=`your_image_id`
     &amp;view=`image`
-]]
+&#93;&#93;
 </pre>
 <h3 id="Cliche-AvailableParameters">
 Available Parameters
@@ -317,7 +317,7 @@ Templates
 </h3>
 
 <p>
-By default, all chunks are filebased and are located in : "<em>core/components/cliche/controllers/web/plugins/</em><em>[plugin]</em><em>/</em><em>[chunkName].tpl</em>"
+By default, all chunks are filebased and are located in : "<em>core/components/cliche/controllers/web/plugins/</em><em>&#91;plugin&#93;</em><em>/</em><em>&#91;chunkName&#93;.tpl</em>"
 </p>
 
 <p>
@@ -339,8 +339,8 @@ default/albumcover.tpl
 <pre class="brush: php">
 &lt;dl class="item"&gt;
     &lt;dt class="album-icon"&gt;
-        &lt;a title="[[+albumname]]" href="[[+url]]"&gt;
-            &lt;img width="[[+width]]" height="[[+height]]" title="[[+albumname]]" alt="[[+description]]" class="attachment-thumbnail" src="[[+thumbnail]]"/&gt;
+        &lt;a title="&#91;&#91;+albumname&#93;&#93;" href="&#91;&#91;+url&#93;&#93;"&gt;
+            &lt;img width="&#91;&#91;+width&#93;&#93;" height="&#91;&#91;+height&#93;&#93;" title="&#91;&#91;+albumname&#93;&#93;" alt="&#91;&#91;+description&#93;&#93;" class="attachment-thumbnail" src="&#91;&#91;+thumbnail&#93;&#93;"/&gt;
         &lt;/a&gt;
     &lt;/dt&gt;
 &lt;/dl&gt;&lt;!-- End .item --&gt;
@@ -352,8 +352,8 @@ default/albumcoverzoom.tpl
 <pre class="brush: php">
 &lt;dl class="item"&gt;
     &lt;dt class="album-icon"&gt;
-        &lt;a class="zoom" title="[[+albumname]]" href="[[+image]]"&gt;
-            &lt;img width="[[+width]]" height="[[+height]]" title="[[+albumname]]" alt="[[+description]]" class="attachment-thumbnail" src="[[+thumbnail]]"/&gt;
+        &lt;a class="zoom" title="&#91;&#91;+albumname&#93;&#93;" href="&#91;&#91;+image&#93;&#93;"&gt;
+            &lt;img width="&#91;&#91;+width&#93;&#93;" height="&#91;&#91;+height&#93;&#93;" title="&#91;&#91;+albumname&#93;&#93;" alt="&#91;&#91;+description&#93;&#93;" class="attachment-thumbnail" src="&#91;&#91;+thumbnail&#93;&#93;"/&gt;
         &lt;/a&gt;
     &lt;/dt&gt;
 &lt;/dl&gt;&lt;!-- End .item --&gt;
@@ -364,7 +364,7 @@ default/albumswrapper.tpl
 
 <pre class="brush: php">
 &lt;div class="cliche" id="albums_list"&gt;
-    [[+items]]
+    &#91;&#91;+items&#93;&#93;
 &lt;/div&gt;&lt;!-- End #albums_list --&gt;
 </pre>
 <h5 id="Cliche-default/albumwrapper.tpl">
@@ -372,9 +372,9 @@ default/albumwrapper.tpl
 </h5>
 
 <pre class="brush: php">
-&lt;div class="cliche galleryid-[[+id]]" id="album-[[+id]]"&gt;
- [[+items]]
-&lt;/div&gt;&lt;!-- End #album-[[+id]] --&gt;
+&lt;div class="cliche galleryid-&#91;&#91;+id&#93;&#93;" id="album-&#91;&#91;+id&#93;&#93;"&gt;
+ &#91;&#91;+items&#93;&#93;
+&lt;/div&gt;&lt;!-- End #album-&#91;&#91;+id&#93;&#93; --&gt;
 </pre>
 <h5 id="Cliche-default/image.tpl">
 default/image.tpl
@@ -383,8 +383,8 @@ default/image.tpl
 <pre class="brush: php">
 &lt;div class="cliche"&gt;
     &lt;div class="item"&gt;
-        &lt;a title="[[+name]]" class="zoom" href="[[+image]]"&gt;
-            &lt;img width="[[+width]]" height="[[+height]]" title="[[+name]]" alt="[[+description]]" class="attachment-thumbnail" src="[[+thumbnail]]"/&gt;
+        &lt;a title="&#91;&#91;+name&#93;&#93;" class="zoom" href="&#91;&#91;+image&#93;&#93;"&gt;
+            &lt;img width="&#91;&#91;+width&#93;&#93;" height="&#91;&#91;+height&#93;&#93;" title="&#91;&#91;+name&#93;&#93;" alt="&#91;&#91;+description&#93;&#93;" class="attachment-thumbnail" src="&#91;&#91;+thumbnail&#93;&#93;"/&gt;
         &lt;/a&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -396,8 +396,8 @@ default/item.tpl
 <pre class="brush: php">
 &lt;dl class="item"&gt;
     &lt;dt class="album-icon"&gt;
-        &lt;a class="zoom" title="[[+name]]" href="[[+image]]"&gt;
-            &lt;img width="[[+width]]" height="[[+height]]" title="[[+name]]" alt="[[+description]]" class="attachment-thumbnail" src="[[+thumbnail]]"/&gt;
+        &lt;a class="zoom" title="&#91;&#91;+name&#93;&#93;" href="&#91;&#91;+image&#93;&#93;"&gt;
+            &lt;img width="&#91;&#91;+width&#93;&#93;" height="&#91;&#91;+height&#93;&#93;" title="&#91;&#91;+name&#93;&#93;" alt="&#91;&#91;+description&#93;&#93;" class="attachment-thumbnail" src="&#91;&#91;+thumbnail&#93;&#93;"/&gt;
         &lt;/a&gt;
     &lt;/dt&gt;
 &lt;/dl&gt;&lt;!-- End .item --&gt;
@@ -409,8 +409,8 @@ default/itemzoom.tpl
 <pre class="brush: php">
 &lt;dl class="item"&gt;
     &lt;dt class="album-icon"&gt;
-        &lt;a class="zoom" title="[[+name]]" href="[[+image]]"&gt;
-            &lt;img width="[[+width]]" height="[[+height]]" title="[[+name]]" alt="[[+description]]" class="attachment-thumbnail" src="[[+thumbnail]]"/&gt;
+        &lt;a class="zoom" title="&#91;&#91;+name&#93;&#93;" href="&#91;&#91;+image&#93;&#93;"&gt;
+            &lt;img width="&#91;&#91;+width&#93;&#93;" height="&#91;&#91;+height&#93;&#93;" title="&#91;&#91;+name&#93;&#93;" alt="&#91;&#91;+description&#93;&#93;" class="attachment-thumbnail" src="&#91;&#91;+thumbnail&#93;&#93;"/&gt;
         &lt;/a&gt;
     &lt;/dt&gt;
 &lt;/dl&gt;&lt;!-- End .item --&gt;
@@ -432,15 +432,15 @@ galleriffic/item.tpl
 
 <pre class="brush: php">
 &lt;li&gt;
-    &lt;a class="thumb" name="leaf" href="[[+image]]" title="[[+name]]"&gt;
-        &lt;img src="[[+thumbnail]]" alt="Title #[[+id]]" /&gt;
+    &lt;a class="thumb" name="leaf" href="&#91;&#91;+image&#93;&#93;" title="&#91;&#91;+name&#93;&#93;"&gt;
+        &lt;img src="&#91;&#91;+thumbnail&#93;&#93;" alt="Title #&#91;&#91;+id&#93;&#93;" /&gt;
     &lt;/a&gt;
     &lt;div class="caption"&gt;
         &lt;div class="download"&gt;
-            &lt;a href="[[+image]]"&gt;Download Original&lt;/a&gt;
+            &lt;a href="&#91;&#91;+image&#93;&#93;"&gt;Download Original&lt;/a&gt;
         &lt;/div&gt;
-        &lt;div class="image-title"&gt;[[+name]]&lt;/div&gt;
-        &lt;div class="image-desc"&gt;[[+description]]&lt;/div&gt;
+        &lt;div class="image-title"&gt;&#91;&#91;+name&#93;&#93;&lt;/div&gt;
+        &lt;div class="image-desc"&gt;&#91;&#91;+description&#93;&#93;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/li&gt;
 </pre>
@@ -517,7 +517,7 @@ galleriffic/wrapper.tpl
 &lt;/div&gt;
 &lt;div id="thumbs" class="navigation"&gt;
     &lt;ul class="thumbs noscript"&gt;
-        [[+items]]
+        &#91;&#91;+items&#93;&#93;
     &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div style="clear: both;"&gt;&lt;/div&gt;

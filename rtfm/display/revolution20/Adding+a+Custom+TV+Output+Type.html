@@ -93,7 +93,7 @@ This is the template for the default manager theme to render properties with. We
 &lt;div id="tv-wprops-form{$tv}"&gt;&lt;/div&gt;
 {literal}
 &lt;script type="text/javascript"&gt;
-// &lt;![CDATA[
+// &lt;!&#91;CDATA&#91;
 var params = {
 {/literal}{foreach from=$params key=k item=v name='p'}
  '{$k}': '{$v}'{if NOT $smarty.foreach.p.last},{/if}
@@ -106,12 +106,12 @@ MODx.load({
     ,autoHeight: true
     ,labelWidth: 150
     ,border: false
-    ,items: [{
+    ,items: &#91;{
         xtype: 'textfield'
         ,fieldLabel: _('class')
         ,name: 'prop_class'
         ,id: 'prop_class{/literal}{$tv}{literal}'
-        ,value: params['class'] || ''
+        ,value: params&#91;'class'&#93; || ''
         ,width: 300
         ,listeners: oc
     },{
@@ -119,7 +119,7 @@ MODx.load({
         ,fieldLabel: _('id')
         ,name: 'prop_id'
         ,id: 'prop_id{/literal}{$tv}{literal}'
-        ,value: params['id'] || ''
+        ,value: params&#91;'id'&#93; || ''
         ,width: 300
         ,listeners: oc
     },{
@@ -127,7 +127,7 @@ MODx.load({
         ,fieldLabel: _('style')
         ,name: 'prop_style'
         ,id: 'prop_style{/literal}{$tv}{literal}'
-        ,value: params['style'] || ''
+        ,value: params&#91;'style'&#93; || ''
         ,width: 300
         ,listeners: oc
     },{
@@ -135,13 +135,13 @@ MODx.load({
         ,fieldLabel: _('attributes')
         ,name: 'prop_attributes'
         ,id: 'prop_attributes{/literal}{$tv}{literal}'
-        ,value: params['attributes'] || ''
+        ,value: params&#91;'attributes'&#93; || ''
         ,width: 300
         ,listeners: oc
-    }]
+    }&#93;
     ,renderTo: 'tv-wprops-form{/literal}{$tv}{literal}'
 });
-// ]]&gt;
+// &#93;&#93;&gt;
 &lt;/script&gt;
 {/literal}
 </pre>
@@ -173,21 +173,21 @@ foreach ($buttons as $button) {
         $button= explode('==', $button);
     }
     /* the TV value must have a value of either: text or text==name */
-    $text = $button[0];
+    $text = $button&#91;0&#93;;
     if (!empty($text)) {
         $attributes = '';
         $attr = array(
-            'class' =&gt; $params['class'],
-            'id' =&gt; ($params['id'] ? $params['id'] : ''),
-            'alt' =&gt; htmlspecialchars($params['alttext']),
-            'style' =&gt; $params['style']
+            'class' =&gt; $params&#91;'class'&#93;,
+            'id' =&gt; ($params&#91;'id'&#93; ? $params&#91;'id'&#93; : ''),
+            'alt' =&gt; htmlspecialchars($params&#91;'alttext'&#93;),
+            'style' =&gt; $params&#91;'style'&#93;
         );
         /* if a name is specified, use it! */
-        if (!empty($button[1])) $attr['name'] = $button[1];
+        if (!empty($button&#91;1&#93;)) $attr&#91;'name'&#93; = $button&#91;1&#93;;
 
         /* separate the attributes into html tag format */
         foreach ($attr as $k =&gt; $v) $attributes.= ($v ? ' '.$k.'="'.$v.'"' : '');
-        $attributes .= ' '.$params['attrib'];
+        $attributes .= ' '.$params&#91;'attrib'&#93;;
 
         /* Output the image with attributes */
         $o .= '&lt;button'.rtrim($attributes).'&gt;'.$text.'&lt;/button&gt;'."\n";

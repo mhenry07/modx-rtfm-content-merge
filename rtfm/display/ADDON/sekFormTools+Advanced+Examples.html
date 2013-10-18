@@ -8,21 +8,21 @@ The best example of the power of this tool is how quickly you can create combo b
 
 <pre class="brush: php">
     &lt;label for="ftcountry"&gt;Country&lt;/label&gt;
-    [[!input.combobox? &amp;input_id=`ftcountry` &amp;value=`United States`
+    &#91;&#91;!input.combobox? &amp;input_id=`ftcountry` &amp;value=`United States`
       &amp;object=`{"name": "sekftCountries", "sortby": "country_name", "value": "country_name", "label": "country_name"}`
-    ]]
+    &#93;&#93;
 
     &lt;label for="ftstate"&gt;State&lt;/label&gt;
-    [[!input.combobox? &amp;input_id=`ftstate`
+    &#91;&#91;!input.combobox? &amp;input_id=`ftstate`
       &amp;object=`{"name": "sekftStates", "sortby": "state_name", "value": "state_name", "label": "state_name"}`
       &amp;filter=`{"input_id": "ftcountry", "name": "sekftCountries", "field": "country_name", "value": "United States"}`
-    ]]
+    &#93;&#93;
 
     &lt;label for="ftcity"&gt;City&lt;/label&gt;
-    [[!input.autocomplete? &amp;input_id=`ftcity`
+    &#91;&#91;!input.autocomplete? &amp;input_id=`ftcity`
       &amp;object=`{"name": "sekftUSCities", "sortby": "city_name", "value": "city_name", "label": "city_name"}`
       &amp;filter=`{"input_id": "ftstate", "name": "sekftStates", "field": "state_name"}`
-    ]]
+    &#93;&#93;
 </pre>
 <h4 id="sekFormToolsAdvancedExamples-FirstStep">
 First Step
@@ -34,9 +34,9 @@ While not required, it is best to define all fields with an input id. Here we de
 
 <pre class="brush: php">
     &lt;label for="ftcountry"&gt;Country&lt;/label&gt;
-    [[!input.combobox? &amp;input_id=`ftcountry` &amp;value=`United States`
+    &#91;&#91;!input.combobox? &amp;input_id=`ftcountry` &amp;value=`United States`
       &amp;object=`{"name": "sekftCountries", "sortby": "country_name", "value": "country_name", "label": "country_name"}`
-    ]]
+    &#93;&#93;
 </pre>
 <h4 id="sekFormToolsAdvancedExamples-SecondStep">
 Second Step
@@ -48,10 +48,10 @@ Again, we should define the input_id of every field, for the state we will use "
 
 <pre class="brush: php">
     &lt;label for="ftstate"&gt;State&lt;/label&gt;
-    [[!input.combobox? &amp;input_id=`ftstate`
+    &#91;&#91;!input.combobox? &amp;input_id=`ftstate`
       &amp;object=`{"name": "sekftStates", "sortby": "state_name", "value": "state_name", "label": "state_name"}`
       &amp;filter=`{"input_id": "ftcountry", "name": "sekftCountries", "field": "country_name", "value": "United States"}`
-    ]]
+    &#93;&#93;
 </pre>
 <p>
 In this example we are filtering based on another combo box ("ftcountry"), but if we just wanted to filter on page load, we would simple not define filter-&gt;input_id. sekFormTools takes advantage of xpdo's relational data, so using a table to filter another table is very easy. Here we use filter-&gt;name to grab the "sekftCountries" table object. The filter-&gt;field tells sekFormTools what field to filter on, and because we set a default value on the "ftcountry" combo box, we will pass "United States" to the optional filter-&gt;value.
@@ -63,15 +63,15 @@ When the country combo box is changed to "Canada", the value "Canada" is passed 
 
 <pre class="brush: php">
     &lt;label for="ftcountry"&gt;Country&lt;/label&gt;
-    [[!input.combobox? &amp;input_id=`ftcountry` &amp;value=`US`
+    &#91;&#91;!input.combobox? &amp;input_id=`ftcountry` &amp;value=`US`
       &amp;object=`{"name": "sekftCountries", "sortby": "country_name", "value": "isoa_two", "label": "country_name"}`
-    ]]
+    &#93;&#93;
 
     &lt;label for="ftstate"&gt;State&lt;/label&gt;
-    [[!input.combobox? &amp;input_id=`ftstate`
+    &#91;&#91;!input.combobox? &amp;input_id=`ftstate`
       &amp;object=`{"name": "sekftStates", "sortby": "state_name", "value": "state_name", "label": "state_name"}`
       &amp;filter=`{"input_id": "ftcountry", "name": "sekftCountries", "field": "isoa_two", "value": "US"}`
-    ]]
+    &#93;&#93;
 </pre>
 <p>
 This gives some freedom to use the value field for whatever you wish.
@@ -87,8 +87,8 @@ Many of the properties for the auto-complete field are the same as the combo box
 
 <pre class="brush: php">
     &lt;label for="ftcity"&gt;City&lt;/label&gt;
-    [[!input.autocomplete? &amp;input_id=`ftcity`
+    &#91;&#91;!input.autocomplete? &amp;input_id=`ftcity`
       &amp;object=`{"name": "sekftUSCities", "sortby": "city_name", "value": "city_name", "label": "city_name"}`
       &amp;filter=`{"input_id": "ftstate", "name": "sekftStates", "field": "state_name"}`
-    ]]
+    &#93;&#93;
 </pre>

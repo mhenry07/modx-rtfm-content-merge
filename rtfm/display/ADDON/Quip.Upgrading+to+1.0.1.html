@@ -23,31 +23,31 @@ In the &amp;tplComment chunk, children comments are now properly nested inside, 
 </p>
 
 <pre class="brush: php">
-&lt;li class="[[+cls]]" id="[[+idprefix]][[+id]]" [[+depth_margin:notempty=`style="padding-left: [[+depth_margin]]px"`]]&gt;
-&lt;div id="[[+idprefix]][[+id]]-div" class="quip-comment-body [[+alt]]"&gt;
+&lt;li class="&#91;&#91;+cls&#93;&#93;" id="&#91;&#91;+idprefix&#93;&#93;&#91;&#91;+id&#93;&#93;" &#91;&#91;+depth_margin:notempty=`style="padding-left: &#91;&#91;+depth_margin&#93;&#93;px"`&#93;&#93;&gt;
+&lt;div id="&#91;&#91;+idprefix&#93;&#93;&#91;&#91;+id&#93;&#93;-div" class="quip-comment-body &#91;&#91;+alt&#93;&#93;"&gt;
     &lt;div class="quip-comment-right"&gt;
-        [[+md5email:notempty=`&lt;img src="http://www.gravatar.com/avatar/[[+md5email]]?s=[[+gravatarSize]]&amp;d=[[+gravatarIcon]]" class="quip-avatar" /&gt;`]]
+        &#91;&#91;+md5email:notempty=`&lt;img src="http://www.gravatar.com/avatar/&#91;&#91;+md5email&#93;&#93;?s=&#91;&#91;+gravatarSize&#93;&#93;&amp;d=&#91;&#91;+gravatarIcon&#93;&#93;" class="quip-avatar" /&gt;`&#93;&#93;
     &lt;/div&gt;
 
     &lt;p class="quip-comment-meta"&gt;
-        &lt;span class="quip-comment-author"&gt;[[+authorName]]:&lt;/span&gt;&lt;br /&gt;
-        &lt;span class="quip-comment-createdon"&gt;&lt;a href="[[+url]]"&gt;[[+createdon]]&lt;/a&gt;
-        [[+approved:if=`[[+approved]]`:is=`1`:then=``:else=`- &lt;em&gt;[[%quip.unapproved? &amp;namespace=`quip` &amp;topic=`default`]]&lt;/em&gt;`]]
+        &lt;span class="quip-comment-author"&gt;&#91;&#91;+authorName&#93;&#93;:&lt;/span&gt;&lt;br /&gt;
+        &lt;span class="quip-comment-createdon"&gt;&lt;a href="&#91;&#91;+url&#93;&#93;"&gt;&#91;&#91;+createdon&#93;&#93;&lt;/a&gt;
+        &#91;&#91;+approved:if=`&#91;&#91;+approved&#93;&#93;`:is=`1`:then=``:else=`- &lt;em&gt;&#91;&#91;%quip.unapproved? &amp;namespace=`quip` &amp;topic=`default`&#93;&#93;&lt;/em&gt;`&#93;&#93;
         &lt;/span&gt;
     &lt;/p&gt;
 
     &lt;div class="quip-comment-text"&gt;
-        &lt;p&gt;[[+body]]&lt;/p&gt;
+        &lt;p&gt;&#91;&#91;+body&#93;&#93;&lt;/p&gt;
 
-        [[+replyUrl:notempty=`&lt;p&gt;&lt;span class="quip-reply-link"&gt;&lt;a href="[[+replyUrl]]"&gt;[[%quip.reply? &amp;namespace=`quip` &amp;topic=`default`]]&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;`]]
+        &#91;&#91;+replyUrl:notempty=`&lt;p&gt;&lt;span class="quip-reply-link"&gt;&lt;a href="&#91;&#91;+replyUrl&#93;&#93;"&gt;&#91;&#91;%quip.reply? &amp;namespace=`quip` &amp;topic=`default`&#93;&#93;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;`&#93;&#93;
     &lt;/div&gt;
 
     &lt;div class="quip-comment-options"&gt;
-        [[+report]]
-        [[+options]]
+        &#91;&#91;+report&#93;&#93;
+        &#91;&#91;+options&#93;&#93;
     &lt;/div&gt;
 &lt;/div&gt;
-    [[+children:notempty=`&lt;ol class="quip-comment-list"&gt;[[+children]]&lt;/ol&gt;`]]
+    &#91;&#91;+children:notempty=`&lt;ol class="quip-comment-list"&gt;&#91;&#91;+children&#93;&#93;&lt;/ol&gt;`&#93;&#93;
 &lt;/li&gt;
 </pre>
 <h2 id="Quip.Upgradingto1.0.1-SeeAlso">

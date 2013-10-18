@@ -18,7 +18,7 @@ YAMS Placeholders
 </h1>
 
 <p>
-Two forms of each placeholder are available. In the first form, <code>(yams_???)</code>, the placeholders provide information about the current document. In the second form, <code>(yams_???:<em>docId</em>)</code>, they provide information about the document with the given document identifier, <code><em>docId</em></code>. It should be possible to use snippet calls and chunks to specify the document identifier. <code>(yams_doc:[+id+])</code> can be used within templates.
+Two forms of each placeholder are available. In the first form, <code>(yams_???)</code>, the placeholders provide information about the current document. In the second form, <code>(yams_???:<em>docId</em>)</code>, they provide information about the document with the given document identifier, <code><em>docId</em></code>. It should be possible to use snippet calls and chunks to specify the document identifier. <code>(yams_doc:&#91;+id+&#93;)</code> can be used within templates.
 </p>
 
 <p>
@@ -30,7 +30,7 @@ When the output of a YAMS placeholder is language dependent it needs to know wha
 </p>
 
 <pre class="brush: php">
-&lt;ul&gt;[[YAMS? &amp;get=`repeat` &amp;repeattpl=`@CODE:&lt;li&gt;(yams_name_in_(yams_id+))&lt;/li&gt;`]]&lt;/ul&gt;
+&lt;ul&gt;&#91;&#91;YAMS? &amp;get=`repeat` &amp;repeattpl=`@CODE:&lt;li&gt;(yams_name_in_(yams_id+))&lt;/li&gt;`&#93;&#93;&lt;/ul&gt;
 </pre>
 <h2 id="YAMSPlaceholders-YAMSplaceholders">
 YAMS placeholders
@@ -145,7 +145,7 @@ If specified and non-empty, the server root name for the current language follow
 <code>(yams_site:<em>docId</em>)</code>
 </th>
 <td>
-If server name mode is ON, an URL created using the specified monolingual server name. If server name mode is OFF, the same output as [(site_url)].
+If server name mode is ON, an URL created using the specified monolingual server name. If server name mode is OFF, the same output as &#91;(site_url)&#93;.
 </td>
 <td>
 The full multilingual site url including server name and server root as required for the current page.
@@ -317,7 +317,7 @@ This special inline placeholder is different from all the others. It is used by 
 <br />
 YAMS will search out all these placeholders in the document, work out what information needs to be grabbed from the database and grab in large chunks so as to minimise the number of database queries required.
 <br />
-The <code>[[YAMS? &amp;get=`data`</code> snippet call (same as the legacy <code>[[YAMS? &amp;get=`content`</code> snippet call) which is used in the Wayfinder templates and internally by the YAMS Ditto extension will now output such placeholders meaning improved performance for large Ditto and Wayfinder calls.
+The <code>&#91;&#91;YAMS? &amp;get=`data`</code> snippet call (same as the legacy <code>&#91;&#91;YAMS? &amp;get=`content`</code> snippet call) which is used in the Wayfinder templates and internally by the YAMS Ditto extension will now output such placeholders meaning improved performance for large Ditto and Wayfinder calls.
 <br />
 <em>As of YAMS 1.2 this will work with document variables as well as template variables.</em>
 </td>

@@ -87,13 +87,13 @@ Function Source
 
 <pre class="brush: php">
  function regClientCSS($src) {
-        if (isset ($this-&gt;loadedjscripts[$src]) &amp;&amp; $this-&gt;loadedjscripts[$src])
+        if (isset ($this-&gt;loadedjscripts&#91;$src&#93;) &amp;&amp; $this-&gt;loadedjscripts&#91;$src&#93;)
             return '';
-        $this-&gt;loadedjscripts[$src]= true;
+        $this-&gt;loadedjscripts&#91;$src&#93;= true;
         if (stripos($src, "&lt;style") !== false || stripos($src, "&lt;link") !== false) {
-            $this-&gt;sjscripts[count($this-&gt;sjscripts)]= $src;
+            $this-&gt;sjscripts&#91;count($this-&gt;sjscripts)&#93;= $src;
         } else {
-            $this-&gt;sjscripts[count($this-&gt;sjscripts)]= '&lt;!-- MODx registered --&gt;' . "\n" . '  &lt;link rel="stylesheet" href="' . $src . '" /&gt;';
+            $this-&gt;sjscripts&#91;count($this-&gt;sjscripts)&#93;= '&lt;!-- MODx registered --&gt;' . "\n" . '  &lt;link rel="stylesheet" href="' . $src . '" /&gt;';
         }
     }
 </pre>

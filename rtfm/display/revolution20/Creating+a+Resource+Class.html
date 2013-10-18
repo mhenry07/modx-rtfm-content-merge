@@ -315,7 +315,7 @@ $modx-&gt;initialize('mgr');
 $modx-&gt;setLogLevel(xPDO::LOG_LEVEL_INFO);
 $modx-&gt;setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
 
-$modx-&gt;addExtensionPackage($package_name,"[[++core_path]]components/$package_name/model/");
+$modx-&gt;addExtensionPackage($package_name,"&#91;&#91;++core_path&#93;&#93;components/$package_name/model/");
 
 print 'Success!';
 ?&gt;
@@ -325,7 +325,7 @@ To test whether or not this worked, log into the MODX manager and search the Sys
 </p>
 
 <pre class="brush: php">
-[{"copyrightedresource":{"path":"[[++core_path]]components/copyrightedresource/model/"}}]
+&#91;{"copyrightedresource":{"path":"&#91;&#91;++core_path&#93;&#93;components/copyrightedresource/model/"}}&#93;
 </pre>
 <p>
 Note that you can use core_path placeholder in this path: this offers way to ensure that your path will work should you ever migrate your MODX site to a different server.

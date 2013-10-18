@@ -23,7 +23,7 @@ You can run WebLoginPE using the simplest function call:
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE? &amp;type=`simple`!]
+&#91;!WebLoginPE? &amp;type=`simple`!&#93;
 </pre>
 <p>
 You can do this to test whether the Snippet and its functions are working. Simply place that Snippet call on a page and preview the page; try logging in and updating your profile. It won't be pretty, but it should work. If you have trouble, have a look in the forums or check out the <a href="http://wiki.modxcms.com/index.php/WebLoginPE_Errors">WebLoginPE Errors</a> page.
@@ -56,30 +56,30 @@ The following wireframe outlines a site where you have a dedicated page with the
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE?
+&#91;!WebLoginPE?
 &amp;type=`simple`
 &amp;liHomeId=`2`
 &amp;regHomeId=`3`
 &amp;profileHomeId=`4`
-&amp;loHomeId=`6` !]
+&amp;loHomeId=`6` !&#93;
 </pre>
 <p>
 2. The Welcome page. This is the page users see after logging in. It should belong to a special user group, e.g. "Private Pages" -- that way it is not publicly available. 3. Registration page. This should contain a call to the WebLoginPE snippet using the <strong>&amp;type=`register`</strong> parameter:
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE?
+&#91;!WebLoginPE?
 &amp;type=`register`
 &amp;regSuccessId=`5`
 &amp;regSuccessPause=`1`
-&amp;groups=`Logged In Users`!]
+&amp;groups=`Logged In Users`!&#93;
 </pre>
 <p>
 4. Profile page. Belongs to the "Private Pages" group so it's not publicly accessible. The Snippet call looks like this:
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE? &amp;type=`profile` !]
+&#91;!WebLoginPE? &amp;type=`profile` !&#93;
 </pre>
 <p>
 5. Registration success page. This contains a message seen after a user registers. If you emailed the user a password, then the page should say that. It should also contain a link back to the login page. 6. Goodbye page. This is the page that users see after logging out. It can contain links back to the rest of the site. 7. You should also create a designated HTTP 500 page. This is the page that is shown if a public user tries to view a private page. Create the page, preferably with a link back to the login page, and be sure to denote it in the control panel under <strong>Tools?Configuration?Site</strong> under "Unauthorized page".
@@ -117,10 +117,10 @@ simple
 </h3>
 
 <pre class="brush: php">
-[!WebLoginPE? &amp;type=`simple`!]
+&#91;!WebLoginPE? &amp;type=`simple`!&#93;
 </pre>
 <p>
-This is the simplest to use, but as for understanding what's going on under the hood, this is the most complex option because all 4 functions (login, register, profile, logout) are encapsulated in a single page and are triggered by the value passed in the "service" variable (i.e. the value in $_POST['service']). Links between the different "pages" are automatically generated.
+This is the simplest to use, but as for understanding what's going on under the hood, this is the most complex option because all 4 functions (login, register, profile, logout) are encapsulated in a single page and are triggered by the value passed in the "service" variable (i.e. the value in $_POST&#91;'service'&#93;). Links between the different "pages" are automatically generated.
 </p>
 
 <p>
@@ -144,14 +144,14 @@ The registration page should contain a call to the Snippet:
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE? &amp;type=`register` &amp;regType=`verify`!]
+&#91;!WebLoginPE? &amp;type=`register` &amp;regType=`verify`!&#93;
 </pre>
 <p>
 Note that the form does not require a user to enter a name; only email and username are required by default. The fullname field can be blank. If you want to require the fullname field, use the &amp;regRequired parameter:
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE? &amp;type=`register` &amp;regType=`verify`&amp;regRequired=`username`!]
+&#91;!WebLoginPE? &amp;type=`register` &amp;regType=`verify`&amp;regRequired=`username`!&#93;
 
 But this configuration lacks a logout button.
 
@@ -168,7 +168,7 @@ On your Home Page or Site Template, put the Snippet call like
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE? &amp;type=`simple`!]
+&#91;!WebLoginPE? &amp;type=`simple`!&#93;
 </pre>
 <p>
 where you would like the Login Box to appear.
@@ -179,21 +179,21 @@ Create a New Page called Registration, and put a Snippet call like
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE? &amp;type=`register`!]
+&#91;!WebLoginPE? &amp;type=`register`!&#93;
 </pre>
 <p>
 Create a New Page called Profile, and put a Snippet call like
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE? &amp;type=`profile`!]
+&#91;!WebLoginPE? &amp;type=`profile`!&#93;
 </pre>
 <p>
 You can customise each of these snippet calls, by adding parameters (see the Documentation in the download package), for example on your Registration Page, you could specify
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE? &amp;type=`register` &amp;groups=`Pending Users` &amp;notify=`me@mydomain.com` &amp;regSuccessId=`74` &amp;regSuccessPause=`3`!]
+&#91;!WebLoginPE? &amp;type=`register` &amp;groups=`Pending Users` &amp;notify=`me@mydomain.com` &amp;regSuccessId=`74` &amp;regSuccessPause=`3`!&#93;
 </pre>
 <p>
 to make new registrations be assigned to the Pending Users group, an email notification sent to me@mydomain.com, user will be taken to success page (page ID is 74), and pause for 3 seconds.
@@ -228,18 +228,18 @@ My Custom Form Elements aren't being Generated
 </h2>
 
 <p>
-Make sure you have added the name of your form element to the <strong>customFields</strong> parameter AND that you have NO SPACES between multiple custom field, e.g. this Snippet call will fail:<span class="error">[||||\||]</span>
+Make sure you have added the name of your form element to the <strong>customFields</strong> parameter AND that you have NO SPACES between multiple custom field, e.g. this Snippet call will fail:<span class="error">&#91;||||\||&#93;</span>
 </p>
 
 <pre class="brush: php">
-[!WebLoginPE? &amp;type=`profile` &amp;profileTpl=`profileTpl` &amp;customFields=`first_name,last_name,favorite_colors, contact_time` &amp;inputHandler=`Favorite Colors:userFavoriteColors:favorite_colors:select multiple:Red(ff0000),Orange(ff9900),Green(66ff00),Black(000000)||Best time to contact you:userContactRadios:contact_time:radio:Morning(morning),Afternoon(afternoon),Evening(Evening)`!]
+&#91;!WebLoginPE? &amp;type=`profile` &amp;profileTpl=`profileTpl` &amp;customFields=`first_name,last_name,favorite_colors, contact_time` &amp;inputHandler=`Favorite Colors:userFavoriteColors:favorite_colors:select multiple:Red(ff0000),Orange(ff9900),Green(66ff00),Black(000000)||Best time to contact you:userContactRadios:contact_time:radio:Morning(morning),Afternoon(afternoon),Evening(Evening)`!&#93;
 </pre>
 <p>
 Can you see the space after the comma immediately before "contact_time"? That little space causes the Snippet call to train-wreck. Also make sure you are using the correct
 </p>
 
 <pre class="brush: php">
-[+form.name_of_your_form_element+]
+&#91;+form.name_of_your_form_element+&#93;
 </pre>
 <p>
 placeholder so WebLoginPE will know where to insert the form element.

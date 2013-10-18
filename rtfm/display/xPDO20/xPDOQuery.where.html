@@ -169,10 +169,10 @@ API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoquery.
 </p>
 
 <pre class="brush: php">
-xPDOQuery where ([mixed $conditions = ''],
- [string $conjunction = xPDOQuery::SQL_AND],
- [mixed $binding = null],
- [integer $condGroup = 0])
+xPDOQuery where (&#91;mixed $conditions = ''&#93;,
+ &#91;string $conjunction = xPDOQuery::SQL_AND&#93;,
+ &#91;mixed $binding = null&#93;,
+ &#91;integer $condGroup = 0&#93;)
 </pre>
 <h2 id="xPDOQuery.where-Examples">
 Examples
@@ -271,9 +271,9 @@ Another method is to pass a $criteria array immediately as the 2nd argument to n
 
 <pre class="brush: php">
 $criteria = array();
-$criteria['modTemplateVarResource.tmplvarid'] = 9;
-$criteria['modTemplateVarResource.value:IN'] = array('Red','Green','Blue');
-$criteria['Resource.template'] = 2;
+$criteria&#91;'modTemplateVarResource.tmplvarid'&#93; = 9;
+$criteria&#91;'modTemplateVarResource.value:IN'&#93; = array('Red','Green','Blue');
+$criteria&#91;'Resource.template'&#93; = 2;
 $criteria = $modx-&gt;newQuery('modTemplateVarResource', $criteria);
 $tvrs = $modx-&gt;getCollectionGraph('modTemplateVarResource','{"Resource":{}}', $criteria);
 </pre>

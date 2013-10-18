@@ -11,11 +11,11 @@ Basic Usage
 </h2>
 
 <p>
-Assuming&nbsp;[[+count]] returns a number, you just add the prettyNumbers output filter to it:
+Assuming&nbsp;&#91;&#91;+count&#93;&#93; returns a number, you just add the prettyNumbers output filter to it:
 </p>
 
 <pre class="brush: php">
-[[+count:prettyNumbers]]
+&#91;&#91;+count:prettyNumbers&#93;&#93;
 </pre>
 <p>
 and it will be prettyfied.
@@ -26,15 +26,15 @@ When you want to parse the result of a snippet, you can also just use the output
 </p>
 
 <pre class="brush: php">
-[[!getFacebookShares:prettyNumbers? &amp;url=`http://google.com/`]]
+&#91;&#91;!getFacebookShares:prettyNumbers? &amp;url=`http://google.com/`&#93;&#93;
 </pre>
 <p>
 As a standalone snippet, the syntax is slightly different in both scenarios:
 </p>
 
 <pre class="brush: php">
-[[prettyNumbers? &amp;input=`[[+count]]`]]
-[[prettyNumbers? &amp;input=`[[!getFacebookShares? &amp;url=`http://google.com/`]]`]]
+&#91;&#91;prettyNumbers? &amp;input=`&#91;&#91;+count&#93;&#93;`&#93;&#93;
+&#91;&#91;prettyNumbers? &amp;input=`&#91;&#91;!getFacebookShares? &amp;url=`http://google.com/`&#93;&#93;`&#93;&#93;
 </pre>
 <h2 id="SocialSuite.prettyNumbers-AdvancedUsage">
 Advanced Usage
@@ -101,7 +101,7 @@ You specify these like this:
 </p>
 
 <pre class="brush: php">
-[[+count:prettyNumbers=`case=upper&amp;decimal=,&amp;thousands=.`]][[prettyNumbers? &amp;input=`[[!getFacebookShares? &amp;url=`http://google.com/`]]` &amp;options=`case=upper&amp;decimal=,&amp;thousands=.`]]
+&#91;&#91;+count:prettyNumbers=`case=upper&amp;decimal=,&amp;thousands=.`&#93;&#93;&#91;&#91;prettyNumbers? &amp;input=`&#91;&#91;!getFacebookShares? &amp;url=`http://google.com/`&#93;&#93;` &amp;options=`case=upper&amp;decimal=,&amp;thousands=.`&#93;&#93;
 </pre>
 <h2 id="SocialSuite.prettyNumbers-Hownumbersareformattedbydefault">
 How numbers are formatted by default

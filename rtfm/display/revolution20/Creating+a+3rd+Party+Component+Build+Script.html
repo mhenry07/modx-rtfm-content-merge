@@ -72,7 +72,7 @@ Let's first start with some phpdoc comments at the top, and then start the timer
  */
 $mtime = microtime();
 $mtime = explode(" ", $mtime);
-$mtime = $mtime[1] + $mtime[0];
+$mtime = $mtime&#91;1&#93; + $mtime&#91;0&#93;;
 $tstart = $mtime;
 set_time_limit(0); /* makes sure our script doesnt timeout */
 </pre>
@@ -278,7 +278,7 @@ So, back to our script. To recap, so far we have:
  */
 $mtime = microtime();
 $mtime = explode(" ", $mtime);
-$mtime = $mtime[1] + $mtime[0];
+$mtime = $mtime&#91;1&#93; + $mtime&#91;0&#93;;
 $tstart = $mtime;
 set_time_limit(0);
 
@@ -315,7 +315,7 @@ So, let's first package in our modActions and modMenus for our backend:
 
 <pre class="brush: php">
 /* load action/menu */
-$menu = include $sources['data'].'transport.menu.php';
+$menu = include $sources&#91;'data'&#93;.'transport.menu.php';
 
 $vehicle= $builder-&gt;createVehicle($menu,array (
     xPDOTransport::PRESERVE_KEYS =&gt; true,
@@ -343,7 +343,7 @@ Let's do the same with our system settings:
 
 <pre class="brush: php">
 /* load system settings */
-$settings = include $sources['data'].'transport.settings.php';
+$settings = include $sources&#91;'data'&#93;.'transport.settings.php';
 
 $attributes= array(
     xPDOTransport::UNIQUE_KEY =&gt; 'key',
@@ -376,7 +376,7 @@ $snippet= $modx-&gt;newObject('modSnippet');
 $snippet-&gt;set('id',0);
 $snippet-&gt;set('name', 'Quip');
 $snippet-&gt;set('description', 'A simple commenting component.');
-$snippet-&gt;set('snippet',file_get_contents($sources['source_core'].'/snippet.quip.php');
+$snippet-&gt;set('snippet',file_get_contents($sources&#91;'source_core'&#93;.'/snippet.quip.php');
 </pre>
 <p>
 Great! Note how here we're actually using the file_get_contents() function to grab the contents of the snippet from our dev environment and place it here. This makes it easy to run the build in future iterations; no need to continually update this call - just update that file.
@@ -387,7 +387,7 @@ Now, we had some properties on that snippet...how do we put those in?
 </p>
 
 <pre class="brush: php">
-$properties = include $sources['data'].'properties.inc.php';
+$properties = include $sources&#91;'data'&#93;.'properties.inc.php';
 $snippet-&gt;setProperties($properties);
 $category-&gt;addMany($snippet);
 </pre>
@@ -432,7 +432,7 @@ Simple enough. And now on to the chunks:
 
 <pre class="brush: php">
 /* add chunks */
-$chunks = include $sources['data'].'transport.chunks.php';
+$chunks = include $sources&#91;'data'&#93;.'transport.chunks.php';
 if (is_array($chunks)) {
     $category-&gt;addMany($chunks);
 } else { $modx-&gt;log(modX::LOG_LEVEL_FATAL,'Adding chunks failed.'); }
@@ -485,15 +485,15 @@ With that said, we're going to attach 2 file resolvers, and one PHP resolver, to
 
 <pre class="brush: php">
 $vehicle-&gt;resolve('file',array(
-    'source' =&gt; $sources['source_core'],
+    'source' =&gt; $sources&#91;'source_core'&#93;,
     'target' =&gt; "return MODX_CORE_PATH . 'components/';",
 ));
 $vehicle-&gt;resolve('file',array(
-    'source' =&gt; $sources['source_assets'],
+    'source' =&gt; $sources&#91;'source_assets'&#93;,
     'target' =&gt; "return MODX_ASSETS_PATH . 'components/';",
 ));
 $vehicle-&gt;resolve('php',array(
-    'source' =&gt; $sources['resolvers'] . 'setupoptions.resolver.php',
+    'source' =&gt; $sources&#91;'resolvers'&#93; . 'setupoptions.resolver.php',
 ));
 $builder-&gt;putVehicle($vehicle);
 </pre>
@@ -584,10 +584,10 @@ So let's use these in our build script:
 <pre class="brush: php">
 /* now pack in the license file, readme and setup options */
 $builder-&gt;setPackageAttributes(array(
-    'license' =&gt; file_get_contents($sources['docs'] . 'license.txt'),
-    'readme' =&gt; file_get_contents($sources['docs'] . 'readme.txt'),
+    'license' =&gt; file_get_contents($sources&#91;'docs'&#93; . 'license.txt'),
+    'readme' =&gt; file_get_contents($sources&#91;'docs'&#93; . 'readme.txt'),
     'setup-options' =&gt; array(
-        'source' =&gt; $sources['build'] . 'setup.options.php'
+        'source' =&gt; $sources&#91;'build'&#93; . 'setup.options.php'
     ),
 ));
 </pre>
@@ -617,34 +617,34 @@ $values = array(
     'emailsFrom' =&gt; 'my@emailhere.com',
     'emailsReplyTo' =&gt; 'my@emailhere.com',
 );
-switch ($options[xPDOTransport::PACKAGE_ACTION]) {
+switch ($options&#91;xPDOTransport::PACKAGE_ACTION&#93;) {
     case xPDOTransport::ACTION_INSTALL:
     case xPDOTransport::ACTION_UPGRADE:
         $setting = $modx-&gt;getObject('modSystemSetting',array('key' =&gt; 'quip.emailsTo'));
-        if ($setting != null) { $values['emailsTo'] = $setting-&gt;get('value'); }
+        if ($setting != null) { $values&#91;'emailsTo'&#93; = $setting-&gt;get('value'); }
         unset($setting);
 
         $setting = $modx-&gt;getObject('modSystemSetting',array('key' =&gt; 'quip.emailsFrom'));
-        if ($setting != null) { $values['emailsFrom'] = $setting-&gt;get('value'); }
+        if ($setting != null) { $values&#91;'emailsFrom'&#93; = $setting-&gt;get('value'); }
         unset($setting);
 
         $setting = $modx-&gt;getObject('modSystemSetting',array('key' =&gt; 'quip.emailsReplyTo'));
-        if ($setting != null) { $values['emailsReplyTo'] = $setting-&gt;get('value'); }
+        if ($setting != null) { $values&#91;'emailsReplyTo'&#93; = $setting-&gt;get('value'); }
         unset($setting);
     break;
     case xPDOTransport::ACTION_UNINSTALL: break;
 }
 
 $output = '&lt;label for="quip-emailsTo"&gt;Emails To:&lt;/label&gt;
-&lt;input type="text" name="emailsTo" id="quip-emailsTo" width="300" value="'.$values['emailsTo'].'" /&gt;
+&lt;input type="text" name="emailsTo" id="quip-emailsTo" width="300" value="'.$values&#91;'emailsTo'&#93;.'" /&gt;
 &lt;br /&gt;&lt;br /&gt;
 
 &lt;label for="quip-emailsFrom"&gt;Emails From:&lt;/label&gt;
-&lt;input type="text" name="emailsFrom" id="quip-emailsFrom" width="300" value="'.$values['emailsFrom'].'" /&gt;
+&lt;input type="text" name="emailsFrom" id="quip-emailsFrom" width="300" value="'.$values&#91;'emailsFrom'&#93;.'" /&gt;
 &lt;br /&gt;&lt;br /&gt;
 
 &lt;label for="quip-emailsReplyTo"&gt;Emails Reply-To:&lt;/label&gt;
-&lt;input type="text" name="emailsReplyTo" id="quip-emailsReplyTo" width="300" value="'.$values['emailsReplyTo'].'" /&gt;';
+&lt;input type="text" name="emailsReplyTo" id="quip-emailsReplyTo" width="300" value="'.$values&#91;'emailsReplyTo'&#93;.'" /&gt;';
 
 return $output;
 </pre>
@@ -700,34 +700,34 @@ Let's go back to our PHP script resolver that processes this information:
  * @subpackage build
  */
 $success= false;
-switch ($options[xPDOTransport::PACKAGE_ACTION]) {
+switch ($options&#91;xPDOTransport::PACKAGE_ACTION&#93;) {
     case xPDOTransport::ACTION_INSTALL:
     case xPDOTransport::ACTION_UPGRADE:
         /* emailsTo */
         $setting = $object-&gt;xpdo-&gt;getObject('modSystemSetting',array('key' =&gt; 'quip.emailsTo'));
         if ($setting != null) {
-            $setting-&gt;set('value',$options['emailsTo']);
+            $setting-&gt;set('value',$options&#91;'emailsTo'&#93;);
             $setting-&gt;save();
         } else {
-            $object-&gt;xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'[Quip] emailsTo setting could not be found, so the setting could not be changed.');
+            $object-&gt;xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'&#91;Quip&#93; emailsTo setting could not be found, so the setting could not be changed.');
         }
 
         /* emailsFrom */
         $setting = $object-&gt;xpdo-&gt;getObject('modSystemSetting',array('key' =&gt; 'quip.emailsFrom'));
         if ($setting != null) {
-            $setting-&gt;set('value',$options['emailsFrom']);
+            $setting-&gt;set('value',$options&#91;'emailsFrom'&#93;);
             $setting-&gt;save();
         } else {
-            $object-&gt;xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'[Quip] emailsFrom setting could not be found, so the setting could not be changed.');
+            $object-&gt;xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'&#91;Quip&#93; emailsFrom setting could not be found, so the setting could not be changed.');
         }
 
         /* emailsReplyTo */
         $setting = $object-&gt;xpdo-&gt;getObject('modSystemSetting',array('key' =&gt; 'quip.emailsReplyTo'));
         if ($setting != null) {
-            $setting-&gt;set('value',$options['emailsReplyTo']);
+            $setting-&gt;set('value',$options&#91;'emailsReplyTo'&#93;);
             $setting-&gt;save();
         } else {
-            $object-&gt;xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'[Quip] emailsReplyTo setting could not be found, so the setting could not be changed.');
+            $object-&gt;xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'&#91;Quip&#93; emailsReplyTo setting could not be found, so the setting could not be changed.');
         }
 
         $success= true;
@@ -755,7 +755,7 @@ $builder-&gt;pack();
 
 $mtime= microtime();
 $mtime= explode(" ", $mtime);
-$mtime= $mtime[1] + $mtime[0];
+$mtime= $mtime&#91;1&#93; + $mtime&#91;0&#93;;
 $tend= $mtime;
 $totalTime= ($tend - $tstart);
 $totalTime= sprintf("%2.4f s", $totalTime);

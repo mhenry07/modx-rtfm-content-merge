@@ -255,7 +255,7 @@ Access the System settings found in the System menu of the manager, and search f
 </p>
 
 <pre class="brush: php">
-,{"extendeduser":{"path":"[[++core_path]]components/extendeduser/model/"}}
+,{"extendeduser":{"path":"&#91;&#91;++core_path&#93;&#93;components/extendeduser/model/"}}
 </pre>
 <p>
 <strong>If the key does not exists</strong>
@@ -274,7 +274,7 @@ Access the System settings found in the System menu of the manager, and search f
 <li>value
 
 <pre class="brush: php">
-[{"extendeduser":{"path":"[[++core_path]]components/extendeduser/model/"}}]
+&#91;{"extendeduser":{"path":"&#91;&#91;++core_path&#93;&#93;components/extendeduser/model/"}}&#93;
 </pre>
 </li>
 </ul>
@@ -296,7 +296,7 @@ Here's how you might interact with your extended data in a Snippet:
 </p>
 
 <pre class="brush: php">
-[{"extendeduser":{"path":"[[++core_path]]components/extendeduser/model/"}}]
+&#91;{"extendeduser":{"path":"&#91;&#91;++core_path&#93;&#93;components/extendeduser/model/"}}&#93;
 </pre>
 </li>
 </ul>
@@ -359,7 +359,7 @@ if (!class_exists('Sampleclass')) {
             ), $config);
 
             /* Define the user */
-            $this-&gt;userObj = $this-&gt;setUser($this-&gt;_config['userID']);
+            $this-&gt;userObj = $this-&gt;setUser($this-&gt;_config&#91;'userID'&#93;);
             $this-&gt;userID = $this-&gt;userObj-&gt;get('id');
         }
 
@@ -429,7 +429,7 @@ if (!class_exists('Sampleclass')) {
                 'userID' =&gt; $this-&gt;modx-&gt;user-&gt;get('id'),
             ), $config);
             /* Define the user */
-            $this-&gt;userObj = $this-&gt;setUser($this-&gt;_config['userID']);
+            $this-&gt;userObj = $this-&gt;setUser($this-&gt;_config&#91;'userID'&#93;);
             $this-&gt;userID = $this-&gt;userObj-&gt;get('id');
         }
         function __destruct() {
@@ -471,7 +471,7 @@ In our example we will be accessing our extended user throughout our site, there
 &lt;?php
 $x = $modx-&gt;getService('extendeduser','Sampleclass',$modx-&gt;getOption('core_path',null, MODX_CORE_PATH).'components/extendeduser/',$scriptProperties);
 if (!($x instanceof Extendeduser)) {
-    $modx-&gt;log(modX::LOG_LEVEL_ERROR,'[Extendeduser] Could not load Extendeduser class.');
+    $modx-&gt;log(modX::LOG_LEVEL_ERROR,'&#91;Extendeduser&#93; Could not load Extendeduser class.');
     $modx-&gt;event-&gt;output(true);
 }
 return;

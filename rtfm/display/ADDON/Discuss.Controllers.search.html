@@ -110,7 +110,7 @@ resultRowTpl
 disSearchResult
 </td>
 <td>
-The name of a (file based) chunk to wrap each result in. Placeholders include all <span class="error">[Discuss.Database+Model]</span> fields, as well as [<span class="error">[+username]</span>], [<span class="error">[\+board_name]</span>], [<span class="error">[+replies]</span>], [<span class="error">[+relevancy]</span>], [<span class="error">[+cls]</span>], [<span class="error">[+toggle]</span>].
+The name of a (file based) chunk to wrap each result in. Placeholders include all <span class="error">&#91;Discuss.Database+Model&#93;</span> fields, as well as &#91;<span class="error">&#91;+username&#93;</span>&#93;, &#91;<span class="error">&#91;\+board_name&#93;</span>&#93;, &#91;<span class="error">&#91;+replies&#93;</span>&#93;, &#91;<span class="error">&#91;+relevancy&#93;</span>&#93;, &#91;<span class="error">&#91;+cls&#93;</span>&#93;, &#91;<span class="error">&#91;+toggle&#93;</span>&#93;.
 </td>
 </tr>
 
@@ -225,21 +225,21 @@ The search term.
 </table>
 
 <pre class="brush: php">
-&lt;form class="m-fullw-form m-styled-form h-group m-search" action="[[~[[*id]]]]search/" method="get"&gt;
-    &lt;h1&gt;[[%discuss.search? &amp;namespace=`discuss` &amp;topic=`web`]]&lt;/h1&gt;
+&lt;form class="m-fullw-form m-styled-form h-group m-search" action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;search/" method="get"&gt;
+    &lt;h1&gt;&#91;&#91;%discuss.search? &amp;namespace=`discuss` &amp;topic=`web`&#93;&#93;&lt;/h1&gt;
     &lt;div class="m-panel f1-f8"&gt;
         &lt;div class="f1-f5 f-pad h-group"&gt;
-            &lt;label class="search" for="dis-search"&gt;[[%discuss.search]]:&lt;/label&gt;
-            &lt;input class="search" type="text" id="dis-search" name="s" value="[[+search]]" /&gt;
+            &lt;label class="search" for="dis-search"&gt;&#91;&#91;%discuss.search&#93;&#93;:&lt;/label&gt;
+            &lt;input class="search" type="text" id="dis-search" name="s" value="&#91;&#91;+search&#93;&#93;" /&gt;
         &lt;/div&gt;
         &lt;div class="f-all f-pad  h-group"&gt;
-            &lt;a id="dis-search-advanced-toggle" href="a-search-adavnaced"&gt;[[%discuss.search_advanced_options]]&lt;/a&gt;
+            &lt;a id="dis-search-advanced-toggle" href="a-search-adavnaced"&gt;&#91;&#91;%discuss.search_advanced_options&#93;&#93;&lt;/a&gt;
         &lt;/div&gt;
         &lt;div id="dis-search-advanced" class="f-all m-grouped-content"&gt;
             &lt;div class="f-full"&gt;
                 &lt;div class="f1-f4 f-pad"&gt;
                     &lt;label for="dis-search-board"&gt;Post type:
-                        &lt;span class="error"&gt;[[+error.board]]&lt;/span&gt;
+                        &lt;span class="error"&gt;&#91;&#91;+error.board&#93;&#93;&lt;/span&gt;
                     &lt;/label&gt;
                     &lt;select name="board" id="dis-search-qa"&gt;
                         &lt;option value="1"&gt;(All Posts)&lt;/option&gt;
@@ -249,7 +249,7 @@ The search term.
                 &lt;/div&gt;
                 &lt;div id="SubOptions" class="f5-f8 sub-options"&gt;
                     &lt;label for="dis-search-board"&gt;Question options:
-                        &lt;span class="error"&gt;[[+error.board]]&lt;/span&gt;
+                        &lt;span class="error"&gt;&#91;&#91;+error.board&#93;&#93;&lt;/span&gt;
                     &lt;/label&gt;
                     &lt;input type="radio" name="qa-options" value="Both" checked&gt;All Questions
                     &lt;input type="radio" name="qa-options" value="Solved"&gt;Answered
@@ -259,49 +259,49 @@ The search term.
 
             &lt;div class="f-full"&gt;
                 &lt;div class="f1-f4 f-pad"&gt;
-                    &lt;label for="dis-search-board"&gt;[[%discuss.board]]:
-                        &lt;span class="error"&gt;[[+error.board]]&lt;/span&gt;
+                    &lt;label for="dis-search-board"&gt;&#91;&#91;%discuss.board&#93;&#93;:
+                        &lt;span class="error"&gt;&#91;&#91;+error.board&#93;&#93;&lt;/span&gt;
                     &lt;/label&gt;
-                    &lt;select name="board" id="dis-search-board"&gt;[[+boards]]&lt;/select&gt;
+                    &lt;select name="board" id="dis-search-board"&gt;&#91;&#91;+boards&#93;&#93;&lt;/select&gt;
                 &lt;/div&gt;
                 &lt;div class="f5-f8 f-pad"&gt;
-                    &lt;label for="dis-author"&gt;[[%discuss.author]]:&lt;/label&gt;
-                    &lt;input type="text" id="dis-author" name="user" value="[[+user]]" class="autocomplete" data-autocomplete-action="rest/find_user" data-autocomplete-single="true" /&gt;
+                    &lt;label for="dis-author"&gt;&#91;&#91;%discuss.author&#93;&#93;:&lt;/label&gt;
+                    &lt;input type="text" id="dis-author" name="user" value="&#91;&#91;+user&#93;&#93;" class="autocomplete" data-autocomplete-action="rest/find_user" data-autocomplete-single="true" /&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
 
             &lt;div class="f1-f4 f-pad"&gt;
-                &lt;label for="dis-date-start"&gt;[[%discuss.date_start]]:&lt;/label&gt;
-                &lt;input type="text" id="dis-date-start" class="m-datepicker" name="date_start" value="[[+date_start]]"/&gt;
+                &lt;label for="dis-date-start"&gt;&#91;&#91;%discuss.date_start&#93;&#93;:&lt;/label&gt;
+                &lt;input type="text" id="dis-date-start" class="m-datepicker" name="date_start" value="&#91;&#91;+date_start&#93;&#93;"/&gt;
             &lt;/div&gt;
 
             &lt;div class="f5-f8 f-pad"&gt;
-                &lt;label for="dis-date-end"&gt;[[%discuss.date_end]]:&lt;/label&gt;
-                &lt;input type="text" id="dis-date-end" class="m-datepicker" name="date_end" value="[[+date_end]]"/&gt;
+                &lt;label for="dis-date-end"&gt;&#91;&#91;%discuss.date_end&#93;&#93;:&lt;/label&gt;
+                &lt;input type="text" id="dis-date-end" class="m-datepicker" name="date_end" value="&#91;&#91;+date_end&#93;&#93;"/&gt;
             &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class="f1-f8 f-pad"&gt;
-            &lt;input type="submit" value="[[%discuss.search]]" /&gt;
+            &lt;input type="submit" value="&#91;&#91;%discuss.search&#93;&#93;" /&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/form&gt;
 
-[[+search:notempty=`
+&#91;&#91;+search:notempty=`
 &lt;header class="dis-cat-header dark-gradient h-group sticky-bar top"&gt;
-    [[+results:notempty=`&lt;h1&gt;Displaying [[+start]]-[[+end]] of [[+total]] Results&lt;/h1&gt;`]]
-    [[+pagination]]
+    &#91;&#91;+results:notempty=`&lt;h1&gt;Displaying &#91;&#91;+start&#93;&#93;-&#91;&#91;+end&#93;&#93; of &#91;&#91;+total&#93;&#93; Results&lt;/h1&gt;`&#93;&#93;
+    &#91;&#91;+pagination&#93;&#93;
 &lt;/header&gt;
 
 &lt;div class="dis-threads"&gt;
-    &lt;ul class="dis-list search-results"&gt;`]]
-        [[+results]]
-    [[+search:notempty=`&lt;/ul&gt;
+    &lt;ul class="dis-list search-results"&gt;`&#93;&#93;
+        &#91;&#91;+results&#93;&#93;
+    &#91;&#91;+search:notempty=`&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="paginate stand-alone bottom horiz-list"&gt;
-[[+pagination]]
+&#91;&#91;+pagination&#93;&#93;
 &lt;/div&gt;
-`]]
-[[+bottom]]
+`&#93;&#93;
+&#91;&#91;+bottom&#93;&#93;
 
 </pre>
 <h2 id="Discuss.Controllers.search-SystemEvents">

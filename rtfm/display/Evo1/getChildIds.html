@@ -52,7 +52,7 @@ Description
 </h2>
 
 <pre class="brush: php">
-Array getChildIds(mixed $id[, int $depth[, array $children]]);
+Array getChildIds(mixed $id&#91;, int $depth&#91;, array $children&#93;&#93;);
 </pre>
 <p>
 Returns an array of child IDs belonging to the specified parent.
@@ -97,13 +97,13 @@ Function Source
     function getChildIds($id, $depth= 10, $children= array ()) {
         $c= null;
         foreach ($this-&gt;documentMap as $mapEntry) {
-            if (isset ($mapEntry[$id])) {
-                $childId= $mapEntry[$id];
+            if (isset ($mapEntry&#91;$id&#93;)) {
+                $childId= $mapEntry&#91;$id&#93;;
                 $childKey= array_search($childId, $this-&gt;documentListing);
                 if (!$childKey) {
                     $childKey= "$childId";
                 }
-                $c[$childKey]= $childId;
+                $c&#91;$childKey&#93;= $childId;
             }
         }
         $depth--;

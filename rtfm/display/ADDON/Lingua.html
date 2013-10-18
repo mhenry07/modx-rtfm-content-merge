@@ -102,9 +102,9 @@ Plugin
 <p>
 The plugin is used to manage the cookie and session of the selected language.
 <br />
-This plugin then provides a placeholder <strong>[[+lingua.cultureKey]]</strong> for the page.
+This plugin then provides a placeholder <strong>&#91;&#91;+lingua.cultureKey&#93;&#93;</strong> for the page.
 <br />
-But to get this value for other snippet, like language selection of a email hook, the developer can use <strong>[[!lingua.cultureKey]]</strong> below.
+But to get this value for other snippet, like language selection of a email hook, the developer can use <strong>&#91;&#91;!lingua.cultureKey&#93;&#93;</strong> below.
 </p>
 
 <h2 id="Lingua-Snippets">
@@ -279,10 +279,10 @@ id, local_name, lang_code, lcid_string, lcid_dec
 <li>chunk name
 </li>
 
-<li>@FILE:[[++core_path]]path/to/chunk/file.tpl
+<li>@FILE:&#91;&#91;++core_path&#93;&#93;path/to/chunk/file.tpl
 </li>
 
-<li>@CODE:&lt;div&gt;[[+lingua.languages]]&lt;/div&gt;
+<li>@CODE:&lt;div&gt;&#91;&#91;+lingua.languages&#93;&#93;&lt;/div&gt;
 </li>
 </ul>
 
@@ -300,10 +300,10 @@ lingua.selector.wrapper
                 &lt;button
                         class="btn btn-link btn-mini dropdown-toggle"
                         data-toggle="dropdown"
-                        &gt;[[%lingua.select_language]]
+                        &gt;&#91;&#91;%lingua.select_language&#93;&#93;
                 &lt;/button&gt;
                 &lt;ul class="dropdown-menu"&gt;
-                        [[+lingua.languages]]
+                        &#91;&#91;+lingua.languages&#93;&#93;
                 &lt;/ul&gt;
         &lt;/div&gt;
 &lt;/div&gt;
@@ -313,11 +313,11 @@ lingua.selector.item
 </h5>
 
 <pre class="brush: php">
-[[+lingua.cultureKey:is=`[[+lingua.lang_code]]`:then=``:else=`&lt;li&gt;
-        &lt;a href="[[+lingua.url]]" title="[[+lingua.local_name]]"&gt;
-                &lt;img src="[[+lingua.flag]]" alt=""/&gt; [[+lingua.local_name]]
+&#91;&#91;+lingua.cultureKey:is=`&#91;&#91;+lingua.lang_code&#93;&#93;`:then=``:else=`&lt;li&gt;
+        &lt;a href="&#91;&#91;+lingua.url&#93;&#93;" title="&#91;&#91;+lingua.local_name&#93;&#93;"&gt;
+                &lt;img src="&#91;&#91;+lingua.flag&#93;&#93;" alt=""/&gt; &#91;&#91;+lingua.local_name&#93;&#93;
         &lt;/a&gt;
-&lt;/li&gt;`]]
+&lt;/li&gt;`&#93;&#93;
 </pre>
 <p>
 On this chunk, the default content tries to ignore the language of the current language using Output Filter.
@@ -348,7 +348,7 @@ This snippet is the most important part to grab the language's lexicons.
 </p>
 
 <pre class="brush: php">
-[[!%login? &amp;namespace=`Login` &amp;language=`[[!lingua.cultureKey]]`]]
+&#91;&#91;!%login? &amp;namespace=`Login` &amp;language=`&#91;&#91;!lingua.cultureKey&#93;&#93;`&#93;&#93;
 </pre>
 <p>
 <strong>Please notice the exclamation mark in front of the %login. The lexicon must be +UN+CACHED.</strong>
@@ -431,5 +431,5 @@ Examples
 </h5>
 
 <pre class="brush: php">
-Created on: [[*createdon:date=`[[!lingua.getField? &amp;field=`date_format_lite`]]`]]
+Created on: &#91;&#91;*createdon:date=`&#91;&#91;!lingua.getField? &amp;field=`date_format_lite`&#93;&#93;`&#93;&#93;
 </pre>

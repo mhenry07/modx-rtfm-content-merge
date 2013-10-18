@@ -159,7 +159,7 @@ Your request membership form will look a lot like what we're going to build for 
 </p>
 
 <pre class="brush: php">
-[[!Register?
+&#91;&#91;!Register?
     &amp;submitVar=`registerbtn`
     &amp;activationResourceId=`8`
     &amp;activationEmailTpl=`lgnActivateEmailTpl`
@@ -167,43 +167,43 @@ Your request membership form will look a lot like what we're going to build for 
     &amp;submittedResourceId=`7`
     &amp;usergroups=`Members`
     &amp;excludeExtended=`email:required:email,login-updprof-btn`
-]]
+&#93;&#93;
 
 &lt;div class="register"&gt;
-    &lt;div class="registerMessage"&gt;[[+error.message]]&lt;/div&gt;
+    &lt;div class="registerMessage"&gt;&#91;&#91;+error.message&#93;&#93;&lt;/div&gt;
       
-    &lt;form class="form" action="[[~[[*id]]]]" method="post"&gt;
+    &lt;form class="form" action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post"&gt;
         &lt;input type="hidden" name="nospam:blank" value="" /&gt;
           
-        &lt;label for="username"&gt;[[%register.username? &amp;namespace=`login` &amp;topic=`register`]]
-            &lt;span class="error"&gt;[[+error.username]]&lt;/span&gt;
+        &lt;label for="username"&gt;&#91;&#91;%register.username? &amp;namespace=`login` &amp;topic=`register`&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.username&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="username:required:minLength=6" id="username" value="[[+username]]" /&gt;
+        &lt;input type="text" name="username:required:minLength=6" id="username" value="&#91;&#91;+username&#93;&#93;" /&gt;
           
-        &lt;label for="password"&gt;[[%register.password]]
-            &lt;span class="error"&gt;[[+error.password]]&lt;/span&gt;
+        &lt;label for="password"&gt;&#91;&#91;%register.password&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.password&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="password" name="password:required:minLength=6" id="password" value="[[+password]]" /&gt;
+        &lt;input type="password" name="password:required:minLength=6" id="password" value="&#91;&#91;+password&#93;&#93;" /&gt;
           
-        &lt;label for="password_confirm"&gt;[[%register.password_confirm]]
-            &lt;span class="error"&gt;[[+error.password_confirm]]&lt;/span&gt;
+        &lt;label for="password_confirm"&gt;&#91;&#91;%register.password_confirm&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.password_confirm&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="password" name="password_confirm:password_confirm=`password`" id="password_confirm" value="[[+password_confirm]]" /&gt;
+        &lt;input type="password" name="password_confirm:password_confirm=`password`" id="password_confirm" value="&#91;&#91;+password_confirm&#93;&#93;" /&gt;
           
-        &lt;label for="fullname"&gt;[[%register.fullname]]
-            &lt;span class="error"&gt;[[+error.fullname]]&lt;/span&gt;
+        &lt;label for="fullname"&gt;&#91;&#91;%register.fullname&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.fullname&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="fullname:required" id="fullname" value="[[+fullname]]" /&gt;
+        &lt;input type="text" name="fullname:required" id="fullname" value="&#91;&#91;+fullname&#93;&#93;" /&gt;
           
-        &lt;label for="email"&gt;[[%register.email]]
-            &lt;span class="error"&gt;[[+error.email]]&lt;/span&gt;
+        &lt;label for="email"&gt;&#91;&#91;%register.email&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.email&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="email:email" id="email" value="[[+email]]" /&gt;
+        &lt;input type="text" name="email:email" id="email" value="&#91;&#91;+email&#93;&#93;" /&gt;
 
         &lt;label for="custom_field"&gt;Custom Field
-            &lt;span class="error"&gt;[[+error.custom_field]]&lt;/span&gt;
+            &lt;span class="error"&gt;&#91;&#91;+error.custom_field&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="custom_field" id="custom_field" value="[[+custom_field]]" /&gt;
+        &lt;input type="text" name="custom_field" id="custom_field" value="&#91;&#91;+custom_field&#93;&#93;" /&gt;
 
           
         &lt;br class="clear" /&gt;
@@ -227,40 +227,40 @@ We're gonna edit this page to use some more of features of the <a href="extras/r
 </p>
 
 <pre class="brush: php">
-[[!UpdateProfile? &amp;excludeExtended=`email:required:email,login-updprof-btn` &amp;useExtended=`1`]]
+&#91;&#91;!UpdateProfile? &amp;excludeExtended=`email:required:email,login-updprof-btn` &amp;useExtended=`1`&#93;&#93;
 
 &lt;div class="update-profile"&gt;
-    &lt;div class="updprof-error"&gt;[[+error.message]]&lt;/div&gt;
-    [[+login.update_success:if=`[[+login.update_success]]`:is=`1`:then=`[[%login.profile_updated? &amp;namespace=`login` &amp;topic=`updateprofile`]]`]]
+    &lt;div class="updprof-error"&gt;&#91;&#91;+error.message&#93;&#93;&lt;/div&gt;
+    &#91;&#91;+login.update_success:if=`&#91;&#91;+login.update_success&#93;&#93;`:is=`1`:then=`&#91;&#91;%login.profile_updated? &amp;namespace=`login` &amp;topic=`updateprofile`&#93;&#93;`&#93;&#93;
  
-    &lt;form class="form" action="[[~[[*id]]]]" method="post"&gt;
+    &lt;form class="form" action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post"&gt;
         &lt;input type="hidden" name="nospam:blank" value="" /&gt;
  
-        &lt;label for="fullname"&gt;[[!%login.fullname? &amp;namespace=`login` &amp;topic=`updateprofile`]]
-            &lt;span class="error"&gt;[[+error.fullname]]&lt;/span&gt;
+        &lt;label for="fullname"&gt;&#91;&#91;!%login.fullname? &amp;namespace=`login` &amp;topic=`updateprofile`&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.fullname&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="fullname" id="fullname" value="[[+fullname]]" /&gt;
+        &lt;input type="text" name="fullname" id="fullname" value="&#91;&#91;+fullname&#93;&#93;" /&gt;
  
-        &lt;label for="email"&gt;[[!%login.email]]
-            &lt;span class="error"&gt;[[+error.email]]&lt;/span&gt;
+        &lt;label for="email"&gt;&#91;&#91;!%login.email&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.email&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="email:required:email" id="email" value="[[+email]]" /&gt;
+        &lt;input type="text" name="email:required:email" id="email" value="&#91;&#91;+email&#93;&#93;" /&gt;
  
 
         &lt;label for="custom_field"&gt;Custom Field
-            &lt;span class="error"&gt;[[+error.custom_field]]&lt;/span&gt;
+            &lt;span class="error"&gt;&#91;&#91;+error.custom_field&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="custom_field" id="custom_field" value="[[+custom_field]]" /&gt;&lt;br/&gt;
+        &lt;input type="text" name="custom_field" id="custom_field" value="&#91;&#91;+custom_field&#93;&#93;" /&gt;&lt;br/&gt;
  
                 &lt;br class="clear" /&gt;
  
         &lt;div class="form-buttons"&gt;
-            &lt;input type="submit" name="login-updprof-btn" value="[[!%login.update_profile]]" /&gt;
+            &lt;input type="submit" name="login-updprof-btn" value="&#91;&#91;!%login.update_profile&#93;&#93;" /&gt;
         &lt;/div&gt;
     &lt;/form&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a href="[[~12]]"&gt;Change Password&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="&#91;&#91;~12&#93;&#93;"&gt;Change Password&lt;/a&gt;&lt;/p&gt;
 </pre>
 <p>
 Why are we using the <strong>&amp;excludeExtended</strong> parameter? Well... there seems to be a bug in the Login Snippet where these fields with validation rules.
@@ -275,14 +275,14 @@ As before, we will be featuring the <a href="extras/revo/login/login.profile" ti
 </p>
 
 <pre class="brush: php">
-[[!Profile]]
+&#91;&#91;!Profile&#93;&#93;
  
-&lt;p&gt;Username: [[+username]]&lt;/p&gt;
-&lt;p&gt;Full Name: [[+fullname]]&lt;/p&gt;
-&lt;p&gt;Email: [[+email]]&lt;/p&gt;
-&lt;p&gt;Custom Field: [[+custom_field]]&lt;/p&gt;
+&lt;p&gt;Username: &#91;&#91;+username&#93;&#93;&lt;/p&gt;
+&lt;p&gt;Full Name: &#91;&#91;+fullname&#93;&#93;&lt;/p&gt;
+&lt;p&gt;Email: &#91;&#91;+email&#93;&#93;&lt;/p&gt;
+&lt;p&gt;Custom Field: &#91;&#91;+custom_field&#93;&#93;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="[[~10]]"&gt;Edit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="&#91;&#91;~10&#93;&#93;"&gt;Edit&lt;/a&gt;&lt;/p&gt;
 </pre>
 <h2 id="Login.ExtendedUserProfiles-Testing:MakingitallWork">
 Testing: Making it all Work
@@ -330,7 +330,7 @@ The FormIt Snippet has a useful helper Snippet: <a href="extras/revo/formit/form
 
 <pre class="brush: php">
 &lt;select name="country"&gt;
-[[!FormItCountryOptions? &amp;selected=`[[!+country]]` &amp;prioritized=`US,GB,CA,AU` &amp;prioritizedGroupText=`Frequent Visitors` &amp;allGroupText=`Other Countries`]]
+&#91;&#91;!FormItCountryOptions? &amp;selected=`&#91;&#91;!+country&#93;&#93;` &amp;prioritized=`US,GB,CA,AU` &amp;prioritizedGroupText=`Frequent Visitors` &amp;allGroupText=`Other Countries`&#93;&#93;
 &lt;/select&gt;
 </pre>
 <p>

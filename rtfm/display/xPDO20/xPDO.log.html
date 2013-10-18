@@ -44,7 +44,7 @@ API Docs: <a href="http://api.modxcms.com/xpdo/xPDO.html#log">http://api.modxcms
 </p>
 
 <pre class="brush: php">
-void log (integer $level, string $msg, [string $target = ''], [string $def = ''], [string $file = ''], [string $line = ''])
+void log (integer $level, string $msg, &#91;string $target = ''&#93;, &#91;string $def = ''&#93;, &#91;string $file = ''&#93;, &#91;string $line = ''&#93;)
 </pre>
 <h2 id="xPDO.log-LogLevels">
 Log Levels
@@ -78,7 +78,7 @@ In the logs, this would appear like this:
 </p>
 
 <pre>
-[2013-09-15 14:21:25] (ERROR @ /index.php) [Mobile Detect] An error occurred.
+&#91;2013-09-15 14:21:25&#93; (ERROR @ /index.php) &#91;Mobile Detect&#93; An error occurred.
 </pre>
 <h3>
 Specify the Snippet
@@ -93,7 +93,7 @@ $xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'An error occurred.','','MySnippet');
 </pre>
 
 <pre>
-[2013-09-15 14:22:48] (ERROR in MySnippet @ /index.php) An error occurred
+&#91;2013-09-15 14:22:48&#93; (ERROR in MySnippet @ /index.php) An error occurred
 </pre>
 <h3>
 Specify File and Line
@@ -108,7 +108,7 @@ $xpdo-&gt;log(xPDO::LOG_LEVEL_ERROR,'This is my error message...','','MySnippet'
 </pre>
 
 <pre>
-[2013-09-15 14:48:02] (ERROR in MySnippet @ /path/to/core/cache/includes/elements/modsnippet/28.include.cache.php : 7) This is my error message...
+&#91;2013-09-15 14:48:02&#93; (ERROR in MySnippet @ /path/to/core/cache/includes/elements/modsnippet/28.include.cache.php : 7) This is my error message...
 </pre>
 <h3>
 Custom Log File
@@ -128,7 +128,7 @@ By default, the path for log files is <code>core/cache/logs/</code> so in this e
 </p>
 
 <pre>
-[2013-09-15 15:01:07] (ERROR @ /index.php) Error for my custom log file
+&#91;2013-09-15 15:01:07&#93; (ERROR @ /index.php) Error for my custom log file
 </pre>
 <p>
 If desired, you may also specify the path via the <code>filepath</code> argument.
@@ -168,7 +168,7 @@ It can be really handy to increase logging verbosity for a single Snippet or plu
 </p>
 
 <pre class="brush: php">
-// Call your snippet like this: [[mySnippet? &amp;log_level=`4`]]
+// Call your snippet like this: &#91;&#91;mySnippet? &amp;log_level=`4`&#93;&#93;
 // Override global log_level value
 $log_level = $modx-&gt;getOption('log_level',$scriptProperties, $modx-&gt;getOption('log_level'));
 $modx-&gt;setLogLevel($log_level);

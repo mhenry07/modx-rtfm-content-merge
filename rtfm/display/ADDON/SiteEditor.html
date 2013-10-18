@@ -115,30 +115,30 @@ Before you can use the SiteEditor in the front-end you need to edit any template
 </p>
 
 <p>
-If you have a [[<span class="error">[*introtext]</span>]] tag that you want edit with SiteEditor, make it look like this:
+If you have a &#91;&#91;<span class="error">&#91;*introtext&#93;</span>&#93;&#93; tag that you want edit with SiteEditor, make it look like this:
 </p>
 
 <pre class="brush: php">
-[[*introtext:siteEditorField]]
+&#91;&#91;*introtext:siteEditorField&#93;&#93;
 </pre>
 <p>
 And you are done with that field. You can apply the same technique to TV's and other fields. Site editor will save the field content with the <strong>CURRENT RESOURCE</strong>. What if you want to be able to edit other resource fields from the current resource (for example: you want to be able to edit menu items, but you are in resource ID 3 while the menu items all have their own resource ID's). Just open the chunk that shows your menu item's:
 <br />
-Instead of [[<span class="error">[*pagetitle]</span>]] we now have [[<span class="error">[+pagetitle]</span>]]. When the tag shows a + you need to supply SiteEditor with the ID this placeholder belongs to. So replace [[<span class="error">[+pagetitle]</span>]] with:
+Instead of &#91;&#91;<span class="error">&#91;*pagetitle&#93;</span>&#93;&#93; we now have &#91;&#91;<span class="error">&#91;+pagetitle&#93;</span>&#93;&#93;. When the tag shows a + you need to supply SiteEditor with the ID this placeholder belongs to. So replace &#91;&#91;<span class="error">&#91;+pagetitle&#93;</span>&#93;&#93; with:
 </p>
 
 <pre class="brush: php">
-[[+pagetitle:siteEditorField=`resource=[[+id]]`]]
+&#91;&#91;+pagetitle:siteEditorField=`resource=&#91;&#91;+id&#93;&#93;`&#93;&#93;
 </pre>
 <p>
 In case of wayfinder, the placeholder actually has a different name, you can solve that by using the following code in your wayfinder row:
 </p>
 
 <pre class="brush: php">
-[[+wf.linktext:siteEditorField=`resource=[[+wf.docid]]&amp;field=pagetitle`]]
+&#91;&#91;+wf.linktext:siteEditorField=`resource=&#91;&#91;+wf.docid&#93;&#93;&amp;field=pagetitle`&#93;&#93;
 </pre>
 <p>
-This tells SiteEditor the field is the pagetitle of resource [<span class="error">[+wf.docid]</span>]. Now you can edit your menu titles from the front-end, how cool is that? :)
+This tells SiteEditor the field is the pagetitle of resource &#91;<span class="error">&#91;+wf.docid&#93;</span>&#93;. Now you can edit your menu titles from the front-end, how cool is that? :)
 </p>
 
 <p>
@@ -146,8 +146,8 @@ You can add these anywhere on your site, as long as you supply SiteEditor with t
 </p>
 
 <pre class="brush: php">
-[[+pagetitle:siteEditorField=`resource=[[+id]]`]]
-[[+introtext:siteEditorField=`resource=[[+id]]`]]
+&#91;&#91;+pagetitle:siteEditorField=`resource=&#91;&#91;+id&#93;&#93;`&#93;&#93;
+&#91;&#91;+introtext:siteEditorField=`resource=&#91;&#91;+id&#93;&#93;`&#93;&#93;
 </pre>
 <p>
 And you are set :) You can edit the pagetitle and introtext...<strong>just hover over the fields in the front-end and it will show you an edit pencil, click it...edit it and then click in any whitespace to save it.</strong>
@@ -166,13 +166,13 @@ This is just an example template with SiteEditor fields:
         &lt;head&gt;
         &lt;/head&gt;
         &lt;body&gt;
-                &lt;h1&gt;[[*pagetitle:siteEditorField]]&lt;/h1&gt;
+                &lt;h1&gt;&#91;&#91;*pagetitle:siteEditorField&#93;&#93;&lt;/h1&gt;
                 &lt;p&gt;
-                        [[*introtext:siteEditorField]]
+                        &#91;&#91;*introtext:siteEditorField&#93;&#93;
                 &lt;/p&gt;
-                [[*content:siteEditorField]]
+                &#91;&#91;*content:siteEditorField&#93;&#93;
                 &lt;hr /&gt;
-                [[*footerTv:siteEditorField]]
+                &#91;&#91;*footerTv:siteEditorField&#93;&#93;
         &lt;/body&gt;
 &lt;/html&gt;
 </pre>
@@ -182,7 +182,7 @@ This is an example of a getResources rowTpl chunk:
 
 <pre class="brush: php">
 &lt;li&gt;
-        &lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle:siteEditorField=`resource=[[+id]]`]]&lt;/a&gt;
+        &lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;"&gt;&#91;&#91;+pagetitle:siteEditorField=`resource=&#91;&#91;+id&#93;&#93;`&#93;&#93;&lt;/a&gt;
 &lt;/li&gt;
 </pre>
 <h1 id="SiteEditor-Externalsources">

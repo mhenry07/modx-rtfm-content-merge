@@ -40,14 +40,14 @@ Simply add this Snippet to whatever page you are redirecting from using FormIt's
 </p>
 
 <pre class="brush: php">
-[[!FormItRetriever]]
+&#91;&#91;!FormItRetriever&#93;&#93;
 </pre>
 <p>
 And then display your form data with placeholders relating to the names of your form fields like such:
 </p>
 
 <pre class="brush: php">
-&lt;p&gt;Thanks [[!+fi.name]] for submitting. An email will be sent to you at [[!+fi.email]].&lt;/p&gt;
+&lt;p&gt;Thanks &#91;&#91;!+fi.name&#93;&#93; for submitting. An email will be sent to you at &#91;&#91;!+fi.email&#93;&#93;.&lt;/p&gt;
 </pre>
 <p>
 Remember to set &amp;store=`1` in your FormIt call, so FormIt knows to store the value.
@@ -127,24 +127,24 @@ On your form page:
 </p>
 
 <pre class="brush: php">
-[[!FormIt?
+&#91;&#91;!FormIt?
    &amp;submitVar=`go`
    &amp;hooks=`spam,FormItAutoResponder,redirect`
    &amp;emailTo=`my@email.com`
    &amp;store=`1`
    &amp;redirectTo=`123`
-]]
-&lt;form action="[[~[[*id]]]]" method="post"&gt;
+&#93;&#93;
+&lt;form action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post"&gt;
     &lt;input type="hidden" name="nospam" value="" /&gt;
 
-    &lt;label for="name"&gt;Name: [[!+fi.error.name]]&lt;/label&gt;
-    &lt;input type="text" name="name:required" id="name" value="[[!+fi.name]]" /&gt;
+    &lt;label for="name"&gt;Name: &#91;&#91;!+fi.error.name&#93;&#93;&lt;/label&gt;
+    &lt;input type="text" name="name:required" id="name" value="&#91;&#91;!+fi.name&#93;&#93;" /&gt;
 
-    &lt;label for="email"&gt;Email: [[!+fi.error.email]]&lt;/label&gt;
-    &lt;input type="text" name="email:email:required" id="email" value="[[!+fi.email]]" /&gt;
+    &lt;label for="email"&gt;Email: &#91;&#91;!+fi.error.email&#93;&#93;&lt;/label&gt;
+    &lt;input type="text" name="email:email:required" id="email" value="&#91;&#91;!+fi.email&#93;&#93;" /&gt;
 
-    &lt;label for="message"&gt;Message: [[!+fi.error.message]]&lt;/label&gt;
-    &lt;textarea name="message:stripTags" id="message" cols="55" rows="7"&gt;[[!+fi.message]]&lt;/textarea&gt;
+    &lt;label for="message"&gt;Message: &#91;&#91;!+fi.error.message&#93;&#93;&lt;/label&gt;
+    &lt;textarea name="message:stripTags" id="message" cols="55" rows="7"&gt;&#91;&#91;!+fi.message&#93;&#93;&lt;/textarea&gt;
 
     &lt;br /&gt;
     &lt;input type="submit" name="go" value="Send Contact Inquiry" /&gt;
@@ -155,11 +155,11 @@ On your Thank You page (Resource ID 123):
 </p>
 
 <pre class="brush: php">
-[[!FormItRetriever? &amp;redirectToOnNotFound=`444`]]
+&#91;&#91;!FormItRetriever? &amp;redirectToOnNotFound=`444`&#93;&#93;
 
-&lt;p&gt;Thanks [[!+fi.name]] for submitting. An auto-response email will be sent to you at [[!+fi.email]]. Here's a copy of your message:&lt;/p&gt;
+&lt;p&gt;Thanks &#91;&#91;!+fi.name&#93;&#93; for submitting. An auto-response email will be sent to you at &#91;&#91;!+fi.email&#93;&#93;. Here's a copy of your message:&lt;/p&gt;
 
-&lt;pre&gt;[[!+fi.message]]&lt;/pre&gt;
+&lt;pre&gt;&#91;&#91;!+fi.message&#93;&#93;&lt;/pre&gt;
 </pre>
 <h2 id="FormIt.FormItRetriever-SeeAlso">
 See Also

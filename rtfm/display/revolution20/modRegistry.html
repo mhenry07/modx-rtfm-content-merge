@@ -576,7 +576,7 @@ Here is an example remotecommands plugin (NOTE this is for MODX 2.1, and 2.0 wou
 /* RemoteCommands plugin -- register with OnWebPageComplete event */
  
 /* find any remote commands to execute from the master instance */
-$instance = $_SERVER['SERVER_ADDR'];
+$instance = $_SERVER&#91;'SERVER_ADDR'&#93;;
 if (!empty($instance) &amp;&amp; $modx-&gt;getService('registry', 'registry.modRegistry')) {
     $modx-&gt;registry-&gt;addRegister('remotes', 'registry.modDbRegister', array('directory' =&gt; 'remotes'));
     $modx-&gt;registry-&gt;remotes-&gt;connect();
@@ -618,7 +618,7 @@ if ($modx-&gt;getService('registry', 'registry.modRegistry')) {
     $instances = $modx-&gt;registry-&gt;remotes-&gt;read(array('poll_limit' =&gt; 1, 'msg_limit' =&gt; 25, 'remove_read' =&gt; false));
     if (!empty($instances)) {
         foreach ($instances as $instance) {
-            if ($instance == $_SERVER['SERVER_ADDR']) continue;
+            if ($instance == $_SERVER&#91;'SERVER_ADDR'&#93;) continue;
             $modx-&gt;registry-&gt;remotes-&gt;subscribe("/distrib/commands/{$instance}/");
             $modx-&gt;registry-&gt;remotes-&gt;send("/distrib/commands/{$instance}/", 'clearCache', array('expires' =&gt; time() + 1440));
         }

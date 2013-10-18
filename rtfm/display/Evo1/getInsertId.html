@@ -31,7 +31,7 @@ Modx versions:
 Input parameters:
 </td>
 <td>
-([resource conn_identifier])
+(&#91;resource conn_identifier&#93;)
 </td>
 </tr>
 
@@ -79,7 +79,7 @@ Description
 </h2>
 
 <pre class="brush: php">
-integer getInsertId([resource conn_identifier $conn])
+integer getInsertId(&#91;resource conn_identifier $conn&#93;)
 </pre>
 <p>
 Get the atuomatically generated ID of the item that was just inserted into the database.
@@ -124,7 +124,7 @@ function insert_user( $fields, $table ) {
 </p>
 
 <pre class="brush: php">
-$email = checkMail($_POST['email']);
+$email = checkMail($_POST&#91;'email'&#93;);
 $pass = makePass();
 $sql = "INSERT INTO ".$modx-&gt;getFullTableName('web_users')." (username,password) VALUES ('".$email."', '".$pass."')";
 $rs = $modx-&gt;db-&gt;query($sql);
@@ -145,7 +145,7 @@ Related
 </h2>
 
 <p>
-<span class="error">[$modx-&gt;db-&gt;insert]</span>()
+<span class="error">&#91;$modx-&gt;db-&gt;insert&#93;</span>()
 </p>
 
 <h2 id="getInsertId-Notes">

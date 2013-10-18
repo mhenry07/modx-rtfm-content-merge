@@ -24,8 +24,8 @@ It is not built-in snippet, it example of snippet for generating events. Save th
 
 <pre class="brush: php">
 &lt;?php
-$year = !empty($_REQUEST['year']) ? $_REQUEST['year'] : date('Y');
-$month = !empty($_REQUEST['month']) ? $_REQUEST['month'] : date('n');
+$year = !empty($_REQUEST&#91;'year'&#93;) ? $_REQUEST&#91;'year'&#93; : date('Y');
+$month = !empty($_REQUEST&#91;'month'&#93;) ? $_REQUEST&#91;'month'&#93; : date('n');
 $days = date('t', strtotime("$year-$month"));
 
 $start = strtotime("$year-$month-1");
@@ -33,7 +33,7 @@ $end = strtotime("$year-$month-$days") + 60*60*23;
 
 $arr = array();
 for ($i = 1; $i &lt;= 10; $i++) {
-        $arr[] = array(
+        $arr&#91;&#93; = array(
                 'date' =&gt; strftime('%Y-%m-%d %H:%M:%S', rand($start, $end))
                 ,'pagetitle' =&gt; 'Testing news '.$i
                 ,'introtext' =&gt; 'Lorem ipsum dolar'
@@ -48,9 +48,9 @@ Usage
 </h2>
 
 <pre class="brush: php">
-[[!eventsCalendar2?
-  &amp;events=`[[!eventsGenerator]]`
-]]
+&#91;&#91;!eventsCalendar2?
+  &amp;events=`&#91;&#91;!eventsGenerator&#93;&#93;`
+&#93;&#93;
 </pre>
 <h2 id="eventsCalendar2.Generatingevents-SeeAlso">
 See Also

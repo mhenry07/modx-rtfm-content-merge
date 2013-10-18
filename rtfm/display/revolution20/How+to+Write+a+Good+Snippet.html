@@ -81,7 +81,7 @@ Our Example Snippet
  *
  * USAGE:
  *
- * [[!mySnippet? &amp;x=`5` &amp;y=`7`]]
+ * &#91;&#91;!mySnippet? &amp;x=`5` &amp;y=`7`&#93;&#93;
  *
  */
 $x = (int) $modx-&gt;getOption('x', $scriptProperties);
@@ -89,11 +89,11 @@ $y = (int) $modx-&gt;getOption('y', $scriptProperties);
 $z = (int) $modx-&gt;getOption('z', $scriptProperties, 1);
 // For debugging:
 $modx-&gt;log(modX::LOG_LEVEL_DEBUG
-    , '[mySnippet] called on page '. $modx-&gt;resource-&gt;id . ' with the following properties: '
+    , '&#91;mySnippet&#93; called on page '. $modx-&gt;resource-&gt;id . ' with the following properties: '
     .print_r($scriptProperties, true));
 // Verify Inputs
-if (!isset($scriptProperties['x']) || !isset($scriptProperties['y'])) {
-    $modx-&gt;log(modX::LOG_LEVEL_ERROR, '[mySnippet] missing required properties &amp;x and &amp;y!');
+if (!isset($scriptProperties&#91;'x'&#93;) || !isset($scriptProperties&#91;'y'&#93;)) {
+    $modx-&gt;log(modX::LOG_LEVEL_ERROR, '&#91;mySnippet&#93; missing required properties &amp;x and &amp;y!');
     return;
 }
 return $x * $y * $z;
@@ -222,14 +222,14 @@ MODX has a logging function: <em>use it</em>. See <a href="xpdo/2.x/class-refere
 </p>
 
 <pre class="brush: php">
-$modx-&gt;log(modX::LOG_LEVEL_ERROR, '[mySnippet] missing the &amp;xyz property!');
+$modx-&gt;log(modX::LOG_LEVEL_ERROR, '&#91;mySnippet&#93; missing the &amp;xyz property!');
 </pre>
 <p>
 You can also log debugging info, which is useful for users who are debugging things. This will only be written to the error log when the log_level system setting is set to the appropriate level.
 </p>
 
 <pre class="brush: php">
-$modx-&gt;log(modX::LOG_LEVEL_DEBUG, '[mySnippet] was called with the following properties: '.print_r($scriptProperties,true));
+$modx-&gt;log(modX::LOG_LEVEL_DEBUG, '&#91;mySnippet&#93; was called with the following properties: '.print_r($scriptProperties,true));
 </pre>
 
 <h2 id="HowtoWriteaGoodSnippet-SeeAlso">

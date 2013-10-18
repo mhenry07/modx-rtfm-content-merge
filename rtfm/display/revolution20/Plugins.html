@@ -163,7 +163,7 @@ Word Filter
 <pre class="brush: php">
 $words = array("snippet", "template"); // words to filter
 $output = &amp;$modx-&gt;resource-&gt;_output; // get a reference to the output
-$output = str_replace($words,"&lt;b&gt;[filtered]&lt;/b&gt;",$output);
+$output = str_replace($words,"&lt;b&gt;&#91;filtered&#93;&lt;/b&gt;",$output);
 
 </pre>
 <p>
@@ -220,7 +220,7 @@ if ($modx-&gt;event-&gt;name == 'OnPageNotFound') {
             $modx-&gt;mail-&gt;setHTML(true);
             $modx-&gt;mail-&gt;send();
          }
-         $url = $this-&gt;makeUrl($scriptProperties['page']);
+         $url = $this-&gt;makeUrl($scriptProperties&#91;'page'&#93;);
          $modx-&gt;sendRedirect($url, 1);
          exit;
     }

@@ -1,5 +1,5 @@
 <p>
-<em>This document provides information on the mhPayPal snippet templating. If looking for more information about the mhPayPal package in which the snippet is included, please visit ?</em><span class="error">[mhPayPal|display/ADDON/mhPayPal]</span> instead.
+<em>This document provides information on the mhPayPal snippet templating. If looking for more information about the mhPayPal package in which the snippet is included, please visit ?</em><span class="error">&#91;mhPayPal|display/ADDON/mhPayPal&#93;</span> instead.
 </p>
 
 <p>
@@ -36,29 +36,29 @@ Default:
 </p>
 
 <pre class="brush: php">
-&lt;form action="[[+action]]" method="[[+config.method]]" id="mhpp_form_[[+config.id]]"&gt;
+&lt;form action="&#91;&#91;+action&#93;&#93;" method="&#91;&#91;+config.method&#93;&#93;" id="mhpp_form_&#91;&#91;+config.id&#93;&#93;"&gt;
     &lt;p&gt;Your donation will be safely processed by PayPal, allowing you to donate via a PayPal account or directly with a credit card.&lt;/p&gt;
-    [[+errors:notempty=`
-        &lt;p&gt;Uh oh.. The following error(s) were found in your form: &lt;br /&gt;[[+errors]]&lt;/p&gt;
-    `]]
+    &#91;&#91;+errors:notempty=`
+        &lt;p&gt;Uh oh.. The following error(s) were found in your form: &lt;br /&gt;&#91;&#91;+errors&#93;&#93;&lt;/p&gt;
+    `&#93;&#93;
     &lt;div&gt;
-        &lt;label for="mhpp_amount_[[+config.id]]"&gt;Amount&lt;/label&gt;
+        &lt;label for="mhpp_amount_&#91;&#91;+config.id&#93;&#93;"&gt;Amount&lt;/label&gt;
         &lt;div&gt;
-            &lt;select name="currency" id="mhpp_currency_[[+config.id]]"&gt;
-                &lt;option value="EUR"[[+currency_EUR:notempty=` selected="selected"`]]&gt;EUR &amp;euro;&lt;/option&gt;
-                &lt;option value="USD"[[+currency_USD:notempty=` selected="selected"`]]&gt;USD &amp;#36;&lt;/option&gt;
-                &lt;option value="GBP"[[+currency_GBP:notempty=` selected="selected"`]]&gt;GBP &amp;#163;&lt;/option&gt;
+            &lt;select name="currency" id="mhpp_currency_&#91;&#91;+config.id&#93;&#93;"&gt;
+                &lt;option value="EUR"&#91;&#91;+currency_EUR:notempty=` selected="selected"`&#93;&#93;&gt;EUR &amp;euro;&lt;/option&gt;
+                &lt;option value="USD"&#91;&#91;+currency_USD:notempty=` selected="selected"`&#93;&#93;&gt;USD &amp;#36;&lt;/option&gt;
+                &lt;option value="GBP"&#91;&#91;+currency_GBP:notempty=` selected="selected"`&#93;&#93;&gt;GBP &amp;#163;&lt;/option&gt;
             &lt;/select&gt;
 
 
-            &lt;input type="text" name="amount" id="mhpp_amount_[[+config.id]]" /&gt;
-            [[+currency.error]] [[+amount.error]]
+            &lt;input type="text" name="amount" id="mhpp_amount_&#91;&#91;+config.id&#93;&#93;" /&gt;
+            &#91;&#91;+currency.error&#93;&#93; &#91;&#91;+amount.error&#93;&#93;
         &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div&gt;
         &lt;div&gt;
-            &lt;input type="submit" name="[[+config.submitVar]]" value="Donate!" /&gt;
+            &lt;input type="submit" name="&#91;&#91;+config.submitVar&#93;&#93;" value="Donate!" /&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/form&gt;
@@ -71,7 +71,7 @@ Available Placeholders
 <tbody>
 <tr>
 <th>
-Placeholder [[+<ins>name here</ins>]]
+Placeholder &#91;&#91;+<ins>name here</ins>&#93;&#93;
 <br />
 </th>
 <th>
@@ -86,7 +86,7 @@ config.___
 <br />
 </td>
 <td>
-The value of the snippet property identified with the __. See [mhPayPal] for all snippet properties available.
+The value of the snippet property identified with the __. See &#91;mhPayPal&#93; for all snippet properties available.
 <br />
 </td>
 </tr>
@@ -176,7 +176,7 @@ Default:
 </p>
 
 <pre class="brush: php">
-&lt;span&gt;[[+error]]&lt;/span&gt;
+&lt;span&gt;&#91;&#91;+error&#93;&#93;&lt;/span&gt;
 </pre>
 <p>
 Placeholders:
@@ -186,7 +186,7 @@ Placeholders:
 <tbody>
 <tr>
 <th>
-Placeholder [[+<ins>name here</ins>]]
+Placeholder &#91;&#91;+<ins>name here</ins>&#93;&#93;
 <br />
 </th>
 <th>
@@ -219,14 +219,14 @@ Default:
 <pre class="brush: php">
 &lt;div&gt;
     &lt;h3&gt;Thanks! You're awesome!&lt;/h3&gt;
-    &lt;p&gt;PayPal says your [[+description]] ([[+currency]] [[+amount]]) transaction is [[+PAYMENTSTATUS]]! You're really cool for helping out on this project further. Do not hesitate to get in touch should you need help!&lt;/p&gt;
+    &lt;p&gt;PayPal says your &#91;&#91;+description&#93;&#93; (&#91;&#91;+currency&#93;&#93; &#91;&#91;+amount&#93;&#93;) transaction is &#91;&#91;+PAYMENTSTATUS&#93;&#93;! You're really cool for helping out on this project further. Do not hesitate to get in touch should you need help!&lt;/p&gt;
 &lt;/div&gt;
 </pre>
 <table>
 <tbody>
 <tr>
 <th>
-Placeholder [[+<ins>name here</ins>]]
+Placeholder &#91;&#91;+<ins>name here</ins>&#93;&#93;
 </th>
 <th>
 Description

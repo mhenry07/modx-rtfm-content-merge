@@ -106,7 +106,7 @@ The getPage snippet can be called using the tag:
 </p>
 
 <pre class="brush: php">
-[[!getPage? &amp;elementClass=`modSnippet` &amp;element=`getResources`]]
+&#91;&#91;!getPage? &amp;elementClass=`modSnippet` &amp;element=`getResources`&#93;&#93;
 </pre>
 <div class="warning">
 <strong>Do Not Cache</strong>
@@ -402,7 +402,7 @@ If you do want to change these defaults you will need to use a property set:
 <li>Finally, reference your property set name in your snippet call:
 
 <pre class="brush: php">
-[[!getPage@PropertySetName? &amp;element=`getResources` &amp;parents=`3` ...]]
+&#91;&#91;!getPage@PropertySetName? &amp;element=`getResources` &amp;parents=`3` ...&#93;&#93;
 </pre>
 </li>
 </ul>
@@ -434,7 +434,7 @@ A content tpl for controlling the layout of the various page navigation controls
 </td>
 <td>
 <pre class="brush: php">
-[[+first]][[+prev]][[+pages]][[+next]][[+last]]
+&#91;&#91;+first&#93;&#93;&#91;&#91;+prev&#93;&#93;&#91;&#91;+pages&#93;&#93;&#91;&#91;+next&#93;&#93;&#91;&#91;+last&#93;&#93;
 </pre>
 </td>
 <td>
@@ -451,7 +451,7 @@ A content tpl representing a single page navigation control.
 </td>
 <td>
 <pre class="brush: php">
-&lt;li[[+classes]]&gt;&lt;a[[+classes]][[+title]] href="[[+href]]"&gt;[[+pageNo]]&lt;/a&gt;&lt;/li&gt;
+&lt;li&#91;&#91;+classes&#93;&#93;&gt;&lt;a&#91;&#91;+classes&#93;&#93;&#91;&#91;+title&#93;&#93; href="&#91;&#91;+href&#93;&#93;"&gt;&#91;&#91;+pageNo&#93;&#93;&lt;/a&gt;&lt;/li&gt;
 </pre>
 </td>
 <td>
@@ -468,7 +468,7 @@ A content tpl representing the current page navigation control.
 </td>
 <td>
 <pre class="brush: php">
-&lt;li[[+activeClasses]]&gt;&lt;a[[+activeClasses:default=` class="active"`]][[+title]] href="[[+href]]"&gt;[[+pageNo]]&lt;/a&gt;&lt;/li&gt;
+&lt;li&#91;&#91;+activeClasses&#93;&#93;&gt;&lt;a&#91;&#91;+activeClasses:default=` class="active"`&#93;&#93;&#91;&#91;+title&#93;&#93; href="&#91;&#91;+href&#93;&#93;"&gt;&#91;&#91;+pageNo&#93;&#93;&lt;/a&gt;&lt;/li&gt;
 </pre>
 </td>
 <td>
@@ -485,7 +485,7 @@ A content tpl representing the first page navigation control.
 </td>
 <td>
 <pre class="brush: php">
-&lt;li class="control"&gt;&lt;a[[+classes]][[+title]] href="[[+href]]"&gt;First&lt;/a&gt;&lt;/li&gt;
+&lt;li class="control"&gt;&lt;a&#91;&#91;+classes&#93;&#93;&#91;&#91;+title&#93;&#93; href="&#91;&#91;+href&#93;&#93;"&gt;First&lt;/a&gt;&lt;/li&gt;
 </pre>
 </td>
 <td>
@@ -502,7 +502,7 @@ A content tpl representing the last page navigation control.
 </td>
 <td>
 <pre class="brush: php">
-&lt;li class="control"&gt;&lt;a[[+classes]][[+title]] href="[[+href]]"&gt;Last&lt;/a&gt;&lt;/li&gt;
+&lt;li class="control"&gt;&lt;a&#91;&#91;+classes&#93;&#93;&#91;&#91;+title&#93;&#93; href="&#91;&#91;+href&#93;&#93;"&gt;Last&lt;/a&gt;&lt;/li&gt;
 </pre>
 </td>
 <td>
@@ -519,7 +519,7 @@ A content tpl representing the previous page navigation control.
 </td>
 <td>
 <pre class="brush: php">
-&lt;li class="control"&gt;&lt;a[[+classes]][[+title]] href="[[+href]]"&gt;&amp;lt;&amp;lt;&lt;/a&gt;&lt;/li&gt;
+&lt;li class="control"&gt;&lt;a&#91;&#91;+classes&#93;&#93;&#91;&#91;+title&#93;&#93; href="&#91;&#91;+href&#93;&#93;"&gt;&amp;lt;&amp;lt;&lt;/a&gt;&lt;/li&gt;
 </pre>
 </td>
 <td>
@@ -536,7 +536,7 @@ A content tpl representing the next page navigation control.
 </td>
 <td>
 <pre class="brush: php">
-&lt;li class="control"&gt;&lt;a[[+classes]][[+title]] href="[[+href]]"&gt;&amp;gt;&amp;gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li class="control"&gt;&lt;a&#91;&#91;+classes&#93;&#93;&#91;&#91;+title&#93;&#93; href="&#91;&#91;+href&#93;&#93;"&gt;&amp;gt;&amp;gt;&lt;/a&gt;&lt;/li&gt;
 </pre>
 </td>
 <td>
@@ -679,16 +679,16 @@ Page a list of all child Resources of the current Resource, using a chunk called
 </p>
 
 <pre class="brush: php">
-[[!getPage? &amp;element=`getResources` &amp;parents=`[[*id]]` &amp;tpl=`myRowTpl`]]
-&lt;div class="pageNav"&gt;[[!+page.nav]]&lt;/div&gt;
+&#91;&#91;!getPage? &amp;element=`getResources` &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;tpl=`myRowTpl`&#93;&#93;
+&lt;div class="pageNav"&gt;&#91;&#91;!+page.nav&#93;&#93;&lt;/div&gt;
 </pre>
 <p>
 Page all resources beneath the Resource with ID '5', with the exception of resource 10, using a chunk called 'myRowTpl':
 </p>
 
 <pre class="brush: php">
-[[!getPage? &amp;element=`getResources` &amp;parents=`5` &amp;resources=`-10` &amp;tpl=`myRowTpl`]]
-&lt;div class="pageNav"&gt;[[!+page.nav]]&lt;/div&gt;
+&#91;&#91;!getPage? &amp;element=`getResources` &amp;parents=`5` &amp;resources=`-10` &amp;tpl=`myRowTpl`&#93;&#93;
+&lt;div class="pageNav"&gt;&#91;&#91;!+page.nav&#93;&#93;&lt;/div&gt;
 </pre>
 <p>
 If you are making your custom snippet to work with get page there are three things that your snippet needs to do ...

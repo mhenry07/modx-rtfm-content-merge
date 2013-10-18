@@ -178,7 +178,7 @@ GRANT ALL ON your_db.* TO 'your_user'@'localhost';
 FLUSH PRIVILEGES;
 
 Be sure to test that the login criteria you created actually work before
-continuing. If you *can* log in, but you receive errors (e.g. SQLSTATE[42000] [1044] )
+continuing. If you *can* log in, but you receive errors (e.g. SQLSTATE&#91;42000&#93; &#91;1044&#93; )
 when this script runs, then you may need to grant permissions for CREATE TEMPORARY TABLES
 ------------------------------------------------------------------------------*/
 $debug = false;         // if true, will include verbose debugging info, including SQL errors.
@@ -243,7 +243,7 @@ $xml_schema_file = MODX_CORE_PATH . "components/$package_name/model/schema/$pack
 // A few variables used to track execution times.
 $mtime= microtime();
 $mtime= explode(' ', $mtime);
-$mtime= $mtime[1] + $mtime[0];
+$mtime= $mtime&#91;1&#93; + $mtime&#91;0&#93;;
 $tstart= $mtime;
 
 // Validations
@@ -317,7 +317,7 @@ $generator-&gt;parseSchema($xml_schema_file, $model_dir);
 
 $mtime= microtime();
 $mtime= explode(" ", $mtime);
-$mtime= $mtime[1] + $mtime[0];
+$mtime= $mtime&#91;1&#93; + $mtime&#91;0&#93;;
 $tend= $mtime;
 $totalTime= ($tend - $tstart);
 $totalTime= sprintf("%2.4f s", $totalTime);

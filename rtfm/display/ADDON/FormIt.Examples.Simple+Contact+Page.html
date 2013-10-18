@@ -39,7 +39,7 @@ Snippet Tag
 </h2>
 
 <pre class="brush: php">
-[[!FormIt?
+&#91;&#91;!FormIt?
    &amp;hooks=`recaptcha,spam,email,redirect`
    &amp;emailTpl=`MyEmailChunk`
    &amp;emailTo=`user@example.com`
@@ -50,7 +50,7 @@ Snippet Tag
       text:required:stripTags,
       numbers:required,
       colors:required`
-]]
+&#93;&#93;
 </pre>
 <h2 id="FormIt.Examples.SimpleContactPage-ContactForm">
 Contact Form
@@ -59,65 +59,65 @@ Contact Form
 <pre class="brush: php">
 &lt;h2&gt;Contact Form&lt;/h2&gt;
 
-[[!+fi.error_message:notempty=`&lt;p&gt;[[!+fi.error_message]]&lt;/p&gt;`]]
+&#91;&#91;!+fi.error_message:notempty=`&lt;p&gt;&#91;&#91;!+fi.error_message&#93;&#93;&lt;/p&gt;`&#93;&#93;
 
-&lt;form action="[[~[[*id]]]]" method="post" class="form"&gt;
+&lt;form action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post" class="form"&gt;
     &lt;input type="hidden" name="nospam:blank" value="" /&gt;
 
     &lt;label for="name"&gt;
         Name:
-        &lt;span class="error"&gt;[[!+fi.error.name]]&lt;/span&gt;
+        &lt;span class="error"&gt;&#91;&#91;!+fi.error.name&#93;&#93;&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type="text" name="name" id="name" value="[[!+fi.name]]" /&gt;
+    &lt;input type="text" name="name" id="name" value="&#91;&#91;!+fi.name&#93;&#93;" /&gt;
 
     &lt;label for="email"&gt;
         Email:
-        &lt;span class="error"&gt;[[!+fi.error.email]]&lt;/span&gt;
+        &lt;span class="error"&gt;&#91;&#91;!+fi.error.email&#93;&#93;&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type="text" name="email" id="email" value="[[!+fi.email]]" /&gt;
+    &lt;input type="text" name="email" id="email" value="&#91;&#91;!+fi.email&#93;&#93;" /&gt;
 
     &lt;label for="subject"&gt;
         Subject:
-        &lt;span class="error"&gt;[[!+fi.error.subject]]&lt;/span&gt;
+        &lt;span class="error"&gt;&#91;&#91;!+fi.error.subject&#93;&#93;&lt;/span&gt;
     &lt;/label&gt;
-    &lt;input type="text" name="subject" id="subject" value="[[!+fi.subject]]" /&gt;
+    &lt;input type="text" name="subject" id="subject" value="&#91;&#91;!+fi.subject&#93;&#93;" /&gt;
 
     &lt;label for="text"&gt;
         Message:
-        &lt;span class="error"&gt;[[!+fi.error.text]]&lt;/span&gt;
+        &lt;span class="error"&gt;&#91;&#91;!+fi.error.text&#93;&#93;&lt;/span&gt;
     &lt;/label&gt;
-    &lt;textarea name="text" id="text" cols="55" rows="7" value="[[!+fi.text]]"&gt;[[!+fi.text]]&lt;/textarea&gt;
+    &lt;textarea name="text" id="text" cols="55" rows="7" value="&#91;&#91;!+fi.text&#93;&#93;"&gt;&#91;&#91;!+fi.text&#93;&#93;&lt;/textarea&gt;
 
 
     &lt;label&gt;
-        Numbers:[[+fi.error.numbers]]
-        &lt;select name="numbers" value="[[!+fi.numbers]]"&gt;
+        Numbers:&#91;&#91;+fi.error.numbers&#93;&#93;
+        &lt;select name="numbers" value="&#91;&#91;!+fi.numbers&#93;&#93;"&gt;
             &lt;option value=""&gt;Select an option...&lt;/option&gt;
-            &lt;option value="one" [[!+fi.numbers:FormItIsSelected=`one`]]&gt;One&lt;/option&gt;
-            &lt;option value="two" [[!+fi.numbers:FormItIsSelected=`two`]]&gt;Two&lt;/option&gt;
-            &lt;option value="three" [[!+fi.numbers:FormItIsSelected=`three`]]&gt;Three&lt;/option&gt;
+            &lt;option value="one" &#91;&#91;!+fi.numbers:FormItIsSelected=`one`&#93;&#93;&gt;One&lt;/option&gt;
+            &lt;option value="two" &#91;&#91;!+fi.numbers:FormItIsSelected=`two`&#93;&#93;&gt;Two&lt;/option&gt;
+            &lt;option value="three" &#91;&#91;!+fi.numbers:FormItIsSelected=`three`&#93;&#93;&gt;Three&lt;/option&gt;
         &lt;/select&gt;
     &lt;/label&gt;
 
     &lt;label&gt;
-        Colors:[[!+fi.error.colors]]
-        &lt;input type="hidden" name="colors[]" value="" /&gt;
+        Colors:&#91;&#91;!+fi.error.colors&#93;&#93;
+        &lt;input type="hidden" name="colors&#91;&#93;" value="" /&gt;
     &lt;/label&gt;
     &lt;ul&gt;
       &lt;li&gt;
-        &lt;label&gt;&lt;input type="checkbox" name="colors[]" value="red" [[!+fi.colors:FormItIsChecked=`red`]] /&gt; Red&lt;/label&gt;
+        &lt;label&gt;&lt;input type="checkbox" name="colors&#91;&#93;" value="red" &#91;&#91;!+fi.colors:FormItIsChecked=`red`&#93;&#93; /&gt; Red&lt;/label&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;label&gt;&lt;input type="checkbox" name="colors[]" value="blue" [[!+fi.colors:FormItIsChecked=`blue`]] /&gt; Blue&lt;/label&gt;
+        &lt;label&gt;&lt;input type="checkbox" name="colors&#91;&#93;" value="blue" &#91;&#91;!+fi.colors:FormItIsChecked=`blue`&#93;&#93; /&gt; Blue&lt;/label&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;label&gt;&lt;input type="checkbox" name="colors[]" value="green" [[!+fi.colors:FormItIsChecked=`green`]] /&gt; Green&lt;/label&gt;
+        &lt;label&gt;&lt;input type="checkbox" name="colors&#91;&#93;" value="green" &#91;&#91;!+fi.colors:FormItIsChecked=`green`&#93;&#93; /&gt; Green&lt;/label&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;br class="clear" /&gt;
-    [[!+formit.recaptcha_html]]
-    [[!+fi.error.recaptcha]]
+    &#91;&#91;!+formit.recaptcha_html&#93;&#93;
+    &#91;&#91;!+fi.error.recaptcha&#93;&#93;
 
     &lt;br class="clear" /&gt;
 
@@ -133,7 +133,7 @@ MyEmailChunk (Tpl Chunk)
 <pre class="brush: php">
 This is the Formit Email Chunk.
 
-&lt;br /&gt;[[+name]] ([[+email]]) Wrote: &lt;br /&gt;
+&lt;br /&gt;&#91;&#91;+name&#93;&#93; (&#91;&#91;+email&#93;&#93;) Wrote: &lt;br /&gt;
 
-[[+text]]
+&#91;&#91;+text&#93;&#93;
 </pre>

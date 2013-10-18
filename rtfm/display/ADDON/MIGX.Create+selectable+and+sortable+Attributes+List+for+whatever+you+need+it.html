@@ -72,25 +72,25 @@ Create the Attributes Builder
 <li>formtabs:
 
 <pre class="brush: php">
-[{
+&#91;{
         "caption":"Attribute",
-        "fields":[
+        "fields":&#91;
                 {"field":"attribute",   "caption":"Attribute"},
                 {"field":"title", "caption":"Title"},
                 {"field":"icon", "caption":"Icon", "inputTVtype":"image"}
-        ]
-}]
+        &#93;
+}&#93;
 </pre>
 </li>
 
 <li>grid columns:
 
 <pre class="brush: php">
-[
+&#91;
         {"header": "Attribute", "width": "50", "sortable": "true", "dataIndex": "attribute"},
         {"header": "Title", "width": "50", "sortable": "true", "dataIndex": "title"},
         {"header": "Image", "width": "50", "sortable": "false", "dataIndex": "icon","renderer": "this.renderImage"}
-]
+&#93;
 </pre>
 </li>
 </ul>
@@ -120,12 +120,12 @@ Create the Attributes Selector - TV
 <li>content:
 
 <pre clas="brush: php">
-[[getImageList?
+&#91;&#91;getImageList?
   &amp;tvname=`migx_attributes_builder`
   &amp;docid=`90`
   &amp;toJsonPlaceholder=`json`
-]]
-[[+json]]
+&#93;&#93;
+&#91;&#91;+json&#93;&#93;
 
 </pre>
 </li>
@@ -170,12 +170,12 @@ Create the Attributes Selector - TV
 <li>copy/paste this code into the textarea:
 
 <pre class="brush: php">
-[[getImageList?
+&#91;&#91;getImageList?
 &amp;tvname=`migx_attributes_builder`
 &amp;docid=`90`
 &amp;toJsonPlaceholder=`json`
-]]
-[[+json]]
+&#93;&#93;
+&#91;&#91;+json&#93;&#93;
 </pre>
 </li>
 
@@ -220,12 +220,12 @@ Create the Attributes Selector - TV
 
 <pre class="brush: php">
 {
-  "formtabs":[
+  "formtabs":&#91;
     {
       "MIGX_id":1,
       "caption":"Attribute",
       "print_before_tabs":"0",
-      "fields":[
+      "fields":&#91;
         {
           "MIGX_id":4,
           "field":"active",
@@ -236,7 +236,7 @@ Create the Attributes Selector - TV
           "inputTVtype":"listbox",
           "configs":"",
           "sourceFrom":"config",
-          "sources":"[]",
+          "sources":"&#91;&#93;",
           "inputOptionValues":"yes==1||no==0",
           "default":""
         },
@@ -268,17 +268,17 @@ Create the Attributes Selector - TV
           "inputTVtype":"textarea",
           "configs":"",
           "sourceFrom":"config",
-          "sources":"[]",
+          "sources":"&#91;&#93;",
           "inputOptionValues":"",
           "default":""
         }
-      ]
+      &#93;
     }
-  ],
+  &#93;,
   "contextmenus":"",
   "actionbuttons":"",
   "columnbuttons":"",
-  "filters":"[]",
+  "filters":"&#91;&#93;",
   "extended":{
     "migx_add":"",
     "formcaption":"",
@@ -310,7 +310,7 @@ Create the Attributes Selector - TV
     "onsubmitsuccess":"",
     "submitparams":""
   },
-  "columns":[
+  "columns":&#91;
     {
       "header":"Attribute",
       "dataIndex":"attribute",
@@ -337,7 +337,7 @@ Create the Attributes Selector - TV
       "renderer":"this.renderSwitchStatusOptions",
       "clickaction":"switchOption",
       "selectorconfig":"",
-      "renderoptions":[
+      "renderoptions":&#91;
         {
           "MIGX_id":1,
           "name":"published",
@@ -354,9 +354,9 @@ Create the Attributes Selector - TV
           "handler":"",
           "image":"assets\/components\/migx\/style\/images\/cross.png"
         }
-      ]
+      &#93;
     }
-  ]
+  &#93;
 }
 </pre>
 </li>
@@ -388,15 +388,15 @@ Add this snippet-tag to your template/resource-content:
 
 <pre class="brush: php">
 &lt;ul&gt;
-[[getImageList?
+&#91;&#91;getImageList?
     &amp;tvname=`migx_attributes`
     &amp;where=`{"active":"1"}`
     &amp;tpl=`@CODE:
       &lt;li&gt;
-      &lt;img src="[[+icon]]" alt="[[+title]]" title="[[+title]]" /&gt;
-      &lt;span&gt;[[+title]]&lt;/span&gt;
-      [[+comment:nl2br]]
+      &lt;img src="&#91;&#91;+icon&#93;&#93;" alt="&#91;&#91;+title&#93;&#93;" title="&#91;&#91;+title&#93;&#93;" /&gt;
+      &lt;span&gt;&#91;&#91;+title&#93;&#93;&lt;/span&gt;
+      &#91;&#91;+comment:nl2br&#93;&#93;
       &lt;/li&gt; `
-]]
+&#93;&#93;
 &lt;/ul&gt;
 </pre>

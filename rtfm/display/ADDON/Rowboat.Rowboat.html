@@ -52,19 +52,19 @@ Display the first 10 Doodles in the modx_doodles table, sorted by name:
 </p>
 
 <pre class="brush: php">
-[[!Rowboat?
+&#91;&#91;!Rowboat?
    &amp;table=`modx_doodles`
    &amp;tpl=`myDoodle`
    &amp;limit=`10`
    &amp;sortBy=`name`
-]]
+&#93;&#93;
 </pre>
 <p>
 Using the following Chunk, "myDoodle":
 </p>
 
 <pre class="brush: php">
-&lt;li id="doodle[[+id]]"&gt;&lt;strong&gt;[[+name]]&lt;/strong&gt; - [[+description]]&lt;/li&gt;
+&lt;li id="doodle&#91;&#91;+id&#93;&#93;"&gt;&lt;strong&gt;&#91;&#91;+name&#93;&#93;&lt;/strong&gt; - &#91;&#91;+description&#93;&#93;&lt;/li&gt;
 </pre>
 <h2 id="Rowboat.Rowboat-AvailableProperties">
 Available Properties
@@ -317,40 +317,40 @@ Grab top 10 Doodles, sorted by name, from modx_doodles that have "Test" in their
 </p>
 
 <pre class="brush: php">
-[[!Rowboat?
+&#91;&#91;!Rowboat?
    &amp;table=`modx_doodles`
    &amp;tpl=`myDoodle`
    &amp;limit=`10`
    &amp;where=`{"name:LIKE":"%Test%"}`
    &amp;sortBy=`name`
-]]
+&#93;&#93;
 </pre>
 <p>
 Grab only the id, name and description (with description aliased as "desc") columns from the above example: (note that non-aliased columns need a blank "" for the alias)
 </p>
 
 <pre class="brush: php">
-[[!Rowboat?
+&#91;&#91;!Rowboat?
    &amp;table=`modx_doodles`
    &amp;tpl=`myDoodle`
    &amp;columns=`{"id":"","name":"","description":"desc"}`
    &amp;limit=`10`
    &amp;where=`{"name:LIKE":"%Test%"}`
    &amp;sortBy=`name`
-]]
+&#93;&#93;
 </pre>
 <p>
 Grab 10 Doodles where description isn't empty <strong>or</strong> the name is "Test":
 </p>
 
 <pre class="brush: php">
-[[!Rowboat?
+&#91;&#91;!Rowboat?
    &amp;table=`modx_doodles`
    &amp;tpl=`myDoodle`
    &amp;limit=`10`
    &amp;where=`{"description:!=":"","OR:name":"Test"}`
    &amp;sortBy=`name`
-]]
+&#93;&#93;
 </pre>
 <div class="note">
 More to come shortly.
@@ -365,7 +365,7 @@ It's pretty simple - just make sure to set the totalVar property in your getPage
 </p>
 
 <pre class="brush: php">
-[[!getPage?
+&#91;&#91;!getPage?
    &amp;element=`Rowboat`
    &amp;table=`modx_doodles`
    &amp;sortBy=`name`
@@ -374,10 +374,10 @@ It's pretty simple - just make sure to set the totalVar property in your getPage
    &amp;tpl=`myDoodle`
    &amp;cache=`0`
    &amp;limit=`10`
-]]
+&#93;&#93;
 &lt;div class="paging"&gt;
 &lt;ul class="pageList"&gt;
-  [[!+page.nav]]
+  &#91;&#91;!+page.nav&#93;&#93;
 &lt;/ul&gt;
 &lt;/div&gt;
 </pre>

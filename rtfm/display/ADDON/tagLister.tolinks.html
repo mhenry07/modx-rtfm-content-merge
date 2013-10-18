@@ -41,7 +41,7 @@ Default Value
 items
 </td>
 <td>
-&amp;items=`[[*myTemplateVar]]`
+&amp;items=`&#91;&#91;*myTemplateVar&#93;&#93;`
 <br />
 </td>
 <td>
@@ -208,7 +208,7 @@ sets the GET var key
 <br />
 I.e.,
 <br />
-[[tolinks? &amp;tagKey=`articlestags` &amp;tagKeyVar=`MyCustomVar`]]
+&#91;&#91;tolinks? &amp;tagKey=`articlestags` &amp;tagKeyVar=`MyCustomVar`&#93;&#93;
 <br />
 <br />
 outputs <a href="http://f.qdn.com/somepage?MyCustomVar=articlestags&amp;tag=theTag%5C">http://f.qdn.com/somepage?MyCustomVar=articlestags&amp;tag=theTag\\</a>
@@ -243,14 +243,14 @@ Change the TV value of 'tags' into links that point to the URL of Resource 123 w
 </p>
 
 <pre class="brush: php">
-[[!tolinks? &amp;items=`[[*tags]]` &amp;key=`tag` &amp;target=`123`]]
+&#91;&#91;!tolinks? &amp;items=`&#91;&#91;*tags&#93;&#93;` &amp;key=`tag` &amp;target=`123`&#93;&#93;
 </pre>
 <div class="warning">
 <strong>Be Careful</strong>
 <br />
 <strong>toLinks</strong> will generate <em>relative</em> URLs to the resource indicated by the <strong>&amp;target</strong> parameter, so if you are having trouble getting the links to point to the correct URL, add a Chunk containing something like the following for use by the <strong>&amp;tpl</strong> parameter:
 <p>
-&lt;a href="[[++site_url]][[+url]]" class="[[+cls]]"&gt;[[+item]]&lt;/a&gt;
+&lt;a href="&#91;&#91;++site_url&#93;&#93;&#91;&#91;+url&#93;&#93;" class="&#91;&#91;+cls&#93;&#93;"&gt;&#91;&#91;+item&#93;&#93;&lt;/a&gt;
 </p>
 
 <p>
@@ -263,7 +263,7 @@ The resource ID referenced by the <strong>&amp;target</strong> parameter should 
 </p>
 
 <pre class="brush: php">
-[[!getResourcesTag?
+&#91;&#91;!getResourcesTag?
  &amp;element=`getResources`
  &amp;elementClass=`modSnippet`
  &amp;tpl=`blogPost`
@@ -271,10 +271,10 @@ The resource ID referenced by the <strong>&amp;target</strong> parameter should 
  &amp;pageVarKey=`page`
  &amp;parents=`59`
  &amp;includeTVs=`1`
- &amp;includeContent=`1` ]]
- [[!+page.nav:notempty=`
-    [[!+page.nav]]
- `]]
+ &amp;includeContent=`1` &#93;&#93;
+ &#91;&#91;!+page.nav:notempty=`
+    &#91;&#91;!+page.nav&#93;&#93;
+ `&#93;&#93;
 </pre>
 <h2 id="tagLister.tolinks-SeeAlso">
 See Also

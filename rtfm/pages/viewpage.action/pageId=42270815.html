@@ -31,9 +31,9 @@ On the page you wish to display your gallery, place the snippet call using getPa
 
 <pre class="brush: php">
 &lt;ul class="pagination-nav"&gt;
-[[!+page.nav]]
+&#91;&#91;!+page.nav&#93;&#93;
 &lt;/ul&gt;
-[[!getPage?
+&#91;&#91;!getPage?
     &amp;elementClass=`modSnippet`
     &amp;element=`Gallery`
     &amp;totalVar=`gallery.total`
@@ -45,9 +45,9 @@ On the page you wish to display your gallery, place the snippet call using getPa
     &amp;thumbHeight=`145`
     &amp;imageWidth=`700`
     &amp;imageHeight=`500`
-]]
+&#93;&#93;
 &lt;ul class="pagination-nav"&gt;
-[[!+page.nav]]
+&#91;&#91;!+page.nav&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <p>
@@ -55,7 +55,7 @@ In order to make pagination work with Gallery, I had to add the below line to th
 </p>
 
 <pre class="brush: php">
-$properties['start'] = $properties['offset'];
+$properties&#91;'start'&#93; = $properties&#91;'offset'&#93;;
 </pre>
 <h4 id="sekFancyBox&amp;Gallery-Chunk:galContainer.custom">
 Chunk: galContainer.custom
@@ -67,7 +67,7 @@ Keeping it simple, the custom chunk is a simple unordered list with a class call
 
 <pre class="brush: php">
 &lt;ul class="image-container"&gt;
-[[+thumbnails]]
+&#91;&#91;+thumbnails&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <h4 id="sekFancyBox&amp;Gallery-Chunk:galItemThumb.custom">
@@ -80,15 +80,15 @@ The thumbnail chunk has the sekfancybox snippet call. Here I set the buttonhelpe
 
 <pre class="brush: php">
 &lt;li&gt;
-[[!sekfancybox?
+&#91;&#91;!sekfancybox?
     &amp;type=`media`
     &amp;mousewheel=`1`
     &amp;buttonhelper=`1`
-    &amp;modalclass=`[[+cls]]`
+    &amp;modalclass=`&#91;&#91;+cls&#93;&#93;`
     &amp;group=`gal`
-    &amp;title=`[[+description]]`
-    &amp;linktext=`&lt;img class="[[+imgCls]]" src="[[+thumbnail]]" alt="[[+name]]" [[+image_attributes]] /&gt;`
-    &amp;link=`[[+image]]`]]
+    &amp;title=`&#91;&#91;+description&#93;&#93;`
+    &amp;linktext=`&lt;img class="&#91;&#91;+imgCls&#93;&#93;" src="&#91;&#91;+thumbnail&#93;&#93;" alt="&#91;&#91;+name&#93;&#93;" &#91;&#91;+image_attributes&#93;&#93; /&gt;`
+    &amp;link=`&#91;&#91;+image&#93;&#93;`&#93;&#93;
 &lt;/li&gt;
 </pre>
 <h4 id="sekFancyBox&amp;Gallery-TheCSS">

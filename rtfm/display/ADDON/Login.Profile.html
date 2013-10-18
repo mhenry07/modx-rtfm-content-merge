@@ -40,16 +40,16 @@ Simply add this Snippet to whatever page you want to set the User's Profile fiel
 </p>
 
 <pre class="brush: php">
-[[!Profile]]
+&#91;&#91;!Profile&#93;&#93;
 </pre>
 <p>
 And then display them with placeholders like such:
 </p>
 
 <pre class="brush: php">
-&lt;p&gt;Username: [[+username]]&lt;/p&gt;
-&lt;p&gt;Email: [[+email]]&lt;/p&gt;
-&lt;p&gt;State: [[+state]]&lt;/p&gt;
+&lt;p&gt;Username: &#91;&#91;+username&#93;&#93;&lt;/p&gt;
+&lt;p&gt;Email: &#91;&#91;+email&#93;&#93;&lt;/p&gt;
+&lt;p&gt;State: &#91;&#91;+state&#93;&#93;&lt;/p&gt;
 </pre>
 <div class="info">
 The password fields are never set as placeholders, and are never accessible, for security reasons.
@@ -122,17 +122,17 @@ Display the currently logged in user's email and username.
 </p>
 
 <pre class="brush: php">
-[[!Profile]]
+&#91;&#91;!Profile&#93;&#93;
 
-&lt;p&gt;Username: [[+username]]&lt;/p&gt;
-&lt;p&gt;Email: [[+email]]&lt;/p&gt;
+&lt;p&gt;Username: &#91;&#91;+username&#93;&#93;&lt;/p&gt;
+&lt;p&gt;Email: &#91;&#91;+email&#93;&#93;&lt;/p&gt;
 </pre>
 <p>
 Grab the profile for the user 'marksmith', and add a prefix to the placeholders of 'user.':
 </p>
 
 <pre class="brush: php">
-[[!Profile? &amp;user=`marksmith` &amp;prefix=`user.`]]
+&#91;&#91;!Profile? &amp;user=`marksmith` &amp;prefix=`user.`&#93;&#93;
 </pre>
 
 <p>
@@ -140,9 +140,9 @@ Display the currently logged in username's favorite color (an extended field), w
 </p>
 
 <pre class="brush: php">
-[[!Profile? &amp;prefix=`usr.`]]
+&#91;&#91;!Profile? &amp;prefix=`usr.`&#93;&#93;
 
-&lt;p&gt;[[+usr.username]]'s favorite color is [[+usr.color]]&lt;/p&gt;
+&lt;p&gt;&#91;&#91;+usr.username&#93;&#93;'s favorite color is &#91;&#91;+usr.color&#93;&#93;&lt;/p&gt;
 </pre>
 <h2 id="Login.Profile-SeeAlso">
 See Also

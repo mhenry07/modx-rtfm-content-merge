@@ -52,7 +52,7 @@ Description
 </h2>
 
 <pre class="brush: php">
-Array getChildIds(mixed $id[, int $height[, array $parents]]);
+Array getChildIds(mixed $id&#91;, int $height&#91;, array $parents&#93;&#93;);
 </pre>
 <p>
 Returns an array of all parent record IDs for the id passed.
@@ -83,8 +83,8 @@ will return an array of all the parents of document 10, starting at the lowest l
 <pre class="brush: php">
 Array
 (
-    [services/accident-claims] =&gt; 3
-    [services] =&gt; 2
+    &#91;services/accident-claims&#93; =&gt; 3
+    &#91;services&#93; =&gt; 2
 )
 
 </pre>
@@ -110,7 +110,7 @@ Function Source
                 if (!$parentKey) {
                     $parentKey= "$parentId";
                 }
-                $parents[$parentKey]= $parentId;
+                $parents&#91;$parentKey&#93;= $parentId;
                 break;
             }
         }

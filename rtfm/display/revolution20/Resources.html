@@ -375,9 +375,9 @@ Resource fields can be accessed from anywhere by using the <a href="revolution/2
 </p>
 
 <pre class="brush: php">
-[[*pagetitle]] // renders the pagetitle.
-[[*id]] // renders the Resource's ID
-[[*createdby]] // renders the ID of the user who created this Resource
+&#91;&#91;*pagetitle&#93;&#93; // renders the pagetitle.
+&#91;&#91;*id&#93;&#93; // renders the Resource's ID
+&#91;&#91;*createdby&#93;&#93; // renders the ID of the user who created this Resource
 </pre>
 <p>
 They can also have <a href="revolution/2.x/making-sites-with-modx/customizing-content/input-and-output-filters-(output-modifiers)" title="Input and Output Filters (Output Modifiers)">Output Filters</a> applied to them:
@@ -386,13 +386,13 @@ They can also have <a href="revolution/2.x/making-sites-with-modx/customizing-co
 <pre class="brush: php">
 // Renders a limited version of the introtext field.
 // If it is longer than 100 chars, adds an ...
-[[*introtext:ellipsis=`100`]]
+&#91;&#91;*introtext:ellipsis=`100`&#93;&#93;
 
 // Grabs the user who last edited the Resource's username
-[[*editedby:userinfo=`username`]]
+&#91;&#91;*editedby:userinfo=`username`&#93;&#93;
 
 // Grabs the user who published the Resource's email
-[[*publishedby:userinfo=`email`]]
+&#91;&#91;*publishedby:userinfo=`email`&#93;&#93;
 </pre>
 <h3 id="Resources-AccessingResourceFieldsinaSnippet">
 Accessing Resource Fields in a Snippet
@@ -416,7 +416,7 @@ In MODx, links to Resources are dynamically managed via "Resource Tags". They lo
 </p>
 
 <pre class="brush: php">
-[[~123]]
+&#91;&#91;~123&#93;&#93;
 </pre>
 <p>
 where '123' is the ID of the Resource to link to. You can put these tags anywhere, and MODx will dynamically render the URL for the Resource.
@@ -439,7 +439,7 @@ Adding URL parameters in your Resource Tag is quite simple in Revolution. Let's 
 </p>
 
 <pre class="brush: php">
-[[~42? &amp;tag=`Snacks` &amp;sort=`Taste`]]
+&#91;&#91;~42? &amp;tag=`Snacks` &amp;sort=`Taste`&#93;&#93;
 </pre>
 <p>
 This would render as:
@@ -464,7 +464,7 @@ You can specify the scheme for a Resource in your tag:
 </p>
 
 <pre class="brush: php">
-[[~123? &amp;scheme=`https`]]
+&#91;&#91;~123? &amp;scheme=`https`&#93;&#93;
 </pre>
 <p>
 Would render the URL using 'https' instead of the scheme indicated by the current settings (i.e. system or context settings).

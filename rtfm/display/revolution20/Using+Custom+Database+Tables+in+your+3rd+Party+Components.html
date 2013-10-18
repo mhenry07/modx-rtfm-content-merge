@@ -253,7 +253,7 @@ define('MODX_ASSETS_PATH', MODX_BASE_PATH . 'assets/');
  */
 $mtime = microtime();
 $mtime = explode(" ", $mtime);
-$mtime = $mtime[1] + $mtime[0];
+$mtime = $mtime&#91;1&#93; + $mtime&#91;0&#93;;
 $tstart = $mtime;
 set_time_limit(0);
 
@@ -295,11 +295,11 @@ And finally, we want to actually parse this into a file:
 </p>
 
 <pre class="brush: php">
-$generator-&gt;parseSchema($sources['schema'].'storefinder.mysql.schema.xml', $sources['model']);
+$generator-&gt;parseSchema($sources&#91;'schema'&#93;.'storefinder.mysql.schema.xml', $sources&#91;'model'&#93;);
 
 $mtime= microtime();
 $mtime= explode(" ", $mtime);
-$mtime= $mtime[1] + $mtime[0];
+$mtime= $mtime&#91;1&#93; + $mtime&#91;0&#93;;
 $tend= $mtime;
 $totalTime= ($tend - $tstart);
 $totalTime= sprintf("%2.4f s", $totalTime);

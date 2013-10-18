@@ -27,7 +27,7 @@ Versions
 Parameters
 </td>
 <td>
-string $snippetName [, array $params]
+string $snippetName &#91;, array $params&#93;
 </td>
 </tr>
 
@@ -82,7 +82,7 @@ Examples
 $dittoOutput = $modx-&gt;runSnippet(
         "Ditto",
         array(
-            "tpl" =&gt; "&lt;post&gt;&lt;title&gt;[+title+]&lt;/title&gt;&lt;summary&gt;[+summary+]&lt;/summary&gt;&lt;/post&gt;"
+            "tpl" =&gt; "&lt;post&gt;&lt;title&gt;&#91;+title+&#93;&lt;/title&gt;&lt;summary&gt;&#91;+summary+&#93;&lt;/summary&gt;&lt;/post&gt;"
         )
 );
 </pre>
@@ -92,11 +92,11 @@ Related functions
 
 <ul>
 <li>
-<span class="error">[getChunk]</span>
+<span class="error">&#91;getChunk&#93;</span>
 </li>
 
 <li>
-<span class="error">[evalSnippet]</span>
+<span class="error">&#91;evalSnippet&#93;</span>
 </li>
 </ul>
 
@@ -111,18 +111,18 @@ Function source
 
 <pre class="brush: php">
 function runSnippet($snippetName, $params= array ()) {
-  if (isset ($this-&gt;snippetCache[$snippetName])) {
-      $snippet= $this-&gt;snippetCache[$snippetName];
-      $properties= $this-&gt;snippetCache[$snippetName . "Props"];
+  if (isset ($this-&gt;snippetCache&#91;$snippetName&#93;)) {
+      $snippet= $this-&gt;snippetCache&#91;$snippetName&#93;;
+      $properties= $this-&gt;snippetCache&#91;$snippetName . "Props"&#93;;
   } else { // not in cache so let's check the db
       $sql= "SELECT * FROM " . $this-&gt;getFullTableName("site_snippets") . " WHERE " . $this-&gt;getFullTableName("site_snippets") . ".name='" . mysql_escape_string($snippetName) . "';";
       $result= $this-&gt;dbQuery($sql);
       if ($this-&gt;recordCount($result) == 1) {
           $row= $this-&gt;fetchRow($result);
-          $snippet= $this-&gt;snippetCache[$row['name']]= $row['snippet'];
-          $properties= $this-&gt;snippetCache[$row['name'] . "Props"]= $row['properties'];
+          $snippet= $this-&gt;snippetCache&#91;$row&#91;'name'&#93;&#93;= $row&#91;'snippet'&#93;;
+          $properties= $this-&gt;snippetCache&#91;$row&#91;'name'&#93; . "Props"&#93;= $row&#91;'properties'&#93;;
       } else {
-          $snippet= $this-&gt;snippetCache[$snippetName]= "return false;";
+          $snippet= $this-&gt;snippetCache&#91;$snippetName&#93;= "return false;";
           $properties= '';
       }
   }
@@ -142,8 +142,8 @@ The paramaters array passed to this function should be of the form 'paramater' =
 </p>
 
 <pre class="brush: php">
-$params['param1'] = 'value1';
-$params['param2'] = 'value2';
+$params&#91;'param1'&#93; = 'value1';
+$params&#91;'param2'&#93; = 'value2';
 
 $html = $modx-&gt;runSnippet('mysnippet', $params);
 </pre>

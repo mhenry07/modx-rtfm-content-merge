@@ -52,7 +52,7 @@ Description
 </h2>
 
 <pre class="brush: php">
-array getAllChildren(mixed $id[, string $sort[, string $dir[, string $fields]]]);
+array getAllChildren(mixed $id&#91;, string $sort&#91;, string $dir&#91;, string $fields&#93;&#93;&#93;);
 </pre>
 <p>
 Gets all child documents of the specified document, including those which are unpublished or deleted.
@@ -89,7 +89,7 @@ Function Source
         $sort= 'sc.' . implode(',sc.', preg_replace("/^\s/i", "", explode(',', $sort)));
         // get document groups for current user
         if ($docgrp= $this-&gt;getUserDocGroups())
-        $access= ($this-&gt;isFrontend() ? "sc.privateweb=0" : "1='" . $_SESSION['mgrRole'] . "' OR sc.privatemgr=0") .
+        $access= ($this-&gt;isFrontend() ? "sc.privateweb=0" : "1='" . $_SESSION&#91;'mgrRole'&#93; . "' OR sc.privatemgr=0") .
         (!$docgrp ? "" : " OR dg.document_group IN ($docgrp)");
         $sql= "SELECT DISTINCT $fields FROM $tblsc sc
             LEFT JOIN $tbldg dg on dg.document = sc.id

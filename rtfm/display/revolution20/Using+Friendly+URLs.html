@@ -36,19 +36,19 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{HTTP_HOST} .
 # Force all pages to go to www.domain.com for SEO
-RewriteCond %{HTTP_HOST} !^www\.DOMAINNAME\.TLD [NC]
-RewriteRule (.*) http://www.DOMAINANME.TLD/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} !^www\.DOMAINNAME\.TLD &#91;NC&#93;
+RewriteRule (.*) http://www.DOMAINANME.TLD/$1 &#91;R=301,L&#93;
 # Friendly URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+RewriteRule ^(.*)$ index.php?q=$1 &#91;L,QSA&#93;
 # Additional Settings Follow
 ExpiresActive On
 ExpiresByType image/gif A2592000
 ExpiresByType image/jpeg A2592000
 ExpiresByType image/png A2592000
 BrowserMatch "MSIE" brokenvary=1
-BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
+BrowserMatch "Mozilla/4.&#91;0-9&#93;{2}" brokenvary=1
 BrowserMatch "Opera" !brokenvary
 SetEnvIf brokenvary 1 force-no-vary
 </pre>
@@ -113,7 +113,7 @@ Make sure you have the following between the&nbsp; &lt;head&gt;&lt;/head&gt; tag
 </p>
 
 <pre class="brush: php">
-&lt;base href="[[!++site_url]]" /&gt;
+&lt;base href="&#91;&#91;!++site_url&#93;&#93;" /&gt;
 </pre>
 <h3 id="UsingFriendlyURLs-4)CleartheMODxRevolutioncache">
 4) Clear the MODx Revolution cache
@@ -124,5 +124,5 @@ And you're done!
 </p>
 
 <div class="note">
-The easiest way to take advantage of using fully qualified Friendly URLs, is to allow MODx Revolution to build the links even within page content. As described at the bottom of <a href="revolution/2.x/making-sites-with-modx/structuring-your-site/resources" title="Resources">resource tag syntax</a> to create links to different resources, is easy as &lt;a href="[[~1]]" title="some title"&gt;Some Page&lt;/a&gt; . This has the added benefit of being able to move resources around a web project, without needing to fix a bunch of broken links, as MODx Revolution will simply update links created in this manner automatically.
+The easiest way to take advantage of using fully qualified Friendly URLs, is to allow MODx Revolution to build the links even within page content. As described at the bottom of <a href="revolution/2.x/making-sites-with-modx/structuring-your-site/resources" title="Resources">resource tag syntax</a> to create links to different resources, is easy as &lt;a href="&#91;&#91;~1&#93;&#93;" title="some title"&gt;Some Page&lt;/a&gt; . This has the added benefit of being able to move resources around a web project, without needing to fix a bunch of broken links, as MODx Revolution will simply update links created in this manner automatically.
 </div>

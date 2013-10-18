@@ -112,7 +112,7 @@ showPosts
 true
 </td>
 <td>
-To show posts.. you'll want this enabled. Posts go into [<span class="error">[+posts]</span>]
+To show posts.. you'll want this enabled. Posts go into &#91;<span class="error">&#91;+posts&#93;</span>&#93;
 </td>
 </tr>
 
@@ -236,7 +236,7 @@ showViewing
 &nbsp;
 </td>
 <td>
-Show the readers based on sessions. Makes the [<span class="error">[+readers]</span>] placeholder available.
+Show the readers based on sessions. Makes the &#91;<span class="error">&#91;+readers&#93;</span>&#93; placeholder available.
 </td>
 </tr>
 
@@ -284,55 +284,55 @@ Controller Template
 
 <pre class="brush: php">
 &lt;!-- thread/index.html --&gt;
-[[+top]]
+&#91;&#91;+top&#93;&#93;
 
-[[+aboveThread]]
-&lt;div class="status [[+locked:is=`1`:then=`locked`:else=`unlocked`]]"&gt;
-    &lt;div class="f1-f12 h-group [[+answered:notempty=`answered`]]"&gt;
-        &lt;h1 class="Category" post="[[+id]]"&gt;
-            [[+answered:notempty=`&lt;span class="tag solved"&gt;[[%discuss.solved]]&lt;/span&gt;`:default=``]]
-            &lt;a href="[[+url]]" title="[[+title]]"&gt;[[+title]]&lt;/a&gt;
+&#91;&#91;+aboveThread&#93;&#93;
+&lt;div class="status &#91;&#91;+locked:is=`1`:then=`locked`:else=`unlocked`&#93;&#93;"&gt;
+    &lt;div class="f1-f12 h-group &#91;&#91;+answered:notempty=`answered`&#93;&#93;"&gt;
+        &lt;h1 class="Category" post="&#91;&#91;+id&#93;&#93;"&gt;
+            &#91;&#91;+answered:notempty=`&lt;span class="tag solved"&gt;&#91;&#91;%discuss.solved&#93;&#93;&lt;/span&gt;`:default=``&#93;&#93;
+            &lt;a href="&#91;&#91;+url&#93;&#93;" title="&#91;&#91;+title&#93;&#93;"&gt;&#91;&#91;+title&#93;&#93;&lt;/a&gt;
         &lt;/h1&gt;
     &lt;/div&gt;
     &lt;div class="f1-f9"&gt;
         &lt;div class="a-dis-actionbuttons h-group"&gt;
-            Subscribe: &lt;a href="[[~[[*id]]]]thread/feed.xml?thread=[[+id]]"&gt;RSS&lt;/a&gt;
-                    [[+actionlink_subscribe:notempty=`
-                    &lt;a href="[[+actionlink_subscribe]]"&gt;By email&lt;/a&gt;`]]
-                    [[+actionlink_unsubscribe:notempty=`
-                    &lt;a href="[[+actionlink_unsubscribe]]"&gt;Stop emails&lt;/a&gt;`]]
+            Subscribe: &lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;thread/feed.xml?thread=&#91;&#91;+id&#93;&#93;"&gt;RSS&lt;/a&gt;
+                    &#91;&#91;+actionlink_subscribe:notempty=`
+                    &lt;a href="&#91;&#91;+actionlink_subscribe&#93;&#93;"&gt;By email&lt;/a&gt;`&#93;&#93;
+                    &#91;&#91;+actionlink_unsubscribe:notempty=`
+                    &lt;a href="&#91;&#91;+actionlink_unsubscribe&#93;&#93;"&gt;Stop emails&lt;/a&gt;`&#93;&#93;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="f1-f9"&gt;
         &lt;header class="dis-cat-header dark-gradient h-group sticky-bar top"&gt;
-            [[+pagination:default=``]]
-            [[- USER LOGGED IN ]]
-            [[!+discuss.user.id:notempty=`
+            &#91;&#91;+pagination:default=``&#93;&#93;
+            &#91;&#91;- USER LOGGED IN &#93;&#93;
+            &#91;&#91;!+discuss.user.id:notempty=`
             &lt;div class="post-box"&gt;
-                [[+locked:is=`1`:then=``:else=`&lt;a class="dis-action-reply Button" href="[[+actionlink_reply]]"&gt;Reply to thread&lt;/a&gt;`]]
-                &lt;a class="Button" href="[[+actionlink_unread]]"&gt;Mark as unread&lt;/a&gt;
-                [[+moderators]]
-            &lt;/div&gt;`]]
-            [[- USER NOT LOGGED IN ]]
-            [[!+discuss.user.id:is=``:then=`
+                &#91;&#91;+locked:is=`1`:then=``:else=`&lt;a class="dis-action-reply Button" href="&#91;&#91;+actionlink_reply&#93;&#93;"&gt;Reply to thread&lt;/a&gt;`&#93;&#93;
+                &lt;a class="Button" href="&#91;&#91;+actionlink_unread&#93;&#93;"&gt;Mark as unread&lt;/a&gt;
+                &#91;&#91;+moderators&#93;&#93;
+            &lt;/div&gt;`&#93;&#93;
+            &#91;&#91;- USER NOT LOGGED IN &#93;&#93;
+            &#91;&#91;!+discuss.user.id:is=``:then=`
             &lt;div class="post-box"&gt;
-                &lt;a href="[[~[[*id]]]]login" class="Button dis-action-login" &gt;Login to Post&lt;/a&gt;
-            &lt;/div&gt;`]]
+                &lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;login" class="Button dis-action-login" &gt;Login to Post&lt;/a&gt;
+            &lt;/div&gt;`&#93;&#93;
         &lt;/header&gt;
         &lt;ul class="dis-list h-group"&gt;
-            [[+posts]]
+            &#91;&#91;+posts&#93;&#93;
         &lt;/ul&gt;
-        [[+pagination:notempty=`
-        &lt;div class="paginate stand-alone bottom horiz-list"&gt;[[+pagination]]&lt;/div&gt;`]]
-        [[$thread-login-post]]
-        [[+locked:notempty=`&lt;p class="m-notice"&gt;[[%discuss.thread_locked]]&lt;/p&gt;`:default=`[[+quick_reply_form]]`]]
-        [[+belowThread]]
-        [[+discuss.error_panel]]
+        &#91;&#91;+pagination:notempty=`
+        &lt;div class="paginate stand-alone bottom horiz-list"&gt;&#91;&#91;+pagination&#93;&#93;&lt;/div&gt;`&#93;&#93;
+        &#91;&#91;$thread-login-post&#93;&#93;
+        &#91;&#91;+locked:notempty=`&lt;p class="m-notice"&gt;&#91;&#91;%discuss.thread_locked&#93;&#93;&lt;/p&gt;`:default=`&#91;&#91;+quick_reply_form&#93;&#93;`&#93;&#93;
+        &#91;&#91;+belowThread&#93;&#93;
+        &#91;&#91;+discuss.error_panel&#93;&#93;
     &lt;/div&gt;&lt;!-- Close Content From Wrapper --&gt;
 
-    [[+bottom]]
+    &#91;&#91;+bottom&#93;&#93;
 
-    [[+sidebar]]
+    &#91;&#91;+sidebar&#93;&#93;
 &lt;/div&gt;
 &lt;!--close thread/index.html --&gt;
 

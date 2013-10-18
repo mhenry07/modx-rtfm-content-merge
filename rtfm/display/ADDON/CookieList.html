@@ -85,7 +85,7 @@ The minimum call below creates a link that either says "Add to your CookieList" 
 </p>
 
 <pre class="brush: php">
-[[!addToCookieList]]
+&#91;&#91;!addToCookieList&#93;&#93;
 </pre>
 <div class="note">
 You will *always* need to call the addToCookieList and getCookieList snippets uncached, as every request could be a different user and it is very likely to change before the resource cache is removed. If using with getPage make sure to pass &amp;cache=0 to that to prevent getPage from caching as well.
@@ -173,7 +173,7 @@ Allows you to override the default chunk template. You can use <ins>link</ins>, 
 <br />
 
 <pre class="brush: php">
-&lt;a href="[[+link]]" title="[[+label]]"&gt;[[+label]]&lt;/a&gt;
+&lt;a href="&#91;&#91;+link&#93;&#93;" title="&#91;&#91;+label&#93;&#93;"&gt;&#91;&#91;+label&#93;&#93;&lt;/a&gt;
 </pre>
 </td>
 <td>
@@ -200,7 +200,7 @@ This snippet either returns an empty string, or a comma delimited list of values
 </p>
 
 <pre class="brush: php">
-[[!getCookieList]]
+&#91;&#91;!getCookieList&#93;&#93;
 </pre>
 <p>
 There are no properties you can use to change the behavior of the snippet.

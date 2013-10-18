@@ -17,8 +17,8 @@ API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#get">http://ap
 <pre class="brush: php">
 mixed get(
    string|array $k,
-   [string|array $format = null],
-   [mixed $formatTemplate = null]
+   &#91;string|array $format = null&#93;,
+   &#91;mixed $formatTemplate = null&#93;
 )
 </pre>
 <div class="warning">
@@ -46,6 +46,6 @@ Get an array of values for multiple fields:
 $object-&gt;set('name_first','Charles');
 $object-&gt;set('name_last','Longbottom');
 $names = $object-&gt;get(array('name_first','name_last'));
-echo $names['name_first'].' '.$names['name_last'];
+echo $names&#91;'name_first'&#93;.' '.$names&#91;'name_last'&#93;;
 // produces "Charles Longbottom"
 </pre>

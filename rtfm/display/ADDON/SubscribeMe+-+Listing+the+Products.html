@@ -15,7 +15,7 @@ Minimum Call
 </h2>
 
 <pre class="brush: php">
-[[smListProducts]]
+&#91;&#91;smListProducts&#93;&#93;
 </pre>
 <p>
 The minimum call is a functional assuming you have set up a PayPal account, or PayPal Sandbox account properly and have <a href="extras/revo/formit" title="FormIt">FormIt</a> installed.&nbsp; You must edit the OptionsResource located in the smListProducts.outer file, in order for SubscribeMe to function properly.
@@ -247,13 +247,13 @@ Default value (from core/components/subscribeme/elements/chunks/smListProducts.o
 </p>
 
 <pre class="brush: php">
-[[!FormIt?
+&#91;&#91;!FormIt?
   &amp;hooks=`smNewSubscription`
   &amp;optionsResource=`4`
-]]
+&#93;&#93;
 &lt;p&gt;Choose the product you would like to subscribe to:&lt;/p&gt;
 &lt;ul&gt;
-    [[+products]]
+    &#91;&#91;+products&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <p>
@@ -282,11 +282,11 @@ Default value (from core/components/subscribeme/elements/chunks/smListProducts.r
 
 <pre class="brush: php">
 &lt;li style="width: 450px; border: 2px solid #333; list-style-type: none; padding: 15px;"&gt;
-    &lt;form action="[[~[[*id]]]]" method="POST"&gt;
-        &lt;input type="hidden" name="product" value="[[+product_id]]" / &gt;
+    &lt;form action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="POST"&gt;
+        &lt;input type="hidden" name="product" value="&#91;&#91;+product_id&#93;&#93;" / &gt;
         &lt;input type="submit" value="Subscribe!" style="float: right;" /&gt;
-        &lt;h3&gt;[[+name]] ([[+currency]] [[+amount_total]] / [[+periods:gt=`1`:then=`[[+periods]] [[+period]]`:else=`[[+period]]`]])&lt;/h3&gt;
-        &lt;p&gt;[[+description]]&lt;/p&gt;
+        &lt;h3&gt;&#91;&#91;+name&#93;&#93; (&#91;&#91;+currency&#93;&#93; &#91;&#91;+amount_total&#93;&#93; / &#91;&#91;+periods:gt=`1`:then=`&#91;&#91;+periods&#93;&#93; &#91;&#91;+period&#93;&#93;`:else=`&#91;&#91;+period&#93;&#93;`&#93;&#93;)&lt;/h3&gt;
+        &lt;p&gt;&#91;&#91;+description&#93;&#93;&lt;/p&gt;
     &lt;/form&gt;
 &lt;/li&gt;
 </pre>

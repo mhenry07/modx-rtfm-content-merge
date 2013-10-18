@@ -19,9 +19,9 @@ As with MODX, this means contributors must work directly with their private fork
 </p>
 
 <pre class="brush: php">
-[repos]$ git clone git@github.com:YourGitUsername/xpdo.git
-[repos]$ cd xpdo
-[xpdo]$ git remote add upstream -f http://github.com/modxcms/xpdo.git
+&#91;repos&#93;$ git clone git@github.com:YourGitUsername/xpdo.git
+&#91;repos&#93;$ cd xpdo
+&#91;xpdo&#93;$ git remote add upstream -f http://github.com/modxcms/xpdo.git
 </pre>
 <p>
 This setup makes your fork the standard <code>origin</code> remote, and adds/fetches the "blessed" repository as the remote <code>upstream</code>. You may want to add other remotes to other developer forks as well, and I would name those remotes appropriately so you can keep track of each one.
@@ -32,9 +32,9 @@ You'll want to go ahead and create local tracking branches for the permanent bra
 </p>
 
 <pre class="brush: php">
-[xpdo]$ git checkout -b master origin/master
+&#91;xpdo&#93;$ git checkout -b master origin/master
 Switched to a new branch "master"
-[xpdo]$ git checkout -b develop origin/develop
+&#91;xpdo&#93;$ git checkout -b develop origin/develop
 Switched to a new branch "develop"
 </pre>
 <p>
@@ -42,14 +42,14 @@ To keep your local tracking branches for <code>develop</code> and <code>master</
 </p>
 
 <pre class="brush: php">
-[xpdo]$ git fetch upstream
-[xpdo]$ git checkout develop
+&#91;xpdo&#93;$ git fetch upstream
+&#91;xpdo&#93;$ git checkout develop
 Switched to branch "develop"
-[xpdo]$ git merge --ff-only upstream/develop
-[xpdo]$ git checkout master
+&#91;xpdo&#93;$ git merge --ff-only upstream/develop
+&#91;xpdo&#93;$ git checkout master
 Switched to branch "master"
-[xpdo]$ git merge --ff-only upstream/master
-[xpdo]$ git push origin develop master
+&#91;xpdo&#93;$ git merge --ff-only upstream/master
+&#91;xpdo&#93;$ git push origin develop master
 </pre>
 <p>
 Note however, that the push is mainly for show, as the permanent branches should never be a target for contributor commits, even in the forks. IOW, <code>develop</code> and <code>master</code> in your fork should always match the <code>upstream</code> branches of the same name. It is expected that all contributions will be submitted via a feature or hotfix branch originating from the appropriate permanent branch, or a bug fix branch originating from a release branch in the upstream repository.
@@ -84,9 +84,9 @@ So the next step is to fork and clone this repository as well:
 </p>
 
 <pre class="brush: php">
-[repos]$ git clone git@github.com:YourGitUsername/xpdo-core.git
-[repos]$ cd xpdo-core
-[xpdo-core]$ git remote add upstream -f http://github.com/modxcms/xpdo-core.git
+&#91;repos&#93;$ git clone git@github.com:YourGitUsername/xpdo-core.git
+&#91;repos&#93;$ cd xpdo-core
+&#91;xpdo-core&#93;$ git remote add upstream -f http://github.com/modxcms/xpdo-core.git
 </pre>
 <h3 id="xPDOGitHubContributor'sGuide-MigratingChangesforTesting">
 Migrating Changes for Testing
@@ -101,22 +101,22 @@ To update the xpdo-core repository, we first need to add and fetch a remote for 
 </p>
 
 <pre class="brush: php">
-[xpdo-core]$ git remote add -f xpdo git@github.com:YourGitUsername/xpdo.git
+&#91;xpdo-core&#93;$ git remote add -f xpdo git@github.com:YourGitUsername/xpdo.git
 </pre>
 <p>
 Once added, you can fetch changes you commit to your xpdo fork and merge them easily. Make sure your xpdo-core branches are up-to-date from upstream first, e.g. if pushing a feature branch called xpdo/feature-1234 off of the upstream/develop branch:
 </p>
 
 <pre class="brush: php">
-[xpdo-core]$ git fetch upstream
-[xpdo-core]$ git checkout develop
+&#91;xpdo-core&#93;$ git fetch upstream
+&#91;xpdo-core&#93;$ git checkout develop
 Switched to branch "develop"
-[xpdo-core]$ git merge --ff-only upstream/develop
-[xpdo-core]$ git push origin develop
-[xpdo-core]$ git fetch xpdo
-[xpdo-core]$ git checkout -b feature-1234 develop
-[xpdo-core]$ git merge -s subtree --log xpdo/feature-1234
-[xpdo-core]$ git push origin feature-1234
+&#91;xpdo-core&#93;$ git merge --ff-only upstream/develop
+&#91;xpdo-core&#93;$ git push origin develop
+&#91;xpdo-core&#93;$ git fetch xpdo
+&#91;xpdo-core&#93;$ git checkout -b feature-1234 develop
+&#91;xpdo-core&#93;$ git merge -s subtree --log xpdo/feature-1234
+&#91;xpdo-core&#93;$ git push origin feature-1234
 </pre>
 <p>
 At this point, your feature branch is in your xpdo-core fork and ready for merging into MODX Revolution or any other project that has xpdo-core subtree merged into it.
@@ -131,21 +131,21 @@ Now, to test your changes with MODX Revolution, you need to add and fetch your f
 </p>
 
 <pre class="brush: php">
-[revolution]$ git checkout develop
+&#91;revolution&#93;$ git checkout develop
 Switched to branch "develop"
-[revolution]$ git fetch upstream
-[revolution]$ git merge --ff-only upstream/develop
-[revolution]$ git push origin develop
-[revolution]$ git remote add -f xpdo git@github.com:YourGitUsername/xpdo-core.git
-[revolution]$ git checkout -b xpdo-feature-1234 develop
-[revolution]$ git merge -s subtree --log xpdo/feature-1234
+&#91;revolution&#93;$ git fetch upstream
+&#91;revolution&#93;$ git merge --ff-only upstream/develop
+&#91;revolution&#93;$ git push origin develop
+&#91;revolution&#93;$ git remote add -f xpdo git@github.com:YourGitUsername/xpdo-core.git
+&#91;revolution&#93;$ git checkout -b xpdo-feature-1234 develop
+&#91;revolution&#93;$ git merge -s subtree --log xpdo/feature-1234
 </pre>
 <p>
 If it works, share your branch with the xpdo-core changes integrated with the world to play with:
 </p>
 
 <pre class="brush: php">
-[revolution]$ git push origin xpdo-feature-1234
+&#91;revolution&#93;$ git push origin xpdo-feature-1234
 </pre>
 <h3 id="xPDOGitHubContributor'sGuide-SubmittingthePullRequest">
 Submitting the Pull Request

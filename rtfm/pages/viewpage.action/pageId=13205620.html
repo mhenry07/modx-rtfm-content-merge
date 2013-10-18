@@ -68,30 +68,30 @@ Custom Wayfinder templates need to be modified to generate multilingual output. 
 <ol>
 <li>
 <pre class="brush: php">
-[+wf.link+]
+&#91;+wf.link+&#93;
 </pre>
 <p>
 should be replaced by
 </p>
 
 <pre class="brush: php">
-(yams_docr:[+wf.docid+])
+(yams_docr:&#91;+wf.docid+&#93;)
 </pre>
 <p>
-This will ensure that multilingual URLs are used and will resolve all weblink URLs to their final destination. If weblink URLs should be output directly rather than being resolved, then (yams_doc:[+wf.docid+]) can be used instead.
+This will ensure that multilingual URLs are used and will resolve all weblink URLs to their final destination. If weblink URLs should be output directly rather than being resolved, then (yams_doc:&#91;+wf.docid+&#93;) can be used instead.
 </p>
 </li>
 
 <li>
 <pre class="brush: php">
-[+wf.title+]
+&#91;+wf.title+&#93;
 </pre>
 <p>
 should be replaced by
 </p>
 
 <pre class="brush: php">
-[[YAMS? &amp;get=`data` &amp;from=`pagetitle` &amp;docid=`[+wf.docid+]`]]
+&#91;&#91;YAMS? &amp;get=`data` &amp;from=`pagetitle` &amp;docid=`&#91;+wf.docid+&#93;`&#93;&#93;
 </pre>
 <p>
 This will output the correct pagetitle language variant for the hover text of the menu links. pagetitle can be replaced by menutitle, longtitle or any of the other standard document variable fields.
@@ -100,14 +100,14 @@ This will output the correct pagetitle language variant for the hover text of th
 
 <li>
 <pre class="brush: php">
-[+wf.linktext+]
+&#91;+wf.linktext+&#93;
 </pre>
 <p>
 should be replaced by
 </p>
 
 <pre class="brush: php">
-[[YAMS? &amp;get=`data` &amp;from=`menutitle` &amp;docid=`[+wf.docid+]`]]
+&#91;&#91;YAMS? &amp;get=`data` &amp;from=`menutitle` &amp;docid=`&#91;+wf.docid+&#93;`&#93;&#93;
 </pre>
 <p>
 This will output the correct menutitle language variant for the text of the menu links. menutitle can be replaced by pagetitle, longtitle or any of the other standard document variable fields.

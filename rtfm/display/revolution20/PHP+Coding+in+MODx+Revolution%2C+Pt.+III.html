@@ -61,15 +61,15 @@ This checks to make sure the user has the correct permissions to run this proces
 
 <pre class="brush: php">
 // default values
-if ($_POST['name'] == '') $_POST['name'] = $modx-&gt;lexicon('chunk_untitled');
+if ($_POST&#91;'name'&#93; == '') $_POST&#91;'name'&#93; = $modx-&gt;lexicon('chunk_untitled');
 
 // get rid of invalid chars
-$_POST['name'] = str_replace('&gt;','',$_POST['name']);
-$_POST['name'] = str_replace('&lt;','',$_POST['name']);
+$_POST&#91;'name'&#93; = str_replace('&gt;','',$_POST&#91;'name'&#93;);
+$_POST&#91;'name'&#93; = str_replace('&lt;','',$_POST&#91;'name'&#93;);
 
 
 // if the name already exists for this chunk, send back an error
-$name_exists = $modx-&gt;getObject('modChunk',array('name' =&gt; $_POST['name']));
+$name_exists = $modx-&gt;getObject('modChunk',array('name' =&gt; $_POST&#91;'name'&#93;));
 if ($name_exists != null) return $modx-&gt;error-&gt;failure($modx-&gt;lexicon('chunk_err_exists_name'));
 </pre>
 <p>
@@ -78,13 +78,13 @@ Note now how we're sanitizing variables, and checking to make sure there already
 
 <pre class="brush: php">
 // category
-$category = $modx-&gt;getObject('modCategory',array('id' =&gt; $_POST['category']));
+$category = $modx-&gt;getObject('modCategory',array('id' =&gt; $_POST&#91;'category'&#93;));
 if ($category == null) {
         $category = $modx-&gt;newObject('modCategory');
-        if (empty($_POST['category'])) {
+        if (empty($_POST&#91;'category'&#93;)) {
                 $category-&gt;set('id',0);
         } else {
-                $category-&gt;set('category',$_POST['category']);
+                $category-&gt;set('category',$_POST&#91;'category'&#93;);
                 $category-&gt;save();
         }
 }
@@ -97,7 +97,7 @@ Okay, here, we allow dynamic Category creation. If the category specified exists
 // invoke OnBeforeChunkFormSave event
 $modx-&gt;invokeEvent('OnBeforeChunkFormSave',array(
         'mode'  =&gt; modSystemEvent::MODE_NEW,
-        'id'    =&gt; $_POST['id'],
+        'id'    =&gt; $_POST&#91;'id'&#93;,
 ));
 </pre>
 <p>
@@ -106,8 +106,8 @@ Events are pretty much the same invoke-wise in Revolution as they were in 096 - 
 
 <pre class="brush: php">
 $chunk = $modx-&gt;newObject('modChunk', $_POST);
-$chunk-&gt;set('locked',isset($_POST['locked']));
-$chunk-&gt;set('snippet',$_POST['chunk']);
+$chunk-&gt;set('locked',isset($_POST&#91;'locked'&#93;));
+$chunk-&gt;set('snippet',$_POST&#91;'chunk'&#93;);
 $chunk-&gt;set('category',$category-&gt;get('id'));
 if ($chunk-&gt;save() === false) {
     return $modx-&gt;error-&gt;failure($modx-&gt;lexicon('chunk_err_save'));

@@ -53,22 +53,22 @@ Options +FollowSymlinks
 RewriteEngine On
 RewriteBase /
 
-# Fix Apache internal dummy connections from breaking [(site_url)] cache
-RewriteCond %{HTTP_USER_AGENT} ^.*internal\ dummy\ connection.*$ [NC]
-RewriteRule .* - [F,L]
+# Fix Apache internal dummy connections from breaking &#91;(site_url)&#93; cache
+RewriteCond %{HTTP_USER_AGENT} ^.*internal\ dummy\ connection.*$ &#91;NC&#93;
+RewriteRule .* - &#91;F,L&#93;
 
 # Rewrite domain.com -&gt; www.domain.com -- used with SEO Strict URLs plugin
 #RewriteCond %{HTTP_HOST} .
-#RewriteCond %{HTTP_HOST} !^www\.example\.com [NC]
-#RewriteRule (.*) http://www.example.com/$1 [R=301,L]
+#RewriteCond %{HTTP_HOST} !^www\.example\.com &#91;NC&#93;
+#RewriteRule (.*) http://www.example.com/$1 &#91;R=301,L&#93;
 
 # Exclude /assets and /manager directories from rewrite rules
-RewriteRule ^(manager|assets) - [L]
+RewriteRule ^(manager|assets) - &#91;L&#93;
 
 # For Friendly URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+RewriteRule ^(.*)$ index.php?q=$1 &#91;L,QSA&#93;
 
 # Reduce server overhead by enabling output compression if supported.
 #php_flag zlib.output_compression On
@@ -106,7 +106,7 @@ You may also want to make your URLs non-case-sensitive by adding a NC directive 
 </p>
 
 <pre class="brush: php">
-RewriteRule ^(.*)$ index.php?q=$1 [L,QSA,NC]
+RewriteRule ^(.*)$ index.php?q=$1 &#91;L,QSA,NC&#93;
 </pre>
 <p>
 If you prefer your website to always add the "www." part to always show "www.example.com" URLs, then the section below should be changed as follows:
@@ -114,8 +114,8 @@ If you prefer your website to always add the "www." part to always show "www.exa
 
 <pre class="brush: php">
 RewriteCond %{HTTP_HOST} .
-RewriteCond %{HTTP_HOST} !^www\.example\.com [NC]
-RewriteRule (.*) http://www.example.com/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} !^www\.example\.com &#91;NC&#93;
+RewriteRule (.*) http://www.example.com/$1 &#91;R=301,L&#93;
 </pre>
 <p>
 If you're working off of virtual domains and have a preview for development or while waiting for DNS updates to occur such as accessing your site through <a href="http://10.0.0.1/~myacct">http://10.0.0.1/~myacct</a>, the rewrite rule should be written as follows. Don't forget to change it back when you go live.
@@ -124,7 +124,7 @@ If you're working off of virtual domains and have a preview for development or w
 <pre class="brush: php">
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /~myacct/index.php?q=$1 [L,QSA]
+RewriteRule ^(.*)$ /~myacct/index.php?q=$1 &#91;L,QSA&#93;
 </pre>
 <h2 id="FriendlyURLSolutions-ManagerProtection">
 Manager Protection
@@ -143,7 +143,7 @@ RewriteEngine On
 # Deny by IP. The IP address(es) listed will get through.
 RewriteCond %{REMOTE_ADDR} !^(192\.168\.0\.128)$
 RewriteCond %{REQUEST_FILENAME} !/includes/veriword\.php$
-RewriteRule ^(.*)$ ../index.php?q=$1 [L,QSA]
+RewriteRule ^(.*)$ ../index.php?q=$1 &#91;L,QSA&#93;
 </pre>
 <div class="note">
 The first line ("Options +FollowSymlinks") may need to be commented out in some situations where a similar line is present in the site install root to prevent server errors.
@@ -174,14 +174,14 @@ By default, MODx Evolution's htaccess template file excludes the /assets and /ma
 </p>
 
 <pre class="brush: php">
-RewriteRule ^(manager|assets) - [L]
+RewriteRule ^(manager|assets) - &#91;L&#93;
 </pre>
 <p>
 Would become
 </p>
 
 <pre class="brush: php">
-RewriteRule ^manager - [L]
+RewriteRule ^manager - &#91;L&#93;
 </pre>
 <div class="tip">
 <strong>Tip</strong>
@@ -189,7 +189,7 @@ RewriteRule ^manager - [L]
 If you still wish to maintain some subdirectories in the exclusions, you could disable /assets/images and /assets/snippets for example with the following rule:
 
 <pre class="brush: php">
-RewriteRule ^(manager|assets/images|assets/snippets) - [L]
+RewriteRule ^(manager|assets/images|assets/snippets) - &#91;L&#93;
 </pre>
 </div>
 
@@ -275,7 +275,7 @@ ExpiresByType image/gif A2592000
 ExpiresByType image/jpeg A2592000
 ExpiresByType image/png A2592000
 BrowserMatch "MSIE" brokenvary=1
-BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
+BrowserMatch "Mozilla/4.&#91;0-9&#93;{2}" brokenvary=1
 BrowserMatch "Opera" !brokenvary
 SetEnvIf brokenvary 1 force-no-vary
 </pre>

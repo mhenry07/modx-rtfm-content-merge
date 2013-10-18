@@ -17,7 +17,7 @@ API Docs: <a href="http://api.modx.com/revolution/2.2/db_core_xpdo_om_xpdoobject
 <pre class="brush: php">
 boolean addMany (
    mixed &amp;$obj,
-   [string $alias = '']
+   &#91;string $alias = ''&#93;
 )
 </pre>
 <h2 id="addMany-Example">
@@ -37,7 +37,7 @@ $clubs = array();
 for ($i=1;$i&lt;10;$i++) {
    $club = $xpdo-&gt;newObject('GolfClub');
    $club-&gt;set('name',$i.' Iron');
-   $clubs[] = $club;
+   $clubs&#91;&#93; = $club;
 }
 $bag-&gt;addMany($clubs);
 

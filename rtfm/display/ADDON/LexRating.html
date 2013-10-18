@@ -130,10 +130,10 @@ name
 Defines the name of the rating's item
 </td>
 <td>
-&amp;name=`[[*pagetitle]]`
+&amp;name=`&#91;&#91;*pagetitle&#93;&#93;`
 </td>
 <td>
-[[*id]]
+&#91;&#91;*id&#93;&#93;
 </td>
 <td>
 string
@@ -186,7 +186,7 @@ extended
 (@since 1.0.0-beta.2) To set and get an additional extended parameter of individual vote account
 </td>
 <td>
-&amp;extended=`{"quipReplyId":"[<span class="error">[+idprefix]</span>][<span class="error">[+id]</span>]"}`
+&amp;extended=`{"quipReplyId":"&#91;<span class="error">&#91;+idprefix&#93;</span>&#93;&#91;<span class="error">&#91;+id&#93;</span>&#93;"}`
 </td>
 <td>
 empty
@@ -240,7 +240,7 @@ tpl
 Template chunk for the output, can be chunk or file based chunk.
 </td>
 <td>
-&amp;tpl=`[[++core_path]]templates/blabla.tpl`
+&amp;tpl=`&#91;&#91;++core_path&#93;&#93;templates/blabla.tpl`
 </td>
 <td>
 lexrating
@@ -381,7 +381,7 @@ Description
 
 <tr>
 <td>
-[[+lexrating.name]]
+&#91;&#91;+lexrating.name&#93;&#93;
 </td>
 <td>
 The name you specify in the snippet
@@ -390,7 +390,7 @@ The name you specify in the snippet
 
 <tr>
 <td>
-[[+lexrating.group]]
+&#91;&#91;+lexrating.group&#93;&#93;
 </td>
 <td>
 The group name you specify in the snippet
@@ -399,7 +399,7 @@ The group name you specify in the snippet
 
 <tr>
 <td>
-[[+lexrating.total.voters]]
+&#91;&#91;+lexrating.total.voters&#93;&#93;
 </td>
 <td>
 Total number of the voters
@@ -408,7 +408,7 @@ Total number of the voters
 
 <tr>
 <td>
-[[+lexrating.initialAjax]]
+&#91;&#91;+lexrating.initialAjax&#93;&#93;
 </td>
 <td>
 The property you set in the snippet call
@@ -422,23 +422,23 @@ Example
 </h2>
 
 <pre class="brush: php">
-[[LexRating?
-&amp;name=`[[*pagetitle]]`
+&#91;&#91;LexRating?
+&amp;name=`&#91;&#91;*pagetitle&#93;&#93;`
 &amp;group=`articles`
 &amp;userGroups=`Members`
-]]
+&#93;&#93;
 </pre>
 <p>
 If you just want to display a rating of an item, use this
 </p>
 
 <pre class="brush: php">
-[[LexRating?
-&amp;name=`[[*pagetitle]]`
+&#91;&#91;LexRating?
+&amp;name=`&#91;&#91;*pagetitle&#93;&#93;`
 &amp;group=`articles`
 &amp;initialAjax=`0`
 &amp;readOnly=`1`
-]]
+&#93;&#93;
 </pre>
 <h1 id="LexRating-LexRatingList">
 LexRatingList
@@ -715,7 +715,7 @@ Description
 
 <tr>
 <td>
-[[+lexrating.list.items]]
+&#91;&#91;+lexrating.list.items&#93;&#93;
 </td>
 <td>
 The holder of the list of the items
@@ -741,7 +741,7 @@ Description
 
 <tr>
 <td>
-[[+lexrating.name]]
+&#91;&#91;+lexrating.name&#93;&#93;
 </td>
 <td>
 The name you specify in the snippet
@@ -750,7 +750,7 @@ The name you specify in the snippet
 
 <tr>
 <td>
-[[+lexrating.group]]
+&#91;&#91;+lexrating.group&#93;&#93;
 </td>
 <td>
 The group name you specify in the snippet
@@ -759,7 +759,7 @@ The group name you specify in the snippet
 
 <tr>
 <td>
-[[+lexrating.total.voters]]
+&#91;&#91;+lexrating.total.voters&#93;&#93;
 </td>
 <td>
 Total number of the voters
@@ -768,7 +768,7 @@ Total number of the voters
 
 <tr>
 <td>
-[[+lexrating.initialAjax]]
+&#91;&#91;+lexrating.initialAjax&#93;&#93;
 </td>
 <td>
 The property you set in the snippet call
@@ -782,7 +782,7 @@ Example
 </h2>
 
 <div>
-<code>[[LexRatingList? &amp;group=`articles`]]</code>
+<code>&#91;&#91;LexRatingList? &amp;group=`articles`&#93;&#93;</code>
 </div>
 
 <h1 id="LexRating-LexRatingQuipPostHook">
@@ -802,7 +802,7 @@ On the quip's call, try to use this as an example:
 </p>
 
 <pre class="brush: php">
-[[LexRatingList? &amp;group=`articles`]]
+&#91;&#91;LexRatingList? &amp;group=`articles`&#93;&#93;
 </pre>
 <h1 id="LexRating-LexRatingQuipPostHook">
 LexRatingQuipPostHook
@@ -822,22 +822,22 @@ On the quip's call, try to use this as an example:
 
 <pre class="brush: html">
 &lt;p&gt;Total Rating:&lt;/p&gt;
-[[!LexRatingList?
+&#91;&#91;!LexRatingList?
 &amp;name=`threadNameHere`
 &amp;group=`Overall Rating`
-]]
+&#93;&#93;
 &lt;br /&gt;
-[[!Quip?
+&#91;&#91;!Quip?
 &amp;thread=`threadNameHere`
 &amp;tplComment=`lexrating.quipComment`
-]]
+&#93;&#93;
 &lt;br /&gt;
-[[!QuipReply?
+&#91;&#91;!QuipReply?
 &amp;thread=`threadNameHere`
 &amp;postHooks=`LexRatingQuipPostHook`
 &amp;tplAddComment=`lexrating.quipAddComment`
-&amp;redirectTo=`[[*id]]`
-]]
+&amp;redirectTo=`&#91;&#91;*id&#93;&#93;`
+&#93;&#93;
 </pre>
 <p>
 You can sync the connection between the thread's name (eg:<strong>threadNameHere</strong>) with the <strong>LexRating</strong> inside the other chunk, <strong>lexrating.quipComment</strong>.
@@ -846,17 +846,17 @@ Basically, it only adds up the <strong>LexRating</strong> call but with the prop
 </p>
 
 <pre class="brush: html">
-[[!LexRating?
+&#91;&#91;!LexRating?
 &amp;group=`Overall Rating`
-&amp;name=`[[+thread]]`
-&amp;extended=`{"quipReplyId":"[[+idprefix]][[+id]]"}`
+&amp;name=`&#91;&#91;+thread&#93;&#93;`
+&amp;extended=`{"quipReplyId":"&#91;&#91;+idprefix&#93;&#93;&#91;&#91;+id&#93;&#93;"}`
 &amp;readOnly=`1`
 &amp;tpl=`lexrating.quip`
 &amp;js=``
 &amp;loadjQuery=`0`
 &amp;initialAjax=`0`
 &amp;_toArray=`1`
-]]
+&#93;&#93;
 </pre>
 <div class="note">
 &amp;group is for the title,
@@ -869,7 +869,7 @@ What <strong>&amp;extended</strong> does is only to identify each of the vote. Y
 </p>
 
 <pre class="brush: php">
-data-rateit-extended="[[+lexrating.extended]]"
+data-rateit-extended="&#91;&#91;+lexrating.extended&#93;&#93;"
 </pre>
 <p>
 You must specify different names for the quip's thread names, remember to change/duplicate part of the chunks:
@@ -883,8 +883,8 @@ the duplicate of <strong>lexrating.quipAddComment</strong>
         &lt;!-- replace lexrating_groupName's value with what you have as the &amp;group --&gt;
         &lt;input type="hidden" name="lexrating_groupName" value="Overall Rating" /&gt;
 
-        &lt;!-- but leave this one untouched because the &amp;name is using the same placeholder [[+thread]] anyway --&gt;
-        &lt;input type="hidden" name="lexrating_objectName" value="[[+thread]]" /&gt;
+        &lt;!-- but leave this one untouched because the &amp;name is using the same placeholder &#91;&#91;+thread&#93;&#93; anyway --&gt;
+        &lt;input type="hidden" name="lexrating_objectName" value="&#91;&#91;+thread&#93;&#93;" /&gt;
 </pre>
 <p>
 the duplicate of <strong>lexrating.quipComment</strong>

@@ -457,8 +457,8 @@ You can also do custom validators by creating a Snippet and using that as the va
 
 <pre class="brush: php">
 &lt;label&gt;
-  Boxes:&lt;span class="error"&gt;[[+error.boxes]]&lt;/span&gt;
-  &lt;input type="text" name="boxes" id="boxes" value="[[+boxes]]" /&gt;
+  Boxes:&lt;span class="error"&gt;&#91;&#91;+error.boxes&#93;&#93;&lt;/span&gt;
+  &lt;input type="text" name="boxes" id="boxes" value="&#91;&#91;+boxes&#93;&#93;" /&gt;
 &lt;/label&gt;
 </pre>
 <p>
@@ -466,10 +466,10 @@ And in our Register call:
 </p>
 
 <pre class="brush: php">
-[[!Register?
+&#91;&#91;!Register?
   &amp;validate=`boxes:equalTo=^123^`
   &amp;customValidators=`equalTo`
-]]
+&#93;&#93;
 </pre>
 <p>
 Now, in our snippet, our code would look like so:
@@ -477,8 +477,8 @@ Now, in our snippet, our code would look like so:
 
 <pre class="brush: php">
 &lt;?php
-if ($scriptProperties['value'] !== $scriptProperties['param']) {
-    return 'Value not equal to: '.$scriptProperties['param'];
+if ($scriptProperties&#91;'value'&#93; !== $scriptProperties&#91;'param'&#93;) {
+    return 'Value not equal to: '.$scriptProperties&#91;'param'&#93;;
 }
 return true;
 ?&gt;
@@ -540,14 +540,14 @@ Assigning the User to specified User Groups is easy. Just specify a comma-separa
 </p>
 
 <pre class="brush: php">
-[[!Register? &amp;usergroups=`Marketing,Research`]]
+&#91;&#91;!Register? &amp;usergroups=`Marketing,Research`&#93;&#93;
 </pre>
 <p>
 Alternatively, you can also specify the Role you would like to add the user to in the User Group by adding it after the User Group name with a colon, like so:
 </p>
 
 <pre class="brush: php">
-[[!Register? &amp;usergroups=`Marketing:Member,Research:Super User`]]
+&#91;&#91;!Register? &amp;usergroups=`Marketing:Member,Research:Super User`&#93;&#93;
 </pre>
 <h3 id="Login.Register-SendinganActivationEmail">
 Sending an Activation Email
@@ -570,12 +570,12 @@ An example Register snippet call with activation would look like this:
 </p>
 
 <pre class="brush: php">
-[[!Register?
+&#91;&#91;!Register?
    &amp;activationEmailTpl=`myActivationEmailTpl`
    &amp;activationEmailSubject=`Please activate your account!`
    &amp;activationResourceId=`26`
    &amp;submittedResourceId=`325`
-]]
+&#93;&#93;
 </pre>
 <p>
 This would send the User the email specified in the "myActivationEmailTpl" chunk, with the specified subject line, which will direct the User to the Resource 26 to activate their account. It will also, after sending the email, redirect the User to a "Please activate your account page" of sorts at Resource 325.
@@ -616,7 +616,7 @@ Redirection is simple: just specify the ID of the Resource to redirect to in the
 </p>
 
 <pre class="brush: php">
-[[!Register? &amp;submittedResourceId=`23`]]
+&#91;&#91;!Register? &amp;submittedResourceId=`23`&#93;&#93;
 </pre>
 <p>
 Will redirect to the Resource with ID 23. It will also append "username" and "email" GET parameters to the URL.
@@ -627,14 +627,14 @@ Display a Success Message
 </h3>
 
 <p>
-If the "submittedResourceId" property is not specified, Register will simply display a success message to the [[+error.message]] placeholder. This is the value of the "successMsg" property. For example:
+If the "submittedResourceId" property is not specified, Register will simply display a success message to the &#91;&#91;+error.message&#93;&#93; placeholder. This is the value of the "successMsg" property. For example:
 </p>
 
 <pre class="brush: php">
-[[!Register? &amp;successMsg=`Thanks for registering!`]]
+&#91;&#91;!Register? &amp;successMsg=`Thanks for registering!`&#93;&#93;
 </pre>
 <p>
-Will display "Thanks for registering!" in the [[+error.message]] property in the Resource that your [[Register]] snippet call is in after the User submits a valid registration form.
+Will display "Thanks for registering!" in the &#91;&#91;+error.message&#93;&#93; property in the Resource that your &#91;&#91;Register&#93;&#93; snippet call is in after the User submits a valid registration form.
 </p>
 
 <h2 id="Login.Register-TypicalSetup">

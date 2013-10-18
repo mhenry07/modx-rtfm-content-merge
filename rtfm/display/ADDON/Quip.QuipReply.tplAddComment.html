@@ -11,52 +11,52 @@ Default Value
 </h2>
 
 <pre class="brush: php">
-[[+preview]]
-&lt;span class="quip-success" id="quip-success-[[+idprefix]]"&gt;[[+successMsg]]&lt;/span&gt;
+&#91;&#91;+preview&#93;&#93;
+&lt;span class="quip-success" id="quip-success-&#91;&#91;+idprefix&#93;&#93;"&gt;&#91;&#91;+successMsg&#93;&#93;&lt;/span&gt;
 
-&lt;form id="quip-add-comment-[[+idprefix]]" action="[[+url]]#quip-comment-preview-box-[[+idprefix]]" method="post"&gt;
+&lt;form id="quip-add-comment-&#91;&#91;+idprefix&#93;&#93;" action="&#91;&#91;+url&#93;&#93;#quip-comment-preview-box-&#91;&#91;+idprefix&#93;&#93;" method="post"&gt;
 &lt;div class="quip-comment quip-add-comment"&gt;
     &lt;input type="hidden" name="nospam" value="" /&gt;
-    &lt;input type="hidden" name="thread" value="[[+thread]]" /&gt;
-    &lt;input type="hidden" name="parent" value="[[+parent]]" /&gt;
-    &lt;input type="hidden" name="auth_nonce" value="[[+auth_nonce]]" /&gt;
-    &lt;input type="hidden" name="preview_mode" value="[[+preview_mode]]" /&gt;
+    &lt;input type="hidden" name="thread" value="&#91;&#91;+thread&#93;&#93;" /&gt;
+    &lt;input type="hidden" name="parent" value="&#91;&#91;+parent&#93;&#93;" /&gt;
+    &lt;input type="hidden" name="auth_nonce" value="&#91;&#91;+auth_nonce&#93;&#93;" /&gt;
+    &lt;input type="hidden" name="preview_mode" value="&#91;&#91;+preview_mode&#93;&#93;" /&gt;
 
      &lt;div class="quip-fld"&gt;
-        &lt;label for="quip-comment-name-[[+idprefix]]"&gt;[[%quip.name? &amp;namespace=`quip` &amp;topic=`default`]]:&lt;span class="quip-error"&gt;[[+error.name]]&lt;/span&gt;&lt;/label&gt;
-        &lt;input type="text" name="name" id="quip-comment-name-[[+idprefix]]" value="[[+name]]" /&gt;
+        &lt;label for="quip-comment-name-&#91;&#91;+idprefix&#93;&#93;"&gt;&#91;&#91;%quip.name? &amp;namespace=`quip` &amp;topic=`default`&#93;&#93;:&lt;span class="quip-error"&gt;&#91;&#91;+error.name&#93;&#93;&lt;/span&gt;&lt;/label&gt;
+        &lt;input type="text" name="name" id="quip-comment-name-&#91;&#91;+idprefix&#93;&#93;" value="&#91;&#91;+name&#93;&#93;" /&gt;
         &lt;br /&gt;
     &lt;/div&gt;
     
     &lt;div class="quip-fld"&gt;
-        &lt;label for="quip-comment-email-[[+idprefix]]"&gt;[[%quip.email]]:&lt;span class="quip-error"&gt;[[+error.email]]&lt;/span&gt;&lt;/label&gt;
-        &lt;input type="text" name="email" id="quip-comment-email-[[+idprefix]]" value="[[+email]]" /&gt;
+        &lt;label for="quip-comment-email-&#91;&#91;+idprefix&#93;&#93;"&gt;&#91;&#91;%quip.email&#93;&#93;:&lt;span class="quip-error"&gt;&#91;&#91;+error.email&#93;&#93;&lt;/span&gt;&lt;/label&gt;
+        &lt;input type="text" name="email" id="quip-comment-email-&#91;&#91;+idprefix&#93;&#93;" value="&#91;&#91;+email&#93;&#93;" /&gt;
         &lt;br /&gt;
     &lt;/div&gt;
     
     &lt;div class="quip-fld"&gt;
-        &lt;label for="quip-comment-website-[[+idprefix]]"&gt;[[%quip.website]]:&lt;span class="quip-error"&gt;[[+error.website]]&lt;/span&gt;&lt;/label&gt;
-        &lt;input type="text" name="website" id="quip-comment-website-[[+idprefix]]" value="[[+website]]" /&gt;
+        &lt;label for="quip-comment-website-&#91;&#91;+idprefix&#93;&#93;"&gt;&#91;&#91;%quip.website&#93;&#93;:&lt;span class="quip-error"&gt;&#91;&#91;+error.website&#93;&#93;&lt;/span&gt;&lt;/label&gt;
+        &lt;input type="text" name="website" id="quip-comment-website-&#91;&#91;+idprefix&#93;&#93;" value="&#91;&#91;+website&#93;&#93;" /&gt;
         &lt;br /&gt;
     &lt;/div&gt;
 
     &lt;div class="quip-fld"&gt;
-        &lt;label for="quip-comment-notify-[[+idprefix]]"&gt;[[%quip.notify_me]]:&lt;span class="quip-error"&gt;[[+error.notify]]&lt;/span&gt;&lt;/label&gt;
-        &lt;input type="checkbox" value="1" name="notify" id="quip-comment-notify-[[+idprefix]]" [[+notify:if=`[[+notify]]`:eq=`1`:then=`checked="checked"`]] /&gt;
+        &lt;label for="quip-comment-notify-&#91;&#91;+idprefix&#93;&#93;"&gt;&#91;&#91;%quip.notify_me&#93;&#93;:&lt;span class="quip-error"&gt;&#91;&#91;+error.notify&#93;&#93;&lt;/span&gt;&lt;/label&gt;
+        &lt;input type="checkbox" value="1" name="notify" id="quip-comment-notify-&#91;&#91;+idprefix&#93;&#93;" &#91;&#91;+notify:if=`&#91;&#91;+notify&#93;&#93;`:eq=`1`:then=`checked="checked"`&#93;&#93; /&gt;
         &lt;br /&gt;
     &lt;/div&gt;
 
     &lt;div class="quip-fld recaptcha"&gt;
-    [[+quip.recaptcha_html]]
-    &lt;span class="quip-error"&gt;[[+error.recaptcha]]&lt;/span&gt;
+    &#91;&#91;+quip.recaptcha_html&#93;&#93;
+    &lt;span class="quip-error"&gt;&#91;&#91;+error.recaptcha&#93;&#93;&lt;/span&gt;
     &lt;/div&gt;
     
     
-    &lt;p&gt;&lt;span class="quip-allowed-tags"&gt;[[%quip.allowed_tags? &amp;tags=`[[++quip.allowed_tags:htmlent]]`]]&lt;/span&gt;[[%quip.comment_add_new]]&lt;span class="quip-error"&gt;[[+error.comment]]&lt;/span&gt;&lt;/p&gt;
-    &lt;textarea name="comment" id="quip-comment-box-[[+idprefix]]" rows="5"&gt;[[+comment]]&lt;/textarea&gt;
+    &lt;p&gt;&lt;span class="quip-allowed-tags"&gt;&#91;&#91;%quip.allowed_tags? &amp;tags=`&#91;&#91;++quip.allowed_tags:htmlent&#93;&#93;`&#93;&#93;&lt;/span&gt;&#91;&#91;%quip.comment_add_new&#93;&#93;&lt;span class="quip-error"&gt;&#91;&#91;+error.comment&#93;&#93;&lt;/span&gt;&lt;/p&gt;
+    &lt;textarea name="comment" id="quip-comment-box-&#91;&#91;+idprefix&#93;&#93;" rows="5"&gt;&#91;&#91;+comment&#93;&#93;&lt;/textarea&gt;
     
-    &lt;button type="submit" name="[[+preview_action]]" value="1"&gt;[[%quip.preview]]&lt;/button&gt;
-    [[+can_post:is=`1`:then=`&lt;button type="submit" name="[[+post_action]]" value="1"&gt;[[%quip.post]]&lt;/button&gt;`]]
+    &lt;button type="submit" name="&#91;&#91;+preview_action&#93;&#93;" value="1"&gt;&#91;&#91;%quip.preview&#93;&#93;&lt;/button&gt;
+    &#91;&#91;+can_post:is=`1`:then=`&lt;button type="submit" name="&#91;&#91;+post_action&#93;&#93;" value="1"&gt;&#91;&#91;%quip.post&#93;&#93;&lt;/button&gt;`&#93;&#93;
     
     &lt;br class="clear" /&gt;
 &lt;/div&gt;

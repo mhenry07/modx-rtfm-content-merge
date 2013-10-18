@@ -81,14 +81,14 @@ The If snippet can be called using the tags:
 </p>
 
 <pre class="brush: php">
-[[If]]
+&#91;&#91;If&#93;&#93;
 </pre>
 <p>
 or, in case your subject can be modified before the resource cache get cleared use the uncached syntax:
 </p>
 
 <pre class="brush: php">
-[[!If]]
+&#91;&#91;!If&#93;&#93;
 </pre>
 <h3 id="If-AvailableProperties">
 Available Properties
@@ -311,59 +311,59 @@ Numeric comparison:
 </p>
 
 <pre class="brush: php">
-[[!If? &amp;subject=`[[+total]]` &amp;operator=`GT` &amp;operand=`3` &amp;then=`You have more than 3 items!`]]
+&#91;&#91;!If? &amp;subject=`&#91;&#91;+total&#93;&#93;` &amp;operator=`GT` &amp;operand=`3` &amp;then=`You have more than 3 items!`&#93;&#93;
 </pre>
 <p>
 String comparison:
 </p>
 
 <pre class="brush: php">
-[[!If?
-   &amp;subject=`[[+name]]`
+&#91;&#91;!If?
+   &amp;subject=`&#91;&#91;+name&#93;&#93;`
    &amp;operator=`EQ`
    &amp;operand=`George`
    &amp;then=`Hey George! Long time no see!`
    &amp;else=`You're not George. Go away.`
-]]
+&#93;&#93;
 </pre>
 <p>
 Inline snippet calls:
 </p>
 
 <pre class="brush: php">
-[[!If?
-   &amp;subject=`[[+modx.user.id]]`
+&#91;&#91;!If?
+   &amp;subject=`&#91;&#91;+modx.user.id&#93;&#93;`
    &amp;operator=`EQ`
    &amp;operand=`0`
-   &amp;then=`[[Login]]`
-   &amp;else=`[[Logout]]`
-]]
+   &amp;then=`&#91;&#91;Login&#93;&#93;`
+   &amp;else=`&#91;&#91;Logout&#93;&#93;`
+&#93;&#93;
 </pre>
 <p>
 When using the If snippet for checking a resource field or template variable (or other value that doesn't change before the cache does), be sure to use the <strong>cached</strong> snippet call to check the condition to make sure it doesn't need to process on every request.
 </p>
 
 <pre class="brush: php">
-[[If?
-   &amp;subject=`[[*hidemenu]]`
+&#91;&#91;If?
+   &amp;subject=`&#91;&#91;*hidemenu&#93;&#93;`
    &amp;operator=`EQ`
    &amp;operand=`1`
    &amp;then=`This resource is not visible in the menu.`
-   &amp;else=`This resource shows up in the menu in spot [[*menuindex]].`
-]]
+   &amp;else=`This resource shows up in the menu in spot &#91;&#91;*menuindex&#93;&#93;.`
+&#93;&#93;
 </pre>
 <p>
 As requested an example with inarray.
 </p>
 
 <pre class="brush: php">
-[[If?
-   &amp;subject=`[[*id]]`
+&#91;&#91;If?
+   &amp;subject=`&#91;&#91;*id&#93;&#93;`
    &amp;operator=`inarray`
    &amp;operand=`3,4`
    &amp;then=`This text will show if id is 3 or 4.`
    &amp;else=`This text is printed for all other resource id's.`
-]]
+&#93;&#93;
 </pre>
 <p>
 <br />

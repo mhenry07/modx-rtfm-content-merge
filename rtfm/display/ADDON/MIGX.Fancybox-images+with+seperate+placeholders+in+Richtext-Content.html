@@ -40,11 +40,11 @@ For this Tutorial we want to create a new Template. We name it 'fancybox'
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
 &lt;html&gt;
     &lt;head&gt;
-        &lt;title&gt;[[++site_name]] - [[*pagetitle]]&lt;/title&gt;
-        &lt;base href="[[++site_url]]" /&gt;
+        &lt;title&gt;&#91;&#91;++site_name&#93;&#93; - &#91;&#91;*pagetitle&#93;&#93;&lt;/title&gt;
+        &lt;base href="&#91;&#91;++site_url&#93;&#93;" /&gt;
         &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" src="[[++base_url]]assets/js/fancybox/jquery.fancybox-1.3.4.pack.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" src="[[++base_url]]assets/js/fancybox/jquery.easing-1.4.pack.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="&#91;&#91;++base_url&#93;&#93;assets/js/fancybox/jquery.fancybox-1.3.4.pack.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="&#91;&#91;++base_url&#93;&#93;assets/js/fancybox/jquery.easing-1.4.pack.js"&gt;&lt;/script&gt;
         &lt;script type="text/javascript"&gt;
             $(document).ready(function() {
                 $("a.fancyimg").fancybox({
@@ -57,13 +57,13 @@ For this Tutorial we want to create a new Template. We name it 'fancybox'
 
             });
         &lt;/script&gt;
-        &lt;link rel="stylesheet" href="[[++base_url]]assets/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" /&gt;        
+        &lt;link rel="stylesheet" href="&#91;&#91;++base_url&#93;&#93;assets/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" /&gt;        
     &lt;/head&gt;
     &lt;body&gt;
         &lt;div&gt;
-            [[!getImageList? &amp;tpl=`fancybox`&amp;tvname=`fancyboxTv`&amp;toSeparatePlaceholders=`img`]]
-            &lt;div id="content"&gt;[[*content]]&lt;/div&gt;
-            &lt;div id="footer"&gt;[^q^] queries, querytime [^qt^], phptime [^p^], totaltime [^t^], source [^s^]&lt;/div&gt;
+            &#91;&#91;!getImageList? &amp;tpl=`fancybox`&amp;tvname=`fancyboxTv`&amp;toSeparatePlaceholders=`img`&#93;&#93;
+            &lt;div id="content"&gt;&#91;&#91;*content&#93;&#93;&lt;/div&gt;
+            &lt;div id="footer"&gt;&#91;^q^&#93; queries, querytime &#91;^qt^&#93;, phptime &#91;^p^&#93;, totaltime &#91;^t^&#93;, source &#91;^s^&#93;&lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -177,25 +177,25 @@ Form Tabs
 </h5>
 
 <pre class="brush: javascript">
-[
-{"caption":"Image", "fields": [
+&#91;
+{"caption":"Image", "fields": &#91;
     {"field":"placeholder","caption":"Placeholder","inputTV":"placeholderTV"},
     {"field":"title","caption":"Title","description":"Title for the image."}, 
     {"field":"image","caption":"Image","inputTV":"imageTV"}
 
-]}
-]
+&#93;}
+&#93;
 </pre>
 <h5 id="MIGX.Fancybox-imageswithseperateplaceholdersinRichtext-Content-GridColumns">
 Grid Columns
 </h5>
 
 <pre class="brush: javascript">
-[
+&#91;
 {"header": "Placeholder", "width": "10", "sortable": "true", "dataIndex": "placeholder", "renderer": "this.renderPlaceholder"},
 {"header": "Title", "width": "160", "sortable": "true", "dataIndex": "title"}, 
 {"header": "Image", "width": "50", "sortable": "false", "dataIndex": "image","renderer": "this.renderImage"}
-]
+&#93;
 </pre>
 <h5 id="MIGX.Fancybox-imageswithseperateplaceholdersinRichtext-Content-TemplateAccess">
 Template Access
@@ -226,8 +226,8 @@ Chunk Code
 </h5>
 
 <pre class="brush: html">
-&lt;a href="[[+image]]"&gt;
-&lt;img src="[[+image:phpthumbof=`w=100&amp;h=75&amp;zc=1`]]" alt=""/&gt;
+&lt;a href="&#91;&#91;+image&#93;&#93;"&gt;
+&lt;img src="&#91;&#91;+image:phpthumbof=`w=100&amp;h=75&amp;zc=1`&#93;&#93;" alt=""/&gt;
 &lt;/a&gt;
 </pre>
 <h2 id="MIGX.Fancybox-imageswithseperateplaceholdersinRichtext-Content-">
@@ -251,7 +251,7 @@ Add as many images as you want to add to your Content.
 </p>
 
 <p>
-Now write your content to your Richtext-Field and add placeholders like&nbsp;[[+img.0]] ,&nbsp;[[+img.1]],&nbsp;[[+img.2]] to your Text.
+Now write your content to your Richtext-Field and add placeholders like&nbsp;&#91;&#91;+img.0&#93;&#93; ,&nbsp;&#91;&#91;+img.1&#93;&#93;,&nbsp;&#91;&#91;+img.2&#93;&#93; to your Text.
 </p>
 
 <p>

@@ -37,7 +37,7 @@ $e = &amp;$modx-&gt;Event;
 switch ($e-&gt;name) {
 case "OnWebPagePrerender":
 $o = &amp;$modx-&gt;documentOutput; // get a reference of the output
-$o = str_replace($words,"&lt;b&gt;[filtered]&lt;/b&gt;",$o);
+$o = str_replace($words,"&lt;b&gt;&#91;filtered&#93;&lt;/b&gt;",$o);
  break;
 default :
 return; // stop here - this is very important.

@@ -206,7 +206,7 @@ Snippet call:
 </h3>
 
 <pre class="brush: php">
-[[Wayfinder? &amp;startId=`55` ]]
+&#91;&#91;Wayfinder? &amp;startId=`55` &#93;&#93;
 </pre>
 <h3 id="WayfinderIntroductoryExamples-Outputexample:">
 Output example:
@@ -251,7 +251,7 @@ Next, we can specify verbatim how we want to format each link by setting the &am
 </p>
 
 <pre class="brush: php">
-[[Wayfinder? &amp;startId=`55` &amp;rowTpl=`rowTpl`]]
+&#91;&#91;Wayfinder? &amp;startId=`55` &amp;rowTpl=`rowTpl`&#93;&#93;
 </pre>
 <p>
 We set our "rowTpl" Chunk to look like this:
@@ -259,9 +259,9 @@ We set our "rowTpl" Chunk to look like this:
 
 <pre class="brush: php">
 &lt;!-- rowTpl --&gt;
-&lt;li[[+wf.id]][[+wf.classes]]&gt;
-&lt;a href="[[+wf.link]]" title="[[+wf.title]]" [[+wf.attributes]]&gt;[[+wf.linktext]]&lt;/a&gt;
-[[+wf.wrapper]]
+&lt;li&#91;&#91;+wf.id&#93;&#93;&#91;&#91;+wf.classes&#93;&#93;&gt;
+&lt;a href="&#91;&#91;+wf.link&#93;&#93;" title="&#91;&#91;+wf.title&#93;&#93;" &#91;&#91;+wf.attributes&#93;&#93;&gt;&#91;&#91;+wf.linktext&#93;&#93;&lt;/a&gt;
+&#91;&#91;+wf.wrapper&#93;&#93;
 &lt;/li&gt;
 </pre>
 <h3 id="WayfinderIntroductoryExamples-OutputExample:">
@@ -325,7 +325,7 @@ Here's out sample Snippet call:
 </p>
 
 <pre class="brush: php">
-[[Wayfinder? &amp;startId=`55` &amp;rowTpl=`rowTpl` &amp;outerTpl=`outerTpl`]]
+&#91;&#91;Wayfinder? &amp;startId=`55` &amp;rowTpl=`rowTpl` &amp;outerTpl=`outerTpl`&#93;&#93;
 </pre>
 <p>
 And here's our new Chunk "outerTpl":
@@ -333,8 +333,8 @@ And here's our new Chunk "outerTpl":
 
 <pre class="brush: php">
 &lt;!-- outerTpl --&gt;
-&lt;ul id="topnav"[[+wf.classes]]&gt;
-[[+wf.wrapper]]
+&lt;ul id="topnav"&#91;&#91;+wf.classes&#93;&#93;&gt;
+&#91;&#91;+wf.wrapper&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <h3 id="WayfinderIntroductoryExamples-Sampleoutput:">
@@ -414,7 +414,7 @@ Sample Snippet Call:
 </h3>
 
 <pre class="brush: php">
-[[Wayfinder? &amp;startId=`55` &amp;rowTpl=`rowTpl` &amp;outerTpl=`outerTpl` &amp;parentRowTpl=`parentRow`]]
+&#91;&#91;Wayfinder? &amp;startId=`55` &amp;rowTpl=`rowTpl` &amp;outerTpl=`outerTpl` &amp;parentRowTpl=`parentRow`&#93;&#93;
 </pre>
 <p>
 Here's what we have in our "parentRow" Chunk:
@@ -423,8 +423,8 @@ Here's what we have in our "parentRow" Chunk:
 <pre class="brush: php">
 &lt;!-- ParentRow --&gt;
 &lt;li&gt;
-&lt;a href="[[+wf.link]]"&gt;[[+wf.linktext]]&lt;/a&gt; - [[+wf.description]]
-[[+wf.wrapper]]
+&lt;a href="&#91;&#91;+wf.link&#93;&#93;"&gt;&#91;&#91;+wf.linktext&#93;&#93;&lt;/a&gt; - &#91;&#91;+wf.description&#93;&#93;
+&#91;&#91;+wf.wrapper&#93;&#93;
 &lt;/li&gt;
 </pre>
 <h3 id="WayfinderIntroductoryExamples-SampleOutput:">
@@ -500,7 +500,7 @@ That's when we can use the &amp;innerTpl.
 </p>
 
 <pre class="brush: php">
-[[Wayfinder? &amp;startId=`55` &amp;rowTpl=`rowTpl` &amp;outerTpl=`outerTpl` &amp;parentRowTpl=`parentRow` &amp;innerTpl=`innerTpl`]]
+&#91;&#91;Wayfinder? &amp;startId=`55` &amp;rowTpl=`rowTpl` &amp;outerTpl=`outerTpl` &amp;parentRowTpl=`parentRow` &amp;innerTpl=`innerTpl`&#93;&#93;
 </pre>
 <h3 id="WayfinderIntroductoryExamples-SampleOutput:">
 Sample Output:
@@ -561,7 +561,7 @@ This Chunk is a variation of the basic <strong>&amp;rowTpl</strong>. Here's what
 
 <pre class="brush: php">
 &lt;!-- innerRowTpl --&gt;
-&lt;li&gt;&lt;a href="[[+wf.link]]"&gt;[[+wf.linktext]]&lt;/a&gt;[[+wf.wrapper]]&lt;/li&gt;
+&lt;li&gt;&lt;a href="&#91;&#91;+wf.link&#93;&#93;"&gt;&#91;&#91;+wf.linktext&#93;&#93;&lt;/a&gt;&#91;&#91;+wf.wrapper&#93;&#93;&lt;/li&gt;
 </pre>
 <h3 id="WayfinderIntroductoryExamples-SnippetCall">
 Snippet Call
@@ -572,7 +572,7 @@ Here's what our Snippet call looks like:
 </p>
 
 <pre class="brush: php">
-[[Wayfinder? &amp;startId=`55` &amp;rowTpl=`rowTpl` &amp;outerTpl=`outerTpl` &amp;parentRowTpl=`parentRow` &amp;innerTpl=`innerTpl` &amp;innerRowTpl=`innerRowTpl`]]
+&#91;&#91;Wayfinder? &amp;startId=`55` &amp;rowTpl=`rowTpl` &amp;outerTpl=`outerTpl` &amp;parentRowTpl=`parentRow` &amp;innerTpl=`innerTpl` &amp;innerRowTpl=`innerRowTpl`&#93;&#93;
 </pre>
 <h3 id="WayfinderIntroductoryExamples-SampleOutput">
 Sample Output
@@ -640,14 +640,14 @@ use some of the other available parameters to affect the final output. You may n
 <br />
 examples how the first and last row items have custom CSS classes added? These
 <br />
-are intelligently added to the <code>[</code><code><span class="error">[+wf.attributes]</span></code><code>]</code> placeholder inside of our "rowTpl":
+are intelligently added to the <code>&#91;</code><code><span class="error">&#91;+wf.attributes&#93;</span></code><code>&#93;</code> placeholder inside of our "rowTpl":
 </p>
 
 <pre class="brush: php">
 &lt;!-- rowTpl --&gt;
-&lt;li[[+wf.id]][[+wf.classes]]&gt;
-&lt;a href="[[+wf.link]]" title="[[+wf.title]]" [[+wf.attributes]]&gt;[[+wf.linktext]]&lt;/a&gt;
-[[+wf.wrapper]]
+&lt;li&#91;&#91;+wf.id&#93;&#93;&#91;&#91;+wf.classes&#93;&#93;&gt;
+&lt;a href="&#91;&#91;+wf.link&#93;&#93;" title="&#91;&#91;+wf.title&#93;&#93;" &#91;&#91;+wf.attributes&#93;&#93;&gt;&#91;&#91;+wf.linktext&#93;&#93;&lt;/a&gt;
+&#91;&#91;+wf.wrapper&#93;&#93;
 &lt;/li&gt;
 </pre>
 <p>
@@ -677,14 +677,14 @@ Our adjust Wayfinder Snippet call looks like this:
 </p>
 
 <pre class="brush: php">
-[[!Wayfinder? &amp;startId=`55`
+&#91;&#91;!Wayfinder? &amp;startId=`55`
 &amp;rowTpl=`rowTpl`
 &amp;outerTpl=`outerTpl`
 &amp;firstClass=`my_first_class`
 &amp;lastClass=`my_last_class`
 &amp;rowClass=`my_row_class`
 &amp;outerClass=`my_outer_class`
-]]
+&#93;&#93;
 </pre>
 <h3 id="WayfinderIntroductoryExamples-SampleOutput">
 Sample Output
@@ -742,7 +742,7 @@ Notice how the first and last links got two classes? The "my_row_class" is added
 <p>
 Remember: if you want to take advantage of these parameters, make sure you include
 <br />
-the <code>[[+wf.attributes]]</code> placeholder inside your Chunks!!!
+the <code>&#91;&#91;+wf.attributes&#93;&#93;</code> placeholder inside your Chunks!!!
 </p>
 
 <h2 id="WayfinderIntroductoryExamples-Conclusion">

@@ -40,7 +40,7 @@ In MODX 2.3 and later you can access the resource properties (see <a href="http:
 
 <pre class="brush: php">
 // Override Output
-$modx-&gt;event-&gt;params['resource']-&gt;_content = 'Overridden...';
+$modx-&gt;event-&gt;params&#91;'resource'&#93;-&gt;_content = 'Overridden...';
 </pre>
 <p>
 You can access resource properties like so:
@@ -48,7 +48,7 @@ You can access resource properties like so:
 
 <pre class="brush: php">
 // Override Pagetitle
-$modx-&gt;event-&gt;params['resource']-&gt;pagetitle = 'My New Pagetitle';
+$modx-&gt;event-&gt;params&#91;'resource'&#93;-&gt;pagetitle = 'My New Pagetitle';
 </pre>
 <p>
 TVs are a trickier. They get cached as an standard array. For reading and overriding values, you will focus on element 1:
@@ -56,7 +56,7 @@ TVs are a trickier. They get cached as an standard array. For reading and overri
 
 <pre class="brush: php">
 // Reading value of TV named "my_tv"
-$my_tv = $modx-&gt;event-&gt;params['resource']-&gt;my_tv[1];
+$my_tv = $modx-&gt;event-&gt;params&#91;'resource'&#93;-&gt;my_tv&#91;1&#93;;
 /*
 // Where our array 
 array (

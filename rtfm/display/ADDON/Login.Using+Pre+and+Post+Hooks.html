@@ -47,7 +47,7 @@ You can also grab all the values of the form:
 
 <pre class="brush: php">
 $formFields = $hook-&gt;getValues();
-$email = $formFields['email'];
+$email = $formFields&#91;'email'&#93;;
 </pre>
 <p>
 Post-Hooks have special fields in addition to the ones passed in the form that can be accessed for each Snippet:
@@ -160,7 +160,7 @@ Then we'd adjust our Register snippet call to load the postHook:
 </p>
 
 <pre class="brush: php">
-[[!Register? &amp;postHooks=`hookComEmail`]]
+&#91;&#91;!Register? &amp;postHooks=`hookComEmail`&#93;&#93;
 </pre>
 <p>
 And we're done!

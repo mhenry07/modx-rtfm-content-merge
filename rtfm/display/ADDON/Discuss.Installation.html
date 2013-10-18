@@ -110,7 +110,7 @@ Simple create a new resource with the following attributes:
 <li>Alias: forums
 </li>
 
-<li>Content:&nbsp;[[!Discuss]]
+<li>Content:&nbsp;&#91;&#91;!Discuss&#93;&#93;
 </li>
 
 <li>Container (on the Settings tab): Yes
@@ -175,12 +175,12 @@ RewriteRule ^forums/\?board=(.+).(.+)$ forums/?action=board&amp;board=$1&amp;i=1
 
 
 # Discuss rewrite rules
-RewriteRule ^forums/thread/([0-9]+)/(.*)$ forums/?action=thread&amp;thread=$1 [L,QSA]
-RewriteRule ^forums/u/(.+)$ forums/?action=user&amp;user=$1 [L,QSA]
-RewriteRule ^forums/board/([0-9]+)/(.*)$ forums/?action=board&amp;board=$1 [L,QSA]
-RewriteRule ^forums/category/([0-9]+)/(.*)$ forums/?category=$1 [L,QSA]
-RewriteRule ^forums/(.+)$ forums/?action=$1 [L,QSA]
-RewriteRule ^forums/(.+)/$ forums/?action=$1 [L,QSA]
+RewriteRule ^forums/thread/(&#91;0-9&#93;+)/(.*)$ forums/?action=thread&amp;thread=$1 &#91;L,QSA&#93;
+RewriteRule ^forums/u/(.+)$ forums/?action=user&amp;user=$1 &#91;L,QSA&#93;
+RewriteRule ^forums/board/(&#91;0-9&#93;+)/(.*)$ forums/?action=board&amp;board=$1 &#91;L,QSA&#93;
+RewriteRule ^forums/category/(&#91;0-9&#93;+)/(.*)$ forums/?category=$1 &#91;L,QSA&#93;
+RewriteRule ^forums/(.+)$ forums/?action=$1 &#91;L,QSA&#93;
+RewriteRule ^forums/(.+)/$ forums/?action=$1 &#91;L,QSA&#93;
 </pre>
 <p>
 Remember, change "forums" if your alias is different.&nbsp;
@@ -195,10 +195,10 @@ Suggested set of rules (called before your main rewrite for MODX):
 </p>
 
 <pre class="brush: php">
-  rewrite ^/forums/thread/([0-9]+)/(.*)$ /index.php?q=forums/&amp;action=thread&amp;thread=$1 last;
+  rewrite ^/forums/thread/(&#91;0-9&#93;+)/(.*)$ /index.php?q=forums/&amp;action=thread&amp;thread=$1 last;
   rewrite ^/forums/u/(.+)$ /index.php?q=forums/&amp;action=user&amp;user=$1 last;
-  rewrite ^/forums/board/([0-9]+)/(.*)$ /index.php?q=forums/&amp;action=board&amp;board=$1 last;
-  rewrite ^/forums/category/([0-9]+)/(.*)$ /index.php?q=forums/&amp;category=$1 last;
+  rewrite ^/forums/board/(&#91;0-9&#93;+)/(.*)$ /index.php?q=forums/&amp;action=board&amp;board=$1 last;
+  rewrite ^/forums/category/(&#91;0-9&#93;+)/(.*)$ /index.php?q=forums/&amp;category=$1 last;
   rewrite ^/forums/(.+)$ /index.php?q=forums/&amp;action=$1 last;
   rewrite ^/forums/(.+)/$ /index.php?q=forums/&amp;action=$1 last;
 </pre>
@@ -219,13 +219,13 @@ rewrite ^/forums/\?topic=(.*).(.*)$ /forums/?action=thread&amp;thread=$1&amp;i=1
 
 rewrite ^/forums/index.php/board,(.*).(.*).html$ /forums/?action=board&amp;board=$1&amp;i=1&amp;start=$2 last;
 rewrite ^/forums/\?board=(.*).(.*)$ /forums/?action=board&amp;board=$1&amp;i=1 last;
-rewrite ^/forums/thread/([0-9]+)/(.*)$ /forums/?action=thread&amp;thread=$1 last;
-rewrite ^/forums/thread/([0-9]+)/(.*)$ /forums/?action=thread&amp;thread=$1 last;
+rewrite ^/forums/thread/(&#91;0-9&#93;+)/(.*)$ /forums/?action=thread&amp;thread=$1 last;
+rewrite ^/forums/thread/(&#91;0-9&#93;+)/(.*)$ /forums/?action=thread&amp;thread=$1 last;
 
 rewrite ^/forums/u/(.+)$ /forums/?action=user&amp;user=$1 last;
-rewrite ^/forums/board/([0-9]+)/(.*)$ /forums/?action=board&amp;board=$1 last;
-rewrite ^/forums/board\.xml/([0-9]+)/(.*)$ /forums/?action=board.xml&amp;board=$1 last;
-rewrite ^/forums/category/([0-9]+)/(.*)$ /forums/?category=$1 last;
+rewrite ^/forums/board/(&#91;0-9&#93;+)/(.*)$ /forums/?action=board&amp;board=$1 last;
+rewrite ^/forums/board\.xml/(&#91;0-9&#93;+)/(.*)$ /forums/?action=board.xml&amp;board=$1 last;
+rewrite ^/forums/category/(&#91;0-9&#93;+)/(.*)$ /forums/?category=$1 last;
 
 rewrite ^/forums/index.php?action=unread$ /forums/thread/unread last;
 if ($args ~* action=unread){
@@ -343,30 +343,30 @@ Then, <strong>after</strong> the UpdateProfile call, place this snippet call:
 </p>
 
 <pre class="brush: php">
-[[!DiscussUpdateProfileLoader]]
+&#91;&#91;!DiscussUpdateProfileLoader&#93;&#93;
 </pre>
 <p>
 Finally, there are some extra form fields you can add to allow users to modify their Discuss profile:
 </p>
 
 <pre class="brush: php">
-&lt;label for="signature"&gt;Signature &lt;span class="error"&gt;[[!+up.error.signature:stripTags=`p,b,strong,i,a,ul,li`]]&lt;/span&gt;&lt;/label&gt;
-&lt;textarea name="signature:allowTags" id="signature"&gt;[[!+up.signature]]&lt;/textarea&gt;
+&lt;label for="signature"&gt;Signature &lt;span class="error"&gt;&#91;&#91;!+up.error.signature:stripTags=`p,b,strong,i,a,ul,li`&#93;&#93;&lt;/span&gt;&lt;/label&gt;
+&lt;textarea name="signature:allowTags" id="signature"&gt;&#91;&#91;!+up.signature&#93;&#93;&lt;/textarea&gt;
 
-&lt;label for="use_display_name"&gt;Use Display Name in Forums &lt;span class="error"&gt;[[!+up.error.use_display_name]]&lt;/span&gt;&lt;/label&gt;
+&lt;label for="use_display_name"&gt;Use Display Name in Forums &lt;span class="error"&gt;&#91;&#91;!+up.error.use_display_name&#93;&#93;&lt;/span&gt;&lt;/label&gt;
 &lt;input type="hidden" name="use_display_name" id="use_display_name_hidden" value="0" /&gt;
-&lt;input type="checkbox" name="use_display_name" id="use_display_name" value="1" [[!+up.use_display_name:FormItIsChecked=`1`]] /&gt;
+&lt;input type="checkbox" name="use_display_name" id="use_display_name" value="1" &#91;&#91;!+up.use_display_name:FormItIsChecked=`1`&#93;&#93; /&gt;
 
-&lt;label for="display_name"&gt;Display Name &lt;span class="error"&gt;[[!+up.error.display_name]]&lt;/span&gt;&lt;/label&gt;
-&lt;input type="text" name="display_name" id="display_name" value="[[+up.display_name]]" /&gt;
+&lt;label for="display_name"&gt;Display Name &lt;span class="error"&gt;&#91;&#91;!+up.error.display_name&#93;&#93;&lt;/span&gt;&lt;/label&gt;
+&lt;input type="text" name="display_name" id="display_name" value="&#91;&#91;+up.display_name&#93;&#93;" /&gt;
 
-&lt;label for="show_online"&gt;Show Online Status &lt;span class="error"&gt;[[!+up.error.show_online]]&lt;/span&gt; &lt;/label&gt;
+&lt;label for="show_online"&gt;Show Online Status &lt;span class="error"&gt;&#91;&#91;!+up.error.show_online&#93;&#93;&lt;/span&gt; &lt;/label&gt;
 &lt;input type="hidden" name="show_online" id="show_online_hidden" value="0" /&gt;
-&lt;input type="checkbox" name="show_online" id="show_online" value="1" [[!+up.show_online:FormItIsChecked=`1`]] /&gt;
+&lt;input type="checkbox" name="show_online" id="show_online" value="1" &#91;&#91;!+up.show_online:FormItIsChecked=`1`&#93;&#93; /&gt;
 
-&lt;label for="show_email"&gt;Show Email in Forums &lt;span class="error"&gt;[[!+up.error.show_email]]&lt;/span&gt;&lt;/label&gt;
+&lt;label for="show_email"&gt;Show Email in Forums &lt;span class="error"&gt;&#91;&#91;!+up.error.show_email&#93;&#93;&lt;/span&gt;&lt;/label&gt;
 &lt;input type="hidden" name="show_email" id="show_email_hidden" value="0" /&gt;
-&lt;input type="checkbox" name="show_email" id="show_email" value="1" [[!+up.show_email:FormItIsChecked=`1`]] /&gt;
+&lt;input type="checkbox" name="show_email" id="show_email" value="1" &#91;&#91;!+up.show_email:FormItIsChecked=`1`&#93;&#93; /&gt;
 </pre>
 <p>
 The prior fields will allow your users to toggle those values in their profile.

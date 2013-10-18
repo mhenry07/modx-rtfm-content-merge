@@ -49,7 +49,7 @@
 </div>
 
 <p>
-MODx comes with a flexible amount of system settings. They are found in System -&gt; System Settings, and can easily be edited and changed. All system settings are available in your templates by using the [[++placeholder]] notation. See <a href="display/revolution20/Commonly+Used+Template+Tags">Template Tags</a> for more information.
+MODx comes with a flexible amount of system settings. They are found in System -&gt; System Settings, and can easily be edited and changed. All system settings are available in your templates by using the &#91;&#91;++placeholder&#93;&#93; notation. See <a href="display/revolution20/Commonly+Used+Template+Tags">Template Tags</a> for more information.
 </p>
 <object width="780" height="500">
 <param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=10433411&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" />
@@ -74,7 +74,7 @@ Parameters
 </h3>
 
 <ul>
-<li>Key: This is ultimately the unique name of your [[++placeholder]]
+<li>Key: This is ultimately the unique name of your &#91;&#91;++placeholder&#93;&#93;
 </li>
 
 <li>Name: This is the label displayed in the "Name" column while viewing all system settings. This value can be localized (see below).
@@ -113,7 +113,7 @@ The values used to describe system settings can be optionally localized (i.e. tr
 </ul>
 
 <p>
-For example, if we look at Quip's [[++quip.emailsFrom]] setting, we see that it uses the the <strong>quip</strong> namespace. The expected folder structure is to look for localization files in the namespace's folder, then in a "lexicon" folder, then in folders divided by language codes, and then in the <strong>default.inc.php</strong> file, for example <strong>core/components/quip/lexicon/en/default.inc.php</strong>
+For example, if we look at Quip's &#91;&#91;++quip.emailsFrom&#93;&#93; setting, we see that it uses the the <strong>quip</strong> namespace. The expected folder structure is to look for localization files in the namespace's folder, then in a "lexicon" folder, then in folders divided by language codes, and then in the <strong>default.inc.php</strong> file, for example <strong>core/components/quip/lexicon/en/default.inc.php</strong>
 </p>
 
 <p>
@@ -121,8 +121,8 @@ In our Quip example, we see a name of <em>setting_quip.emailsFrom</em> and a des
 </p>
 
 <pre class="brush: php">
-$_lang['setting_quip.emailsFrom'] = 'From Email';
-$_lang['setting_quip.emailsFrom_desc'] = 'The email address to send system emails from.';
+$_lang&#91;'setting_quip.emailsFrom'&#93; = 'From Email';
+$_lang&#91;'setting_quip.emailsFrom_desc'&#93; = 'The email address to send system emails from.';
 </pre>
 <p>
 We encourage you to right-click an existing system setting and choose to "Update System Setting" to get an idea of how this works.
@@ -227,12 +227,12 @@ print_r( $Setting-&gt;toArray() );
 /* 
 prints out something like this:
 Array ( 
-        [key] =&gt; site_name 
-        [value] =&gt; My Skiphop Site 
-        [xtype] =&gt; textfield 
-        [namespace] =&gt; core 
-        [area] =&gt; site 
-        [editedon] =&gt; 2010-10-24 21:53:55 
+        &#91;key&#93; =&gt; site_name 
+        &#91;value&#93; =&gt; My Skiphop Site 
+        &#91;xtype&#93; =&gt; textfield 
+        &#91;namespace&#93; =&gt; core 
+        &#91;area&#93; =&gt; site 
+        &#91;editedon&#93; =&gt; 2010-10-24 21:53:55 
 )
 */
 </pre>
@@ -311,8 +311,8 @@ So in this example, you would need to add the following lexicon entries to a lex
 </p>
 
 <pre class="brush: php">
-$_lang['setting_mykey'] = 'Name of My Setting';
-$_lang['setting_mykey_desc'] = 'Description of my key';
+$_lang&#91;'setting_mykey'&#93; = 'Name of My Setting';
+$_lang&#91;'setting_mykey_desc'&#93; = 'Description of my key';
                 
 </pre>
 <p>
@@ -324,7 +324,7 @@ You may find it useful to reference your localized language strings inside your 
 </p>
 
 <pre class="brush: php">
-[[!%setting_emailsender? &amp;topic=`setting` &amp;namespace=`core` &amp;language=`en`]]
+&#91;&#91;!%setting_emailsender? &amp;topic=`setting` &amp;namespace=`core` &amp;language=`en`&#93;&#93;
 </pre>
 <h2 id="SystemSettings-TypesofSystemSettings">
 Types of System Settings

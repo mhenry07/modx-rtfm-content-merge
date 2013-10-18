@@ -15,14 +15,14 @@ Example for input.combobox using a value list:
 </p>
 
 <pre class="brush: php">
-[[input.combobox? &amp;value_list=`[{ "value": "r", "label": "Red" }, { "value": "b", "label": "Blue" }]`]]
+&#91;&#91;input.combobox? &amp;value_list=`&#91;{ "value": "r", "label": "Red" }, { "value": "b", "label": "Blue" }&#93;`&#93;&#93;
 </pre>
 <p>
 Example for input.combobox using an object:
 </p>
 
 <pre class="brush: php">
-[[input.combobox? &amp;object=`[{"name": "sekftStates", "sortby": "state_name", "value": "state_abbr", "label": "state_name"}]`]]
+&#91;&#91;input.combobox? &amp;object=`&#91;{"name": "sekftStates", "sortby": "state_name", "value": "state_abbr", "label": "state_name"}&#93;`&#93;&#93;
 </pre>
 <h2 id="sekFormTools.input.combobox-Properties">
 Properties
@@ -464,12 +464,12 @@ The simplest way to create a quick combo box.
 </p>
 
 <pre class="brush: php">
-[[!input.combobox? &amp;value_list=`[
+&#91;&#91;!input.combobox? &amp;value_list=`&#91;
 { "value": "101", "label": "Regular" },
 { "value": "102", "label": "Chocolate" },
 { "value": "103", "label": "Blueberry" },
 { "value": "104", "label": "Devil's Food"}
-]`]]
+&#93;`&#93;&#93;
 </pre>
 <h3 id="sekFormTools.input.combobox-Object">
 Object
@@ -480,29 +480,29 @@ Grabbing data by a table object is simple and straight forward. Using a json str
 </p>
 
 <pre class="brush: php">
-[[!input.combobox?
+&#91;&#91;!input.combobox?
       &amp;object=`{"name": "sekftUSCities", "sortby": "city_name", "value": "city_name", "label": "city_name"}`
-    ]]
+    &#93;&#93;
 </pre>
 <p>
 You can even filter the data by using the filter option. Here we just want to grab all the cities with the state id of 62, which in this case is Kansas.
 </p>
 
 <pre class="brush: php">
-[[!input.combobox?
+&#91;&#91;!input.combobox?
       &amp;object=`{"name": "sekftUSCities", "sortby": "city_name", "value": "city_name", "label": "city_name"}`
       &amp;filter=`{"field": "state_id", "value": "62"}`
-    ]]
+    &#93;&#93;
 </pre>
 <p>
 We can also filter the combo box using xpdo's powerful relational filters. Here we use the filter-&gt;name field to grab the states table. The field we filter on is the abbreviation, and the value we want to filter "KS". XPDO will then do the work by finding the relationship between the two tables ( the "id" of the states table and the "state_id" field of the city table ) and return the filtered list by state.
 </p>
 
 <pre class="brush: php">
-[[!input.combobox?
+&#91;&#91;!input.combobox?
       &amp;object=`{"name": "sekftUSCities", "sortby": "city_name", "value": "city_name", "label": "city_name"}`
       &amp;filter=`{"name": "sekftStates", "field": "state_abbr", "value": "KS"}`
-    ]]
+    &#93;&#93;
 </pre>
 <p>
 The combo box can also be filter live using jquery. please view the <a href="extras/revo/sekformtools/sekformtools-advanced-examples" title="sekFormTools Advanced Examples">Advanced Examples</a> for more information.
@@ -517,7 +517,7 @@ If more advanced filters are needed, a custom snippet can be called to fill the 
 </p>
 
 <pre class="brush: php">
-[[!input.combobox? &amp;snippet=`xpdo`]]
+&#91;&#91;!input.combobox? &amp;snippet=`xpdo`&#93;&#93;
 </pre>
 <p>
 The snippet must must return a json array.
@@ -529,9 +529,9 @@ $itemListArray = array();
 foreach ($items as $item) {
   $itemArray = $item-&gt;toArray();
   $itemList = array();
-  $itemList['value'] = $itemArray['id'];
-  $itemList['label'] = $itemArray['state_name'];
-  $itemListArray[] = $itemList;
+  $itemList&#91;'value'&#93; = $itemArray&#91;'id'&#93;;
+  $itemList&#91;'label'&#93; = $itemArray&#91;'state_name'&#93;;
+  $itemListArray&#91;&#93; = $itemList;
 }
 return $modx-&gt;toJSON($itemListArray);
 </pre>
@@ -540,7 +540,7 @@ Similarly, a large list of values can be placed in an array within a snippet.
 </p>
 
 <pre class="brush: php">
-[[!input.combobox? &amp;snippet=`array`]]
+&#91;&#91;!input.combobox? &amp;snippet=`array`&#93;&#93;
 </pre>
 <p>
 The snippet must must return a json array.

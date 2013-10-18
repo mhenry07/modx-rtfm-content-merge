@@ -178,16 +178,16 @@ The default is in <strong>core/components/virtunewsletter/elements/emails/activa
 </p>
 
 <pre class="brush: php">
-&lt;p&gt;Hello [[+virtuNewsletter.email.name:default=`[[+virtuNewsletter.email.email]]`]],&lt;/p&gt;
+&lt;p&gt;Hello &#91;&#91;+virtuNewsletter.email.name:default=`&#91;&#91;+virtuNewsletter.email.email&#93;&#93;`&#93;&#93;,&lt;/p&gt;
 
 &lt;p&gt;Thank you for your subscription.&lt;/p&gt;
 
 &lt;p&gt;To complete this, please click this link to activate your account:
-    &lt;a href="[[~62?
-       &amp;subid=`[[+virtuNewsletter.email.args.subid]]`
-       &amp;h=`[[+virtuNewsletter.email.args.hash]]`
+    &lt;a href="&#91;&#91;~62?
+       &amp;subid=`&#91;&#91;+virtuNewsletter.email.args.subid&#93;&#93;`
+       &amp;h=`&#91;&#91;+virtuNewsletter.email.args.hash&#93;&#93;`
        &amp;act=`subscribe`
-       &amp;scheme=`full`]]"
+       &amp;scheme=`full`&#93;&#93;"
        target="_blank"&gt;activate&lt;/a&gt;.
 &lt;/p&gt;
 
@@ -204,7 +204,7 @@ The ID# <strong>62</strong> should be replaced with the resource's ID for the co
 </p>
 
 <pre class="brush: php">
-[[!virtuNewsletter.confirm]]
+&#91;&#91;!virtuNewsletter.confirm&#93;&#93;
 </pre>
 <h2 id="virtuNewsletter-Tpl:Yoursubscriptionhasbeenactivatedsuccessfully.">
 Tpl: Your subscription has been activated successfully.
@@ -381,7 +381,7 @@ You need to create 3 more resources with its own snippet in it:
 </p>
 
 <pre class="brush: php">
-[[!virtuNewsletter.subscribe]]
+&#91;&#91;!virtuNewsletter.subscribe&#93;&#93;
 </pre>
 <h2 id="virtuNewsletter-2.Confirm">
 2. Confirm
@@ -392,7 +392,7 @@ You need to create 3 more resources with its own snippet in it:
 </p>
 
 <pre class="brush: php">
-[[!virtuNewsletter.confirm]]
+&#91;&#91;!virtuNewsletter.confirm&#93;&#93;
 </pre>
 <h2 id="virtuNewsletter-3.Read">
 3. Read
@@ -407,14 +407,14 @@ Use the MODX's original <strong>BaseTemplate</strong>, without any CSS styles.
 </p>
 
 <pre class="brush: php">
-[[!virtuNewsletter.reader]]
+&#91;&#91;!virtuNewsletter.reader&#93;&#93;
 </pre>
 <p>
 To dump the placeholders, use this
 </p>
 
 <pre class="brush: php">
-[[!virtuNewsletter.reader? &amp;toArray=`1`]]
+&#91;&#91;!virtuNewsletter.reader? &amp;toArray=`1`&#93;&#93;
 </pre>
 <h2 id="virtuNewsletter-4.aChunk">
 4. a Chunk
@@ -425,7 +425,7 @@ The subscribe form (can be a chunk) is simply like this:
 </p>
 
 <pre class="brush: php">
-&lt;form action="[[~61]]" method="POST"&gt;
+&lt;form action="&#91;&#91;~61&#93;&#93;" method="POST"&gt;
     &lt;p&gt;Email: &lt;input type="email" name="email"&gt;&lt;/p&gt;
     &lt;input type="hidden" name="category" value="Customer News"&gt;
     &lt;p&gt;&lt;input type="submit" name="submit" value="Subscribe"&gt;&lt;/p&gt;
@@ -438,7 +438,7 @@ Simply point the action to the Subscribe page above.
 <br />
 The <strong>category</strong> field is required to set the subscriber to the appropriate <strong>Category</strong> inside the CMP.
 <br />
-The name itself can be changed, but make sure you have to apply this also to the <strong>[[!virtuNewsletter.subscribe? &amp;categoryKey=`category`]]</strong>
+The name itself can be changed, but make sure you have to apply this also to the <strong>&#91;&#91;!virtuNewsletter.subscribe? &amp;categoryKey=`category`&#93;&#93;</strong>
 </p>
 
 <h2 id="virtuNewsletter-5.TheNewsletters">
@@ -463,19 +463,19 @@ You are now ready to create the newsletters using the common resource.
 
 <pre class="brush: php">
 &lt;!-- unsubscribe link --&gt;
-&lt;a href="[[~62? 
-&amp;subid=`[[+virtuNewsletter.email.id]]` 
-&amp;h=`[[+virtuNewsletter.email.hash]]`
+&lt;a href="&#91;&#91;~62? 
+&amp;subid=`&#91;&#91;+virtuNewsletter.email.id&#93;&#93;` 
+&amp;h=`&#91;&#91;+virtuNewsletter.email.hash&#93;&#93;`
 &amp;act=`unsubscribe`
 &amp;scheme=`full`
-]]"&gt;
+&#93;&#93;"&gt;
 Unsubscribe
 &lt;/a&gt;
 &lt;!-- read the newsletter on the website --&gt;
-&lt;a href="[[~63?
-&amp;newsid=`[[+virtuNewsletter.email.id]]`
+&lt;a href="&#91;&#91;~63?
+&amp;newsid=`&#91;&#91;+virtuNewsletter.email.id&#93;&#93;`
 &amp;scheme=`full`
-]]"&gt;read this newsletter on the website&lt;/a&gt;
+&#93;&#93;"&gt;read this newsletter on the website&lt;/a&gt;
 </pre>
 <p>
 Just remember to always put <strong>&amp;scheme=`full`</strong> to all link tags, so they will be appended with the full URL of the website.
@@ -498,7 +498,7 @@ Category is a group definition of subscribers.
 <br />
 The subscriber can be from usergroups, or anonymous subscriber from web page, whom registered using the subscription form.
 <br />
-Because this is required for newsletter, then the subscription form <strong>MUST</strong> have category field (or anything you define which matches with [[!virtuNewsletter.subscriber? &amp;categoryKey=`category`]] controller snippet).
+Because this is required for newsletter, then the subscription form <strong>MUST</strong> have category field (or anything you define which matches with &#91;&#91;!virtuNewsletter.subscriber? &amp;categoryKey=`category`&#93;&#93; controller snippet).
 </p>
 
 <p>
@@ -518,7 +518,7 @@ To use cron in your own hosting, set this command:
 </p>
 
 <pre class="brush: php">
-php -q /home/xxx[absolute_path]xxx/public_html/assets/components/virtunewsletter/conn/web.php?action=web/crons/queues/process&amp;site_id=modx12abc345678d90.12345678
+php -q /home/xxx&#91;absolute_path&#93;xxx/public_html/assets/components/virtunewsletter/conn/web.php?action=web/crons/queues/process&amp;site_id=modx12abc345678d90.12345678
 </pre>
 <p>
 If you use 3rd party cron service, point the address to:

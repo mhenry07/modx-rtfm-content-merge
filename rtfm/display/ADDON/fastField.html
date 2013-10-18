@@ -31,7 +31,7 @@ What is fastField?
 </h2>
 
 <p>
-fastField is a plugin which adds new type of tag [[#...]] . It can be used to display a single field, including template variables and properties, of a different resource for MODx Revolution 2.2+. It also can display the value of superglobal PHP variables $_POST, $_GET and others.
+fastField is a plugin which adds new type of tag &#91;&#91;#...&#93;&#93; . It can be used to display a single field, including template variables and properties, of a different resource for MODx Revolution 2.2+. It also can display the value of superglobal PHP variables $_POST, $_GET and others.
 </p>
 
 <h2 id="fastField-History">
@@ -55,7 +55,7 @@ Usage
 </h2>
 
 <p>
-The structure of tag is as follows: [[#resource_id.field]]
+The structure of tag is as follows: &#91;&#91;#resource_id.field&#93;&#93;
 </p>
 
 <p>
@@ -79,50 +79,50 @@ Return the pagetitle from the resource with id 123:
 </p>
 
 <pre class="brush: plain">
- [[#123.pagetitle]]
+ &#91;&#91;#123.pagetitle&#93;&#93;
 </pre>
 <p>
 Return the introtext of a parent of a current resource and display description for empty one:
 </p>
 
 <pre class="brush: plain">
- [[#[[*parent]].introtext:default=`[[#[[*parent]].description]]`]]
+ &#91;&#91;#&#91;&#91;*parent&#93;&#93;.introtext:default=`&#91;&#91;#&#91;&#91;*parent&#93;&#93;.description&#93;&#93;`&#93;&#93;
 </pre>
 <p>
 Return the content of the resources in rowTpl chunk while <a href="display/ADDON/Wayfinder">Wayfinder</a> usage:
 </p>
 
 <pre class="brush: plain">
- [[#[[+wf.docid]].content]]
+ &#91;&#91;#&#91;&#91;+wf.docid&#93;&#93;.content&#93;&#93;
 </pre>
 <p>
 Return TV image from the resource with id 10:
 </p>
 
 <pre class="brush: plain">
- [[#10.tv.image]]
+ &#91;&#91;#10.tv.image&#93;&#93;
 </pre>
 <p>
 Return property articlesPerPage from the resource with id 1 of custom resource type <a href="display/ADDON/Articles">Articles</a>
 </p>
 
 <pre class="brush: php">
- [[#1.properties.articles.articlesPerPage]]
+ &#91;&#91;#1.properties.articles.articlesPerPage&#93;&#93;
 </pre>
 <p>
-Return the value of $_POST['myVar']:
+Return the value of $_POST&#91;'myVar'&#93;:
 </p>
 
 <pre class="brush: plain">
- [[!#post.myVar]]
+ &#91;&#91;!#post.myVar&#93;&#93;
 </pre>
 <p>
-Supported global arrays: $_GET, $_POST, $_REQUEST, $_SERVER, $_FILES, $_COOKIE, $_SESSION. The type of array after # is case-insensitive. The name of array element is case-sensitive. You should use uncached tag, eg. [[!#get.name]], for cached resources.
+Supported global arrays: $_GET, $_POST, $_REQUEST, $_SERVER, $_FILES, $_COOKIE, $_SESSION. The type of array after # is case-insensitive. The name of array element is case-sensitive. You should use uncached tag, eg. &#91;&#91;!#get.name&#93;&#93;, for cached resources.
 </p>
 
 <div class="warning">
 <br />
-<strong>CAUTION</strong>: <strong>It is dangerous to use raw global variables on the page. For example, use :stripTags output filter to prevent XSS-attacks (eg. [[!#get.name:stripTags]])!</strong>
+<strong>CAUTION</strong>: <strong>It is dangerous to use raw global variables on the page. For example, use :stripTags output filter to prevent XSS-attacks (eg. &#91;&#91;!#get.name:stripTags&#93;&#93;)!</strong>
 </div>
 
 <h2 id="fastField-Howitworks">

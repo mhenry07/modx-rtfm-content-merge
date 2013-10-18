@@ -16,9 +16,9 @@ API Docs: <a href="http://api.modxcms.com/xpdo/om/xPDOObject.html#toArray">http:
 
 <pre class="brush: php">
 array toArray(
-   [string $keyPrefix = ''],
-   [boolean $rawValues = false],
-   [boolean $excludeLazy = false])
+   &#91;string $keyPrefix = ''&#93;,
+   &#91;boolean $rawValues = false&#93;,
+   &#91;boolean $excludeLazy = false&#93;)
 )
 </pre>
 <h2 id="toArray-Examples">
@@ -34,7 +34,7 @@ $object-&gt;set('name','John Lo');
 $object-&gt;set('email','jlo@gmail.com');
 $a = $object-&gt;toArray();
 print_r($a);
-// prints "Array ( [name] =&gt; John Lo [email] =&gt; jlo@gmail.com )"
+// prints "Array ( &#91;name&#93; =&gt; John Lo &#91;email&#93; =&gt; jlo@gmail.com )"
 </pre>
 <p>
 Get the values of the object, but with their keys prefixed with 'dev_'
@@ -45,5 +45,5 @@ $object-&gt;set('name','Mark');
 $object-&gt;set('version','1.0');
 $a = $object-&gt;toArray('dev_');
 print_r($a);
-// prints "Array ( [dev_name] =&gt; Mark [dev_version] =&gt; 1.0 )"
+// prints "Array ( &#91;dev_name&#93; =&gt; Mark &#91;dev_version&#93; =&gt; 1.0 )"
 </pre>

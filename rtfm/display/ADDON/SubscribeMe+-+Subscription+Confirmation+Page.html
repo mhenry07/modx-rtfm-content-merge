@@ -10,24 +10,24 @@ Confirmation Page Code
 &lt;h3&gt;Confirm Shipping Address&lt;/h3&gt;
 &lt;p&gt;The following data was retrieved from user profile, and updated based on your PayPal account. If your subscription includes shipping, &lt;strong&gt;make sure all details below are correct&lt;/strong&gt;. Your details will then be updated on your user profile (PayPal will not be changed). &lt;/p&gt;
 
-[[!Formit?
+&#91;&#91;!Formit?
   &amp;preHooks=`smGetUserDataFromPayPal`
   &amp;hooks=`smUpdateUserProfile,smCompletePayPalSubscription`
   &amp;completedResource=`8`
   &amp;errorResource=`7`
-]]
-&lt;form action="[[~[[*id]]]]" method="post"&gt;
-&lt;input type="text" name="fullname" value="[[!+fi.fullname]]" /&gt; Name&lt;br /&gt;
-&lt;input type="text" name="address" value="[[!+fi.address]]" /&gt; Address&lt;br /&gt;
-&lt;input type="text" name="zip" value="[[!+fi.zip]]" /&gt; Zip (Postcode)&lt;br /&gt;
-&lt;input type="text" name="city" value="[[!+fi.city]]" /&gt; City&lt;br /&gt;
-&lt;input type="text" name="state" value="[[!+fi.state]]" /&gt; State&lt;br /&gt;
-&lt;input type="text" name="country" value="[[!+fi.country]]" /&gt; Country&lt;br /&gt;
+&#93;&#93;
+&lt;form action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post"&gt;
+&lt;input type="text" name="fullname" value="&#91;&#91;!+fi.fullname&#93;&#93;" /&gt; Name&lt;br /&gt;
+&lt;input type="text" name="address" value="&#91;&#91;!+fi.address&#93;&#93;" /&gt; Address&lt;br /&gt;
+&lt;input type="text" name="zip" value="&#91;&#91;!+fi.zip&#93;&#93;" /&gt; Zip (Postcode)&lt;br /&gt;
+&lt;input type="text" name="city" value="&#91;&#91;!+fi.city&#93;&#93;" /&gt; City&lt;br /&gt;
+&lt;input type="text" name="state" value="&#91;&#91;!+fi.state&#93;&#93;" /&gt; State&lt;br /&gt;
+&lt;input type="text" name="country" value="&#91;&#91;!+fi.country&#93;&#93;" /&gt; Country&lt;br /&gt;
 
-&lt;input type="hidden" name="token" value="[[!+fi.pp_token]]" /&gt;
-&lt;input type="hidden" name="PayerID" value="[[!+fi.pp_payerid]]" /&gt;
+&lt;input type="hidden" name="token" value="&#91;&#91;!+fi.pp_token&#93;&#93;" /&gt;
+&lt;input type="hidden" name="PayerID" value="&#91;&#91;!+fi.pp_payerid&#93;&#93;" /&gt;
 
-&lt;p&gt;By clicking the button below I confirm that my shipping details as stated above are correct. Furthermore I grant [[++site_name]] permission to create a recurring payments profile on PayPal which will automatically pay for the requested subscription. Bla, bla, bla, bla.&lt;/p&gt;
+&lt;p&gt;By clicking the button below I confirm that my shipping details as stated above are correct. Furthermore I grant &#91;&#91;++site_name&#93;&#93; permission to create a recurring payments profile on PayPal which will automatically pay for the requested subscription. Bla, bla, bla, bla.&lt;/p&gt;
 
 &lt;input type="submit" value="Subscribe!" /&gt;
 &lt;/form&gt;

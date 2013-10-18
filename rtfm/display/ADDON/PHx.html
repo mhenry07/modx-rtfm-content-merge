@@ -22,10 +22,10 @@ New install
 <li>Download and extract the archive.
 </li>
 
-<li>Create a directory called "phx" in your [MODX Directory]/assets/plugins directory
+<li>Create a directory called "phx" in your &#91;MODX Directory&#93;/assets/plugins directory
 </li>
 
-<li>FTP or copy the files into [MODX Directory]/assets/plugins/phx
+<li>FTP or copy the files into &#91;MODX Directory&#93;/assets/plugins/phx
 </li>
 
 <li>Create a new plugin in the manager called "PHx" and copy/paste the contents of phx.plugin.txt into the code field.
@@ -43,13 +43,13 @@ Update
 <li>Download and extract the archive.
 </li>
 
-<li>Backup and delete the contents of [MODX Directory]/assets/snippets/phx
+<li>Backup and delete the contents of &#91;MODX Directory&#93;/assets/snippets/phx
 </li>
 
-<li>Create a directory called "phx" in your [MODX Directory]/assets/plugins directory
+<li>Create a directory called "phx" in your &#91;MODX Directory&#93;/assets/plugins directory
 </li>
 
-<li>FTP or copy the files into [MODX Directory]/assets/plugins/phx
+<li>FTP or copy the files into &#91;MODX Directory&#93;/assets/plugins/phx
 </li>
 
 <li>Update the "PHx" plugin in the manager and copy/paste the contents of phx.plugin.txt into the code field.
@@ -110,9 +110,9 @@ When enabled, PHx supports extensions of the following MODX tags:
 </p>
 
 <pre class="brush: php">
-[+placeholder+]
-[*content tag/TV*]
-[(setting)]
+&#91;+placeholder+&#93;
+&#91;*content tag/TV*&#93;
+&#91;(setting)&#93;
 </pre>
 <h3 id="PHx-SnippetssupportingPHx">
 Snippets supporting PHx
@@ -138,18 +138,18 @@ Usage
 </h3>
 
 <p>
-A normal placeholder like [<ins>placeholder</ins>] can be extended to a PHx placeholder: [<ins>placeholder:esc</ins>]. The same applies for content tags like:
+A normal placeholder like &#91;<ins>placeholder</ins>&#93; can be extended to a PHx placeholder: &#91;<ins>placeholder:esc</ins>&#93;. The same applies for content tags like:
 </p>
 
 <pre class="brush: php">
-[*createdby*]
+&#91;*createdby*&#93;
 </pre>
 <p>
 Some modifiers take options like:
 </p>
 
 <pre class="brush: php">
-[*createdby:date=`%a %B %d, %Y at %H:%M`*]
+&#91;*createdby:date=`%a %B %d, %Y at %H:%M`*&#93;
 </pre>
 <p>
 Multiple modifiers can be placed into one placeholder/template variables and will be processed from left to right.
@@ -167,14 +167,14 @@ There is a special placeholder called 'phx' which acts as a dummy placeholder to
 </p>
 
 <pre class="brush: php">
-[+phx:if=`[+this+]`:is=`[+that+]`:then=`do this`:else=`do that`+]
+&#91;+phx:if=`&#91;+this+&#93;`:is=`&#91;+that+&#93;`:then=`do this`:else=`do that`+&#93;
 </pre>
 <p>
 Also, with some modifiers this dummy will automatically have a specific default value. In case of the "userinfo" modifier it takes on the value of the current userid.
 </p>
 
 <pre class="brush: php">
-[+phx:userinfo=`username`+]
+&#91;+phx:userinfo=`username`+&#93;
 </pre>
 <h4 id="PHx-Knownissues">
 Known issues
@@ -189,27 +189,27 @@ It seems logical, but I mention this as an issue because it's easy to take into 
 </p>
 
 <pre class="brush: php">
-[+
-[*
-[(
-+]
-*]
-)]
-]]
+&#91;+
+&#91;*
+&#91;(
++&#93;
+*&#93;
+)&#93;
+&#93;&#93;
 </pre>
 <p>
 They might throw the parser and MODx off guard. In normal circumstances this wouldn't be a problem. But in the case of JavaScript in your template a situation like this:
 </p>
 
 <pre class="brush: php">
-array[counter++]
+array&#91;counter++&#93;
 </pre>
 <p>
-... might trigger weird behavior because of the +]. Also, using a closing CDATA tag like this:
+... might trigger weird behavior because of the +&#93;. Also, using a closing CDATA tag like this:
 </p>
 
 <pre class="brush: php">
-/* ]]&gt; */
+/* &#93;&#93;&gt; */
 </pre>
 <p>
 ... will create issues as well.
@@ -236,7 +236,7 @@ Returns current value with all alphabetic characters converted to lowercase.Exam
 </p>
 
 <pre class="brush: php">
-[+string:lcase+]
+&#91;+string:lcase+&#93;
 </pre>
 <ul>
 <li>Input: This is a string
@@ -255,7 +255,7 @@ Returns current value with all alphabetic characters converted to uppercase.Exam
 </p>
 
 <pre class="brush: php">
-[+string:ucase+]
+&#91;+string:ucase+&#93;
 </pre>
 <ul>
 <li>Input:This is a string
@@ -274,7 +274,7 @@ Returns current value's first character as uppercaseExample:
 </p>
 
 <pre class="brush: php">
-[+string:ucfirst+]
+&#91;+string:ucfirst+&#93;
 </pre>
 <ul>
 <li>Input:this is a string
@@ -293,7 +293,7 @@ Returns length of the current value.Example:
 </p>
 
 <pre class="brush: php">
-[+string:len+]
+&#91;+string:len+&#93;
 </pre>
 <ul>
 <li>Input:this is a string
@@ -312,7 +312,7 @@ Strips html tags from the current value.Example:
 </p>
 
 <pre class="brush: php">
-[+string:notags+]
+&#91;+string:notags+&#93;
 </pre>
 <ul>
 <li>Input:this &lt;b&gt;is&lt;/b&gt; a &lt;i&gt;string&lt;/i&gt;
@@ -347,7 +347,7 @@ Converts new lines to breaks.Example:
 </p>
 
 <pre class="brush: php">
-[+string:nl2br+]
+&#91;+string:nl2br+&#93;
 </pre>
 <ul>
 <li>Input:this isa string
@@ -368,7 +368,7 @@ Strip newlines (\n), tabs (\t) and multiple spaces.Example:
 </p>
 
 <pre class="brush: php">
-[+string:strip+]
+&#91;+string:strip+&#93;
 </pre>
 <ul>
 <li>Input:this is a string
@@ -419,7 +419,7 @@ Example:
 </p>
 
 <pre class="brush: php">
-[*createdon:date=`%d.%m.%Y`*]
+&#91;*createdon:date=`%d.%m.%Y`*&#93;
 </pre>
 <p>
 To change the output of date according to the language of the website, insert setlocale at the beginning of the PHx-plugin (this is an example for German language): setlocale(LC_ALL, 'de_DE@euro', 'de_DE', 'de', 'ge');
@@ -571,7 +571,7 @@ Translates the value of placeholder/templatevar to a specified output.
 </ul>
 
 <pre class="brush: php">
-[+placeholder:select=`0=OFF&amp;1=ON&amp;2=UNKNOWN`+]
+&#91;+placeholder:select=`0=OFF&amp;1=ON&amp;2=UNKNOWN`+&#93;
 </pre>
 <ul>
 <li>Returns ON
@@ -664,7 +664,7 @@ Takes a comma-separated list of webgroup names and returns true/false depending 
 </p>
 
 <pre class="brush: php">
-[+phx:mo=`myWebgroup`:then=`I'm a member`:else=`I'm NOT a member`+]
+&#91;+phx:mo=`myWebgroup`:then=`I'm a member`:else=`I'm NOT a member`+&#93;
 </pre>
 <h4 id="PHx-if=`value`">
 if=`value`
@@ -683,7 +683,7 @@ Previous OR next statement
 </p>
 
 <pre class="brush: php">
-[+phx:if=`[*id*]`:is=`2`:or:is=`3`:then=`{{Chunk}}`:else=`{{OtherChunk}}`+]
+&#91;+phx:if=`&#91;*id*&#93;`:is=`2`:or:is=`3`:then=`{{Chunk}}`:else=`{{OtherChunk}}`+&#93;
 </pre>
 <h4 id="PHx-and">
 and
@@ -694,14 +694,14 @@ Previous AND next statement
 </p>
 
 <pre class="brush: php">
-[+phx:if=`[!UltimateParent!]`:is=`1`:and:isnot=`[*id*]`:then=`{{ChildChunk}}`:else=`{{ParentChunk}}`+]
+&#91;+phx:if=`&#91;!UltimateParent!&#93;`:is=`1`:and:isnot=`&#91;*id*&#93;`:then=`{{ChildChunk}}`:else=`{{ParentChunk}}`+&#93;
 </pre>
 <h4 id="PHx-then=`template`">
 then=`template`
 </h4>
 
 <p>
-template&nbsp;: This is shown if conditions are true. Template can be a <code>chunk</code>, [[snippet]] or just plain html
+template&nbsp;: This is shown if conditions are true. Template can be a <code>chunk</code>, &#91;&#91;snippet&#93;&#93; or just plain html
 </p>
 
 <h4 id="PHx-else=`template`">
@@ -709,7 +709,7 @@ else=`template`
 </h4>
 
 <p>
-template&nbsp;: This is shown if conditions are false. Template can be a&nbsp;<code>chunk</code>, [[snippet]] or just plain html
+template&nbsp;: This is shown if conditions are false. Template can be a&nbsp;<code>chunk</code>, &#91;&#91;snippet&#93;&#93; or just plain html
 </p>
 
 <h4 id="PHx-show">
@@ -721,7 +721,7 @@ Similar to <strong>then</strong> except that it uses the original input as 'temp
 </p>
 
 <pre class="brush: php">
-[+myplaceholder:len:gt=`3`:show+]
+&#91;+myplaceholder:len:gt=`3`:show+&#93;
 </pre>
 <ul>
 <li>Will return the value of myplaceholder if it contains more then 3 characters.
@@ -742,15 +742,15 @@ Example 1
 
 <ul>
 <li>
-<strong>[</strong><strong>+myplaceholder:is=`myvalue`:then=`Correct`:else=`Incorrect`+</strong><strong>]</strong> will return:Correct
+<strong>&#91;</strong><strong>+myplaceholder:is=`myvalue`:then=`Correct`:else=`Incorrect`+</strong><strong>&#93;</strong> will return:Correct
 </li>
 
 <li>
-<strong>[</strong><strong>+myplaceholder:isnot=`myvalue`:then=`Correct`:else=`Incorrect`+</strong><strong>]</strong>
+<strong>&#91;</strong><strong>+myplaceholder:isnot=`myvalue`:then=`Correct`:else=`Incorrect`+</strong><strong>&#93;</strong>
 </li>
 
 <li>
-<strong>[</strong><strong>+myplaceholder:is=`othervalue`:then=`Correct`:else=`Incorrect`</strong><strong>+]</strong> will both return:Incorrect
+<strong>&#91;</strong><strong>+myplaceholder:is=`othervalue`:then=`Correct`:else=`Incorrect`</strong><strong>+&#93;</strong> will both return:Incorrect
 </li>
 </ul>
 
@@ -773,30 +773,30 @@ Example 2
 </ul>
 
 <pre class="brush: php">
-     [+myplaceholder:is=`2`:then=`
+     &#91;+myplaceholder:is=`2`:then=`
      {{ChunkGood}}
      `:else=`
      {{ChunkBad}}
-     `+]
+     `+&#93;
 </pre>
 <p>
 Will display the contents of chunk called <strong>ChunkGood</strong>.
 </p>
 
 <ul>
-<li>[+<ins>myplaceholder:gt=`1`:then=`Yes`:else=`No`</ins>+]
+<li>&#91;+<ins>myplaceholder:gt=`1`:then=`Yes`:else=`No`</ins>+&#93;
 </li>
 
-<li>[<ins>+myplaceholder:lt=`3`:and:gt=`1`:then=`Yes`:else=`No`</ins>+]
+<li>&#91;<ins>+myplaceholder:lt=`3`:and:gt=`1`:then=`Yes`:else=`No`</ins>+&#93;
 </li>
 
-<li>[<ins>+myplaceholder:lt=`[+someplaceholder</ins>]`:then=`Yes`:else=`No`+]
+<li>&#91;<ins>+myplaceholder:lt=`&#91;+someplaceholder</ins>&#93;`:then=`Yes`:else=`No`+&#93;
 </li>
 
-<li>[<ins>+myplaceholder:islt=`2`:then=`Yes`:else=`No`</ins>+]
+<li>&#91;<ins>+myplaceholder:islt=`2`:then=`Yes`:else=`No`</ins>+&#93;
 </li>
 
-<li>[<ins>+myplaceholder:isnot=`2`:or:lt=`3`:then=`Yes`:else=`No`</ins>+]
+<li>&#91;<ins>+myplaceholder:isnot=`2`:or:lt=`3`:then=`Yes`:else=`No`</ins>+&#93;
 </li>
 </ul>
 
@@ -805,19 +805,19 @@ Will all return <strong>Yes</strong>.
 </p>
 
 <ul>
-<li>[<ins>+myplaceholder:isnot=`2`:then=`Yes`:else=`No`</ins>+]
+<li>&#91;<ins>+myplaceholder:isnot=`2`:then=`Yes`:else=`No`</ins>+&#93;
 </li>
 
-<li>[<ins>+myplaceholder:gt=`[+someplaceholder</ins>]`:then=`Yes`:else=`No`+]
+<li>&#91;<ins>+myplaceholder:gt=`&#91;+someplaceholder</ins>&#93;`:then=`Yes`:else=`No`+&#93;
 </li>
 
-<li>[<ins>+myplaceholder:lt=`2`:then=`Yes`:else=`No`</ins>+]
+<li>&#91;<ins>+myplaceholder:lt=`2`:then=`Yes`:else=`No`</ins>+&#93;
 </li>
 
-<li>[<ins>+myplaceholder:gt=`2`:then=`Yes`:else=`No`</ins>+]
+<li>&#91;<ins>+myplaceholder:gt=`2`:then=`Yes`:else=`No`</ins>+&#93;
 </li>
 
-<li>[<ins>+myplaceholder:lt=`1`:then=`Yes`:else=`No`</ins>+]
+<li>&#91;<ins>+myplaceholder:lt=`1`:then=`Yes`:else=`No`</ins>+&#93;
 </li>
 </ul>
 
@@ -852,7 +852,7 @@ To bring this into perspective here are some short examples assuming <strong>myp
 </p>
 
 <pre class="brush: php">
-[+myplaceholder:mymodifier+]
+&#91;+myplaceholder:mymodifier+&#93;
 </pre>
 <ul>
 <li>
@@ -865,7 +865,7 @@ To bring this into perspective here are some short examples assuming <strong>myp
 </ul>
 
 <pre class="brush: php">
-[+myplaceholder:mymodifier=`my options`+]
+&#91;+myplaceholder:mymodifier=`my options`+&#93;
 </pre>
 <ul>
 <li>
@@ -909,7 +909,7 @@ With this knowledge we are going to create a new custom modifier. In this exampl
 <li>Click "new snippet"
 </li>
 
-<li>For the snippet name we enter "'<strong><em>phx:love'</em></strong>" For PHx to know about the custom modifier all snippets created for PHx should be prefixed with "phx:" the string (containing NO spaces) after the prefix will be the actual modifier name. In this case our modifier will be triggered by adding&nbsp;:love to the placeholder like [<ins>+myplaceholder:love</ins>+].
+<li>For the snippet name we enter "'<strong><em>phx:love'</em></strong>" For PHx to know about the custom modifier all snippets created for PHx should be prefixed with "phx:" the string (containing NO spaces) after the prefix will be the actual modifier name. In this case our modifier will be triggered by adding&nbsp;:love to the placeholder like &#91;<ins>+myplaceholder:love</ins>+&#93;.
 </li>
 
 <li>Now we are going to enter the modifier code into the snippet code field. For this example we create it like this: &lt;?php $newvalue=$output." because I love MODx"; return $newvalue; ?&gt;
@@ -937,7 +937,7 @@ Similar to example 1 we are now going to create a modifier that will do the same
 <li>Click "new snippet"
 </li>
 
-<li>For the snippet name we enter "<strong>phx:love2</strong>" For PHx to know about the custom modifier all snippets created for PHx should be prefixed with "phx:" the string (containing NO spaces) after the prefix will be the actual modifier name. In this case our modifier will be triggered by adding&nbsp;:love to the placeholder like <strong>[</strong><strong><ins>+myplaceholder:love2</ins></strong><strong>+]</strong>.
+<li>For the snippet name we enter "<strong>phx:love2</strong>" For PHx to know about the custom modifier all snippets created for PHx should be prefixed with "phx:" the string (containing NO spaces) after the prefix will be the actual modifier name. In this case our modifier will be triggered by adding&nbsp;:love to the placeholder like <strong>&#91;</strong><strong><ins>+myplaceholder:love2</ins></strong><strong>+&#93;</strong>.
 </li>
 
 <li>Now we are going to enter the modifier code into the snippet code field. For this example we create it like this:
@@ -985,21 +985,21 @@ This example will <strong>not</strong> work with a non-PHx snippet:
 </p>
 
 <pre class="brush: php">
-[+phx:input=`[+myplaceholder+]`:modifier1:modifier2+]
+&#91;+phx:input=`&#91;+myplaceholder+&#93;`:modifier1:modifier2+&#93;
 </pre>
 <p>
 Try this method instead:
 </p>
 
 <pre class="brush: php">
-[+phx:input=`[+myplaceholder+]`:modifier1:modifier2+]
+&#91;+phx:input=`&#91;+myplaceholder+&#93;`:modifier1:modifier2+&#93;
 </pre>
 <p>
 Or:
 </p>
 
 <pre class="brush: php">
-[+phx:input=`[+myplaceholder+]`:modifier1:modifier2+]
+&#91;+phx:input=`&#91;+myplaceholder+&#93;`:modifier1:modifier2+&#93;
 </pre>
 <p>
 This example will work with a non-PHx snippet. Some restrictions may apply depending on the snippet logic.
@@ -1110,7 +1110,7 @@ If you experience problems with the page loading slowly, this could be cause by 
 </p>
 
 <p>
-Example of a PHx Loop:Page Call: [<ins>+phx:if=`</ins><ins><span class="error">[*shownews*]</span></ins><ins>`:is=`1`:then=`</ins><code><ins>Chunk</ins></code><ins>`</ins>+]
+Example of a PHx Loop:Page Call: &#91;<ins>+phx:if=`</ins><ins><span class="error">&#91;*shownews*&#93;</span></ins><ins>`:is=`1`:then=`</ins><code><ins>Chunk</ins></code><ins>`</ins>+&#93;
 <br />
-Chunk Contents: ?[<ins>+phx:if=`</ins><ins><span class="error">[*shownews*]</span></ins><ins>`:is=`1`:then=`</ins><code><ins>Chunk</ins></code><ins>`</ins>+]
+Chunk Contents: ?&#91;<ins>+phx:if=`</ins><ins><span class="error">&#91;*shownews*&#93;</span></ins><ins>`:is=`1`:then=`</ins><code><ins>Chunk</ins></code><ins>`</ins>+&#93;
 </p>

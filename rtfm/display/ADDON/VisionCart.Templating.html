@@ -11,21 +11,21 @@ Creating a template
 <pre class="brush: html">
 &lt;html&gt;
 &lt;head&gt;
-&lt;title&gt;[[++site_name]] ([[+vc.shop.name]] :: [[+vc.product.name:default=`[[+vc.category.name]]`]])&lt;/title&gt;
-&lt;base href="[[++site_url]]" /&gt;
+&lt;title&gt;&#91;&#91;++site_name&#93;&#93; (&#91;&#91;+vc.shop.name&#93;&#93; :: &#91;&#91;+vc.product.name:default=`&#91;&#91;+vc.category.name&#93;&#93;`&#93;&#93;)&lt;/title&gt;
+&lt;base href="&#91;&#91;++site_url&#93;&#93;" /&gt;
 &lt;link rel="stylesheet" type="text/css" href="assets/components/visioncart/web/css/style.css" /&gt;
 
 &lt;/head&gt;
 &lt;body&gt;
 &lt;table width="100%" cellpadding="0" cellspacing="0" border="0"&gt;
     &lt;tr&gt;
-        &lt;td colspan="2"&gt;&lt;h1&gt;[[+vc.shop.name]] &lt;span&gt;[[+vc.category.name]] &lt;span&gt;[[+vc.product.name]]&lt;/span&gt;&lt;/span&gt;&lt;/h1&gt;&lt;/td&gt;
+        &lt;td colspan="2"&gt;&lt;h1&gt;&#91;&#91;+vc.shop.name&#93;&#93; &lt;span&gt;&#91;&#91;+vc.category.name&#93;&#93; &lt;span&gt;&#91;&#91;+vc.product.name&#93;&#93;&lt;/span&gt;&lt;/span&gt;&lt;/h1&gt;&lt;/td&gt;
         &lt;td&gt;&lt;div id="visioncart-shoppingcart"&gt;&lt;/div&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-        &lt;td width="300"&gt;[[!vcWayfinder]]&lt;/td&gt;
-        &lt;td&gt;[[*content]]&lt;/td&gt;
-        &lt;td width="200"&gt;[[!Login?]]&lt;hr /&gt;[[!vcGetBasket]]&lt;/td&gt;
+        &lt;td width="300"&gt;&#91;&#91;!vcWayfinder&#93;&#93;&lt;/td&gt;
+        &lt;td&gt;&#91;&#91;*content&#93;&#93;&lt;/td&gt;
+        &lt;td width="200"&gt;&#91;&#91;!Login?&#93;&#93;&lt;hr /&gt;&#91;&#91;!vcGetBasket&#93;&#93;&lt;/td&gt;
     &lt;/tr&gt;
 &lt;/table&gt;
 &lt;/body&gt;
@@ -48,7 +48,7 @@ Create a resource that has the name of the webshop or just 'webshop' and place t
 </p>
 
 <pre class="brush: php">
-[[!vcGetCategories?parents=`0`]]
+&#91;&#91;!vcGetCategories?parents=`0`&#93;&#93;
 </pre>
 <p>
 And set the template to the Template we just made and set it as folder.
@@ -69,7 +69,7 @@ Create a resource called 'Product' and place this in the content field:
 </p>
 
 <pre class="brush: php">
-[[!vcGetProduct]]
+&#91;&#91;!vcGetProduct&#93;&#93;
 </pre>
 <p>
 And set the template to the Template we just made and hide in menu.
@@ -84,13 +84,13 @@ Create a resource called 'Category' and place this in the content field:
 </p>
 
 <pre class="brush: php">
-[[!vcGetCategory?id=`[[+vc.category.id]]`&amp;shopId=`[[+vc.shop.id]]`]]
+&#91;&#91;!vcGetCategory?id=`&#91;&#91;+vc.category.id&#93;&#93;`&amp;shopId=`&#91;&#91;+vc.shop.id&#93;&#93;`&#93;&#93;
 
 &lt;table&gt;
-[[!vcGetProducts?parents=`[[+vc.category.id]]`]]
+&#91;&#91;!vcGetProducts?parents=`&#91;&#91;+vc.category.id&#93;&#93;`&#93;&#93;
 &lt;/table&gt;
 
-[[!vcGetProductList?id=`[[+vc.category.id]]`&amp;shopId=`[[+vc.shop.id]]`&amp;sortBy=`Product.name`]]
+&#91;&#91;!vcGetProductList?id=`&#91;&#91;+vc.category.id&#93;&#93;`&amp;shopId=`&#91;&#91;+vc.shop.id&#93;&#93;`&amp;sortBy=`Product.name`&#93;&#93;
 </pre>
 <p>
 And set the template to the Template we just made and hide in menu.
@@ -105,7 +105,7 @@ Create a resource called Order and place this in the content field:
 </p>
 
 <pre class="brush: php">
-[[!vcOrderProcess]]
+&#91;&#91;!vcOrderProcess&#93;&#93;
 </pre>
 <p>
 And set the template to the Template we just made.
@@ -120,7 +120,7 @@ Create a resource called 'View order' and place this in the content field:
 </p>
 
 <pre class="brush: php">
-[[!vcOrderView]]
+&#91;&#91;!vcOrderView&#93;&#93;
 </pre>
 <p>
 And set the template to the Template we just made.
@@ -136,7 +136,7 @@ Create a resource called 'Order history' and place this in the content field:
 
 <pre class="brush: php">
 &lt;h2&gt;Order history&lt;/h2&gt;
-[[!vcOrderHistory?viewOrderResource=`id from the view order resource we just made`]]?
+&#91;&#91;!vcOrderHistory?viewOrderResource=`id from the view order resource we just made`&#93;&#93;?
 </pre>
 <p>
 And set the template to the Template we just made.

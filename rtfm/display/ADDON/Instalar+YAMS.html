@@ -92,7 +92,7 @@ Instrucciones de Instalación
 <strong>Código del Plugin:</strong>
 
 <pre class="brush: php">
-require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.plugin.inc.php');
+require( $modx-&gt;config&#91;'base_path'&#93; . 'assets/modules/yams/yams.plugin.inc.php');
 </pre>
 <p>
 <strong>Eventos del Sistema:</strong>&nbsp; Favor de referirse al archivo readme.txt en el folder bajado de YAMS.
@@ -108,7 +108,7 @@ require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.plugin.inc.ph
 <pre class="brush: php">
 // La linea siguiente necesita ser insertada entre los marcadores de apertura
 // y cierre de PHP
-require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.snippet.inc.php' );
+require( $modx-&gt;config&#91;'base_path'&#93; . 'assets/modules/yams/yams.snippet.inc.php' );
 </pre>
 </li>
 
@@ -121,7 +121,7 @@ require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.snippet.inc.p
 <strong>Código del Módulo:</strong>
 
 <pre class="brush: php">
-require_once( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.module.inc.php' );
+require_once( $modx-&gt;config&#91;'base_path'&#93; . 'assets/modules/yams/yams.module.inc.php' );
 </pre>
 </li>
 
@@ -154,7 +154,7 @@ $config_chunk = 'mm_rules';
 <li>Bajo Elementos &gt; Admin Elementos &gt; Chunks, crea un chunk llamado mm_rules y añade la línea siguiente:
 
 <pre class="brush: php">
-require( $modx-&gt;config['base_path'] . 'assets/modules/yams/yams.mm_rules.inc.php' );
+require( $modx-&gt;config&#91;'base_path'&#93; . 'assets/modules/yams/yams.mm_rules.inc.php' );
 </pre>
 <p>
 Si ya estás usando reglas personalizadas de ManagerManager, entonces es aconsejable la línea requerida por YAMS al final de las reglas.
@@ -173,7 +173,7 @@ Si está usando el snippet PHx por favor nota lo siguiente.&nbsp; Por alguna raz
 <pre class="brush: php">
 if ( ! class_exists( 'PHxParser' ) )
 {
- include_once $modx-&gt;config['rb_base_dir'] . "plugins/phx/phx.parser.class.inc.php";
+ include_once $modx-&gt;config&#91;'rb_base_dir'&#93; . "plugins/phx/phx.parser.class.inc.php";
 }
 </pre>
 <p>

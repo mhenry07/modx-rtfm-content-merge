@@ -29,25 +29,25 @@ To create a Template -- Expand the "Elements" part of the tree and right click o
 <pre class="brush: php">
 &lt;html&gt;
 &lt;head&gt;
-    &lt;title&gt;[[*pagetitle]]&lt;/title&gt;
-    &lt;meta name="description" content="[[*description]]"/&gt;
+    &lt;title&gt;&#91;&#91;*pagetitle&#93;&#93;&lt;/title&gt;
+    &lt;meta name="description" content="&#91;&#91;*description&#93;&#93;"/&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;h1&gt;[[*longtitle]]&lt;/h1&gt;
+&lt;h1&gt;&#91;&#91;*longtitle&#93;&#93;&lt;/h1&gt;
 
-Page ID: [[*id]]&lt;br/&gt;
-IntroText (Summary): [[*introtext]]&lt;br/&gt;
-MenuTitle: [[*menutitle]]
+Page ID: &#91;&#91;*id&#93;&#93;&lt;br/&gt;
+IntroText (Summary): &#91;&#91;*introtext&#93;&#93;&lt;br/&gt;
+MenuTitle: &#91;&#91;*menutitle&#93;&#93;
 
 &lt;hr/&gt;
 
-[[*content]]
+&#91;&#91;*content&#93;&#93;
 
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
 <p>
-Note the important [[*content]] tag; this tag tells MODx where to put the Resource's content.
+Note the important &#91;&#91;*content&#93;&#93; tag; this tag tells MODx where to put the Resource's content.
 </p>
 
 <div class="note">
@@ -71,11 +71,11 @@ Using Resource Fields in the Template
 </h3>
 
 <p>
-As you noticed from our Template sample code above, the fields of a Resource can be referenced using the [[*fieldName]] syntax. A list of available Resource Fields can be <a href="revolution/2.x/making-sites-with-modx/structuring-your-site/resources#Resources-ResourceFields">found here</a>. For example, if we wanted to show the current Resource's pagetitle in our &lt;title&gt; tag, we would simply do this:
+As you noticed from our Template sample code above, the fields of a Resource can be referenced using the &#91;&#91;*fieldName&#93;&#93; syntax. A list of available Resource Fields can be <a href="revolution/2.x/making-sites-with-modx/structuring-your-site/resources#Resources-ResourceFields">found here</a>. For example, if we wanted to show the current Resource's pagetitle in our &lt;title&gt; tag, we would simply do this:
 </p>
 
 <pre class="brush: php">
-&lt;title&gt;[[*pagetitle]]&lt;/title&gt;
+&lt;title&gt;&#91;&#91;*pagetitle&#93;&#93;&lt;/title&gt;
 </pre>
 <p>
 You can also place the content of the current Resource using the "content" tag:
@@ -83,7 +83,7 @@ You can also place the content of the current Resource using the "content" tag:
 
 <pre class="brush: php">
 &lt;body&gt;
-[[*content]]
+&#91;&#91;*content&#93;&#93;
 &lt;/body&gt;
 </pre>
 <p>
@@ -92,7 +92,7 @@ These tags are like normal MODx tags, in that they can have <a href="revolution/
 
 <pre class="brush: php">
 &lt;div id="rightbar"&gt;
-[[*introtext:stripTags:ellipsis=`400`]]
+&#91;&#91;*introtext:stripTags:ellipsis=`400`&#93;&#93;
 &lt;/div&gt;
 </pre>
 <h3 id="Templates-TemplateVariablesinTemplates">
@@ -113,7 +113,7 @@ You can then reference your "bioPhoto" TV in your content with the same tag synt
 
 <pre class="brush: php">
 &lt;div class="photo"&gt;
-[[*bioPhoto]]
+&#91;&#91;*bioPhoto&#93;&#93;
 &lt;/div&gt;
 </pre>
 <p>

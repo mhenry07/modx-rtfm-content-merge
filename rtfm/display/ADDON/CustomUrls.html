@@ -170,7 +170,7 @@ Pattern &nbsp;
 Your custom URL pattern built from text, resource fields, TV, snippet and output filters. You also can use <em>cu.parent</em>&nbsp;placeholder to get the complete parent alias path.
 </td>
 <td>
-[[+id]]-[[+alias]]
+&#91;&#91;+id&#93;&#93;-&#91;&#91;+alias&#93;&#93;
 <br />
 </td>
 </tr>
@@ -267,47 +267,47 @@ Default MODx alias :
 </p>
 
 <pre class="brush: php">
-[[+alias]]
+&#91;&#91;+alias&#93;&#93;
 </pre>
 <p>
 Resource placeholders :
 </p>
 
 <pre class="brush: php">
-[[+id]]-[[+alias]]
+&#91;&#91;+id&#93;&#93;-&#91;&#91;+alias&#93;&#93;
 </pre>
 <p>
 TVs :
 </p>
 
 <pre class="brush: php">
-[[+tv.mytv]]-[[+id]]
+&#91;&#91;+tv.mytv&#93;&#93;-&#91;&#91;+id&#93;&#93;
 </pre>
 <p>
 Snippets :
 </p>
 
 <pre class="brush: php">
-[[MySnippet? &amp;id=`[[+id]]`]]
+&#91;&#91;MySnippet? &amp;id=`&#91;&#91;+id&#93;&#93;`&#93;&#93;
 </pre>
 <p>
 Output filters :
 </p>
 
 <pre class="brush: php">
-[[+publishedon:strtotime:date=`%Y-%m-%d`]]/[[+id]]-[[+alias]]
+&#91;&#91;+publishedon:strtotime:date=`%Y-%m-%d`&#93;&#93;/&#91;&#91;+id&#93;&#93;-&#91;&#91;+alias&#93;&#93;
 </pre>
 <p>
 Default MODx URI :&nbsp;
 </p>
 
 <pre class="brush: php">
-[[+cu.parent_uri]]/[[+alias]]
+&#91;&#91;+cu.parent_uri&#93;&#93;/&#91;&#91;+alias&#93;&#93;
 </pre>
 <p>
 More complex URI
 </p>
 
 <pre class="brush: php">
-[[+cu.parent_uri]]/some-text/[[getResourceField? &amp;id=`[[+parent]]`]]/[[+id]]-[[+alias]]
+&#91;&#91;+cu.parent_uri&#93;&#93;/some-text/&#91;&#91;getResourceField? &amp;id=`&#91;&#91;+parent&#93;&#93;`&#93;&#93;/&#91;&#91;+id&#93;&#93;-&#91;&#91;+alias&#93;&#93;
 </pre>

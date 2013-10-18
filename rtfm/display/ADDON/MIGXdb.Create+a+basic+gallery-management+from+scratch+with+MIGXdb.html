@@ -221,11 +221,11 @@ Add this code into the one field 'Json' :
 
 <pre class="brush: php">
 {
-  "formtabs":[
+  "formtabs":&#91;
     {
       "MIGX_id":1,
       "caption":"Image",
-      "fields":[
+      "fields":&#91;
         {
           "MIGX_id":2,
           "field":"title",
@@ -250,12 +250,12 @@ Add this code into the one field 'Json' :
           "inputTVtype":"",
           "configs":""
         }
-      ]
+      &#93;
     },
     {
       "MIGX_id":2,
       "caption":"Description",
-      "fields":[
+      "fields":&#91;
         {
           "MIGX_id":1,
           "field":"description",
@@ -264,9 +264,9 @@ Add this code into the one field 'Json' :
           "inputTVtype":"textarea",
           "configs":""
         }
-      ]
+      &#93;
     }
-  ],
+  &#93;,
   "contextmenus":"update||publish||unpublish||recall_remove_delete",
   "actionbuttons":"addItem||toggletrash",
   "columnbuttons":"",
@@ -281,7 +281,7 @@ Add this code into the one field 'Json' :
     "check_resid":1,
     "check_resid_TV":""
   },
-  "columns":[
+  "columns":&#91;
     {
       "MIGX_id":1,
       "header":"ID",
@@ -330,7 +330,7 @@ Add this code into the one field 'Json' :
       "sortable":"false",
       "show_in_grid":"0"
     }
-  ]
+  &#93;
 }
 </pre>
 <p>
@@ -468,7 +468,7 @@ getlist where:
 </p>
 
 <pre class="brush: php">
-{"title:LIKE":"%[[+search]]%","OR:description:LIKE":"%[[+search]]%"}
+{"title:LIKE":"%&#91;&#91;+search&#93;&#93;%","OR:description:LIKE":"%&#91;&#91;+search&#93;&#93;%"}
 </pre>
 <p>
 Click 'done' -&gt; 'done'.
@@ -491,25 +491,25 @@ Some examples:
 </p>
 
 <pre class="brush: php">
-[[!migxLoopCollection?
+&#91;&#91;!migxLoopCollection?
 &amp;packageName=`mygallery`
 &amp;classname=`myGallery`
-&amp;sortConfig=`[{"sortby":"pos","sortdir":"ASC"}]`
-&amp;where=`{"resource_id":"[[*id]]","published":"1"}`
-]]
+&amp;sortConfig=`&#91;{"sortby":"pos","sortdir":"ASC"}&#93;`
+&amp;where=`{"resource_id":"&#91;&#91;*id&#93;&#93;","published":"1"}`
+&#93;&#93;
 </pre>
 <p>
 creates a printed array of all published images which belong to the active resource.
 </p>
 
 <pre class="brush: php">
-[[!migxLoopCollection?
+&#91;&#91;!migxLoopCollection?
   &amp;packageName=`mygallery`
   &amp;classname=`myGallery`
-  &amp;sortConfig=`[{"sortby":"RAND()"}]`
-  &amp;where=`{"resource_id":"[[*id]]","published":"1"}`
-  &amp;tpl=`@CODE:&lt;img src="[[+image]]" /&gt;`
-]]
+  &amp;sortConfig=`&#91;{"sortby":"RAND()"}&#93;`
+  &amp;where=`{"resource_id":"&#91;&#91;*id&#93;&#93;","published":"1"}`
+  &amp;tpl=`@CODE:&lt;img src="&#91;&#91;+image&#93;&#93;" /&gt;`
+&#93;&#93;
 </pre>
 <p>
 lists all images in random order.

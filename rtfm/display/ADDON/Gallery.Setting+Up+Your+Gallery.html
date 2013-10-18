@@ -53,28 +53,28 @@ First, off, paste this code in your Resource:
 &lt;div style="float: right"&gt;
 &lt;h2&gt;Galleries&lt;/h2&gt;
 &lt;ul&gt;
-[[!GalleryAlbums]]
+&#91;&#91;!GalleryAlbums&#93;&#93;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;h2&gt;Item&lt;/h2&gt;
 
-[[!GalleryItem]]
-[[!+galitem.image:notempty=`
+&#91;&#91;!GalleryItem&#93;&#93;
+&#91;&#91;!+galitem.image:notempty=`
 &lt;div class="image"&gt;
-  &lt;a href="[[+galitem.image]]"&gt;&lt;img class="[[+galitem.imgCls]]" src="[[+galitem.image]]" alt="[[+galitem.name]]" /&gt;&lt;/a&gt;
-  &lt;br /&gt;Albums: [[+galitem.albums]]
-  &lt;br /&gt;Tags: [[+galitem.tags]]
+  &lt;a href="&#91;&#91;+galitem.image&#93;&#93;"&gt;&lt;img class="&#91;&#91;+galitem.imgCls&#93;&#93;" src="&#91;&#91;+galitem.image&#93;&#93;" alt="&#91;&#91;+galitem.name&#93;&#93;" /&gt;&lt;/a&gt;
+  &lt;br /&gt;Albums: &#91;&#91;+galitem.albums&#93;&#93;
+  &lt;br /&gt;Tags: &#91;&#91;+galitem.tags&#93;&#93;
 &lt;/div&gt;
-`]]
+`&#93;&#93;
 
 &lt;hr /&gt;
 
-[[!Gallery? &amp;album=`1` &amp;toPlaceholder=`gallery`]]
-&lt;h1&gt;&lt;a href="[[~[[*id]] &amp;galAlbum=`[[+gallery.id]]`]]"&gt;[[+gallery.name]]&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;[[+gallery.description]]&lt;/p&gt;
+&#91;&#91;!Gallery? &amp;album=`1` &amp;toPlaceholder=`gallery`&#93;&#93;
+&lt;h1&gt;&lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93; &amp;galAlbum=`&#91;&#91;+gallery.id&#93;&#93;`&#93;&#93;"&gt;&#91;&#91;+gallery.name&#93;&#93;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&#91;&#91;+gallery.description&#93;&#93;&lt;/p&gt;
 
-[[+gallery]]
+&#91;&#91;+gallery&#93;&#93;
 </pre>
 <p>
 That's it! It will work now. Let's go through each part.
@@ -92,7 +92,7 @@ So the code we're using to display our Gallery Albums is this:
 &lt;div style="float: right"&gt;
 &lt;h2&gt;Galleries&lt;/h2&gt;
 &lt;ul&gt;
-[[!GalleryAlbums]]
+&#91;&#91;!GalleryAlbums&#93;&#93;
 &lt;/ul&gt;
 &lt;/div&gt;
 </pre>
@@ -109,11 +109,11 @@ Okay, now once you've clicked them, we want Gallery to display all the images fr
 </p>
 
 <pre class="brush: php">
-[[!Gallery? &amp;album=`1` &amp;toPlaceholder=`gallery`]]
-&lt;h1&gt;&lt;a href="[[~[[*id]] &amp;galAlbum=`[[+gallery.id]]`]]"&gt;[[+gallery.name]]&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;[[+gallery.description]]&lt;/p&gt;
+&#91;&#91;!Gallery? &amp;album=`1` &amp;toPlaceholder=`gallery`&#93;&#93;
+&lt;h1&gt;&lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93; &amp;galAlbum=`&#91;&#91;+gallery.id&#93;&#93;`&#93;&#93;"&gt;&#91;&#91;+gallery.name&#93;&#93;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&#91;&#91;+gallery.description&#93;&#93;&lt;/p&gt;
 
-[[+gallery]]
+&#91;&#91;+gallery&#93;&#93;
 </pre>
 <p>
 So, we've set the Gallery album to by default display the Album with ID 1. If we clicked a link from our GalleryAlbums snippet call above, it will override this; but for now we want it to start with Album #1. We've also set it to a placeholder called 'gallery' so we can output some information about that album, such as its name and description.
@@ -128,14 +128,14 @@ Now we've got our thumbnails, but we want when they're clicked to show a big ima
 </p>
 
 <pre class="brush: php">
-[[!GalleryItem]]
-[[!+galitem.image:notempty=`
+&#91;&#91;!GalleryItem&#93;&#93;
+&#91;&#91;!+galitem.image:notempty=`
 &lt;div class="image"&gt;
-  &lt;a href="[[+galitem.image]]"&gt;&lt;img class="[[+galitem.imgCls]]" src="[[+galitem.image]]" alt="[[+galitem.name]]" /&gt;&lt;/a&gt;
-  &lt;br /&gt;Albums: [[+galitem.albums]]
-  &lt;br /&gt;Tags: [[+galitem.tags]]
+  &lt;a href="&#91;&#91;+galitem.image&#93;&#93;"&gt;&lt;img class="&#91;&#91;+galitem.imgCls&#93;&#93;" src="&#91;&#91;+galitem.image&#93;&#93;" alt="&#91;&#91;+galitem.name&#93;&#93;" /&gt;&lt;/a&gt;
+  &lt;br /&gt;Albums: &#91;&#91;+galitem.albums&#93;&#93;
+  &lt;br /&gt;Tags: &#91;&#91;+galitem.tags&#93;&#93;
 &lt;/div&gt;
-`]]
+`&#93;&#93;
 </pre>
 <p>
 The GalleryItem snippet calls and looks for a "galItem" parameter in the URL. Once found, it will load that image from the album. The Gallery snippet uses those in its URLs for its thumbnails. Next, we output some metadata for the image, such as its name, albums, tags, and a direct link to it.

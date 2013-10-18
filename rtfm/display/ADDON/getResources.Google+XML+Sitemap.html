@@ -71,10 +71,10 @@ Create a new chunk and call it:&nbsp;google-sitemap-tpl
 
 <pre class="brush: php">
 &lt;url&gt;      
-  &lt;loc&gt;[[~[[+id]]? &amp;scheme=`full`]]&lt;/loc&gt;
-  &lt;lastmod&gt;[[+editedon]]&lt;/lastmod&gt;
-  &lt;priority&gt;[[+tv.google-site-map-priority]]&lt;/priority&gt;
-  &lt;changefreq&gt;[[+tv.change-frequency]]&lt;/changefreq&gt;
+  &lt;loc&gt;&#91;&#91;~&#91;&#91;+id&#93;&#93;? &amp;scheme=`full`&#93;&#93;&lt;/loc&gt;
+  &lt;lastmod&gt;&#91;&#91;+editedon&#93;&#93;&lt;/lastmod&gt;
+  &lt;priority&gt;&#91;&#91;+tv.google-site-map-priority&#93;&#93;&lt;/priority&gt;
+  &lt;changefreq&gt;&#91;&#91;+tv.change-frequency&#93;&#93;&lt;/changefreq&gt;
 &lt;/url&gt;?
 </pre>
 <h2 id="getResources.GoogleXMLSitemap-ThePage">
@@ -88,7 +88,7 @@ Create a page in the root of your site and name it "sitemap.xml". Check the Hide
 <pre class="brush: php">
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;urlset xmlns="http://www.google.com/schemas/sitemap/0.84"&gt;
-[[getResources?
+&#91;&#91;getResources?
   &amp;parents=`0`
   &amp;tpl=`google-sitemap-tpl`
   &amp;limit=`500`
@@ -97,7 +97,7 @@ Create a page in the root of your site and name it "sitemap.xml". Check the Hide
   &amp;processTVs=`1`
   &amp;depth=`10`
   &amp;sortby=`publishedon`
-  ]] 
+  &#93;&#93; 
 &lt;/urlset&gt;
 </pre>
 <p>

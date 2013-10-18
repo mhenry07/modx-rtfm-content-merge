@@ -23,7 +23,7 @@ API Doc: <a href="http://api.modx.com/revolution/2.2/db_core_model_modx_modx.cla
 </p>
 
 <pre class="brush: php">
-string getChunk (string $chunkName, [array $properties = array ()])
+string getChunk (string $chunkName, &#91;array $properties = array ()&#93;)
 </pre>
 <p>
 <strong>$properties</strong> is usually a standard associative array, e.g.
@@ -33,7 +33,7 @@ string getChunk (string $chunkName, [array $properties = array ()])
 $properties = array('key' =&gt; 'value');
 </pre>
 <p>
-Which would cause the [[+key]] placeholders to be replaced by the 'value'.
+Which would cause the &#91;&#91;+key&#93;&#93; placeholders to be replaced by the 'value'.
 </p>
 
 <p>
@@ -46,15 +46,15 @@ $properties = array(
     'document' =&gt; array('id' =&gt; 27)
 );
 // or:
-$properties['user']['id'] = 1;
-$properties['document']['id'] = 27;
+$properties&#91;'user'&#93;&#91;'id'&#93; = 1;
+$properties&#91;'document'&#93;&#91;'id'&#93; = 27;
 
 // Corresponds to the following placeholders:
-// [[+user.id]]
-// [[+document.id]]
+// &#91;&#91;+user.id&#93;&#93;
+// &#91;&#91;+document.id&#93;&#93;
 </pre>
 <p>
-In cases where a multi-dimensional array is used, the placeholder syntax changes to use a dot for each node in the array, e.g. [[+user.id]] and [[+document.id]]
+In cases where a multi-dimensional array is used, the placeholder syntax changes to use a dot for each node in the array, e.g. &#91;&#91;+user.id&#93;&#93; and &#91;&#91;+document.id&#93;&#93;
 </p>
 
 <h2 id="modX.getChunk-Examples">
@@ -70,7 +70,7 @@ Lets process this chunk and output its value. We have this Chunk, called "Welcom
 </p>
 
 <pre class="brush: php">
-&lt;p&gt;Welcome [[+name]]!&lt;/p&gt;
+&lt;p&gt;Welcome &#91;&#91;+name&#93;&#93;!&lt;/p&gt;
 </pre>
 <p>
 We'll put this in our Snippet:
@@ -83,7 +83,7 @@ $output = $modx-&gt;getChunk('WelcomeChunk',array(
 return $output;
 </pre>
 <p>
-So every key in the associative array passed to the <strong>getChunk</strong> method corresponds to an available placeholder inside the chunk, e.g. [[+name]]
+So every key in the associative array passed to the <strong>getChunk</strong> method corresponds to an available placeholder inside the chunk, e.g. &#91;&#91;+name&#93;&#93;
 </p>
 
 <p>
@@ -102,7 +102,7 @@ In our Chunk:
 </p>
 
 <pre class="brush: php">
-&lt;a href="http://site.com/profile?user_id=[[+user.id]]!"&gt;User Details&lt;/a&gt;
+&lt;a href="http://site.com/profile?user_id=&#91;&#91;+user.id&#93;&#93;!"&gt;User Details&lt;/a&gt;
 </pre>
 <p>
 In our Snippet:
@@ -127,8 +127,8 @@ Imagine a Chunk named <strong>single_user</strong>:
 </p>
 
 <pre class="brush: php">
-Username: [[+username]]&lt;br/&gt;
-Active?:  [[+active]]&lt;br/&gt;
+Username: &#91;&#91;+username&#93;&#93;&lt;br/&gt;
+Active?:  &#91;&#91;+active&#93;&#93;&lt;br/&gt;
 &lt;hr/&gt;
 </pre>
 <p>
@@ -155,7 +155,7 @@ Sometimes you need to parse a string using the MODX parser – this does not use
 
 <pre class="brush: php">
 // The formatting String
-$tpl = 'Hello, my name is [[+name]]';
+$tpl = 'Hello, my name is &#91;&#91;+name&#93;&#93;';
 
 // Properties
 $props = array('name' =&gt; 'Bob');

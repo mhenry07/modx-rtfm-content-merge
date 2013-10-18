@@ -156,8 +156,8 @@ For this Tutorial we want to create a new Template. We name it 'MultiColumn'
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
-        &lt;title&gt;[[++site_name]] - [[*pagetitle]]&lt;/title&gt;
-        &lt;base href="[[++site_url]]" /&gt;
+        &lt;title&gt;&#91;&#91;++site_name&#93;&#93; - &#91;&#91;*pagetitle&#93;&#93;&lt;/title&gt;
+        &lt;base href="&#91;&#91;++site_url&#93;&#93;" /&gt;
         &lt;style&gt;
             /* reset */
             html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
@@ -171,9 +171,9 @@ For this Tutorial we want to create a new Template. We name it 'MultiColumn'
     &lt;/head&gt;
     &lt;body&gt;
         &lt;div class="container clearfix"&gt;
-            [[!getImageList? &amp;tpl=`@FIELD:MIGX_formname`&amp;tvname=`MultiColumn`]]
-            &lt;div class="grid_h_12 grid_v_1"&gt;[[*content]]&lt;/div&gt;
-            &lt;div class="grid_h_12 grid_v_1 middle_1"&gt;[^q^] queries, querytime [^qt^], phptime [^p^], totaltime [^t^], source [^s^]&lt;/div&gt;
+            &#91;&#91;!getImageList? &amp;tpl=`@FIELD:MIGX_formname`&amp;tvname=`MultiColumn`&#93;&#93;
+            &lt;div class="grid_h_12 grid_v_1"&gt;&#91;&#91;*content&#93;&#93;&lt;/div&gt;
+            &lt;div class="grid_h_12 grid_v_1 middle_1"&gt;&#91;^q^&#93; queries, querytime &#91;^qt^&#93;, phptime &#91;^p^&#93;, totaltime &#91;^t^&#93;, source &#91;^s^&#93;&lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -231,11 +231,11 @@ Form Tabs
 </h5>
 
 <pre class="brush: javascript">
-[{
+&#91;{
     "formname":"OneCell"
-    ,"formtabs": [{
+    ,"formtabs": &#91;{
         "caption":"Row Format"
-        ,"fields": [{
+        ,"fields": &#91;{
             "field":"fake"
             ,"inputTVtype":"hidden"
         },{
@@ -262,10 +262,10 @@ Form Tabs
             "field":"cell_3_content"
             ,"caption":"Content"
             ,"inputTVtype":"hidden"
-        }]
+        }&#93;
     },{
         "caption":"First"
-        ,"fields": [{
+        ,"fields": &#91;{
             "field":"cell_1_image"
             ,"caption":"Image"
             ,"inputTVtype":"image"
@@ -276,13 +276,13 @@ Form Tabs
             "field":"cell_1_content"
             ,"caption":"Content"
             ,"inputTVtype":"richtext"
-        }]
-    }]
+        }&#93;
+    }&#93;
 },{
     "formname":"TwoCells"
-    ,"formtabs":[{
+    ,"formtabs":&#91;{
         "caption":"Row Format"
-        ,"fields": [{
+        ,"fields": &#91;{
             "field":"fake"
             ,"inputTVtype":"hidden"
         },{            "field":"cell_3_image"
@@ -296,10 +296,10 @@ Form Tabs
             "field":"cell_3_content"
             ,"caption":"Content"
             ,"inputTVtype":"hidden"
-        }]
+        }&#93;
     },{
         "caption":"First"
-        ,"fields":[{
+        ,"fields":&#91;{
             "field":"cell_1_image"
             ,"caption":"Image"
             ,"inputTVtype":"image"
@@ -310,10 +310,10 @@ Form Tabs
             "field":"cell_1_content"
             ,"caption":"Content"
             ,"inputTVtype":"richtext"
-        }]
+        }&#93;
     },{
         "caption":"Second"
-        ,"fields":[{
+        ,"fields":&#91;{
             "field":"cell_2_image"
             ,"caption":"Image"
             ,"inputTVtype":"image"
@@ -324,19 +324,19 @@ Form Tabs
             "field":"cell_2_content"
             ,"caption":"Content"
             ,"inputTVtype":"richtext"
-        }]
-    }]
+        }&#93;
+    }&#93;
 },{
     "formname":"ThreeCells"
-    ,"formtabs":[{
+    ,"formtabs":&#91;{
         "caption":"Row Format"
-        ,"fields": [{
+        ,"fields": &#91;{
             "field":"fake"
             ,"inputTVtype":"hidden"
-        }]
+        }&#93;
     },{
         "caption":"First"
-        ,"fields": [{
+        ,"fields": &#91;{
             "field":"cell_1_image"
             ,"caption":"Image"
             ,"inputTVtype":"image"
@@ -347,10 +347,10 @@ Form Tabs
             "field":"cell_1_content"
             ,"caption":"Content"
             ,"inputTVtype":"richtext"
-        }]
+        }&#93;
     },{
         "caption":"Second"
-        ,"fields":[{
+        ,"fields":&#91;{
             "field":"cell_2_image"
             ,"caption":"Image"
             ,"inputTVtype":"image"
@@ -361,10 +361,10 @@ Form Tabs
             "field":"cell_2_content"
             ,"caption":"Content"
             ,"inputTVtype":"richtext"
-        }]
+        }&#93;
     },{
         "caption":"Third"
-        ,"fields":[{
+        ,"fields":&#91;{
             "field":"cell_3_image"
             ,"caption":"Image"
             ,"inputTVtype":"image"
@@ -375,16 +375,16 @@ Form Tabs
             "field":"cell_3_content"
             ,"caption":"Content"
             ,"inputTVtype":"richtext"
-        }]
-    }]
-}]
+        }&#93;
+    }&#93;
+}&#93;
 </pre>
 <h5 id="MIGX.Varyinglayout-boxes-GridColumns">
 Grid Columns
 </h5>
 
 <pre class="brush: javascript">
-[{
+&#91;{
     "header": "Row Format"
     ,"width": "30"
     ,"sortable": "true"
@@ -407,7 +407,7 @@ Grid Columns
     ,"sortable": "false"
     ,"dataIndex": "cell_3_image"
     ,"renderer": "this.renderImage"
-}]
+}&#93;
 </pre>
 <h5 id="MIGX.Varyinglayout-boxes-PreviewUrl">
 Preview Url
@@ -451,9 +451,9 @@ Chunk Code
 
 <pre class="brush: html">
 &lt;div class="box grid_h_12 grid_v_4"&gt;
-    &lt;div class="grid_h_12 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="[[+cell_1_image:phpthumbof=`w=900&amp;h=250&amp;zc=1`]]"/&gt;&lt;/div&gt;
-    &lt;div class="grid_h_12 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;[[+cell_1_headline]]&lt;/h2&gt;&lt;/div&gt;
-    &lt;div class="grid_h_12 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_1_content]]&lt;/div&gt;
+    &lt;div class="grid_h_12 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="&#91;&#91;+cell_1_image:phpthumbof=`w=900&amp;h=250&amp;zc=1`&#93;&#93;"/&gt;&lt;/div&gt;
+    &lt;div class="grid_h_12 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;&#91;&#91;+cell_1_headline&#93;&#93;&lt;/h2&gt;&lt;/div&gt;
+    &lt;div class="grid_h_12 alpha_h omega_h grid_v_2 omega_v"&gt;&#91;&#91;+cell_1_content&#93;&#93;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="clear"&gt;&lt;/div&gt;
 </pre>
@@ -475,14 +475,14 @@ Chunk Code
 
 <pre class="brush: html">
 &lt;div class="box grid_h_6 grid_v_4"&gt;
-    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="[[+cell_1_image:phpthumbof=`w=460&amp;h=320&amp;zc=1`]]"/&gt;&lt;/div&gt;
-    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;[[+cell_1_headline]]&lt;/h2&gt;&lt;/div&gt;
-    &lt;div class="grid_h_6 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_1_content]]&lt;/div&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="&#91;&#91;+cell_1_image:phpthumbof=`w=460&amp;h=320&amp;zc=1`&#93;&#93;"/&gt;&lt;/div&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;&#91;&#91;+cell_1_headline&#93;&#93;&lt;/h2&gt;&lt;/div&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_2 omega_v"&gt;&#91;&#91;+cell_1_content&#93;&#93;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="box grid_h_6 grid_v_4"&gt;
-    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="[[+cell_2_image:phpthumbof=`w=460&amp;h=320&amp;zc=1`]]"/&gt;&lt;/div&gt;
-    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;[[+cell_2_headline]]&lt;/h2&gt;&lt;/div&gt;
-    &lt;div class="grid_h_6 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_2_content]]&lt;/div&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="&#91;&#91;+cell_2_image:phpthumbof=`w=460&amp;h=320&amp;zc=1`&#93;&#93;"/&gt;&lt;/div&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;&#91;&#91;+cell_2_headline&#93;&#93;&lt;/h2&gt;&lt;/div&gt;
+    &lt;div class="grid_h_6 alpha_h omega_h grid_v_2 omega_v"&gt;&#91;&#91;+cell_2_content&#93;&#93;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="clear"&gt;&lt;/div&gt;
 </pre>
@@ -504,19 +504,19 @@ Chunk Code
 
 <pre class="brush: html">
 &lt;div class="box grid_h_4 grid_v_4"&gt;
-    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="[[+cell_1_image:phpthumbof=`w=300&amp;h=250&amp;zc=1`]]"/&gt;&lt;/div&gt;
-    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;[[+cell_1_headline]]&lt;/h2&gt;&lt;/div&gt;
-    &lt;div class="grid_h_4 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_1_content]]&lt;/div&gt;
+    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="&#91;&#91;+cell_1_image:phpthumbof=`w=300&amp;h=250&amp;zc=1`&#93;&#93;"/&gt;&lt;/div&gt;
+    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;&#91;&#91;+cell_1_headline&#93;&#93;&lt;/h2&gt;&lt;/div&gt;
+    &lt;div class="grid_h_4 alpha_h omega_h grid_v_2 omega_v"&gt;&#91;&#91;+cell_1_content&#93;&#93;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="box grid_h_4 grid_v_4"&gt;
-    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="[[+cell_2_image:phpthumbof=`w=300&amp;h=250&amp;zc=1`]]"/&gt;&lt;/div&gt;
-    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;[[+cell_2_headline]]&lt;/h2&gt;&lt;/div&gt;
-    &lt;div class="grid_h_4 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_2_content]]&lt;/div&gt;
+    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="&#91;&#91;+cell_2_image:phpthumbof=`w=300&amp;h=250&amp;zc=1`&#93;&#93;"/&gt;&lt;/div&gt;
+    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;&#91;&#91;+cell_2_headline&#93;&#93;&lt;/h2&gt;&lt;/div&gt;
+    &lt;div class="grid_h_4 alpha_h omega_h grid_v_2 omega_v"&gt;&#91;&#91;+cell_2_content&#93;&#93;&lt;/div&gt;
 &lt;/div&gt;
     &lt;div class="box grid_h_4 grid_v_4"&gt;
-    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="[[+cell_3_image:phpthumbof=`w=300&amp;h=250&amp;zc=1`]]"/&gt;&lt;/div&gt;
-    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;[[+cell_3_headline]]&lt;/h2&gt;&lt;/div&gt;
-    &lt;div class="grid_h_4 alpha_h omega_h grid_v_2 omega_v"&gt;[[+cell_3_content]]&lt;/div&gt;
+    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1 alpha_v"&gt;&lt;img src="&#91;&#91;+cell_3_image:phpthumbof=`w=300&amp;h=250&amp;zc=1`&#93;&#93;"/&gt;&lt;/div&gt;
+    &lt;div class="grid_h_4 alpha_h omega_h grid_v_1"&gt;&lt;h2&gt;&#91;&#91;+cell_3_headline&#93;&#93;&lt;/h2&gt;&lt;/div&gt;
+    &lt;div class="grid_h_4 alpha_h omega_h grid_v_2 omega_v"&gt;&#91;&#91;+cell_3_content&#93;&#93;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="clear"&gt;&lt;/div&gt;
 </pre>

@@ -97,9 +97,9 @@ foreach ($rows as $row) {
 
     $output .= '
     &lt;tr&gt;
-        &lt;td&gt;'.$row_array['id'].'&lt;/td&gt;
-        &lt;td&gt;'.$row_array['name'].'&lt;/td&gt;
-        &lt;td&gt;'.$row_array['description'].'&lt;/td&gt;
+        &lt;td&gt;'.$row_array&#91;'id'&#93;.'&lt;/td&gt;
+        &lt;td&gt;'.$row_array&#91;'name'&#93;.'&lt;/td&gt;
+        &lt;td&gt;'.$row_array&#91;'description'&#93;.'&lt;/td&gt;
     &lt;/tr&gt;';
 }
 $output .= '
@@ -158,16 +158,16 @@ class ForeignConnect {
         //global $modx;
         //$modx-&gt;log(xPDO::LOG_LEVEL_ERROR, 'getInstance');
         //instance must be static in order to be referenced here
-        if(!isset(self::$instance[$database_dsn]) ){
+        if(!isset(self::$instance&#91;$database_dsn&#93;) ){
             // new connection
             //$modx-&gt;log(xPDO::LOG_LEVEL_ERROR, 'New Connection getInstance DB: '.$database_dsn);
-            self::$instance[$database_dsn] = new xPDO($database_dsn,
+            self::$instance&#91;$database_dsn&#93; = new xPDO($database_dsn,
                 $username,
                 $password );
             
         }
         //$modx-&gt;log(xPDO::LOG_LEVEL_ERROR, 'Return Connection');
-        return self::$instance[$database_dsn];
+        return self::$instance&#91;$database_dsn&#93;;
     }
     /**
      * Close the instance

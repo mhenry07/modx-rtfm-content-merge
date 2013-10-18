@@ -258,7 +258,7 @@ Alle bis zum jetzigen Zeitpunkt gemachten Änderungen an der Website haben noch 
 Prüfen der URLs
 </th>
 <td>
-YAMS erkennt die von MODx standardmäßig generierten URLs und wandelt diese automatisch in mehrsprachige URLs um, sodass sie auf die korrekte Sprachgruppe verweisen. Die URL-Formate, die YAMS automatisch erkennt, lauten: "[(site_url)][~irgendwas~]" oder "[(base_url)][~irgendwas~]" und "[~irgendwas~]".
+YAMS erkennt die von MODx standardmäßig generierten URLs und wandelt diese automatisch in mehrsprachige URLs um, sodass sie auf die korrekte Sprachgruppe verweisen. Die URL-Formate, die YAMS automatisch erkennt, lauten: "&#91;(site_url)&#93;&#91;~irgendwas~&#93;" oder "&#91;(base_url)&#93;&#91;~irgendwas~&#93;" und "&#91;~irgendwas~&#93;".
 <br />
 Die von YAMS generierten mehrsprachigen URLs bestehen immer aus der kompletten URL, also inklusive Servername und vollständiger Pfadangabe; dadurch bleiben sie von der Einstellung der base href unberührt. Die URLs können auch über den 'Other Params'-Tab konfiguriert werden. Es ist zum Beispiel möglich, Weblink-URLs so einzurichten, dass sie immer nach ihrer Ziel-URL aufgelöst werden, oder dass der Dateiname des Website-Startdokuments der standardmäßigen Sprache nicht ausgegeben/angezeigt wird.
 <br />
@@ -273,7 +273,7 @@ Bei allen internen URLs, die von MODx nicht automatisch verarbeitet werden, sind
 <br />
 (yams_doc:docId) oder (yams_docr:docId) in Dokumentvorlagen (Templates) und Seiteninhalt; und:
 <br />
-(yams_doc:[<ins>docId</ins>]) oder (yams_docr:[<ins>docId</ins>]) in Snippet Templates.
+(yams_doc:&#91;<ins>docId</ins>&#93;) oder (yams_docr:&#91;<ins>docId</ins>&#93;) in Snippet Templates.
 <br />
 Siehe Module &gt; YAMS &gt; Documentation &gt; YAMS Placeholders für eine detaillierte Beschreibung.
 </p>
@@ -376,7 +376,7 @@ Nach dem Übersetzen der betreffenden Seiten kann mit dem Publizieren begonnen w
 <br />
 
 <pre class="brush: php">
-[[YAMS? &amp;get=`list`]]
+&#91;&#91;YAMS? &amp;get=`list`&#93;&#93;
 </pre>
 <p>
 oder
@@ -384,7 +384,7 @@ oder
 </p>
 
 <pre class="brush: php">
-[[YAMS? &amp;get=`selectform`]]
+&#91;&#91;YAMS? &amp;get=`selectform`&#93;&#93;
 </pre>
 <p>
 können zur Bereitstellung Listen-basierter bzw. Aufklappmenu-basierter Sprachwahl in mehrsprachigen Dokumentvorlagen eingesetzt werden (an Templates/Styles anpassbar). Lesen Sie hierzu die <a href="extras/evo/yams/yams-english-documentation/yams-snippet" title="YAMS Snippet">YAMS-Snippetseite</a> für detaillierte Beschreibungen.

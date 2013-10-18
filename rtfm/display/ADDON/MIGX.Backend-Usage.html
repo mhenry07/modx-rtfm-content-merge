@@ -105,15 +105,15 @@ Content of tabs.txt:
 </p>
 
 <pre class="brush: php">
-[
-{"caption":"Info", "fields": [
+&#91;
+{"caption":"Info", "fields": &#91;
     {"field":"title","caption":"Title"},
     {"field":"description","caption":"Description","inputTVtype":"richtext"}
-]},
-{"caption":"Image", "fields":[
+&#93;},
+{"caption":"Image", "fields":&#91;
     {"field":"image","caption":"Image","inputTVtype":"image"}
-]}
-] 
+&#93;}
+&#93; 
 </pre>
 <p>
 That's a lot of JSON -- let's break it down. The first key you see is entitled "Caption". This refers to the name of the first tab. The tab will be labeled "Info".&nbsp;
@@ -211,10 +211,10 @@ Content of columns.txt:
 </p>
 
 <pre class="brush: php">
-[
+&#91;
 {"header": "Title", "width": "160", "sortable": "true", "dataIndex": "title"},
 {"header": "Image", "width": "50", "sortable": "false", "dataIndex": "image","renderer": "this.renderImage"}
-]
+&#93;
 </pre>
 <p>
 Here is some more JSON for us to tackle! &nbsp;This JSON shows the caption of the image as well as a preview of it. &nbsp;Let's break it down.
@@ -306,25 +306,25 @@ Content of switchFormTabs.txt
 </p>
 
 <pre class="brush: php">
-[[
+&#91;&#91;
 {"formname":"image_description", "formtabs":
-[
-{"caption":"Info", "fields": [
+&#91;
+{"caption":"Info", "fields": &#91;
 {"field":"title","caption":"Title"},
 {"field":"tpl","caption":"Tpl","inputTV":"tplDropdown"},  {"field":"description","caption":"Description","inputTV":"richtext"}
-]},
-{"caption":"Image", "fields":[
+&#93;},
+{"caption":"Image", "fields":&#91;
 {"field":"image","caption":"Image","inputTV":"image"}
-]}
-]
+&#93;}
+&#93;
 },{"formname":"textonly", "formtabs":
-[
-{"caption":"Info", "fields": [
+&#91;
+{"caption":"Info", "fields": &#91;
 {"field":"title","caption":"Title"},
 {"field":"tpl","caption":"Tpl","inputTV":"tplDropdown"}, {"field":"description","caption":"Description","inputTV":"richtext"}
-]}
-]
-}]] 
+&#93;}
+&#93;
+}&#93;&#93; 
 </pre>
 <p>
 here we have an additional outer array with two keys.
@@ -376,8 +376,8 @@ MIGX has a preview featured that allows you to see rendered output of items in a
 </p>
 
 <pre class="brush: html">
-[[!getImageList? &amp;tpl=`@FIELD:MIGX_formname`&amp;tvname=`multiitemsgridTv`]]
-[[!getImageList? &amp;tvname=`multiitemsgridTv2`]]
+&#91;&#91;!getImageList? &amp;tpl=`@FIELD:MIGX_formname`&amp;tvname=`multiitemsgridTv`&#93;&#93;
+&#91;&#91;!getImageList? &amp;tvname=`multiitemsgridTv2`&#93;&#93;
 </pre>
 <p>
 If you have multiple calls on the preview resource you will also need unique values for each TV in 'Preview JsonVarKey' - default is 'migx_outputvalue'

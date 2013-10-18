@@ -173,7 +173,7 @@ sortdir
 <br />
 </td>
 <td>
-[ASC|DESC] When &amp;sort is empty or not a valid JSON string you can define ascending or descending sort order with this property.
+&#91;ASC|DESC&#93; When &amp;sort is empty or not a valid JSON string you can define ascending or descending sort order with this property.
 <br />
 </td>
 <td>
@@ -188,7 +188,7 @@ activeOnly
 <br />
 </td>
 <td>
-[1|0] If 1 (true) will only show active items.
+&#91;1|0&#93; If 1 (true) will only show active items.
 <br />
 </td>
 <td>
@@ -203,7 +203,7 @@ featuredOnly
 <br />
 </td>
 <td>
-[1|0] If 1 (true) will only show featured items.
+&#91;1|0&#93; If 1 (true) will only show featured items.
 <br />
 </td>
 <td>
@@ -232,7 +232,7 @@ acceptUrlParams
 <br />
 </td>
 <td>
-[1|0] Allow specific url params (see acceptedUrlParams) to override properties you set in the snippet call / default values.
+&#91;1|0&#93; Allow specific url params (see acceptedUrlParams) to override properties you set in the snippet call / default values.
 <br />
 </td>
 <td>
@@ -320,7 +320,7 @@ A value (hint: could be a chunk tag) to display when there are no results.
 trackViews
 </td>
 <td>
-[1|0] When 1, the snippet will increment the "views" field for listings in the displayed result set. Can be useful if you have certain lists you don't want to influence the view count. Added in 1.1.1-pl.
+&#91;1|0&#93; When 1, the snippet will increment the "views" field for listings in the displayed result set. Can be useful if you have certain lists you don't want to influence the view count. Added in 1.1.1-pl.
 <br />
 </td>
 <td>
@@ -458,7 +458,7 @@ Default:
 </p>
 
 <pre class="brush: php">
-[[+wrapper]]
+&#91;&#91;+wrapper&#93;&#93;
 </pre>
 <p>
 Accepted properties:
@@ -487,12 +487,12 @@ Default:
 <pre class="brush: php">
 &lt;div&gt;
     &lt;h2&gt;
-        [[+redirect_url:notempty=`&lt;a href="[[+redirect_url]]"&gt;[[+title]]&lt;/a&gt;`:default=`[[+title]]`]]
+        &#91;&#91;+redirect_url:notempty=`&lt;a href="&#91;&#91;+redirect_url&#93;&#93;"&gt;&#91;&#91;+title&#93;&#93;&lt;/a&gt;`:default=`&#91;&#91;+title&#93;&#93;`&#93;&#93;
     &lt;/h2&gt;
-    [[+images:notempty=`&lt;p&gt;[[+primaryimage:notempty=`&lt;img src="[[+primaryimage:phpthumbof=`w=300&amp;h=200`]]" alt="[[+title]]" /&gt;&lt;br /&gt;`]] [[+images]]&lt;/p&gt;`]]
-    &lt;p&gt;In [[+city]] - [[+neighborhood]] - [[+companyname]] - &lt;a href="[[+redirect_url]]"&gt;[[+companyname]]&lt;/a&gt;&lt;/p&gt;
-    [[+description:notempty=`&lt;p&gt;[[+description:nl2br]]&lt;/p&gt;`]]
-    [[+googlemap_url:notempty=`&lt;a href="[[+googlemap_url]]" title="View on Google Maps"&gt;&lt;img src="[[+googlemap_static]]" alt="Google Maps"&gt;&lt;/a&gt;`]]
+    &#91;&#91;+images:notempty=`&lt;p&gt;&#91;&#91;+primaryimage:notempty=`&lt;img src="&#91;&#91;+primaryimage:phpthumbof=`w=300&amp;h=200`&#93;&#93;" alt="&#91;&#91;+title&#93;&#93;" /&gt;&lt;br /&gt;`&#93;&#93; &#91;&#91;+images&#93;&#93;&lt;/p&gt;`&#93;&#93;
+    &lt;p&gt;In &#91;&#91;+city&#93;&#93; - &#91;&#91;+neighborhood&#93;&#93; - &#91;&#91;+companyname&#93;&#93; - &lt;a href="&#91;&#91;+redirect_url&#93;&#93;"&gt;&#91;&#91;+companyname&#93;&#93;&lt;/a&gt;&lt;/p&gt;
+    &#91;&#91;+description:notempty=`&lt;p&gt;&#91;&#91;+description:nl2br&#93;&#93;&lt;/p&gt;`&#93;&#93;
+    &#91;&#91;+googlemap_url:notempty=`&lt;a href="&#91;&#91;+googlemap_url&#93;&#93;" title="View on Google Maps"&gt;&lt;img src="&#91;&#91;+googlemap_static&#93;&#93;" alt="Google Maps"&gt;&lt;/a&gt;`&#93;&#93;
 &lt;/div&gt;
 </pre>
 <p>
@@ -635,7 +635,7 @@ Default:
 </p>
 
 <pre class="brush: php">
-&lt;img src="[[+image:phpthumbof=`w=150&amp;h=150&amp;zc=1`]]" alt="[[+caption]]" /&gt;
+&lt;img src="&#91;&#91;+image:phpthumbof=`w=150&amp;h=150&amp;zc=1`&#93;&#93;" alt="&#91;&#91;+caption&#93;&#93;" /&gt;
 </pre>
 <p>
 Placeholders:
@@ -782,7 +782,7 @@ staticMapMarkerSize
 <br />
 </td>
 <td>
-[tiny|mid|small|medium] Size of the marker.
+&#91;tiny|mid|small|medium&#93; Size of the marker.
 <br />
 </td>
 <td>
@@ -815,7 +815,7 @@ staticMapMarkerIconShadow
 <br />
 </td>
 <td>
-["true" or "false", actual text so NOT 1 or 0] To use shadow or not when using a custom icon.
+&#91;"true" or "false", actual text so NOT 1 or 0&#93; To use shadow or not when using a custom icon.
 <br />
 </td>
 <td>
@@ -837,7 +837,7 @@ Last 5 listings, simple list format:
 <pre class="brush: php">
 &lt;h3&gt;Lastest 5 Ads&lt;/h3&gt;
 &lt;ul id="latest_ads"&gt;
-[[!bdListings? &amp;sort=`{"createdon":"DESC"}`  &amp;tplRow=`bdl.listings.list` &amp;limit=`5`]]
+&#91;&#91;!bdListings? &amp;sort=`{"createdon":"DESC"}`  &amp;tplRow=`bdl.listings.list` &amp;limit=`5`&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <p>
@@ -846,6 +846,6 @@ bdl.listings.list chunk, pointing to resource 14 (search results page which has 
 
 <pre class="brush: php">
 &lt;li&gt;
-  &lt;a href="[[~14? &amp;listings=`[[+id]]`]]" title="[[+title]]"&gt;[[+title]]&lt;/a&gt;
+  &lt;a href="&#91;&#91;~14? &amp;listings=`&#91;&#91;+id&#93;&#93;`&#93;&#93;" title="&#91;&#91;+title&#93;&#93;"&gt;&#91;&#91;+title&#93;&#93;&lt;/a&gt;
 &lt;/li&gt;
 </pre>

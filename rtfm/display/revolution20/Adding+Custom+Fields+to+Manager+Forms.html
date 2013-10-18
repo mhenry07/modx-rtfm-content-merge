@@ -25,9 +25,9 @@ switch ($modx-&gt;event-&gt;name) {
         break;
     case 'OnDocFormRender':
         $v = '';
-        if (isset($scriptProperties['resource'])) {
+        if (isset($scriptProperties&#91;'resource'&#93;)) {
             /* on the update screen, so set the value */
-            $v = $scriptProperties['resource']-&gt;get('longtitle');
+            $v = $scriptProperties&#91;'resource'&#93;-&gt;get('longtitle');
         } else {
             /* on the create screen, so set the default */
             $profile = $modx-&gt;user-&gt;getOne('Profile');
@@ -46,8 +46,8 @@ switch ($modx-&gt;event-&gt;name) {
 break;
     case 'OnDocFormSave':
         /* do processing logic here. */
-        $resource =&amp; $scriptProperties['resource'];
-        $resource-&gt;set('longtitle',$_POST['home']);
+        $resource =&amp; $scriptProperties&#91;'resource'&#93;;
+        $resource-&gt;set('longtitle',$_POST&#91;'home'&#93;);
         $resource-&gt;save();
         break;
 }

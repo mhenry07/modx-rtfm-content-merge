@@ -102,7 +102,7 @@ Related
 </li>
 
 <li>
-<span class="error">[userLoggedIn]</span>
+<span class="error">&#91;userLoggedIn&#93;</span>
 </li>
 
 <li>
@@ -134,11 +134,11 @@ Line: 2028
 
 <pre class="brush: php">
 function getLoginUserName() {
-        if ($this-&gt;isFrontend() &amp;&amp; isset ($_SESSION['webValidated'])) {
-            return $_SESSION['webShortname'];
+        if ($this-&gt;isFrontend() &amp;&amp; isset ($_SESSION&#91;'webValidated'&#93;)) {
+            return $_SESSION&#91;'webShortname'&#93;;
         }
-        elseif ($this-&gt;isBackend() &amp;&amp; isset ($_SESSION['mgrValidated'])) {
-            return $_SESSION['mgrShortname'];
+        elseif ($this-&gt;isBackend() &amp;&amp; isset ($_SESSION&#91;'mgrValidated'&#93;)) {
+            return $_SESSION&#91;'mgrShortname'&#93;;
         }
     }
 </pre>

@@ -205,47 +205,47 @@ We'll create one called 'BlogPostTemplate'. Our content looks something like thi
 </p>
 
 <pre class="brush: php">
-[[$pageHeader]]
+&#91;&#91;$pageHeader&#93;&#93;
 &lt;div id="content" class="blog-post"&gt;
-  &lt;h2 class="title"&gt;&lt;a href="[[~[[*id]]]]"&gt;[[*pagetitle]]&lt;/a&gt;&lt;/h2&gt;
+  &lt;h2 class="title"&gt;&lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;"&gt;&#91;&#91;*pagetitle&#93;&#93;&lt;/a&gt;&lt;/h2&gt;
   
   &lt;p class="post-info"&gt;
-  Posted on [[*publishedon:strtotime:date=`%b %d, %Y`]] | 
-  Tags: [[*tags:notempty=`[[!tolinks? &amp;items=`[[*tags]]` &amp;tagKey=`tag` &amp;target=`1`]]`]] | 
-  &lt;a href="[[~[[*id]]]]#comments" class="comments"&gt;
-    Comments ([[!QuipCount? &amp;thread=`blog-post-[[*id]]`]])
+  Posted on &#91;&#91;*publishedon:strtotime:date=`%b %d, %Y`&#93;&#93; | 
+  Tags: &#91;&#91;*tags:notempty=`&#91;&#91;!tolinks? &amp;items=`&#91;&#91;*tags&#93;&#93;` &amp;tagKey=`tag` &amp;target=`1`&#93;&#93;`&#93;&#93; | 
+  &lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;#comments" class="comments"&gt;
+    Comments (&#91;&#91;!QuipCount? &amp;thread=`blog-post-&#91;&#91;*id&#93;&#93;`&#93;&#93;)
   &lt;/a&gt;
   &lt;/p&gt;
 
   &lt;div class="entry"&gt;
-    &lt;p&gt;[[*introtext]]&lt;/p&gt;
+    &lt;p&gt;&#91;&#91;*introtext&#93;&#93;&lt;/p&gt;
     &lt;hr /&gt;
-    [[*content]]
+    &#91;&#91;*content&#93;&#93;
    &lt;/div&gt;
 
   &lt;div class="postmeta"&gt;
-    [[*tags:notempty=`
-&lt;span class="tags"&gt;Tags: [[!tolinks? &amp;items=`[[*tags]]` &amp;tagKey=`tag` &amp;target=`1`]]&lt;/span&gt;
-    `]]
+    &#91;&#91;*tags:notempty=`
+&lt;span class="tags"&gt;Tags: &#91;&#91;!tolinks? &amp;items=`&#91;&#91;*tags&#93;&#93;` &amp;tagKey=`tag` &amp;target=`1`&#93;&#93;&lt;/span&gt;
+    `&#93;&#93;
     &lt;br class="clear" /&gt;
   &lt;/div&gt;
   &lt;hr /&gt;
-  &lt;div class="post-comments" id="comments"&gt;[[!Quip?
-      &amp;thread=`blog-post-[[*id]]`
+  &lt;div class="post-comments" id="comments"&gt;&#91;&#91;!Quip?
+      &amp;thread=`blog-post-&#91;&#91;*id&#93;&#93;`
       &amp;replyResourceId=`123`
       &amp;closeAfter=`30`
-    ]]
+    &#93;&#93;
     &lt;br /&gt;&lt;br /&gt;
-    [[!QuipReply?
-       &amp;thread=`blog-post-[[*id]]`
+    &#91;&#91;!QuipReply?
+       &amp;thread=`blog-post-&#91;&#91;*id&#93;&#93;`
        &amp;notifyEmails=`my@email.com`
        &amp;moderate=`1`
        &amp;moderatorGroup=`Moderators`
        &amp;closeAfter=`30`
-    ]]
+    &#93;&#93;
   &lt;/div&gt;
 &lt;/div&gt;
-[[$pageFooter]]
+&#91;&#91;$pageFooter&#93;&#93;
 </pre>
 <p>
 So let's examine the Template, shall we? As we go, remember this - you can move any of these pieces around, change their parameters, and adjust their placing. This is solely a base structure - if you want your tags at the bottom, for instance, move them there! MODx doesn't restrict you from doing that.
@@ -269,10 +269,10 @@ Next we get into the "info" of the post - basically the author and tags for the 
 
 <pre class="brush: php">
 &lt;p class="post-info"&gt;
-Posted on [[*publishedon:strtotime:date=`%b %d, %Y`]] | 
-Tags: [[*tags:notempty=`[[!tolinks? &amp;items=`[[*tags]]` &amp;tagKey=`tag` &amp;target=`1`]]`]] | 
-&lt;a href="[[~[[*id]]]]#comments" class="comments"&gt;
-  Comments ([[!QuipCount? &amp;thread=`blog-post-[[*id]]`]])
+Posted on &#91;&#91;*publishedon:strtotime:date=`%b %d, %Y`&#93;&#93; | 
+Tags: &#91;&#91;*tags:notempty=`&#91;&#91;!tolinks? &amp;items=`&#91;&#91;*tags&#93;&#93;` &amp;tagKey=`tag` &amp;target=`1`&#93;&#93;`&#93;&#93; | 
+&lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;#comments" class="comments"&gt;
+  Comments (&#91;&#91;!QuipCount? &amp;thread=`blog-post-&#91;&#91;*id&#93;&#93;`&#93;&#93;)
 &lt;/a&gt;
 &lt;/p&gt;
 </pre>
@@ -285,7 +285,7 @@ Secondly, we then display a Tag listing for this Blog Post. You can see how we r
 </p>
 
 <p>
-And finally, we load a quick count of the number of comments, along with a clickable anchor tag link to load them. Note how our 'thread' property in the QuipCount snippet call (and later on in the Quip call) uses 'blog-post-[<span class="error">[*id]</span>]'. This means that MODx will automatically create a new thread for each new Blog Post we create. Neat!
+And finally, we load a quick count of the number of comments, along with a clickable anchor tag link to load them. Note how our 'thread' property in the QuipCount snippet call (and later on in the Quip call) uses 'blog-post-&#91;<span class="error">&#91;*id&#93;</span>&#93;'. This means that MODx will automatically create a new thread for each new Blog Post we create. Neat!
 </p>
 
 <h3 id="CreatingaBloginMODxRevolution-ThePostContent">
@@ -293,7 +293,7 @@ The Post Content
 </h3>
 
 <p>
-Okay, back to our Template. We're in the content section now - note how we start with [[*introtext]]. This is a useful MODx Resource field - think of it like a beginning excerpt for a blog post, that will show up on our main page when we're listing the latest blog posts.
+Okay, back to our Template. We're in the content section now - note how we start with &#91;&#91;*introtext&#93;&#93;. This is a useful MODx Resource field - think of it like a beginning excerpt for a blog post, that will show up on our main page when we're listing the latest blog posts.
 </p>
 
 <h3 id="CreatingaBloginMODxRevolution-AddingCommentstoPosts">
@@ -305,18 +305,18 @@ Okay, now we're in the comments part of BlogPostTemplate. As you can see here, w
 </p>
 
 <pre class="brush: php">
-&lt;div class="post-comments" id="comments"&gt;[[!Quip?
-    &amp;thread=`blog-post-[[*id]]`
+&lt;div class="post-comments" id="comments"&gt;&#91;&#91;!Quip?
+    &amp;thread=`blog-post-&#91;&#91;*id&#93;&#93;`
     &amp;replyResourceId=`19`
     &amp;closeAfter=`30`
-  ]]
+  &#93;&#93;
   &lt;br /&gt;&lt;br /&gt;
-  [[!QuipReply?
-     &amp;thread=`blog-post-[[*id]]`
+  &#91;&#91;!QuipReply?
+     &amp;thread=`blog-post-&#91;&#91;*id&#93;&#93;`
      &amp;moderate=`1`
      &amp;moderatorGroup=`Moderators`
      &amp;closeAfter=`30`
-  ]]
+  &#93;&#93;
 &lt;/div&gt;
 </pre>
 <p>
@@ -328,9 +328,9 @@ In our Quip snippet call, we've specified a thread ID in the manner we've descri
 </p>
 
 <pre class="brush: php">
-[[!QuipReply]]
+&#91;&#91;!QuipReply&#93;&#93;
 &lt;br /&gt;
-[[!Quip]]
+&#91;&#91;!Quip&#93;&#93;
 </pre>
 <p>
 Next, we want to specify - in both the Quip and Quip Reply calls - a 'closeAfter' property. This tells Quip to automatically close commenting on these threads after 30 days of the thread creation (when we load it).
@@ -393,23 +393,23 @@ Make sure you don't use the BlogPostTemplate on these, and use instead your own 
 </p>
 
 <pre class="brush: php">
-[[!getResourcesTag?
+&#91;&#91;!getResourcesTag?
   &amp;element=`getResources`
   &amp;elementClass=`modSnippet`
   &amp;tpl=`blogPost`
   &amp;hideContainers=`1`
   &amp;pageVarKey=`page`
-  &amp;parents=`[[*id]]`
+  &amp;parents=`&#91;&#91;*id&#93;&#93;`
   &amp;includeTVs=`1`
   &amp;includeContent=`1`
-]]
-[[!+page.nav:notempty=`
+&#93;&#93;
+&#91;&#91;!+page.nav:notempty=`
 &lt;div class="paging"&gt;  
 &lt;ul class="pageList"&gt;  
-  [[!+page.nav]]  
+  &#91;&#91;!+page.nav&#93;&#93;  
 &lt;/ul&gt;  
 &lt;/div&gt;
-`]]
+`&#93;&#93;
 </pre>
 <p>
 Okay, let's explain this. getResourcesTag a wrapper snippet for <a href="extras/revo/getresources" title="getResources">getResources</a> and <a href="extras/revo/getpage" title="getPage">getPage</a> that automatically filters results by a 'tags' TV. So basically, we want to grab all published Resources within this section (and we can also filter by tag should we pass a '?tag=TagName' parameter into the URL.
@@ -429,21 +429,21 @@ In that call, we also have a property called 'tpl' which we set to 'blogPost'. T
 
 <pre class="brush: php">
 &lt;div class="post"&gt;
-    &lt;h2 class="title"&gt;&lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle]]&lt;/a&gt;&lt;/h2&gt;
-    &lt;p class="post-info"&gt;Posted by [[+createdby:userinfo=`fullname`]]
- [[+tv.tags:notempty=` | &lt;span class="tags"&gt;Tags: 
-[[!tolinks? &amp;items=`[[+tv.tags]]` &amp;tagKey=`tag` &amp;target=`1`]]
-&lt;/span&gt;`]]&lt;/p&gt;
+    &lt;h2 class="title"&gt;&lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;"&gt;&#91;&#91;+pagetitle&#93;&#93;&lt;/a&gt;&lt;/h2&gt;
+    &lt;p class="post-info"&gt;Posted by &#91;&#91;+createdby:userinfo=`fullname`&#93;&#93;
+ &#91;&#91;+tv.tags:notempty=` | &lt;span class="tags"&gt;Tags: 
+&#91;&#91;!tolinks? &amp;items=`&#91;&#91;+tv.tags&#93;&#93;` &amp;tagKey=`tag` &amp;target=`1`&#93;&#93;
+&lt;/span&gt;`&#93;&#93;&lt;/p&gt;
     &lt;div class="entry"&gt;
-        &lt;p&gt;[[+introtext]]&lt;/p&gt;
+        &lt;p&gt;&#91;&#91;+introtext&#93;&#93;&lt;/p&gt;
     &lt;/div&gt;
     &lt;p class="postmeta"&gt;
       &lt;span class="links"&gt;
-&lt;a href="[[~[[+id]]]]" class="readmore"&gt;Read more&lt;/a&gt;
-| &lt;a href="[[~[[+id]]]]#comments" class="comments"&gt;
-    Comments ([[!QuipCount? &amp;thread=`blog-post-[[+id]]`]])
+&lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;" class="readmore"&gt;Read more&lt;/a&gt;
+| &lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;#comments" class="comments"&gt;
+    Comments (&#91;&#91;!QuipCount? &amp;thread=`blog-post-&#91;&#91;+id&#93;&#93;`&#93;&#93;)
   &lt;/a&gt;
-| &lt;span class="date"&gt;[[+publishedon:strtotime:date=`%b %d, %Y`]]&lt;/span&gt;
+| &lt;span class="date"&gt;&#91;&#91;+publishedon:strtotime:date=`%b %d, %Y`&#93;&#93;&lt;/span&gt;
       &lt;/span&gt;
     &lt;/p&gt;
 &lt;/div&gt;
@@ -473,7 +473,7 @@ In our home page for our blog, which we've got in Resource ID 1 - our site start
 </p>
 
 <pre class="brush: php">
-[[!getResourcesTag?
+&#91;&#91;!getResourcesTag?
   &amp;elementClass=`modSnippet`
   &amp;element=`getResources`
   &amp;tpl=`blogPost`
@@ -485,14 +485,14 @@ In our home page for our blog, which we've got in Resource ID 1 - our site start
   &amp;hideContainers=`1`
   &amp;cache=`0`
   &amp;pageVarKey=`page`
-]]
-[[!+page.nav:notempty=`
+&#93;&#93;
+&#91;&#91;!+page.nav:notempty=`
 &lt;div class="paging"&gt;  
 &lt;ul class="pageList"&gt;  
-  [[!+page.nav]]  
+  &#91;&#91;!+page.nav&#93;&#93;  
 &lt;/ul&gt;  
 &lt;/div&gt;
-`]]
+`&#93;&#93;
 </pre>
 <p>
 This allows us to show all posts from the two sections we've made, in Resources 34 and 35. It also allows us to filter by tag (since all our 'tolinks' and 'tagLister' calls have a target of 1 (this Resource's ID). In other words, by putting our getResourcesTag call here, we have automatic tagging!
@@ -555,7 +555,7 @@ Go ahead and place a Resource in your root called 'Archives', and give it an ali
 </p>
 
 <pre class="brush: php">
-[[!getPage?
+&#91;&#91;!getPage?
   &amp;element=`getArchives`
   &amp;elementClass=`modSnippet`
   &amp;tpl=`blogPost`
@@ -566,19 +566,19 @@ Go ahead and place a Resource in your root called 'Archives', and give it an ali
   &amp;toPlaceholder=`archives`
   &amp;limit=`10`
   &amp;cache=`0`
-]]
+&#93;&#93;
 
-&lt;h3&gt;[[+arc_month_name]] [[+arc_year]] Archives&lt;/h3&gt;
+&lt;h3&gt;&#91;&#91;+arc_month_name&#93;&#93; &#91;&#91;+arc_year&#93;&#93; Archives&lt;/h3&gt;
 
-[[+archives]]
+&#91;&#91;+archives&#93;&#93;
 
-[[!+page.nav:notempty=`
+&#91;&#91;!+page.nav:notempty=`
 &lt;div class="paging"&gt;  
 &lt;ul class="pageList"&gt;  
-  [[!+page.nav]]  
+  &#91;&#91;!+page.nav&#93;&#93;  
 &lt;/ul&gt;  
 &lt;/div&gt;
-`]]
+`&#93;&#93;
 </pre>
 <p>
 Look familiar? It's very similar to getResourcesTag, described above in our Section page. This time, getPage is wrapping the <a href="extras/revo/archivist" title="Archivist">getArchives</a> snippet, and saying that we want to grab posts in Resources 34 and 35 (our Section pages). We'll set the result to a placeholder called 'archives' which we reference later.
@@ -599,7 +599,7 @@ Okay, so now you've got a Resource to browse archives in, but you need some way 
 <pre class="brush: php">
 &lt;h3&gt;Archives&lt;/h3&gt;
 &lt;ul&gt;
-[[!Archivist? &amp;target=`30` &amp;parents=`34,35`]]
+&#91;&#91;!Archivist? &amp;target=`30` &amp;parents=`34,35`&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <p>
@@ -655,13 +655,13 @@ First off, you'll want to place this call wherever you want the list to appear:
 </p>
 
 <pre class="brush: php">
-[[!getResources? 
+&#91;&#91;!getResources? 
   &amp;parents=`34,35`
   &amp;hideContainers=`1`
   &amp;tpl=`latestPostsTpl`
   &amp;limit=`5`
   &amp;sortby=`publishedon`
-]]
+&#93;&#93;
 </pre>
 <p>
 So we're telling <a href="extras/revo/getresources" title="getResources">getResources</a> to display a top 5 list of Resources in your Section Resources (34,35), and sort by their publishedon date.
@@ -673,8 +673,8 @@ Then, create the `latestPostsTpl` chunk, which you've specified with the 'tpl' c
 
 <pre class="brush: php">
 &lt;li&gt;
-  &lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle]]&lt;/a&gt;
-  [[+publishedon:notempty=`&lt;br /&gt; - [[+publishedon:strtotime:date=`%b %d, %Y`]]`]]
+  &lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;"&gt;&#91;&#91;+pagetitle&#93;&#93;&lt;/a&gt;
+  &#91;&#91;+publishedon:notempty=`&lt;br /&gt; - &#91;&#91;+publishedon:strtotime:date=`%b %d, %Y`&#93;&#93;`&#93;&#93;
 &lt;/li&gt;
 </pre>
 <p>
@@ -698,17 +698,17 @@ Place the call wherever you want the comment list to show:
 </p>
 
 <pre class="brush: php">
-[[!QuipLatestComments? &amp;tpl=`latestCommentTpl`]]
+&#91;&#91;!QuipLatestComments? &amp;tpl=`latestCommentTpl`&#93;&#93;
 </pre>
 <p>
 Now create a chunk called 'latestCommentTpl':
 </p>
 
 <pre class="brush: php">
-&lt;li class="[[+cls]][[+alt]]"&gt;
-    &lt;a href="[[+url]]"&gt;[[+body:ellipsis=`[[+bodyLimit]]`]]&lt;/a&gt;
-    &lt;br /&gt;&lt;span class="author"&gt;by [[+name]]&lt;/span&gt;
-    &lt;br /&gt;&lt;span class="ago"&gt;[[+createdon:ago]]&lt;/span&gt;
+&lt;li class="&#91;&#91;+cls&#93;&#93;&#91;&#91;+alt&#93;&#93;"&gt;
+    &lt;a href="&#91;&#91;+url&#93;&#93;"&gt;&#91;&#91;+body:ellipsis=`&#91;&#91;+bodyLimit&#93;&#93;`&#93;&#93;&lt;/a&gt;
+    &lt;br /&gt;&lt;span class="author"&gt;by &#91;&#91;+name&#93;&#93;&lt;/span&gt;
+    &lt;br /&gt;&lt;span class="ago"&gt;&#91;&#91;+createdon:ago&#93;&#93;&lt;/span&gt;
 &lt;/li&gt;
 </pre>
 <p>
@@ -736,7 +736,7 @@ This part is ridiculously easy; <a href="extras/revo/taglister" title="tagLister
 </p>
 
 <pre class="brush: php">
-[[!tagLister? &amp;tv=`tags` &amp;target=`1`]]
+&#91;&#91;!tagLister? &amp;tv=`tags` &amp;target=`1`&#93;&#93;
 </pre>
 <p>
 And tagLister will check the TV 'tags', and create links that go to the target (here, Resource ID 1) with the top 10 tags being used. There's a ton more <a href="extras/revo/taglister" title="tagLister">configuration options</a>, but we'll leave you with this.

@@ -40,7 +40,7 @@ The only thing we need to add to the basic call here is a new <strong>hook</stro
 </p>
 
 <pre class="brush: php">
-[[!FormIt?
+&#91;&#91;!FormIt?
    &amp;hooks=`spam,customhook,email,redirect`
    &amp;emailTpl=`MyEmailChunk`
    &amp;emailTo=`user@example.com`
@@ -49,7 +49,7 @@ The only thing we need to add to the basic call here is a new <strong>hook</stro
       email:email:required,
       subject:required,
       text:required:stripTags,
-]]
+&#93;&#93;
 </pre>
 <h2 id="FormIt.Examples.CustomHook-customhookSnippet">
 customhook Snippet
@@ -81,7 +81,7 @@ Save your Snippet, and try submitting your form. Check the MODx system log (<str
 </p>
 
 <pre class="brush: php">
-[2011-10-24 11:23:20] (ERROR @ /index.php) Testing my custom hook.
+&#91;2011-10-24 11:23:20&#93; (ERROR @ /index.php) Testing my custom hook.
 </pre>
 <h3 id="FormIt.Examples.CustomHook-SettingValues">
 Setting Values
@@ -106,9 +106,9 @@ Once you have saved this, you can update your <strong>MyEmailChunk</strong> chun
 </p>
 
 <pre class="brush: php">
-[[+name]] ([[+email]]) &lt;br/&gt;
+&#91;&#91;+name&#93;&#93; (&#91;&#91;+email&#93;&#93;) &lt;br/&gt;
 
-Date Submitted: [[+datestamp_submitted]]&lt;br/&gt;
+Date Submitted: &#91;&#91;+datestamp_submitted&#93;&#93;&lt;br/&gt;
 </pre>
 <h3 id="FormIt.Examples.CustomHook-ReadingValues">
 Reading Values
@@ -127,5 +127,5 @@ Or all values can be read at once using <strong>$hook-&gt;getValues()</strong>:
 
 <pre class="brush: php">
 $formFields = $hook-&gt;getValues();
-$email = $formFields['email'];
+$email = $formFields&#91;'email'&#93;;
 </pre>

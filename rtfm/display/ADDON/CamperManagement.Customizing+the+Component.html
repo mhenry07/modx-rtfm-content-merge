@@ -73,7 +73,7 @@ Now you may get overly excited and check out the result, but <strong>you will fi
 </p>
 
 <p>
-Now you can go ahead and change other strings. If you don't have a "Plate" field, but could use a "Capacity" field, you can change the "Place" lexicon to "Capacity" to change that in the component. The actual field name to use in setting up the front-end do not change (that will stay [[+plate]]) but nobody will look at that after development anyway.
+Now you can go ahead and change other strings. If you don't have a "Plate" field, but could use a "Capacity" field, you can change the "Place" lexicon to "Capacity" to change that in the component. The actual field name to use in setting up the front-end do not change (that will stay &#91;&#91;+plate&#93;&#93;) but nobody will look at that after development anyway.
 </p>
 
 <h4 id="CamperManagement.CustomizingtheComponent-Statusnames">
@@ -109,7 +109,7 @@ This is an example of what you could use:
 </p>
 
 <pre class="brush: php">
-[[!cmCampers? &amp;limit=`0` &amp;sort=`keynr` &amp;dir=`asc` &amp;includeImages=`false` &amp;status=`1,2,3,4` &amp;tplOuter=`cmVoorraadOuter` &amp;tplItem=`cmVoorraadItem` &amp;optionsSeparator=` / `]]
+&#91;&#91;!cmCampers? &amp;limit=`0` &amp;sort=`keynr` &amp;dir=`asc` &amp;includeImages=`false` &amp;status=`1,2,3,4` &amp;tplOuter=`cmVoorraadOuter` &amp;tplItem=`cmVoorraadItem` &amp;optionsSeparator=` / `&#93;&#93;
 </pre>
 <p>
 cmVoorradOuter chunk:
@@ -117,7 +117,7 @@ cmVoorradOuter chunk:
 
 <pre class="brush: php">
 &lt;table id="voorraadPrint"&gt;
-   [[+items]]
+   &#91;&#91;+items&#93;&#93;
 &lt;/table&gt;
 </pre>
 <p>
@@ -127,28 +127,28 @@ cmVoorraadItem chunk:
 <pre class="brush: php">
 &lt;tr&gt;
   &lt;td rowspan="2"&gt;
-    &lt;strong&gt;[[+keynr:notempty=`Nr. [[+keynr]]`]]
-      [[+plate:notempty=`&lt;br /&gt;[[+plate]]`]]&lt;/strong&gt;
+    &lt;strong&gt;&#91;&#91;+keynr:notempty=`Nr. &#91;&#91;+keynr&#93;&#93;`&#93;&#93;
+      &#91;&#91;+plate:notempty=`&lt;br /&gt;&#91;&#91;+plate&#93;&#93;`&#93;&#93;&lt;/strong&gt;
   &lt;/td&gt;
  
   &lt;td rowspan="2"&gt;
-    [[+brand]] / [[+type]] / [[+car:notempty=`[[+car]] /`]] [[+engine:notempty=`[[+engine]] /`]] Bouwjaar [[+manufactured:eq=`0`:then=`onbekend`:else=`[[+manufactured]]`]] / Gewicht [[+weight:eq=`0`:then=`onbekend`:else=`[[+weight]]`]] /
-    [[+beds]] Slaapplaatsen / Kilometerstand [[+mileage:eq=`0`:then=`onbekend`:else=`[[+mileage]]`]] / APK tot [[+periodiccheck:eq=`0`:then=`onbekend`:else=`[[+periodiccheck]]`]] /
-    [[+options]]
-    [[+remarks]]
+    &#91;&#91;+brand&#93;&#93; / &#91;&#91;+type&#93;&#93; / &#91;&#91;+car:notempty=`&#91;&#91;+car&#93;&#93; /`&#93;&#93; &#91;&#91;+engine:notempty=`&#91;&#91;+engine&#93;&#93; /`&#93;&#93; Bouwjaar &#91;&#91;+manufactured:eq=`0`:then=`onbekend`:else=`&#91;&#91;+manufactured&#93;&#93;`&#93;&#93; / Gewicht &#91;&#91;+weight:eq=`0`:then=`onbekend`:else=`&#91;&#91;+weight&#93;&#93;`&#93;&#93; /
+    &#91;&#91;+beds&#93;&#93; Slaapplaatsen / Kilometerstand &#91;&#91;+mileage:eq=`0`:then=`onbekend`:else=`&#91;&#91;+mileage&#93;&#93;`&#93;&#93; / APK tot &#91;&#91;+periodiccheck:eq=`0`:then=`onbekend`:else=`&#91;&#91;+periodiccheck&#93;&#93;`&#93;&#93; /
+    &#91;&#91;+options&#93;&#93;
+    &#91;&#91;+remarks&#93;&#93;
   &lt;/td rowspan="2"&gt;
  
   &lt;td&gt;
 
-[[+status:eq=`2`:then=`
-&lt;img src="/assets/templates/lighthouse/cmimg/banner_topper_sm.png" alt="Topper" /&gt;`]]
-[[+status:eq=`3`:then=`&lt;img src="/assets/templates/lighthouse/cmimg/banner_optie_sm.png" alt="In optie" /&gt;
-`]]
-[[+status:eq=`4`:then=`
+&#91;&#91;+status:eq=`2`:then=`
+&lt;img src="/assets/templates/lighthouse/cmimg/banner_topper_sm.png" alt="Topper" /&gt;`&#93;&#93;
+&#91;&#91;+status:eq=`3`:then=`&lt;img src="/assets/templates/lighthouse/cmimg/banner_optie_sm.png" alt="In optie" /&gt;
+`&#93;&#93;
+&#91;&#91;+status:eq=`4`:then=`
 &lt;img src="/assets/templates/lighthouse/cmimg/banner_verkocht_sm.png" alt="Verkocht" /&gt;
-`]]
+`&#93;&#93;
 &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;
-    &lt;strong&gt;&amp;euro; [[+price]]&lt;/strong&gt;
+    &lt;strong&gt;&amp;euro; &#91;&#91;+price&#93;&#93;&lt;/strong&gt;
   &lt;/td&gt;
 &lt;/tr&gt;
 </pre>
@@ -171,5 +171,5 @@ This works the same way as the custom button, and uses the <ins>campermanagement
 </p>
 
 <p>
-Just call [[!cmCamperDetails]] in the resource, and use the [[!+cm.&lt;fieldname&gt;]] placeholders in the content. You are the limit!
+Just call &#91;&#91;!cmCamperDetails&#93;&#93; in the resource, and use the &#91;&#91;!+cm.&lt;fieldname&gt;&#93;&#93; placeholders in the content. You are the limit!
 </p>

@@ -111,7 +111,7 @@ The renderResources snippet can be called using the tag:
 </p>
 
 <pre class="brush: php">
-[[renderResources]]
+&#91;&#91;renderResources&#93;&#93;
 </pre>
 <p>
 Calls without a &amp;tpl property specified simply return the output from each Resource.
@@ -360,7 +360,7 @@ Integer value indicating depth to search for resources from each parent
 tvFilters
 </td>
 <td>
-Can be used to filter resources by certain TV values. These are entered as [(<em>tvname</em>)(<em>operator</em>)](<em>value</em>). There are two delimiters you can use to combine filter conditions.
+Can be used to filter resources by certain TV values. These are entered as &#91;(<em>tvname</em>)(<em>operator</em>)&#93;(<em>value</em>). There are two delimiters you can use to combine filter conditions.
 <br />
 <br />
 You can have "OR" filters using two pipe symbols. An OR filter fetches resources that has one of the listed TV values.
@@ -682,7 +682,7 @@ The same thing is possible if you put the sorted IDs in a template variable, lik
 </p>
 
 <pre class="brush: php">
-&amp;sortby=`FIELD(modResource.id,[[*templateVariable]])`
+&amp;sortby=`FIELD(modResource.id,&#91;&#91;*templateVariable&#93;&#93;)`
 </pre>
 </td>
 <td>
@@ -1023,56 +1023,56 @@ Output a list of child Resources of the current Resource, using the 'myRowTpl' c
 </p>
 
 <pre class="brush: php">
-[[!renderResources? &amp;parents=`[[*id]]` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!renderResources? &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Output all resources beneath the Resource with ID '5', with the exception of resource 10, using the 'myRowTpl' chunk:
 </p>
 
 <pre class="brush: php">
-[[!renderResources? &amp;parents=`5` &amp;resources=`-10` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!renderResources? &amp;parents=`5` &amp;resources=`-10` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Output only the resources specified, using the 'myRowTpl' chunk:
 </p>
 
 <pre class="brush: php">
-[[!renderResources? &amp;parents=`-1` &amp;resources=`10,11,12` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!renderResources? &amp;parents=`-1` &amp;resources=`10,11,12` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Output the top 5 latest published Resources beneath the Resource with ID '5', with tpl 'blogPost':
 </p>
 
 <pre class="brush: php">
-[[!renderResources? &amp;parents=`5` &amp;limit=`5` &amp;tpl=`blogPost` &amp;includeContent=`1`]]
+&#91;&#91;!renderResources? &amp;parents=`5` &amp;limit=`5` &amp;tpl=`blogPost` &amp;includeContent=`1`&#93;&#93;
 </pre>
 <p>
 Output a list of child Resources of the current Resource, based on the Resource-template:
 </p>
 
 <pre class="brush: php">
-[[!renderResources? &amp;parents=`[[*id]]` &amp;where=`{"template:=":8}` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!renderResources? &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;where=`{"template:=":8}` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Output a list of child Resources of the current Resource, where the Resource-template ID is 1 or 2:
 </p>
 
 <pre class="brush: php">
-[[!renderResources? &amp;parents=`[[*id]]` &amp;where=`{"template:=":1, "OR:template:=":2}` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!renderResources? &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;where=`{"template:=":1, "OR:template:=":2}` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Output a list of child Resources of the current Resource, where the Resource-template ID is 1, 2 or 3 (you cannot use the same key name more than once):
 </p>
 
 <pre class="brush: php">
-[[!renderResources? &amp;parents=`[[*id]]` &amp;where=`{"template:IN":[1,2,3]}` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!renderResources? &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;where=`{"template:IN":&#91;1,2,3&#93;}` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <p>
 Display a message when no results found (equivalent of "empty" parameter in Ditto):
 </p>
 
 <pre class="brush: php">
-[[!renderResources:default=`No results found`? &amp;parents=`[[*id]]` &amp;tpl=`myRowTpl`]]
+&#91;&#91;!renderResources:default=`No results found`? &amp;parents=`&#91;&#91;*id&#93;&#93;` &amp;tpl=`myRowTpl`&#93;&#93;
 </pre>
 <h2 id="renderResources-UsinggetPageforPagination">
 Using getPage for Pagination
@@ -1091,7 +1091,7 @@ Grab first 10 Resources - sorted by publishedon - below the Resource ID 17, no m
 </p>
 
 <pre class="brush: php">
-[[!getPage?
+&#91;&#91;!getPage?
    &amp;elementClass=`modSnippet`
    &amp;element=`renderResources`
 
@@ -1101,10 +1101,10 @@ Grab first 10 Resources - sorted by publishedon - below the Resource ID 17, no m
    &amp;pageVarKey=`page`
 
    &amp;tpl=`blogListPost`
-]]
+&#93;&#93;
 &lt;div class="paging"&gt;
 &lt;ul class="pageList"&gt;
-  [[!+page.nav]]
+  &#91;&#91;!+page.nav&#93;&#93;
 &lt;/ul&gt;
 &lt;/div&gt;
 </pre>
@@ -1114,7 +1114,7 @@ and the chunk blogListPost:
 
 <pre class="brush: php">
 &lt;div class="blogPost"&gt;
-  [[+output]]
+  &#91;&#91;+output&#93;&#93;
   &lt;div class="clear"&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;hr/&gt;

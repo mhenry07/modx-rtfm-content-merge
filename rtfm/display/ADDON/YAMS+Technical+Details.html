@@ -45,7 +45,7 @@ YAMS works by embedding the various language versions of each bit of multilingua
 <li>Standard document variables are replaced by constructs containing the multilingual tv language variants.
 </li>
 
-<li>Most <span class="error">[YAMS placeholders]</span> are expanded out into YAMS constructs.
+<li>Most <span class="error">&#91;YAMS placeholders&#93;</span> are expanded out into YAMS constructs.
 </li>
 </ul>
 
@@ -185,7 +185,7 @@ The pre-parse step does the following:
 <li>Next, the document is searched for all <code>(yams_data)</code> placeholders in the document (<code>YAMS::MergeOtherDocumentContent</code>). These placeholders request data from template variables on different documents. Having worked out what data is needed, YAMS will grab the data from the database, <code>YAMS_DOC_LIMIT</code> items at a time. <code>YAMS_DOC_LIMIT</code> is defined as 50 by default. The <code>(yams_data)</code> placeholders are then replaced by their content. If the document has changed as a result of this processing the pre-parse restarts.
 </li>
 
-<li>All MODx URL placeholders enclosed in quotes, like <code>"[~...~]"</code>, <code>"[(site_url)][~...~]"</code> or <code>"[(base_url)][~...~]"</code> are now replaced by YAMS multilingual URL placeholders <code>(yams_doc)</code> or <code>(yams_docr)</code>, depending on how YAMS has been configured.
+<li>All MODx URL placeholders enclosed in quotes, like <code>"&#91;~...~&#93;"</code>, <code>"&#91;(site_url)&#93;&#91;~...~&#93;"</code> or <code>"&#91;(base_url)&#93;&#91;~...~&#93;"</code> are now replaced by YAMS multilingual URL placeholders <code>(yams_doc)</code> or <code>(yams_docr)</code>, depending on how YAMS has been configured.
 </li>
 
 <li>All YAMS settings placeholders are evaluated using the standard MODx function (<code>modx::mergeSettingsContent</code>).

@@ -120,14 +120,14 @@ Usage
 </p>
 
 <pre class="brush: php">
-[[sitemapFriend? &amp;type=`xml`]]
+&#91;&#91;sitemapFriend? &amp;type=`xml`&#93;&#93;
 </pre>
 <p>
 HTML sitemap:
 </p>
 
 <pre class="brush: php">
-[[sitemapFriend? &amp;type=`html`]]
+&#91;&#91;sitemapFriend? &amp;type=`html`&#93;&#93;
 </pre>
 <p>
 To generate a sitemap in some custom format, create your own chunks and tell the snippet to use them. Check the list of available templates below.
@@ -138,7 +138,7 @@ Hint: use the <a href="http://modx.com/extras/package/getcache">getCache</a> sni
 </p>
 
 <pre class="brush: php">
-[[!getCache? &amp;element=`sitemapFriend` &amp;cacheKey=`sitemap` &amp;cacheExpires=`21600` &amp;type=`html`]]
+&#91;&#91;!getCache? &amp;element=`sitemapFriend` &amp;cacheKey=`sitemap` &amp;cacheExpires=`21600` &amp;type=`html`&#93;&#93;
 </pre>
 <h2 id="sitemapFriend-Properties">
 Properties
@@ -526,7 +526,7 @@ The default chunk used as an outer container for the entire sitemap output.
 
 <pre class="brush: php">
 &lt;ul id="sitemap"&gt;
-    [[+items]]
+    &#91;&#91;+items&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <p>
@@ -578,8 +578,8 @@ The default chunk used for each result item.
 
 <pre class="brush: php">
 &lt;li&gt;
-    &lt;a href="[[+url]]"&gt;[[+title]]&lt;/a&gt;
-    [[+items]]
+    &lt;a href="&#91;&#91;+url&#93;&#93;"&gt;&#91;&#91;+title&#93;&#93;&lt;/a&gt;
+    &#91;&#91;+items&#93;&#93;
 &lt;/li&gt;
 </pre>
 <p>
@@ -685,7 +685,7 @@ The default chunk used as a wrapper for the children of a resource folder.
 
 <pre class="brush: php">
 &lt;ul&gt;
-    [[+items]]
+    &#91;&#91;+items&#93;&#93;
 &lt;/ul&gt;
 </pre>
 <p>
@@ -745,9 +745,9 @@ The default chunk used for XML sitemaps as an outer container for the entire sit
 </p>
 
 <pre class="brush: php">
-&lt;?xml version="1.0" encoding="[[++modx_charset]]"?&gt;
+&lt;?xml version="1.0" encoding="&#91;&#91;++modx_charset&#93;&#93;"?&gt;
 &lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
-[[+items]]
+&#91;&#91;+items&#93;&#93;
 &lt;/urlset&gt;
 </pre>
 <h3 id="sitemapFriend-sitemapxmlitem.chunk.tpl">
@@ -764,10 +764,10 @@ The default chunk used for XML sitemaps for each result item.
 
 <pre class="brush: php">
 &lt;url&gt;
-    &lt;loc&gt;[[+url]]&lt;/loc&gt;
-    &lt;lastmod&gt;[[+lastmod]]&lt;/lastmod&gt;
-    &lt;changefreq&gt;[[+changefreq]]&lt;/changefreq&gt;
-    &lt;priority&gt;[[+priority]]&lt;/priority&gt;
+    &lt;loc&gt;&#91;&#91;+url&#93;&#93;&lt;/loc&gt;
+    &lt;lastmod&gt;&#91;&#91;+lastmod&#93;&#93;&lt;/lastmod&gt;
+    &lt;changefreq&gt;&#91;&#91;+changefreq&#93;&#93;&lt;/changefreq&gt;
+    &lt;priority&gt;&#91;&#91;+priority&#93;&#93;&lt;/priority&gt;
 &lt;/url&gt;
-[[+items]]
+&#91;&#91;+items&#93;&#93;
 </pre>

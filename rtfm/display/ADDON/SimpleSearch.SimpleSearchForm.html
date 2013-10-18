@@ -56,7 +56,7 @@ Simply place wherever you want a SearchForm to render, and add the 'landing' pro
 </p>
 
 <pre class="brush: php">
-[[!SimpleSearchForm? &amp;landing=`123`]]
+&#91;&#91;!SimpleSearchForm? &amp;landing=`123`&#93;&#93;
 </pre>
 <p>
 If you'd like the results to show on the same page, simply place the <a href="extras/revo/simplesearch/simplesearch.simplesearch" title="SimpleSearch.SimpleSearch">SimpleSearch</a> snippet call below the SimpleSearchForm call, and don't specify a 'landing' parameter.
@@ -165,17 +165,17 @@ Display the search form, but search with POST instead of GET:
 </p>
 
 <pre class="brush: php">
-[[SimpleSearchForm? &amp;method=`POST`]]
+&#91;&#91;SimpleSearchForm? &amp;method=`POST`&#93;&#93;
 </pre>
 <p>
 Set the search form to a 'search.form' placeholder, specify a landing page on Resource 123, and use a custom Chunk called 'MySearchForm' for the form template:
 </p>
 
 <pre class="brush: php">
-[[SimpleSearchForm? &amp;tpl=`MySearchForm` &amp;landing=`123` &amp;toPlaceholder=`search.form`]]
+&#91;&#91;SimpleSearchForm? &amp;tpl=`MySearchForm` &amp;landing=`123` &amp;toPlaceholder=`search.form`&#93;&#93;
 
 &lt;h2&gt;Search&lt;/h2&gt;
-[[+search.form]]
+&#91;&#91;+search.form&#93;&#93;
 </pre>
 <p>
 Note that with current version (1.0.0) there seems to be a bug where if you ACTUALLY have a Chunk named "seachForm", its contents will be ignored in favor of the default search form.
@@ -201,10 +201,10 @@ SimpleSearchForm tpl:
 </h3>
 
 <pre class="brush: php">
-&lt;form id="my_id" action="[[~[[+landing:default=`[[*id]]`]]]]" method="[[+method:default=`get`]]"&gt;
-        &lt;input id="searchField" class="my_class" type="text" name="my_custom_search_field" value="[[+searchValue:default=`Search the site`]]"/&gt;
+&lt;form id="my_id" action="&#91;&#91;~&#91;&#91;+landing:default=`&#91;&#91;*id&#93;&#93;`&#93;&#93;&#93;&#93;" method="&#91;&#91;+method:default=`get`&#93;&#93;"&gt;
+        &lt;input id="searchField" class="my_class" type="text" name="my_custom_search_field" value="&#91;&#91;+searchValue:default=`Search the site`&#93;&#93;"/&gt;
         &lt;input id="searchIcon" class="utilityButton" type="image" alt="Search" src="/assets/templates/my/images/searchButton.png"&gt;
-        &lt;input type="hidden" name="id" value="[[+landing:default=[[*id]]]]" /&gt;
+        &lt;input type="hidden" name="id" value="&#91;&#91;+landing:default=&#91;&#91;*id&#93;&#93;&#93;&#93;" /&gt;
 &lt;/form&gt;
 </pre>
 <h3 id="SimpleSearch.SimpleSearchForm-SimpleSearchSnippetcall:">
@@ -212,7 +212,7 @@ SimpleSearch Snippet call:
 </h3>
 
 <pre class="brush: php">
-[[!SimpleSearch? &amp;searchIndex=`my_custom_search_field`]]
+&#91;&#91;!SimpleSearch? &amp;searchIndex=`my_custom_search_field`&#93;&#93;
 </pre>
 <h2 id="SimpleSearch.SimpleSearchForm-SeeAlso">
 See Also

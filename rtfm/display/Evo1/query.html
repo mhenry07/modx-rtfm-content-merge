@@ -97,7 +97,7 @@ $output = '';
 $result = $modx-&gt;db-&gt;query( 'SELECT id, name, joined FROM `user_table` GROUP BY `member_type` ORDER BY name ASC' );
  
 while( $row = $modx-&gt;db-&gt;getRow( $result ) ) {
-        $output .= '&lt;br /&gt; ID: ' . $row['id'] . '&lt;br /&gt; Name: ' . $row['name'] . '&lt;br /&gt; Joined: ' . $row['joined']
+        $output .= '&lt;br /&gt; ID: ' . $row&#91;'id'&#93; . '&lt;br /&gt; Name: ' . $row&#91;'name'&#93; . '&lt;br /&gt; Joined: ' . $row&#91;'joined'&#93;
         . '&lt;br /&gt;---------&lt;br /&gt;';
 }
 echo $output;
@@ -120,7 +120,7 @@ Related
 </h2>
 
 <p>
-conn, <a href="evolution/1.0/developers-guide/api-reference/dbapi/select" title="select">select</a>(), <a href="evolution/1.0/developers-guide/api-reference/dbapi/update" title="update">update</a>(), <a href="evolution/1.0/developers-guide/api-reference/dbapi/delete" title="delete">delete</a>(), <span class="error">[getAffectedRows]</span>(), <span class="error">[getRow]</span>(), <span class="error">[makeArray]</span>().
+conn, <a href="evolution/1.0/developers-guide/api-reference/dbapi/select" title="select">select</a>(), <a href="evolution/1.0/developers-guide/api-reference/dbapi/update" title="update">update</a>(), <a href="evolution/1.0/developers-guide/api-reference/dbapi/delete" title="delete">delete</a>(), <span class="error">&#91;getAffectedRows&#93;</span>(), <span class="error">&#91;getRow&#93;</span>(), <span class="error">&#91;makeArray&#93;</span>().
 </p>
 
 <h2 id="query-FunctionSource">

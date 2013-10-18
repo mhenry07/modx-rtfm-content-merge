@@ -90,7 +90,7 @@ $validator = $obj-&gt;getValidator();
 if ($validator-&gt;validate() == false) {
     $messages = $validator-&gt;getMessages();
     foreach ($messages as $errorMsg) {
-        $output .= 'An error occurred on field "'.$errorMsg['field'].'": '.$errorMsg['message'];
+        $output .= 'An error occurred on field "'.$errorMsg&#91;'field'&#93;.'": '.$errorMsg&#91;'message'&#93;;
     }
 }
 </pre>
@@ -140,14 +140,14 @@ Called with the code:
 
 <pre class="brush: php">
 function myCallable($value,$parameters) {
-    return $value &lt; $parameters['min'];
+    return $value &lt; $parameters&#91;'min'&#93;;
 }
 $obj-&gt;set('number',101);
 $validator = $obj-&gt;getValidator();
 if ($validator-&gt;validate() == false) {
     $messages = $validator-&gt;getMessages();
     foreach ($messages as $errorMsg) {
-        $o .= 'An error occurred on field "'.$errorMsg['field'].'": '.$errorMsg['message'].'&lt;br /&gt;';
+        $o .= 'An error occurred on field "'.$errorMsg&#91;'field'&#93;.'": '.$errorMsg&#91;'message'&#93;.'&lt;br /&gt;';
     }
 }
 </pre>
@@ -188,7 +188,7 @@ $validator = $obj-&gt;getValidator();
 if ($validator-&gt;validate() == false) {
     $messages = $validator-&gt;getMessages();
     foreach ($messages as $errorMsg) {
-        $o .= 'An error occurred on field "'.$errorMsg['field'].'": '.$errorMsg['message'].'&lt;br /&gt;';
+        $o .= 'An error occurred on field "'.$errorMsg&#91;'field'&#93;.'": '.$errorMsg&#91;'message'&#93;.'&lt;br /&gt;';
     }
 }
 </pre>

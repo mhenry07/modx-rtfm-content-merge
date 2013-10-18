@@ -19,7 +19,7 @@
 </div>
 
 <p>
-This page lists the most commonly used MODx Revolution tags as an aid to anyone converting HTML/CSS layouts into MODx <a href="revolution/2.x/making-sites-with-modx/structuring-your-site/templates" title="Templates">Templates</a>. These are frequently referred to as "tags" or "placeholders" (and sometimes "template variables"), so we mention those terms here as an aid to searching, although technically speaking they are <strong>not</strong> placeholders or template variables: they are MODx tags. Yes, it can be confusing for the newcomer, so just remember that there are different flavors of these tags, each with its own purpose and name. <span class="error">[Placeholders]</span> are set in code and are displayed with placeholder tags. <a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables" title="Template Variables">Template Variables</a> are extra resource content fields created by the user; they can be thought of as custom fields. Neither placeholders, not template variables are pre-set by the MODx core.
+This page lists the most commonly used MODx Revolution tags as an aid to anyone converting HTML/CSS layouts into MODx <a href="revolution/2.x/making-sites-with-modx/structuring-your-site/templates" title="Templates">Templates</a>. These are frequently referred to as "tags" or "placeholders" (and sometimes "template variables"), so we mention those terms here as an aid to searching, although technically speaking they are <strong>not</strong> placeholders or template variables: they are MODx tags. Yes, it can be confusing for the newcomer, so just remember that there are different flavors of these tags, each with its own purpose and name. <span class="error">&#91;Placeholders&#93;</span> are set in code and are displayed with placeholder tags. <a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables" title="Template Variables">Template Variables</a> are extra resource content fields created by the user; they can be thought of as custom fields. Neither placeholders, not template variables are pre-set by the MODx core.
 </p>
 
 <h2 id="CommonlyUsedTemplateTags-DefaultResourceContentFieldTags">
@@ -46,43 +46,43 @@ Example Usage
 
 <tr>
 <td>
-<strong>[[*id]]</strong>
+<strong>&#91;&#91;*id&#93;&#93;</strong>
 </td>
 <td>
 the Resource ID of the page (set by MODx when the page is created.
 </td>
 <td>
-Often used in conjunction with the link syntax, e.g. <code>&lt;a href="[[~[[*id]]]]"&gt;Bookmark this page!&lt;/a&gt;</code>
+Often used in conjunction with the link syntax, e.g. <code>&lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;"&gt;Bookmark this page!&lt;/a&gt;</code>
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*pagetitle]]</strong>
+<strong>&#91;&#91;*pagetitle&#93;&#93;</strong>
 </td>
 <td>
 the Title of the page.
 </td>
 <td>
-<code>&lt;title&gt;[[*pagetitle]]&lt;/title&gt;</code>
+<code>&lt;title&gt;&#91;&#91;*pagetitle&#93;&#93;&lt;/title&gt;</code>
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*longtitle]]</strong>
+<strong>&#91;&#91;*longtitle&#93;&#93;</strong>
 </td>
 <td>
 the Long Title of the page
 </td>
 <td>
-<code>&lt;h1&gt;[[*longtitle]]&lt;/h1&gt;</code>
+<code>&lt;h1&gt;&#91;&#91;*longtitle&#93;&#93;&lt;/h1&gt;</code>
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*alias]]</strong>
+<strong>&#91;&#91;*alias&#93;&#93;</strong>
 </td>
 <td>
 the page alias.
@@ -94,43 +94,43 @@ the page alias.
 
 <tr>
 <td>
-<strong>[[*description]]</strong>
+<strong>&#91;&#91;*description&#93;&#93;</strong>
 </td>
 <td>
 the page Description
 </td>
 <td>
-<code>&lt;meta name="description" content="[[*description]]"/&gt;</code>
+<code>&lt;meta name="description" content="&#91;&#91;*description&#93;&#93;"/&gt;</code>
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*introtext]]</strong>
+<strong>&#91;&#91;*introtext&#93;&#93;</strong>
 </td>
 <td>
 the Introductory Text field (a.k.a. the summary).
 </td>
 <td>
-Often used by Snippets to summarize posts, e.g. <a href="extras/evo/ditto" title="Ditto">Ditto</a> <code>&lt;div id="summary"&gt;[[*introtext]]&lt;/div&gt;</code>
+Often used by Snippets to summarize posts, e.g. <a href="extras/evo/ditto" title="Ditto">Ditto</a> <code>&lt;div id="summary"&gt;&#91;&#91;*introtext&#93;&#93;&lt;/div&gt;</code>
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*parent]]</strong>
+<strong>&#91;&#91;*parent&#93;&#93;</strong>
 </td>
 <td>
 the ID of the parent page (if any). Set by MODx when the page is created. Can be altered by the user.
 </td>
 <td>
-Often used in conjunction with the link syntax, e.g. <code>&lt;a href="[[~[[*parent]]]]"&gt;Up to parent page&lt;/a&gt;</code>
+Often used in conjunction with the link syntax, e.g. <code>&lt;a href="&#91;&#91;~&#91;&#91;*parent&#93;&#93;&#93;&#93;"&gt;Up to parent page&lt;/a&gt;</code>
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*menutitle]]</strong>
+<strong>&#91;&#91;*menutitle&#93;&#93;</strong>
 </td>
 <td>
 the Title used when the page appears in menus.
@@ -142,13 +142,13 @@ the Title used when the page appears in menus.
 
 <tr>
 <td>
-<strong>[[*content]]</strong>
+<strong>&#91;&#91;*content&#93;&#93;</strong>
 </td>
 <td>
 the content of the page.
 </td>
 <td>
-<code>&lt;body&gt;[[*content]]&lt;/body&gt;</code>
+<code>&lt;body&gt;&#91;&#91;*content&#93;&#93;&lt;/body&gt;</code>
 </td>
 </tr>
 </tbody>
@@ -178,43 +178,43 @@ Example Usage
 
 <tr>
 <td>
-<strong>[[++site_url]]</strong>
+<strong>&#91;&#91;++site_url&#93;&#93;</strong>
 </td>
 <td>
 Contains the URL for your site, e.g. <a href="http://www.yoursite.com/">http://www.yoursite.com/</a>
 </td>
 <td>
-With many CMS's that rely on Apache rewrites, it's common practice to include a base tag in your HTML head: <code>&lt;base href="[[++site_url]]" /&gt;</code>
+With many CMS's that rely on Apache rewrites, it's common practice to include a base tag in your HTML head: <code>&lt;base href="&#91;&#91;++site_url&#93;&#93;" /&gt;</code>
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[++site_name]]</strong>
+<strong>&#91;&#91;++site_name&#93;&#93;</strong>
 </td>
 <td>
 Name of the site
 </td>
 <td>
-<code>&lt;title&gt;[[++site_name]] | [[*pagetitle]]&lt;/title&gt;</code>
+<code>&lt;title&gt;&#91;&#91;++site_name&#93;&#93; | &#91;&#91;*pagetitle&#93;&#93;&lt;/title&gt;</code>
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[++site_start]]</strong>
+<strong>&#91;&#91;++site_start&#93;&#93;</strong>
 </td>
 <td>
 Contains the ID of the page designated as your "home" page.
 </td>
 <td>
-Often used in conjunction with the link syntax, e.g. <code>&lt;a id="logo" href="[[~[[++site_start]]]]"&gt;Home&lt;/a&gt;</code>
+Often used in conjunction with the link syntax, e.g. <code>&lt;a id="logo" href="&#91;&#91;~&#91;&#91;++site_start&#93;&#93;&#93;&#93;"&gt;Home&lt;/a&gt;</code>
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[$chunk]]</strong>
+<strong>&#91;&#91;$chunk&#93;&#93;</strong>
 </td>
 <td>
 This references a chunk by name. Chunks are any bit of reusable content.
@@ -226,25 +226,25 @@ Common chunks might be for <em>header</em> or <em>footer</em>
 
 <tr>
 <td>
-<strong>[[~link]]</strong>
+<strong>&#91;&#91;~link&#93;&#93;</strong>
 </td>
 <td>
 Use this syntax to build links to pages by referencing their unique id (visible in parentheses next to the page's name in the resource tree). These links will not break if pages are moved or renamed.
 </td>
 <td>
-<code>&lt;a id="logo" href="[[~1]]"&gt;Home&lt;/a&gt;</code>
+<code>&lt;a id="logo" href="&#91;&#91;~1&#93;&#93;"&gt;Home&lt;/a&gt;</code>
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[%translated_message]]</strong>
+<strong>&#91;&#91;%translated_message&#93;&#93;</strong>
 </td>
 <td>
 Use lexicon tags to localize messages.
 </td>
 <td>
-<tt>[[!%setting_emailsender? &amp;topic=`setting` &amp;namespace=`core` &amp;language=`en`]]</tt>
+<tt>&#91;&#91;!%setting_emailsender? &amp;topic=`setting` &amp;namespace=`core` &amp;language=`en`&#93;&#93;</tt>
 </td>
 </tr>
 </tbody>
@@ -277,7 +277,7 @@ Example Usage
 
 <tr>
 <td>
-<strong>[[*alias]]</strong>
+<strong>&#91;&#91;*alias&#93;&#93;</strong>
 </td>
 <td>
 text
@@ -286,13 +286,13 @@ text
 Alias
 </td>
 <td>
-Normally, you will use the <em>id</em> to generate the URL, e.g. <code>&lt;a href="[[~[[*id]]]]"&gt;Click Here!&lt;/a&gt;</code>, but this lets you print out the alias parameter.
+Normally, you will use the <em>id</em> to generate the URL, e.g. <code>&lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;"&gt;Click Here!&lt;/a&gt;</code>, but this lets you print out the alias parameter.
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*cacheable]]</strong>
+<strong>&#91;&#91;*cacheable&#93;&#93;</strong>
 </td>
 <td>
 int 0/1
@@ -307,7 +307,7 @@ Cacheable
 
 <tr>
 <td>
-<strong>[[*class_key]]</strong>
+<strong>&#91;&#91;*class_key&#93;&#93;</strong>
 </td>
 <td>
 int
@@ -322,7 +322,7 @@ Class Key of the Resource, e.g. <em>modDocument</em>
 
 <tr>
 <td>
-<strong>[[*content]]</strong>
+<strong>&#91;&#91;*content&#93;&#93;</strong>
 </td>
 <td>
 text
@@ -337,7 +337,7 @@ Resource Content
 
 <tr>
 <td>
-<strong>[[*content_type]]</strong>
+<strong>&#91;&#91;*content_type&#93;&#93;</strong>
 </td>
 <td>
 int
@@ -352,7 +352,7 @@ Content Type
 
 <tr>
 <td>
-<strong>[[*createdon]]</strong>
+<strong>&#91;&#91;*createdon&#93;&#93;</strong>
 </td>
 <td>
 date
@@ -361,13 +361,13 @@ date
 Created On date, e.g. <em>2011-04-14 20:40:50</em>, often used in conjunction with the <em>strtotime</em> output filter
 </td>
 <td>
-<code>[[*createdon:strtotime:date=`%a %b %e, %Y`]]</code> See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
+<code>&#91;&#91;*createdon:strtotime:date=`%a %b %e, %Y`&#93;&#93;</code> See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*createdby]]</strong>
+<strong>&#91;&#91;*createdby&#93;&#93;</strong>
 </td>
 <td>
 int
@@ -382,7 +382,7 @@ Created By User ID Number
 
 <tr>
 <td>
-<strong>[[*deleted]]</strong>
+<strong>&#91;&#91;*deleted&#93;&#93;</strong>
 </td>
 <td>
 int 0/1
@@ -397,7 +397,7 @@ Deleted
 
 <tr>
 <td>
-<strong>[[*deletedby]]</strong>
+<strong>&#91;&#91;*deletedby&#93;&#93;</strong>
 </td>
 <td>
 int
@@ -412,7 +412,7 @@ Deleted By User ID Number
 
 <tr>
 <td>
-<strong>[[*deletedon]]</strong>
+<strong>&#91;&#91;*deletedon&#93;&#93;</strong>
 </td>
 <td>
 date
@@ -421,13 +421,13 @@ date
 Date of Deletions
 </td>
 <td>
-<code>[[*deletedon:strtotime:date=`%a %b %e, %Y`]]</code> See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
+<code>&#91;&#91;*deletedon:strtotime:date=`%a %b %e, %Y`&#93;&#93;</code> See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*description]]</strong>
+<strong>&#91;&#91;*description&#93;&#93;</strong>
 </td>
 <td>
 text
@@ -442,7 +442,7 @@ Description
 
 <tr>
 <td>
-<strong>[[*editedon]]</strong>
+<strong>&#91;&#91;*editedon&#93;&#93;</strong>
 </td>
 <td>
 date
@@ -451,13 +451,13 @@ date
 Edited On date, e.g. <em>2011-04-18 09:06:08</em>
 </td>
 <td>
-<code>[[*editedon:strtotime:date=`%a %b %e, %Y`]]</code> See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
+<code>&#91;&#91;*editedon:strtotime:date=`%a %b %e, %Y`&#93;&#93;</code> See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*editedby]]</strong>
+<strong>&#91;&#91;*editedby&#93;&#93;</strong>
 </td>
 <td>
 int
@@ -472,7 +472,7 @@ Edited By User ID number
 
 <tr>
 <td>
-<strong>[[*hidemenu]]</strong>
+<strong>&#91;&#91;*hidemenu&#93;&#93;</strong>
 </td>
 <td>
 int 0/1
@@ -487,7 +487,7 @@ Hide From Menus; this attribute is read by many Snippets, e.g. WayFinder
 
 <tr>
 <td>
-<strong>[[*id]]</strong>
+<strong>&#91;&#91;*id&#93;&#93;</strong>
 </td>
 <td>
 int
@@ -502,7 +502,7 @@ Used frequently to generate links to this page.
 
 <tr>
 <td>
-<strong>[[*introtext]]</strong>
+<strong>&#91;&#91;*introtext&#93;&#93;</strong>
 </td>
 <td>
 text
@@ -517,7 +517,7 @@ Summary
 
 <tr>
 <td>
-<strong>[[*isfolder]]</strong>
+<strong>&#91;&#91;*isfolder&#93;&#93;</strong>
 </td>
 <td>
 int 0/1
@@ -532,13 +532,13 @@ Container
 
 <tr>
 <td>
-<strong>[[*link_attributes]]</strong>
+<strong>&#91;&#91;*link_attributes&#93;&#93;</strong>
 </td>
 <td>
 text
 </td>
 <td>
-Link attributes; these are inserted automatically when you use the [[~123]] syntax
+Link attributes; these are inserted automatically when you use the &#91;&#91;~123&#93;&#93; syntax
 </td>
 <td>
 &nbsp;
@@ -547,7 +547,7 @@ Link attributes; these are inserted automatically when you use the [[~123]] synt
 
 <tr>
 <td>
-<strong>[[*longtitle]]</strong>
+<strong>&#91;&#91;*longtitle&#93;&#93;</strong>
 </td>
 <td>
 text
@@ -562,7 +562,7 @@ Long Title
 
 <tr>
 <td>
-<strong>[[*menuindex]]</strong>
+<strong>&#91;&#91;*menuindex&#93;&#93;</strong>
 </td>
 <td>
 int
@@ -577,7 +577,7 @@ Menu Index
 
 <tr>
 <td>
-<strong>[[*menutitle]]</strong>
+<strong>&#91;&#91;*menutitle&#93;&#93;</strong>
 </td>
 <td>
 text
@@ -592,7 +592,7 @@ Menu Title
 
 <tr>
 <td>
-<strong>[[*pagetitle]]</strong>
+<strong>&#91;&#91;*pagetitle&#93;&#93;</strong>
 </td>
 <td>
 text
@@ -607,7 +607,7 @@ Page Title
 
 <tr>
 <td>
-<strong>[[*parent]]</strong>
+<strong>&#91;&#91;*parent&#93;&#93;</strong>
 </td>
 <td>
 int
@@ -622,7 +622,7 @@ Parent Resource
 
 <tr>
 <td>
-<strong>[[*pub_date]]</strong>
+<strong>&#91;&#91;*pub_date&#93;&#93;</strong>
 </td>
 <td>
 date ---Publish Date
@@ -634,7 +634,7 @@ date ---Publish Date
 
 <tr>
 <td>
-<strong>[[*published]]</strong>
+<strong>&#91;&#91;*published&#93;&#93;</strong>
 </td>
 <td>
 int 0/1
@@ -649,7 +649,7 @@ Published
 
 <tr>
 <td>
-<strong>[[*publishedby]]</strong>
+<strong>&#91;&#91;*publishedby&#93;&#93;</strong>
 </td>
 <td>
 int
@@ -664,7 +664,7 @@ Published By User ID Number
 
 <tr>
 <td>
-<strong>[[*publishedon]]</strong>
+<strong>&#91;&#91;*publishedon&#93;&#93;</strong>
 </td>
 <td>
 date
@@ -673,13 +673,13 @@ date
 Published On
 </td>
 <td>
-<code>[[*publishedon:strtotime:date=`%a %b %e, %Y`]]</code> See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
+<code>&#91;&#91;*publishedon:strtotime:date=`%a %b %e, %Y`&#93;&#93;</code> See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*richtext]]</strong>
+<strong>&#91;&#91;*richtext&#93;&#93;</strong>
 </td>
 <td>
 int 0/1
@@ -691,7 +691,7 @@ Rich Text
 
 <tr>
 <td>
-<strong>[[*searchable]]</strong>
+<strong>&#91;&#91;*searchable&#93;&#93;</strong>
 </td>
 <td>
 int 0/1
@@ -706,7 +706,7 @@ Searchable
 
 <tr>
 <td>
-<strong>[[*template]]</strong>
+<strong>&#91;&#91;*template&#93;&#93;</strong>
 </td>
 <td>
 int
@@ -721,19 +721,19 @@ Template ID number
 
 <tr>
 <td>
-<strong>[[*unpub_date]]</strong>
+<strong>&#91;&#91;*unpub_date&#93;&#93;</strong>
 </td>
 <td>
 date – Unpublish Date
 </td>
 <td>
-<code>[[*unpub_date:strtotime:date=`%a %b %e, %Y`]]</code> See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
+<code>&#91;&#91;*unpub_date:strtotime:date=`%a %b %e, %Y`&#93;&#93;</code> See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
 </td>
 </tr>
 
 <tr>
 <td>
-<strong>[[*uri_override]]</strong>
+<strong>&#91;&#91;*uri_override&#93;&#93;</strong>
 </td>
 <td>
 int 0/1
@@ -748,7 +748,7 @@ Freeze URI
 
 <tr>
 <td>
-<strong>[[*uri]]</strong>
+<strong>&#91;&#91;*uri&#93;&#93;</strong>
 </td>
 <td>
 string

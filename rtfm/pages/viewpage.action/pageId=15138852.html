@@ -30,19 +30,19 @@ For Example:
 </p>
 
 <pre class="brush: php">
-[+content:striptags+]
+&#91;+content:striptags+&#93;
 </pre>
 <p>
 should be changed to:
 </p>
 
 <pre class="brush: php">
-[*phx:input=`((yams_data:[+id+]:content_(yams_id)))`:striptags*]
+&#91;*phx:input=`((yams_data:&#91;+id+&#93;:content_(yams_id)))`:striptags*&#93;
 </pre>
 <p>
 Now the parsing order is correct:
 <br />
-1. Ditto replaces the <code>[+id+]</code>-placeholder with the current id
+1. Ditto replaces the <code>&#91;+id+&#93;</code>-placeholder with the current id
 <br />
 2. YAMS replaces the <code>((..))</code>-construct with the actual content
 <br />
@@ -54,7 +54,7 @@ For non-multilingual fields like an image-field use:
 </p>
 
 <pre class="brush: php">
-[*phx:input=`[+image+]`:phpthumb=`73x110`*]
+&#91;*phx:input=`&#91;+image+&#93;`:phpthumb=`73x110`*&#93;
 </pre>
 <p>
 That forces PHx to parse the Ditto-Placeholder.
@@ -65,5 +65,5 @@ The final Ditto call may look like this:
 </p>
 
 <pre class="brush: php">
-[[Ditto? &amp;parents=`[*id*]` &amp;tpl=`@FILE:assets/templates/list-item.html` &amp;noResults=`Keine Einträge vorhanden` &amp;phx=`0`]]
+&#91;&#91;Ditto? &amp;parents=`&#91;*id*&#93;` &amp;tpl=`@FILE:assets/templates/list-item.html` &amp;noResults=`Keine Einträge vorhanden` &amp;phx=`0`&#93;&#93;
 </pre>

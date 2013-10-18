@@ -72,21 +72,21 @@ In Revolution, the Output Filter applies one or more of series of output modifie
 </p>
 
 <pre class="brush: php">
-[[element:modifier=`value`]]
+&#91;&#91;element:modifier=`value`&#93;&#93;
 </pre>
 <p>
 They can also be chained (executed left to right):
 </p>
 
 <pre class="brush: php">
-[[element:modifier:anothermodifier=`value`:andanothermodifier:yetanother=`value2`]]
+&#91;&#91;element:modifier:anothermodifier=`value`:andanothermodifier:yetanother=`value2`&#93;&#93;
 </pre>
 <p>
 You can also use these to modify Snippet output; note that the modifier comes after the Snippet name and before the question mark, e.g.
 </p>
 
 <pre class="brush: php">
-[[mySnippet:modifier=`value`? &amp;mySnippetParam=`something`]]
+&#91;&#91;mySnippet:modifier=`value`? &amp;mySnippetParam=`something`&#93;&#93;
 </pre>
 <h2 id="InputandOutputFilters(OutputModifiers)-OutputModifiers">
 Output Modifiers
@@ -136,7 +136,7 @@ Can be used to string output modifiers together with an "OR" relationship.
 <br />
 </td>
 <td>
-[[+numbooks:is=`5`:or:is=`6`:then=`There are 5 or 6 books!`:else=`Not sure how many books`]]
+&#91;&#91;+numbooks:is=`5`:or:is=`6`:then=`There are 5 or 6 books!`:else=`Not sure how many books`&#93;&#93;
 </td>
 </tr>
 
@@ -164,7 +164,7 @@ Compares to a passed value, and moves on if it's the same. Used with "then" and 
 <br />
 </td>
 <td>
-[[+numbooks:isequalto=`5`:then=`There are 5 books!`:else=`Not sure how many books`]]
+&#91;&#91;+numbooks:isequalto=`5`:then=`There are 5 books!`:else=`Not sure how many books`&#93;&#93;
 </td>
 </tr>
 
@@ -178,7 +178,7 @@ Compares to a passed value, and moves on if it is not the same. Used with "then"
 <br />
 </td>
 <td>
-[[+numbooks:notequalto=`5`:then=`Not sure how many books`:else=`There are 5 books!`]]
+&#91;&#91;+numbooks:notequalto=`5`:then=`Not sure how many books`:else=`There are 5 books!`&#93;&#93;
 </td>
 </tr>
 
@@ -192,7 +192,7 @@ Compares to a passed value, and moves on if it is greater than or equal to the v
 <br />
 </td>
 <td>
-[[+numbooks:gte=`5`:then=`There are 5 books or more than 5 books`:else=`There are less than 5 books`]]
+&#91;&#91;+numbooks:gte=`5`:then=`There are 5 books or more than 5 books`:else=`There are less than 5 books`&#93;&#93;
 <br />
 </td>
 </tr>
@@ -207,7 +207,7 @@ Compares to a passed value, and moves on if it is greater than the value. Used w
 <br />
 </td>
 <td>
-[[+numbooks:gt=`5`:then=`There are more than 5 books`:else=`There are less than 5 books`]]
+&#91;&#91;+numbooks:gt=`5`:then=`There are more than 5 books`:else=`There are less than 5 books`&#93;&#93;
 </td>
 </tr>
 
@@ -221,7 +221,7 @@ Compares to a passed value, and moves on if it is less then or equal to the valu
 <br />
 </td>
 <td>
-[[+numbooks:lte=`5`:then=`There are 5 or less than 5 books`:else=`There are more than 5 books`]]
+&#91;&#91;+numbooks:lte=`5`:then=`There are 5 or less than 5 books`:else=`There are more than 5 books`&#93;&#93;
 <br />
 </td>
 </tr>
@@ -235,7 +235,7 @@ islowerthan, islessthan, lowerthan, lessthan, islt, lt
 Compares to a passed value, and moves on if it is less than the value. Used with "then" and "else".
 </td>
 <td>
-[[+numbooks:lte=`5`:then=`There are less than 5 books`:else=`There are more than 5 books`]]
+&#91;&#91;+numbooks:lte=`5`:then=`There are less than 5 books`:else=`There are more than 5 books`&#93;&#93;
 </td>
 </tr>
 
@@ -249,7 +249,7 @@ Will check earlier conditions, and hide the element if the conditions were met.
 <br />
 </td>
 <td>
-[[+numbooks:lt=`1`:hide]]
+&#91;&#91;+numbooks:lt=`1`:hide&#93;&#93;
 <br />
 </td>
 </tr>
@@ -264,7 +264,7 @@ Will check earlier conditions, and show the element if the conditions were met.
 <br />
 </td>
 <td>
-[[+numbooks:gt=`0`:show]]
+&#91;&#91;+numbooks:gt=`0`:show&#93;&#93;
 <br />
 </td>
 </tr>
@@ -279,7 +279,7 @@ Conditional usage.
 <br />
 </td>
 <td>
-[[+numbooks:gt=`0`:then=`Now available!`]]
+&#91;&#91;+numbooks:gt=`0`:then=`Now available!`&#93;&#93;
 <br />
 </td>
 </tr>
@@ -294,7 +294,7 @@ Conditional usage, together with then.
 <br />
 </td>
 <td>
-[[+numbooks:gt=`0`:then=`Now available!`:else=`Sorry, currently sold out.`]]
+&#91;&#91;+numbooks:gt=`0`:then=`Now available!`:else=`Sorry, currently sold out.`&#93;&#93;
 <br />
 </td>
 </tr>
@@ -322,7 +322,7 @@ Checks if the user is a member of the specified group(s).
 <br />
 </td>
 <td>
-[[+modx.user.id:memberof=`Administrator`]]
+&#91;&#91;+modx.user.id:memberof=`Administrator`&#93;&#93;
 <br />
 </td>
 </tr>
@@ -355,7 +355,7 @@ cat
 Appends the option's value (if not empty) to the input value
 </td>
 <td>
-[[+numbooks:cat=` books`]]
+&#91;&#91;+numbooks:cat=` books`&#93;&#93;
 </td>
 </tr>
 
@@ -367,7 +367,7 @@ lcase, lowercase, strtolower
 Transforms strings to lowercase. Similar to PHP's <a href="http://www.php.net/manual/en/function.strtolower.php">strtolower&nbsp;</a>
 </td>
 <td>
-[[+title:lcase]]
+&#91;&#91;+title:lcase&#93;&#93;
 </td>
 </tr>
 
@@ -379,7 +379,7 @@ ucase, uppercase, strtoupper
 Transforms strings to uppercase. Similar to PHP's <a href="http://www.php.net/manual/en/function.strtoupper.php">strtoupper</a>
 </td>
 <td>
-[[+headline:ucase]]
+&#91;&#91;+headline:ucase&#93;&#93;
 </td>
 </tr>
 
@@ -391,7 +391,7 @@ ucwords
 Transforms the first letter of a word to uppercase. Similar to PHP's <a href="http://www.php.net/manual/en/function.ucwords.php">ucwords</a>
 </td>
 <td>
-[[+title:ucwords]]
+&#91;&#91;+title:ucwords&#93;&#93;
 </td>
 </tr>
 
@@ -403,7 +403,7 @@ ucfirst
 Transforms the first letter of the string to uppercase. Similar to PHP's <a href="http://www.php.net/manual/en/function.ucfirst.php">ucfirst</a>
 </td>
 <td>
-[[+name:ucfirst]]
+&#91;&#91;+name:ucfirst&#93;&#93;
 </td>
 </tr>
 
@@ -416,7 +416,7 @@ Replaces any character that has an HTML entity with that entity. Similar to PHP'
 <br />
 </td>
 <td>
-[[+email:htmlent]]
+&#91;&#91;+email:htmlent&#93;&#93;
 </td>
 </tr>
 
@@ -425,10 +425,10 @@ Replaces any character that has an HTML entity with that entity. Similar to PHP'
 esc,escape
 </td>
 <td>
-Safely escapes character values using regex and str_replace. Also escapes&nbsp;[, ] and `
+Safely escapes character values using regex and str_replace. Also escapes&nbsp;&#91;, &#93; and `
 </td>
 <td>
-[[+email:escape]]
+&#91;&#91;+email:escape&#93;&#93;
 </td>
 </tr>
 
@@ -440,7 +440,7 @@ strip
 Replaces all linebreaks, tabs and multiple spaces with just one space
 </td>
 <td>
-[[+textdocument:strip]]
+&#91;&#91;+textdocument:strip&#93;&#93;
 </td>
 </tr>
 
@@ -452,7 +452,7 @@ stripString
 Strips string of specified value
 </td>
 <td>
-[[+name:stripString=`Mr.`]]
+&#91;&#91;+name:stripString=`Mr.`&#93;&#93;
 </td>
 </tr>
 
@@ -464,7 +464,7 @@ replace
 Replaces one value with another
 </td>
 <td>
-[[+pagetitle:replace=`Mr.==Mrs.`]]
+&#91;&#91;+pagetitle:replace=`Mr.==Mrs.`&#93;&#93;
 </td>
 </tr>
 
@@ -476,7 +476,7 @@ striptags, stripTags,notags,strip_tags
 Removes HTML tags from the input. Optionally accepts a value to indicate which tags to allow. Similar to PHP's <a href="http://www.php.net/manual/en/function.strip-tags.php">strip_tags</a>
 </td>
 <td>
-[[+code:strip_tags=`&lt;p&gt;`]]
+&#91;&#91;+code:strip_tags=`&lt;p&gt;`&#93;&#93;
 </td>
 </tr>
 
@@ -489,7 +489,7 @@ len,length, strlen
 Counts the length of the passed string. Similar to PHP's <a href="http://www.php.net/manual/en/function.strlen.php">strlen</a>
 </td>
 <td>
-[[+longstring:strlen]]
+&#91;&#91;+longstring:strlen&#93;&#93;
 </td>
 </tr>
 
@@ -501,7 +501,7 @@ reverse, strrev
 Reverses the input, character by character. Similar to PHP's <a href="http://www.php.net/manual/en/function.strrev.php">strrev</a>
 </td>
 <td>
-[[+mirrortext:reverse]]
+&#91;&#91;+mirrortext:reverse&#93;&#93;
 </td>
 </tr>
 
@@ -513,7 +513,7 @@ wordwrap
 Inserts a newline character after the set amount of characters. Similar to PHP's <a href="http://www.php.net/manual/en/function.wordwrap.php">wordwrap</a>. Takes optional value to set wordwrap position.
 </td>
 <td>
-[[+bodytext:wordwrap=`80`]]
+&#91;&#91;+bodytext:wordwrap=`80`&#93;&#93;
 </td>
 </tr>
 
@@ -525,7 +525,7 @@ wordwrapcut
 Inserts a newline character after the set amount of characters, irrespective of word boundaries. Similar to PHP's <a href="http://www.php.net/manual/en/function.wordwrap.php">wordwrap</a>, with word cutting enabled. Takes optional value to set wordwrap position.
 </td>
 <td>
-[[+bodytext:wordwrapcut=`80`]]
+&#91;&#91;+bodytext:wordwrapcut=`80`&#93;&#93;
 </td>
 </tr>
 
@@ -537,7 +537,7 @@ limit
 Limits a string to a certain number of characters. Defaults to 100.
 </td>
 <td>
-[[+description:limit=`50`]]
+&#91;&#91;+description:limit=`50`&#93;&#93;
 </td>
 </tr>
 
@@ -549,7 +549,7 @@ ellipsis
 Adds an ellipsis to and truncates a string if it's longer than a certain number of characters. Defaults to 100.
 </td>
 <td>
-[[+description:ellipsis=`50`]]
+&#91;&#91;+description:ellipsis=`50`&#93;&#93;
 </td>
 </tr>
 
@@ -561,7 +561,7 @@ tag
 Displays the raw element without the :tag. Useful for documentation.
 </td>
 <td>
-[[+showThis:tag]]
+&#91;&#91;+showThis:tag&#93;&#93;
 </td>
 </tr>
 
@@ -585,9 +585,9 @@ add,increment,incr
 Returns input incremented by option (default: +1)
 </td>
 <td>
-[[+downloads:incr]]
+&#91;&#91;+downloads:incr&#93;&#93;
 <br />
-[[+blackjack:add=`21`]]
+&#91;&#91;+blackjack:add=`21`&#93;&#93;
 </td>
 </tr>
 
@@ -599,9 +599,9 @@ subtract,decrement,decr
 Returns input decremented by option (default: -1)
 </td>
 <td>
-[[+countdown:decr]]
+&#91;&#91;+countdown:decr&#93;&#93;
 <br />
-[[+moneys:subtract=`100`]]
+&#91;&#91;+moneys:subtract=`100`&#93;&#93;
 </td>
 </tr>
 
@@ -613,7 +613,7 @@ multiply,mpy
 Returns input multiplied by option (default: *2)
 </td>
 <td>
-[[+trifecta:mpy=`3`]
+&#91;&#91;+trifecta:mpy=`3`&#93;
 </td>
 </tr>
 
@@ -625,7 +625,7 @@ divide,div
 Returns input divided by option (default: /2) Does not accept 0.
 </td>
 <td>
-[[+rating:div=`4`]]
+&#91;&#91;+rating:div=`4`&#93;&#93;
 </td>
 </tr>
 
@@ -637,7 +637,7 @@ modulus,mod
 Returns the option modulus on input (default: %2, returns 0 or 1)
 </td>
 <td>
-[[+number:mod]]
+&#91;&#91;+number:mod&#93;&#93;
 </td>
 </tr>
 
@@ -649,7 +649,7 @@ ifempty,default,empty, isempty
 Returns the input value if empty
 </td>
 <td>
-[[+name:default=`anonymous`]]
+&#91;&#91;+name:default=`anonymous`&#93;&#93;
 </td>
 </tr>
 
@@ -661,7 +661,7 @@ notempty,&nbsp;!empty, ifnotempty, isnotempty
 Returns the input value if not empty
 </td>
 <td>
-[[+name:notempty=`Hello [[+name]]!`]]
+&#91;&#91;+name:notempty=`Hello &#91;&#91;+name&#93;&#93;!`&#93;&#93;
 </td>
 </tr>
 
@@ -673,7 +673,7 @@ nl2br
 Converts a new line character (\n) to an html &lt;br /&gt; element. Use this if you're taking in input, you think that there should be new lines in it, and there aren't.&nbsp;Similar to PHP's&nbsp;<a href="http://www.php.net/manual/en/function.nl2br.php">nl2br</a>.
 </td>
 <td>
-[[+textfile:nl2br]]
+&#91;&#91;+textfile:nl2br&#93;&#93;
 </td>
 </tr>
 
@@ -685,7 +685,7 @@ date
 Formats a unix timestamp into a different format. Similar to PHP's <a href="http://www.php.net/manual/en/function.strftime.php">strftime</a>. Value is format. See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
 </td>
 <td>
-[[+birthyear:date=`%Y`]]
+&#91;&#91;+birthyear:date=`%Y`&#93;&#93;
 </td>
 </tr>
 
@@ -697,7 +697,7 @@ strtotime
 Converts a date string into a unix timestamp. Useful to combine this with the date output filter. Similar to PHP's <a href="http://www.php.net/strtotime">strtotime</a>. Takes in a date. See <a href="revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats" title="Date Formats">Date Formats</a>.
 </td>
 <td>
-[[+thetime:strtotime]]
+&#91;&#91;+thetime:strtotime&#93;&#93;
 </td>
 </tr>
 
@@ -709,7 +709,7 @@ fuzzydate
 Returns a pretty date format with yesterday and today being filtered. Takes in a date.
 </td>
 <td>
-[[+createdon:fuzzydate]]
+&#91;&#91;+createdon:fuzzydate&#93;&#93;
 </td>
 </tr>
 
@@ -721,7 +721,7 @@ ago
 Returns a pretty date format in seconds, minutes, weeks or months ago. Takes in a date (strtotime).
 </td>
 <td>
-[[+createdon:date=`%d-%m-%Y`:ago]]
+&#91;&#91;+createdon:date=`%d-%m-%Y`:ago&#93;&#93;
 </td>
 </tr>
 
@@ -733,7 +733,7 @@ md5
 Creates an MD5 hash of the input string. Similar to PHP's <a href="http://www.php.net/manual/en/function.md5.php">md5</a>.
 </td>
 <td>
-[[+password:md5]]
+&#91;&#91;+password:md5&#93;&#93;
 </td>
 </tr>
 
@@ -745,7 +745,7 @@ cdata
 Wraps the text with CDATA tags
 </td>
 <td>
-[[+content:cdata]]
+&#91;&#91;+content:cdata&#93;&#93;
 </td>
 </tr>
 
@@ -757,7 +757,7 @@ userinfo
 Returns the requested user data. The element must be a modUser ID. The value field is the column to grab, e.g. fullname, email. See Examples below.
 </td>
 <td>
-[[+modx.user.id:userinfo=`username`]]
+&#91;&#91;+modx.user.id:userinfo=`username`&#93;&#93;
 </td>
 </tr>
 
@@ -769,7 +769,7 @@ isloggedin
 Returns true if user is authenticated in this context.
 </td>
 <td>
-[[+modx.user.id:isloggedin]]
+&#91;&#91;+modx.user.id:isloggedin&#93;&#93;
 </td>
 </tr>
 
@@ -781,7 +781,7 @@ isnotloggedin
 Returns true if user is not authenticated in this context.
 </td>
 <td>
-[[+modx.user.id:isnotloggedin]]
+&#91;&#91;+modx.user.id:isnotloggedin&#93;&#93;
 </td>
 </tr>
 
@@ -794,7 +794,7 @@ toPlaceholder
 Puts the input value into the passed placeholder. Does not prevent the output of the value, so add :notempty=`` if you don't want to output the value.
 </td>
 <td>
-?[[*someTV:toPlaceholder=`placeholder`]]
+?&#91;&#91;*someTV:toPlaceholder=`placeholder`&#93;&#93;
 <br />
 </td>
 </tr>
@@ -808,7 +808,7 @@ cssToHead
 Put a &lt;link rel="stylesheet"&gt; element into the head tag, where the input value is placed inside the href attribute. Uses <a href="revolution/2.x/developing-in-modx/other-development-resources/class-reference/modx/modx.regclientcss" title="modX.regClientCSS">modX.regClientCSS</a>.
 </td>
 <td>
-[[+cssTV:cssToHead]]
+&#91;&#91;+cssTV:cssToHead&#93;&#93;
 <br />
 </td>
 </tr>
@@ -823,7 +823,7 @@ Insert a block of HTML code into the &lt;head&gt; of the page, usually right bef
 <br />
 </td>
 <td>
-[[+htmlTV:htmlToHead]]
+&#91;&#91;+htmlTV:htmlToHead&#93;&#93;
 <br />
 </td>
 </tr>
@@ -838,7 +838,7 @@ Insert HTML code into the bottom of the page, before &lt;/body&gt;. Uses <a href
 <br />
 </td>
 <td>
-[[+htmlTV:htmlToBottom]]
+&#91;&#91;+htmlTV:htmlToBottom&#93;&#93;
 <br />
 </td>
 </tr>
@@ -853,7 +853,7 @@ Insert JS code (or a link) into the head tag (before the closing head tag). Uses
 <br />
 </td>
 <td>
-[[+jsTV:jsToHead]]
+&#91;&#91;+jsTV:jsToHead&#93;&#93;
 <br />
 </td>
 </tr>
@@ -868,7 +868,7 @@ Insert JS code (or a link) before the closing body tag of the page. Uses <a href
 <br />
 </td>
 <td>
-[[+jsTV:jsToBottom]]
+&#91;&#91;+jsTV:jsToBottom&#93;&#93;
 <br />
 </td>
 </tr>
@@ -881,7 +881,7 @@ urlencode
 Converts the input into a URL-friendly string similar to how an HTML form would do so. Similar to PHP's <a href="http://www.php.net/manual/en/function.urlencode.php">urlencode</a>
 </td>
 <td>
-[[+mystring:urlencode]]
+&#91;&#91;+mystring:urlencode&#93;&#93;
 </td>
 </tr>
 
@@ -893,7 +893,7 @@ urldecode
 Converts the input from an URL-friendly string Similar to PHP's <a href="http://www.php.net/manual/en/function.urldecode.php">urldecode</a>
 </td>
 <td>
-[[+myparam:urldecode]]
+&#91;&#91;+myparam:urldecode&#93;&#93;
 </td>
 </tr>
 </tbody>
@@ -908,7 +908,7 @@ In general, any content in a placeholder that you think <strong>might change dyn
 </p>
 
 <pre class="brush: php">
-[[+placeholder:default=`A default value!`]]
+&#91;&#91;+placeholder:default=`A default value!`&#93;&#93;
 </pre>
 <p>
 This means that this could <strong>sometimes</strong> be empty, and sometimes not. Why would you ever want that cached? That would eliminate the point of the output modifier.
@@ -931,11 +931,11 @@ If you have properties on the tag, you'll want to specify those <strong>after</s
 </p>
 
 <pre class="brush: php">
-[[!getResources:default=`Sorry - nothing matched your search.`?
+&#91;&#91;!getResources:default=`Sorry - nothing matched your search.`?
    &amp;tplFirst=`blogTpl`
    &amp;parents=`2,3,4,8`
-   &amp;tvFilters=`blog_tags==%[[!tag:htmlent]]%`
-   &amp;includeTVs=`1`]]
+   &amp;tvFilters=`blog_tags==%&#91;&#91;!tag:htmlent&#93;&#93;%`
+   &amp;includeTVs=`1`&#93;&#93;
 </pre>
 <h3 id="InputandOutputFilters(OutputModifiers)-CreatingaCustomOutputModifier">
 Creating a Custom Output Modifier
@@ -946,7 +946,7 @@ Also, <a href="revolution/2.x/developing-in-modx/basic-development/snippets" tit
 </p>
 
 <pre class="brush: php">
-[[*pagetitle:makeExciting=`4`]]
+&#91;&#91;*pagetitle:makeExciting=`4`&#93;&#93;
 </pre>
 <p>
 This document variable call with an output modifier will pass these properties to the snippet:
@@ -974,7 +974,7 @@ input
 The element's value.
 </td>
 <td>
-The value of [[*pagetitle]]
+The value of &#91;&#91;*pagetitle&#93;&#93;
 </td>
 </tr>
 
@@ -1022,7 +1022,7 @@ tag
 The complete parent tag.
 </td>
 <td>
-[[*pagetitle:makeExciting=`4`]]
+&#91;&#91;*pagetitle:makeExciting=`4`&#93;&#93;
 </td>
 </tr>
 </tbody>
@@ -1063,44 +1063,44 @@ A good example of chaining would be to format a date string to another format, l
 </p>
 
 <pre class="brush: php">
-[[+mydate:strtotime:date=`%Y-%m-%d`]]
+&#91;&#91;+mydate:strtotime:date=`%Y-%m-%d`&#93;&#93;
 </pre>
 <p>
 Directly accessing the modx_user_attributes table in the database using output modifiers instead of a <a href="revolution/2.x/developing-in-modx/basic-development/snippets" title="Snippets">Snippet</a> can be accomplished simply by utilizing the userinfo modifier. Select the appropriate column from the table and specify it as the property of the output modifier, like so:
 </p>
 
 <pre class="brush: php">
-User Internal Key: [[!+modx.user.id:userinfo=`internalKey`]]&lt;br /&gt;
-User name: [[!+modx.user.id:userinfo=`username`]]&lt;br /&gt;
-Full Name: [[!+modx.user.id:userinfo=`fullname`]]&lt;br /&gt;
-Role:  [[!+modx.user.id:userinfo=`role`]]&lt;br /&gt;
-E-mail: [[!+modx.user.id:userinfo=`email`]]&lt;br /&gt;
-Phone: [[!+modx.user.id:userinfo=`phone`]]&lt;br /&gt;
-Mobile Phone: [[!+modx.user.id:userinfo=`mobilephone`]]&lt;br /&gt;
-Fax: [[!+modx.user.id:userinfo=`fax`]]&lt;br /&gt;
-Date of birth: [[!+modx.user.id:userinfo=`dob`:date=`%Y-%m-%d`]]&lt;br /&gt;
-Gender: [[!+modx.user.id:userinfo=`gender`]]&lt;br /&gt;
-Country: [[+modx.user.id:userinfo=`country`]]&lt;br /&gt;
-State: [[+modx.user.id:userinfo=`state`]]&lt;br /&gt;
-Zip Code: [[+modx.user.id:userinfo=`zip`]]&lt;br /&gt;
-Photo: [[+modx.user.id:userinfo=`photo`]]&lt;br /&gt;
-Comment: [[+modx.user.id:userinfo=`comment`]]&lt;br /&gt;
-Password: [[+modx.user.id:userinfo=`password`]]&lt;br /&gt;
-Cache Password: [[+modx.user.id:userinfo=`cachepwd`]]&lt;br /&gt;
-Last Login: [[+modx.user.id:userinfo=`lastlogin`:date=`%Y-%m-%d`]]&lt;br /&gt;
-The Login:[[+modx.user.id:userinfo=`thislogin`:date=`%Y-%m-%d`]]&lt;br /&gt;
-Number of Logins: [[+modx.user.id:userinfo=`logincount`]]
+User Internal Key: &#91;&#91;!+modx.user.id:userinfo=`internalKey`&#93;&#93;&lt;br /&gt;
+User name: &#91;&#91;!+modx.user.id:userinfo=`username`&#93;&#93;&lt;br /&gt;
+Full Name: &#91;&#91;!+modx.user.id:userinfo=`fullname`&#93;&#93;&lt;br /&gt;
+Role:  &#91;&#91;!+modx.user.id:userinfo=`role`&#93;&#93;&lt;br /&gt;
+E-mail: &#91;&#91;!+modx.user.id:userinfo=`email`&#93;&#93;&lt;br /&gt;
+Phone: &#91;&#91;!+modx.user.id:userinfo=`phone`&#93;&#93;&lt;br /&gt;
+Mobile Phone: &#91;&#91;!+modx.user.id:userinfo=`mobilephone`&#93;&#93;&lt;br /&gt;
+Fax: &#91;&#91;!+modx.user.id:userinfo=`fax`&#93;&#93;&lt;br /&gt;
+Date of birth: &#91;&#91;!+modx.user.id:userinfo=`dob`:date=`%Y-%m-%d`&#93;&#93;&lt;br /&gt;
+Gender: &#91;&#91;!+modx.user.id:userinfo=`gender`&#93;&#93;&lt;br /&gt;
+Country: &#91;&#91;+modx.user.id:userinfo=`country`&#93;&#93;&lt;br /&gt;
+State: &#91;&#91;+modx.user.id:userinfo=`state`&#93;&#93;&lt;br /&gt;
+Zip Code: &#91;&#91;+modx.user.id:userinfo=`zip`&#93;&#93;&lt;br /&gt;
+Photo: &#91;&#91;+modx.user.id:userinfo=`photo`&#93;&#93;&lt;br /&gt;
+Comment: &#91;&#91;+modx.user.id:userinfo=`comment`&#93;&#93;&lt;br /&gt;
+Password: &#91;&#91;+modx.user.id:userinfo=`password`&#93;&#93;&lt;br /&gt;
+Cache Password: &#91;&#91;+modx.user.id:userinfo=`cachepwd`&#93;&#93;&lt;br /&gt;
+Last Login: &#91;&#91;+modx.user.id:userinfo=`lastlogin`:date=`%Y-%m-%d`&#93;&#93;&lt;br /&gt;
+The Login:&#91;&#91;+modx.user.id:userinfo=`thislogin`:date=`%Y-%m-%d`&#93;&#93;&lt;br /&gt;
+Number of Logins: &#91;&#91;+modx.user.id:userinfo=`logincount`&#93;&#93;
 </pre>
 <p>
-[[!+modx.user.id]] defaults to the currently logged in user ID. You can of course replace that with [[*createdby]] or other resource field or placeholders that return a numeric ID representing a user.
+&#91;&#91;!+modx.user.id&#93;&#93; defaults to the currently logged in user ID. You can of course replace that with &#91;&#91;*createdby&#93;&#93; or other resource field or placeholders that return a numeric ID representing a user.
 </p>
 
 <div class="note">
 Note that the user ID and username is already available by default in MODx, so you dont need to use the "userinfo" modifier:
 
 <pre class="brush: php">
-[[!+modx.user.id]] - Prints the ID
-[[!+modx.user.username]] - Prints the username
+&#91;&#91;!+modx.user.id&#93;&#93; - Prints the ID
+&#91;&#91;!+modx.user.username&#93;&#93; - Prints the username
 </pre>
 <p>
 You will most likely want to call these uncached (see note about caching above) to prevent unexpected results.

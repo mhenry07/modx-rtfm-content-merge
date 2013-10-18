@@ -85,7 +85,7 @@ Download
 </h3>
 
 <p>
-It can be downloaded from within the MODx Revolution manager via <span class="error">[Package Management]</span>, or from the MODx Extras Repository, available here: <a href="http://modxcms.com/extras/package/694">http://modxcms.com/extras/package/694</a>
+It can be downloaded from within the MODx Revolution manager via <span class="error">&#91;Package Management&#93;</span>, or from the MODx Extras Repository, available here: <a href="http://modxcms.com/extras/package/694">http://modxcms.com/extras/package/694</a>
 </p>
 
 <h3 id="FileLister-DevelopmentandBugReporting">
@@ -153,28 +153,28 @@ List all the files and directories in assets/downloads.
 </p>
 
 <pre class="brush: php">
-[[!FileLister? &amp;path=`assets/downloads/`]]
+&#91;&#91;!FileLister? &amp;path=`assets/downloads/`&#93;&#93;
 </pre>
 <p>
 List only files in the 'assets/pdfs' directory.
 </p>
 
 <pre class="brush: php">
-[[!FileLister? &amp;path=`assets/pdfs/`]]
+&#91;&#91;!FileLister? &amp;path=`assets/pdfs/`&#93;&#93;
 </pre>
 <p>
 List all files and subdirectories in '/docs/marketing', but don't allow file viewing or downloading except for users logged in and in the 'Marketing' or 'CEO' groups.
 </p>
 
 <pre class="brush: php">
-[[!FileLister? &amp;path=`/docs/marketing/` &amp;allowDownloadGroups=`Marketing,CEO`]]
+&#91;&#91;!FileLister? &amp;path=`/docs/marketing/` &amp;allowDownloadGroups=`Marketing,CEO`&#93;&#93;
 </pre>
 <p>
 Restrict file listings in 'assets/pdfs' to only PDF files:
 </p>
 
 <pre class="brush: php">
-[[!FileLister? &amp;path=`assets/pdfs/` &amp;hideDirectories=`1` &amp;showExt=`pdf`]]
+&#91;&#91;!FileLister? &amp;path=`assets/pdfs/` &amp;hideDirectories=`1` &amp;showExt=`pdf`&#93;&#93;
 </pre>
 <h2 id="FileLister-SampleResourceContent">
 Sample Resource Content
@@ -187,7 +187,7 @@ This is a sample of HTML that you can put inside a Resource to output your conte
 <pre class="brush: php">
 &lt;h2&gt;Files&lt;/h2&gt;
 
-&lt;p&gt;Current Path: &lt;span&gt;[[+filelister.path]]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Current Path: &lt;span&gt;&#91;&#91;+filelister.path&#93;&#93;&lt;/span&gt;&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -200,12 +200,12 @@ This is a sample of HTML that you can put inside a Resource to output your conte
 &lt;tfoot&gt;
 &lt;tr&gt;
   &lt;th colspan="3"&gt;
-    Files: [[+filelister.total.files]] 
-    | Directories: [[+filelister.total.directories]]
+    Files: &#91;&#91;+filelister.total.files&#93;&#93; 
+    | Directories: &#91;&#91;+filelister.total.directories&#93;&#93;
   &lt;/th&gt;
 &lt;/tr&gt;
 &lt;tbody&gt;
-[[+files]]
+&#91;&#91;+files&#93;&#93;
 &lt;/tbody&gt;
 &lt;/table&gt;
 </pre>

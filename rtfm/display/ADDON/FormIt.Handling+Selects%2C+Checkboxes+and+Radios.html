@@ -42,12 +42,12 @@ FormIt provides a utility snippet, called FormItIsSelected, which can be used as
 
 <pre class="brush: php">
 &lt;select name="color"&gt;
-   &lt;option value="blue" [[!+fi.color:FormItIsSelected=`blue`]] &gt;Blue&lt;/option&gt;
-   &lt;option value="red" [[!+fi.color:FormItIsSelected=`red`]] &gt;Red&lt;/option&gt;
-   &lt;option value="green" [[!+fi.color:FormItIsSelected=`green`]] &gt;Green&lt;/option&gt;
+   &lt;option value="blue" &#91;&#91;!+fi.color:FormItIsSelected=`blue`&#93;&#93; &gt;Blue&lt;/option&gt;
+   &lt;option value="red" &#91;&#91;!+fi.color:FormItIsSelected=`red`&#93;&#93; &gt;Red&lt;/option&gt;
+   &lt;option value="green" &#91;&#91;!+fi.color:FormItIsSelected=`green`&#93;&#93; &gt;Green&lt;/option&gt;
 
    &lt;!-- This would also work --&gt;
-   &lt;option value="yellow" [[!+fi.color:is=`yellow`:then=`selected`]]&gt;Yellow&lt;/option&gt;
+   &lt;option value="yellow" &#91;&#91;!+fi.color:is=`yellow`:then=`selected`&#93;&#93;&gt;Yellow&lt;/option&gt;
 &lt;/select&gt;
 </pre>
 <p>
@@ -67,13 +67,13 @@ This example will handle checkboxes, persisting their values:
 </p>
 
 <pre class="brush: php">
-&lt;label&gt;Color: [[!+fi.error.color]]&lt;/label&gt;
-&lt;input type="checkbox" name="color[]" value="blue" [[!+fi.color:FormItIsChecked=`blue`]] &gt; Blue 
-&lt;input type="checkbox" name="color[]" value="red" [[!+fi.color:FormItIsChecked=`red`]] &gt; Red 
-&lt;input type="checkbox" name="color[]" value="green" [[!+fi.color:FormItIsChecked=`green`]] &gt; Green 
+&lt;label&gt;Color: &#91;&#91;!+fi.error.color&#93;&#93;&lt;/label&gt;
+&lt;input type="checkbox" name="color&#91;&#93;" value="blue" &#91;&#91;!+fi.color:FormItIsChecked=`blue`&#93;&#93; &gt; Blue 
+&lt;input type="checkbox" name="color&#91;&#93;" value="red" &#91;&#91;!+fi.color:FormItIsChecked=`red`&#93;&#93; &gt; Red 
+&lt;input type="checkbox" name="color&#91;&#93;" value="green" &#91;&#91;!+fi.color:FormItIsChecked=`green`&#93;&#93; &gt; Green 
 </pre>
 <p>
-Note that the [] is stripped when setting the "fi.error.color" placeholder.
+Note that the &#91;&#93; is stripped when setting the "fi.error.color" placeholder.
 </p>
 
 <h4 id="FormIt.HandlingSelects,CheckboxesandRadios-HandlingRequiredonCheckboxes">
@@ -85,13 +85,13 @@ Since HTML does not send a value if a checkbox is not checked, handling the "req
 </p>
 
 <pre class="brush: php">
-[[!FormIt? &amp;validate=`color:required`]]
+&#91;&#91;!FormIt? &amp;validate=`color:required`&#93;&#93;
 ...
-&lt;label&gt;Color: [[!+fi.error.color]]&lt;/label&gt;
-&lt;input type="hidden" name="color[]" value="" /&gt;
-&lt;input type="checkbox" name="color[]" value="blue" [[!+fi.color:FormItIsChecked=`blue`]] &gt; Blue 
-&lt;input type="checkbox" name="color[]" value="red" [[!+fi.color:FormItIsChecked=`red`]] &gt; Red 
-&lt;input type="checkbox" name="color[]" value="green" [[!+fi.color:FormItIsChecked=`green`]] &gt; Green 
+&lt;label&gt;Color: &#91;&#91;!+fi.error.color&#93;&#93;&lt;/label&gt;
+&lt;input type="hidden" name="color&#91;&#93;" value="" /&gt;
+&lt;input type="checkbox" name="color&#91;&#93;" value="blue" &#91;&#91;!+fi.color:FormItIsChecked=`blue`&#93;&#93; &gt; Blue 
+&lt;input type="checkbox" name="color&#91;&#93;" value="red" &#91;&#91;!+fi.color:FormItIsChecked=`red`&#93;&#93; &gt; Red 
+&lt;input type="checkbox" name="color&#91;&#93;" value="green" &#91;&#91;!+fi.color:FormItIsChecked=`green`&#93;&#93; &gt; Green 
 </pre>
 <p>
 This will successfully check to make sure at least one checkbox was selected when submitting the form.

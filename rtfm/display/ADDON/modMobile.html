@@ -188,15 +188,15 @@ Using one template for mobile and full site
 </ol>
 
 <pre class="brush: html">
-[[If?
-      &amp;subject=`[[+modxSiteTemplate]]`
+&#91;&#91;If?
+      &amp;subject=`&#91;&#91;+modxSiteTemplate&#93;&#93;`
       &amp;operand=`mobile`
       &amp;then=`&lt;link rel="stylesheet" type="text/css" media="all" href="/assets/templates/css/mobileLayout.css" /&gt;`
       &amp;else=`&lt;link rel="stylesheet" type="text/css" media="all" href="/assets/templates/css/commonLayout.css" /&gt;
-        &lt;!--[if IE 6]&gt;
+        &lt;!--&#91;if IE 6&#93;&gt;
             &lt;link rel="stylesheet" type="text/css" media="all" href="/assets/templates/css/ie6.css" /&gt;
-        &lt;![endif]--&gt;`
-    ]]
+        &lt;!&#91;endif&#93;--&gt;`
+    &#93;&#93;
 </pre>
 <p>
 Note: modxSiteTemplate is the value of modmobile.get_var and the same that you will need to send to the url to switch templates. You must also install the If extra for this example to work!
@@ -209,9 +209,9 @@ Note: modxSiteTemplate is the value of modmobile.get_var and the same that you w
 
 <pre class="brush: html">
     &lt;!-- Moblie Link --&gt;
-    &lt;a href="[[~[[*id]]]]?modxSiteTemplate=mobile"&gt;Mobile&lt;/a&gt;
+    &lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;?modxSiteTemplate=mobile"&gt;Mobile&lt;/a&gt;
     &lt;!-- Back to Full site link --&gt;
-    &lt;a href="[[~[[*id]]]]?modxSiteTemplate=full"&gt;Full Site View&lt;/a&gt;
+    &lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;?modxSiteTemplate=full"&gt;Full Site View&lt;/a&gt;
 </pre>
 <p>
 Note this is optional but highly recommended.
@@ -247,9 +247,9 @@ Using a separate mobile template
 
 <pre class="brush: html">
 &lt;!-- Moblie Link --&gt;
-    &lt;a href="[[~[[*id]]]]?modxSiteTemplate=mobile"&gt;Mobile&lt;/a&gt;
+    &lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;?modxSiteTemplate=mobile"&gt;Mobile&lt;/a&gt;
     &lt;!-- Back to Full site link --&gt;
-    &lt;a href="[[~[[*id]]]]?modxSiteTemplate=full"&gt;Full Site View&lt;/a&gt;
+    &lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;?modxSiteTemplate=full"&gt;Full Site View&lt;/a&gt;
 </pre>
 </li>
 </ol>

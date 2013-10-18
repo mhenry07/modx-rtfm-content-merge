@@ -31,14 +31,14 @@ Once you have a Snippet installed, you can use it simply by putting its tags in 
 </p>
 
 <pre class="brush: php">
-[[MySnippet]]
+&#91;&#91;MySnippet&#93;&#93;
 </pre>
 <p>
 If you expect the snippet code to be dynamic for different users, you can also call a snippet uncached:
 </p>
 
 <pre class="brush: php">
-[[!MySnippet]]
+&#91;&#91;!MySnippet&#93;&#93;
 </pre>
 <h2 id="UsingSnippets-SnippetProperties">
 Snippet Properties
@@ -49,7 +49,7 @@ Snippets can have <a href="revolution/2.x/making-sites-with-modx/customizing-con
 </p>
 
 <pre class="brush: php">
-[[!Wayfinder? &amp;startId=`0` &amp;level=`1`]]
+&#91;&#91;!Wayfinder? &amp;startId=`0` &amp;level=`1`&#93;&#93;
 </pre>
 <p>
 You can also aggregate these Properties into a <a href="revolution/2.x/making-sites-with-modx/customizing-content/properties-and-property-sets" title="Properties and Property Sets">Property Set</a>, which is a dynamic collection of properties that can be attached to any Snippet (or Element for that matter). This allows you to share common property configs in a snippet call in one place.
@@ -60,14 +60,14 @@ Say you had a Property Set called 'Menu' with `startId` set to 0 and `level` set
 </p>
 
 <pre class="brush: php">
-[[!Wayfinder@Menu]]
+&#91;&#91;!Wayfinder@Menu&#93;&#93;
 </pre>
 <p>
 would then load those properties automatically into the Snippet. And even those properties can be overridden:
 </p>
 
 <pre class="brush: php">
-[[!Wayfinder@Menu? &amp;level=`2`]]
+&#91;&#91;!Wayfinder@Menu? &amp;level=`2`&#93;&#93;
 </pre>
 <p>
 which would override the set's value on `level` of 1, setting it instead to 2.

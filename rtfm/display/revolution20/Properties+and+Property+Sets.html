@@ -44,7 +44,7 @@ Properties are simply values that can be configured for any Element via <a href=
 </p>
 
 <pre class="brush: php">
-[[Quip? &amp;debug=`1`]]
+&#91;&#91;Quip? &amp;debug=`1`&#93;&#93;
 </pre>
 <p>
 'debug' is the Property, where '1' is the Property Value. They are passed to the Element's parser and interpreted there. Snippets and Plugins can access them through the $scriptProperties array, or straight in their key values, as they are extract()'ed.
@@ -59,23 +59,23 @@ Property Sets are user-defined collections of properties for an Element. So inst
 </p>
 
 <pre class="brush: php">
-[[MySnippet? &amp;prop1=`a` &amp;prop2=`b` &amp;prop3=`c` &amp;prop4=`d` &amp;prop5=`e` &amp;prop6=`f`]]
+&#91;&#91;MySnippet? &amp;prop1=`a` &amp;prop2=`b` &amp;prop3=`c` &amp;prop4=`d` &amp;prop5=`e` &amp;prop6=`f`&#93;&#93;
 ... becomes ...
-[[MySnippet@myPropertySet]]
+&#91;&#91;MySnippet@myPropertySet&#93;&#93;
 </pre>
 <p>
 Property Sets can be attached not only to Snippets, but to <em>any element</em> via that Element's editing page, and a single Property Set can be used by multiple elements. Once a Property Set has been defined and attached to an Element, you can call it by name using the "at" symbol:
 </p>
 
 <pre class="brush: php">
-[[ElementName@PropertySetName]]
+&#91;&#91;ElementName@PropertySetName&#93;&#93;
 </pre>
 <p>
 So, for an example, let's have a Property Set with two properties - 'debug' set to true, and 'user' set to 2. Then let's call it in a snippet.:
 </p>
 
 <pre class="brush: php">
-[[TestSnippet@DebugMode? &amp;user=`1`]]
+&#91;&#91;TestSnippet@DebugMode? &amp;user=`1`&#93;&#93;
 </pre>
 <p>
 This example would call the snippet "TestSnippet", load the Property Set 'DebugMode', and then would set the value 'user' to 1. Since the property 'user' is defined as 2 in the Property Set, it will be overridden in the call, and end up as 1. The order of property loading is:
@@ -177,7 +177,7 @@ Properties are available in a snippet via the $scriptProperties array:
 </p>
 
 <pre class="brush: php">
-$prop = $scriptProperties['propertyName'];
+$prop = $scriptProperties&#91;'propertyName'&#93;;
 </pre>
 <p>
 Note that if a parameter is sent in the snippet call that has the same name as a property in a property set, the parameter value will override the default value in the property set.

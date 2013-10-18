@@ -119,7 +119,7 @@ When we define a TV, we have to define a lot of information about the behavior o
 
 <ul>
 <li>
-<strong>Variable Name</strong>: This corresponds to the placeholders that will be used in your templates, e.g. <strong>bio</strong> = [[*bio]]. <em>This name should be <strong>unique</strong></em>!
+<strong>Variable Name</strong>: This corresponds to the placeholders that will be used in your templates, e.g. <strong>bio</strong> = &#91;&#91;*bio&#93;&#93;. <em>This name should be <strong>unique</strong></em>!
 </li>
 
 <li>
@@ -252,14 +252,14 @@ From there, we can specify any default properties we want for the TV. "How can y
 </p>
 
 <pre class="brush: php">
-Viewing: [[+subsection]]
+Viewing: &#91;&#91;+subsection&#93;&#93;
 </pre>
 <p>
 We can add a list property 'subsection' to the grid, and then allow that property to be overridden via property sets. Say we created a Property Set named 'CarsSectionTVPS' (PS for Property Set). In it, we set the 'subsection' property to "Cars". We'd then attach it to the TV in our Resource, or Template, or whereever we are using it like so:
 </p>
 
 <pre class="brush: php">
-[[*viewingSS@CarsSectionTVPS]]
+&#91;&#91;*viewingSS@CarsSectionTVPS&#93;&#93;
 </pre>
 <p>
 This would output in the place of the TV:

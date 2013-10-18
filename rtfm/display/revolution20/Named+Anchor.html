@@ -29,14 +29,14 @@ To generate a link to the current Resource, while using a named anchor of "prohi
 </p>
 
 <pre class="brush: php">
-&lt;a href="[[~[[*id]]]]#prohibited"&gt;Prohibited Activities&lt;/a&gt;
+&lt;a href="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;#prohibited"&gt;Prohibited Activities&lt;/a&gt;
 </pre>
 <p>
 To generate a link to a Resource with ID 12, while using a named anchor of "prohibited":
 </p>
 
 <pre class="brush: php">
-&lt;a href="[[~12]]#prohibited"&gt;Prohibited Activities&lt;/a&gt;
+&lt;a href="&#91;&#91;~12&#93;&#93;#prohibited"&gt;Prohibited Activities&lt;/a&gt;
 </pre>
 <h2 id="NamedAnchor-UsingaPlugintoautomaticallyaddtheURLwhenusinganchors">
 Using a Plugin to automatically add the URL when using anchors
@@ -51,7 +51,7 @@ Put the following code into a new plugin, and on the System Events tab assign it
 </p>
 
 <pre class="brush: php">
-if($modx-&gt;resource-&gt;get('id') !=$modx-&gt;config['site_start']) {  $modx-&gt;resource-&gt;_output =str_replace('href="#','href="' .$modx-&gt;makeUrl($modx-&gt;resource-&gt;get('id')) .'#',$modx-&gt;resource-&gt;_output);}
+if($modx-&gt;resource-&gt;get('id') !=$modx-&gt;config&#91;'site_start'&#93;) {  $modx-&gt;resource-&gt;_output =str_replace('href="#','href="' .$modx-&gt;makeUrl($modx-&gt;resource-&gt;get('id')) .'#',$modx-&gt;resource-&gt;_output);}
 </pre>
 <p>
 The code first makes sure we are not on the homepage (if we are, there is no need to add the url to the page). When we're not it will replace any occurrences of <ins>href="#</ins> with <ins>href="link-to-page.html#</ins>, making sure your anchors will work as intended.

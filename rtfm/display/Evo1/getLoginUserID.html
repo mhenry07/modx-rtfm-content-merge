@@ -133,14 +133,14 @@ Line: 2015
 
 <pre class="brush: php">
 function getLoginUserID($context= '') {
-        if ($context &amp;&amp; isset ($_SESSION[$context . 'Validated'])) {
-            return $_SESSION[$context . 'InternalKey'];
+        if ($context &amp;&amp; isset ($_SESSION&#91;$context . 'Validated'&#93;)) {
+            return $_SESSION&#91;$context . 'InternalKey'&#93;;
         }
-        elseif ($this-&gt;isFrontend() &amp;&amp; isset ($_SESSION['webValidated'])) {
-            return $_SESSION['webInternalKey'];
+        elseif ($this-&gt;isFrontend() &amp;&amp; isset ($_SESSION&#91;'webValidated'&#93;)) {
+            return $_SESSION&#91;'webInternalKey'&#93;;
         }
-        elseif ($this-&gt;isBackend() &amp;&amp; isset ($_SESSION['mgrValidated'])) {
-            return $_SESSION['mgrInternalKey'];
+        elseif ($this-&gt;isBackend() &amp;&amp; isset ($_SESSION&#91;'mgrValidated'&#93;)) {
+            return $_SESSION&#91;'mgrInternalKey'&#93;;
         }
     }
 </pre>

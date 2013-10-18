@@ -24,7 +24,7 @@ How can Jot be made to work with YAMS?
 <li>Modify the second and third lines of the Jot snippet code to make them look like follows:
 
 <pre class="brush: php">
-include_once($modx-&gt;config['base_path'] .'assets/modules/yams/class/yams.jot.class.inc.php');
+include_once($modx-&gt;config&#91;'base_path'&#93; .'assets/modules/yams/class/yams.jot.class.inc.php');
 $Jot = new CJotYAMS;
 </pre>
 </li>
@@ -32,12 +32,12 @@ $Jot = new CJotYAMS;
 <li>If Jot placeholders are being used, then it will be necessary to specify the &amp;tagid parameter as follows:
 
 <pre class="brush: php">
-[!Jot? &amp;tagid=`(yams_id)` ... !]
-[+jot.html.form.(yams_id)+]
-[+jot.html.navigation.(yams_id)+]
-[+jot.html.moderate.(yams_id)+]
-[+jot.html.comments.(yams_id)+]
-[+jot.html.navigation.(yams_id)+]
+&#91;!Jot? &amp;tagid=`(yams_id)` ... !&#93;
+&#91;+jot.html.form.(yams_id)+&#93;
+&#91;+jot.html.navigation.(yams_id)+&#93;
+&#91;+jot.html.moderate.(yams_id)+&#93;
+&#91;+jot.html.comments.(yams_id)+&#93;
+&#91;+jot.html.navigation.(yams_id)+&#93;
 </pre>
 <p>
 This will prevent multiple language versions of the placeholders from interfering with each other.
@@ -54,7 +54,7 @@ This will prevent multiple language versions of the placeholders from interferin
 <li>If it is necessary to translate text within the &amp;validate parameter or elsewhere in the snippet call then it can be done as follows:
 
 <pre class="brush: php">
-&amp;validate=`email:[[YAMS? &amp;get=`text` &amp;from=`en::Invalid email address||de::Ungültige Email-Adresse`]]:email,content:[[YAMS? &amp;get=`text` &amp;from=`en::Please enter a comment.||de::Bitte schreiben Sie einen Kommentar.`]]`
+&amp;validate=`email:&#91;&#91;YAMS? &amp;get=`text` &amp;from=`en::Invalid email address||de::Ungültige Email-Adresse`&#93;&#93;:email,content:&#91;&#91;YAMS? &amp;get=`text` &amp;from=`en::Please enter a comment.||de::Bitte schreiben Sie einen Kommentar.`&#93;&#93;`
 </pre>
 </li>
 </ul>

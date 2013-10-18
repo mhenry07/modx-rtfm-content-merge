@@ -222,9 +222,9 @@ $collection= $xpdo-&gt;getCollectionGraph('Zip', '{"TZ":{},"ST":{},"CT":{}}');
 if ($collection) {
         foreach ($collection as $obj) {
                 $out = $obj-&gt;toArray();
-                $out['timezone'] = $obj-&gt;TZ-&gt;get('tzname');
-                $out['state'] = $obj-&gt;ST-&gt;get('statename');
-                $out['county'] = $obj-&gt;CT-&gt;get('countyname');
+                $out&#91;'timezone'&#93; = $obj-&gt;TZ-&gt;get('tzname');
+                $out&#91;'state'&#93; = $obj-&gt;ST-&gt;get('statename');
+                $out&#91;'county'&#93; = $obj-&gt;CT-&gt;get('countyname');
                 print_r($out);
         }
 }
@@ -250,9 +250,9 @@ $collection= $xpdo-&gt;getCollectionGraph('Zip', '{"TZ":{},"ST":{},"CT":{}}', $c
 if ($collection) {
         foreach ($collection as $obj) {
                 $out = $obj-&gt;toArray();
-                $out['timezone'] = $obj-&gt;TZ-&gt;get('tzname');
-                $out['state'] = $obj-&gt;ST-&gt;get('statename');
-                $out['county'] = $obj-&gt;CT-&gt;get('countyname');
+                $out&#91;'timezone'&#93; = $obj-&gt;TZ-&gt;get('tzname');
+                $out&#91;'state'&#93; = $obj-&gt;ST-&gt;get('statename');
+                $out&#91;'county'&#93; = $obj-&gt;CT-&gt;get('countyname');
                 print_r($out);
         }
 }
@@ -269,8 +269,8 @@ Let's show one more example, this time using MODX tables. This is only an exampl
 
 <pre class="brush: php">
 $criteria = array();
-$criteria['modResource.id:IN'] = array(1,2,3);
-$criteria['TemplateVarResources.tmplvarid'] = 5;
+$criteria&#91;'modResource.id:IN'&#93; = array(1,2,3);
+$criteria&#91;'TemplateVarResources.tmplvarid'&#93; = 5;
 $criteria = $modx-&gt;newQuery('modResource', $criteria);
 $pages = $modx-&gt;getCollectionGraph('modResource', '{"TemplateVarResources":{"TemplateVar":{}}}', $criteria);
 if ($pages) {

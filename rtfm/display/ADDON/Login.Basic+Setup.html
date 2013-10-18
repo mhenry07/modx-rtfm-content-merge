@@ -249,7 +249,7 @@ Put the following Snippet call on your login page:
 </p>
 
 <pre class="brush: php">
-[[!Login? &amp;loginTpl=`lgnLoginTpl` &amp;logoutTpl=`lgnLogoutTpl` &amp;errTpl=`lgnErrTpl` &amp;loginResourceId=`4` &amp;logoutResourceId=`5`]]
+&#91;&#91;!Login? &amp;loginTpl=`lgnLoginTpl` &amp;logoutTpl=`lgnLogoutTpl` &amp;errTpl=`lgnErrTpl` &amp;loginResourceId=`4` &amp;logoutResourceId=`5`&#93;&#93;
 </pre>
 <p>
 Then save the page. You'll notice that the Snippet call has a lot of arguments – many of those arguments reference the names of Chunks. When you installed the Login Add-on, many of these Chunks were already created for you (look under the Elements tab), but sometimes you may want to create your own Chunks and update the Snippet parameters to reference their names. In this example, we are customizing the <strong>lgnLoginTpl</strong> Chunk.
@@ -261,30 +261,30 @@ The Chunk that displays the login form should also include a link to the "Forgot
 
 <pre class="brush: php">
 &lt;div class="loginForm"&gt;
-    &lt;div class="loginMessage"&gt;[[+errors]]&lt;/div&gt;
+    &lt;div class="loginMessage"&gt;&#91;&#91;+errors&#93;&#93;&lt;/div&gt;
     &lt;div class="loginLogin"&gt;
-        &lt;form class="loginLoginForm" action="[[~[[*id]]]]" method="post"&gt;
+        &lt;form class="loginLoginForm" action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post"&gt;
             &lt;fieldset class="loginLoginFieldset"&gt;
-                &lt;legend class="loginLegend"&gt;[[+actionMsg]]&lt;/legend&gt;
-                &lt;label class="loginUsernameLabel"&gt;[[%login.username]]
+                &lt;legend class="loginLegend"&gt;&#91;&#91;+actionMsg&#93;&#93;&lt;/legend&gt;
+                &lt;label class="loginUsernameLabel"&gt;&#91;&#91;%login.username&#93;&#93;
                     &lt;input class="loginUsername" type="text" name="username" /&gt;
                 &lt;/label&gt;
 
-                &lt;label class="loginPasswordLabel"&gt;[[%login.password]]
+                &lt;label class="loginPasswordLabel"&gt;&#91;&#91;%login.password&#93;&#93;
                     &lt;input class="loginPassword" type="password" name="password" /&gt;
                 &lt;/label&gt;
-                &lt;input class="returnUrl" type="hidden" name="returnUrl" value="[[+request_uri]]" /&gt;
+                &lt;input class="returnUrl" type="hidden" name="returnUrl" value="&#91;&#91;+request_uri&#93;&#93;" /&gt;
 
-                [[+login.recaptcha_html]]
+                &#91;&#91;+login.recaptcha_html&#93;&#93;
 
                 &lt;input class="loginLoginValue" type="hidden" name="service" value="login" /&gt;
-                &lt;span class="loginLoginButton"&gt;&lt;input type="submit" name="Login" value="[[+actionMsg]]" /&gt;&lt;/span&gt;
+                &lt;span class="loginLoginButton"&gt;&lt;input type="submit" name="Login" value="&#91;&#91;+actionMsg&#93;&#93;" /&gt;&lt;/span&gt;
             &lt;/fieldset&gt;
         &lt;/form&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;a href="[[~2]]"&gt;Forgot your Password?&lt;/a&gt;
+&lt;a href="&#91;&#91;~2&#93;&#93;"&gt;Forgot your Password?&lt;/a&gt;
 </pre>
 <p>
 You may choose to put the link to "Forgot your Password" inside your template and keep it out of the Chunk, it's really up to you. As long as your site is clean and organized and you're not putting chunks within chunks within chunks, then you should be Ok.
@@ -305,7 +305,7 @@ This page houses the form where users can request that their password be reset. 
 </p>
 
 <pre class="brush: php">
-[[!ForgotPassword? &amp;resetResourceId=`3` &amp;tpl=`lgnForgotPassTpl`]]
+&#91;&#91;!ForgotPassword? &amp;resetResourceId=`3` &amp;tpl=`lgnForgotPassTpl`&#93;&#93;
 </pre>
 <p>
 Here's what the flow looks like, just so you can follow what we're doing here:
@@ -330,7 +330,7 @@ When a user requests that his/her password be reset, they are emailed a link to 
 </p>
 
 <pre class="brush: php">
-[[!ResetPassword? &amp;loginResourceId=`1`]]
+&#91;&#91;!ResetPassword? &amp;loginResourceId=`1`&#93;&#93;
 </pre>
 <h3 id="Login.BasicSetup-MembersHomePage(4)">
 Members Home Page (4)
@@ -382,14 +382,14 @@ Weblink:
 </p>
 
 <pre class="brush: php">
-[[~1? &amp;service=`logout`]]
+&#91;&#91;~1? &amp;service=`logout`&#93;&#93;
 </pre>
 <p>
 This is effectively the same as adding a Logout link like this to your pages:
 </p>
 
 <pre class="brush: php">
-&lt;a href="[[~1? &amp;service=`logout`]]" title="Logout"&gt;Logout&lt;/a&gt;
+&lt;a href="&#91;&#91;~1? &amp;service=`logout`&#93;&#93;" title="Logout"&gt;Logout&lt;/a&gt;
 </pre>
 <h2 id="Login.BasicSetup-PossibleErrors">
 Possible Errors
@@ -412,14 +412,14 @@ Also make sure that your Snippets are called uncached! Some of them will functio
 </p>
 
 <pre class="brush: php">
-[[!Login]]
+&#91;&#91;!Login&#93;&#93;
 </pre>
 <p>
 and <strong>not</strong>
 </p>
 
 <pre class="brush: php">
-[[Login]]
+&#91;&#91;Login&#93;&#93;
 </pre>
 <h3 id="Login.BasicSetup-Ican'tlogout\!">
 I can't log out!

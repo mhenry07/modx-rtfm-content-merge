@@ -129,7 +129,7 @@ Let's go ahead and create a file at /www/doodles/_build/build.transport.php, and
 
 <pre class="brush: php">
 $tstart = explode(' ', microtime());
-$tstart = $tstart[1] + $tstart[0];
+$tstart = $tstart&#91;1&#93; + $tstart&#91;0&#93;;
 set_time_limit(0);
 
 /* define package names */
@@ -155,7 +155,7 @@ $sources = array(
 unset($root);
 
 /* override with your own defines here (see build.config.sample.php) */
-require_once $sources['build'] . 'build.config.php';
+require_once $sources&#91;'build'&#93; . 'build.config.php';
 require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 
 $modx= new modX();
@@ -174,7 +174,7 @@ $modx-&gt;log(modX::LOG_LEVEL_INFO,'Packing up transport package zip...');
 $builder-&gt;pack();
 
 $tend= explode(" ", microtime());
-$tend= $tend[1] + $tend[0];
+$tend= $tend&#91;1&#93; + $tend&#91;0&#93;;
 $totalTime= sprintf("%2.4f s",($tend - $tstart));
 $modx-&gt;log(modX::LOG_LEVEL_INFO,"\n&lt;br /&gt;Package Built.&lt;br /&gt;\nExecution time: {$totalTime}\n");
 exit ();
@@ -185,7 +185,7 @@ There's a lot in there. It's helpful to note that all this is doing so far is pa
 
 <pre class="brush: php">
 $tstart = explode(' ', microtime());
-$tstart = $tstart[1] + $tstart[0];
+$tstart = $tstart&#91;1&#93; + $tstart&#91;0&#93;;
 set_time_limit(0);
 
 /* define package names */
@@ -220,7 +220,7 @@ $sources = array(
 unset($root);
 
 /* override with your own defines here (see build.config.sample.php) */
-require_once $sources['build'] . 'build.config.php';
+require_once $sources&#91;'build'&#93; . 'build.config.php';
 require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 </pre>
 <p>
@@ -293,7 +293,7 @@ $modx-&gt;log(modX::LOG_LEVEL_INFO,'Packing up transport package zip...');
 $builder-&gt;pack();
 
 $tend= explode(" ", microtime());
-$tend= $tend[1] + $tend[0];
+$tend= $tend&#91;1&#93; + $tend&#91;0&#93;;
 $totalTime= sprintf("%2.4f s",($tend - $tstart));
 $modx-&gt;log(modX::LOG_LEVEL_INFO,"\n&lt;br /&gt;Package Built.&lt;br /&gt;\nExecution time: {$totalTime}\n");
 exit ();
@@ -325,7 +325,7 @@ $category-&gt;set('category',PKG_NAME);
 
 /* add snippets */
 //$modx-&gt;log(modX::LOG_LEVEL_INFO,'Packaging in snippets...');
-//$snippets = include $sources['data'].'transport.snippets.php';
+//$snippets = include $sources&#91;'data'&#93;.'transport.snippets.php';
 //if (empty($snippets)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not package in snippets.');
 //$category-&gt;addMany($snippets);
 
@@ -424,15 +424,15 @@ function getSnippetContent($filename) {
 }
 $snippets = array();
 
-$snippets[1]= $modx-&gt;newObject('modSnippet');
-$snippets[1]-&gt;fromArray(array(
+$snippets&#91;1&#93;= $modx-&gt;newObject('modSnippet');
+$snippets&#91;1&#93;-&gt;fromArray(array(
     'id' =&gt; 1,
     'name' =&gt; 'Doodles',
     'description' =&gt; 'Displays a list of Doodles.',
-    'snippet' =&gt; getSnippetContent($sources['elements'].'snippets/snippet.doodles.php'),
+    'snippet' =&gt; getSnippetContent($sources&#91;'elements'&#93;.'snippets/snippet.doodles.php'),
 ),'',true,true);
-$properties = include $sources['data'].'properties/properties.doodles.php';
-$snippets[1]-&gt;setProperties($properties);
+$properties = include $sources&#91;'data'&#93;.'properties/properties.doodles.php';
+$snippets&#91;1&#93;-&gt;setProperties($properties);
 unset($properties);
 
 return $snippets;
@@ -448,7 +448,7 @@ Next, we'll actually make a new Snippet object. Note, however, we're <strong>not
 <pre class="brush: php">
 /* add snippets */
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Packaging in snippets...');
-$snippets = include $sources['data'].'transport.snippets.php';
+$snippets = include $sources&#91;'data'&#93;.'transport.snippets.php';
 if (empty($snippets)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not package in snippets.');
 $category-&gt;addMany($snippets);
 </pre>
@@ -509,7 +509,7 @@ These are PHP representations of the default Properties for our Snippet. Let's l
 
 <blockquote>
 <p>
-[[Doodles? &amp;tpl=`rowTpl`]]
+&#91;&#91;Doodles? &amp;tpl=`rowTpl`&#93;&#93;
 </p>
 </blockquote>
 
@@ -541,11 +541,11 @@ Okay, so we've got our properties. But as you can see, we've referenced a 'doodl
 
 <pre class="brush: php">
 &lt;?php
-$_lang['prop_doodles.ascending'] = 'Ascending';
-$_lang['prop_doodles.descending'] = 'Descending';
-$_lang['prop_doodles.dir_desc'] = 'The direction to sort by.';
-$_lang['prop_doodles.sort_desc'] = 'The field to sort by.';
-$_lang['prop_doodles.tpl_desc'] = 'The chunk for displaying each row.';
+$_lang&#91;'prop_doodles.ascending'&#93; = 'Ascending';
+$_lang&#91;'prop_doodles.descending'&#93; = 'Descending';
+$_lang&#91;'prop_doodles.dir_desc'&#93; = 'The direction to sort by.';
+$_lang&#91;'prop_doodles.sort_desc'&#93; = 'The field to sort by.';
+$_lang&#91;'prop_doodles.tpl_desc'&#93; = 'The chunk for displaying each row.';
 </pre>
 <p>
 As you can see here, it's a similar format to our default topic. Also, the keys in each string here match with the 'desc' attribute in each of our properties. This means that our Snippet's properties will be translated when they are shown - useful for making Extras that are translatable!
@@ -577,11 +577,11 @@ add this:
 <pre class="brush: php">
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding file resolvers to category...');
 $vehicle-&gt;resolve('file',array(
-    'source' =&gt; $sources['source_assets'],
+    'source' =&gt; $sources&#91;'source_assets'&#93;,
     'target' =&gt; "return MODX_ASSETS_PATH . 'components/';",
 ));
 $vehicle-&gt;resolve('file',array(
-    'source' =&gt; $sources['source_core'],
+    'source' =&gt; $sources&#91;'source_core'&#93;,
     'target' =&gt; "return MODX_CORE_PATH . 'components/';",
 ));
 </pre>
@@ -619,7 +619,7 @@ Now that we've got most of our Extra nice and packaged, let's add in the Menu an
 
 <pre class="brush: php">
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Packaging in menu...');
-$menu = include $sources['data'].'transport.menu.php';
+$menu = include $sources&#91;'data'&#93;.'transport.menu.php';
 if (empty($menu)) $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Could not package in menu.');
 $vehicle= $builder-&gt;createVehicle($menu,array (
     xPDOTransport::PRESERVE_KEYS =&gt; true,
@@ -701,7 +701,7 @@ When someone installs our system, however, they're going to have 1 big problem -
 <pre class="brush: php">
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding in PHP resolvers...');
 $vehicle-&gt;resolve('php',array(
-    'source' =&gt; $sources['resolvers'] . 'resolve.tables.php',
+    'source' =&gt; $sources&#91;'resolvers'&#93; . 'resolve.tables.php',
 ));
 </pre>
 <p>
@@ -711,7 +711,7 @@ All that's passed into this PHP resolver is the 'source' field, which points to 
 <pre class="brush: php">
 &lt;?php
 if ($object-&gt;xpdo) {
-    switch ($options[xPDOTransport::PACKAGE_ACTION]) {
+    switch ($options&#91;xPDOTransport::PACKAGE_ACTION&#93;) {
         case xPDOTransport::ACTION_INSTALL:
             $modx =&amp; $object-&gt;xpdo;
             $modelPath = $modx-&gt;getOption('doodles.core_path',null,$modx-&gt;getOption('core_path').'components/doodles/').'model/';
@@ -790,11 +790,11 @@ Now that we've got our docs files, let's go to the end of our build.transport.ph
 <pre class="brush: php">
 $modx-&gt;log(modX::LOG_LEVEL_INFO,'Adding package attributes and setup options...');
 $builder-&gt;setPackageAttributes(array(
-    'license' =&gt; file_get_contents($sources['docs'] . 'license.txt'),
-    'readme' =&gt; file_get_contents($sources['docs'] . 'readme.txt'),
-    'changelog' =&gt; file_get_contents($sources['docs'] . 'changelog.txt'),
+    'license' =&gt; file_get_contents($sources&#91;'docs'&#93; . 'license.txt'),
+    'readme' =&gt; file_get_contents($sources&#91;'docs'&#93; . 'readme.txt'),
+    'changelog' =&gt; file_get_contents($sources&#91;'docs'&#93; . 'changelog.txt'),
     'setup-options' =&gt; array(
-        'source' =&gt; $sources['build'].'setup.options.php',
+        'source' =&gt; $sources&#91;'build'&#93;.'setup.options.php',
     ),
 ));
 </pre>
@@ -809,7 +809,7 @@ The new one is the 'setup-options' array. First off, it's an array with a key of
 <pre class="brush: php">
 &lt;?php
 $output = '';
-switch ($options[xPDOTransport::PACKAGE_ACTION]) {
+switch ($options&#91;xPDOTransport::PACKAGE_ACTION&#93;) {
     case xPDOTransport::ACTION_INSTALL:
         $output = '&lt;h2&gt;Doodles Installer&lt;/h2&gt;
 &lt;p&gt;Thanks for installing Doodles! Please review the setup options below before proceeding.&lt;/p&gt;&lt;br /&gt;';
@@ -825,7 +825,7 @@ So, this looks familiar to a resolver, eh? That's because this little bit of cod
 </p>
 
 <p>
-Remember that $options array in our PHP resolver? If we were to put any form elements in this output, they'd be found in that array with the same key. (An input with name of 'test' would be in $options<span class="error">['test']</span>). That means you could make a resolver that would process the form fields you put in the Setup Options script.
+Remember that $options array in our PHP resolver? If we were to put any form elements in this output, they'd be found in that array with the same key. (An input with name of 'test' would be in $options<span class="error">&#91;'test'&#93;</span>). That means you could make a resolver that would process the form fields you put in the Setup Options script.
 </p>
 
 <p>

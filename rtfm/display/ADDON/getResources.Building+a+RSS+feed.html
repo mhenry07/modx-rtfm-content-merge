@@ -51,13 +51,13 @@ In your MODX Manager, create a new resource.
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"&gt;
 &lt;channel&gt;
-    &lt;title&gt;[[*pagetitle]]&lt;/title&gt;
-    &lt;link&gt;[[~[[*id]]? &amp;scheme=`full`]]&lt;/link&gt;
-    &lt;description&gt;[[*introtext:cdata]]&lt;/description&gt;
-    &lt;language&gt;[[++cultureKey]]&lt;/language&gt;
+    &lt;title&gt;&#91;&#91;*pagetitle&#93;&#93;&lt;/title&gt;
+    &lt;link&gt;&#91;&#91;~&#91;&#91;*id&#93;&#93;? &amp;scheme=`full`&#93;&#93;&lt;/link&gt;
+    &lt;description&gt;&#91;&#91;*introtext:cdata&#93;&#93;&lt;/description&gt;
+    &lt;language&gt;&#91;&#91;++cultureKey&#93;&#93;&lt;/language&gt;
     &lt;ttl&gt;120&lt;/ttl&gt;
-    &lt;atom:link href="[[~[[*id]]? &amp;scheme=`full`]]" rel="self" type="application/rss+xml" /&gt;
-[[getResources?
+    &lt;atom:link href="&#91;&#91;~&#91;&#91;*id&#93;&#93;? &amp;scheme=`full`&#93;&#93;" rel="self" type="application/rss+xml" /&gt;
+&#91;&#91;getResources?
   &amp;tpl=`rssItem`
   &amp;parents=`29,41`
   &amp;depth=`5`
@@ -66,7 +66,7 @@ In your MODX Manager, create a new resource.
   &amp;includeTVs=`1`
   &amp;showHidden=`0`
   &amp;hideContainers=`1`
-]]
+&#93;&#93;
 &lt;/channel&gt;
 &lt;/rss&gt;
 </pre>
@@ -122,15 +122,15 @@ In the getResources snippets we referenced a chunk called "rssItem", so let's cr
 
 <pre class="brush: php">
 &lt;item&gt;
-  &lt;title&gt;[[+pagetitle:htmlent]]&lt;/title&gt;
-  &lt;link&gt;[[~[[+id]]? &amp;scheme=`full`]]&lt;/link&gt;
+  &lt;title&gt;&#91;&#91;+pagetitle:htmlent&#93;&#93;&lt;/title&gt;
+  &lt;link&gt;&#91;&#91;~&#91;&#91;+id&#93;&#93;? &amp;scheme=`full`&#93;&#93;&lt;/link&gt;
   &lt;description&gt;
-    [[+introtext:default=`[[+content:ellipsis=`600`]]`:cdata]]
+    &#91;&#91;+introtext:default=`&#91;&#91;+content:ellipsis=`600`&#93;&#93;`:cdata&#93;&#93;
   &lt;/description&gt;
-  &lt;pubDate&gt;[[+publishedon:strtotime:date=`%a, %d %b %Y %H:%M:%S %z`]]&lt;/pubDate&gt;
-  &lt;guid isPermaLink="false"&gt;[[~[[+id]]? &amp;scheme=`full`]]&lt;/guid&gt;
+  &lt;pubDate&gt;&#91;&#91;+publishedon:strtotime:date=`%a, %d %b %Y %H:%M:%S %z`&#93;&#93;&lt;/pubDate&gt;
+  &lt;guid isPermaLink="false"&gt;&#91;&#91;~&#91;&#91;+id&#93;&#93;? &amp;scheme=`full`&#93;&#93;&lt;/guid&gt;
   &lt;dc:creator&gt;
-      [[+createdby:userinfo=`fullname`]]
+      &#91;&#91;+createdby:userinfo=`fullname`&#93;&#93;
   &lt;/dc:creator&gt;
 &lt;/item&gt;
 </pre>
@@ -163,7 +163,7 @@ When you save the chunk, and go back to your feed, you should see it has loaded 
 </p>
 
 <pre class="brush: php">
- &lt;link rel="alternate" type="application/rss+xml" title="Follow this website with RSS" href="[[~52]]" /&gt;
+ &lt;link rel="alternate" type="application/rss+xml" title="Follow this website with RSS" href="&#91;&#91;~52&#93;&#93;" /&gt;
 </pre>
 <p>
 Be sure to replace 52 with the ID of your RSS resource. This will make the browser recognize the feed, and put the shiny icon in the navigation bar.

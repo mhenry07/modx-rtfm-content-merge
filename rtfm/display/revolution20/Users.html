@@ -66,8 +66,8 @@ When a user is logged into the frontend of your site, their username and ID can 
 </p>
 
 <pre class="brush: php">
-[[+modx.user.id]] - Prints the ID
-[[+modx.user.username]] - Prints the username
+&#91;&#91;+modx.user.id&#93;&#93; - Prints the ID
+&#91;&#91;+modx.user.username&#93;&#93; - Prints the username
 </pre>
 <p>
 If a user is not logged in, ID will be blank, and Username will be "(anonymous)".
@@ -434,10 +434,10 @@ Values in the extended field return as an array. They can be manipulated like so
 <pre class="brush: php">
 /* get the extended field named "color": */
 $fields = $profile-&gt;get('extended');
-$color = $fields['color'];
+$color = $fields&#91;'color'&#93;;
 /* set the color field to red */
 $fields = $profile-&gt;get('extended');
-$fields['color'] = 'red';
+$fields&#91;'color'&#93; = 'red';
 $profile-&gt;set('extended',$fields);
 $profile-&gt;save();
 </pre>

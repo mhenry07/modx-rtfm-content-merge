@@ -383,11 +383,11 @@ available placeholders
 </h3>
 
 <pre class="brush: php">
-[[+firstname]]
-[[+lastname]]
-[[+fullname]]
-[[+company]]
-[[+email]]
+&#91;&#91;+firstname&#93;&#93;
+&#91;&#91;+lastname&#93;&#93;
+&#91;&#91;+fullname&#93;&#93;
+&#91;&#91;+company&#93;&#93;
+&#91;&#91;+email&#93;&#93;
 </pre>
 <h2 id="DitsNews-Examples">
 Examples
@@ -398,12 +398,12 @@ Example of a Newsletter Template
 </h3>
 
 <pre class="brush: php">
-[[!ditsnewsPlaceholders? &amp;firstnameDefault=`Subscriber`]] &lt;!-- Sets firstname field of email newsletter to "Subscriber" when empty --&gt;
+&#91;&#91;!ditsnewsPlaceholders? &amp;firstnameDefault=`Subscriber`&#93;&#93; &lt;!-- Sets firstname field of email newsletter to "Subscriber" when empty --&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt;
 &lt;title&gt;My newsletter&lt;/title&gt;
-&lt;base href="[[++site_url]]" /&gt;&lt;!-- Important! DitsNews needs this to create correct URLs! --&gt;
+&lt;base href="&#91;&#91;++site_url&#93;&#93;" /&gt;&lt;!-- Important! DitsNews needs this to create correct URLs! --&gt;
 &lt;style type="text/css"&gt;
 a {
  font-weight: bold;
@@ -412,9 +412,9 @@ a {
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;p&gt;Hello [[!+firstname:default=`Subscriber`]],&lt;/p&gt;
-[[*content]]
-&lt;p&gt;&lt;a href="[[~10]]"&gt;Unsubscribe&lt;/a&gt;&lt;/p&gt;&lt;!-- Link to unsubscribe page: user data will be added while sending --&gt;
+&lt;p&gt;Hello &#91;&#91;!+firstname:default=`Subscriber`&#93;&#93;,&lt;/p&gt;
+&#91;&#91;*content&#93;&#93;
+&lt;p&gt;&lt;a href="&#91;&#91;~10&#93;&#93;"&gt;Unsubscribe&lt;/a&gt;&lt;/p&gt;&lt;!-- Link to unsubscribe page: user data will be added while sending --&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>

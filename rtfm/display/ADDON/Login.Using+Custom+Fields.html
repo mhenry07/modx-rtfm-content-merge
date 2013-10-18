@@ -19,11 +19,11 @@ Basically, to start using extended fields, all you have to do is add a form fiel
 </p>
 
 <pre class="brush: php">
-[[!Register? &amp;submitVar=`go`]]
+&#91;&#91;!Register? &amp;submitVar=`go`&#93;&#93;
 ...
 &lt;label&gt;Favorite Color:
-&lt;span class="error"&gt;[[+error.color]]&lt;/span&gt;
-&lt;input type="text" name="color:required" value="[[+color]]" /&gt;
+&lt;span class="error"&gt;&#91;&#91;+error.color&#93;&#93;&lt;/span&gt;
+&lt;input type="text" name="color:required" value="&#91;&#91;+color&#93;&#93;" /&gt;
 &lt;/label&gt;
 ...
 &lt;input type="submit" name="go" value="Register!" /&gt;
@@ -41,20 +41,20 @@ Then, you can use <a href="extras/revo/login/login.profile" title="Login.Profile
 </p>
 
 <pre class="brush: php">
-[[!Profile]]
+&#91;&#91;!Profile&#93;&#93;
 
-&lt;p&gt;[[+username]]'s Favorite Color: [[+color]]&lt;/p&gt;
+&lt;p&gt;&#91;&#91;+username&#93;&#93;'s Favorite Color: &#91;&#91;+color&#93;&#93;&lt;/p&gt;
 </pre>
 <p>
 Or even when using the <a href="extras/revo/login/login.updateprofile" title="Login.UpdateProfile">UpdateProfile</a> snippet:
 </p>
 
 <pre class="brush: php">
-[[!UpdateProfile]]
+&#91;&#91;!UpdateProfile&#93;&#93;
 ...
 &lt;label&gt;Favorite Color:
-&lt;span class="error"&gt;[[+error.color]]&lt;/span&gt;
-&lt;input type="text" name="color:required" value="[[+color]]" /&gt;
+&lt;span class="error"&gt;&#91;&#91;+error.color&#93;&#93;&lt;/span&gt;
+&lt;input type="text" name="color:required" value="&#91;&#91;+color&#93;&#93;" /&gt;
 &lt;/label&gt;
 </pre>
 <p>
@@ -66,11 +66,11 @@ Directly Creating and Populating Attribute Containers
 </h3>
 
 <pre class="brush: php">
-                &lt;input type="hidden" name="january[Spaces]" value="" /&gt;
-                &lt;input type="hidden" name="january[Tables]" value="" /&gt;
-                &lt;input type="hidden" name="january[Chairs]" value="" /&gt;
-                &lt;input type="hidden" name="january[NeedsElectric]" value="" /&gt;
-                &lt;input type="hidden" name="january[Misc]" value="" /&gt;
+                &lt;input type="hidden" name="january&#91;Spaces&#93;" value="" /&gt;
+                &lt;input type="hidden" name="january&#91;Tables&#93;" value="" /&gt;
+                &lt;input type="hidden" name="january&#91;Chairs&#93;" value="" /&gt;
+                &lt;input type="hidden" name="january&#91;NeedsElectric&#93;" value="" /&gt;
+                &lt;input type="hidden" name="january&#91;Misc&#93;" value="" /&gt;
 </pre>
 <p>
 <img src="download/attachments/21135392/login.extendedUserContainers.png?version=1&amp;modificationDate=1329484036000" style="border: 1px solid black" />
@@ -85,7 +85,7 @@ Both the <a href="extras/revo/login/login.register" title="Login.Register">Regis
 </p>
 
 <pre class="brush: php">
-[[!Register? &amp;excludeExtended=`nospam,customProp`]]
+&#91;&#91;!Register? &amp;excludeExtended=`nospam,customProp`&#93;&#93;
 </pre>
 <h3 id="Login.UsingCustomFields-IntheManager">
 In the Manager
@@ -108,9 +108,9 @@ You can access them with the . syntax:
 </p>
 
 <pre class="brush: php">
-[[!Profile]]
+&#91;&#91;!Profile&#93;&#93;
 
-Value of nested attribute: [[+test.below]]
+Value of nested attribute: &#91;&#91;+test.below&#93;&#93;
 </pre>
 <p>
 ...will display 'boo!' there.

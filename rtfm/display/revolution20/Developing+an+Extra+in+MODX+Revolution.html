@@ -400,10 +400,10 @@ $sources = array(
 $manager= $modx-&gt;getManager();
 $generator= $manager-&gt;getGenerator();
 
-if (!is_dir($sources['model'])) { $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Model directory not found!'); die(); }
-if (!file_exists($sources['schema_file'])) { $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Schema file not found!'); die(); }
-$generator-&gt;parseSchema($sources['schema_file'],$sources['model']);
-$modx-&gt;addPackage('doodles', $sources['model']); // add package to make all models available
+if (!is_dir($sources&#91;'model'&#93;)) { $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Model directory not found!'); die(); }
+if (!file_exists($sources&#91;'schema_file'&#93;)) { $modx-&gt;log(modX::LOG_LEVEL_ERROR,'Schema file not found!'); die(); }
+$generator-&gt;parseSchema($sources&#91;'schema_file'&#93;,$sources&#91;'model'&#93;);
+$modx-&gt;addPackage('doodles', $sources&#91;'model'&#93;); // add package to make all models available
 $manager-&gt;createObjectContainer('Doodle'); // created the database table
 $modx-&gt;log(modX::LOG_LEVEL_INFO, 'Done!');
 </pre>
@@ -446,7 +446,7 @@ Bravo! You've just made your maps and classes. Let's go make an adjustment to ou
 </p>
 
 <pre class="brush: php">
-$this-&gt;modx-&gt;addPackage('doodles',$this-&gt;config['modelPath']);
+$this-&gt;modx-&gt;addPackage('doodles',$this-&gt;config&#91;'modelPath'&#93;);
 </pre>
 <p>
 This tells xPDO that we want to add the 'doodles' xPDO package in, allowing us to query that custom table. Bravo!
@@ -490,7 +490,7 @@ Create a new snippet, and check the Is Static checkbox. This will display two ne
 </p>
 
 <pre class="brush: php">
-[[++doodles.core_path]]components/doodles/elements/snippets/snippet.doodles.php
+&#91;&#91;++doodles.core_path&#93;&#93;components/doodles/elements/snippets/snippet.doodles.php
 </pre>
 <p>
 Note the extra slash there between the setting tag and the rest of the path. We did put a trailing slash in our core_path, but somewhere in the processing MODx disappears that trailing slash, so we need to add one here. The path will now resolve to
@@ -570,15 +570,15 @@ In a lot of my Extras, I add a couple of helper methods to my base class called 
 <pre class="brush: php">
     public function getChunk($name,$properties = array()) {
         $chunk = null;
-        if (!isset($this-&gt;chunks[$name])) {
+        if (!isset($this-&gt;chunks&#91;$name&#93;)) {
             $chunk = $this-&gt;_getTplChunk($name);
             if (empty($chunk)) {
                 $chunk = $this-&gt;modx-&gt;getObject('modChunk',array('name' =&gt; $name));
                 if ($chunk == false) return false;
             }
-            $this-&gt;chunks[$name] = $chunk-&gt;getContent();
+            $this-&gt;chunks&#91;$name&#93; = $chunk-&gt;getContent();
         } else {
-            $o = $this-&gt;chunks[$name];
+            $o = $this-&gt;chunks&#91;$name&#93;;
             $chunk = $this-&gt;modx-&gt;newObject('modChunk');
             $chunk-&gt;setContent($o);
         }
@@ -588,7 +588,7 @@ In a lot of my Extras, I add a couple of helper methods to my base class called 
 
     private function _getTplChunk($name,$postfix = '.chunk.tpl') {
         $chunk = false;
-        $f = $this-&gt;config['chunksPath'].strtolower($name).$postfix;
+        $f = $this-&gt;config&#91;'chunksPath'&#93;.strtolower($name).$postfix;
         if (file_exists($f)) {
             $o = file_get_contents($f);
             $chunk = $this-&gt;modx-&gt;newObject('modChunk');
@@ -606,7 +606,7 @@ For now, all you need to know is that these methods will look for Chunks in your
 $o = $dood-&gt;getChunk('hello',array('name' =&gt; 'Joe'));
 </pre>
 <p>
-It would set to $o the contents of /www/doodles/core/components/doodles/elements/chunks/hello.chunk.tpl, with the property [[+name]] parsed as Joe. This will allow you to edit your Chunks in your IDE, rather than in MODX. It will also allow you to package your Extra without installing default chunks into the user's MODX install (which they would be tempted to overwrite, which would get erased in upgrades of your Extra).
+It would set to $o the contents of /www/doodles/core/components/doodles/elements/chunks/hello.chunk.tpl, with the property &#91;&#91;+name&#93;&#93; parsed as Joe. This will allow you to edit your Chunks in your IDE, rather than in MODX. It will also allow you to package your Extra without installing default chunks into the user's MODX install (which they would be tempted to overwrite, which would get erased in upgrades of your Extra).
 </p>
 
 <p>
@@ -614,7 +614,7 @@ So, back to our snippet. Create a Chunk file in /www/doodles/core/components/doo
 </p>
 
 <pre class="brush: php">
-&lt;li&gt;&lt;strong&gt;[[+name]]&lt;/strong&gt; - [[+description]]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&#91;&#91;+name&#93;&#93;&lt;/strong&gt; - &#91;&#91;+description&#93;&#93;&lt;/li&gt;
 </pre>
 <p>
 Now add this below your query but above the return line in your Snippet:

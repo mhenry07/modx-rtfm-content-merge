@@ -162,7 +162,7 @@ placeholderPrefix
 sn.
 </td>
 <td>
-example: [<span class="error">[+sn.next]</span>]
+example: &#91;<span class="error">&#91;+sn.next&#93;</span>&#93;
 </td>
 </tr>
 
@@ -267,19 +267,19 @@ Minimum call for getting a navigation with all siblings
 </p>
 
 <pre class="brush: php">
-[[!siblingNav]]
-[[+sn.first]][[+sn.prev]][[+sn.prevlinks]][[+sn.self]][[+sn.nextlinks]][[+sn.next]][[+sn.last]]
+&#91;&#91;!siblingNav&#93;&#93;
+&#91;&#91;+sn.first&#93;&#93;&#91;&#91;+sn.prev&#93;&#93;&#91;&#91;+sn.prevlinks&#93;&#93;&#91;&#91;+sn.self&#93;&#93;&#91;&#91;+sn.nextlinks&#93;&#93;&#91;&#91;+sn.next&#93;&#93;&#91;&#91;+sn.last&#93;&#93;
 </pre>
 <p>
 Advanced calls for getting a navigation with parents and navigate between childs of multiple parents
 </p>
 
 <pre class="brush: php">
-[[!siblingNav? &amp;limit=`7` &amp;id=`[[*parent]]` &amp;placeholderPrefix=`snparent.`]]
-[[+snparent.prev]][[+snparent.prevlinks]][[+snparent.self]][[+snparent.nextlinks]][[+snparent.next]]
+&#91;&#91;!siblingNav? &amp;limit=`7` &amp;id=`&#91;&#91;*parent&#93;&#93;` &amp;placeholderPrefix=`snparent.`&#93;&#93;
+&#91;&#91;+snparent.prev&#93;&#93;&#91;&#91;+snparent.prevlinks&#93;&#93;&#91;&#91;+snparent.self&#93;&#93;&#91;&#91;+snparent.nextlinks&#93;&#93;&#91;&#91;+snparent.next&#93;&#93;
 
-[[!siblingNav? &amp;limit=`9` &amp;parents=`29,261`]]
-[[+sn.first]][[+sn.prev]][[+sn.prevlinks]][[+sn.self]][[+sn.nextlinks]][[+sn.next]][[+sn.last]]
+&#91;&#91;!siblingNav? &amp;limit=`9` &amp;parents=`29,261`&#93;&#93;
+&#91;&#91;+sn.first&#93;&#93;&#91;&#91;+sn.prev&#93;&#93;&#91;&#91;+sn.prevlinks&#93;&#93;&#91;&#91;+sn.self&#93;&#93;&#91;&#91;+sn.nextlinks&#93;&#93;&#91;&#91;+sn.next&#93;&#93;&#91;&#91;+sn.last&#93;&#93;
 </pre>
 <p>
 You should use firstChildRedirect in parent resources.

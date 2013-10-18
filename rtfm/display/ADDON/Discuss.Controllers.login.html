@@ -101,12 +101,12 @@ There are no specific placeholders to use in this controller template.
 </p>
 
 <pre class="brush: php">
-[[!Login?
+&#91;&#91;!Login?
     &amp;loginTpl=`disLoginTpl`
     &amp;logoutTpl=`disLogoutTpl`
     &amp;preHooks=`preHook.DiscussLogin`
     &amp;postHooks=`postHook.DiscussLogin`
-]]
+&#93;&#93;
 </pre>
 <p>
 Please note that the disLoginTpl and disLogoutTpl chunks are currently (1.1.0) not included in the package, but can be any valid <a href="extras/revo/login/login.login" title="Login.Login">Login chunk</a>. In order to properly sync user data to Discuss, you will need to have the preHook.DiscussLogin as prehook and postHook.DiscussLogin as posthook - also when using a third party auth scheme.

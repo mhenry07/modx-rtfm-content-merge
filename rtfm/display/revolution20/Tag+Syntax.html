@@ -38,7 +38,7 @@
 </div>
 
 <p>
-To simplify parsing logic, improve parsing performance and avoid confusion with many new adopters, all tags are now of a single format, differentiated by a token or a set of tokens which appear before a string which identifies the Content Element or Content Tag to be processed; e.g. [[<em>tokenIdentifier</em>]].
+To simplify parsing logic, improve parsing performance and avoid confusion with many new adopters, all tags are now of a single format, differentiated by a token or a set of tokens which appear before a string which identifies the Content Element or Content Tag to be processed; e.g. &#91;&#91;<em>tokenIdentifier</em>&#93;&#93;.
 </p>
 
 <h2 id="TagSyntax-TagFormatChangesforContentElementsandContentTags">
@@ -89,17 +89,17 @@ no tag representation
 Resource Fields
 </td>
 <td>
-[*<em>field</em>*]
+&#91;*<em>field</em>*&#93;
 </td>
 <td>
 &nbsp;
 </td>
 <td>
-[[*field]]
+&#91;&#91;*field&#93;&#93;
 <br />
 </td>
 <td>
-[[*pagetitle]]
+&#91;&#91;*pagetitle&#93;&#93;
 </td>
 </tr>
 
@@ -108,16 +108,16 @@ Resource Fields
 <a href="revolution/2.x/making-sites-with-modx/customizing-content/template-variables" title="Template Variables">Template Variables</a>
 </td>
 <td>
-[*<em>templatevar</em>*]
+&#91;*<em>templatevar</em>*&#93;
 </td>
 <td>
 &nbsp;
 </td>
 <td>
-[[*<em>templatevar</em>]]
+&#91;&#91;*<em>templatevar</em>&#93;&#93;
 </td>
 <td>
-[[*tags]]
+&#91;&#91;*tags&#93;&#93;
 <br />
 </td>
 </tr>
@@ -134,10 +134,10 @@ Resource Fields
 &nbsp;
 </td>
 <td>
-[[$<em>chunk</em>]]
+&#91;&#91;$<em>chunk</em>&#93;&#93;
 </td>
 <td>
-[[$header]]
+&#91;&#91;$header&#93;&#93;
 <br />
 </td>
 </tr>
@@ -147,16 +147,16 @@ Resource Fields
 <a href="revolution/2.x/developing-in-modx/basic-development/snippets" title="Snippets">Snippets</a>
 </td>
 <td>
-[[<em>snippet</em>]]
+&#91;&#91;<em>snippet</em>&#93;&#93;
 </td>
 <td>
 &nbsp;
 </td>
 <td>
-[[<em>snippet</em>]]
+&#91;&#91;<em>snippet</em>&#93;&#93;
 </td>
 <td>
-[[getResources]]
+&#91;&#91;getResources&#93;&#93;
 <br />
 </td>
 </tr>
@@ -220,17 +220,17 @@ does not exist in Revolution, use <a href="revolution/2.x/developing-in-modx/adv
 Placeholders
 </td>
 <td>
-[+<em>placeholder</em>+]
+&#91;+<em>placeholder</em>+&#93;
 <br />
 </td>
 <td>
 &nbsp;
 </td>
 <td>
-[[+<em>placeholder</em>]]
+&#91;&#91;+<em>placeholder</em>&#93;&#93;
 </td>
 <td>
-[[+modx.user.id]]
+&#91;&#91;+modx.user.id&#93;&#93;
 <br />
 </td>
 </tr>
@@ -240,16 +240,16 @@ Placeholders
 <a href="revolution/2.x/making-sites-with-modx/structuring-your-site/resources" title="Resources">Links</a>
 </td>
 <td>
-[~<em>link</em>~]
+&#91;~<em>link</em>~&#93;
 </td>
 <td>
 &nbsp;
 </td>
 <td>
-[[~<em>link</em>]]
+&#91;&#91;~<em>link</em>&#93;&#93;
 </td>
 <td>
-[[~[[*id]]? &amp;scheme=`full`]]
+&#91;&#91;~&#91;&#91;*id&#93;&#93;? &amp;scheme=`full`&#93;&#93;
 <br />
 </td>
 </tr>
@@ -259,16 +259,16 @@ Placeholders
 <a href="revolution/2.x/administering-your-site/settings/system-settings" title="System Settings">System Settings</a>
 </td>
 <td>
-[(<em>system_setting</em>)]
+&#91;(<em>system_setting</em>)&#93;
 </td>
 <td>
 &nbsp;
 </td>
 <td>
-[[++<em>system_setting</em>]]
+&#91;&#91;++<em>system_setting</em>&#93;&#93;
 </td>
 <td>
-[[++site_start]]
+&#91;&#91;++site_start&#93;&#93;
 <br />
 </td>
 </tr>
@@ -284,10 +284,10 @@ no tag representation
 &nbsp;
 </td>
 <td>
-[[%<em>language_string_key</em>]]
+&#91;&#91;%<em>language_string_key</em>&#93;&#93;
 </td>
 <td>
-[[%LanguageStringKey? &amp;language=`en` &amp;namespace=`NameSpaceName` &amp;topic=`TopicName`]]
+&#91;&#91;%LanguageStringKey? &amp;language=`en` &amp;namespace=`NameSpaceName` &amp;topic=`TopicName`&#93;&#93;
 </td>
 </tr>
 
@@ -303,7 +303,7 @@ Comment (see note below)
 &nbsp;
 </td>
 <td>
-[[-this is a comment]]
+&#91;&#91;-this is a comment&#93;&#93;
 <br />
 </td>
 <td>
@@ -338,7 +338,7 @@ As of MODX Revolution 2.2 any tag found that starts with a dash (-) is ignored b
 </p>
 
 <pre class="brush: php">
- [[- This is a comment, and will be removed from the output. ]]
+ &#91;&#91;- This is a comment, and will be removed from the output. &#93;&#93;
 </pre>
 <h2 id="TagSyntax-StructureofaTag">
 Structure of a Tag
@@ -349,7 +349,7 @@ A tag can contain many sub-parts within it. Below is illustrated on multiple lin
 </p>
 
 <p>
-<strong>[[</strong> <em>(opening tags)</em>
+<strong>&#91;&#91;</strong> <em>(opening tags)</em>
 <br />
 <strong>!</strong> <em>(optional non-cacheable flag)</em>
 <br />
@@ -365,7 +365,7 @@ A tag can contain many sub-parts within it. Below is illustrated on multiple lin
 <br />
 <strong>&amp;propertyName=`propertyValue`</strong> &amp;... <em>(optional; any additional properties separated by &amp;)</em>
 <br />
-<strong>]]</strong> <em>(closing tags)</em>
+<strong>&#93;&#93;</strong> <em>(closing tags)</em>
 </p>
 
 <p>
@@ -373,19 +373,19 @@ Put these all together, and a tag with all valid parts might look like this:
 </p>
 
 <pre class="brush: php">
-[[MySnippet@myPropSet:filter1:filter2=`modifier`? &amp;prop1=`x` &amp;prop2=`y`]]
+&#91;&#91;MySnippet@myPropSet:filter1:filter2=`modifier`? &amp;prop1=`x` &amp;prop2=`y`&#93;&#93;
 </pre>
 <p>
 Note that tags can occur either on one line, or spread out across many lines. Both of these are acceptable:
 </p>
 
 <pre class="brush: php">
-[[!getResources? &amp;parents=`123` &amp;limit=`5`]]
+&#91;&#91;!getResources? &amp;parents=`123` &amp;limit=`5`&#93;&#93;
 
-[[!getResources?
+&#91;&#91;!getResources?
   &amp;parents=`123`
   &amp;limit=`5`
-]]
+&#93;&#93;
 </pre>
 <div class="tip">
 <strong>Take it Easy</strong>
@@ -405,14 +405,14 @@ All MODX Revo tags can accept properties (not just Snippets). For example, let's
 </p>
 
 <pre class="brush: php">
-Hello [[+name]]!
+Hello &#91;&#91;+name&#93;&#93;!
 </pre>
 <p>
 You'll note the new placeholder syntax. So, we'll definitely want to parse that Chunk's property. In Evolution, you would need to do this with a Snippet; no longer. You can simply pass a property for the Chunk:
 </p>
 
 <pre class="brush: php">
-[[$Hello?name=`George`]]
+&#91;&#91;$Hello?name=`George`&#93;&#93;
 </pre>
 <p>
 This would output:
@@ -430,11 +430,11 @@ Caching
 </h2>
 
 <p>
-In Evolution, Snippets that need to be processed with each request should be on an uncached page or the Snippet itself should be called uncached: [!snippet!]
+In Evolution, Snippets that need to be processed with each request should be on an uncached page or the Snippet itself should be called uncached: &#91;!snippet!&#93;
 </p>
 
 <p>
-In Revolution, any tag can be called uncached by inserting an exclamation point immediately after the double-bracket: [[!snippet]],&nbsp;[[!$chunk]],&nbsp;[[!+placeholder]], [[!*template_var]],&nbsp;etc.
+In Revolution, any tag can be called uncached by inserting an exclamation point immediately after the double-bracket: &#91;&#91;!snippet&#93;&#93;,&nbsp;&#91;&#91;!$chunk&#93;&#93;,&nbsp;&#91;&#91;!+placeholder&#93;&#93;, &#91;&#91;!*template_var&#93;&#93;,&nbsp;etc.
 </p>
 
 <p>
@@ -442,9 +442,9 @@ In Revolution, any tag can be called uncached by inserting an exclamation point 
 </p>
 
 <div class="info">
-If you have some kind of advanced setup in which the site_url setting is being set per request, but your [[~[[*id]]]] links are not being generated properly, remember that any tag can be called uncached, including the link or anchor tag:
+If you have some kind of advanced setup in which the site_url setting is being set per request, but your &#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93; links are not being generated properly, remember that any tag can be called uncached, including the link or anchor tag:
 <p>
-[[!~[[*id]]]]
+&#91;&#91;!~&#91;&#91;*id&#93;&#93;&#93;&#93;
 </p>
 
 <p>
@@ -469,8 +469,8 @@ If you want to call a Snippet uncached that sets placeholders, you need to make 
 </p>
 
 <pre class="brush: php">
-[[!Profile]]
-Hello [[!+username]],
+&#91;&#91;!Profile&#93;&#93;
+Hello &#91;&#91;!+username&#93;&#93;,
 </pre>
 <h2 id="TagSyntax-Timing">
 Timing
@@ -482,23 +482,23 @@ There are several timing tags in MODX:
 
 <ul>
 <li>
-<strong>[^qt^]</strong> - Query Time - Shows how long MODx took talking to the database
+<strong>&#91;^qt^&#93;</strong> - Query Time - Shows how long MODx took talking to the database
 </li>
 
 <li>
-<strong>[^q^]</strong> - Query Count -Shows how many database queries MODX made
+<strong>&#91;^q^&#93;</strong> - Query Count -Shows how many database queries MODX made
 </li>
 
 <li>
-<strong>[^p^]</strong> - Parse Time - Shows how long MODX took to parse the page
+<strong>&#91;^p^&#93;</strong> - Parse Time - Shows how long MODX took to parse the page
 </li>
 
 <li>
-<strong>[^t^]</strong> - Total Time - Shows the total time taken to parse/ render the page
+<strong>&#91;^t^&#93;</strong> - Total Time - Shows the total time taken to parse/ render the page
 </li>
 
 <li>
-<strong>[^s^]</strong> - Source - Shows the source of page, whether is database or cache.
+<strong>&#91;^s^&#93;</strong> - Source - Shows the source of page, whether is database or cache.
 </li>
 </ul>
 

@@ -81,10 +81,10 @@ First off, let's create a chunk that we'll use for each item in the result set. 
 </p>
 
 <pre class="brush: php">
-&lt;li&gt;&lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle]]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;"&gt;&#91;&#91;+pagetitle&#93;&#93;&lt;/a&gt;&lt;/li&gt;
 </pre>
 <p>
-Basically, we make an LI tag, and put some placeholders were our content was. We have available any field in the Resource, and here we're just using the ID and pagetitle fields. The [[~ tells MODx to make a link from the ID passed in the [[+id]] property. Now let's add a default property to the snippet, called 'tpl', to the top of our snippet code:
+Basically, we make an LI tag, and put some placeholders were our content was. We have available any field in the Resource, and here we're just using the ID and pagetitle fields. The &#91;&#91;~ tells MODx to make a link from the ID passed in the &#91;&#91;+id&#93;&#93; property. Now let's add a default property to the snippet, called 'tpl', to the top of our snippet code:
 </p>
 
 <pre class="brush: php">
@@ -105,7 +105,7 @@ foreach ($resources as $resource) {
 }
 </pre>
 <p>
-The code first turns the modResource object into an array of field=name pairs (ie, $resourceArray['pagetitle'] is the pagetitle) via the toArray() method. Then, we use $modx-&gt;getChunk() to pass our tpl Chunk and the resource array into it as properties. MODx parses the chunk, replaces the properties, and returns us some content.
+The code first turns the modResource object into an array of field=name pairs (ie, $resourceArray&#91;'pagetitle'&#93; is the pagetitle) via the toArray() method. Then, we use $modx-&gt;getChunk() to pass our tpl Chunk and the resource array into it as properties. MODx parses the chunk, replaces the properties, and returns us some content.
 </p>
 
 <p>
@@ -129,10 +129,10 @@ Now the user can call the snippet this way to override the chunk for each Resour
 </p>
 
 <pre class="brush: php">
-[[!ResourceLister? &amp;tpl=`MyOwnChunk`]]
+&#91;&#91;!ResourceLister? &amp;tpl=`MyOwnChunk`&#93;&#93;
 </pre>
 <p>
-Meaning they can template their results however they want - using LIs, or table rows, or whatever! You've now created a flexible, powerful snippet. The available placeholders depend on what array is passed to $modx-&gt;getChunk(); or $tpl-&gt;process() methods. In this example the available placeholders would be all default fields (no TVs!) of a resource like for example [[+pagetitle]], [[+id]] or [[+content]].
+Meaning they can template their results however they want - using LIs, or table rows, or whatever! You've now created a flexible, powerful snippet. The available placeholders depend on what array is passed to $modx-&gt;getChunk(); or $tpl-&gt;process() methods. In this example the available placeholders would be all default fields (no TVs!) of a resource like for example &#91;&#91;+pagetitle&#93;&#93;, &#91;&#91;+id&#93;&#93; or &#91;&#91;+content&#93;&#93;.
 </p>
 
 <h3 id="TemplatingYourSnippets-AddingARowClass">
@@ -151,7 +151,7 @@ This tells MODx to default the &amp;rowCls property for the snippet to 'resource
 </p>
 
 <pre class="brush: php">
-&lt;li class="[[+rowCls]]"&gt;&lt;a href="[[~[[+id]]]]"&gt;[[+pagetitle]]&lt;/a&gt;&lt;/li&gt;
+&lt;li class="&#91;&#91;+rowCls&#93;&#93;"&gt;&lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;"&gt;&#91;&#91;+pagetitle&#93;&#93;&lt;/a&gt;&lt;/li&gt;
 </pre>
 <p>
 And finally, change our foreach loop to this:
@@ -160,7 +160,7 @@ And finally, change our foreach loop to this:
 <pre class="brush: php">
 foreach ($resources as $resource) {
    $resourceArray = $resource-&gt;toArray();
-   $resourceArray['rowCls'] = $rowCls;
+   $resourceArray&#91;'rowCls'&#93; = $rowCls;
    $output .= $modx-&gt;getChunk($tpl,$resourceArray);
 }
 </pre>
@@ -214,7 +214,7 @@ $resources = $modx-&gt;getCollection('modResource',$c);
 $output = '';
 foreach ($resources as $resource) {
     $resourceArray = $resource-&gt;toArray();
-    $resourceArray['cls'] = $rowCls;
+    $resourceArray&#91;'cls'&#93; = $rowCls;
     $output .= $modx-&gt;getChunk($tpl,$resourceArray);
 }
 return $output;

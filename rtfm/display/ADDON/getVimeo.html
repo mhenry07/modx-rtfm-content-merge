@@ -47,7 +47,7 @@ The getVimeo snippet can be called using the tag:
 </p>
 
 <pre class="brush: php">
-[[getVimeo]]
+&#91;&#91;getVimeo&#93;&#93;
 </pre>
 <div class="note">
 Calls without the &amp;channel, &amp;id and &amp;tpl properties specified will output nothing.
@@ -230,7 +230,7 @@ Name of a chunk serving as a template for every other Video.
 tplWrapper
 </td>
 <td>
-Name of a chunk serving as a wrapper template for the output. (NOTE: Does not work with &amp;toPlaceholder. The placeholder where the items are inserted is [[+output]])
+Name of a chunk serving as a wrapper template for the output. (NOTE: Does not work with &amp;toPlaceholder. The placeholder where the items are inserted is &#91;&#91;+output&#93;&#93;)
 </td>
 <td>
 &nbsp;
@@ -311,7 +311,7 @@ Added in Version
 
 <tr>
 <td>
-[[+title]]
+&#91;&#91;+title&#93;&#93;
 </td>
 <td>
 Video title
@@ -323,7 +323,7 @@ Video title
 
 <tr>
 <td>
-[[+url]]
+&#91;&#91;+url&#93;&#93;
 </td>
 <td>
 URL to the Video Page
@@ -335,7 +335,7 @@ URL to the Video Page
 
 <tr>
 <td>
-[[+id]]
+&#91;&#91;+id&#93;&#93;
 </td>
 <td>
 Video ID
@@ -347,7 +347,7 @@ Video ID
 
 <tr>
 <td>
-[[+description]]
+&#91;&#91;+description&#93;&#93;
 </td>
 <td>
 The description of the video
@@ -359,7 +359,7 @@ The description of the video
 
 <tr>
 <td>
-[[+thumbnail_small]]
+&#91;&#91;+thumbnail_small&#93;&#93;
 </td>
 <td>
 URL to a small version of the thumbnail
@@ -371,7 +371,7 @@ URL to a small version of the thumbnail
 
 <tr>
 <td>
-[[+thumbnail_medium]]
+&#91;&#91;+thumbnail_medium&#93;&#93;
 </td>
 <td>
 URL to a medium version of the thumbnail
@@ -383,7 +383,7 @@ URL to a medium version of the thumbnail
 
 <tr>
 <td>
-[[+thumbnail_large]]
+&#91;&#91;+thumbnail_large&#93;&#93;
 </td>
 <td>
 URL to a large version of the thumbnail
@@ -395,7 +395,7 @@ URL to a large version of the thumbnail
 
 <tr>
 <td>
-[[+user_name]]
+&#91;&#91;+user_name&#93;&#93;
 </td>
 <td>
 The user name of the video’s uploader
@@ -407,7 +407,7 @@ The user name of the video’s uploader
 
 <tr>
 <td>
-[[+user_url]]
+&#91;&#91;+user_url&#93;&#93;
 </td>
 <td>
 The URL to the user profile
@@ -419,7 +419,7 @@ The URL to the user profile
 
 <tr>
 <td>
-[[+upload_date]]
+&#91;&#91;+upload_date&#93;&#93;
 </td>
 <td>
 The date/time the video was uploaded on
@@ -431,7 +431,7 @@ The date/time the video was uploaded on
 
 <tr>
 <td>
-[[+user_portrait_small]]
+&#91;&#91;+user_portrait_small&#93;&#93;
 </td>
 <td>
 Small user portrait (30px)
@@ -443,7 +443,7 @@ Small user portrait (30px)
 
 <tr>
 <td>
-[[+user_portrait_medium]]
+&#91;&#91;+user_portrait_medium&#93;&#93;
 </td>
 <td>
 Medium user portrait (100px)
@@ -455,7 +455,7 @@ Medium user portrait (100px)
 
 <tr>
 <td>
-[[+user_portrait_large]]
+&#91;&#91;+user_portrait_large&#93;&#93;
 </td>
 <td>
 Large user portrait (300px)
@@ -467,7 +467,7 @@ Large user portrait (300px)
 
 <tr>
 <td>
-[[+stats_number_of_likes]]
+&#91;&#91;+stats_number_of_likes&#93;&#93;
 </td>
 <td>
 # of likes
@@ -479,7 +479,7 @@ Large user portrait (300px)
 
 <tr>
 <td>
-[[+stats_number_of_views]]
+&#91;&#91;+stats_number_of_views&#93;&#93;
 </td>
 <td>
 # of views
@@ -491,7 +491,7 @@ Large user portrait (300px)
 
 <tr>
 <td>
-[[+stats_number_of_comments]]
+&#91;&#91;+stats_number_of_comments&#93;&#93;
 </td>
 <td>
 # of comments
@@ -503,7 +503,7 @@ Large user portrait (300px)
 
 <tr>
 <td>
-[[+duration]]
+&#91;&#91;+duration&#93;&#93;
 </td>
 <td>
 Duration of the video in seconds
@@ -515,7 +515,7 @@ Duration of the video in seconds
 
 <tr>
 <td>
-[[+width]]
+&#91;&#91;+width&#93;&#93;
 </td>
 <td>
 Standard definition width of the video
@@ -527,7 +527,7 @@ Standard definition width of the video
 
 <tr>
 <td>
-[[+height]]
+&#91;&#91;+height&#93;&#93;
 </td>
 <td>
 Standard definition height of the video
@@ -539,7 +539,7 @@ Standard definition height of the video
 
 <tr>
 <td>
-[[+tags]]
+&#91;&#91;+tags&#93;&#93;
 </td>
 <td>
 Comma separated list of tags
@@ -578,7 +578,7 @@ Added in Version
 
 <tr>
 <td>
-[[+total]]
+&#91;&#91;+total&#93;&#93;
 <br />
 </td>
 <td>
@@ -593,7 +593,7 @@ Returns the total number of Videos in the output.
 
 <tr>
 <td>
-[[+idx]]
+&#91;&#91;+idx&#93;&#93;
 </td>
 <td>
 Returns each Videos numerical position within the output. Increases with each iteration, starting with 1.
@@ -615,22 +615,22 @@ Output a list of ALL videos from the Vimeo 'Staff Picks' Channel, using the 'vim
 </p>
 
 <pre class="brush: php">
-[[!getVimeo? &amp;channel=`staffpicks` &amp;id=`all` &amp;tpl=`vimeoTpl`]]
+&#91;&#91;!getVimeo? &amp;channel=`staffpicks` &amp;id=`all` &amp;tpl=`vimeoTpl`&#93;&#93;
 </pre>
 <p>
 Output only the videos specified from the Vimeo 'Staff Picks' Channel, using the 'vimeoTpl' chunk:
 </p>
 
 <pre class="brush: php">
-[[!getVimeo? &amp;channel=`staffpicks` &amp;id=`68688561,69239313,68146128` &amp;tpl=`vimeoTpl`]]
+&#91;&#91;!getVimeo? &amp;channel=`staffpicks` &amp;id=`68688561,69239313,68146128` &amp;tpl=`vimeoTpl`&#93;&#93;
 </pre>
 <p>
 Output a list of ALL videos from the Vimeo 'Staff Picks' Channel, using the 'vimeoTpl' chunk and assign the output to a placeholder:
 </p>
 
 <pre class="brush: php">
-[[!getVimeo? &amp;channel=`staffpicks` &amp;id=`all` &amp;tpl=`vimeoTpl` &amp;toPlaceholder=`videos`]]
-[[+videos:notempty=`[[+videos]]`]]
+&#91;&#91;!getVimeo? &amp;channel=`staffpicks` &amp;id=`all` &amp;tpl=`vimeoTpl` &amp;toPlaceholder=`videos`&#93;&#93;
+&#91;&#91;+videos:notempty=`&#91;&#91;+videos&#93;&#93;`&#93;&#93;
 </pre>
 <div class="info">
 You CANNOT pass a placeholder name (&amp;toPlaceholder) to a wrapper chunk (&amp;tplWrapper).
@@ -649,18 +649,18 @@ Output a list of ALL videos from the Vimeo 'Staff Picks' Channel, using the 'vim
 </p>
 
 <pre class="brush: php">
-[[!getPage?
+&#91;&#91;!getPage?
   &amp;element=`getVimeo`
   &amp;channel=`staffpicks`
   &amp;id=`all`
   &amp;tpl=`vimeoTpl`
   &amp;limit=`5`
-]]
+&#93;&#93;
 
 </pre>
 <div class="paging">
 <div style="margin-left: 2em" class="pageList">
-[[!+page.nav]]
+&#91;&#91;!+page.nav&#93;&#93;
 </div>
 </div>
 

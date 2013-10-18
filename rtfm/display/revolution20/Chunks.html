@@ -46,7 +46,7 @@ To use the Chunk, you reference it by name in your templates or in your page con
 </p>
 
 <pre class="brush: php">
-[[$chunkName]]
+&#91;&#91;$chunkName&#93;&#93;
 </pre>
 <p>
 That reference is then replaced with the contents of the Chunk.
@@ -58,7 +58,7 @@ You can also pass properties to a Chunk. Say you had a chunk named 'intro' with 
 
 <blockquote>
 <p>
-Hello, [[+name]]. You have [[+messageCount]] messages.
+Hello, &#91;&#91;+name&#93;&#93;. You have &#91;&#91;+messageCount&#93;&#93; messages.
 </p>
 </blockquote>
 
@@ -67,7 +67,7 @@ You could fill those values with:
 </p>
 
 <pre class="brush: php">
-[[$intro? &amp;name=`George` &amp;messageCount=`12`]]
+&#91;&#91;$intro? &amp;name=`George` &amp;messageCount=`12`&#93;&#93;
 </pre>
 <p>
 Which would output:
@@ -84,14 +84,14 @@ You could even take it one step further, by adding a <a href="revolution/2.x/mak
 </p>
 
 <pre class="brush: php">
-[[!$intro? &amp;name=`[[*usersName]]` &amp;messageCount=`[[*messageCount]]`]]
+&#91;&#91;!$intro? &amp;name=`&#91;&#91;*usersName&#93;&#93;` &amp;messageCount=`&#91;&#91;*messageCount&#93;&#93;`&#93;&#93;
 </pre>
 <p>
 or in the Chunk itself:
 </p>
 
 <pre class="brush: php">
-Hello, [[*usersName]]. You have [[*messageCount]] messages.
+Hello, &#91;&#91;*usersName&#93;&#93;. You have &#91;&#91;*messageCount&#93;&#93; messages.
 </pre>
 <h2 id="Chunks-ProcessingChunkviatheAPI">
 Processing Chunk via the API
@@ -102,9 +102,9 @@ Chunks are also frequently used to format the output of Snippets. A Chunk can be
 </p>
 
 <pre class="brush: php">
-&lt;tr class="[[+rowCls]]" id="row[[+id]]"&gt;
-&lt;td&gt;[[+pagetitle]]&lt;/td&gt;
-&lt;td&gt;[[+introtext]]&lt;/td&gt;
+&lt;tr class="&#91;&#91;+rowCls&#93;&#93;" id="row&#91;&#91;+id&#93;&#93;"&gt;
+&lt;td&gt;&#91;&#91;+pagetitle&#93;&#93;&lt;/td&gt;
+&lt;td&gt;&#91;&#91;+introtext&#93;&#93;&lt;/td&gt;
 &lt;/tr&gt;
 </pre>
 <p>
@@ -117,7 +117,7 @@ $i = 0;
 $output = '';
 foreach ($resources as $resource) {
   $properties = $resource-&gt;toArray();
-  $properties['rowCls'] = $i % 2 ? '' : 'alt';
+  $properties&#91;'rowCls'&#93; = $i % 2 ? '' : 'alt';
 
   $output .= $modx-&gt;getChunk('rowTpl',$properties);
   $i++;

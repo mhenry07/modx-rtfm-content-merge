@@ -19,14 +19,14 @@ So for the Form Tabs:
 </p>
 
 <pre class="brush: php">
-[{
+&#91;{
     "caption":"Operating Hours",
-    "fields": [
+    "fields": &#91;
         {"field":"day", "caption":"Day"},
         {"field":"from", "caption":"From"},
         {"field":"until","caption":"Until"}
-    ]
-}]
+    &#93;
+}&#93;
 </pre>
 <p>
 We're giving the tab (we need one) the caption of "Operating Hours", and then add three fields to it. The day, the from time, and the until time. As we're not specifying an input type it will just assume a textfield.
@@ -37,11 +37,11 @@ Now to display this in the resource panel, we will need to set up the Grid Colum
 </p>
 
 <pre class="brush: php">
-[
+&#91;
 {"header": "Day", "width": "60", "sortable": "false", "dataIndex": "day"},
 {"header": "From", "width": "50", "sortable": "false", "dataIndex": "from"},
 {"header": "Until", "width": "50", "sortable": "false", "dataIndex": "until"}
-]
+&#93;
 </pre>
 <p>
 We're setting three columns ("Day", "From", and "Until") and giving them a width, the proper dataIndex (which needs to be the same as the "field" value in the form) and we're also saying we don't want them to be sortable.
@@ -69,10 +69,10 @@ Here's the snippet call to put in your template where you want it to appear:
 
 <pre class="brush: php">
 &lt;table&gt;
-[[getImageList?
+&#91;&#91;getImageList?
   &amp;tvname=`operatingHours`
   &amp;tpl=`operatingHoursTpl`
-]]
+&#93;&#93;
 &lt;/table&gt;
 </pre>
 <p>
@@ -85,8 +85,8 @@ Here's the chunk we used:
 
 <pre class="brush: php">
 &lt;tr&gt;
-  &lt;td&gt;[[+day]]&lt;/td&gt;
-  [[+from:notempty=`&lt;td&gt;[[+from]]&lt;/td&gt;&lt;td&gt;[[+until]]&lt;/td&gt;`:default=`&lt;td colspan="2"&gt;Closed&lt;/td&gt;`]]
+  &lt;td&gt;&#91;&#91;+day&#93;&#93;&lt;/td&gt;
+  &#91;&#91;+from:notempty=`&lt;td&gt;&#91;&#91;+from&#93;&#93;&lt;/td&gt;&lt;td&gt;&#91;&#91;+until&#93;&#93;&lt;/td&gt;`:default=`&lt;td colspan="2"&gt;Closed&lt;/td&gt;`&#93;&#93;
 &lt;/tr&gt;
 </pre>
 <p>

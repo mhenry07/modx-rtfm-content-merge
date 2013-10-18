@@ -52,14 +52,14 @@ Custom Output Filters are MODx Snippets dedicated to formatting placeholder outp
 </p>
 
 <pre class="brush: php">
-[[*pagetitle]]
+&#91;&#91;*pagetitle&#93;&#93;
 </pre>
 <p>
 returns a string of text, you can modify it via a custom Output Filter, e.g.
 </p>
 
 <pre class="brush: php">
-[[*pagetitle:myOutputFilter]]
+&#91;&#91;*pagetitle:myOutputFilter&#93;&#93;
 </pre>
 <p>
 simply by creating a Snippet named <strong>myOutputFilter</strong>
@@ -94,7 +94,7 @@ The syntax is that the Snippet name comes after a colon. Example with a snippet 
 </p>
 
 <pre class="brush: php">
-[[+file:makeDownloadLink=`notitle`]]
+&#91;&#91;+file:makeDownloadLink=`notitle`&#93;&#93;
 </pre>
 <p>
 This will pass these properties to the snippet:
@@ -122,7 +122,7 @@ input
 The element's value.
 </td>
 <td>
-The value of [[+file]]
+The value of &#91;&#91;+file&#93;&#93;
 </td>
 </tr>
 
@@ -170,7 +170,7 @@ tag
 The complete parent tag.
 </td>
 <td>
-[[+file:makeDownloadLink=`notitle`]]
+&#91;&#91;+file:makeDownloadLink=`notitle`&#93;&#93;
 </td>
 </tr>
 </tbody>
@@ -233,7 +233,7 @@ Use like this:
 </p>
 
 <pre class="brush: php">
-[[+component.idx:alternateClass=`alt`]]
+&#91;&#91;+component.idx:alternateClass=`alt`&#93;&#93;
 </pre>
 <h3 id="CustomOutputFilterExamples-parseLinks">
 parseLinks
@@ -249,8 +249,8 @@ The parseLinks output filter finds links, and replaces them with a html &lt;a&gt
  * Based on phx:parseLinks
  */
 $t = $input;
-$t = ereg_replace("[a-zA-Z]+://([.]?[a-zA-Z0-9_/-])*", "&lt;a href=\"\\0\"&gt;\\0&lt;/a&gt;", $t);
-$t = ereg_replace("(^| |\n)(www([.]?[a-zA-Z0-9_/-])*)", "\\1&lt;a href=\"http://\\2\"&gt;\\2&lt;/a&gt;", $t);
+$t = ereg_replace("&#91;a-zA-Z&#93;+://(&#91;.&#93;?&#91;a-zA-Z0-9_/-&#93;)*", "&lt;a href=\"\\0\"&gt;\\0&lt;/a&gt;", $t);
+$t = ereg_replace("(^| |\n)(www(&#91;.&#93;?&#91;a-zA-Z0-9_/-&#93;)*)", "\\1&lt;a href=\"http://\\2\"&gt;\\2&lt;/a&gt;", $t);
 return $t;
 </pre>
 <h3 id="CustomOutputFilterExamples-parseTags">
@@ -267,8 +267,8 @@ This parseTags takes input as a comma delimited list, and makes all individual t
  * Based on phx:parseLinks
  */
 $t = $input;
-$t = ereg_replace("[a-zA-Z]+://([.]?[a-zA-Z0-9_/-])*", "&lt;a href=\"\\0\"&gt;\\0&lt;/a&gt;", $t);
-$t = ereg_replace("(^| |\n)(www([.]?[a-zA-Z0-9_/-])*)", "\\1&lt;a href=\"http://\\2\"&gt;\\2&lt;/a&gt;", $t);
+$t = ereg_replace("&#91;a-zA-Z&#93;+://(&#91;.&#93;?&#91;a-zA-Z0-9_/-&#93;)*", "&lt;a href=\"\\0\"&gt;\\0&lt;/a&gt;", $t);
+$t = ereg_replace("(^| |\n)(www(&#91;.&#93;?&#91;a-zA-Z0-9_/-&#93;)*)", "\\1&lt;a href=\"http://\\2\"&gt;\\2&lt;/a&gt;", $t);
 return $t;
 </pre>
 <h3 id="CustomOutputFilterExamples-parseTags">
@@ -289,7 +289,7 @@ This parseTags takes input as a comma delimited list, and makes all individual t
 if ($input == '') { return ''; } // Output filters are also processed when the input is empty, so check for that.
   $tags = explode(', ',$input); // Based on a delimiter of comma-space.
   foreach ($tags as $key =&gt; $value) { // Process them individually
-    $output[] = '&lt;a href="'.$modx-&gt;makeurl(9, '', array('tag' =&gt; $value)).'"&gt;'.$value.'&lt;/a&gt;';
+    $output&#91;&#93; = '&lt;a href="'.$modx-&gt;makeurl(9, '', array('tag' =&gt; $value)).'"&gt;'.$value.'&lt;/a&gt;';
   }
   return implode(', ',$output); // Delimit again with a comma-space
 </pre>
@@ -327,7 +327,7 @@ Get a substring of the input.
 <pre class="brush: php">
 &lt;?php
 $options=explode(',',$options);
-return count($options)&gt;1 ? substr($input,$options[0],$options[1]) : substr($input,$options[0]);
+return count($options)&gt;1 ? substr($input,$options&#91;0&#93;,$options&#91;1&#93;) : substr($input,$options&#91;0&#93;);
 ?&gt;
 </pre>
 <p>
@@ -335,7 +335,7 @@ Example:
 </p>
 
 <pre class="brush: php">
-&lt;span&gt;[[*introtext:substring=`0,1`]]&lt;/span&gt;[[*introtext:substring=`1`]]
+&lt;span&gt;&#91;&#91;*introtext:substring=`0,1`&#93;&#93;&lt;/span&gt;&#91;&#91;*introtext:substring=`1`&#93;&#93;
 </pre>
 <h3 id="CustomOutputFilterExamples-numberformat">
 numberformat
@@ -353,15 +353,15 @@ $optionsArray = array();
 foreach ($optionsXpld as $xpld) {
     $params = @explode('=', $xpld);
     array_walk($params, create_function('&amp;$v', '$v = trim($v);'));
-    if (isset($params[1])) {
-        $optionsArray[$params[0]] = $params[1];
+    if (isset($params&#91;1&#93;)) {
+        $optionsArray&#91;$params&#91;0&#93;&#93; = $params&#91;1&#93;;
     } else {
-        $optionsArray[$params[0]] = '';
+        $optionsArray&#91;$params&#91;0&#93;&#93; = '';
     }
 }
-$decimals = isset($optionsArray['decimals']) ? $optionsArray['decimals'] : null;
-$dec_point = isset($optionsArray['dec_point']) ? $optionsArray['dec_point'] : null;
-$thousands_sep = isset($optionsArray['thousands_sep']) ? $optionsArray['thousands_sep'] : null;
+$decimals = isset($optionsArray&#91;'decimals'&#93;) ? $optionsArray&#91;'decimals'&#93; : null;
+$dec_point = isset($optionsArray&#91;'dec_point'&#93;) ? $optionsArray&#91;'dec_point'&#93; : null;
+$thousands_sep = isset($optionsArray&#91;'thousands_sep'&#93;) ? $optionsArray&#91;'thousands_sep'&#93; : null;
 $output = number_format($number, $decimals, $dec_point, $thousands_sep);
 return $output;
 </pre>
@@ -370,5 +370,5 @@ Example:
 </p>
 
 <pre class="brush: php">
-[[+price:numberformat=`&amp;decimals=2&amp;dec_point=,&amp;thousands_sep=.`]]
+&#91;&#91;+price:numberformat=`&amp;decimals=2&amp;dec_point=,&amp;thousands_sep=.`&#93;&#93;
 </pre>

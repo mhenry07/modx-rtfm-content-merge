@@ -46,7 +46,7 @@ $validator = $obj-&gt;getValidator();
 if ($validator-&gt;validate() == false) {
     $messages = $validator-&gt;getMessages();
     foreach ($messages as $errorMsg) {
-        $output .= $errorMsg['message'];
+        $output .= $errorMsg&#91;'message'&#93;;
     }
 }
 echo $output;

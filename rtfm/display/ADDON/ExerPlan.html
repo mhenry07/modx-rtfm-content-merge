@@ -1110,21 +1110,21 @@ Examples
 </h1>
 
 <pre class="brush: html">
-[[!Login]]&lt;br&gt;
+&#91;&#91;!Login&#93;&#93;&lt;br&gt;
 
 &lt;!-- &amp;toArray is commented out, remove _ to run --&gt;
-[[!exerplan.Galleries?
+&#91;&#91;!exerplan.Galleries?
 &amp;requireAuth=`1`
-&amp;userId=`[[+modx.user.id]]`
+&amp;userId=`&#91;&#91;+modx.user.id&#93;&#93;`
 &amp;galleryMediatype=`video`
 &amp;_toArray=`1` 
-]]
+&#93;&#93;
 
-[[!exerplan.Assessments?
+&#91;&#91;!exerplan.Assessments?
 &amp;requireAuth=`1`
-&amp;assesseeId=`[[+modx.user.id]]`
+&amp;assesseeId=`&#91;&#91;+modx.user.id&#93;&#93;`
 &amp;_toArray=`1`
-]]
+&#93;&#93;
 </pre>
 <h1 id="ExerPlan-DefaultChunks">
 Default Chunks
@@ -1135,19 +1135,19 @@ exerplan.exercises.item
 </h2>
 
 <pre class="brush: html">
-&lt;div id="exerplan-exercise-[[+exerplan.id]]"&gt;
-    &lt;div&gt;Exercise: [[+exerplan.name]]&lt;/div&gt;
-    &lt;div&gt;Description: [[+exerplan.description]]&lt;/div&gt;
-    &lt;div&gt;Goal: [[+exerplan.goal]]&lt;/div&gt;
-    &lt;div&gt;Level: [[+exerplan.level_name]]&lt;/div&gt;
-    &lt;div&gt;Sets: [[+exerplan.set]]&lt;/div&gt;
-    &lt;div&gt;Reps: [[+exerplan.repetition]]&lt;/div&gt;
-    [[+exerplan.usergroup:notempty=`
-    &lt;div&gt;Usergroup: [[+exerplan.usergroup]]&lt;/div&gt;
-    `]]
-    [[+exerplan.galleries:notempty=`
-    [[+exerplan.galleries]]
-    `]]
+&lt;div id="exerplan-exercise-&#91;&#91;+exerplan.id&#93;&#93;"&gt;
+    &lt;div&gt;Exercise: &#91;&#91;+exerplan.name&#93;&#93;&lt;/div&gt;
+    &lt;div&gt;Description: &#91;&#91;+exerplan.description&#93;&#93;&lt;/div&gt;
+    &lt;div&gt;Goal: &#91;&#91;+exerplan.goal&#93;&#93;&lt;/div&gt;
+    &lt;div&gt;Level: &#91;&#91;+exerplan.level_name&#93;&#93;&lt;/div&gt;
+    &lt;div&gt;Sets: &#91;&#91;+exerplan.set&#93;&#93;&lt;/div&gt;
+    &lt;div&gt;Reps: &#91;&#91;+exerplan.repetition&#93;&#93;&lt;/div&gt;
+    &#91;&#91;+exerplan.usergroup:notempty=`
+    &lt;div&gt;Usergroup: &#91;&#91;+exerplan.usergroup&#93;&#93;&lt;/div&gt;
+    `&#93;&#93;
+    &#91;&#91;+exerplan.galleries:notempty=`
+    &#91;&#91;+exerplan.galleries&#93;&#93;
+    `&#93;&#93;
 &lt;/div&gt;
 </pre>
 <h2 id="ExerPlan-exerplan.exercises.wrapper">
@@ -1156,7 +1156,7 @@ exerplan.exercises.wrapper
 
 <pre class="brush: html">
 &lt;div&gt;
-    [[+exerplan.items]]
+    &#91;&#91;+exerplan.items&#93;&#93;
 &lt;/div&gt;
 </pre>
 <h2 id="ExerPlan-exerplan.gallery.item">
@@ -1164,19 +1164,19 @@ exerplan.gallery.item
 </h2>
 
 <pre class="brush: html">
-&lt;div id="exerplan-gallery-item-[[+exerplan.gallery.id]]"&gt;
-    [[+exerplan.gallery.url:notempty=`
+&lt;div id="exerplan-gallery-item-&#91;&#91;+exerplan.gallery.id&#93;&#93;"&gt;
+    &#91;&#91;+exerplan.gallery.url:notempty=`
     &lt;div&gt;
-        &lt;a href="[[+exerplan.gallery.url]]"
-           title="[[+exerplan.gallery.description]]"
+        &lt;a href="&#91;&#91;+exerplan.gallery.url&#93;&#93;"
+           title="&#91;&#91;+exerplan.gallery.description&#93;&#93;"
            class="lightbox"&gt;
-            [[+exerplan.gallery.name]]
+            &#91;&#91;+exerplan.gallery.name&#93;&#93;
         &lt;/a&gt;
     &lt;/div&gt;
     `:default=`
-    &lt;div&gt;[[+exerplan.gallery.name]]&lt;/div&gt;
-    `]]
-    &lt;div&gt;[[+exerplan.gallery.description]]&lt;/div&gt;
+    &lt;div&gt;&#91;&#91;+exerplan.gallery.name&#93;&#93;&lt;/div&gt;
+    `&#93;&#93;
+    &lt;div&gt;&#91;&#91;+exerplan.gallery.description&#93;&#93;&lt;/div&gt;
 &lt;/div&gt;
 </pre>
 <h2 id="ExerPlan-exerplan.gallery.wrapper">
@@ -1185,7 +1185,7 @@ exerplan.gallery.wrapper
 
 <pre class="brush: html">
 &lt;div id="exerplan-exercise-gallery-wrapper"&gt;
-    [[+exerplan.gallery.items]]
+    &#91;&#91;+exerplan.gallery.items&#93;&#93;
 &lt;/div&gt;
 </pre>
 <h2 id="ExerPlan-exerplan.assessment.item">
@@ -1194,22 +1194,22 @@ exerplan.assessment.item
 
 <pre class="brush: html">
 &lt;div
-    id="exerplan-assessment-item-[[+exerplan.assessment.id]]"
-    [[+exerplan.assessment.row_index:mod:is=`0`:then=`
+    id="exerplan-assessment-item-&#91;&#91;+exerplan.assessment.id&#93;&#93;"
+    &#91;&#91;+exerplan.assessment.row_index:mod:is=`0`:then=`
     style="border-top: 1px dotted #ddd; border-bottom: 1px dotted #ddd; background-color: #ddd; padding: 10px;"
     `:else=`
     style="border-top: 1px dotted #ddd; border-bottom: 1px dotted #ddd; background-color: #efefef;padding: 10px;"
-    `]]
+    `&#93;&#93;
     &gt;
     &lt;div
         style="font-style: italic; font-size: smaller; color: grey;"
-        &gt;By: [[+exerplan.assessment.assessor.fullname:notempty=`
-        [[+exerplan.assessment.assessor.fullname]]
+        &gt;By: &#91;&#91;+exerplan.assessment.assessor.fullname:notempty=`
+        &#91;&#91;+exerplan.assessment.assessor.fullname&#93;&#93;
         `:default=`
-        [[+exerplan.assessment.assessor.username]]
-        `]], [[+exerplan.assessment.created_on:date=`%d-%m-%Y`]]
+        &#91;&#91;+exerplan.assessment.assessor.username&#93;&#93;
+        `&#93;&#93;, &#91;&#91;+exerplan.assessment.created_on:date=`%d-%m-%Y`&#93;&#93;
     &lt;/div&gt;
-    &lt;div&gt;[[+exerplan.assessment.assessment]]&lt;/div&gt;
+    &lt;div&gt;&#91;&#91;+exerplan.assessment.assessment&#93;&#93;&lt;/div&gt;
 &lt;/div&gt;
 </pre>
 <h2 id="ExerPlan-exerplan.assessment.wrapper">
@@ -1218,6 +1218,6 @@ exerplan.assessment.wrapper
 
 <pre class="brush: html">
 &lt;div id="exerplan-exercise-assessment-wrapper"&gt;
-    [[+exerplan.assessment.items]]
+    &#91;&#91;+exerplan.assessment.items&#93;&#93;
 &lt;/div&gt;
 </pre>

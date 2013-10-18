@@ -131,29 +131,29 @@ For the content, use something like this:
 </p>
 
 <pre class="brush: php">
-[[!UpdateProfile? &amp;useExtended=`0`]]
+&#91;&#91;!UpdateProfile? &amp;useExtended=`0`&#93;&#93;
  
 &lt;div class="update-profile"&gt;
-    &lt;div class="updprof-error"&gt;[[+error.message]]&lt;/div&gt;
-    [[+login.update_success:if=`[[+login.update_success]]`:is=`1`:then=`[[%login.profile_updated? &amp;namespace=`login` &amp;topic=`updateprofile`]]`]]
+    &lt;div class="updprof-error"&gt;&#91;&#91;+error.message&#93;&#93;&lt;/div&gt;
+    &#91;&#91;+login.update_success:if=`&#91;&#91;+login.update_success&#93;&#93;`:is=`1`:then=`&#91;&#91;%login.profile_updated? &amp;namespace=`login` &amp;topic=`updateprofile`&#93;&#93;`&#93;&#93;
  
-    &lt;form class="form" action="[[~[[*id]]]]" method="post"&gt;
+    &lt;form class="form" action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post"&gt;
         &lt;input type="hidden" name="nospam:blank" value="" /&gt;
  
-        &lt;label for="fullname"&gt;[[!%login.fullname? &amp;namespace=`login` &amp;topic=`updateprofile`]]
-            &lt;span class="error"&gt;[[+error.fullname]]&lt;/span&gt;
+        &lt;label for="fullname"&gt;&#91;&#91;!%login.fullname? &amp;namespace=`login` &amp;topic=`updateprofile`&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.fullname&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="fullname" id="fullname" value="[[+fullname]]" /&gt;
+        &lt;input type="text" name="fullname" id="fullname" value="&#91;&#91;+fullname&#93;&#93;" /&gt;
  
-        &lt;label for="email"&gt;[[!%login.email]]
-            &lt;span class="error"&gt;[[+error.email]]&lt;/span&gt;
+        &lt;label for="email"&gt;&#91;&#91;!%login.email&#93;&#93;
+            &lt;span class="error"&gt;&#91;&#91;+error.email&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="text" name="email:required:email" id="email" value="[[+email]]" /&gt;
+        &lt;input type="text" name="email:required:email" id="email" value="&#91;&#91;+email&#93;&#93;" /&gt;
  
                 &lt;br class="clear" /&gt;
  
         &lt;div class="form-buttons"&gt;
-            &lt;input type="submit" name="login-updprof-btn" value="[[!%login.update_profile]]" /&gt;
+            &lt;input type="submit" name="login-updprof-btn" value="&#91;&#91;!%login.update_profile&#93;&#93;" /&gt;
         &lt;/div&gt;
     &lt;/form&gt;
 &lt;/div&gt;
@@ -163,7 +163,7 @@ This is a stripped down example from what appears on the <a href="extras/revo/lo
 </p>
 
 <ol>
-<li>The example uses MODX lexicon entries to translate text, e.g. . See [<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization" title="Internationalization">Internationalization</a>] for how you can translate lexicon entries. E.g. <code>&lt;label&gt;[[!%login.email]]&lt;/label&gt;</code> instead of <code>&lt;label&gt;Email&lt;/label&gt;</code>. The tag will translate; hard-coding it will not.
+<li>The example uses MODX lexicon entries to translate text, e.g. . See &#91;<a href="revolution/2.x/developing-in-modx/advanced-development/internationalization" title="Internationalization">Internationalization</a>&#93; for how you can translate lexicon entries. E.g. <code>&lt;label&gt;&#91;&#91;!%login.email&#93;&#93;&lt;/label&gt;</code> instead of <code>&lt;label&gt;Email&lt;/label&gt;</code>. The tag will translate; hard-coding it will not.
 </li>
 
 <li>Note that the password field is <strong>never</strong> made available for direct editing. This is for security reasons. Use the <a href="extras/revo/login/login.changepassword" title="Login.ChangePassword">ChangePassword</a> Snippet for that.
@@ -191,13 +191,13 @@ For the content, use something like this:
 </p>
 
 <pre class="brush: php">
-[[!Profile]]
+&#91;&#91;!Profile&#93;&#93;
  
-&lt;p&gt;Username: [[+username]]&lt;/p&gt;
-&lt;p&gt;Full Name: [[+fullname]]&lt;/p&gt;
-&lt;p&gt;Email: [[+email]]&lt;/p&gt;
+&lt;p&gt;Username: &#91;&#91;+username&#93;&#93;&lt;/p&gt;
+&lt;p&gt;Full Name: &#91;&#91;+fullname&#93;&#93;&lt;/p&gt;
+&lt;p&gt;Email: &#91;&#91;+email&#93;&#93;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="[[~10]]"&gt;Edit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="&#91;&#91;~10&#93;&#93;"&gt;Edit&lt;/a&gt;&lt;/p&gt;
 </pre>
 <p>
 Notice that we're putting a link in there so we can edit the profile. Remember: the password is never made available for security reasons.
@@ -208,40 +208,40 @@ Change Password (12)
 </h3>
 
 <p>
-This is a page where the user can change their password. It happens on a separate page. We're just following along with [<a href="extras/revo/login/login.changepassword" title="Login.ChangePassword">ChangePassword</a>] playbook.
+This is a page where the user can change their password. It happens on a separate page. We're just following along with &#91;<a href="extras/revo/login/login.changepassword" title="Login.ChangePassword">ChangePassword</a>&#93; playbook.
 </p>
 
 <pre class="brush: php">
 &lt;h2&gt;Change Password&lt;/h2&gt;
-[[!ChangePassword?
+&#91;&#91;!ChangePassword?
    &amp;submitVar=`change-password`
    &amp;placeholderPrefix=``
    &amp;validateOldPassword=`1`
    &amp;validate=`nospam:blank`
    &amp;reloadOnSuccess=`0`
    &amp;successMessage=`Your password has been updated!`
-]]
-&lt;div&gt;[[!+successMessage]]&lt;/div&gt;
-&lt;div class="updprof-error"&gt;[[!+error_message]]&lt;/div&gt;
-&lt;form class="form" action="[[~[[*id]]]]" method="post"&gt;
+&#93;&#93;
+&lt;div&gt;&#91;&#91;!+successMessage&#93;&#93;&lt;/div&gt;
+&lt;div class="updprof-error"&gt;&#91;&#91;!+error_message&#93;&#93;&lt;/div&gt;
+&lt;form class="form" action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post"&gt;
     &lt;input type="hidden" name="nospam" value="" /&gt;
     &lt;div class="ff"&gt;
         &lt;label for="password_old"&gt;Old Password
-            &lt;span class="error"&gt;[[!+error.password_old]]&lt;/span&gt;
+            &lt;span class="error"&gt;&#91;&#91;!+error.password_old&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="password" name="password_old" id="password_old" value="[[+password_old]]" /&gt;
+        &lt;input type="password" name="password_old" id="password_old" value="&#91;&#91;+password_old&#93;&#93;" /&gt;
     &lt;/div&gt;
     &lt;div class="ff"&gt;
         &lt;label for="password_new"&gt;New Password
-            &lt;span class="error"&gt;[[!+error.password_new]]&lt;/span&gt;
+            &lt;span class="error"&gt;&#91;&#91;!+error.password_new&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="password" name="password_new" id="password_new" value="[[+password_new]]" /&gt;
+        &lt;input type="password" name="password_new" id="password_new" value="&#91;&#91;+password_new&#93;&#93;" /&gt;
     &lt;/div&gt;
     &lt;div class="ff"&gt;
         &lt;label for="password_new_confirm"&gt;Confirm New Password
-            &lt;span class="error"&gt;[[!+error.password_new_confirm]]&lt;/span&gt;
+            &lt;span class="error"&gt;&#91;&#91;!+error.password_new_confirm&#93;&#93;&lt;/span&gt;
         &lt;/label&gt;
-        &lt;input type="password" name="password_new_confirm" id="password_new_confirm" value="[[+password_new_confirm]]" /&gt;
+        &lt;input type="password" name="password_new_confirm" id="password_new_confirm" value="&#91;&#91;+password_new_confirm&#93;&#93;" /&gt;
     &lt;/div&gt;
     &lt;div class="ff"&gt;
         &lt;input type="submit" name="change-password" value="Change Password" /&gt;
@@ -266,7 +266,7 @@ Just to be thorough, you should put a link on your Members Home Page so users ca
 
 <pre class="brush: php">
 ...
-&lt;p&gt;&lt;a href="[[~11]]"&gt;View Profile&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="&#91;&#91;~11&#93;&#93;"&gt;View Profile&lt;/a&gt;&lt;/p&gt;
 </pre>
 <h2 id="Login.UserProfiles-Testing:MakingitallWork">
 Testing: Making it all Work

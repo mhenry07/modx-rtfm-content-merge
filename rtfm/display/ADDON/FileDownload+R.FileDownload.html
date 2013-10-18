@@ -71,7 +71,7 @@ The parameters are adopted from the evolution's with several changes, so the pre
 </p>
 
 <p>
-Basic usage is [[!FileDownload?]]
+Basic usage is &#91;&#91;!FileDownload?&#93;&#93;
 </p>
 
 <h1 id="FileDownloadR.FileDownload-Main">
@@ -106,7 +106,7 @@ getDir
 Comma separated of directories to display
 </td>
 <td>
-&amp;getDir=`[[<ins>++core_path]]downloads,[[</ins>++base_path]]assets/downloads, assets/files`
+&amp;getDir=`&#91;&#91;<ins>++core_path&#93;&#93;downloads,&#91;&#91;</ins>++base_path&#93;&#93;assets/downloads, assets/files`
 </td>
 <td>
 empty
@@ -124,7 +124,7 @@ getFile
 Comma separated of files to display
 </td>
 <td>
-&amp;getFile=`assets/files/readme.txt,[[<ins>++core_path]]downloads/readyou.doc,[[</ins>++base_path]]assets/downloads/book1.xlsx`
+&amp;getFile=`assets/files/readme.txt,&#91;&#91;<ins>++core_path&#93;&#93;downloads/readyou.doc,&#91;&#91;</ins>++base_path&#93;&#93;assets/downloads/book1.xlsx`
 </td>
 <td>
 empty
@@ -329,24 +329,24 @@ Eg: jsDownload chunk
 </p>
 
 <pre class="brush: html">
-    &lt;tr[[+fd.class]]&gt;
-        &lt;td style="width:16px;"&gt;&lt;img src="[[+fd.image]]" alt="[[+fd.image]]" /&gt;&lt;/td&gt;
+    &lt;tr&#91;&#91;+fd.class&#93;&#93;&gt;
+        &lt;td style="width:16px;"&gt;&lt;img src="&#91;&#91;+fd.image&#93;&#93;" alt="&#91;&#91;+fd.image&#93;&#93;" /&gt;&lt;/td&gt;
         &lt;td&gt;
             &lt;a href="javascript:void(0);"
                rel="#formLink"
-               id="[[+fd.hash]]"
-               &gt;[[+fd.filename]]
+               id="&#91;&#91;+fd.hash&#93;&#93;"
+               &gt;&#91;&#91;+fd.filename&#93;&#93;
             &lt;/a&gt;
-            &lt;span style="font-size:80%"&gt;([[+fd.count]] downloads)&lt;/span&gt;
+            &lt;span style="font-size:80%"&gt;(&#91;&#91;+fd.count&#93;&#93; downloads)&lt;/span&gt;
         &lt;/td&gt;
-        &lt;td&gt;[[+fd.sizeText]]&lt;/td&gt;
-        &lt;td&gt;[[+fd.date]]&lt;/td&gt;
+        &lt;td&gt;&#91;&#91;+fd.sizeText&#93;&#93;&lt;/td&gt;
+        &lt;td&gt;&#91;&#91;+fd.date&#93;&#93;&lt;/td&gt;
     &lt;/tr&gt;
-    [[-- This is the description row if the &amp;chkDesc=`chunkName` is provided --]]
-    [[+fd.description:notempty=`&lt;tr&gt;
+    &#91;&#91;-- This is the description row if the &amp;chkDesc=`chunkName` is provided --&#93;&#93;
+    &#91;&#91;+fd.description:notempty=`&lt;tr&gt;
         &lt;td&gt;&lt;/td&gt;
-        &lt;td colspan="3"&gt;[[+fd.description]]&lt;/td&gt;
-    &lt;/tr&gt;`:default=``]]
+        &lt;td colspan="3"&gt;&#91;&#91;+fd.description&#93;&#93;&lt;/td&gt;
+    &lt;/tr&gt;`:default=``&#93;&#93;
 </pre>
 <h3 id="FileDownloadR.FileDownload-HTML">
 HTML
@@ -367,14 +367,14 @@ So the snippet call would be like this:
 </p>
 
 <pre class="brush: html">
-[[!FileDownload?
+&#91;&#91;!FileDownload?
 &amp;getDir=`assets/downloads`
 &amp;tplFile=`jsDownload`
 &amp;downloadByOther=`1`
-]]
+&#93;&#93;
 &lt;div class="form_overlay" id="formLink"&gt;
     &lt;h2&gt;Contact Form&lt;/h2&gt;
-    &lt;form action="[[~[[*id]]]]" method="post" class="form" id="downloaderForm"&gt;
+    &lt;form action="&#91;&#91;~&#91;&#91;*id&#93;&#93;&#93;&#93;" method="post" class="form" id="downloaderForm"&gt;
         &lt;input type="hidden" name="nospam:blank" value="" /&gt;
         &lt;input type="hidden" name="link" value="" /&gt;
         &lt;label for="name"&gt;Name:&lt;/label&gt;
@@ -410,20 +410,20 @@ $(function(){
     createForm();
 
     function createForm() {
-        $(".fd-file a[rel]").each(function(i) {
+        $(".fd-file a&#91;rel&#93;").each(function(i) {
             var self = $(this);
             self.overlay({
                 effect: 'apple',
                 onLoad: function() {
                     var id = self.attr('id');
-                    $("#downloaderForm input[name=link]").val(id);
+                    $("#downloaderForm input&#91;name=link&#93;").val(id);
                 },
                 onBeforeClose: function(){
                     $(".error").hide();
                     $("#downloaderForm input").each(function(){
                         $(this).removeClass('invalid');
                     });
-                    $("#downloaderForm input[name=link]").val('');
+                    $("#downloaderForm input&#91;name=link&#93;").val('');
                     clearForm($("#downloaderForm"));
                 }
             });
@@ -435,11 +435,11 @@ $(function(){
                 $.post(c + 'action=web/form/add&amp;ctx=web&amp;' + form.serialize(), function(data) {
                     if (data &amp;&amp; data.success === true)  {
                         clearForm(form);
-                        $(".fd-file a[rel]").each(function(i) {
+                        $(".fd-file a&#91;rel&#93;").each(function(i) {
                             $(this).overlay().close();
                         });
                         fileDownload(c + 'action=web/file/get&amp;ctx=web&amp;link=' + data.link);
-                        $(".fd-file a[rel]").each(function(i) {
+                        $(".fd-file a&#91;rel&#93;").each(function(i) {
                             var self = $(this);
                             self.off();
                             var link = self.attr('id');
@@ -498,7 +498,7 @@ $validActions = array(
     'web/file/get',
     'web/form/add'
 );
-if (!empty($_REQUEST['action']) &amp;&amp; in_array($_REQUEST['action'], $validActions)) {
+if (!empty($_REQUEST&#91;'action'&#93;) &amp;&amp; in_array($_REQUEST&#91;'action'&#93;, $validActions)) {
     @session_cache_limiter('public');
     define('MODX_REQP', false);
 }
@@ -512,19 +512,19 @@ $modx-&gt;filedownload = new FileDownload($modx);
 
 $modx-&gt;lexicon-&gt;load('filedownload:default');
 
-if (in_array($_REQUEST['action'], $validActions)) {
+if (in_array($_REQUEST&#91;'action'&#93;, $validActions)) {
     $version = $modx-&gt;getVersionData();
-    if (version_compare($version['full_version'], '2.1.1-pl') &gt;= 0) {
+    if (version_compare($version&#91;'full_version'&#93;, '2.1.1-pl') &gt;= 0) {
         if ($modx-&gt;user-&gt;hasSessionContext($modx-&gt;context-&gt;get('key'))) {
-            $_SERVER['HTTP_MODAUTH'] = $_SESSION["modx.{$modx-&gt;context-&gt;get('key')}.user.token"];
+            $_SERVER&#91;'HTTP_MODAUTH'&#93; = $_SESSION&#91;"modx.{$modx-&gt;context-&gt;get('key')}.user.token"&#93;;
         } else {
-            $_SESSION["modx.{$modx-&gt;context-&gt;get('key')}.user.token"] = 0;
-            $_SERVER['HTTP_MODAUTH'] = 0;
+            $_SESSION&#91;"modx.{$modx-&gt;context-&gt;get('key')}.user.token"&#93; = 0;
+            $_SERVER&#91;'HTTP_MODAUTH'&#93; = 0;
         }
     } else {
-        $_SERVER['HTTP_MODAUTH'] = $modx-&gt;site_id;
+        $_SERVER&#91;'HTTP_MODAUTH'&#93; = $modx-&gt;site_id;
     }
-    $_REQUEST['HTTP_MODAUTH'] = $_SERVER['HTTP_MODAUTH'];
+    $_REQUEST&#91;'HTTP_MODAUTH'&#93; = $_SERVER&#91;'HTTP_MODAUTH'&#93;;
 }
 
 /* handle request */
@@ -548,7 +548,7 @@ example:
 &lt;?php
 
 if (!$modx-&gt;loadClass('FileDownload', $modx-&gt;getOption('core_path') . 'components/filedownload/models/', true, true)) {
-    $modx-&gt;log(modX::LOG_LEVEL_ERROR, '[FileDownload] Could not load FileDownload class.');
+    $modx-&gt;log(modX::LOG_LEVEL_ERROR, '&#91;FileDownload&#93; Could not load FileDownload class.');
     return '';
 }
 
@@ -558,11 +558,11 @@ $fdl = $modx-&gt;getService('fdl'
 );
 
 $configs = array();
-$configs['countDownloads'] = true;
+$configs&#91;'countDownloads'&#93; = true;
 
 $fdl-&gt;setConfigs($configs);
 
-$downloadFile = $fdl-&gt;downloadFile($scriptProperties['link']);    // &lt;== THIS IS WHERE YOU DOWNLOAD THE FILE
+$downloadFile = $fdl-&gt;downloadFile($scriptProperties&#91;'link'&#93;);    // &lt;== THIS IS WHERE YOU DOWNLOAD THE FILE
 if (!$downloadFile) {
     $output = array('success' =&gt; FALSE);
 } else {
@@ -906,11 +906,11 @@ Example
 </h2>
 
 <pre class="brush: html">
-[[!FileDownload?
-&amp;getDir=`[[++core_path]]downloads-from-core/land rover, assets/downloads`
+&#91;&#91;!FileDownload?
+&amp;getDir=`&#91;&#91;++core_path&#93;&#93;downloads-from-core/land rover, assets/downloads`
 &amp;browseDirectories=`1`
 &amp;groupByDirectory=`1`
-]]
+&#93;&#93;
 </pre>
 <p>
 <img src="download/attachments/35586636/browsedirectories-groupbydirectory.jpg?version=1&amp;modificationDate=1345838638000" />
@@ -1073,14 +1073,14 @@ chunk's name/ @Bindings
 tplNotAllowed
 </td>
 <td>
-Template for forbidden access. [[!Login]] can be used in here.
+Template for forbidden access. &#91;&#91;!Login&#93;&#93; can be used in here.
 <br />
 </td>
 <td>
 &amp;tplNotAllowed=`tpl-notAllowed`
 </td>
 <td>
-@FILE: [[++core_path]]components/filedownload/elements/chunks/tpl-notallowed.chunk.tpl
+@FILE: &#91;&#91;++core_path&#93;&#93;components/filedownload/elements/chunks/tpl-notallowed.chunk.tpl
 </td>
 <td>
 chunk's name/ @Bindings
@@ -1149,33 +1149,33 @@ FileDownload R has <a href="http://rtfm.modx.com/display/MODx096/What+are+%28at%
 </ul>
 
 <pre class="brush: html">
-[[!FileDownload?
+&#91;&#91;!FileDownload?
 &amp;getDir=`assets/downloads`
-&amp;tplFile=`@CODE:    &lt;tr[[+fd.class]]&gt;
+&amp;tplFile=`@CODE:    &lt;tr&#91;&#91;+fd.class&#93;&#93;&gt;
         &lt;td&gt;
             &lt;span class="fd-icon"&gt;
-                &lt;img src="[[+fd.image]]" alt="" /&gt;
+                &lt;img src="&#91;&#91;+fd.image&#93;&#93;" alt="" /&gt;
             &lt;/span&gt;
-            &lt;a href="[[+fd.url]]"&gt;[[+fd.filename]]&lt;/a&gt;
-            &lt;span style="font-size:80%"&gt;([[+fd.count]] downloads)&lt;/span&gt;
+            &lt;a href="&#91;&#91;+fd.url&#93;&#93;"&gt;&#91;&#91;+fd.filename&#93;&#93;&lt;/a&gt;
+            &lt;span style="font-size:80%"&gt;(&#91;&#91;+fd.count&#93;&#93; downloads)&lt;/span&gt;
         &lt;/td&gt;
-        &lt;td&gt;[[+fd.sizeText]]&lt;/td&gt;
-        &lt;td&gt;[[+fd.date]]&lt;/td&gt;
+        &lt;td&gt;&#91;&#91;+fd.sizeText&#93;&#93;&lt;/td&gt;
+        &lt;td&gt;&#91;&#91;+fd.date&#93;&#93;&lt;/td&gt;
     &lt;/tr&gt;`
-]]
+&#93;&#93;
 </pre>
 <h2 id="FileDownloadR.FileDownload-Example">
 Example
 </h2>
 
 <pre class="brush: html">
-[[!FileDownload?
+&#91;&#91;!FileDownload?
 &amp;getDir=`assets/downloads`
 &amp;browseDirectories=`1`
 &amp;tplWrapper=``
 &amp;tplWrapperDir=`tpl-wrapper-dir`
 &amp;tplWrapperFile=`tpl-wrapper-file`
-]]
+&#93;&#93;
 </pre>
 <p>
 <img src="download/attachments/35586636/separate-wrappers.jpg?version=1&amp;modificationDate=1345838225000" />

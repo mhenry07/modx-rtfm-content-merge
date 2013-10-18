@@ -156,7 +156,7 @@ To output the tags in such a way that you each tag links to a certain resource a
   if ($input == '') { return 'Error'; } // In case the TV is empty
   $tags = explode(', ',$input); // Based on a delimiter of ", " this will split each one up in an array
   foreach ($tags as $key =&gt; $value) { // Loop through the tags
-    $output[] = '&lt;a href="'.$modx-&gt;makeurl(9, '', array('tag' =&gt; $value)).'"&gt;'.$value.'&lt;/a&gt;'; // Add it to an output array, with a link to resource 9 and the get parameter.
+    $output&#91;&#93; = '&lt;a href="'.$modx-&gt;makeurl(9, '', array('tag' =&gt; $value)).'"&gt;'.$value.'&lt;/a&gt;'; // Add it to an output array, with a link to resource 9 and the get parameter.
   }
   return implode(', ',$output); // Merge the output array and output
 </pre>
@@ -522,7 +522,7 @@ Sidebar Example Evolution*
 </h4>
 
 <ul>
-<li>Input Option Values: Related==<code>related-call]]||Content==</code><code><span class="error">[\*sidebar-txt\*]</span></code><code>||Twitter=={{twitter</code>
+<li>Input Option Values: Related==<code>related-call&#93;&#93;||Content==</code><code><span class="error">&#91;\*sidebar-txt\*&#93;</span></code><code>||Twitter=={{twitter</code>
 </li>
 
 <li>Default Value: ?<code>related-call</code>
@@ -534,10 +534,10 @@ Sidebar Example Revolution:
 </h4>
 
 <ul>
-<li>Input Option Values: Related==[[$my_related_chunk]]||Content==[[*sidebar-txt]]||Twitter==[[$my_twitter_chunk]]
+<li>Input Option Values: Related==&#91;&#91;$my_related_chunk&#93;&#93;||Content==&#91;&#91;*sidebar-txt&#93;&#93;||Twitter==&#91;&#91;$my_twitter_chunk&#93;&#93;
 </li>
 
-<li>Default Value: [[$my_related_chunk]]
+<li>Default Value: &#91;&#91;$my_related_chunk&#93;&#93;
 </li>
 </ul>
 
@@ -568,7 +568,7 @@ Another example:
 </p>
 
 <pre class="brush: php">
-[{"pagetitle:!=":"Home"}]
+&#91;{"pagetitle:!=":"Home"}&#93;
 </pre>
 <h2 id="TemplateVariableInputTypes-RichText">
 Rich Text

@@ -31,7 +31,7 @@ Modx versions:
 Input parameters:
 </td>
 <td>
-(string $from [, string $where [, string $fields]])
+(string $from &#91;, string $where &#91;, string $fields&#93;&#93;)
 </td>
 </tr>
 
@@ -79,7 +79,7 @@ Description
 </h2>
 
 <pre class="brush: php">
-bool delete(string $from [, string $where [, string $fields]])
+bool delete(string $from &#91;, string $where &#91;, string $fields&#93;&#93;)
 </pre>
 <p>
 Deleting a row from a table, or even all the rows in a table, is very easy using the DBAPI delete function.
@@ -94,7 +94,7 @@ Function returns true on success, and false on failure.
 </p>
 
 <pre class="brush: php">
-$rows_affected = $modx-&gt;db-&gt;delete("table"[, "where value"]); 
+$rows_affected = $modx-&gt;db-&gt;delete("table"&#91;, "where value"&#93;); 
 </pre>
 <p>
 <strong>The "table" argument</strong>
@@ -104,7 +104,7 @@ The "table" argument is the table to update. You can use the MODx function to re
 
 <pre class="brush: php">
 $table = $modx-&gt;getFullTableName("table");
-$rows_affected = $modx-&gt;db-&gt;delete($table[, "where value"]); 
+$rows_affected = $modx-&gt;db-&gt;delete($table&#91;, "where value"&#93;); 
 </pre>
 <p>
 <strong>The "where" argument</strong>
@@ -139,7 +139,7 @@ function login($username, $password)
       "username='$username' AND password='".md5($password)."'");
    if($modx-&gt;db-&gt;getRecordCount($res))
    {
-      $_SESSION['userid'] = $id;
+      $_SESSION&#91;'userid'&#93; = $id;
       //other log in things...
    }
    else
@@ -163,7 +163,7 @@ Related
 </h2>
 
 <p>
-<a href="evolution/1.0/developers-guide/api-reference/dbapi/update" title="update">update</a>, <span class="error">[insert]</span>, <a href="evolution/1.0/developers-guide/api-reference/dbapi/select" title="select">select</a>, <a href="evolution/1.0/developers-guide/api-reference/dbapi/query" title="query">query</a>, <span class="error">[getAffectedRows]</span>.
+<a href="evolution/1.0/developers-guide/api-reference/dbapi/update" title="update">update</a>, <span class="error">&#91;insert&#93;</span>, <a href="evolution/1.0/developers-guide/api-reference/dbapi/select" title="select">select</a>, <a href="evolution/1.0/developers-guide/api-reference/dbapi/query" title="query">query</a>, <span class="error">&#91;getAffectedRows&#93;</span>.
 </p>
 
 <h2 id="delete-Notes">
@@ -176,7 +176,7 @@ Using this function without specifying a "where" value will delete all the rows 
 
 <pre class="brush: php">
 $table = $modx-&gt;getFullTableName("table_name");
-$sql = "TRUNCATE [TABLE] $table";
+$sql = "TRUNCATE &#91;TABLE&#93; $table";
 $modx-&gt;db-&gt;query($sql); 
 </pre>
 <p>

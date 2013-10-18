@@ -379,7 +379,7 @@ includeUnpublished
 <br />
 </td>
 <td>
-[1|0]&nbsp;Also use unpublished resources in the result set.
+&#91;1|0&#93;&nbsp;Also use unpublished resources in the result set.
 <br />
 </td>
 <td>
@@ -397,7 +397,7 @@ includeHidden
 <br />
 </td>
 <td>
-[1|0] Also use resources marked as hidden in menus in the result set. Set to 0 to exclude them.
+&#91;1|0&#93; Also use resources marked as hidden in menus in the result set. Set to 0 to exclude them.
 <br />
 </td>
 <td>
@@ -414,7 +414,7 @@ hideContainers
 3
 </td>
 <td>
-[1|0]&nbsp;<em>Added in 1.2.0.</em> When set to 1 this will exclude resources which have "isfolder" set to true, ie those that are containers.
+&#91;1|0&#93;&nbsp;<em>Added in 1.2.0.</em> When set to 1 this will exclude resources which have "isfolder" set to true, ie those that are containers.
 </td>
 <td>
 0
@@ -570,15 +570,15 @@ tplOuter
 <br />
 </td>
 <td>
-Chunk name to use as outer (or wrapper) template. The [[+wrapper]] placeholder will be filled with the individual rows, separated by whatever is in the rowSeparator property (see below). Placeholders you can use are [[+count]] and [[+wrapper]].
+Chunk name to use as outer (or wrapper) template. The &#91;&#91;+wrapper&#93;&#93; placeholder will be filled with the individual rows, separated by whatever is in the rowSeparator property (see below). Placeholders you can use are &#91;&#91;+count&#93;&#93; and &#91;&#91;+wrapper&#93;&#93;.
 <br />
 <br />
 <br />
 
 <pre class="brush: php">
-&lt;h3&gt;[[%getrelated.pagesfound? &amp;namespace=`getrelated` &amp;count=`[[+count]]`]]&lt;/h3&gt;
+&lt;h3&gt;&#91;&#91;%getrelated.pagesfound? &amp;namespace=`getrelated` &amp;count=`&#91;&#91;+count&#93;&#93;`&#93;&#93;&lt;/h3&gt;
 &lt;ul&gt;
-  [[+wrapper]]
+  &#91;&#91;+wrapper&#93;&#93;
 &lt;/ul&gt;
 </pre>
 </td>
@@ -600,7 +600,7 @@ tplRow
 Chunk name to use as row template, used in every related resource.
 <br />
 <br />
-The placeholders you can use include the fields in your &amp;fields property (minus TVs), as well as those in the returnFields property. The resource ID is always accessible with [[+id]], the ranking (the result of the algorithm) as [[+rank]] and the number of the result with [[+idx]].
+The placeholders you can use include the fields in your &amp;fields property (minus TVs), as well as those in the returnFields property. The resource ID is always accessible with &#91;&#91;+id&#93;&#93;, the ranking (the result of the algorithm) as &#91;&#91;+rank&#93;&#93; and the number of the result with &#91;&#91;+idx&#93;&#93;.
 <br />
 <br />
 Default chunk (stored as file in core/components/getrelated/elements/chunks/):
@@ -609,8 +609,8 @@ Default chunk (stored as file in core/components/getrelated/elements/chunks/):
 
 <pre class="brush: php">
 &lt;li&gt;
-  &lt;a href="[[~[[+id]]]]" title="[[+longtitle:default=`[[+pagetitle]]`]]"&gt;
-    [[+longtitle:default=`[[+pagetitle]]`]] ([[+rank]])
+  &lt;a href="&#91;&#91;~&#91;&#91;+id&#93;&#93;&#93;&#93;" title="&#91;&#91;+longtitle:default=`&#91;&#91;+pagetitle&#93;&#93;`&#93;&#93;"&gt;
+    &#91;&#91;+longtitle:default=`&#91;&#91;+pagetitle&#93;&#93;`&#93;&#93; (&#91;&#91;+rank&#93;&#93;)
   &lt;/a&gt;
 &lt;/li&gt;
 </pre>
@@ -630,7 +630,7 @@ noResults
 <br />
 </td>
 <td>
-Text or output when there are no related resources found. (Hint: you could add a&nbsp;[[$chunk]] to the property to output that when there are no results: &amp;noResults=`[[$chunkname]]`)
+Text or output when there are no related resources found. (Hint: you could add a&nbsp;&#91;&#91;$chunk&#93;&#93; to the property to output that when there are no results: &amp;noResults=`&#91;&#91;$chunkname&#93;&#93;`)
 </td>
 <td>
 "No related pages found."
@@ -663,7 +663,7 @@ debug
 &nbsp;
 </td>
 <td>
-[1|0]&nbsp;Enable/disable debug mode. When enabled it will dump lots of information on screen.
+&#91;1|0&#93;&nbsp;Enable/disable debug mode. When enabled it will dump lots of information on screen.
 </td>
 <td>
 0
@@ -680,7 +680,7 @@ Usage
 <div class="note">
 There is absolutely no valid reason that I can think of to call this snippet uncached. Especially when you are running a bigger site, calling the snippet uncached can easily result in a great performance hit that is simply not needed. This snippet looks at resource data, and by default the cache is cleared when a resource is updated. So in between resource updates there is no data change that getRelated cares about. SO DO NOT CALL IT UNCACHED!!!
 <p>
-If you're not sure you're calling it uncached: Uncached snippets are prefixed with an exclamation mark: [[!snippetname]], so we will want to use it <strong>without</strong> the exclamation mark: [[snippetname]].
+If you're not sure you're calling it uncached: Uncached snippets are prefixed with an exclamation mark: &#91;&#91;!snippetname&#93;&#93;, so we will want to use it <strong>without</strong> the exclamation mark: &#91;&#91;snippetname&#93;&#93;.
 </p>
 </div>
 
@@ -689,7 +689,7 @@ The minimum snippet call for getRelated to use is just the tag itself.
 </p>
 
 <pre class="brush: php">
-[[getRelated]]
+&#91;&#91;getRelated&#93;&#93;
 </pre>
 <p>
 This creates an unordered list with a max of three related resources based on the pagetitle and introtext. You can further refine that using the &amp;fields property (see above) to use your tag or category TV or another field that contains a brief summary or keywords.

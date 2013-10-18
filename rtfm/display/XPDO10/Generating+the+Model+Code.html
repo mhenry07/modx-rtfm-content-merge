@@ -54,10 +54,10 @@ To do so, we'll just override the variables in the $generator object:
 $generator-&gt;classTemplate= &lt;&lt;&lt;EOD
 &lt;?php
 /**
- * [+phpdoc-package+]
+ * &#91;+phpdoc-package+&#93;
  */
-class [+class+] extends [+extends+] {
-    function [+class+](&amp; \$xpdo) {
+class &#91;+class+&#93; extends &#91;+extends+&#93; {
+    function &#91;+class+&#93;(&amp; \$xpdo) {
         \$this-&gt;__construct(\$xpdo);
     }
     function __construct(&amp; \$xpdo) {
@@ -69,11 +69,11 @@ EOD;
 $generator-&gt;platformTemplate= &lt;&lt;&lt;EOD
 &lt;?php
 /**
- * [+phpdoc-package+]
+ * &#91;+phpdoc-package+&#93;
  */
-require_once (strtr(realpath(dirname(dirname(__FILE__))), '\\\\', '/') . '/[+class-lowercase+].class.php');
-class [+class+]_[+platform+] extends [+class+] {
-    function [+class+]_[+platform+](&amp; \$xpdo) {
+require_once (strtr(realpath(dirname(dirname(__FILE__))), '\\\\', '/') . '/&#91;+class-lowercase+&#93;.class.php');
+class &#91;+class+&#93;_&#91;+platform+&#93; extends &#91;+class+&#93; {
+    function &#91;+class+&#93;_&#91;+platform+&#93;(&amp; \$xpdo) {
         \$this-&gt;__construct(\$xpdo);
     }
     function __construct(&amp; \$xpdo) {
@@ -85,12 +85,12 @@ EOD;
 $generator-&gt;mapHeader= &lt;&lt;&lt;EOD
 &lt;?php
 /**
- * [+phpdoc-package+]
+ * &#91;+phpdoc-package+&#93;
  */
 EOD;
 </pre>
 <p>
-Note the [+phpdoc-package+] tag that we've built. This is taken from our "model" tag's attribute we defined earlier in the schema. These templates will provide us with the base for our class and map files, with PHPDoc comments.
+Note the &#91;+phpdoc-package+&#93; tag that we've built. This is taken from our "model" tag's attribute we defined earlier in the schema. These templates will provide us with the base for our class and map files, with PHPDoc comments.
 </p>
 
 <h2 id="GeneratingtheModelCode-GeneratingtheFiles">
